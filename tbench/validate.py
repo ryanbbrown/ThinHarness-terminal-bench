@@ -10,6 +10,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
+from .budget import api_equivalent_cost_usd
 from .constants import (
     AGENT_OUTPUT_RETRIES,
     AGENT_TOOL_RETRIES,
@@ -28,6 +29,7 @@ from .constants import (
     TEXT,
     THINHARNESS_COMMIT,
 )
+from .schema_contract import SchemaContractError, validate_native_tool_schemas
 
 _PAID_RUN_REPOSITORY_COMMIT = "aeb3ebad41e993633d6fb6463bc155edbacff0e7"
 _PAID_USAGE_FIELDS = (
@@ -51,8 +53,13 @@ def _read(path: Path) -> dict[str, Any]:
     return value
 
 
-def validate_container_preflight(path: Path) -> dict[str, Any]:
-    """Validate native plugins, schemas, roots, pins, and zero-call execution."""
+def validate_container_preflight(
+    path: Path,
+    *,
+    compare_repository_controls: bool = True,
+    require_credential_isolation: bool = True,
+) -> dict[str, Any]:
+    """Validate native plugins, schemas, roots, isolation, pins, and zero calls."""
     value = _read(path)
     _equal(value.get("kind"), "no-model-container-preflight", "preflight kind")
     _equal(value.get("model_calls"), 0, "model calls")
@@ -69,12 +76,16 @@ def validate_container_preflight(path: Path) -> dict[str, Any]:
         "budget.py": REPOSITORY_ROOT / "tbench" / "budget.py",
         "constants.py": REPOSITORY_ROOT / "tbench" / "constants.py",
         "container_runner.py": REPOSITORY_ROOT / "tbench" / "container_runner.py",
+        "container_security.py": REPOSITORY_ROOT / "tbench" / "container_security.py",
+        "schema_contract.py": REPOSITORY_ROOT / "tbench" / "schema_contract.py",
         "container-runtime-requirements.txt": REPOSITORY_ROOT / "configs" / "container-runtime-requirements.txt",
+        "native-tool-schemas.json": REPOSITORY_ROOT / "configs" / "native-tool-schemas.json",
         "install-in-container.sh": REPOSITORY_ROOT / "scripts" / "install-in-container.sh",
         "system-prompt.md": PROMPT_PATH,
     }
     expected_controls = {name: hashlib.sha256(path.read_bytes()).hexdigest() for name, path in control_paths.items()}
-    _equal(staged, expected_controls, "staged control hashes")
+    if compare_repository_controls:
+        _equal(staged, expected_controls, "staged control hashes")
     tools = value.get("tools", {})
     if set(tools.get("names", [])) != {"bash", "read", "edit", "write"}:
         raise ValidationError("native tool names differ")
@@ -82,11 +93,27 @@ def validate_container_preflight(path: Path) -> dict[str, Any]:
     if {name: item.get("plugin") for name, item in tools.get("origins", {}).items()} != expected_plugins:
         raise ValidationError("tool origins are not native plugins")
     schemas = tools.get("schemas")
-    if not isinstance(schemas, list) or len(schemas) != 4:
+    if not isinstance(schemas, list) or len(schemas) != 4 or not all(isinstance(schema, dict) for schema in schemas):
         raise ValidationError("tool schema receipt is incomplete")
-    for schema in schemas:
-        if not isinstance(schema, dict) or schema.get("type") != "function" or not isinstance(schema.get("parameters"), dict):
-            raise ValidationError("tool schema is not a complete Responses function schema")
+    try:
+        schema_hashes = validate_native_tool_schemas(
+            schemas,
+            REPOSITORY_ROOT / "configs" / "native-tool-schemas.json",
+        )
+    except SchemaContractError as exc:
+        raise ValidationError(str(exc)) from exc
+    if require_credential_isolation:
+        _equal(tools.get("schema_sha256"), schema_hashes, "native tool schema hashes")
+        isolation = value.get("credential_isolation") or {}
+        _equal(isolation.get("ordinary_inheritance_removed"), True, "ordinary credential inheritance")
+        _equal(isolation.get("process_security", {}).get("platform"), "linux", "credential isolation platform")
+        _equal(isolation.get("process_security", {}).get("dumpable"), 0, "model-loop process dumpability")
+        _equal(isolation.get("process_security", {}).get("cap_sys_ptrace"), False, "CAP_SYS_PTRACE")
+        native_bash = isolation.get("native_bash") or {}
+        _equal(native_bash.get("own_environment_openai_key_absent"), True, "native Bash OpenAI environment")
+        _equal(native_bash.get("own_environment_sentinel_absent"), True, "native Bash sentinel environment")
+        _equal(native_bash.get("parent_environ_read_blocked"), True, "native Bash parent environ access")
+        _equal(native_bash.get("result", {}).get("ok"), True, "native Bash credential isolation result")
     wire = value.get("wire", {})
     for actual, expected, label in (
         (wire.get("base_url"), OPENAI_BASE_URL, "base URL"),
@@ -184,6 +211,7 @@ def validate_paid_artifacts(artifact_dir: Path) -> dict[str, Any]:
     required_files = {
         "api-budget.json",
         "container-preflight.json",
+        "corrected-accounting-reconciliation.json",
         "harbor-config.json",
         "harbor-lock.json",
         "host-agent-setup.json",
@@ -207,9 +235,14 @@ def validate_paid_artifacts(artifact_dir: Path) -> dict[str, Any]:
         if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != expected_hash:
             raise ValidationError(f"paid receipt hash differs: {name}")
 
-    preflight = validate_container_preflight(artifact_dir / "container-preflight.json")
+    preflight = validate_container_preflight(
+        artifact_dir / "container-preflight.json",
+        compare_repository_controls=False,
+        require_credential_isolation=False,
+    )
     agent = _read(artifact_dir / "native-thinharness-result.json")
     ledger = _read(artifact_dir / "api-budget.json")
+    reconciliation = _read(artifact_dir / "corrected-accounting-reconciliation.json")
     trial = _read(artifact_dir / "trial-result.json")
     harbor_config = _read(artifact_dir / "harbor-config.json")
     harbor_lock = _read(artifact_dir / "harbor-lock.json")
@@ -244,7 +277,8 @@ def validate_paid_artifacts(artifact_dir: Path) -> dict[str, Any]:
     if not isinstance(requests, list) or not requests:
         raise ValidationError("paid request receipts are missing")
     totals = {field: 0 for field in _PAID_USAGE_FIELDS}
-    request_cost = 0.0
+    original_recorded_request_cost = 0.0
+    corrected_request_costs: list[float] = []
     reported_cash_values: list[float | None] = []
     for request in requests:
         if not isinstance(request, dict) or request.get("status") != "completed":
@@ -265,28 +299,45 @@ def validate_paid_artifacts(artifact_dir: Path) -> dict[str, Any]:
         )
         cost = request.get("api_equivalent_cost_usd")
         if isinstance(cost, bool) or not isinstance(cost, int | float) or cost < 0:
-            raise ValidationError("paid request API-equivalent cost is invalid")
-        request_cost += float(cost)
+            raise ValidationError("paid request original API-equivalent cost is invalid")
+        original_recorded_request_cost += float(cost)
+        corrected_request_costs.append(
+            api_equivalent_cost_usd(
+                ordinary_input_tokens=usage["ordinary_input_tokens"],
+                cached_input_tokens=usage["cached_input_tokens"],
+                cache_write_tokens=usage["cache_write_tokens"],
+                output_tokens=usage["output_tokens"],
+            )
+        )
         cash = request.get("reported_cash_cost_usd")
         if cash is not None and (isinstance(cash, bool) or not isinstance(cash, int | float) or cash < 0):
             raise ValidationError("paid request cash cost is invalid")
         reported_cash_values.append(float(cash) if isinstance(cash, int | float) and not isinstance(cash, bool) else None)
-    spent = ledger.get("spent_usd")
-    if isinstance(spent, bool) or not isinstance(spent, int | float):
-        raise ValidationError("paid spend is invalid")
-    if abs(request_cost - float(spent)) > 1e-12:
-        raise ValidationError("request costs do not reconcile with paid spend")
-    if spent > ATTEMPT_BUDGET_USD + 1e-9:
-        raise ValidationError("paid spend exceeds the attempt ceiling")
-    if ledger.get("prior_implementation_spend_usd", 0) + spent > IMPLEMENTATION_BUDGET_USD + 1e-9:
-        raise ValidationError("paid spend exceeds the implementation ceiling")
+    original_spent = ledger.get("spent_usd")
+    if isinstance(original_spent, bool) or not isinstance(original_spent, int | float):
+        raise ValidationError("paid original spend is invalid")
+    if abs(original_recorded_request_cost - float(original_spent)) > 1e-12:
+        raise ValidationError("original request costs do not reconcile with the original ledger")
+    corrected_spent = round(sum(corrected_request_costs), 8)
+    _validate_paid_reconciliation(
+        reconciliation,
+        artifact_dir=artifact_dir,
+        requests=requests,
+        corrected_request_costs=corrected_request_costs,
+        original_spent=float(original_spent),
+        corrected_spent=corrected_spent,
+    )
+    if corrected_spent > ATTEMPT_BUDGET_USD + 1e-9:
+        raise ValidationError("corrected paid spend exceeds the attempt ceiling")
+    if ledger.get("prior_implementation_spend_usd", 0) + corrected_spent > IMPLEMENTATION_BUDGET_USD + 1e-9:
+        raise ValidationError("corrected paid spend exceeds the implementation ceiling")
     actual_cash_cost = None if all(value is None for value in reported_cash_values) else sum(
         value for value in reported_cash_values if value is not None
     )
     if any(value is None for value in reported_cash_values) and actual_cash_cost is not None:
         raise ValidationError("cash cost is only partially reported")
     _equal(agent.get("actual_cash_cost_usd"), actual_cash_cost, "agent cash cost")
-    _equal(agent.get("api_equivalent_cost_usd"), spent, "agent API-equivalent cost")
+    _equal(agent.get("api_equivalent_cost_usd"), original_spent, "original agent API-equivalent cost")
 
     agent_usage = agent.get("usage") or {}
     _equal(agent_usage.get("input_tokens"), totals["input_tokens"], "agent input tokens")
@@ -326,7 +377,7 @@ def validate_paid_artifacts(artifact_dir: Path) -> dict[str, Any]:
     if not isinstance(command, list) or "--upload" in command or "--public" in command:
         raise ValidationError("paid launch command is invalid")
     _equal(implementation_budget.get("status"), "completed", "implementation budget status")
-    _equal(implementation_budget.get("implementation_spend_usd"), spent, "implementation budget spend")
+    _equal(implementation_budget.get("implementation_spend_usd"), original_spent, "original implementation budget spend")
     _equal(job_result.get("n_total_trials"), 1, "job trial count")
     _equal(job_result.get("stats", {}).get("n_retries"), 0, "job retries")
 
@@ -357,13 +408,16 @@ def validate_paid_artifacts(artifact_dir: Path) -> dict[str, Any]:
         "verifier_seconds": verifier_seconds,
         "wall_seconds": wall_seconds,
         "actual_cash_cost_usd": actual_cash_cost,
-        "api_equivalent_cost_usd": float(spent),
+        "api_equivalent_cost_usd": corrected_spent,
+        "original_ledger_recorded_api_equivalent_cost_usd": float(original_spent),
         "cost_basis": {
-            "description": agent.get("cost_basis"),
+            "description": "independently recalculated from raw token classes at preserved GPT-5.6 Sol prices",
             "ordinary_input_usd_per_million": 5.0,
             "cached_input_usd_per_million": 0.5,
+            "cache_write_usd_per_million": 6.25,
             "output_including_reasoning_usd_per_million": 30.0,
-            "cache_write_tokens_recorded_separately_and_excluded_by_frozen_calculator": True,
+            "original_ledger_omitted_cache_write_price": True,
+            "reconciliation": f"{artifact_prefix}/corrected-accounting-reconciliation.json",
         },
         "identity": {
             "reproduction_repository_commit": _PAID_RUN_REPOSITORY_COMMIT,
@@ -380,6 +434,101 @@ def validate_paid_artifacts(artifact_dir: Path) -> dict[str, Any]:
         },
         "receipts": receipt_paths,
     }
+
+
+def validate_ledger_recorded_costs(ledger: dict[str, Any]) -> float:
+    """Reject a ledger whose recorded costs differ from raw token pricing."""
+    requests = ledger.get("requests")
+    if not isinstance(requests, list) or not requests:
+        raise ValidationError("ledger request receipts are missing")
+    total = 0.0
+    for request in requests:
+        if not isinstance(request, dict) or not isinstance(request.get("usage"), dict):
+            raise ValidationError("ledger request usage is invalid")
+        usage = request["usage"]
+        try:
+            calculated = api_equivalent_cost_usd(
+                ordinary_input_tokens=usage["ordinary_input_tokens"],
+                cached_input_tokens=usage["cached_input_tokens"],
+                cache_write_tokens=usage["cache_write_tokens"],
+                output_tokens=usage["output_tokens"],
+            )
+        except (KeyError, TypeError) as exc:
+            raise ValidationError("ledger request token classes are incomplete") from exc
+        recorded = request.get("api_equivalent_cost_usd")
+        if isinstance(recorded, bool) or not isinstance(recorded, int | float) or abs(float(recorded) - calculated) > 1e-12:
+            raise ValidationError("ledger recorded request cost differs from raw token pricing")
+        total += calculated
+    recorded_total = ledger.get("spent_usd")
+    if isinstance(recorded_total, bool) or not isinstance(recorded_total, int | float) or abs(float(recorded_total) - total) > 1e-12:
+        raise ValidationError("ledger recorded total differs from raw token pricing")
+    return total
+
+
+def _validate_paid_reconciliation(
+    reconciliation: dict[str, Any],
+    *,
+    artifact_dir: Path,
+    requests: list[Any],
+    corrected_request_costs: list[float],
+    original_spent: float,
+    corrected_spent: float,
+) -> None:
+    _equal(reconciliation.get("kind"), "corrected-accounting-reconciliation", "accounting reconciliation kind")
+    _equal(reconciliation.get("source_receipts_preserved_byte_for_byte"), True, "source receipt preservation")
+    source = reconciliation.get("source_receipts") or {}
+    _equal(
+        source.get("api_budget_sha256"),
+        hashlib.sha256((artifact_dir / "api-budget.json").read_bytes()).hexdigest(),
+        "reconciliation API ledger hash",
+    )
+    _equal(
+        source.get("agent_receipt_sha256"),
+        hashlib.sha256((artifact_dir / "native-thinharness-result.json").read_bytes()).hexdigest(),
+        "reconciliation agent receipt hash",
+    )
+    _equal(
+        reconciliation.get("pricing"),
+        {
+            "ordinary_input_usd_per_million": 5.0,
+            "cached_input_usd_per_million": 0.5,
+            "cache_write_usd_per_million": 6.25,
+            "output_including_reasoning_usd_per_million": 30.0,
+        },
+        "reconciliation pricing",
+    )
+    rows = reconciliation.get("requests")
+    if not isinstance(rows, list) or len(rows) != len(requests):
+        raise ValidationError("accounting reconciliation request rows are incomplete")
+    for request, row, corrected in zip(requests, rows, corrected_request_costs, strict=True):
+        if not isinstance(request, dict) or not isinstance(row, dict):
+            raise ValidationError("accounting reconciliation request row is invalid")
+        _equal(row.get("request_id"), request.get("request_id"), "reconciliation request id")
+        _equal(row.get("raw_usage"), request.get("usage"), "reconciliation raw usage")
+        _equal(
+            row.get("original_recorded_api_equivalent_cost_usd"),
+            request.get("api_equivalent_cost_usd"),
+            "reconciliation original request cost",
+        )
+        row_corrected = row.get("corrected_api_equivalent_cost_usd")
+        if (
+            isinstance(row_corrected, bool)
+            or not isinstance(row_corrected, int | float)
+            or abs(float(row_corrected) - corrected) > 1e-12
+        ):
+            raise ValidationError("reconciliation corrected request cost differs from raw token pricing")
+    _equal(reconciliation.get("original_ledger_recorded_total_usd"), original_spent, "reconciliation original total")
+    corrected_total = reconciliation.get("corrected_api_equivalent_total_usd")
+    if (
+        isinstance(corrected_total, bool)
+        or not isinstance(corrected_total, int | float)
+        or abs(float(corrected_total) - corrected_spent) > 1e-12
+    ):
+        raise ValidationError("reconciliation corrected total differs from raw token pricing")
+    if abs(corrected_spent - 0.12674175) > 1e-12:
+        raise ValidationError("corrected paid total differs from the preserved raw receipts")
+    _equal(reconciliation.get("corrected_total_within_both_caps"), True, "corrected total cap result")
+    _equal(reconciliation.get("actual_cash_cost_usd"), None, "reconciliation actual cash cost")
 
 
 def _duration_seconds(value: Any, label: str) -> float:

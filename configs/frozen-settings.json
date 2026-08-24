@@ -41,5 +41,6 @@
     "sha256": "bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e"
   },
   "budgets_usd": {"attempt": 0.5, "implementation_total": 1.0},
-  "credential": {"name": "OPENAI_API_KEY", "source": "process-environment-only"}
+  "pricing_usd_per_million": {"ordinary_input": 5.0, "cached_input": 0.5, "cache_write": 6.25, "output_including_reasoning": 30.0},
+  "credential": {"name": "OPENAI_API_KEY", "model_loop_source": "anonymous-file-descriptor", "ordinary_inheritance": false, "linux_dumpable": 0, "requires_cap_sys_ptrace_absent": true}
 }

@@ -1,13 +1,16 @@
 from __future__ import annotations
 
+import copy
 import hashlib
 import json
+import shutil
 from pathlib import Path
 
 import pytest
 
 from tbench.constants import MODEL_ID, PROMPT_SHA256, REPOSITORY_ROOT, THINHARNESS_COMMIT
-from tbench.validate import ValidationError, validate_container_preflight, validate_paid_artifacts
+from tbench.schema_contract import schema_sha256
+from tbench.validate import ValidationError, validate_container_preflight, validate_ledger_recorded_costs, validate_paid_artifacts
 
 
 def receipt() -> dict:
@@ -15,14 +18,14 @@ def receipt() -> dict:
         "budget.py": REPOSITORY_ROOT / "tbench" / "budget.py",
         "constants.py": REPOSITORY_ROOT / "tbench" / "constants.py",
         "container_runner.py": REPOSITORY_ROOT / "tbench" / "container_runner.py",
+        "container_security.py": REPOSITORY_ROOT / "tbench" / "container_security.py",
+        "schema_contract.py": REPOSITORY_ROOT / "tbench" / "schema_contract.py",
         "container-runtime-requirements.txt": REPOSITORY_ROOT / "configs" / "container-runtime-requirements.txt",
+        "native-tool-schemas.json": REPOSITORY_ROOT / "configs" / "native-tool-schemas.json",
         "install-in-container.sh": REPOSITORY_ROOT / "scripts" / "install-in-container.sh",
         "system-prompt.md": REPOSITORY_ROOT / "prompts" / "pi-0.84.2-system-prompt.md",
     }
-    schemas = [
-        {"type": "function", "name": name, "description": name, "parameters": {"type": "object", "properties": {}}}
-        for name in ("bash", "read", "edit", "write")
-    ]
+    schemas = json.loads((REPOSITORY_ROOT / "configs" / "native-tool-schemas.json").read_text())["schemas"]
     return {
         "kind": "no-model-container-preflight",
         "model_calls": 0,
@@ -40,7 +43,18 @@ def receipt() -> dict:
                 "edit": {"plugin": "filesystem"},
                 "write": {"plugin": "filesystem"},
             },
+            "schema_sha256": {schema["name"]: schema_sha256(schema) for schema in schemas},
             "schemas": schemas,
+        },
+        "credential_isolation": {
+            "ordinary_inheritance_removed": True,
+            "process_security": {"platform": "linux", "dumpable": 0, "cap_sys_ptrace": False},
+            "native_bash": {
+                "own_environment_openai_key_absent": True,
+                "own_environment_sentinel_absent": True,
+                "parent_environ_read_blocked": True,
+                "result": {"ok": True},
+            },
         },
         "wire": {
             "base_url": "https://api.openai.com/v1",
@@ -96,10 +110,37 @@ def test_committed_paid_artifacts_prove_complete_verifier_passing_e2e() -> None:
     assert value["tool_count"] == 3
     assert value["tool_counts"] == {"bash": 2, "write": 1}
     assert value["actual_cash_cost_usd"] is None
-    assert value["api_equivalent_cost_usd"] == pytest.approx(0.096848)
+    assert value["original_ledger_recorded_api_equivalent_cost_usd"] == pytest.approx(0.096848)
+    assert value["api_equivalent_cost_usd"] == pytest.approx(0.12674175)
     assert all(path.startswith("artifacts/paid-e2e/") for path in value["receipts"].values())
     report = json.loads((REPOSITORY_ROOT / "reports" / "implementation-e2e.json").read_text())
     assert report == value
+
+
+def test_validator_rejects_internally_consistent_but_mispriced_ledger() -> None:
+    ledger = copy.deepcopy(json.loads((REPOSITORY_ROOT / "artifacts" / "paid-e2e" / "api-budget.json").read_text()))
+    ledger["requests"][0]["api_equivalent_cost_usd"] += 0.001
+    ledger["spent_usd"] += 0.001
+
+    with pytest.raises(ValidationError, match="differs from raw token pricing"):
+        validate_ledger_recorded_costs(ledger)
+
+
+def test_paid_artifact_validator_recalculates_corrected_costs(tmp_path: Path) -> None:
+    source = REPOSITORY_ROOT / "artifacts" / "paid-e2e"
+    copied = tmp_path / "paid-e2e"
+    shutil.copytree(source, copied)
+    reconciliation_path = copied / "corrected-accounting-reconciliation.json"
+    reconciliation = json.loads(reconciliation_path.read_text())
+    reconciliation["requests"][0]["corrected_api_equivalent_cost_usd"] += 0.001
+    reconciliation_path.write_text(json.dumps(reconciliation, indent=2, sort_keys=True) + "\n")
+    manifest_path = copied / "SHA256SUMS.json"
+    manifest = json.loads(manifest_path.read_text())
+    manifest["files"]["corrected-accounting-reconciliation.json"] = hashlib.sha256(reconciliation_path.read_bytes()).hexdigest()
+    manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n")
+
+    with pytest.raises(ValidationError, match="differs from raw token pricing"):
+        validate_paid_artifacts(copied)
 
 
 def test_validator_rejects_schema_receipt_without_parameters(tmp_path: Path) -> None:
@@ -108,5 +149,5 @@ def test_validator_rejects_schema_receipt_without_parameters(tmp_path: Path) -> 
     path = tmp_path / "receipt.json"
     path.write_text(json.dumps(value))
 
-    with pytest.raises(ValidationError, match="complete Responses function schema"):
+    with pytest.raises(ValidationError, match="frozen complete contract"):
         validate_container_preflight(path)

@@ -1,8 +1,8 @@
 {
-    "id": "3101482d-16b2-481e-973f-093551a33c32",
+    "id": "b8ab4756-4311-4be7-8f65-8a46238bdc0f",
     "task_name": "terminal-bench/regex-log",
-    "trial_name": "regex-log__pXbvqJE",
-    "trial_uri": "file:///Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/native-thinharness-preflight-regex-log-20260824-054340-1d064a9e/regex-log__pXbvqJE",
+    "trial_name": "regex-log__QG7huZk",
+    "trial_uri": "file:///Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/native-thinharness-preflight-regex-log-20260824-070642-6e4ced70/regex-log__QG7huZk",
     "task_id": {
         "org": "terminal-bench",
         "name": "regex-log",
@@ -21,8 +21,8 @@
             "download_dir": null,
             "source": "terminal-bench/terminal-bench-2-1"
         },
-        "trial_name": "regex-log__pXbvqJE",
-        "trials_dir": "/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/native-thinharness-preflight-regex-log-20260824-054340-1d064a9e",
+        "trial_name": "regex-log__QG7huZk",
+        "trials_dir": "/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/native-thinharness-preflight-regex-log-20260824-070642-6e4ced70",
         "install_only": false,
         "timeout_multiplier": 1.0,
         "agent_timeout_multiplier": null,
@@ -47,7 +47,7 @@
             ],
             "kwargs": {
                 "preflight_only": true,
-                "launch_id": "preflight-20260824-054340-1d064a9e",
+                "launch_id": "preflight-20260824-070642-6e4ced70",
                 "prior_implementation_spend_usd": 0.0
             },
             "mcp_servers": []
@@ -76,7 +76,7 @@
         },
         "artifacts": [],
         "extra_instruction_paths": [],
-        "job_id": "6292a8fb-388c-4339-bdcd-89adceee72f9",
+        "job_id": "35911f96-db41-49b3-8855-a7d8eed6dbbe",
         "source_trial": null
     },
     "agent_info": {
@@ -98,17 +98,49 @@
             "model_requests": 0,
             "tool_calls": 0,
             "container_preflight": {
+                "credential_isolation": {
+                    "native_bash": {
+                        "native_tool": "bash",
+                        "own_environment_openai_key_absent": true,
+                        "own_environment_sentinel_absent": true,
+                        "parent_environ_read_blocked": true,
+                        "result": {
+                            "content": "stdout:\ncredential isolation verified\n\nstderr:\n(no output)",
+                            "metadata": {
+                                "cwd": "/app",
+                                "duration_seconds": 0.155,
+                                "exit_code": 0,
+                                "stderr_bytes": 0,
+                                "stderr_truncated": false,
+                                "stdout_bytes": 30,
+                                "stdout_truncated": false,
+                                "timed_out": false,
+                                "timeout_seconds": 10.0
+                            },
+                            "ok": true
+                        }
+                    },
+                    "ordinary_inheritance_removed": true,
+                    "process_security": {
+                        "cap_eff_hex": "a80425fb",
+                        "cap_sys_ptrace": false,
+                        "dumpable": 0,
+                        "platform": "linux",
+                        "procfs": true
+                    },
+                    "sentinel_sha256": "6787cef0c98fda21f89a0f082bbfb1a7407f68fb2ae9b66238db12d78b52e89e"
+                },
                 "execution": {
                     "cwd": "/app",
                     "execution": "harbor-task-container",
-                    "hostname": "aa124d01ac40",
+                    "hostname": "91e4e95b90bf",
                     "machine": "x86_64",
                     "os_release": {
                         "ID": "ubuntu",
                         "PRETTY_NAME": "Ubuntu 24.04.3 LTS",
                         "VERSION_ID": "24.04"
                     },
-                    "pid": 2948,
+                    "pid": 2949,
                     "pid1_cgroup_sha256": "e57fd7b21104f091de366ace1464596378a498b0a5e63f1b21147a8998c20107",
                     "platform": "Linux-6.12.76-linuxkit-x86_64-with-glibc2.39",
                     "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
@@ -130,11 +162,14 @@
                 "root": "/app",
                 "schema_version": 1,
                 "staged_control_sha256": {
-                    "budget.py": "6393cfc93e7981d45f28315dfad0aea715b14a20c0a9c62d097767da14e5b4cc",
+                    "budget.py": "4f2c9892a47868778c3ef81dfe200587d7190b183cd12f6d6e8446459ad70899",
                     "constants.py": "f1155201d9244af69fbb532b4711b4bce93677dd4422cd37c7b30661b99a59c6",
                     "container-runtime-requirements.txt": "61d52e09e2edaa56c84a8f139c77dc6052312648d726366a6ec4be50e392c3a6",
-                    "container_runner.py": "6fa15eb0e9ef2891bbccae8a9d4a700469da0bb05fe580eae848a8a2af83b0b7",
-                    "install-in-container.sh": "958526d1f91bf68c8c1596d6ca250c040df99e45adce5b59bb153e970f9dd80e",
+                    "container_runner.py": "7c1b0bdfce43914fcd0f0b249107d0ca4c828854c6bd94341c96cfc7feee0414",
+                    "container_security.py": "45e669996dcab219a827df78fb3fff7b8e8d6aa7abdc737746e2560666398603",
+                    "install-in-container.sh": "d08bff867051f0c769dff82670c176bc035c0fd48fa0594174cffb548703347f",
+                    "native-tool-schemas.json": "1c1c1e985590e9980264a2e6b8364bd96f1b052c0761eed7f127ac9ab60cfd24",
+                    "schema_contract.py": "c1e778f0dd278201bd994dc060417646a492f14e9704679d7a5d2a5a4d96aca3",
                     "system-prompt.md": "bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e"
                 },
                 "thinharness": {
@@ -165,7 +200,7 @@
                         "repository": "https://github.com/ryanbbrown/thinharness.git",
                         "schema_version": 1,
                         "wheel_path": "/opt/thinharness-wheels/thinharness-0.7.0-py3-none-any.whl",
-                        "wheel_sha256": "d3793cda41342d0ae2808a875bce822f47145cadf20e91db1918f0fb779b68b2"
+                        "wheel_sha256": "6b3f03f3ea6cec84e9f8a1e1b716e45f16e86bd95e56e1e8da79e9e30f060a3f"
                     },
                     "version": "0.7.0"
                 },
@@ -193,6 +228,12 @@
                             "plugin": "filesystem",
                             "source": "write"
                         }
+                    },
+                    "schema_sha256": {
+                        "bash": "6c5839686662a1a960f70d99800765b8e75823c09e69abf5fed5c595272467c4",
+                        "edit": "e60622ad6b3d61e87b4119972e1eda33ab08bc88f95d803608c8ec986a8c5a3e",
+                        "read": "4bf95fa07a05e1244e996d8d8ead30082ecd148051785b4609826752c9c47b39",
+                        "write": "fbb2cc1304de524a51fc0d7168f82c5200060d739f6a085d253fb03bb7e6b1ef"
                     },
                     "schemas": [
                         {
@@ -377,23 +418,23 @@
     },
     "verifier_environment_mode": "shared",
     "exception_info": null,
-    "started_at": "2026-08-24T05:43:41.834779Z",
-    "finished_at": "2026-08-24T05:44:50.516418Z",
+    "started_at": "2026-08-24T07:06:44.400668Z",
+    "finished_at": "2026-08-24T07:08:18.399349Z",
     "environment_setup": {
-        "started_at": "2026-08-24T05:43:41.928178Z",
-        "finished_at": "2026-08-24T05:43:42.920668Z"
+        "started_at": "2026-08-24T07:06:44.554311Z",
+        "finished_at": "2026-08-24T07:06:48.501847Z"
     },
     "agent_setup": {
-        "started_at": "2026-08-24T05:43:42.920758Z",
-        "finished_at": "2026-08-24T05:44:29.272253Z"
+        "started_at": "2026-08-24T07:06:48.502018Z",
+        "finished_at": "2026-08-24T07:07:52.060659Z"
     },
     "agent_execution": {
-        "started_at": "2026-08-24T05:44:29.272518Z",
-        "finished_at": "2026-08-24T05:44:29.272615Z"
+        "started_at": "2026-08-24T07:07:52.060919Z",
+        "finished_at": "2026-08-24T07:07:52.061037Z"
     },
     "verifier": {
-        "started_at": "2026-08-24T05:44:29.684545Z",
-        "finished_at": "2026-08-24T05:44:39.674931Z"
+        "started_at": "2026-08-24T07:07:52.799358Z",
+        "finished_at": "2026-08-24T07:08:07.167744Z"
     },
     "step_results": null
 }

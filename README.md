@@ -18,7 +18,7 @@ This repository reproduces one ThinHarness run on Terminal-Bench 2.1. It owns Ha
 
 `NativeThinHarnessAgent` runs on the host only because Harbor needs an agent object. It creates a staging directory, uploads this repository's runner controls, starts setup and run processes, and copies receipts. It does not import ThinHarness and does not define model-facing tools.
 
-The setup process runs inside the task container. It clones the canonical ThinHarness repository at the exact commit, builds a wheel, hashes it, installs it in an isolated environment, and records package and environment identity. The model loop also runs there. It uses ThinHarness `BashPlugin` and `FilesystemPlugin` with native `bash`, `read`, `edit`, and `write` schemas rooted at `/app`. The native Bash plugin filters its environment, so model commands do not inherit the OpenAI credential.
+The setup process runs inside the task container. It clones the canonical ThinHarness repository at the exact commit, builds a wheel, hashes it, installs it in an isolated environment, and records package and environment identity. The model loop also runs there. It uses ThinHarness `BashPlugin` and `FilesystemPlugin` with frozen complete native `bash`, `read`, `edit`, and `write` schemas rooted at `/app`. The credential enters through a short-lived anonymous descriptor, not the model-loop environment. Before native tools run, the Linux parent becomes non-dumpable and verifies that `CAP_SYS_PTRACE` is absent. The Docker preflight requires native Bash to lack the sentinel in its environment and to receive permission denied for `/proc/<parent>/environ`.
 
 The agent writes the API ledger and result under `/logs/agent`, Harbor's durable agent-log mount. Harbor receives control only after the in-container process ends and then runs the task verifier against the same `/app` workspace.
 
@@ -51,7 +51,7 @@ uv run python -m tbench.validate paid jobs/<job-name> --report reports/implement
 
 A valid result requires reward `1.0`, exact response identity, a completed ledger, every request receipt, all token classes, the pinned wheel and commit, container identity, and both spend caps.
 
-The implementation E2E result is committed in `artifacts/paid-e2e/` and `reports/implementation-e2e.json`: reward 1.0, four requests, three tool calls, and USD 0.096848 API-equivalent spend. Do not rerun it as a setup check.
+The implementation E2E result is committed in `artifacts/paid-e2e/` and `reports/implementation-e2e.json`: reward 1.0, four requests, three tool calls, and corrected USD 0.12674175 API-equivalent spend. The immutable original ledger remains unchanged at USD 0.096848; `corrected-accounting-reconciliation.json` prices its raw cache-write tokens at the preserved USD 6.25/million rate. Do not rerun it as a setup check.
 
 ## Evidence boundary
 

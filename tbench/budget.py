@@ -12,6 +12,7 @@ from typing import Any
 
 ORDINARY_INPUT_USD_PER_TOKEN = 5.00 / 1_000_000
 CACHED_INPUT_USD_PER_TOKEN = 0.50 / 1_000_000
+CACHE_WRITE_USD_PER_TOKEN = 6.25 / 1_000_000
 OUTPUT_USD_PER_TOKEN = 30.00 / 1_000_000
 INPUT_RESERVE_TOKENS = 10_000
 MAX_REQUESTED_OUTPUT_TOKENS = 100_000
@@ -142,6 +143,7 @@ def reserve_request(
     payload_bytes: int,
     payload_sha256: str,
     prior_input_tokens: int = 0,
+    prior_output_tokens: int = 0,
 ) -> Reservation:
     """Persist a conservative authorization before one HTTP request."""
     ledger = load_ledger(path)
@@ -155,15 +157,17 @@ def reserve_request(
         raise BudgetError("payload sha256 is invalid")
     if not isinstance(prior_input_tokens, int) or isinstance(prior_input_tokens, bool) or prior_input_tokens < 0:
         raise BudgetError("prior input token count is invalid")
+    if not isinstance(prior_output_tokens, int) or isinstance(prior_output_tokens, bool) or prior_output_tokens < 0:
+        raise BudgetError("prior output token count is invalid")
     request_number = len(ledger["requests"]) + 1
     attempt_available = ledger["attempt_ceiling_usd"] - ledger["spent_usd"]
     total_so_far = ledger["prior_implementation_spend_usd"] + ledger["spent_usd"]
     implementation_available = ledger["implementation_ceiling_usd"] - total_so_far
     available = min(attempt_available, implementation_available)
-    # UTF-8 byte count upper-bounds new BPE tokens. Prior reported input covers
-    # server-side conversation state referenced by previous_response_id.
-    input_reserve_tokens = prior_input_tokens + payload_bytes + INPUT_RESERVE_TOKENS
-    input_reserve_usd = input_reserve_tokens * ORDINARY_INPUT_USD_PER_TOKEN
+    # UTF-8 bytes upper-bound new BPE tokens. Prior input and output cover the
+    # server-side chain referenced by previous_response_id.
+    input_reserve_tokens = prior_input_tokens + prior_output_tokens + payload_bytes + INPUT_RESERVE_TOKENS
+    input_reserve_usd = input_reserve_tokens * CACHE_WRITE_USD_PER_TOKEN
     affordable_output = math.floor((available - input_reserve_usd) / OUTPUT_USD_PER_TOKEN)
     max_output_tokens = min(MAX_REQUESTED_OUTPUT_TOKENS, affordable_output)
     if max_output_tokens < 1:
@@ -176,6 +180,7 @@ def reserve_request(
         "payload_bytes": payload_bytes,
         "payload_sha256": payload_sha256,
         "prior_input_tokens": prior_input_tokens,
+        "prior_output_tokens": prior_output_tokens,
         "input_reserve_tokens": input_reserve_tokens,
         "requested_max_output_tokens": MAX_REQUESTED_OUTPUT_TOKENS,
         "authorized_max_output_tokens": max_output_tokens,
@@ -234,6 +239,7 @@ def settle_request(
     cost = api_equivalent_cost_usd(
         ordinary_input_tokens=ordinary_input_tokens,
         cached_input_tokens=cached_input_tokens,
+        cache_write_tokens=cache_write_tokens,
         output_tokens=output_tokens,
     )
     request.update(
@@ -274,14 +280,21 @@ def finalize_ledger(path: Path, *, success: bool) -> dict[str, Any]:
     return ledger
 
 
-def api_equivalent_cost_usd(*, ordinary_input_tokens: int, cached_input_tokens: int, output_tokens: int) -> float:
+def api_equivalent_cost_usd(
+    *,
+    ordinary_input_tokens: int,
+    cached_input_tokens: int,
+    cache_write_tokens: int,
+    output_tokens: int,
+) -> float:
     """Calculate the preserved GPT-5.6 Sol direct-API equivalent price."""
-    values = (ordinary_input_tokens, cached_input_tokens, output_tokens)
+    values = (ordinary_input_tokens, cached_input_tokens, cache_write_tokens, output_tokens)
     if any(isinstance(v, bool) or not isinstance(v, int) or v < 0 for v in values):
         raise BudgetError("token counts must be non-negative integers")
     return (
         ordinary_input_tokens * ORDINARY_INPUT_USD_PER_TOKEN
         + cached_input_tokens * CACHED_INPUT_USD_PER_TOKEN
+        + cache_write_tokens * CACHE_WRITE_USD_PER_TOKEN
         + output_tokens * OUTPUT_USD_PER_TOKEN
     )
 

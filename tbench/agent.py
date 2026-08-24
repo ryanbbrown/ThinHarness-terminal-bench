@@ -25,13 +25,17 @@ from .constants import (
 _PACKAGE_DIR = Path(__file__).resolve().parent
 _INSTALL_SCRIPT = _PACKAGE_DIR.parent / "scripts" / "install-in-container.sh"
 _RUNTIME_REQUIREMENTS = _PACKAGE_DIR.parent / "configs" / "container-runtime-requirements.txt"
+_NATIVE_TOOL_SCHEMAS = _PACKAGE_DIR.parent / "configs" / "native-tool-schemas.json"
 _STAGE_FILES = {
     _PACKAGE_DIR / "container_runner.py": f"{CONTAINER_STAGE}/container_runner.py",
+    _PACKAGE_DIR / "container_security.py": f"{CONTAINER_STAGE}/container_security.py",
     _PACKAGE_DIR / "budget.py": f"{CONTAINER_STAGE}/budget.py",
     _PACKAGE_DIR / "constants.py": f"{CONTAINER_STAGE}/constants.py",
+    _PACKAGE_DIR / "schema_contract.py": f"{CONTAINER_STAGE}/schema_contract.py",
     PROMPT_PATH: f"{CONTAINER_STAGE}/system-prompt.md",
     _INSTALL_SCRIPT: f"{CONTAINER_STAGE}/install-in-container.sh",
     _RUNTIME_REQUIREMENTS: f"{CONTAINER_STAGE}/container-runtime-requirements.txt",
+    _NATIVE_TOOL_SCHEMAS: f"{CONTAINER_STAGE}/native-tool-schemas.json",
 }
 
 
@@ -124,14 +128,16 @@ class NativeThinHarnessAgent(BaseAgent):
             instruction_path.write_text(instruction, encoding="utf-8")
             await environment.upload_file(instruction_path, f"{CONTAINER_STAGE}/instruction.txt")
         command = (
-            f"/opt/thinharness-venv/bin/python {shlex.quote(CONTAINER_STAGE + '/container_runner.py')} paid "
+            'exec 9<<<"$OPENAI_API_KEY"; unset OPENAI_API_KEY; '
+            f"exec env -u OPENAI_API_KEY /opt/thinharness-venv/bin/python {shlex.quote(CONTAINER_STAGE + '/container_runner.py')} paid "
             f"--prompt {shlex.quote(CONTAINER_STAGE + '/system-prompt.md')} "
             f"--install-provenance {shlex.quote(CONTAINER_STAGE + '/install-provenance.json')} "
             f"--instruction {shlex.quote(CONTAINER_STAGE + '/instruction.txt')} "
             f"--ledger {shlex.quote(CONTAINER_LOGS + '/api-budget.json')} "
             f"--receipt {shlex.quote(CONTAINER_LOGS + '/native-thinharness-result.json')} "
             f"--launch-id {shlex.quote(self.launch_id)} "
-            f"--prior-spend {self.prior_implementation_spend_usd!r}"
+            f"--prior-spend {self.prior_implementation_spend_usd!r} "
+            "--credential-fd 9"
         )
         try:
             result = await environment.exec(

@@ -35,6 +35,8 @@ from constants import (
     TEXT,
     THINHARNESS_COMMIT,
 )
+from container_security import harden_linux_model_loop_parent, read_handoff_fd
+from schema_contract import validate_native_tool_schemas
 
 
 def _sha256_bytes(value: bytes) -> str:
@@ -67,8 +69,11 @@ def _staged_control_hashes() -> dict[str, str]:
         "budget.py",
         "constants.py",
         "container_runner.py",
+        "container_security.py",
         "container-runtime-requirements.txt",
         "install-in-container.sh",
+        "native-tool-schemas.json",
+        "schema_contract.py",
         "system-prompt.md",
     )
     result = {}
@@ -78,6 +83,37 @@ def _staged_control_hashes() -> dict[str, str]:
             raise RuntimeError(f"staged control is missing: {name}")
         result[name] = _sha256_bytes(path.read_bytes())
     return result
+
+
+async def _native_bash_credential_isolation(harness: Any) -> dict[str, Any]:
+    bash_tool = next((tool for tool in harness.tools if tool.name == "bash"), None)
+    if bash_tool is None:
+        raise RuntimeError("native Bash tool is missing for credential isolation preflight")
+    command = """set -eu
+if printenv OPENAI_API_KEY >/dev/null 2>&1 || printenv TB_CREDENTIAL_SENTINEL >/dev/null 2>&1; then
+  exit 41
+fi
+error_file="$(mktemp)"
+trap 'rm -f "$error_file"' EXIT
+if cat "/proc/$PPID/environ" >/dev/null 2>"$error_file"; then
+  exit 42
+fi
+if ! grep -qi 'permission denied' "$error_file"; then
+  exit 43
+fi
+printf 'credential isolation verified\\n'
+"""
+    args = bash_tool.parameters.model_validate({"command": command, "cwd": CONTAINER_ROOT, "timeout": 10})
+    result = await bash_tool.handler(args)
+    if not result.ok:
+        raise RuntimeError(f"native Bash credential isolation failed: {result.content}")
+    return {
+        "native_tool": "bash",
+        "own_environment_openai_key_absent": True,
+        "own_environment_sentinel_absent": True,
+        "parent_environ_read_blocked": True,
+        "result": {"ok": result.ok, "content": result.content, "metadata": result.metadata},
+    }
 
 
 def _environment_identity() -> dict[str, Any]:
@@ -197,6 +233,10 @@ def _tool_evidence(harness: Any) -> dict[str, Any]:
     names = [schema["name"] for schema in schemas]
     if set(names) != {"bash", "read", "edit", "write"} or len(names) != 4:
         raise RuntimeError(f"unexpected native tool surface: {names}")
+    schema_hashes = validate_native_tool_schemas(
+        schemas,
+        Path(__file__).resolve().parent / "native-tool-schemas.json",
+    )
     origins = {
         tool.name: {
             "plugin": tool.origin.plugin if tool.origin else None,
@@ -212,7 +252,7 @@ def _tool_evidence(harness: Any) -> dict[str, Any]:
     }
     if origins != expected_origins:
         raise RuntimeError(f"tools are not canonical plugin contributions: {origins}")
-    return {"names": names, "origins": origins, "schemas": schemas}
+    return {"names": names, "origins": origins, "schema_sha256": schema_hashes, "schemas": schemas}
 
 
 class BudgetedDirectOpenAIProvider:
@@ -233,6 +273,7 @@ class BudgetedDirectOpenAIProvider:
                     request_retry_backoff=0,
                 )
                 self._prior_input_tokens = 0
+                self._prior_output_tokens = 0
 
             async def create_response(self, payload: dict[str, Any]) -> dict[str, Any]:
                 expected_reasoning = dict(REASONING)
@@ -252,6 +293,7 @@ class BudgetedDirectOpenAIProvider:
                         payload_bytes=len(serialized),
                         payload_sha256=_sha256_bytes(serialized),
                         prior_input_tokens=self._prior_input_tokens,
+                        prior_output_tokens=self._prior_output_tokens,
                     )
                 except BudgetError as exc:
                     raise ProviderError(str(exc)) from exc
@@ -295,14 +337,19 @@ class BudgetedDirectOpenAIProvider:
                 except BudgetError as exc:
                     raise ProviderError(str(exc)) from exc
                 self._prior_input_tokens = input_tokens
+                self._prior_output_tokens = output_tokens
                 return response
 
         return Provider()
 
 
-def preflight(args: argparse.Namespace) -> int:
+async def preflight(args: argparse.Namespace) -> int:
     from thinharness import OpenAIProvider, __version__
 
+    security = harden_linux_model_loop_parent()
+    sentinel = read_handoff_fd(args.sentinel_fd, label="credential sentinel")
+    if "OPENAI_API_KEY" in os.environ or "TB_CREDENTIAL_SENTINEL" in os.environ:
+        raise RuntimeError("credential handoff remained in ordinary process inheritance")
     prompt = _load_prompt(args.prompt)
     provenance = _install_provenance(args.install_provenance)
     provider = OpenAIProvider(
@@ -324,6 +371,12 @@ def preflight(args: argparse.Namespace) -> int:
             "install": provenance,
         },
         "execution": _environment_identity(),
+        "credential_isolation": {
+            "ordinary_inheritance_removed": True,
+            "sentinel_sha256": _sha256_bytes(sentinel.encode("utf-8")),
+            "process_security": security,
+            "native_bash": await _native_bash_credential_isolation(harness),
+        },
         "staged_control_sha256": _staged_control_hashes(),
         "root": str(harness.root),
         "tools": _tool_evidence(harness),
@@ -356,9 +409,10 @@ def preflight(args: argparse.Namespace) -> int:
 async def _paid(args: argparse.Namespace) -> int:
     from thinharness import __version__
 
-    key = os.getenv("OPENAI_API_KEY")
-    if not key:
-        raise RuntimeError("OPENAI_API_KEY is required for a paid run")
+    security = harden_linux_model_loop_parent()
+    if "OPENAI_API_KEY" in os.environ:
+        raise RuntimeError("OPENAI_API_KEY must not enter ordinary model-loop inheritance")
+    key = read_handoff_fd(args.credential_fd, label="OpenAI credential")
     prompt = _load_prompt(args.prompt)
     instruction = args.instruction.read_text(encoding="utf-8")
     provenance = _install_provenance(args.install_provenance)
@@ -403,6 +457,10 @@ async def _paid(args: argparse.Namespace) -> int:
             "dataset_digest": DATASET_DIGEST,
             "thinharness": {"version": __version__, "canonical_commit": THINHARNESS_COMMIT, "install": provenance},
             "execution": _environment_identity(),
+            "credential_isolation": {
+                "ordinary_inheritance_removed": True,
+                "process_security": security,
+            },
             "staged_control_sha256": _staged_control_hashes(),
             "prompt_sha256": PROMPT_SHA256,
             "wire": {
@@ -445,18 +503,21 @@ def build_parser() -> argparse.ArgumentParser:
         sub.add_argument("--prompt", type=Path, required=True)
         sub.add_argument("--install-provenance", type=Path, required=True)
         sub.add_argument("--receipt", type=Path, required=True)
+        if command == "preflight":
+            sub.add_argument("--sentinel-fd", type=int, required=True)
         if command == "paid":
             sub.add_argument("--instruction", type=Path, required=True)
             sub.add_argument("--ledger", type=Path, required=True)
             sub.add_argument("--launch-id", required=True)
             sub.add_argument("--prior-spend", type=float, required=True)
+            sub.add_argument("--credential-fd", type=int, required=True)
     return parser
 
 
 def main() -> int:
     args = build_parser().parse_args()
     if args.command == "preflight":
-        return preflight(args)
+        return asyncio.run(preflight(args))
     return asyncio.run(_paid(args))
 
 

@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "schemas": [
+    {
+      "description": "Run one non-interactive Bash command. The cwd must be inside the workspace. Each call starts a fresh shell and does not share shell state with other calls. Background processes in the same process group are terminated on a best-effort basis. timeout is in seconds and is capped by the host.",
+      "name": "bash",
+      "parameters": {
+        "additionalProperties": false,
+        "description": "Model arguments for one Bash call.",
+        "properties": {
+          "command": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "cwd": {
+            "default": ".",
+            "type": "string"
+          },
+          "timeout": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "command"
+        ],
+        "type": "object"
+      },
+      "type": "function"
+    },
+    {
+      "description": "Read a UTF-8 text file with line numbers and optional offset/limit.",
+      "name": "read",
+      "parameters": {
+        "additionalProperties": false,
+        "description": "Arguments for read.",
+        "properties": {
+          "limit": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "max_chars": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "offset": {
+            "default": 1,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "path": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "path"
+        ],
+        "type": "object"
+      },
+      "type": "function"
+    },
+    {
+      "description": "Apply one or more exact text replacements to UTF-8 files. Each old_string must be unique unless all=true.",
+      "name": "edit",
+      "parameters": {
+        "additionalProperties": false,
+        "description": "Arguments for edit.",
+        "properties": {
+          "edits": {
+            "items": {
+              "additionalProperties": false,
+              "description": "One exact replacement for edit.",
+              "properties": {
+                "all": {
+                  "default": false,
+                  "type": "boolean"
+                },
+                "expected_replacements": {
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "new_string": {
+                  "type": "string"
+                },
+                "old_string": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "old_string",
+                "new_string"
+              ],
+              "type": "object"
+            },
+            "minItems": 1,
+            "type": "array"
+          }
+        },
+        "required": [
+          "edits"
+        ],
+        "type": "object"
+      },
+      "type": "function"
+    },
+    {
+      "description": "Create, overwrite, or append to a UTF-8 text file under the workspace root.",
+      "name": "write",
+      "parameters": {
+        "additionalProperties": false,
+        "description": "Arguments for write.",
+        "properties": {
+          "append": {
+            "default": false,
+            "type": "boolean"
+          },
+          "content": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "path",
+          "content"
+        ],
+        "type": "object"
+      },
+      "type": "function"
+    }
+  ]
+}

@@ -63,6 +63,23 @@ async def test_preflight_agent_only_stages_and_launches_container_process(tmp_pa
 
 
 @pytest.mark.asyncio
+async def test_paid_agent_removes_credential_from_model_loop_inheritance(tmp_path: Path, monkeypatch) -> None:
+    environment = FakeEnvironment({"usage": {}, "execution": {}})
+    agent = NativeThinHarnessAgent(logs_dir=tmp_path, model_name=MODEL_REF, preflight_only=False)
+    agent._preflight = {"passed": True}
+    context = Context()
+    monkeypatch.setenv("OPENAI_API_KEY", "sentinel-not-a-real-secret")
+
+    await agent.run("instruction", environment, context)  # type: ignore[arg-type]
+
+    paid = environment.execs[-1]
+    assert paid["command"].startswith('exec 9<<<"$OPENAI_API_KEY"; unset OPENAI_API_KEY; exec env -u OPENAI_API_KEY ')
+    assert "--credential-fd 9" in paid["command"]
+    assert "sentinel-not-a-real-secret" not in paid["command"]
+    assert paid["env"] == {"OPENAI_API_KEY": "sentinel-not-a-real-secret"}
+
+
+@pytest.mark.asyncio
 async def test_agent_rejects_any_other_model_before_staging(tmp_path: Path) -> None:
     environment = FakeEnvironment({})
     agent = NativeThinHarnessAgent(logs_dir=tmp_path, model_name="openai/other", preflight_only=True)

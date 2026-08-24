@@ -5,7 +5,15 @@ from pathlib import Path
 
 import pytest
 
-from tbench.budget import BudgetError, initialize_ledger, load_ledger, reserve_request, settle_request
+from tbench.budget import (
+    BudgetError,
+    api_equivalent_cost_usd,
+    finalize_ledger,
+    initialize_ledger,
+    load_ledger,
+    reserve_request,
+    settle_request,
+)
 from tbench.constants import DATASET_DIGEST, MODEL_ID, TASK_NAME
 
 
@@ -106,12 +114,99 @@ def test_wrong_response_identity_leaves_reservation_fail_closed(tmp_path: Path) 
 
 def test_prior_spend_reduces_total_authorization(tmp_path: Path) -> None:
     path = tmp_path / "ledger.json"
-    initialize(path, attempt=0.5, total=1.0, prior=0.94)
+    initialize(path, attempt=0.5, total=1.0, prior=0.93)
 
     reservation = reserve_request(path, payload_bytes=100, payload_sha256="d" * 64)
 
-    assert reservation.reserved_usd <= 0.06
+    assert reservation.reserved_usd <= 0.07
     assert reservation.max_output_tokens < 334
+
+
+def test_cache_write_tokens_use_the_preserved_price() -> None:
+    assert api_equivalent_cost_usd(
+        ordinary_input_tokens=1_000_000,
+        cached_input_tokens=1_000_000,
+        cache_write_tokens=1_000_000,
+        output_tokens=1_000_000,
+    ) == pytest.approx(41.75)
+
+
+def test_chained_reservation_includes_prior_input_and_output(tmp_path: Path) -> None:
+    path = tmp_path / "ledger.json"
+    initialize(path)
+
+    reserve_request(
+        path,
+        payload_bytes=100,
+        payload_sha256="f" * 64,
+        prior_input_tokens=4_000,
+        prior_output_tokens=2_000,
+    )
+
+    request = json.loads(path.read_text())["requests"][0]
+    assert request["prior_input_tokens"] == 4_000
+    assert request["prior_output_tokens"] == 2_000
+    assert request["input_reserve_tokens"] == 16_100
+
+
+def test_settlement_cap_breach_stops_the_ledger(tmp_path: Path) -> None:
+    path = tmp_path / "ledger.json"
+    initialize(path, attempt=0.1, total=0.1)
+    reservation = reserve_request(path, payload_bytes=1, payload_sha256="1" * 64)
+
+    with pytest.raises(BudgetError, match="exceeded"):
+        settle_request(
+            path,
+            request_id=reservation.request_id,
+            response_model=MODEL_ID,
+            input_tokens=20_000,
+            ordinary_input_tokens=0,
+            cached_input_tokens=0,
+            cache_write_tokens=20_000,
+            output_tokens=1,
+            reasoning_tokens=0,
+            reported_cost_usd=None,
+        )
+
+    stopped = json.loads(path.read_text())
+    assert stopped["status"] == "failed"
+    assert stopped["fatal_error"] is not None
+
+
+def test_initialize_refuses_to_overwrite_a_ledger(tmp_path: Path) -> None:
+    path = tmp_path / "ledger.json"
+    initialize(path)
+
+    with pytest.raises(BudgetError, match="refusing to replace"):
+        initialize(path)
+
+
+def test_finalize_refuses_an_in_flight_request(tmp_path: Path) -> None:
+    path = tmp_path / "ledger.json"
+    initialize(path)
+    reserve_request(path, payload_bytes=100, payload_sha256="2" * 64)
+
+    with pytest.raises(BudgetError, match="in-flight"):
+        finalize_ledger(path, success=True)
+
+
+def test_corrupt_version_and_duplicate_request_ids_are_rejected(tmp_path: Path) -> None:
+    version_path = tmp_path / "version.json"
+    initialize(version_path)
+    value = json.loads(version_path.read_text())
+    value["version"] = 999
+    version_path.write_text(json.dumps(value))
+    with pytest.raises(BudgetError, match="version"):
+        load_ledger(version_path)
+
+    duplicate_path = tmp_path / "duplicate.json"
+    initialize(duplicate_path)
+    reserve_request(duplicate_path, payload_bytes=100, payload_sha256="3" * 64)
+    value = json.loads(duplicate_path.read_text())
+    value["requests"].append(dict(value["requests"][0]))
+    duplicate_path.write_text(json.dumps(value))
+    with pytest.raises(BudgetError, match="duplicate request"):
+        load_ledger(duplicate_path)
 
 
 def test_corruption_and_orphaned_reservations_are_rejected(tmp_path: Path) -> None:

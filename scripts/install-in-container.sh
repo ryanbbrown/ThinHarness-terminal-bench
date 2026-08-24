@@ -68,7 +68,13 @@ with temporary.open("w", encoding="utf-8") as stream:
 os.replace(temporary, path)
 PY
 
-"$VENV/bin/python" "$STAGE/container_runner.py" preflight \
-  --prompt "$STAGE/system-prompt.md" \
-  --install-provenance "$STAGE/install-provenance.json" \
-  --receipt /logs/agent/container-preflight.json
+TB_CREDENTIAL_SENTINEL='native-bash-credential-isolation-v1' bash -c '
+exec 9<<<"$TB_CREDENTIAL_SENTINEL"
+unset TB_CREDENTIAL_SENTINEL
+exec env -u TB_CREDENTIAL_SENTINEL /opt/thinharness-venv/bin/python \
+  /opt/thinharness-terminal-bench/container_runner.py preflight \
+  --prompt /opt/thinharness-terminal-bench/system-prompt.md \
+  --install-provenance /opt/thinharness-terminal-bench/install-provenance.json \
+  --receipt /logs/agent/container-preflight.json \
+  --sentinel-fd 9
+'

@@ -1,0 +1,83 @@
+{
+  "actual_cash_cost_usd": null,
+  "attempt_ceiling_usd": 0.5,
+  "corrected_api_equivalent_total_usd": 0.12674175,
+  "corrected_total_within_both_caps": true,
+  "correction_reason": "The original frozen ledger recorded cache-write tokens but omitted their preserved USD 6.25/million price from request and total API-equivalent costs.",
+  "correction_total_usd": 0.02989374999999997,
+  "implementation_ceiling_usd": 1.0,
+  "kind": "corrected-accounting-reconciliation",
+  "original_ledger_recorded_total_usd": 0.09684800000000002,
+  "pricing": {
+    "cache_write_usd_per_million": 6.25,
+    "cached_input_usd_per_million": 0.5,
+    "ordinary_input_usd_per_million": 5.0,
+    "output_including_reasoning_usd_per_million": 30.0
+  },
+  "requests": [
+    {
+      "corrected_api_equivalent_cost_usd": 0.08699375,
+      "correction_usd": 0.009068749999999987,
+      "original_recorded_api_equivalent_cost_usd": 0.07792500000000001,
+      "raw_usage": {
+        "cache_write_tokens": 1451,
+        "cached_input_tokens": 0,
+        "input_tokens": 1454,
+        "ordinary_input_tokens": 3,
+        "output_tokens": 2597,
+        "reasoning_tokens": 2350
+      },
+      "request_id": "paid-20260824-054754-4cbc4e1a:1"
+    },
+    {
+      "corrected_api_equivalent_cost_usd": 0.02406175,
+      "correction_usd": 0.01648125,
+      "original_recorded_api_equivalent_cost_usd": 0.0075805,
+      "raw_usage": {
+        "cache_write_tokens": 2637,
+        "cached_input_tokens": 1451,
+        "input_tokens": 4091,
+        "ordinary_input_tokens": 3,
+        "output_tokens": 228,
+        "reasoning_tokens": 21
+      },
+      "request_id": "paid-20260824-054754-4cbc4e1a:2"
+    },
+    {
+      "corrected_api_equivalent_cost_usd": 0.01087025,
+      "correction_usd": 0.002181249999999999,
+      "original_recorded_api_equivalent_cost_usd": 0.008689,
+      "raw_usage": {
+        "cache_write_tokens": 349,
+        "cached_input_tokens": 4088,
+        "input_tokens": 4440,
+        "ordinary_input_tokens": 3,
+        "output_tokens": 221,
+        "reasoning_tokens": 13
+      },
+      "request_id": "paid-20260824-054754-4cbc4e1a:3"
+    },
+    {
+      "corrected_api_equivalent_cost_usd": 0.004816,
+      "correction_usd": 0.0021625000000000004,
+      "original_recorded_api_equivalent_cost_usd": 0.0026534999999999996,
+      "raw_usage": {
+        "cache_write_tokens": 346,
+        "cached_input_tokens": 4437,
+        "input_tokens": 4786,
+        "ordinary_input_tokens": 3,
+        "output_tokens": 14,
+        "reasoning_tokens": 0
+      },
+      "request_id": "paid-20260824-054754-4cbc4e1a:4"
+    }
+  ],
+  "schema_version": 1,
+  "source_receipts": {
+    "agent_receipt": "artifacts/paid-e2e/native-thinharness-result.json",
+    "agent_receipt_sha256": "bd0e812a89ef0b8b2b940c6ccf8fcbf0aebd6d499297411112685550527cee05",
+    "api_budget": "artifacts/paid-e2e/api-budget.json",
+    "api_budget_sha256": "433ca8ede26e5a24e298a09401bdd096af682fa1ee2aba35c3bc8f2055e6c8e3"
+  },
+  "source_receipts_preserved_byte_for_byte": true
+}

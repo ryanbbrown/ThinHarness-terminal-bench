@@ -1,5 +1,5 @@
 {
-    "job_name": "native-thinharness-preflight-regex-log-20260824-054340-1d064a9e",
+    "job_name": "native-thinharness-preflight-regex-log-20260824-070642-6e4ced70",
     "jobs_dir": "/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs",
     "agent_setup_timeout_multiplier": 3.0,
     "n_concurrent_trials": 1,
@@ -13,7 +13,7 @@
             ],
             "kwargs": {
                 "preflight_only": true,
-                "launch_id": "preflight-20260824-054340-1d064a9e",
+                "launch_id": "preflight-20260824-070642-6e4ced70",
                 "prior_implementation_spend_usd": 0.0
             }
         }
