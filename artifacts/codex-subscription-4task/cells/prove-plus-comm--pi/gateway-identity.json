@@ -1,0 +1,22 @@
+{
+  "bind": "0.0.0.0",
+  "cell_id": "prove-plus-comm--pi",
+  "codex_auth": {
+    "path_persisted": false,
+    "source": "host Codex CLI auth file",
+    "validated": true
+  },
+  "container_base_url": "http://host.docker.internal:58451/v1",
+  "cproxy": {
+    "commit": "ef96cbaea614753171627c059297e163fed0bc53",
+    "config_fingerprint": "8ddb0646e496e8ff",
+    "request_retries": 0,
+    "upstream": "https://chatgpt.com/backend-api/codex/responses",
+    "version": "0.1.0"
+  },
+  "downstream_auth": "ephemeral-random-bearer",
+  "downstream_token_persisted": false,
+  "mode": "real",
+  "port": 58451,
+  "schema_version": 1
+}

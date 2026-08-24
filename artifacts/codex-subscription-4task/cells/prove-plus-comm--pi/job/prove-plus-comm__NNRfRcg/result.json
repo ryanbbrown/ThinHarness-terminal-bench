@@ -1,0 +1,112 @@
+{
+    "id": "9c975ddb-2cd0-448d-a496-cbd238f9d824",
+    "task_name": "terminal-bench/prove-plus-comm",
+    "trial_name": "prove-plus-comm__NNRfRcg",
+    "trial_uri": "file:///Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/codex-subscription-4task/codex-subscription-4task-real-prove-plus-comm--pi-20260824-200807-a76a9d73/prove-plus-comm__NNRfRcg",
+    "task_id": {
+        "org": "terminal-bench",
+        "name": "prove-plus-comm",
+        "ref": "sha256:d5ae25720df1f7cd619ed8408cda4b87b79a3d8b0ff4f1919e2c96e9547339c2"
+    },
+    "source": "terminal-bench/terminal-bench-2-1",
+    "task_checksum": "77604ed7016a102179b1ca9ae9810fe6cd1b29de53de342e7f7a6f286de8cb82",
+    "config": {
+        "task": {
+            "path": null,
+            "git_url": null,
+            "git_commit_id": null,
+            "name": "terminal-bench/prove-plus-comm",
+            "ref": "sha256:d5ae25720df1f7cd619ed8408cda4b87b79a3d8b0ff4f1919e2c96e9547339c2",
+            "overwrite": false,
+            "download_dir": null,
+            "source": "terminal-bench/terminal-bench-2-1"
+        },
+        "trial_name": "prove-plus-comm__NNRfRcg",
+        "trials_dir": "/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/codex-subscription-4task/codex-subscription-4task-real-prove-plus-comm--pi-20260824-200807-a76a9d73",
+        "install_only": false,
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": 3.0,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "tbench.subscription_agent:SubscriptionSmokeAgent",
+            "import_path": null,
+            "model_name": "openai/gpt-5.6-sol",
+            "n_concurrent": 1,
+            "concurrency_group": null,
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "resume_trajectory": false,
+            "load_trajectory": null,
+            "extra_allowed_hosts": [],
+            "include_logs": [
+                "*"
+            ],
+            "kwargs": {
+                "harness": "pi",
+                "cell_id": "prove-plus-comm--pi",
+                "mode": "real"
+            },
+            "mcp_servers": []
+        },
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [],
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "extra_instruction_paths": [],
+        "job_id": "f62e54f5-ad85-4d09-b20c-f3c4411de45a",
+        "source_trial": null
+    },
+    "agent_info": {
+        "name": "matched-subscription-smoke",
+        "version": "1.0+84105f07",
+        "model_info": {
+            "name": "gpt-5.6-sol",
+            "provider": "openai"
+        }
+    },
+    "agent_result": null,
+    "verifier_result": null,
+    "verifier_environment_mode": "shared",
+    "exception_info": {
+        "exception_type": "RuntimeError",
+        "exception_message": "could not create subscription staging paths",
+        "exception_traceback": "Traceback (most recent call last):\n  File \"/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/.venv/lib/python3.12/site-packages/harbor/trial/trial.py\", line 375, in run\n    await self._prepare()\n  File \"/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/.venv/lib/python3.12/site-packages/harbor/trial/trial.py\", line 413, in _prepare\n    await self._setup_agent()\n  File \"/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/.venv/lib/python3.12/site-packages/harbor/trial/trial.py\", line 1242, in _setup_agent\n    await asyncio.wait_for(\n  File \"/Users/ryanbrown/.local/share/uv/python/cpython-3.12.11-macos-aarch64-none/lib/python3.12/asyncio/tasks.py\", line 520, in wait_for\n    return await fut\n           ^^^^^^^^^\n  File \"/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/tbench/subscription_agent.py\", line 86, in setup\n    raise RuntimeError(\"could not create subscription staging paths\")\nRuntimeError: could not create subscription staging paths\n",
+        "occurred_at": "2026-08-24T20:08:25.953187Z"
+    },
+    "started_at": "2026-08-24T20:08:09.776605Z",
+    "finished_at": "2026-08-24T20:08:37.510747Z",
+    "environment_setup": {
+        "started_at": "2026-08-24T20:08:09.891761Z",
+        "finished_at": "2026-08-24T20:08:25.827584Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-08-24T20:08:25.827731Z",
+        "finished_at": "2026-08-24T20:08:25.951982Z"
+    },
+    "agent_execution": null,
+    "verifier": null,
+    "step_results": null
+}

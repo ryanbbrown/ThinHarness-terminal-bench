@@ -1,0 +1,24 @@
+{
+    "task": {
+        "name": "terminal-bench/prove-plus-comm",
+        "ref": "sha256:d5ae25720df1f7cd619ed8408cda4b87b79a3d8b0ff4f1919e2c96e9547339c2",
+        "source": "terminal-bench/terminal-bench-2-1"
+    },
+    "trial_name": "prove-plus-comm__NNRfRcg",
+    "trials_dir": "/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/codex-subscription-4task/codex-subscription-4task-real-prove-plus-comm--pi-20260824-200807-a76a9d73",
+    "agent_setup_timeout_multiplier": 3.0,
+    "agent": {
+        "name": "tbench.subscription_agent:SubscriptionSmokeAgent",
+        "model_name": "openai/gpt-5.6-sol",
+        "n_concurrent": 1,
+        "include_logs": [
+            "*"
+        ],
+        "kwargs": {
+            "harness": "pi",
+            "cell_id": "prove-plus-comm--pi",
+            "mode": "real"
+        }
+    },
+    "job_id": "f62e54f5-ad85-4d09-b20c-f3c4411de45a"
+}

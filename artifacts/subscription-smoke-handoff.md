@@ -1,167 +1,49 @@
-# Codex-subscription matched smoke handoff
+# Codex-subscription smoke final handoff
 
-Status: no-model gate passed; no subscription-backed model request has been made.
+Status: `proc_760b` is stopped. The matched comparison is invalid and incomplete. No cell was rerun, the last three cells were not launched, and finalization made no model, Harbor, cproxy, subscription, direct API, or Doppler request.
 
-## Codex login status correction
+The authoritative machine-readable report is `reports/codex-subscription-4task.json`. Its durable copy and all partial evidence are under `artifacts/codex-subscription-4task/`. `SUMMARY.json` contains the same report and `SHA256SUMS.json` covers the preserved evidence files.
 
-Codex CLI `0.147.0` writes `Logged in using ChatGPT` to stderr. The launch script now captures stdout and stderr together, checks the captured value in Bash without a pipe, unsets it before launch, and prints only generic errors. It does not echo Codex status output. A controlled regression emits a private marker and the valid login identity on stderr; the script accepts the identity, does not expose the marker, and reaches two fake `uv` commands without starting Harbor, cproxy, or any model request.
+## Why there is no comparison
 
-## Prelaunch exact-pin bundle update
+The design required eight cells: four tasks on both harnesses. Five cells were attempted. Only two Pi cells reached a verifier. Both ThinHarness attempts failed in the model loop, and the fifth cell failed before its Pi model loop. `prove-plus-comm--thinharness` and both `crack-7z-hash` cells were not launched. No task has completed results from both harnesses. The used tasks cannot be run again, so neither a continuation nor a rerun can restore the frozen matched design. The partial values below are diagnostic evidence, not benchmark results.
 
-The local canonical ThinHarness checkout is clean at later `HEAD` `a2cdebc52e5543e85d0a633b4822f775505fd6ed` and contains the required ancestor `84105f07bb9c1ad366fc8fe4fef49e700f5e88ef`. The override no longer requires `HEAD` to equal the pin. It creates a dedicated `refs/heads/thinharness-pin`, bundles that ref only, requires exactly one advertised bundle head, fetches it into an isolated verification repository, verifies its commit, and proves the later source `HEAD` commit is absent.
+## Attempted cells
 
-The zero-request bundle preview against the canonical checkout reported:
+All times are seconds. Usage comes from complete gateway audits, including a response that the ThinHarness client timed out before receiving. `ordinary` is input minus cached and cache-write tokens.
 
-- advertised head: `84105f07bb9c1ad366fc8fe4fef49e700f5e88ef refs/heads/thinharness-pin`
-- source head excluded: `true`
-- upstream requests: `0`
-- transient preview bundle SHA-256: `e5742e3fceaadf3e3e8bec6ac1e65a79983ed32e2f9229cc3714ee6b885a9105`
-- bundle persisted: `false`
+| cell | outcome / reward | wall / setup / agent phase / verifier | audited requests / runner responses | executed tools | input / ordinary / cached / cache-write / output / reasoning |
+|---|---:|---:|---:|---:|---:|
+| `raman-fitting--pi` | completed / `0` | 451.733851 / 65.395922 / 363.064997 / 8.043638 | 26 / 26 | 27: bash 17, read 5, write 4, edit 1 | 474691 / 46147 / 428544 / 0 / 15852 / 11245 |
+| `raman-fitting--thinharness` | RuntimeError / unavailable | 112.170922 / 87.980229 / 10.641984 / unavailable | 3 / 2 | at least 2: bash, read; complete records unavailable | 4988 / 4988 / 0 / 0 / 501 / 90 |
+| `fix-git--pi` | completed / `1` | 194.862775 / 104.430850 / 71.300712 / 6.226438 | 10 / 10 | 25: bash 22, read 3 | 68912 / 19248 / 49664 / 0 / 2833 / 900 |
+| `fix-git--thinharness` | RuntimeError / unavailable | 31.055965 / 11.859011 / 6.184046 / unavailable | 1 / 0 | 0 executed; response contained 3 bash calls that the client did not receive | 1254 / 1254 / 0 / 0 / 271 / 52 |
+| `prove-plus-comm--pi` | setup RuntimeError / unavailable | 27.734142 / 0.124251 / unavailable / unavailable | 0 / unavailable | 0 | 0 / 0 / 0 / 0 / 0 / 0 |
 
-The existing committed Docker preflight evidence and its original bundle/wheel hashes are unchanged. They remain byte-valid evidence for the earlier no-model run. This update did not replace those artifacts.
+The first timing field after wall is agent setup. Environment setup and the exact timestamps are in the report. Per-request duration, hashes, streaming shape, model identity, tool calls, and token/cache/reasoning usage are also in the report and raw audits. Cash cost is unavailable for every subscription response and was not estimated.
 
-## Selected tasks
+The `raman-fitting--pi` verifier passed file existence and the G peak. It failed only the 2D offset tolerance: expected `1239.09`, got `1469.812`. The other checked 2D values passed. `fix-git--pi` passed both verifier tests.
 
-The exact four matched tasks are:
+## Root causes proven by evidence
 
-1. `raman-fitting`
-2. `fix-git`
-3. `prove-plus-comm`
-4. `crack-7z-hash`
+1. **Both ThinHarness failures used an unintended five-second HTTP timeout.** `tbench/subscription_container.py` creates `httpx.AsyncClient(headers=...)` without a timeout and passes that existing client to `OpenAIProvider`. The provider's separate `timeout=1800` argument does not alter the custom client's five-second default. In `fix-git`, the runner failed after 5.048896 seconds while the gateway completed and audited the response after 7.186541 seconds. In `raman-fitting`, two 2-second responses succeeded; the third took 9.018575 seconds, and the runner failed about five seconds into that request. This explains the blank `provider request failed:` errors and the audit/receipt count differences.
 
-All are in Terminal-Bench 2.1's minimum five-minute expert-time tier. The deterministic rule, image identities, resource bounds, task TOML hashes, and eight-cell order are frozen in `configs/subscription-smoke-selection.json`.
+2. **`prove-plus-comm--pi` failed before the agent loop.** Its root `mkdir -p /opt/thinharness-terminal-bench-subscription /logs/agent` setup command returned nonzero. Agent setup lasted 0.124251 seconds; agent execution is null; no audit or receipt exists. The deeper OS reason is unavailable because the launcher discarded that exec result's stdout/stderr and Harbor's configured `--delete` removed the container. No deeper cause is inferred.
 
-Conservatively excluded prior paid or launched tasks: `build-pmars`, `extract-elf`, `fix-code-vulnerability`, `hf-model-inference`, `kv-store-grpc`, `overfull-hbox`, `regex-log`, `reshard-c4-data`, and `write-compressor`. The previously preserved ignored experiment path was checked and no longer exists. Existing repository receipts and the conservative historical exclusion list were used; selected tasks do not overlap it.
+3. **Launcher ordering turned the fifth cell failure into the run stop and initially omitted it from durable artifacts.** `_run_cell` requires a nonempty gateway audit before `_archive`. `run()` copies run state and selection to the artifact root only after the full loop. The pre-agent failure therefore produced `gateway audit is empty for prove-plus-comm--pi`, stopped the loop, and skipped normal archival. Finalization copied the preserved job, gateway identity, launch receipt, stopped run state, and selection into the artifact root without executing anything.
 
-## Backend proof
+## Exact identities and Codex backend evidence
 
-- Route: per-cell authenticated gateway -> cproxy `0.1.0` at `ef96cbaea614753171627c059297e163fed0bc53` -> `https://chatgpt.com/backend-api/codex/responses`.
-- Authentication: Ryan's host Codex CLI reports `Logged in using ChatGPT`. cproxy successfully validated the host OAuth file. OAuth was not copied into either task container.
-- The real backend preflight started the exact cproxy route, validated OAuth, made zero subscription requests, and made zero upstream network requests.
-- The controlled gateway contract accepted ThinHarness non-streaming Responses JSON and Pi streaming Responses SSE, returned exact `gpt-5.6-sol` identity, and supplied input, cached input, cache-write, output, and reasoning usage.
-- The gateway rejects an absent or wrong random per-cell bearer, records every sanitized request and complete response, and stops after each cell. No bearer is committed.
-- Direct OpenAI and Doppler credentials are rejected before launch.
+- Benchmark run commit: `fe70ddd7f99fb02857f256b77137364d0a06ea9f`.
+- Harbor `0.21.0`; dataset `terminal-bench/terminal-bench-2-1@sha256:7d7bdc1cbedad549fc1140404bd4dc45e5fd0ea7c4186773687d177ad3a0699a`.
+- Model `gpt-5.6-sol`; reasoning `xhigh`, summary `auto`; text verbosity `low`; prompt SHA-256 `bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e`.
+- Pi package `@earendil-works/pi-coding-agent` `0.84.2`; Node `22.23.1`; package-lock SHA-256 `0f34d01dda1837fd634d0562d2c0350ff982da133de59f36fccdac62835fc1c0`.
+- ThinHarness `0.7.0` at `84105f07bb9c1ad366fc8fe4fef49e700f5e88ef`; transient bundle SHA-256 `cda1f1d8648d7e1e60848ec63326958cdb546f5c4e59ac6ae62340cb52eda710`. The `raman-fitting` receipt records Python 3.13.7 and wheel SHA-256 `8b5312f511664227c88fb40d378756266d0966a05b1c87381874ccf92d63be46`. The `fix-git` receipt records Python 3.13.12 and wheel SHA-256 `83321ed125ca3900059b37ea7a505081475632101dd590554ed82b8dcff824d4`.
+- cproxy `0.1.0` at `ef96cbaea614753171627c059297e163fed0bc53`; route `https://chatgpt.com/backend-api/codex/responses`; zero retries.
+- All five gateway identities say host Codex OAuth validation succeeded and OAuth was not persisted. The four request-bearing cells preserve 40 successful upstream responses. Every response identifies `gpt-5.6-sol` and has usage. Aggregate audited usage is 549845 input, 478208 cached input, 0 cache-write, 19457 output, and 12287 reasoning tokens. Launch receipts set `direct_openai` false. No bearer or OAuth file is preserved.
 
-## Native in-container proof
+## Missing data and blockers
 
-Two real Harbor/Docker `fix-git` preflight trials ran with no subscription call:
+Rewards and verifier data are unavailable for both ThinHarness cells and `prove-plus-comm--pi`. ThinHarness failure receipts have no terminal `RunResult`, aggregate usage, stop reason, or complete executed-tool records. The third `raman-fitting` response's five calls and the first `fix-git` response's three calls were emitted by the backend but not received by the timed-out clients. All execution fields are unavailable for the three unlaunched cells. The setup command's underlying OS error and subscription cash cost are unavailable.
 
-- Pi `0.84.2`, Node `22.23.1`, package-lock SHA-256 `0f34d01dda1837fd634d0562d2c0350ff982da133de59f36fccdac62835fc1c0`.
-- ThinHarness `0.7.0`, exact commit `84105f07bb9c1ad366fc8fe4fef49e700f5e88ef`, transient bundle SHA-256 `3762a6c9275b884406ededa4207dcacb91cee2ad0dd2b72377bf8d88f46be82b`, in-container wheel SHA-256 `40033931385540a8cdb08a73c4259aa294b66ed74821f89ed70c37c556548ec9`.
-- Both loops executed at `/app` with native `read`, `bash`, `edit`, and `write` tools.
-- A controlled fake first response invoked each native Bash tool. Both proved no reusable OAuth or direct API credential exists in the task container. The second fake response ended the loop and handed the workspace to Harbor's verifier.
-- Each preflight made two controlled fake requests, one native Bash call, zero real model requests, and got the expected unsolved verifier reward `0.0`.
-- ThinHarness source and bundle staging were removed. No bundle or product source is in this repository.
-
-Durable evidence is under `artifacts/codex-subscription-4task-preflight/`. The reproduced summary is `reports/codex-subscription-4task-preflight.json`.
-
-## Matched settings and unavoidable differences
-
-Matched: `gpt-5.6-sol`, xhigh reasoning, summary auto, low text verbosity, frozen prompt hash `bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e`, task, `/app` root, native tool names, one attempt, concurrency one, and zero retries.
-
-Unavoidable and recorded:
-
-- Pi requires streaming Responses. The gateway re-emits cproxy's complete response as SSE. ThinHarness consumes the same response as non-streaming JSON.
-- Native tool schemas and declaration order differ. The gateway preserves both exact schema payloads.
-- Pi serializes the same frozen prompt through its native developer/system input; ThinHarness uses native Responses instructions.
-- Pi 0.84.2 native Bash inherits the ephemeral gateway bearer from process environment. ThinHarness filters it. The bearer is not OAuth, expires with the one-cell gateway, and every use is audited.
-- The subscription backend provides usage, not cash cost. Reports must keep cash cost unavailable and must not estimate API cost.
-
-## Validation
-
-- The original committed gate ran 48 pytest tests. The current exact-pin update runs 49 tests, including clean `HEAD`-ahead regressions for both launch paths.
-- Ruff passed.
-- Pyright reported zero errors and warnings.
-- Repository boundary and secret checks passed.
-- Both real Docker preflight trials passed without agent exceptions and reached the verifier.
-- The durable artifact validator and SHA-256 manifest passed and reproduced the committed summary.
-- Project sdist and wheel built; the wheel contains no `thinharness/` product package.
-- The benchmark has no remote, no bundle, and no pushed result. `FIRSTMATE-QUEUE.md` was not edited.
-
-## Safe zero-request preview
-
-```bash
-env -u OPENAI_API_KEY -u ANTHROPIC_API_KEY -u OPENROUTER_API_KEY \
-  TB_THINHARNESS_LOCAL_SOURCE=/Users/ryanbrown/code/thinharness \
-  uv run python -m tbench.subscription_launch bundle-preview
-```
-
-This command does not start Harbor, the gateway, cproxy, or any upstream request.
-
-## Safe authorized launch
-
-```bash
-env -u OPENAI_API_KEY -u ANTHROPIC_API_KEY -u OPENROUTER_API_KEY \
-  TB_THINHARNESS_LOCAL_SOURCE=/Users/ryanbrown/code/thinharness \
-  ./scripts/run-subscription-smoke.sh
-```
-
-The launcher will run eight cells sequentially and refuse to replace existing durable output. Expected output:
-
-- `artifacts/codex-subscription-4task/cells/<task>--<harness>/`
-- `artifacts/codex-subscription-4task/SUMMARY.json`
-- `artifacts/codex-subscription-4task/SHA256SUMS.json`
-- `reports/codex-subscription-4task.json`
-
-The final report will preserve rewards, complete Harbor timing, request and tool counts, backend token/cache/cache-write/output/reasoning usage, complete gateway request/response traces, native tool traces, versions, commits, logs, and pairwise trace observations. Missing fields remain unavailable rather than inferred.
-
-## Blockers
-
-No pre-spend blocker remains. Residual operational risk: cproxy uses an undocumented ChatGPT Codex backend contract. The launcher stops on the first identity, usage, authentication, protocol, or evidence failure and has no retry path.
-
-```acceptance-report
-{
-  "criteriaSatisfied": [
-    {
-      "id": "criterion-1",
-      "status": "satisfied",
-      "evidence": "The launch script captures both Codex login-status streams, recognizes ChatGPT login reported on stderr, removes the captured value, and never displays status details."
-    },
-    {
-      "id": "criterion-2",
-      "status": "satisfied",
-      "evidence": "A controlled stderr regression proves valid login acceptance, private output suppression, and handoff only to fake uv commands; the full 50-test no-model and static suite passes."
-    }
-  ],
-  "changedFiles": [
-    "artifacts/subscription-smoke-handoff.md",
-    "scripts/run-subscription-smoke.sh",
-    "tests/test_subscription_script.py"
-  ],
-  "testsAddedOrUpdated": [
-    "tests/test_subscription_script.py: models Codex 0.147.0 status on stderr and proves private status details are not exposed"
-  ],
-  "commandsRun": [
-    {
-      "command": "uv run --extra dev pytest tests/test_subscription_script.py -q",
-      "result": "passed",
-      "summary": "The controlled stderr regression passed."
-    },
-    {
-      "command": "./scripts/no-model-checks.sh",
-      "result": "passed",
-      "summary": "50 tests, Ruff, Pyright, repository boundary, and secret checks passed."
-    },
-    {
-      "command": "bash -n scripts/run-subscription-smoke.sh; git diff --check",
-      "result": "passed",
-      "summary": "Shell syntax and patch whitespace are valid."
-    }
-  ],
-  "validationOutput": [
-    "Controlled Codex status was emitted on stderr and accepted.",
-    "The private-status-detail marker was absent from script stdout and stderr.",
-    "Only two fake uv commands ran; Harbor and cproxy were not started.",
-    "No subscription-backed, direct OpenAI, or Doppler request was made."
-  ],
-  "residualRisks": [
-    "The undocumented ChatGPT Codex backend contract remains an operational risk for the later authorized eight-cell run."
-  ],
-  "noStagedFiles": true,
-  "diffSummary": "Capture Codex login status from both streams without displaying it, then test the stderr behavior with controlled fake executables.",
-  "reviewFindings": [
-    "parent validation reviewer gate: pending parent orchestration"
-  ],
-  "manualNotes": "No Harbor process, cproxy request, subscription request, push, remote, or FIRSTMATE-QUEUE.md edit occurred."
-}
-```
+The permanent blocker is the task reuse rule: five selected cells were already attempted, while the eight-cell matched design requires all original cells. The report therefore makes no pairwise or aggregate Pi-versus-ThinHarness claim.

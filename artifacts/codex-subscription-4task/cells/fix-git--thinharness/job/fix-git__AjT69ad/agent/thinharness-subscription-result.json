@@ -1,0 +1,239 @@
+{
+  "agent_seconds": 5.0488956689999895,
+  "backend": "cproxy-codex-subscription",
+  "cell_id": "fix-git--thinharness",
+  "codex_oauth_in_container": false,
+  "direct_openai": false,
+  "error": {
+    "message": "provider request failed: ",
+    "type": "HarnessError"
+  },
+  "execution": {
+    "cwd": "/app",
+    "execution": "harbor-task-container",
+    "hostname": "c0b52c1b7bdf",
+    "machine": "x86_64",
+    "os_release": {
+      "ID": "debian",
+      "PRETTY_NAME": "Debian GNU/Linux 12 (bookworm)",
+      "VERSION_ID": "12"
+    },
+    "pid": 79,
+    "platform": "Linux-6.12.76-linuxkit-x86_64-with-glibc2.36",
+    "python": "3.13.12 (main, Mar 16 2026, 23:05:54) [GCC 12.2.0]",
+    "root": "/app",
+    "uid": 0
+  },
+  "gateway_base_url": "http://host.docker.internal:58409/v1",
+  "harness": "thinharness",
+  "harness_version": "0.7.0",
+  "install": {
+    "build_location": "harbor-task-container",
+    "canonical_commit": "84105f07bb9c1ad366fc8fe4fef49e700f5e88ef",
+    "harness": "thinharness",
+    "installed_version": "0.7.0",
+    "platform": "Linux-6.12.76-linuxkit-x86_64-with-glibc2.36",
+    "python": "3.13.12 (main, Mar 16 2026, 23:05:54) [GCC 12.2.0]",
+    "schema_version": 1,
+    "source_bundle_sha256": "cda1f1d8648d7e1e60848ec63326958cdb546f5c4e59ac6ae62340cb52eda710",
+    "source_mode": "transient-local-git-bundle",
+    "wheel_path": "/opt/thinharness-subscription-wheels/thinharness-0.7.0-py3-none-any.whl",
+    "wheel_sha256": "83321ed125ca3900059b37ea7a505081475632101dd590554ed82b8dcff824d4"
+  },
+  "kind": "subscription-smoke-cell",
+  "mode": "real",
+  "model": "gpt-5.6-sol",
+  "process_security": {
+    "cap_eff_hex": "a80425fb",
+    "cap_sys_ptrace": false,
+    "dumpable": 0,
+    "platform": "linux",
+    "procfs": true
+  },
+  "prompt_sha256": "bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e",
+  "reasoning": {
+    "effort": "xhigh",
+    "summary": "auto"
+  },
+  "request_count": 0,
+  "requests": [],
+  "response_models": [],
+  "responses": [],
+  "retries": {
+    "agent_output": 0,
+    "agent_tool": 0,
+    "provider": 0
+  },
+  "schema_version": 1,
+  "stop_reason": null,
+  "text": {
+    "verbosity": "low"
+  },
+  "text_output": null,
+  "thinharness_commit": "84105f07bb9c1ad366fc8fe4fef49e700f5e88ef",
+  "tool_call_names": [],
+  "tool_call_records": [],
+  "tool_count": 0,
+  "tool_names": [
+    "bash",
+    "read",
+    "edit",
+    "write"
+  ],
+  "tool_origins": {
+    "bash": {
+      "plugin": "bash",
+      "source": "bash"
+    },
+    "edit": {
+      "plugin": "filesystem",
+      "source": "edit"
+    },
+    "read": {
+      "plugin": "filesystem",
+      "source": "read"
+    },
+    "write": {
+      "plugin": "filesystem",
+      "source": "write"
+    }
+  },
+  "tool_schemas": [
+    {
+      "description": "Run one non-interactive Bash command. The cwd must be inside the workspace. Each call starts a fresh shell and does not share shell state with other calls. Background processes in the same process group are terminated on a best-effort basis. timeout is in seconds and is capped by the host.",
+      "name": "bash",
+      "parameters": {
+        "additionalProperties": false,
+        "description": "Model arguments for one Bash call.",
+        "properties": {
+          "command": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "cwd": {
+            "default": ".",
+            "type": "string"
+          },
+          "timeout": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "command"
+        ],
+        "type": "object"
+      },
+      "type": "function"
+    },
+    {
+      "description": "Read a UTF-8 text file with line numbers and optional offset/limit.",
+      "name": "read",
+      "parameters": {
+        "additionalProperties": false,
+        "description": "Arguments for read.",
+        "properties": {
+          "limit": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "max_chars": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "offset": {
+            "default": 1,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "path": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "path"
+        ],
+        "type": "object"
+      },
+      "type": "function"
+    },
+    {
+      "description": "Apply one or more exact text replacements to UTF-8 files. Each old_string must be unique unless all=true.",
+      "name": "edit",
+      "parameters": {
+        "additionalProperties": false,
+        "description": "Arguments for edit.",
+        "properties": {
+          "edits": {
+            "items": {
+              "additionalProperties": false,
+              "description": "One exact replacement for edit.",
+              "properties": {
+                "all": {
+                  "default": false,
+                  "type": "boolean"
+                },
+                "expected_replacements": {
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "new_string": {
+                  "type": "string"
+                },
+                "old_string": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "old_string",
+                "new_string"
+              ],
+              "type": "object"
+            },
+            "minItems": 1,
+            "type": "array"
+          }
+        },
+        "required": [
+          "edits"
+        ],
+        "type": "object"
+      },
+      "type": "function"
+    },
+    {
+      "description": "Create, overwrite, or append to a UTF-8 text file under the workspace root.",
+      "name": "write",
+      "parameters": {
+        "additionalProperties": false,
+        "description": "Arguments for write.",
+        "properties": {
+          "append": {
+            "default": false,
+            "type": "boolean"
+          },
+          "content": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "path",
+          "content"
+        ],
+        "type": "object"
+      },
+      "type": "function"
+    }
+  ],
+  "usage": null,
+  "verifier_handoff": {
+    "ready": false,
+    "workspace": "/app"
+  }
+}

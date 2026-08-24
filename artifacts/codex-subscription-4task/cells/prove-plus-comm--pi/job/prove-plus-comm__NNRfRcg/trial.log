@@ -1,0 +1,3 @@
+Skipping image OS validation for alexgshaw/prove-plus-comm:20251031: docker inspect returned 1
+Trial prove-plus-comm__NNRfRcg failed: could not create subscription staging paths
+Collecting main service artifacts
