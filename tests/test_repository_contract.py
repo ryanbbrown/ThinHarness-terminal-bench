@@ -11,6 +11,7 @@ def test_repository_contains_no_product_or_runnable_proxy_adapter() -> None:
     check()
 
     assert not (REPOSITORY_ROOT / "thinharness").exists()
+    assert not [path for path in REPOSITORY_ROOT.rglob("*.bundle") if ".git" not in path.parts]
     assert not [path for path in REPOSITORY_ROOT.rglob("adapter.py") if ".venv" not in path.parts]
 
 

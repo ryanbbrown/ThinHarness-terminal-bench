@@ -7,7 +7,7 @@ This repository reproduces one ThinHarness run on Terminal-Bench 2.1. It owns Ha
 - Harbor: `0.21.0`
 - Dataset: `terminal-bench/terminal-bench-2-1@sha256:7d7bdc1cbedad549fc1140404bd4dc45e5fd0ea7c4186773687d177ad3a0699a`
 - Task: `terminal-bench/regex-log`
-- ThinHarness: canonical commit `758fcf305e468138b03723760d477444592b1916`
+- ThinHarness: candidate commit `84105f07bb9c1ad366fc8fe4fef49e700f5e88ef`
 - Model: direct OpenAI Responses API, `gpt-5.6-sol`, xhigh reasoning, low text verbosity
 - Prompt SHA-256: `bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e`
 - Attempts and concurrency: 1
@@ -18,7 +18,9 @@ This repository reproduces one ThinHarness run on Terminal-Bench 2.1. It owns Ha
 
 `NativeThinHarnessAgent` runs on the host only because Harbor needs an agent object. It creates a staging directory, uploads this repository's runner controls, starts setup and run processes, and copies receipts. It does not import ThinHarness and does not define model-facing tools.
 
-The setup process runs inside the task container. It clones the canonical ThinHarness repository at the exact commit, builds a wheel, hashes it, installs it in an isolated environment, and records package and environment identity. The model loop also runs there. It uses ThinHarness `BashPlugin` and `FilesystemPlugin` with frozen complete native `bash`, `read`, `edit`, and `write` schemas rooted at `/app`. The credential enters through a short-lived anonymous descriptor, not the model-loop environment. Before native tools run, the Linux parent becomes non-dumpable and verifies that `CAP_SYS_PTRACE` is absent. The Docker preflight requires native Bash to lack the sentinel in its environment and to receive permission denied for `/proc/<parent>/environ`.
+The setup process runs inside the task container. By default it clones canonical GitHub at the exact commit. For an explicitly authorized unpublished candidate, `TB_THINHARNESS_LOCAL_SOURCE` creates one self-cleaning exact-HEAD git bundle, stages it into Harbor, and removes both host and container bundle staging after the in-container SHA check. The repository never stores the bundle, source checkout, or local path. Both source modes build the wheel inside the task container, hash it, install it in an isolated environment, and record package and source identity.
+
+The model loop also runs there. It uses ThinHarness `BashPlugin` and `FilesystemPlugin` with frozen complete native `bash`, `read`, `edit`, and `write` schemas rooted at `/app`. The controlled no-model preflight forces native Bash past its output bound, verifies the bounded model-facing result, downloads the complete `.thinharness/outputs` artifact to durable Harbor logs, checks exact bytes and SHA-256, and removes the container artifact before verifier handoff. The credential enters through a short-lived anonymous descriptor, not the model-loop environment. Before native tools run, the Linux parent becomes non-dumpable and verifies that `CAP_SYS_PTRACE` is absent.
 
 The agent writes the API ledger and result under `/logs/agent`, Harbor's durable agent-log mount. Harbor receives control only after the in-container process ends and then runs the task verifier against the same `/app` workspace.
 
@@ -29,9 +31,12 @@ Prerequisites: Docker and `uv`. Do not set `OPENAI_API_KEY` for these commands.
 ```bash
 ./scripts/no-model-checks.sh
 ./scripts/container-preflight.sh
+
+# Explicit temporary override only while the pinned commit is not on canonical GitHub:
+TB_THINHARNESS_LOCAL_SOURCE=/path/to/clean/thinharness ./scripts/container-preflight.sh
 ```
 
-The first command runs behavior tests, lint, types, boundary checks, and secret scans. The second runs the actual Harbor staging path on `regex-log`. It builds and installs the pinned wheel, inspects native tool schemas, makes zero model calls, returns to Harbor, and lets Harbor invoke the verifier. The unsolved preflight task is expected to get verifier reward 0; its purpose is to prove the handoff without spend.
+The first command runs behavior tests, lint, types, boundary checks, and secret scans. The second runs the actual Harbor staging path on `regex-log`. It builds and installs the pinned wheel, inspects native tool schemas, proves native Bash overflow artifact behavior and credential isolation, makes zero model calls, returns to Harbor, and lets Harbor invoke the verifier. The unsolved preflight task is expected to get verifier reward 0; its purpose is to prove the handoff without spend.
 
 ## Run the one paid task
 
@@ -39,6 +44,9 @@ Put `OPENAI_API_KEY` in the process environment through a secure shell or secret
 
 ```bash
 ./scripts/run-paid.sh
+
+# Use the same explicit temporary override only while canonical GitHub lacks the pin:
+TB_THINHARNESS_LOCAL_SOURCE=/path/to/clean/thinharness ./scripts/run-paid.sh
 ```
 
 The launcher writes a fail-closed prelaunch state before Harbor starts. Each request reserves the maximum affordable direct-API cost before network access. It settles only after exact model identity and complete token details are present. A network failure, missing usage, identity mismatch, interruption, or corrupt ledger leaves the attempt blocked. No wrapper retries occur.
@@ -46,12 +54,12 @@ The launcher writes a fail-closed prelaunch state before Harbor starts. Each req
 After Harbor exits, validate the single job directory:
 
 ```bash
-uv run python -m tbench.validate paid jobs/<job-name> --report reports/implementation-e2e.json
+uv run python -m tbench.validate paid jobs/<job-name> --report reports/implementation-e2e-84105f07.json
 ```
 
 A valid result requires reward `1.0`, exact response identity, a completed ledger, every request receipt, all token classes, the pinned wheel and commit, container identity, and both spend caps.
 
-The implementation E2E result is committed in `artifacts/paid-e2e/` and `reports/implementation-e2e.json`: reward 1.0, four requests, three tool calls, and corrected USD 0.12674175 API-equivalent spend. The immutable original ledger remains unchanged at USD 0.096848; `corrected-accounting-reconciliation.json` prices its raw cache-write tokens at the preserved USD 6.25/million rate. Do not rerun it as a setup check.
+The prior `758fcf30` E2E result remains immutable in `artifacts/paid-e2e/` and `reports/implementation-e2e.json`: reward 1.0 and corrected USD 0.12674175 API-equivalent spend. It is included in the USD 1.00 cumulative cap. The one newly authorized `84105f07` result belongs in `artifacts/paid-e2e-84105f07/` and `reports/implementation-e2e-84105f07.json`; the launcher refuses a duplicate attempt for that commit.
 
 ## Evidence boundary
 

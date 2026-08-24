@@ -10,6 +10,7 @@ import hashlib
 import json
 import os
 import platform
+import shlex
 import socket
 import sys
 import time
@@ -83,6 +84,82 @@ def _staged_control_hashes() -> dict[str, str]:
             raise RuntimeError(f"staged control is missing: {name}")
         result[name] = _sha256_bytes(path.read_bytes())
     return result
+
+
+async def _native_bash_overflow(harness: Any) -> dict[str, Any]:
+    """Prove native Bash overflow artifacts without a model request."""
+    bash_tool = next((tool for tool in harness.tools if tool.name == "bash"), None)
+    if bash_tool is None or bash_tool.origin is None or bash_tool.origin.plugin != "bash":
+        raise RuntimeError("native Bash plugin tool is missing for overflow preflight")
+    expected = b"0123456789abcdef" * 8192
+    expected_sha256 = _sha256_bytes(expected)
+    code = 'import os; os.write(1, b"0123456789abcdef" * 8192)'
+    args = bash_tool.parameters.model_validate(
+        {"command": f"/usr/bin/python3 -c {shlex.quote(code)}", "cwd": CONTAINER_ROOT, "timeout": 10}
+    )
+    result = await bash_tool.handler(args)
+    metadata = result.metadata
+    relative_path = metadata.get("stdout_artifact_path")
+    if not result.ok or metadata.get("stdout_truncated") is not True:
+        raise RuntimeError(f"native Bash overflow did not truncate successfully: {result.content}")
+    if not isinstance(relative_path, str) or Path(relative_path).is_absolute():
+        raise RuntimeError("native Bash overflow artifact path is not relative")
+    if Path(relative_path).parent != Path(".thinharness/outputs"):
+        raise RuntimeError("native Bash overflow artifact path escaped its private output root")
+    artifact = (Path(CONTAINER_ROOT) / relative_path).resolve()
+    root = Path(CONTAINER_ROOT).resolve()
+    if root not in artifact.parents or not artifact.is_file():
+        raise RuntimeError("native Bash overflow artifact is not a contained file")
+    full = artifact.read_bytes()
+    if full != expected:
+        raise RuntimeError("native Bash overflow artifact does not contain the complete output")
+    model_facing_bytes = len(result.content.encode("utf-8"))
+    if model_facing_bytes >= len(full) or model_facing_bytes > 42_000:
+        raise RuntimeError("native Bash overflow model-facing result is not bounded")
+    retrieval_code = (
+        "import hashlib,pathlib; p=pathlib.Path(" + repr(relative_path) + "); "
+        "b=p.read_bytes(); print(len(b), hashlib.sha256(b).hexdigest())"
+    )
+    retrieval_args = bash_tool.parameters.model_validate(
+        {"command": f"/usr/bin/python3 -c {shlex.quote(retrieval_code)}", "cwd": CONTAINER_ROOT, "timeout": 10}
+    )
+    retrieval = await bash_tool.handler(retrieval_args)
+    expected_line = f"{len(expected)} {expected_sha256}"
+    if not retrieval.ok or expected_line not in retrieval.content:
+        raise RuntimeError("native Bash could not retrieve and verify the complete overflow artifact")
+    retained_ranges = metadata.get("stdout_retained_ranges")
+    if not isinstance(retained_ranges, list):
+        raise RuntimeError("native Bash overflow omitted retained byte ranges")
+    retained_bytes = sum(end - start for start, end in retained_ranges)
+    return {
+        "native_tool": "bash",
+        "plugin_origin": bash_tool.origin.plugin,
+        "tool_source": bash_tool.origin.source,
+        "max_output_bytes": 40_000,
+        "model_facing_result_bytes": model_facing_bytes,
+        "model_facing_result_bounded": True,
+        "model_facing_result_contains_truncation_marker": "bytes omitted" in result.content,
+        "full_output_bytes": len(full),
+        "full_output_sha256": expected_sha256,
+        "stdout_bytes": metadata.get("stdout_bytes"),
+        "stdout_omitted_bytes": metadata.get("stdout_omitted_bytes"),
+        "stdout_retained_ranges": retained_ranges,
+        "retained_bytes": retained_bytes,
+        "stdout_drain_complete": metadata.get("stdout_drain_complete"),
+        "artifact_path": relative_path,
+        "artifact_path_relative": True,
+        "artifact_path_contained_by_root": True,
+        "artifact_resolved_path": str(artifact),
+        "artifact_full_bytes_verified": True,
+        "retrieval": {
+            "native_tool": "bash",
+            "ok": retrieval.ok,
+            "expected_line": expected_line,
+            "content": retrieval.content,
+            "metadata": retrieval.metadata,
+        },
+        "first_call": {"ok": result.ok, "content": result.content, "metadata": metadata},
+    }
 
 
 async def _native_bash_credential_isolation(harness: Any) -> dict[str, Any]:
@@ -377,6 +454,7 @@ async def preflight(args: argparse.Namespace) -> int:
             "process_security": security,
             "native_bash": await _native_bash_credential_isolation(harness),
         },
+        "native_bash_overflow": await _native_bash_overflow(harness),
         "staged_control_sha256": _staged_control_hashes(),
         "root": str(harness.root),
         "tools": _tool_evidence(harness),

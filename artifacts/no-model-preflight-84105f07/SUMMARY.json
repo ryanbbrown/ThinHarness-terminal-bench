@@ -1,0 +1,87 @@
+{
+  "credential_isolation": {
+    "native_bash": {
+      "native_tool": "bash",
+      "own_environment_openai_key_absent": true,
+      "own_environment_sentinel_absent": true,
+      "parent_environ_read_blocked": true,
+      "result": {
+        "content": "stdout:\ncredential isolation verified\n\nstderr:\n(no output)",
+        "metadata": {
+          "cwd": "/app",
+          "duration_seconds": 0.113,
+          "exit_code": 0,
+          "stderr_bytes": 0,
+          "stderr_truncated": false,
+          "stdout_bytes": 30,
+          "stdout_truncated": false,
+          "timed_out": false,
+          "timeout_seconds": 10.0
+        },
+        "ok": true
+      }
+    },
+    "ordinary_inheritance_removed": true,
+    "process_security": {
+      "cap_eff_hex": "a80425fb",
+      "cap_sys_ptrace": false,
+      "dumpable": 0,
+      "platform": "linux",
+      "procfs": true
+    },
+    "sentinel_sha256": "b914aadf2f5941f365c8a09b0c3b80a77d9bd76f2093b202d5662d72578b149b"
+  },
+  "environment": {
+    "cwd": "/app",
+    "execution": "harbor-task-container",
+    "hostname": "2e648614f177",
+    "machine": "x86_64",
+    "os_release": {
+      "ID": "ubuntu",
+      "PRETTY_NAME": "Ubuntu 24.04.3 LTS",
+      "VERSION_ID": "24.04"
+    },
+    "pid": 21,
+    "pid1_cgroup_sha256": "e57fd7b21104f091de366ace1464596378a498b0a5e63f1b21147a8998c20107",
+    "platform": "Linux-6.12.76-linuxkit-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "python_executable": "/opt/thinharness-venv/bin/python",
+    "uid": 0,
+    "workspace_root": "/app"
+  },
+  "model_calls": 0,
+  "overflow": {
+    "artifact_path": ".thinharness/outputs/bash-1787594617718135799-325651ee744846eea7c60d03135760b0-stdout.bin",
+    "container_artifact_removed": true,
+    "durable_artifact": "artifacts/no-model-preflight-84105f07/bash-overflow-full.bin",
+    "full_output_bytes": 131072,
+    "full_output_sha256": "a2706a20394e48179a86c71e82c360c2960d3652340f9b9fdb355a42e3ac7691",
+    "model_facing_result_bytes": 40258,
+    "native_tool": "bash",
+    "plugin_origin": "bash",
+    "retrieval_verified": true,
+    "stdout_omitted_bytes": 91072
+  },
+  "passed": true,
+  "prompt_sha256": "bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e",
+  "schema_version": 1,
+  "source_bundle_container_removed": true,
+  "source_bundle_sha256": "fde7f901dd2005e1f0b59e4b53b419bd179b650d858b60464eae77b4b97822fb",
+  "source_mode": "local-git-bundle-override",
+  "thinharness_commit": "84105f07bb9c1ad366fc8fe4fef49e700f5e88ef",
+  "tool_names": [
+    "bash",
+    "read",
+    "edit",
+    "write"
+  ],
+  "tool_schema_sha256": {
+    "bash": "6c5839686662a1a960f70d99800765b8e75823c09e69abf5fed5c595272467c4",
+    "edit": "e60622ad6b3d61e87b4119972e1eda33ab08bc88f95d803608c8ec986a8c5a3e",
+    "read": "4bf95fa07a05e1244e996d8d8ead30082ecd148051785b4609826752c9c47b39",
+    "write": "fbb2cc1304de524a51fc0d7168f82c5200060d739f6a085d253fb03bb7e6b1ef"
+  },
+  "verifier_ran": true,
+  "verifier_reward_expected_for_unsolved_preflight": 0.0,
+  "wheel_sha256": "ef76fbd8d4e61d5f117498d17cc6102ee68af40ce3bc8862877f9ce218364b4c"
+}

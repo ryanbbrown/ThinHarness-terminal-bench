@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import json
 from pathlib import Path
 
@@ -29,7 +30,10 @@ class FakeEnvironment:
         self.uploads.append((Path(source_path), target_path))
 
     async def download_file(self, source_path, target_path):
-        Path(target_path).write_text(json.dumps(self.preflight))
+        if str(source_path).endswith(".json"):
+            Path(target_path).write_text(json.dumps(self.preflight))
+        else:
+            Path(target_path).write_bytes(b"0123456789abcdef" * 8192)
 
 
 class Context:
@@ -41,7 +45,17 @@ class Context:
 
 @pytest.mark.asyncio
 async def test_preflight_agent_only_stages_and_launches_container_process(tmp_path: Path) -> None:
-    preflight = {"kind": "no-model-container-preflight", "model_calls": 0, "thinharness_commit": THINHARNESS_COMMIT}
+    full = b"0123456789abcdef" * 8192
+    preflight = {
+        "kind": "no-model-container-preflight",
+        "model_calls": 0,
+        "thinharness_commit": THINHARNESS_COMMIT,
+        "native_bash_overflow": {
+            "artifact_path": ".thinharness/outputs/bash-test-stdout",
+            "full_output_sha256": hashlib.sha256(full).hexdigest(),
+            "full_output_bytes": len(full),
+        },
+    }
     environment = FakeEnvironment(preflight)
     agent = NativeThinHarnessAgent(logs_dir=tmp_path, model_name=MODEL_REF, preflight_only=True)
     context = Context()
@@ -52,10 +66,13 @@ async def test_preflight_agent_only_stages_and_launches_container_process(tmp_pa
     targets = {target for _, target in environment.uploads}
     assert "/opt/thinharness-terminal-bench/container_runner.py" in targets
     assert "/opt/thinharness-terminal-bench/system-prompt.md" in targets
-    assert len(environment.execs) == 2
+    assert len(environment.execs) == 4
     assert environment.execs[0]["command"].startswith("mkdir -p")
     assert environment.execs[1]["command"].startswith("bash /opt/thinharness-terminal-bench/install-in-container.sh")
+    assert environment.execs[2]["command"].startswith("rm -f -- /opt/thinharness-terminal-bench/thinharness-source.bundle")
+    assert environment.execs[3]["command"].startswith("rm -f -- /app/.thinharness/outputs/")
     assert all(item["env"] is None for item in environment.execs)
+    assert (tmp_path / "bash-overflow-full.bin").read_bytes() == full
     assert context.metadata is not None
     assert context.metadata["mode"] == "no-model-preflight"
     assert context.metadata["model_requests"] == 0

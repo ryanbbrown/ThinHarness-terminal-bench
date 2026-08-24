@@ -33,8 +33,10 @@
   },
   "thinharness": {
     "repository": "https://github.com/ryanbbrown/thinharness.git",
-    "commit": "758fcf305e468138b03723760d477444592b1916",
-    "install": "wheel-built-inside-task-container"
+    "commit": "84105f07bb9c1ad366fc8fe4fef49e700f5e88ef",
+    "install": "wheel-built-inside-task-container",
+    "source_default": "canonical-github",
+    "unpublished_candidate_override": "explicit-transient-local-git-bundle"
   },
   "prompt": {
     "path": "prompts/pi-0.84.2-system-prompt.md",

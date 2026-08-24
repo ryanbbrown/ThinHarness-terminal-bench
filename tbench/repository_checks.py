@@ -15,6 +15,9 @@ def check() -> None:
     product_dir = REPOSITORY_ROOT / "thinharness"
     if product_dir.exists():
         raise RuntimeError("ThinHarness product source directory is forbidden")
+    bundles = [path for path in REPOSITORY_ROOT.rglob("*.bundle") if ".git" not in path.parts]
+    if bundles:
+        raise RuntimeError(f"transient ThinHarness source bundle entered the repository: {bundles}")
     forbidden_names = {"adapter.py", "pi_cproxy.py", "pi_direct_openai.py", "pi_native_codex.py"}
     found = sorted(
         path

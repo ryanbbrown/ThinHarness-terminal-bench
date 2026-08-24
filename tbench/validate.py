@@ -18,6 +18,7 @@ from .constants import (
     CONTAINER_ROOT,
     DATASET_DIGEST,
     IMPLEMENTATION_BUDGET_USD,
+    LEGACY_THINHARNESS_COMMIT,
     MODEL_ID,
     OPENAI_BASE_URL,
     PROMPT_PATH,
@@ -58,6 +59,8 @@ def validate_container_preflight(
     *,
     compare_repository_controls: bool = True,
     require_credential_isolation: bool = True,
+    require_native_bash_overflow: bool = True,
+    expected_thinharness_commit: str = THINHARNESS_COMMIT,
 ) -> dict[str, Any]:
     """Validate native plugins, schemas, roots, isolation, pins, and zero calls."""
     value = _read(path)
@@ -67,8 +70,17 @@ def validate_container_preflight(
     _equal(value.get("root"), CONTAINER_ROOT, "harness root")
     _equal(value.get("execution", {}).get("execution"), "harbor-task-container", "execution location")
     _equal(value.get("execution", {}).get("cwd"), CONTAINER_ROOT, "process cwd")
-    _equal(value.get("thinharness", {}).get("canonical_commit"), THINHARNESS_COMMIT, "ThinHarness commit")
-    _equal(value.get("thinharness", {}).get("install", {}).get("canonical_commit"), THINHARNESS_COMMIT, "wheel source commit")
+    _equal(value.get("thinharness", {}).get("canonical_commit"), expected_thinharness_commit, "ThinHarness commit")
+    install = value.get("thinharness", {}).get("install", {})
+    _equal(install.get("canonical_commit"), expected_thinharness_commit, "wheel source commit")
+    source_mode = install.get("source_mode")
+    if expected_thinharness_commit == THINHARNESS_COMMIT:
+        if source_mode not in {"canonical-github", "local-git-bundle-override"}:
+            raise ValidationError("wheel source mode is invalid")
+        if source_mode == "local-git-bundle-override":
+            bundle_hash = install.get("source_bundle_sha256")
+            if not isinstance(bundle_hash, str) or len(bundle_hash) != 64:
+                raise ValidationError("local source bundle hash is missing")
     _equal(value.get("prompt", {}).get("sha256"), PROMPT_SHA256, "prompt hash")
     _equal(hashlib.sha256(PROMPT_PATH.read_bytes()).hexdigest(), PROMPT_SHA256, "repository prompt hash")
     staged = value.get("staged_control_sha256")
@@ -114,6 +126,8 @@ def validate_container_preflight(
         _equal(native_bash.get("own_environment_sentinel_absent"), True, "native Bash sentinel environment")
         _equal(native_bash.get("parent_environ_read_blocked"), True, "native Bash parent environ access")
         _equal(native_bash.get("result", {}).get("ok"), True, "native Bash credential isolation result")
+    if require_native_bash_overflow:
+        _validate_native_bash_overflow(value.get("native_bash_overflow"))
     wire = value.get("wire", {})
     for actual, expected, label in (
         (wire.get("base_url"), OPENAI_BASE_URL, "base URL"),
@@ -131,6 +145,96 @@ def validate_container_preflight(
         _equal(actual, expected, label)
     _equal(value.get("verifier_handoff", {}).get("harbor_owns_verifier"), True, "verifier ownership")
     return value
+
+
+def validate_preflight_artifacts(artifact_dir: Path) -> dict[str, Any]:
+    """Validate the durable no-model Harbor run and complete Bash artifact."""
+    required_files = {
+        "bash-overflow-full.bin",
+        "container-preflight.json",
+        "harbor-config.json",
+        "harbor-lock.json",
+        "host-agent-setup.json",
+        "job-result.json",
+        "launch.json",
+        "PROVENANCE.md",
+        "trial-lock.json",
+        "trial-result.json",
+        "verifier-ctrf.json",
+        "verifier-reward.txt",
+    }
+    hashes = _read(artifact_dir / "SHA256SUMS.json")
+    _equal(hashes.get("algorithm"), "sha256", "preflight hash algorithm")
+    recorded = hashes.get("files")
+    if not isinstance(recorded, dict) or set(recorded) != required_files:
+        raise ValidationError("preflight receipt hash manifest has an unexpected file set")
+    for name, expected_hash in recorded.items():
+        path = artifact_dir / name
+        if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != expected_hash:
+            raise ValidationError(f"preflight receipt hash differs: {name}")
+    receipt = validate_container_preflight(artifact_dir / "container-preflight.json")
+    overflow = receipt["native_bash_overflow"]
+    full = (artifact_dir / "bash-overflow-full.bin").read_bytes()
+    _equal(len(full), overflow["full_output_bytes"], "durable overflow artifact bytes")
+    _equal(hashlib.sha256(full).hexdigest(), overflow["full_output_sha256"], "durable overflow artifact hash")
+    setup = _read(artifact_dir / "host-agent-setup.json")
+    handoff = setup.get("overflow_artifact_handoff") or {}
+    _equal(handoff.get("verified"), True, "overflow durable handoff")
+    _equal(handoff.get("container_artifact_removed"), True, "overflow container cleanup")
+    _equal(handoff.get("sha256"), overflow["full_output_sha256"], "overflow handoff hash")
+    _equal(handoff.get("bytes"), overflow["full_output_bytes"], "overflow handoff bytes")
+    source = setup.get("source") or {}
+    install = receipt.get("thinharness", {}).get("install", {})
+    _equal(source.get("mode"), install.get("source_mode"), "source override mode")
+    _equal(source.get("bundle_sha256"), install.get("source_bundle_sha256"), "source bundle hash")
+    _equal(source.get("container_bundle_removed"), True, "container source bundle cleanup")
+    harbor = _read(artifact_dir / "harbor-lock.json")
+    trial_lock = _read(artifact_dir / "trial-lock.json")
+    launch = _read(artifact_dir / "launch.json")
+    trial = _read(artifact_dir / "trial-result.json")
+    _equal(harbor.get("harbor", {}).get("version"), "0.21.0", "preflight Harbor version")
+    _equal(harbor.get("retry", {}).get("max_retries"), 0, "preflight Harbor retries")
+    _equal(harbor.get("n_concurrent_trials"), 1, "preflight Harbor concurrency")
+    _equal((trial_lock.get("agent") or {}).get("model_name"), f"openai/{MODEL_ID}", "preflight model")
+    _equal(launch.get("source", {}).get("mode"), "local-git-bundle-override", "preflight launch source mode")
+    _equal(launch.get("source", {}).get("transient_bundle_committed"), False, "transient bundle persistence")
+    command = launch.get("command")
+    if not isinstance(command, list) or "--upload" in command or "--public" in command:
+        raise ValidationError("preflight launch command is invalid")
+    _equal(trial.get("exception_info"), None, "preflight trial exception")
+    _equal((trial.get("agent_result") or {}).get("n_input_tokens"), 0, "preflight input tokens")
+    _equal((trial.get("agent_result") or {}).get("n_output_tokens"), 0, "preflight output tokens")
+    reward = float((artifact_dir / "verifier-reward.txt").read_text(encoding="utf-8").strip())
+    _equal(reward, 0.0, "expected unsolved preflight reward")
+    return {
+        "schema_version": 1,
+        "passed": True,
+        "model_calls": 0,
+        "verifier_ran": True,
+        "verifier_reward_expected_for_unsolved_preflight": reward,
+        "thinharness_commit": THINHARNESS_COMMIT,
+        "wheel_sha256": install.get("wheel_sha256"),
+        "source_mode": install.get("source_mode"),
+        "source_bundle_sha256": install.get("source_bundle_sha256"),
+        "source_bundle_container_removed": True,
+        "overflow": {
+            "native_tool": overflow.get("native_tool"),
+            "plugin_origin": overflow.get("plugin_origin"),
+            "full_output_bytes": overflow.get("full_output_bytes"),
+            "full_output_sha256": overflow.get("full_output_sha256"),
+            "model_facing_result_bytes": overflow.get("model_facing_result_bytes"),
+            "stdout_omitted_bytes": overflow.get("stdout_omitted_bytes"),
+            "artifact_path": overflow.get("artifact_path"),
+            "durable_artifact": f"{artifact_dir.resolve().relative_to(REPOSITORY_ROOT)}/bash-overflow-full.bin",
+            "retrieval_verified": True,
+            "container_artifact_removed": True,
+        },
+        "credential_isolation": receipt.get("credential_isolation"),
+        "environment": receipt.get("execution"),
+        "tool_names": receipt.get("tools", {}).get("names"),
+        "tool_schema_sha256": receipt.get("tools", {}).get("schema_sha256"),
+        "prompt_sha256": PROMPT_SHA256,
+    }
 
 
 def validate_paid_job(job_dir: Path) -> dict[str, Any]:
@@ -206,7 +310,12 @@ def validate_paid_job(job_dir: Path) -> dict[str, Any]:
     return report
 
 
-def validate_paid_artifacts(artifact_dir: Path) -> dict[str, Any]:
+def validate_paid_artifacts(
+    artifact_dir: Path,
+    *,
+    expected_thinharness_commit: str = LEGACY_THINHARNESS_COMMIT,
+    legacy_underpriced_ledger: bool = True,
+) -> dict[str, Any]:
     """Validate immutable paid receipts and return a durable-path E2E report."""
     required_files = {
         "api-budget.json",
@@ -225,6 +334,8 @@ def validate_paid_artifacts(artifact_dir: Path) -> dict[str, Any]:
         "verifier-ctrf.json",
         "verifier-reward.txt",
     }
+    if not legacy_underpriced_ledger:
+        required_files.add("bash-overflow-full.bin")
     hashes = _read(artifact_dir / "SHA256SUMS.json")
     _equal(hashes.get("algorithm"), "sha256", "receipt hash algorithm")
     recorded_hashes = hashes.get("files")
@@ -238,7 +349,9 @@ def validate_paid_artifacts(artifact_dir: Path) -> dict[str, Any]:
     preflight = validate_container_preflight(
         artifact_dir / "container-preflight.json",
         compare_repository_controls=False,
-        require_credential_isolation=False,
+        require_credential_isolation=not legacy_underpriced_ledger,
+        require_native_bash_overflow=not legacy_underpriced_ledger,
+        expected_thinharness_commit=expected_thinharness_commit,
     )
     agent = _read(artifact_dir / "native-thinharness-result.json")
     ledger = _read(artifact_dir / "api-budget.json")
@@ -251,6 +364,7 @@ def validate_paid_artifacts(artifact_dir: Path) -> dict[str, Any]:
     implementation_budget = _read(artifact_dir / "implementation-budget.json")
     job_result = _read(artifact_dir / "job-result.json")
     verifier = _read(artifact_dir / "verifier-ctrf.json")
+    setup = _read(artifact_dir / "host-agent-setup.json")
 
     _equal(agent.get("api_budget"), ledger, "standalone and embedded API ledgers")
     _equal(agent.get("kind"), "paid-native-thinharness-attempt", "paid receipt kind")
@@ -262,12 +376,24 @@ def validate_paid_artifacts(artifact_dir: Path) -> dict[str, Any]:
     _equal(agent.get("error"), None, "paid agent error")
     _equal(agent.get("prompt_sha256"), PROMPT_SHA256, "paid prompt hash")
     _equal(agent.get("staged_control_sha256"), preflight.get("staged_control_sha256"), "paid staged controls")
-    _equal(agent.get("thinharness", {}).get("canonical_commit"), THINHARNESS_COMMIT, "paid ThinHarness commit")
+    _equal(agent.get("thinharness", {}).get("canonical_commit"), expected_thinharness_commit, "paid ThinHarness commit")
     wheel_sha256 = agent.get("thinharness", {}).get("install", {}).get("wheel_sha256")
     if not isinstance(wheel_sha256, str) or len(wheel_sha256) != 64:
         raise ValidationError("paid wheel identity is missing")
     _equal(agent.get("execution", {}).get("execution"), "harbor-task-container", "paid execution location")
     _equal(agent.get("execution", {}).get("cwd"), CONTAINER_ROOT, "paid execution cwd")
+    if not legacy_underpriced_ledger:
+        overflow = preflight.get("native_bash_overflow") or {}
+        durable_overflow = (artifact_dir / "bash-overflow-full.bin").read_bytes()
+        _equal(len(durable_overflow), overflow.get("full_output_bytes"), "paid overflow artifact bytes")
+        _equal(
+            hashlib.sha256(durable_overflow).hexdigest(),
+            overflow.get("full_output_sha256"),
+            "paid overflow artifact hash",
+        )
+        handoff = setup.get("overflow_artifact_handoff") or {}
+        _equal(handoff.get("verified"), True, "paid overflow artifact handoff")
+        _equal(handoff.get("container_artifact_removed"), True, "paid overflow container cleanup")
 
     _equal(ledger.get("status"), "completed", "paid ledger status")
     _equal(ledger.get("fatal_error"), None, "paid ledger fatal error")
@@ -319,14 +445,25 @@ def validate_paid_artifacts(artifact_dir: Path) -> dict[str, Any]:
     if abs(original_recorded_request_cost - float(original_spent)) > 1e-12:
         raise ValidationError("original request costs do not reconcile with the original ledger")
     corrected_spent = round(sum(corrected_request_costs), 8)
-    _validate_paid_reconciliation(
-        reconciliation,
-        artifact_dir=artifact_dir,
-        requests=requests,
-        corrected_request_costs=corrected_request_costs,
-        original_spent=float(original_spent),
-        corrected_spent=corrected_spent,
-    )
+    if legacy_underpriced_ledger:
+        _validate_paid_reconciliation(
+            reconciliation,
+            artifact_dir=artifact_dir,
+            requests=requests,
+            corrected_request_costs=corrected_request_costs,
+            original_spent=float(original_spent),
+            corrected_spent=corrected_spent,
+        )
+    else:
+        independently_recorded = round(validate_ledger_recorded_costs(ledger), 8)
+        _equal(independently_recorded, corrected_spent, "current ledger independent cost")
+        _validate_current_paid_reconciliation(
+            reconciliation,
+            artifact_dir=artifact_dir,
+            requests=requests,
+            request_costs=corrected_request_costs,
+            spent=corrected_spent,
+        )
     if corrected_spent > ATTEMPT_BUDGET_USD + 1e-9:
         raise ValidationError("corrected paid spend exceeds the attempt ceiling")
     if ledger.get("prior_implementation_spend_usd", 0) + corrected_spent > IMPLEMENTATION_BUDGET_USD + 1e-9:
@@ -373,11 +510,28 @@ def validate_paid_artifacts(artifact_dir: Path) -> dict[str, Any]:
     _equal((trial_lock.get("agent") or {}).get("model_name"), f"openai/{MODEL_ID}", "Harbor model")
     _equal(harbor_config.get("n_concurrent_trials"), 1, "resolved concurrency")
     _equal(launch.get("wrapper_retries"), 0, "wrapper retries")
+    if not legacy_underpriced_ledger:
+        _equal(launch.get("thinharness_commit"), expected_thinharness_commit, "paid launch ThinHarness commit")
+        _equal(
+            launch.get("source", {}).get("mode"),
+            preflight.get("thinharness", {}).get("install", {}).get("source_mode"),
+            "paid source mode",
+        )
+        _equal(launch.get("source", {}).get("transient_bundle_committed"), False, "paid transient bundle persistence")
     command = launch.get("command")
     if not isinstance(command, list) or "--upload" in command or "--public" in command:
         raise ValidationError("paid launch command is invalid")
     _equal(implementation_budget.get("status"), "completed", "implementation budget status")
-    _equal(implementation_budget.get("implementation_spend_usd"), original_spent, "original implementation budget spend")
+    expected_cumulative_spend = (
+        float(original_spent)
+        if legacy_underpriced_ledger
+        else float(ledger.get("prior_implementation_spend_usd", 0)) + corrected_spent
+    )
+    _equal(
+        implementation_budget.get("implementation_spend_usd"),
+        expected_cumulative_spend,
+        "implementation budget cumulative spend",
+    )
     _equal(job_result.get("n_total_trials"), 1, "job trial count")
     _equal(job_result.get("stats", {}).get("n_retries"), 0, "job retries")
 
@@ -409,6 +563,14 @@ def validate_paid_artifacts(artifact_dir: Path) -> dict[str, Any]:
         "wall_seconds": wall_seconds,
         "actual_cash_cost_usd": actual_cash_cost,
         "api_equivalent_cost_usd": corrected_spent,
+        **(
+            {}
+            if legacy_underpriced_ledger
+            else {
+                "prior_implementation_spend_usd": float(ledger.get("prior_implementation_spend_usd", 0)),
+                "cumulative_implementation_spend_usd": float(ledger.get("prior_implementation_spend_usd", 0)) + corrected_spent,
+            }
+        ),
         "original_ledger_recorded_api_equivalent_cost_usd": float(original_spent),
         "cost_basis": {
             "description": "independently recalculated from raw token classes at preserved GPT-5.6 Sol prices",
@@ -416,12 +578,16 @@ def validate_paid_artifacts(artifact_dir: Path) -> dict[str, Any]:
             "cached_input_usd_per_million": 0.5,
             "cache_write_usd_per_million": 6.25,
             "output_including_reasoning_usd_per_million": 30.0,
-            "original_ledger_omitted_cache_write_price": True,
+            "original_ledger_omitted_cache_write_price": legacy_underpriced_ledger,
             "reconciliation": f"{artifact_prefix}/corrected-accounting-reconciliation.json",
         },
         "identity": {
-            "reproduction_repository_commit": _PAID_RUN_REPOSITORY_COMMIT,
-            "thinharness_commit": THINHARNESS_COMMIT,
+            "reproduction_repository_commit": (
+                _PAID_RUN_REPOSITORY_COMMIT
+                if legacy_underpriced_ledger
+                else launch.get("reproduction_repository_commit")
+            ),
+            "thinharness_commit": expected_thinharness_commit,
             "thinharness_version": agent.get("thinharness", {}).get("version"),
             "wheel_sha256": wheel_sha256,
             "prompt_sha256": PROMPT_SHA256,
@@ -463,6 +629,45 @@ def validate_ledger_recorded_costs(ledger: dict[str, Any]) -> float:
     if isinstance(recorded_total, bool) or not isinstance(recorded_total, int | float) or abs(float(recorded_total) - total) > 1e-12:
         raise ValidationError("ledger recorded total differs from raw token pricing")
     return total
+
+
+def _validate_current_paid_reconciliation(
+    reconciliation: dict[str, Any],
+    *,
+    artifact_dir: Path,
+    requests: list[Any],
+    request_costs: list[float],
+    spent: float,
+) -> None:
+    _equal(reconciliation.get("kind"), "accounting-reconciliation", "current accounting reconciliation kind")
+    _equal(reconciliation.get("source_receipts_preserved_byte_for_byte"), True, "current source receipt preservation")
+    source = reconciliation.get("source_receipts") or {}
+    _equal(
+        source.get("api_budget_sha256"),
+        hashlib.sha256((artifact_dir / "api-budget.json").read_bytes()).hexdigest(),
+        "current reconciliation API ledger hash",
+    )
+    _equal(
+        source.get("agent_receipt_sha256"),
+        hashlib.sha256((artifact_dir / "native-thinharness-result.json").read_bytes()).hexdigest(),
+        "current reconciliation agent receipt hash",
+    )
+    rows = reconciliation.get("requests")
+    if not isinstance(rows, list) or len(rows) != len(requests):
+        raise ValidationError("current accounting reconciliation request rows are incomplete")
+    for request, row, cost in zip(requests, rows, request_costs, strict=True):
+        if not isinstance(request, dict) or not isinstance(row, dict):
+            raise ValidationError("current accounting reconciliation request row is invalid")
+        _equal(row.get("request_id"), request.get("request_id"), "current reconciliation request id")
+        _equal(row.get("raw_usage"), request.get("usage"), "current reconciliation raw usage")
+        recorded = row.get("api_equivalent_cost_usd")
+        if isinstance(recorded, bool) or not isinstance(recorded, int | float) or abs(float(recorded) - cost) > 1e-12:
+            raise ValidationError("current reconciliation request cost differs from raw token pricing")
+    total = reconciliation.get("api_equivalent_total_usd")
+    if isinstance(total, bool) or not isinstance(total, int | float) or abs(float(total) - spent) > 1e-12:
+        raise ValidationError("current reconciliation total differs from raw token pricing")
+    _equal(reconciliation.get("attempt_total_within_cap"), True, "current attempt cap result")
+    _equal(reconciliation.get("cumulative_total_within_cap"), True, "current cumulative cap result")
 
 
 def _validate_paid_reconciliation(
@@ -531,6 +736,43 @@ def _validate_paid_reconciliation(
     _equal(reconciliation.get("actual_cash_cost_usd"), None, "reconciliation actual cash cost")
 
 
+def _validate_native_bash_overflow(value: Any) -> None:
+    if not isinstance(value, dict):
+        raise ValidationError("native Bash overflow receipt is absent")
+    expected = b"0123456789abcdef" * 8192
+    expected_hash = hashlib.sha256(expected).hexdigest()
+    _equal(value.get("native_tool"), "bash", "overflow native tool")
+    _equal(value.get("plugin_origin"), "bash", "overflow plugin origin")
+    _equal(value.get("tool_source"), "bash", "overflow tool source")
+    _equal(value.get("max_output_bytes"), 40_000, "overflow configured bound")
+    _equal(value.get("model_facing_result_bounded"), True, "overflow model-facing bound")
+    _equal(value.get("model_facing_result_contains_truncation_marker"), True, "overflow marker")
+    _equal(value.get("full_output_bytes"), len(expected), "overflow full byte count")
+    _equal(value.get("stdout_bytes"), len(expected), "overflow stdout byte count")
+    _equal(value.get("full_output_sha256"), expected_hash, "overflow full output hash")
+    _equal(value.get("artifact_full_bytes_verified"), True, "overflow full artifact verification")
+    _equal(value.get("artifact_path_relative"), True, "overflow relative artifact path")
+    _equal(value.get("artifact_path_contained_by_root"), True, "overflow artifact containment")
+    artifact_path = value.get("artifact_path")
+    if not isinstance(artifact_path, str) or not artifact_path.startswith(".thinharness/outputs/"):
+        raise ValidationError("overflow artifact path is invalid")
+    _equal(value.get("artifact_resolved_path"), f"{CONTAINER_ROOT}/{artifact_path}", "overflow resolved artifact path")
+    model_facing_bytes = value.get("model_facing_result_bytes")
+    if isinstance(model_facing_bytes, bool) or not isinstance(model_facing_bytes, int) or not 0 < model_facing_bytes <= 42_000:
+        raise ValidationError("overflow model-facing byte count exceeds its bound")
+    retained = value.get("retained_bytes")
+    omitted = value.get("stdout_omitted_bytes")
+    if not isinstance(retained, int) or not isinstance(omitted, int) or retained + omitted != len(expected):
+        raise ValidationError("overflow retained and omitted byte counts do not reconcile")
+    _equal(value.get("stdout_drain_complete"), True, "overflow drain completeness")
+    retrieval = value.get("retrieval") or {}
+    _equal(retrieval.get("native_tool"), "bash", "overflow retrieval native tool")
+    _equal(retrieval.get("ok"), True, "overflow retrieval result")
+    _equal(retrieval.get("expected_line"), f"{len(expected)} {expected_hash}", "overflow retrieval identity")
+    if retrieval.get("expected_line") not in retrieval.get("content", ""):
+        raise ValidationError("overflow retrieval output omitted the expected identity")
+
+
 def _duration_seconds(value: Any, label: str) -> float:
     if not isinstance(value, dict) or not isinstance(value.get("started_at"), str) or not isinstance(value.get("finished_at"), str):
         raise ValidationError(f"{label} timestamps are missing")
@@ -552,6 +794,9 @@ def main() -> int:
     sub = parser.add_subparsers(dest="mode", required=True)
     preflight = sub.add_parser("preflight")
     preflight.add_argument("receipt", type=Path)
+    preflight_artifacts = sub.add_parser("preflight-artifacts")
+    preflight_artifacts.add_argument("artifact_dir", type=Path)
+    preflight_artifacts.add_argument("--report", type=Path, required=True)
     paid = sub.add_parser("paid")
     paid.add_argument("job_dir", type=Path)
     paid.add_argument("--report", type=Path)
@@ -561,6 +806,10 @@ def main() -> int:
     args = parser.parse_args()
     if args.mode == "preflight":
         result = validate_container_preflight(args.receipt)
+    elif args.mode == "preflight-artifacts":
+        result = validate_preflight_artifacts(args.artifact_dir)
+        args.report.parent.mkdir(parents=True, exist_ok=True)
+        args.report.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     elif args.mode == "paid":
         result = validate_paid_job(args.job_dir)
         if args.report:

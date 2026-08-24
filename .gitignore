@@ -5,6 +5,8 @@ __pycache__/
 jobs/
 runs/
 artifacts/implementation-handoff.md
+artifacts/update-*-handoff.md
+*.bundle
 .pytest_cache/
 .ruff_cache/
 .pyright/

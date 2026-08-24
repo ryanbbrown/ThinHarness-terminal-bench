@@ -5,7 +5,8 @@ readonly STAGE=/opt/thinharness-terminal-bench
 readonly SOURCE=/opt/thinharness-source
 readonly VENV=/opt/thinharness-venv
 readonly WHEELS=/opt/thinharness-wheels
-readonly COMMIT=758fcf305e468138b03723760d477444592b1916
+readonly SOURCE_BUNDLE="$STAGE/thinharness-source.bundle"
+readonly COMMIT=84105f07bb9c1ad366fc8fe4fef49e700f5e88ef
 readonly REPOSITORY=https://github.com/ryanbbrown/thinharness.git
 
 if ! command -v python3 >/dev/null || ! command -v git >/dev/null; then
@@ -18,9 +19,18 @@ python3 -m venv "$VENV"
 "$VENV/bin/python" -m pip install --disable-pip-version-check --no-input \
   pip==25.2 setuptools==80.9.0 wheel==0.45.1
 
-git clone --quiet --filter=blob:none --no-checkout "$REPOSITORY" "$SOURCE"
-git -C "$SOURCE" fetch --quiet --depth=1 origin "$COMMIT"
-git -C "$SOURCE" checkout --quiet --detach "$COMMIT"
+source_mode=canonical-github
+source_bundle_sha256=
+if [[ -f "$SOURCE_BUNDLE" ]]; then
+  source_mode=local-git-bundle-override
+  source_bundle_sha256="$(sha256sum "$SOURCE_BUNDLE" | cut -d ' ' -f 1)"
+  git clone --quiet --no-checkout "$SOURCE_BUNDLE" "$SOURCE"
+  git -C "$SOURCE" checkout --quiet --detach "$COMMIT"
+else
+  git clone --quiet --filter=blob:none --no-checkout "$REPOSITORY" "$SOURCE"
+  git -C "$SOURCE" fetch --quiet --depth=1 origin "$COMMIT"
+  git -C "$SOURCE" checkout --quiet --detach "$COMMIT"
+fi
 actual_commit="$(git -C "$SOURCE" rev-parse HEAD)"
 test "$actual_commit" = "$COMMIT"
 
@@ -32,7 +42,7 @@ test -n "$wheel_path"
   -r "$STAGE/container-runtime-requirements.txt"
 "$VENV/bin/python" -m pip install --disable-pip-version-check --no-input --no-deps "$wheel_path"
 
-"$VENV/bin/python" - "$wheel_path" "$actual_commit" "$REPOSITORY" "$STAGE/install-provenance.json" <<'PY'
+"$VENV/bin/python" - "$wheel_path" "$actual_commit" "$REPOSITORY" "$STAGE/install-provenance.json" "$source_mode" "$source_bundle_sha256" <<'PY'
 import hashlib
 import importlib.metadata
 import json
@@ -43,10 +53,12 @@ from pathlib import Path
 
 wheel = Path(sys.argv[1]).resolve()
 value = {
-    "schema_version": 1,
+    "schema_version": 2,
     "build_location": "harbor-task-container",
     "repository": sys.argv[3],
     "canonical_commit": sys.argv[2],
+    "source_mode": sys.argv[5],
+    "source_bundle_sha256": sys.argv[6] or None,
     "wheel_path": str(wheel),
     "wheel_sha256": hashlib.sha256(wheel.read_bytes()).hexdigest(),
     "installed_version": importlib.metadata.version("thinharness"),
@@ -68,13 +80,15 @@ with temporary.open("w", encoding="utf-8") as stream:
 os.replace(temporary, path)
 PY
 
-TB_CREDENTIAL_SENTINEL='native-bash-credential-isolation-v1' bash -c '
-exec 9<<<"$TB_CREDENTIAL_SENTINEL"
-unset TB_CREDENTIAL_SENTINEL
-exec env -u TB_CREDENTIAL_SENTINEL /opt/thinharness-venv/bin/python \
-  /opt/thinharness-terminal-bench/container_runner.py preflight \
-  --prompt /opt/thinharness-terminal-bench/system-prompt.md \
-  --install-provenance /opt/thinharness-terminal-bench/install-provenance.json \
+# The installed wheel and provenance are sufficient. Do not retain source or the override bundle.
+rm -rf "$SOURCE"
+rm -f "$SOURCE_BUNDLE"
+
+readonly SENTINEL='controlled-preflight-sentinel-not-a-secret'
+exec 8<<<"$SENTINEL"
+exec env -u OPENAI_API_KEY -u TB_CREDENTIAL_SENTINEL \
+  "$VENV/bin/python" "$STAGE/container_runner.py" preflight \
+  --prompt "$STAGE/system-prompt.md" \
+  --install-provenance "$STAGE/install-provenance.json" \
   --receipt /logs/agent/container-preflight.json \
-  --sentinel-fd 9
-'
+  --sentinel-fd 8

@@ -1,0 +1,17 @@
+{
+  "algorithm": "sha256",
+  "files": {
+    "PROVENANCE.md": "80b833580aabdad0411f42106dd480818a8f8ef91b98e52bfdb69758a875c589",
+    "bash-overflow-full.bin": "a2706a20394e48179a86c71e82c360c2960d3652340f9b9fdb355a42e3ac7691",
+    "container-preflight.json": "db7169f8c2c196fbe3531cdfee83a5550f8199b512bf5779a246a614615f7824",
+    "harbor-config.json": "034aa5cf2cc0a61e75b0e6be472322d09a99b8f4ce5e511603ac570119108429",
+    "harbor-lock.json": "74cec03ed1fbf0d35eed7457df414020d13682db70f16f0ea9c9d945611e9df8",
+    "host-agent-setup.json": "2ae3ee71af2fb8b5d5365b407b468c9b8c14b3069b73efbf7531ee6ae81d4447",
+    "job-result.json": "a0675d57c75d0c3663ed439413fb4de99c55e586f0c2dfbb31d1f3c3dea9c60f",
+    "launch.json": "71e5033fa19111e41caa4007213f973b3fc25251134148c13c9338b34956e10f",
+    "trial-lock.json": "8c5ac8dba9a1d12920acd7696cc22d44539454f4709bd71a90ebb77345c402b6",
+    "trial-result.json": "886c03f7c211d3e33998311d1046e1d2730dc407c265826624b6f3478d7b6163",
+    "verifier-ctrf.json": "556d627a5cd63bfdcacb704acf7180b3fa8c0696a7846621736a2ac290bc0c74",
+    "verifier-reward.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  }
+}

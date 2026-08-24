@@ -26,6 +26,7 @@ _PACKAGE_DIR = Path(__file__).resolve().parent
 _INSTALL_SCRIPT = _PACKAGE_DIR.parent / "scripts" / "install-in-container.sh"
 _RUNTIME_REQUIREMENTS = _PACKAGE_DIR.parent / "configs" / "container-runtime-requirements.txt"
 _NATIVE_TOOL_SCHEMAS = _PACKAGE_DIR.parent / "configs" / "native-tool-schemas.json"
+_CONTAINER_SOURCE_BUNDLE = f"{CONTAINER_STAGE}/thinharness-source.bundle"
 _STAGE_FILES = {
     _PACKAGE_DIR / "container_runner.py": f"{CONTAINER_STAGE}/container_runner.py",
     _PACKAGE_DIR / "container_security.py": f"{CONTAINER_STAGE}/container_security.py",
@@ -48,12 +49,16 @@ class NativeThinHarnessAgent(BaseAgent):
         preflight_only: bool = False,
         launch_id: str = "unconfigured",
         prior_implementation_spend_usd: float = 0.0,
+        source_bundle_path: str | None = None,
+        source_bundle_sha256: str | None = None,
         **kwargs: Any,
     ) -> None:
         super().__init__(*args, **kwargs)
         self.preflight_only = preflight_only
         self.launch_id = launch_id
         self.prior_implementation_spend_usd = prior_implementation_spend_usd
+        self.source_bundle_path = Path(source_bundle_path) if source_bundle_path else None
+        self.source_bundle_sha256 = source_bundle_sha256
         self._preflight: dict[str, Any] | None = None
 
     @staticmethod
@@ -77,32 +82,53 @@ class NativeThinHarnessAgent(BaseAgent):
             raise RuntimeError("could not create container staging directories")
         for source, target in _STAGE_FILES.items():
             await environment.upload_file(source, target)
-        result = await environment.exec(
-            f"bash {shlex.quote(CONTAINER_STAGE + '/install-in-container.sh')}",
-            cwd="/app",
-            timeout_sec=600,
-            user="root",
-        )
+        source_mode = "canonical-github"
+        if self.source_bundle_path is not None:
+            if not self.source_bundle_path.is_file() or not self.source_bundle_sha256:
+                raise RuntimeError("local source bundle override is missing its file or hash")
+            actual_bundle_sha256 = hashlib.sha256(self.source_bundle_path.read_bytes()).hexdigest()
+            if actual_bundle_sha256 != self.source_bundle_sha256:
+                raise RuntimeError("local source bundle hash differs before container staging")
+            await environment.upload_file(self.source_bundle_path, _CONTAINER_SOURCE_BUNDLE)
+            source_mode = "local-git-bundle-override"
+        try:
+            result = await environment.exec(
+                f"bash {shlex.quote(CONTAINER_STAGE + '/install-in-container.sh')}",
+                cwd="/app",
+                timeout_sec=600,
+                user="root",
+            )
+        finally:
+            bundle_cleanup = await environment.exec(
+                f"rm -f -- {shlex.quote(_CONTAINER_SOURCE_BUNDLE)}",
+                cwd="/app",
+                timeout_sec=30,
+                user="root",
+            )
         setup_receipt = {
-            "schema_version": 1,
+            "schema_version": 2,
             "execution": "harbor-task-container",
             "command": "install-in-container.sh",
             "exit_code": result.return_code,
             "stdout_sha256": hashlib.sha256((result.stdout or "").encode()).hexdigest(),
             "stderr_sha256": hashlib.sha256((result.stderr or "").encode()).hexdigest(),
             "staged_targets": sorted(_STAGE_FILES.values()),
+            "source": {
+                "mode": source_mode,
+                "bundle_sha256": self.source_bundle_sha256,
+                "container_bundle_removed": bundle_cleanup.return_code == 0,
+            },
             "host_loop": False,
             "custom_model_tools": False,
         }
         self.logs_dir.mkdir(parents=True, exist_ok=True)
-        (self.logs_dir / "host-agent-setup.json").write_text(
-            json.dumps(setup_receipt, indent=2, sort_keys=True) + "\n",
-            encoding="utf-8",
-        )
         if result.return_code != 0:
+            self._write_setup_receipt(setup_receipt)
             detail = (result.stderr or result.stdout or "setup failed")[-4000:]
             raise RuntimeError(f"container setup failed: {detail}")
         self._preflight = await self._download_json(environment, f"{CONTAINER_LOGS}/container-preflight.json")
+        setup_receipt["overflow_artifact_handoff"] = await self._download_overflow_artifact(environment, self._preflight)
+        self._write_setup_receipt(setup_receipt)
 
     async def run(self, instruction: str, environment: BaseEnvironment, context: AgentContext) -> None:
         """Launch one paid process, or return after the setup-only no-model preflight."""
@@ -169,6 +195,39 @@ class NativeThinHarnessAgent(BaseAgent):
             "api_equivalent_cost_usd": receipt.get("api_equivalent_cost_usd"),
             "container_execution": receipt.get("execution"),
             "verifier_handoff": True,
+        }
+
+    def _write_setup_receipt(self, value: dict[str, Any]) -> None:
+        (self.logs_dir / "host-agent-setup.json").write_text(
+            json.dumps(value, indent=2, sort_keys=True) + "\n",
+            encoding="utf-8",
+        )
+
+    async def _download_overflow_artifact(self, environment: BaseEnvironment, preflight: dict[str, Any]) -> dict[str, Any]:
+        overflow = preflight.get("native_bash_overflow") or {}
+        relative_path = overflow.get("artifact_path")
+        expected_sha256 = overflow.get("full_output_sha256")
+        expected_bytes = overflow.get("full_output_bytes")
+        if not isinstance(relative_path, str) or not relative_path.startswith(".thinharness/outputs/"):
+            raise RuntimeError("container preflight overflow artifact path is invalid")
+        source = f"/app/{relative_path}"
+        target = self.logs_dir / "bash-overflow-full.bin"
+        await environment.download_file(source, target)
+        content = target.read_bytes()
+        if hashlib.sha256(content).hexdigest() != expected_sha256 or len(content) != expected_bytes:
+            raise RuntimeError("durable Bash overflow artifact differs from container receipt")
+        cleanup_command = (
+            f"rm -f -- {shlex.quote(source)} && "
+            "rmdir --ignore-fail-on-non-empty /app/.thinharness/outputs /app/.thinharness 2>/dev/null || true"
+        )
+        cleanup = await environment.exec(cleanup_command, cwd="/app", timeout_sec=30)
+        return {
+            "source_path": source,
+            "durable_path": "bash-overflow-full.bin",
+            "sha256": expected_sha256,
+            "bytes": expected_bytes,
+            "verified": True,
+            "container_artifact_removed": cleanup.return_code == 0,
         }
 
     async def _download_json(self, environment: BaseEnvironment, source: str) -> dict[str, Any]:
