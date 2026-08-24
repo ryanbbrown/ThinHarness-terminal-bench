@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "preserved_root": "/Users/ryanbrown/.bb/worktrees/env_n8eb7j52v2/thinharness/experiments/terminal_bench_2_1",
+  "migrated": [
+    "comparison/pilot_2task/pi-0.84.2-system-prompt.md",
+    "comparison/api_smoke_4task/jobs/tb21-api-smoke-16-thinharness-regex-log/regex-log__Bfpn2QY/agent/thinharness-result.json",
+    "comparison/api_smoke_4task/jobs/tb21-api-smoke-16-thinharness-regex-log/regex-log__Bfpn2QY/result.json",
+    "comparison/api_smoke_4task/jobs/tb21-api-smoke-16-thinharness-regex-log/regex-log__Bfpn2QY/verifier/reward.txt"
+  ],
+  "superseded_not_copied": [
+    "adapter.py",
+    "test_adapter.py",
+    "comparison/api_budget.py",
+    "comparison/pi_cproxy.py",
+    "comparison/pi_direct_openai.py",
+    "comparison/pi_native_codex.py"
+  ],
+  "superseded_design": "ThinHarness loop on the host with custom Harbor-backed bash/read/edit/write ToolSpecs",
+  "replacement_design": "stage-and-launch Harbor agent; pinned ThinHarness wheel, loop, BashPlugin, and FilesystemPlugin inside the task container"
+}

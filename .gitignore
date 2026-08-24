@@ -4,3 +4,7 @@ __pycache__/
 *.pyc
 jobs/
 runs/
+artifacts/implementation-handoff.md
+.pytest_cache/
+.ruff_cache/
+.pyright/

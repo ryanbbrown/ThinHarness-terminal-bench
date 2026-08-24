@@ -1,0 +1,270 @@
+{
+  "execution": {
+    "cwd": "/app",
+    "execution": "harbor-task-container",
+    "hostname": "aa124d01ac40",
+    "machine": "x86_64",
+    "os_release": {
+      "ID": "ubuntu",
+      "PRETTY_NAME": "Ubuntu 24.04.3 LTS",
+      "VERSION_ID": "24.04"
+    },
+    "pid": 2948,
+    "pid1_cgroup_sha256": "e57fd7b21104f091de366ace1464596378a498b0a5e63f1b21147a8998c20107",
+    "platform": "Linux-6.12.76-linuxkit-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "python_executable": "/opt/thinharness-venv/bin/python",
+    "uid": 0,
+    "workspace_root": "/app"
+  },
+  "kind": "no-model-container-preflight",
+  "limits": {
+    "max_model_requests": 64,
+    "max_tool_calls": 128
+  },
+  "model_calls": 0,
+  "passed": true,
+  "prompt": {
+    "path": "/opt/thinharness-terminal-bench/system-prompt.md",
+    "sha256": "bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e"
+  },
+  "root": "/app",
+  "schema_version": 1,
+  "staged_control_sha256": {
+    "budget.py": "6393cfc93e7981d45f28315dfad0aea715b14a20c0a9c62d097767da14e5b4cc",
+    "constants.py": "f1155201d9244af69fbb532b4711b4bce93677dd4422cd37c7b30661b99a59c6",
+    "container-runtime-requirements.txt": "61d52e09e2edaa56c84a8f139c77dc6052312648d726366a6ec4be50e392c3a6",
+    "container_runner.py": "6fa15eb0e9ef2891bbccae8a9d4a700469da0bb05fe580eae848a8a2af83b0b7",
+    "install-in-container.sh": "958526d1f91bf68c8c1596d6ca250c040df99e45adce5b59bb153e970f9dd80e",
+    "system-prompt.md": "bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e"
+  },
+  "thinharness": {
+    "canonical_commit": "758fcf305e468138b03723760d477444592b1916",
+    "install": {
+      "build_location": "harbor-task-container",
+      "canonical_commit": "758fcf305e468138b03723760d477444592b1916",
+      "installed_distributions": [
+        "annotated-types==0.8.0",
+        "anyio==4.14.2",
+        "certifi==2026.7.22",
+        "h11==0.16.0",
+        "httpcore==1.0.9",
+        "httpx==0.28.1",
+        "idna==3.19",
+        "pip==25.2",
+        "pydantic==2.13.4",
+        "pydantic_core==2.46.4",
+        "setuptools==80.9.0",
+        "thinharness==0.7.0",
+        "typing-inspection==0.4.4",
+        "typing_extensions==4.16.0",
+        "wheel==0.45.1"
+      ],
+      "installed_version": "0.7.0",
+      "platform": "Linux-6.12.76-linuxkit-x86_64-with-glibc2.39",
+      "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+      "repository": "https://github.com/ryanbbrown/thinharness.git",
+      "schema_version": 1,
+      "wheel_path": "/opt/thinharness-wheels/thinharness-0.7.0-py3-none-any.whl",
+      "wheel_sha256": "d3793cda41342d0ae2808a875bce822f47145cadf20e91db1918f0fb779b68b2"
+    },
+    "version": "0.7.0"
+  },
+  "tools": {
+    "names": [
+      "bash",
+      "read",
+      "edit",
+      "write"
+    ],
+    "origins": {
+      "bash": {
+        "plugin": "bash",
+        "source": "bash"
+      },
+      "edit": {
+        "plugin": "filesystem",
+        "source": "edit"
+      },
+      "read": {
+        "plugin": "filesystem",
+        "source": "read"
+      },
+      "write": {
+        "plugin": "filesystem",
+        "source": "write"
+      }
+    },
+    "schemas": [
+      {
+        "description": "Run one non-interactive Bash command. The cwd must be inside the workspace. Each call starts a fresh shell and does not share shell state with other calls. Background processes in the same process group are terminated on a best-effort basis. timeout is in seconds and is capped by the host.",
+        "name": "bash",
+        "parameters": {
+          "additionalProperties": false,
+          "description": "Model arguments for one Bash call.",
+          "properties": {
+            "command": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "cwd": {
+              "default": ".",
+              "type": "string"
+            },
+            "timeout": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "command"
+          ],
+          "type": "object"
+        },
+        "type": "function"
+      },
+      {
+        "description": "Read a UTF-8 text file with line numbers and optional offset/limit.",
+        "name": "read",
+        "parameters": {
+          "additionalProperties": false,
+          "description": "Arguments for read.",
+          "properties": {
+            "limit": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "max_chars": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "offset": {
+              "default": 1,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "type": "object"
+        },
+        "type": "function"
+      },
+      {
+        "description": "Apply one or more exact text replacements to UTF-8 files. Each old_string must be unique unless all=true.",
+        "name": "edit",
+        "parameters": {
+          "additionalProperties": false,
+          "description": "Arguments for edit.",
+          "properties": {
+            "edits": {
+              "items": {
+                "additionalProperties": false,
+                "description": "One exact replacement for edit.",
+                "properties": {
+                  "all": {
+                    "default": false,
+                    "type": "boolean"
+                  },
+                  "expected_replacements": {
+                    "minimum": 1,
+                    "type": "integer"
+                  },
+                  "new_string": {
+                    "type": "string"
+                  },
+                  "old_string": {
+                    "type": "string"
+                  },
+                  "path": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "path",
+                  "old_string",
+                  "new_string"
+                ],
+                "type": "object"
+              },
+              "minItems": 1,
+              "type": "array"
+            }
+          },
+          "required": [
+            "edits"
+          ],
+          "type": "object"
+        },
+        "type": "function"
+      },
+      {
+        "description": "Create, overwrite, or append to a UTF-8 text file under the workspace root.",
+        "name": "write",
+        "parameters": {
+          "additionalProperties": false,
+          "description": "Arguments for write.",
+          "properties": {
+            "append": {
+              "default": false,
+              "type": "boolean"
+            },
+            "content": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "content"
+          ],
+          "type": "object"
+        },
+        "type": "function"
+      }
+    ]
+  },
+  "verifier_handoff": {
+    "agent_returns_before_harbor_verifier": true,
+    "harbor_owns_verifier": true,
+    "workspace": "/app"
+  },
+  "wire": {
+    "agent_output_retries": 0,
+    "agent_tool_retries": 0,
+    "base_url": "https://api.openai.com/v1",
+    "model": "gpt-5.6-sol",
+    "payload_probe": {
+      "dynamic_budget_sets_max_output_tokens": true,
+      "model": "gpt-5.6-sol",
+      "network_requests": 0,
+      "reasoning": {
+        "effort": "xhigh",
+        "summary": "auto"
+      },
+      "text": {
+        "verbosity": "low"
+      },
+      "tool_names": [
+        "bash",
+        "read",
+        "edit",
+        "write"
+      ]
+    },
+    "provider": "openai",
+    "provider_retries": 0,
+    "reasoning": {
+      "effort": "xhigh",
+      "summary": "auto"
+    },
+    "text": {
+      "verbosity": "low"
+    }
+  }
+}
