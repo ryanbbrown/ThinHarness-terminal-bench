@@ -51,15 +51,17 @@ TB_THINHARNESS_LOCAL_SOURCE=/path/to/clean/thinharness ./scripts/run-paid.sh
 
 The launcher writes a fail-closed prelaunch state before Harbor starts. Each request reserves the maximum affordable direct-API cost before network access. It settles only after exact model identity and complete token details are present. A network failure, missing usage, identity mismatch, interruption, or corrupt ledger leaves the attempt blocked. No wrapper retries occur.
 
-After Harbor exits, validate the single job directory:
+The authorized `84105f07` attempt is complete, and the launcher refuses a duplicate attempt for this commit. Validate the durable receipt set and reproduce its report:
 
 ```bash
-uv run python -m tbench.validate paid jobs/<job-name> --report reports/implementation-e2e-84105f07.json
+uv run python -m tbench.validate paid-artifacts artifacts/paid-e2e-84105f07 \
+  --report /tmp/implementation-e2e-84105f07.json
+cmp /tmp/implementation-e2e-84105f07.json reports/implementation-e2e-84105f07.json
 ```
 
-A valid result requires reward `1.0`, exact response identity, a completed ledger, every request receipt, all token classes, the pinned wheel and commit, container identity, and both spend caps.
+The result passed with reward `1.0`. It used 4 direct OpenAI requests, 13,474 input tokens (12 ordinary, 9,135 cached, and 4,327 cache-write), 2,604 output tokens including 1,956 reasoning tokens, and 3 native tool calls. API-equivalent attempt cost was USD 0.10979125; actual cash cost was not reported. The cumulative corrected implementation spend is USD 0.236533. The report includes agent, Harbor agent-phase, verifier, and wall times, exact model settings, source bundle and wheel hashes, prompt and environment identity, and durable receipt paths.
 
-The prior `758fcf30` E2E result remains immutable in `artifacts/paid-e2e/` and `reports/implementation-e2e.json`: reward 1.0 and corrected USD 0.12674175 API-equivalent spend. It is included in the USD 1.00 cumulative cap. The one newly authorized `84105f07` result belongs in `artifacts/paid-e2e-84105f07/` and `reports/implementation-e2e-84105f07.json`; the launcher refuses a duplicate attempt for that commit.
+The prior `758fcf30` E2E result remains unchanged in `artifacts/paid-e2e/` and `reports/implementation-e2e.json`: reward 1.0 and corrected USD 0.12674175 API-equivalent spend. The new immutable result is in `artifacts/paid-e2e-84105f07/` and `reports/implementation-e2e-84105f07.json`.
 
 ## Evidence boundary
 

@@ -1,0 +1,123 @@
+{
+  "actual_cash_cost_usd": null,
+  "agent_seconds": 45.25764281200001,
+  "api_equivalent_cost_usd": 0.10979125,
+  "cost_basis": {
+    "cache_write_usd_per_million": 6.25,
+    "cached_input_usd_per_million": 0.5,
+    "description": "independently recalculated from raw token classes at preserved GPT-5.6 Sol prices",
+    "ordinary_input_usd_per_million": 5.0,
+    "original_ledger_omitted_cache_write_price": false,
+    "output_including_reasoning_usd_per_million": 30.0,
+    "reconciliation": "artifacts/paid-e2e-84105f07/corrected-accounting-reconciliation.json"
+  },
+  "cumulative_implementation_spend_usd": 0.236533,
+  "harbor_agent_phase_seconds": 45.952595,
+  "identity": {
+    "dataset_digest": "sha256:7d7bdc1cbedad549fc1140404bd4dc45e5fd0ea7c4186773687d177ad3a0699a",
+    "environment": {
+      "cwd": "/app",
+      "execution": "harbor-task-container",
+      "hostname": "1a189f768f71",
+      "machine": "x86_64",
+      "os_release": {
+        "ID": "ubuntu",
+        "PRETTY_NAME": "Ubuntu 24.04.3 LTS",
+        "VERSION_ID": "24.04"
+      },
+      "pid": 2955,
+      "pid1_cgroup_sha256": "e57fd7b21104f091de366ace1464596378a498b0a5e63f1b21147a8998c20107",
+      "platform": "Linux-6.12.76-linuxkit-x86_64-with-glibc2.39",
+      "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+      "python_executable": "/opt/thinharness-venv/bin/python",
+      "uid": 0,
+      "workspace_root": "/app"
+    },
+    "harbor_version": "0.21.0",
+    "model": "gpt-5.6-sol",
+    "native_bash_overflow_sha256": "a2706a20394e48179a86c71e82c360c2960d3652340f9b9fdb355a42e3ac7691",
+    "prompt_sha256": "bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e",
+    "reproduction_repository_commit": "a11dffd639902c558dbdd05a9610db8214da4761",
+    "response_models": [
+      "gpt-5.6-sol"
+    ],
+    "source_bundle_container_removed": true,
+    "source_bundle_sha256": "5b1b53ee96796ee50a13fb22f01a0f922927ca322fd2db1cf173b8cf8c05d0a2",
+    "source_mode": "local-git-bundle-override",
+    "staged_control_sha256": {
+      "budget.py": "4f2c9892a47868778c3ef81dfe200587d7190b183cd12f6d6e8446459ad70899",
+      "constants.py": "e969f9a7aa946aa8164afd271214479b0c64c6f3b069e3968b26c77fd55ab513",
+      "container-runtime-requirements.txt": "61d52e09e2edaa56c84a8f139c77dc6052312648d726366a6ec4be50e392c3a6",
+      "container_runner.py": "3903d111bfab20c10ef9dfd83feed39c0bdb227739e54e1841ec8796075c0db1",
+      "container_security.py": "45e669996dcab219a827df78fb3fff7b8e8d6aa7abdc737746e2560666398603",
+      "install-in-container.sh": "a1d71ebf096ce6cf1f6b18bf7338dd412e1775b635125a711437cb7d78fdee88",
+      "native-tool-schemas.json": "1c1c1e985590e9980264a2e6b8364bd96f1b052c0761eed7f127ac9ab60cfd24",
+      "schema_contract.py": "c1e778f0dd278201bd994dc060417646a492f14e9704679d7a5d2a5a4d96aca3",
+      "system-prompt.md": "bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e"
+    },
+    "thinharness_commit": "84105f07bb9c1ad366fc8fe4fef49e700f5e88ef",
+    "thinharness_version": "0.7.0",
+    "wheel_sha256": "1954f0edbea2b4fc340f93d1eacade72cd5cd9b9fa709b76683e978a57ae1a16"
+  },
+  "model_settings": {
+    "agent_output_retries": 0,
+    "agent_tool_retries": 0,
+    "base_url": "https://api.openai.com/v1",
+    "model": "gpt-5.6-sol",
+    "provider": "openai",
+    "provider_retries": 0,
+    "reasoning": {
+      "effort": "xhigh",
+      "summary": "auto"
+    },
+    "text": {
+      "verbosity": "low"
+    }
+  },
+  "original_ledger_recorded_api_equivalent_cost_usd": 0.10979125,
+  "passed": true,
+  "prior_implementation_spend_usd": 0.12674175,
+  "receipts": {
+    "api_budget": "artifacts/paid-e2e-84105f07/api-budget.json",
+    "bash_overflow_full": "artifacts/paid-e2e-84105f07/bash-overflow-full.bin",
+    "container_preflight": "artifacts/paid-e2e-84105f07/container-preflight.json",
+    "corrected_accounting_reconciliation": "artifacts/paid-e2e-84105f07/corrected-accounting-reconciliation.json",
+    "harbor_config": "artifacts/paid-e2e-84105f07/harbor-config.json",
+    "harbor_lock": "artifacts/paid-e2e-84105f07/harbor-lock.json",
+    "host_agent_setup": "artifacts/paid-e2e-84105f07/host-agent-setup.json",
+    "implementation_budget": "artifacts/paid-e2e-84105f07/implementation-budget.json",
+    "job_result": "artifacts/paid-e2e-84105f07/job-result.json",
+    "launch": "artifacts/paid-e2e-84105f07/launch.json",
+    "native_thinharness_result": "artifacts/paid-e2e-84105f07/native-thinharness-result.json",
+    "provenance": "artifacts/paid-e2e-84105f07/PROVENANCE.md",
+    "sha256_summary": "artifacts/paid-e2e-84105f07/SHA256SUMS.json",
+    "trial_lock": "artifacts/paid-e2e-84105f07/trial-lock.json",
+    "trial_result": "artifacts/paid-e2e-84105f07/trial-result.json",
+    "verifier_ctrf": "artifacts/paid-e2e-84105f07/verifier-ctrf.json",
+    "verifier_reward": "artifacts/paid-e2e-84105f07/verifier-reward.txt"
+  },
+  "requests": 4,
+  "reward": 1.0,
+  "schema_version": 2,
+  "task": "terminal-bench/regex-log",
+  "tokens": {
+    "cache_write_tokens": 4327,
+    "cached_input_tokens": 9135,
+    "input_tokens": 13474,
+    "ordinary_input_tokens": 12,
+    "output_tokens": 2604,
+    "reasoning_tokens": 1956
+  },
+  "tool_count": 3,
+  "tool_counts": {
+    "bash": 2,
+    "write": 1
+  },
+  "tool_names": [
+    "write",
+    "bash",
+    "bash"
+  ],
+  "verifier_seconds": 10.163409,
+  "wall_seconds": 118.082673
+}

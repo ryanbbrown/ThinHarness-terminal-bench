@@ -1,0 +1,32 @@
+{
+    "job_name": "native-thinharness-paid-84105f07-regex-log-20260824-181350-7896027a",
+    "jobs_dir": "/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs",
+    "agent_setup_timeout_multiplier": 3.0,
+    "n_concurrent_trials": 1,
+    "agents": [
+        {
+            "name": "tbench.agent:NativeThinHarnessAgent",
+            "model_name": "openai/gpt-5.6-sol",
+            "n_concurrent": 1,
+            "include_logs": [
+                "*.json"
+            ],
+            "kwargs": {
+                "preflight_only": false,
+                "launch_id": "paid-20260824-181350-7896027a",
+                "prior_implementation_spend_usd": 0.12674175,
+                "source_bundle_path": "/var/folders/3y/shh4k8sd4_b165xsrcnm3wt80000gn/T/tbench-84105f07-bundle-3vswmyxg/thinharness-source.bundle",
+                "source_bundle_sha256": "5b1b53ee96796ee50a13fb22f01a0f922927ca322fd2db1cf173b8cf8c05d0a2"
+            }
+        }
+    ],
+    "datasets": [
+        {
+            "name": "terminal-bench/terminal-bench-2-1",
+            "ref": "sha256:7d7bdc1cbedad549fc1140404bd4dc45e5fd0ea7c4186773687d177ad3a0699a",
+            "task_names": [
+                "terminal-bench/regex-log"
+            ]
+        }
+    ]
+}

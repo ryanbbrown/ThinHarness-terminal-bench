@@ -313,10 +313,24 @@ def validate_paid_job(job_dir: Path) -> dict[str, Any]:
 def validate_paid_artifacts(
     artifact_dir: Path,
     *,
-    expected_thinharness_commit: str = LEGACY_THINHARNESS_COMMIT,
-    legacy_underpriced_ledger: bool = True,
+    expected_thinharness_commit: str | None = None,
+    legacy_underpriced_ledger: bool | None = None,
 ) -> dict[str, Any]:
     """Validate immutable paid receipts and return a durable-path E2E report."""
+    recorded_commit = _read(artifact_dir / "native-thinharness-result.json").get("thinharness", {}).get(
+        "canonical_commit"
+    )
+    if not isinstance(recorded_commit, str) or recorded_commit not in {LEGACY_THINHARNESS_COMMIT, THINHARNESS_COMMIT}:
+        raise ValidationError("paid ThinHarness commit is not an approved reproduction pin")
+    if expected_thinharness_commit is None:
+        expected_thinharness_commit = recorded_commit
+    if legacy_underpriced_ledger is None:
+        legacy_underpriced_ledger = recorded_commit == LEGACY_THINHARNESS_COMMIT
+    _equal(
+        legacy_underpriced_ledger,
+        recorded_commit == LEGACY_THINHARNESS_COMMIT,
+        "paid accounting mode for commit",
+    )
     required_files = {
         "api-budget.json",
         "container-preflight.json",
@@ -377,12 +391,25 @@ def validate_paid_artifacts(
     _equal(agent.get("prompt_sha256"), PROMPT_SHA256, "paid prompt hash")
     _equal(agent.get("staged_control_sha256"), preflight.get("staged_control_sha256"), "paid staged controls")
     _equal(agent.get("thinharness", {}).get("canonical_commit"), expected_thinharness_commit, "paid ThinHarness commit")
+    paid_wire = agent.get("wire") or {}
+    for actual, expected, label in (
+        (paid_wire.get("provider"), "openai", "paid provider"),
+        (paid_wire.get("base_url"), OPENAI_BASE_URL, "paid base URL"),
+        (paid_wire.get("model"), MODEL_ID, "paid model"),
+        (paid_wire.get("reasoning"), REASONING, "paid reasoning"),
+        (paid_wire.get("text"), TEXT, "paid text"),
+        (paid_wire.get("provider_retries"), PROVIDER_RETRIES, "paid provider retries"),
+        (paid_wire.get("agent_output_retries"), AGENT_OUTPUT_RETRIES, "paid output retries"),
+        (paid_wire.get("agent_tool_retries"), AGENT_TOOL_RETRIES, "paid tool retries"),
+    ):
+        _equal(actual, expected, label)
     wheel_sha256 = agent.get("thinharness", {}).get("install", {}).get("wheel_sha256")
     if not isinstance(wheel_sha256, str) or len(wheel_sha256) != 64:
         raise ValidationError("paid wheel identity is missing")
     _equal(agent.get("execution", {}).get("execution"), "harbor-task-container", "paid execution location")
     _equal(agent.get("execution", {}).get("cwd"), CONTAINER_ROOT, "paid execution cwd")
     if not legacy_underpriced_ledger:
+        _equal(agent.get("tools"), preflight.get("tools"), "paid and preflight native tools")
         overflow = preflight.get("native_bash_overflow") or {}
         durable_overflow = (artifact_dir / "bash-overflow-full.bin").read_bytes()
         _equal(len(durable_overflow), overflow.get("full_output_bytes"), "paid overflow artifact bytes")
@@ -518,6 +545,14 @@ def validate_paid_artifacts(
             "paid source mode",
         )
         _equal(launch.get("source", {}).get("transient_bundle_committed"), False, "paid transient bundle persistence")
+        source_bundle_sha256 = preflight.get("thinharness", {}).get("install", {}).get("source_bundle_sha256")
+        _equal(
+            launch.get("source", {}).get("transient_bundle_sha256"),
+            source_bundle_sha256,
+            "paid launch source bundle hash",
+        )
+        _equal(setup.get("source", {}).get("bundle_sha256"), source_bundle_sha256, "paid setup source bundle hash")
+        _equal(setup.get("source", {}).get("container_bundle_removed"), True, "paid container bundle cleanup")
     command = launch.get("command")
     if not isinstance(command, list) or "--upload" in command or "--public" in command:
         raise ValidationError("paid launch command is invalid")
@@ -569,6 +604,16 @@ def validate_paid_artifacts(
             else {
                 "prior_implementation_spend_usd": float(ledger.get("prior_implementation_spend_usd", 0)),
                 "cumulative_implementation_spend_usd": float(ledger.get("prior_implementation_spend_usd", 0)) + corrected_spent,
+                "model_settings": {
+                    "provider": paid_wire.get("provider"),
+                    "base_url": paid_wire.get("base_url"),
+                    "model": paid_wire.get("model"),
+                    "reasoning": paid_wire.get("reasoning"),
+                    "text": paid_wire.get("text"),
+                    "provider_retries": paid_wire.get("provider_retries"),
+                    "agent_output_retries": paid_wire.get("agent_output_retries"),
+                    "agent_tool_retries": paid_wire.get("agent_tool_retries"),
+                },
             }
         ),
         "original_ledger_recorded_api_equivalent_cost_usd": float(original_spent),
@@ -597,6 +642,18 @@ def validate_paid_artifacts(
             "harbor_version": harbor_lock.get("harbor", {}).get("version"),
             "environment": agent.get("execution"),
             "staged_control_sha256": agent.get("staged_control_sha256"),
+            **(
+                {}
+                if legacy_underpriced_ledger
+                else {
+                    "source_mode": preflight.get("thinharness", {}).get("install", {}).get("source_mode"),
+                    "source_bundle_sha256": preflight.get("thinharness", {}).get("install", {}).get(
+                        "source_bundle_sha256"
+                    ),
+                    "source_bundle_container_removed": setup.get("source", {}).get("container_bundle_removed"),
+                    "native_bash_overflow_sha256": preflight.get("native_bash_overflow", {}).get("full_output_sha256"),
+                }
+            ),
         },
         "receipts": receipt_paths,
     }
@@ -641,6 +698,16 @@ def _validate_current_paid_reconciliation(
 ) -> None:
     _equal(reconciliation.get("kind"), "accounting-reconciliation", "current accounting reconciliation kind")
     _equal(reconciliation.get("source_receipts_preserved_byte_for_byte"), True, "current source receipt preservation")
+    _equal(
+        reconciliation.get("pricing"),
+        {
+            "ordinary_input_usd_per_million": 5.0,
+            "cached_input_usd_per_million": 0.5,
+            "cache_write_usd_per_million": 6.25,
+            "output_including_reasoning_usd_per_million": 30.0,
+        },
+        "current reconciliation pricing",
+    )
     source = reconciliation.get("source_receipts") or {}
     _equal(
         source.get("api_budget_sha256"),
@@ -668,6 +735,15 @@ def _validate_current_paid_reconciliation(
         raise ValidationError("current reconciliation total differs from raw token pricing")
     _equal(reconciliation.get("attempt_total_within_cap"), True, "current attempt cap result")
     _equal(reconciliation.get("cumulative_total_within_cap"), True, "current cumulative cap result")
+    _equal(reconciliation.get("actual_cash_cost_usd"), None, "current reconciliation cash cost")
+    prior = reconciliation.get("prior_implementation_spend_usd")
+    if isinstance(prior, bool) or not isinstance(prior, int | float):
+        raise ValidationError("current reconciliation prior spend is invalid")
+    _equal(
+        reconciliation.get("cumulative_implementation_spend_usd"),
+        round(float(prior) + spent, 8),
+        "current reconciliation cumulative spend",
+    )
 
 
 def _validate_paid_reconciliation(

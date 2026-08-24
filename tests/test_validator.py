@@ -160,6 +160,41 @@ def test_committed_paid_artifacts_prove_complete_verifier_passing_e2e() -> None:
     assert report == value
 
 
+def test_current_paid_artifacts_reproduce_commit_keyed_e2e_report() -> None:
+    artifact_dir = REPOSITORY_ROOT / "artifacts" / "paid-e2e-84105f07"
+
+    value = validate_paid_artifacts(artifact_dir)
+
+    assert value["passed"] is True
+    assert value["reward"] == 1.0
+    assert value["requests"] == 4
+    assert value["tokens"] == {
+        "input_tokens": 13_474,
+        "ordinary_input_tokens": 12,
+        "cached_input_tokens": 9_135,
+        "cache_write_tokens": 4_327,
+        "output_tokens": 2_604,
+        "reasoning_tokens": 1_956,
+    }
+    assert value["tool_count"] == 3
+    assert value["tool_counts"] == {"bash": 2, "write": 1}
+    assert value["actual_cash_cost_usd"] is None
+    assert value["api_equivalent_cost_usd"] == pytest.approx(0.10979125)
+    assert value["prior_implementation_spend_usd"] == pytest.approx(0.12674175)
+    assert value["cumulative_implementation_spend_usd"] == pytest.approx(0.236533)
+    assert value["identity"]["thinharness_commit"] == THINHARNESS_COMMIT
+    assert value["identity"]["source_bundle_sha256"] == (
+        "5b1b53ee96796ee50a13fb22f01a0f922927ca322fd2db1cf173b8cf8c05d0a2"
+    )
+    assert value["identity"]["wheel_sha256"] == (
+        "1954f0edbea2b4fc340f93d1eacade72cd5cd9b9fa709b76683e978a57ae1a16"
+    )
+    assert value["model_settings"]["reasoning"] == {"effort": "xhigh", "summary": "auto"}
+    assert all(path.startswith("artifacts/paid-e2e-84105f07/") for path in value["receipts"].values())
+    report = json.loads((REPOSITORY_ROOT / "reports" / "implementation-e2e-84105f07.json").read_text())
+    assert report == value
+
+
 def test_validator_rejects_internally_consistent_but_mispriced_ledger() -> None:
     ledger = copy.deepcopy(json.loads((REPOSITORY_ROOT / "artifacts" / "paid-e2e" / "api-budget.json").read_text()))
     ledger["requests"][0]["api_equivalent_cost_usd"] += 0.001

@@ -1,0 +1,12 @@
+{
+  "harbor_exit_code": 0,
+  "implementation_spend_usd": 0.236533,
+  "job": "jobs/native-thinharness-paid-84105f07-regex-log-20260824-181350-7896027a",
+  "latest_attempt_spend_usd": 0.10979125,
+  "launch_id": "paid-20260824-181350-7896027a",
+  "ledger": "jobs/native-thinharness-paid-84105f07-regex-log-20260824-181350-7896027a/regex-log__P2whFDd/agent/api-budget.json",
+  "prior_implementation_spend_usd": 0.12674175,
+  "schema_version": 1,
+  "status": "completed",
+  "thinharness_commit": "84105f07bb9c1ad366fc8fe4fef49e700f5e88ef"
+}

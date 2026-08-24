@@ -1,0 +1,22 @@
+{
+  "algorithm": "sha256",
+  "files": {
+    "PROVENANCE.md": "df8063acdf39b0dcaf491ea1365fcde4f24fd856d6cddcc5160137a5b3f63dc4",
+    "api-budget.json": "87c1afaea1cce72ee8331a8931c5aa67e5ae373d1a72d739c29127f602818799",
+    "bash-overflow-full.bin": "a2706a20394e48179a86c71e82c360c2960d3652340f9b9fdb355a42e3ac7691",
+    "container-preflight.json": "d667d9b6ffb1008c6aaaf87da193433014a46a110f6d95b12c5cded4b63f1226",
+    "corrected-accounting-reconciliation.json": "34262d11feb5cac994e0b0453214598fa9725eb3cfa582dd0415a6292562e8b5",
+    "harbor-config.json": "c21e5ed76a591f5ec544c8058f6d127f89834cced785877d8715baaefc59540e",
+    "harbor-lock.json": "4430eb24f2f13f6ed4d7b281af2e0653e29e8c3ee0257770790bdf5d5f10d400",
+    "host-agent-setup.json": "b06621439f909b1084990e34d181dd51d764c2b9104c1186ab2bf4b62511b23e",
+    "implementation-budget.json": "2d834b193e90b8165648f04504f7962b5856de473a3da8ba5396695f78007a65",
+    "job-result.json": "da2afc894d8a64ff0cadc5c6f227a442f2119c93c41785562f473b438adc7a90",
+    "launch.json": "9a0750ca5221785bbf84b9542c4439cb6e71ad59d60355206af516d25154fef2",
+    "native-thinharness-result.json": "acc13d05429125db6cb90c0dd60af4e58766d3ae157d8ff287281fb8b4e7ed3a",
+    "trial-lock.json": "e60ddb2efa2b099899cd4991810152688a4a7066cd26858240f8c9107afed2b9",
+    "trial-result.json": "2a7b9a09455164fa1dc6961b8b6e8642e29e4b5c3bff82fa711382174071eab2",
+    "verifier-ctrf.json": "a3dfcc6b242d323de5e0009e8fbc2272e56fd3d43e65fec94ee654d1cc14e6b8",
+    "verifier-reward.txt": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+  },
+  "schema_version": 1
+}

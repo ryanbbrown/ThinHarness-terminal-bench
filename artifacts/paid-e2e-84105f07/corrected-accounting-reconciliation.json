@@ -1,0 +1,75 @@
+{
+  "actual_cash_cost_usd": null,
+  "api_equivalent_total_usd": 0.10979125,
+  "attempt_ceiling_usd": 0.5,
+  "attempt_total_within_cap": true,
+  "cumulative_implementation_spend_usd": 0.236533,
+  "cumulative_total_within_cap": true,
+  "implementation_ceiling_usd": 1.0,
+  "kind": "accounting-reconciliation",
+  "pricing": {
+    "cache_write_usd_per_million": 6.25,
+    "cached_input_usd_per_million": 0.5,
+    "ordinary_input_usd_per_million": 5.0,
+    "output_including_reasoning_usd_per_million": 30.0
+  },
+  "prior_implementation_spend_usd": 0.12674175,
+  "requests": [
+    {
+      "api_equivalent_cost_usd": 0.07478375000000001,
+      "raw_usage": {
+        "cache_write_tokens": 1451,
+        "cached_input_tokens": 0,
+        "input_tokens": 1454,
+        "ordinary_input_tokens": 3,
+        "output_tokens": 2190,
+        "reasoning_tokens": 1937
+      },
+      "request_id": "paid-20260824-181350-7896027a:1"
+    },
+    {
+      "api_equivalent_cost_usd": 0.020708,
+      "raw_usage": {
+        "cache_write_tokens": 2230,
+        "cached_input_tokens": 1451,
+        "input_tokens": 3684,
+        "ordinary_input_tokens": 3,
+        "output_tokens": 201,
+        "reasoning_tokens": 11
+      },
+      "request_id": "paid-20260824-181350-7896027a:2"
+    },
+    {
+      "api_equivalent_cost_usd": 0.009838,
+      "raw_usage": {
+        "cache_write_tokens": 322,
+        "cached_input_tokens": 3681,
+        "input_tokens": 4006,
+        "ordinary_input_tokens": 3,
+        "output_tokens": 199,
+        "reasoning_tokens": 8
+      },
+      "request_id": "paid-20260824-181350-7896027a:3"
+    },
+    {
+      "api_equivalent_cost_usd": 0.0044615,
+      "raw_usage": {
+        "cache_write_tokens": 324,
+        "cached_input_tokens": 4003,
+        "input_tokens": 4330,
+        "ordinary_input_tokens": 3,
+        "output_tokens": 14,
+        "reasoning_tokens": 0
+      },
+      "request_id": "paid-20260824-181350-7896027a:4"
+    }
+  ],
+  "schema_version": 1,
+  "source_receipts": {
+    "agent_receipt": "artifacts/paid-e2e-84105f07/native-thinharness-result.json",
+    "agent_receipt_sha256": "acc13d05429125db6cb90c0dd60af4e58766d3ae157d8ff287281fb8b4e7ed3a",
+    "api_budget": "artifacts/paid-e2e-84105f07/api-budget.json",
+    "api_budget_sha256": "87c1afaea1cce72ee8331a8931c5aa67e5ae373d1a72d739c29127f602818799"
+  },
+  "source_receipts_preserved_byte_for_byte": true
+}
