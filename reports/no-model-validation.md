@@ -43,4 +43,4 @@ Results:
 
 ## Paid validation
 
-No paid attempt was run. The parent explicitly directed this implementation worker not to make paid model calls. A verifier-passing paid receipt is therefore still required before implementation review can start.
+The later authorized paid `regex-log` attempt passed with verifier reward 1.0 and USD 0.096848 API-equivalent spend. Its immutable receipts are in `artifacts/paid-e2e/`, and the independently generated report is `reports/implementation-e2e.json`. No second paid task was run.

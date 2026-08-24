@@ -1,0 +1,18 @@
+{
+  "command": "install-in-container.sh",
+  "custom_model_tools": false,
+  "execution": "harbor-task-container",
+  "exit_code": 0,
+  "host_loop": false,
+  "schema_version": 1,
+  "staged_targets": [
+    "/opt/thinharness-terminal-bench/budget.py",
+    "/opt/thinharness-terminal-bench/constants.py",
+    "/opt/thinharness-terminal-bench/container-runtime-requirements.txt",
+    "/opt/thinharness-terminal-bench/container_runner.py",
+    "/opt/thinharness-terminal-bench/install-in-container.sh",
+    "/opt/thinharness-terminal-bench/system-prompt.md"
+  ],
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_sha256": "5793977d6e7848d438decf3bdd88c221d60b119cb8a65239fde74fcc26f1a4c8"
+}

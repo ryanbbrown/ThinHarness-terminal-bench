@@ -1,0 +1,20 @@
+{
+  "algorithm": "sha256",
+  "files": {
+    "PROVENANCE.md": "14485ea1997a0d20bd143faa51674ade64105a4024eb20a186183ea37c1546d3",
+    "api-budget.json": "433ca8ede26e5a24e298a09401bdd096af682fa1ee2aba35c3bc8f2055e6c8e3",
+    "container-preflight.json": "c45f513ca9f3f1384350592b6552177fd1e449c674d32860f11316568e9125bf",
+    "harbor-config.json": "1669e11b09dd4b29e712bf2dace94ee05169ca825d9e8542531221ede36ea4fb",
+    "harbor-lock.json": "ba624eda53e5ae1131402ad90063927c8c3c612462f95d645a5d27619f1d0029",
+    "host-agent-setup.json": "e9dd7993caf740e663185f123d00d87ec6bd43bd5c40e00c306256faff99d201",
+    "implementation-budget.json": "f89a3e596de9beb56397cfc81d2ec66c0abbaa48756c493570d0e90d3d0dbb13",
+    "job-result.json": "a9fe6aae7f7255ae9bcba37af3d02f070841f9b4aa1b2f354e4ec3395789f00f",
+    "launch.json": "0dd6a44d011243224622571c074e01d73153cde168a004d0d283fbb73291b401",
+    "native-thinharness-result.json": "bd0e812a89ef0b8b2b940c6ccf8fcbf0aebd6d499297411112685550527cee05",
+    "trial-lock.json": "2008d2e2b5a8fcb1a4bf1035e6f695dc94cc0a894844f459caeeca5e5c2bfd87",
+    "trial-result.json": "81769f5b96a9f6ad7cab9a61d454f818cc62ebabd677ac0bdb57e12314cf59bd",
+    "verifier-ctrf.json": "9c80f1ceaef9345b8fae64ee0331b53903adc76b7e92fa4bb13e6c26fc966357",
+    "verifier-reward.txt": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+  },
+  "schema_version": 1
+}

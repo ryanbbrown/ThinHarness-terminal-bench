@@ -51,6 +51,8 @@ uv run python -m tbench.validate paid jobs/<job-name> --report reports/implement
 
 A valid result requires reward `1.0`, exact response identity, a completed ledger, every request receipt, all token classes, the pinned wheel and commit, container identity, and both spend caps.
 
+The implementation E2E result is committed in `artifacts/paid-e2e/` and `reports/implementation-e2e.json`: reward 1.0, four requests, three tool calls, and USD 0.096848 API-equivalent spend. Do not rerun it as a setup check.
+
 ## Evidence boundary
 
 `evidence/preserved-direct-api-regex-log/` contains immutable historical receipts used to select the cheapest preserved valid task. `evidence/migration-manifest.json` lists every migrated item and every superseded path. The old `adapter.py` host loop and its custom bash/read/edit/write ToolSpecs were not copied. Historical JSON may describe that old run, but it is inert and never imported.

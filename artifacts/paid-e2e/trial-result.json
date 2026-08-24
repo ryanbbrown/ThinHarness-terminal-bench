@@ -1,0 +1,151 @@
+{
+    "id": "f12fdc11-0731-479e-a493-c6d684e474a1",
+    "task_name": "terminal-bench/regex-log",
+    "trial_name": "regex-log__NRLsaz4",
+    "trial_uri": "file:///Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/native-thinharness-paid-regex-log-20260824-054754-4cbc4e1a/regex-log__NRLsaz4",
+    "task_id": {
+        "org": "terminal-bench",
+        "name": "regex-log",
+        "ref": "sha256:802c16cfd132e6c457529cb864be5a757c1b23b6cadc57f2d01983cb0110292a"
+    },
+    "source": "terminal-bench/terminal-bench-2-1",
+    "task_checksum": "31dc6115c061b96539a5287090ce41a7a89d3201c291b9b843bd70e416f35c39",
+    "config": {
+        "task": {
+            "path": null,
+            "git_url": null,
+            "git_commit_id": null,
+            "name": "terminal-bench/regex-log",
+            "ref": "sha256:802c16cfd132e6c457529cb864be5a757c1b23b6cadc57f2d01983cb0110292a",
+            "overwrite": false,
+            "download_dir": null,
+            "source": "terminal-bench/terminal-bench-2-1"
+        },
+        "trial_name": "regex-log__NRLsaz4",
+        "trials_dir": "/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/native-thinharness-paid-regex-log-20260824-054754-4cbc4e1a",
+        "install_only": false,
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": 3.0,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "tbench.agent:NativeThinHarnessAgent",
+            "import_path": null,
+            "model_name": "openai/gpt-5.6-sol",
+            "n_concurrent": 1,
+            "concurrency_group": null,
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "resume_trajectory": false,
+            "load_trajectory": null,
+            "extra_allowed_hosts": [],
+            "include_logs": [
+                "*.json"
+            ],
+            "kwargs": {
+                "preflight_only": false,
+                "launch_id": "paid-20260824-054754-4cbc4e1a",
+                "prior_implementation_spend_usd": 0.0
+            },
+            "mcp_servers": []
+        },
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [],
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "extra_instruction_paths": [],
+        "job_id": "4e6b2e8b-c648-49c4-9386-a1fed7b2ea5f",
+        "source_trial": null
+    },
+    "agent_info": {
+        "name": "native-thinharness",
+        "version": "0.1+758fcf305e46",
+        "model_info": {
+            "name": "gpt-5.6-sol",
+            "provider": "openai"
+        }
+    },
+    "agent_result": {
+        "n_input_tokens": 14771,
+        "n_cache_tokens": 9976,
+        "n_output_tokens": 3060,
+        "cost_usd": null,
+        "rollout_details": null,
+        "metadata": {
+            "model_requests": 4,
+            "tool_calls": 3,
+            "stop_reason": "end_turn",
+            "response_models": [
+                "gpt-5.6-sol"
+            ],
+            "api_equivalent_cost_usd": 0.09684800000000002,
+            "container_execution": {
+                "cwd": "/app",
+                "execution": "harbor-task-container",
+                "hostname": "1a2bcdc6af5c",
+                "machine": "x86_64",
+                "os_release": {
+                    "ID": "ubuntu",
+                    "PRETTY_NAME": "Ubuntu 24.04.3 LTS",
+                    "VERSION_ID": "24.04"
+                },
+                "pid": 2950,
+                "pid1_cgroup_sha256": "e57fd7b21104f091de366ace1464596378a498b0a5e63f1b21147a8998c20107",
+                "platform": "Linux-6.12.76-linuxkit-x86_64-with-glibc2.39",
+                "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+                "python_executable": "/opt/thinharness-venv/bin/python",
+                "uid": 0,
+                "workspace_root": "/app"
+            },
+            "verifier_handoff": true
+        }
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 1.0
+        }
+    },
+    "verifier_environment_mode": "shared",
+    "exception_info": null,
+    "started_at": "2026-08-24T05:47:56.281891Z",
+    "finished_at": "2026-08-24T05:49:58.874505Z",
+    "environment_setup": {
+        "started_at": "2026-08-24T05:47:56.369315Z",
+        "finished_at": "2026-08-24T05:47:57.352002Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-08-24T05:47:57.352085Z",
+        "finished_at": "2026-08-24T05:48:43.907983Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-08-24T05:48:43.908263Z",
+        "finished_at": "2026-08-24T05:49:36.916074Z"
+    },
+    "verifier": {
+        "started_at": "2026-08-24T05:49:37.340069Z",
+        "finished_at": "2026-08-24T05:49:48.029039Z"
+    },
+    "step_results": null
+}

@@ -1,0 +1,10 @@
+{
+  "harbor_exit_code": 0,
+  "implementation_spend_usd": 0.09684800000000002,
+  "job": "jobs/native-thinharness-paid-regex-log-20260824-054754-4cbc4e1a",
+  "latest_attempt_spend_usd": 0.09684800000000002,
+  "launch_id": "paid-20260824-054754-4cbc4e1a",
+  "ledger": "jobs/native-thinharness-paid-regex-log-20260824-054754-4cbc4e1a/regex-log__NRLsaz4/agent/api-budget.json",
+  "schema_version": 1,
+  "status": "completed"
+}

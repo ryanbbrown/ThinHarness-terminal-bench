@@ -1,0 +1,105 @@
+{
+  "attempt_ceiling_usd": 0.5,
+  "dataset_digest": "sha256:7d7bdc1cbedad549fc1140404bd4dc45e5fd0ea7c4186773687d177ad3a0699a",
+  "fatal_error": null,
+  "implementation_ceiling_usd": 1.0,
+  "in_flight_request_id": null,
+  "launch_id": "paid-20260824-054754-4cbc4e1a",
+  "model": "gpt-5.6-sol",
+  "prior_implementation_spend_usd": 0.0,
+  "requests": [
+    {
+      "api_equivalent_cost_usd": 0.07792500000000001,
+      "authorized_max_output_tokens": 13753,
+      "input_reserve_tokens": 17478,
+      "payload_bytes": 7478,
+      "payload_sha256": "c995a8aebf80e662a494b8c440c1739625e431f10138f4531d203aac6dd1ef9b",
+      "prior_input_tokens": 0,
+      "reported_cash_cost_usd": null,
+      "request_id": "paid-20260824-054754-4cbc4e1a:1",
+      "requested_max_output_tokens": 100000,
+      "reserved_usd": 0.49998000000000004,
+      "response_model": "gpt-5.6-sol",
+      "status": "completed",
+      "usage": {
+        "cache_write_tokens": 1451,
+        "cached_input_tokens": 0,
+        "input_tokens": 1454,
+        "ordinary_input_tokens": 3,
+        "output_tokens": 2597,
+        "reasoning_tokens": 2350
+      }
+    },
+    {
+      "api_equivalent_cost_usd": 0.0075805,
+      "authorized_max_output_tokens": 11042,
+      "input_reserve_tokens": 18163,
+      "payload_bytes": 6709,
+      "payload_sha256": "0f23075f4fab3897986214564356b69c8147ad613ee83b832b05b232250dc6d5",
+      "prior_input_tokens": 1454,
+      "reported_cash_cost_usd": null,
+      "request_id": "paid-20260824-054754-4cbc4e1a:2",
+      "requested_max_output_tokens": 100000,
+      "reserved_usd": 0.422075,
+      "response_model": "gpt-5.6-sol",
+      "status": "completed",
+      "usage": {
+        "cache_write_tokens": 2637,
+        "cached_input_tokens": 1451,
+        "input_tokens": 4091,
+        "ordinary_input_tokens": 3,
+        "output_tokens": 228,
+        "reasoning_tokens": 21
+      }
+    },
+    {
+      "api_equivalent_cost_usd": 0.008689,
+      "authorized_max_output_tokens": 10304,
+      "input_reserve_tokens": 21070,
+      "payload_bytes": 6979,
+      "payload_sha256": "eaa738b0dfab008cbd5b353b33b5e6c42e438a3e4eb40d16dfacfc6c331d588c",
+      "prior_input_tokens": 4091,
+      "reported_cash_cost_usd": null,
+      "request_id": "paid-20260824-054754-4cbc4e1a:3",
+      "requested_max_output_tokens": 100000,
+      "reserved_usd": 0.41447,
+      "response_model": "gpt-5.6-sol",
+      "status": "completed",
+      "usage": {
+        "cache_write_tokens": 349,
+        "cached_input_tokens": 4088,
+        "input_tokens": 4440,
+        "ordinary_input_tokens": 3,
+        "output_tokens": 221,
+        "reasoning_tokens": 13
+      }
+    },
+    {
+      "api_equivalent_cost_usd": 0.0026534999999999996,
+      "authorized_max_output_tokens": 9962,
+      "input_reserve_tokens": 21386,
+      "payload_bytes": 6946,
+      "payload_sha256": "c9b310085450015a755fce82ca674ba02b4a5fab531ca8a8ae241b7913e27e6d",
+      "prior_input_tokens": 4440,
+      "reported_cash_cost_usd": null,
+      "request_id": "paid-20260824-054754-4cbc4e1a:4",
+      "requested_max_output_tokens": 100000,
+      "reserved_usd": 0.40579000000000004,
+      "response_model": "gpt-5.6-sol",
+      "status": "completed",
+      "usage": {
+        "cache_write_tokens": 346,
+        "cached_input_tokens": 4437,
+        "input_tokens": 4786,
+        "ordinary_input_tokens": 3,
+        "output_tokens": 14,
+        "reasoning_tokens": 0
+      }
+    }
+  ],
+  "reserved_usd": 0.0,
+  "spent_usd": 0.09684800000000002,
+  "status": "completed",
+  "task": "terminal-bench/regex-log",
+  "version": 1
+}

@@ -1,0 +1,39 @@
+{
+    "id": "4e6b2e8b-c648-49c4-9386-a1fed7b2ea5f",
+    "started_at": "2026-08-24T01:47:56.161138",
+    "updated_at": "2026-08-24T01:49:58.876630",
+    "finished_at": "2026-08-24T01:49:58.876630",
+    "n_total_trials": 1,
+    "stats": {
+        "n_completed_trials": 1,
+        "n_errored_trials": 0,
+        "n_running_trials": 0,
+        "n_pending_trials": 0,
+        "n_cancelled_trials": 0,
+        "n_retries": 0,
+        "evals": {
+            "native-thinharness__gpt-5.6-sol__terminal-bench/terminal-bench-2-1": {
+                "n_trials": 1,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 1.0
+                    }
+                ],
+                "pass_at_k": {},
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "regex-log__NRLsaz4"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        },
+        "n_input_tokens": 14771,
+        "n_cache_tokens": 9976,
+        "n_output_tokens": 3060,
+        "cost_usd": null
+    }
+}

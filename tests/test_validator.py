@@ -7,7 +7,7 @@ from pathlib import Path
 import pytest
 
 from tbench.constants import MODEL_ID, PROMPT_SHA256, REPOSITORY_ROOT, THINHARNESS_COMMIT
-from tbench.validate import ValidationError, validate_container_preflight
+from tbench.validate import ValidationError, validate_container_preflight, validate_paid_artifacts
 
 
 def receipt() -> dict:
@@ -75,6 +75,31 @@ def test_committed_harbor_preflight_proves_native_container_architecture() -> No
 
     assert value["model_calls"] == 0
     assert value["tools"]["names"] == ["bash", "read", "edit", "write"]
+
+
+def test_committed_paid_artifacts_prove_complete_verifier_passing_e2e() -> None:
+    artifact_dir = REPOSITORY_ROOT / "artifacts" / "paid-e2e"
+
+    value = validate_paid_artifacts(artifact_dir)
+
+    assert value["passed"] is True
+    assert value["reward"] == 1.0
+    assert value["requests"] == 4
+    assert value["tokens"] == {
+        "input_tokens": 14771,
+        "ordinary_input_tokens": 12,
+        "cached_input_tokens": 9976,
+        "cache_write_tokens": 4783,
+        "output_tokens": 3060,
+        "reasoning_tokens": 2384,
+    }
+    assert value["tool_count"] == 3
+    assert value["tool_counts"] == {"bash": 2, "write": 1}
+    assert value["actual_cash_cost_usd"] is None
+    assert value["api_equivalent_cost_usd"] == pytest.approx(0.096848)
+    assert all(path.startswith("artifacts/paid-e2e/") for path in value["receipts"].values())
+    report = json.loads((REPOSITORY_ROOT / "reports" / "implementation-e2e.json").read_text())
+    assert report == value
 
 
 def test_validator_rejects_schema_receipt_without_parameters(tmp_path: Path) -> None:
