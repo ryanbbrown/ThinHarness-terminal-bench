@@ -74,8 +74,8 @@ def _validate_selection(selection: dict[str, Any]) -> None:
     excluded = set(selection.get("excluded_prior_paid_or_launched_tasks", []))
     if excluded & set(TASKS):
         raise SubscriptionValidationError("selected task appears in prior paid exclusions")
-    if len(selected) != 4 or len(set(selected)) != 4:
-        raise SubscriptionValidationError("selection must contain four unique tasks")
+    if len(selected) != 1 or len(set(selected)) != 1:
+        raise SubscriptionValidationError("selection must contain exactly one task")
     _equal(selection.get("planned_execution_order"), list(EXPECTED_CELLS), "planned cell order")
     for item in selection["selected"]:
         if item.get("expert_time_estimate_min") != 5.0:
@@ -149,6 +149,14 @@ def _validate_cell(cell: Path, *, expected_mode: str, expected_cell_id: str) -> 
         _equal(install.get("source_mode"), "transient-local-git-bundle", "ThinHarness source mode")
         if not isinstance(install.get("wheel_sha256"), str):
             raise SubscriptionValidationError("ThinHarness wheel hash is missing")
+        transport = receipt.get("provider_transport") or {}
+        _equal(transport.get("provider_timeout_seconds"), 1800, "ThinHarness provider timeout")
+        _equal(
+            transport.get("client_timeout_seconds"),
+            {"connect": 1800, "pool": 1800, "read": 1800, "write": 1800},
+            "ThinHarness effective client timeout",
+        )
+        _equal(transport.get("provider_owns_client"), True, "ThinHarness provider client ownership")
         origins = receipt.get("tool_origins") or {}
         _equal(
             {name: value.get("plugin") for name, value in origins.items()},
@@ -271,7 +279,7 @@ def _tool_arguments(receipt: dict[str, Any]) -> list[dict[str, Any]]:
 
 
 def validate_artifacts(root: Path, *, mode: str) -> dict[str, Any]:
-    """Validate two fake preflights or eight real matched cells."""
+    """Validate the two fake preflight cells or two real matched cells."""
     if mode not in {"fake", "real"}:
         raise ValueError("mode must be fake or real")
     selection = _read(root / "selection.json")
@@ -280,7 +288,7 @@ def validate_artifacts(root: Path, *, mode: str) -> dict[str, Any]:
     _equal(state.get("status"), "completed", "run status")
     _equal(state.get("gateway_mode"), mode, "run gateway mode")
     actual_cells = sorted(path.name for path in (root / "cells").iterdir() if path.is_dir())
-    expected = ["fix-git--pi", "fix-git--thinharness"] if mode == "fake" else sorted(EXPECTED_CELLS)
+    expected = sorted(EXPECTED_CELLS)
     _equal(actual_cells, expected, "artifact cells")
     cells = [_validate_cell(root / "cells" / cell_id, expected_mode=mode, expected_cell_id=cell_id) for cell_id in actual_cells]
     backend_preflight = None

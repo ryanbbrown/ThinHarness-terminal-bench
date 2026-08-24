@@ -1,0 +1,38 @@
+{
+  "cells": [
+    {
+      "artifact": "artifacts/codex-subscription-crack-7z-recovery-preflight/cells/crack-7z-hash--pi",
+      "cell_id": "crack-7z-hash--pi",
+      "exception": null,
+      "harbor_exit_code": 0,
+      "harness": "pi",
+      "job": "jobs/codex-subscription-crack-7z-recovery/codex-subscription-crack-7z-recovery-fake-crack-7z-hash--pi-20260824-204219-7e73751f",
+      "mode": "fake",
+      "reward": 0.0,
+      "task": "crack-7z-hash",
+      "trial": "crack-7z-hash__UEZLrEZ"
+    },
+    {
+      "artifact": "artifacts/codex-subscription-crack-7z-recovery-preflight/cells/crack-7z-hash--thinharness",
+      "cell_id": "crack-7z-hash--thinharness",
+      "exception": null,
+      "harbor_exit_code": 0,
+      "harness": "thinharness",
+      "job": "jobs/codex-subscription-crack-7z-recovery/codex-subscription-crack-7z-recovery-fake-crack-7z-hash--thinharness-20260824-204459-60c3dad8",
+      "mode": "fake",
+      "reward": 0.0,
+      "task": "crack-7z-hash",
+      "trial": "crack-7z-hash__NqVs3ao"
+    }
+  ],
+  "dataset": "terminal-bench/terminal-bench-2-1@sha256:7d7bdc1cbedad549fc1140404bd4dc45e5fd0ea7c4186773687d177ad3a0699a",
+  "finished_at": 1787604429.299662,
+  "gateway_mode": "fake",
+  "mode": "preflight",
+  "model": "gpt-5.6-sol",
+  "schema_version": 1,
+  "source_bundle_committed": false,
+  "source_bundle_sha256": "f6e4ba9d009c9a9750e9efe0d75fbfca3aa87f6b747720618276783a3d2d2bd2",
+  "started_at": 1787604139.3586628,
+  "status": "completed"
+}

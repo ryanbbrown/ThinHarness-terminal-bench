@@ -13,7 +13,7 @@ from tbench.subscription_constants import DATASET_DIGEST, EXPECTED_CELLS, MODEL
 def test_harbor_cell_is_single_attempt_single_concurrency_zero_retry(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setattr(subscription_launch.shutil, "which", lambda _: "/venv/bin/harbor")
     command = subscription_launch._harbor_command(
-        cell_id="raman-fitting--pi", task="raman-fitting", harness="pi", mode="fake", job_name="job"
+        cell_id="crack-7z-hash--pi", task="crack-7z-hash", harness="pi", mode="fake", job_name="job"
     )
     assert command[command.index("--dataset") + 1].endswith(f"@{DATASET_DIGEST}")
     assert command[command.index("--model") + 1] == f"openai/{MODEL}"
@@ -31,13 +31,12 @@ def test_api_credentials_are_rejected_before_fake_or_real_launch(monkeypatch: py
         subscription_launch._validate_environment("fake")
 
 
-def test_expected_cells_are_exactly_four_matched_pairs() -> None:
-    assert len(EXPECTED_CELLS) == 8
-    assert {cell.rsplit("--", 1)[1] for cell in EXPECTED_CELLS} == {"pi", "thinharness"}
-    assert all(
-        sum(cell.startswith(task + "--") for cell in EXPECTED_CELLS) == 2
-        for task in ("raman-fitting", "fix-git", "prove-plus-comm", "crack-7z-hash")
-    )
+def test_expected_cells_are_one_pi_then_thinharness_pair() -> None:
+    assert EXPECTED_CELLS == ("crack-7z-hash--pi", "crack-7z-hash--thinharness")
+
+
+def test_selected_task_has_no_preserved_real_cell_evidence() -> None:
+    subscription_launch._validate_fresh_task_evidence()
 
 
 def test_cproxy_lock_pins_exact_commit() -> None:
@@ -90,3 +89,12 @@ def test_bundle_preview_accepts_later_clean_head_and_stages_only_pin(
     }
     assert len(preview["bundle_sha256"]) == 64
     assert not list(tmp_path.rglob("*.bundle"))
+
+
+def test_freshness_check_refuses_preserved_selected_task(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
+    preserved = tmp_path / "artifacts" / "codex-subscription-4task" / "cells" / "crack-7z-hash--pi"
+    preserved.mkdir(parents=True)
+    monkeypatch.setattr(subscription_launch, "REPOSITORY_ROOT", tmp_path)
+
+    with pytest.raises(RuntimeError, match="preserved prior real-cell evidence"):
+        subscription_launch._validate_fresh_task_evidence()

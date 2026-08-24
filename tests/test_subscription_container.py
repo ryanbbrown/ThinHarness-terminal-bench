@@ -1,6 +1,12 @@
 from __future__ import annotations
 
-from tbench.subscription_container import _parse_pi_events
+import asyncio
+import inspect
+
+import httpx
+
+from tbench import subscription_container
+from tbench.subscription_container import _parse_pi_events, _provider_transport_identity, _subscription_provider
 
 
 def test_pi_event_parser_preserves_request_tool_and_reasoning_usage() -> None:
@@ -40,3 +46,37 @@ def test_pi_event_parser_preserves_request_tool_and_reasoning_usage() -> None:
     }
     assert value["response_models"] == ["gpt-5.6-sol"]
     assert value["stop_reason"] == "stop"
+
+
+def test_native_provider_owns_client_with_effective_1800_second_timeout() -> None:
+    class ControlledNativeProvider:
+        def __init__(self, **kwargs: object) -> None:
+            assert "http_client" not in kwargs
+            assert isinstance(kwargs["timeout"], int)
+            self.timeout = kwargs["timeout"]
+            self._http_client: httpx.AsyncClient | None = None
+            self._owns_client = True
+
+        def _client(self) -> httpx.AsyncClient:
+            if self._http_client is None:
+                self._http_client = httpx.AsyncClient(timeout=self.timeout)
+            return self._http_client
+
+        async def create_response(self, payload: dict[str, object]) -> dict[str, object]:
+            return payload
+
+    provider = _subscription_provider(
+        ControlledNativeProvider, RuntimeError, url="http://127.0.0.1:1/v1", token="controlled", requests=[]
+    )
+    identity = _provider_transport_identity(provider)
+
+    assert identity == {
+        "provider_timeout_seconds": 1800,
+        "client_timeout_seconds": {"connect": 1800, "read": 1800, "write": 1800, "pool": 1800},
+        "provider_owns_client": True,
+        "client_type": "httpx.AsyncClient",
+        "requests_made": 0,
+    }
+    assert "http_client=" not in inspect.getsource(subscription_container._subscription_provider)
+    assert provider._http_client is not None
+    asyncio.run(provider._http_client.aclose())

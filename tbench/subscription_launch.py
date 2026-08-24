@@ -29,6 +29,7 @@ from .subscription_constants import (
     MODEL,
     REPOSITORY_ROOT,
     RETRIES,
+    SELECTION_PATH,
     SMOKE_ID,
     SOURCE_BUNDLE_ENV,
     SOURCE_BUNDLE_SHA_ENV,
@@ -169,6 +170,18 @@ def _archive(job_dir: Path, *, cell_id: str, mode: str, gateway_dir: Path, launc
     return target
 
 
+def _validate_fresh_task_evidence() -> None:
+    conflicts = []
+    artifact_cell_roots = [path for path in (REPOSITORY_ROOT / "artifacts").glob("*/cells") if not path.parent.name.endswith("-preflight")]
+    for task in TASKS:
+        for cells in artifact_cell_roots:
+            conflicts.extend(sorted(cells.glob(f"{task}--*")))
+        conflicts.extend(sorted((REPOSITORY_ROOT / "jobs").glob(f"*/*-real-{task}--*")))
+    if conflicts:
+        names = ", ".join(str(path.relative_to(REPOSITORY_ROOT)) for path in conflicts)
+        raise RuntimeError(f"selected recovery task has preserved prior real-cell evidence: {names}")
+
+
 def _validate_environment(mode: str) -> None:
     forbidden = [name for name in ("OPENAI_API_KEY", "ANTHROPIC_API_KEY", "OPENROUTER_API_KEY") if os.getenv(name)]
     if forbidden:
@@ -286,21 +299,23 @@ def _public_gateway_identity(gateway: GatewayIdentity) -> dict[str, Any]:
 
 
 def run(mode: str) -> int:
-    """Run two controlled preflights or the eight real matched cells."""
+    """Run two controlled preflight cells or the two real matched cells."""
     if mode not in {"preflight", "run"}:
         raise ValueError("mode must be preflight or run")
     gateway_mode = "fake" if mode == "preflight" else "real"
     _validate_environment(gateway_mode)
+    _validate_fresh_task_evidence()
     artifact_root = _PREFLIGHT_DIR if gateway_mode == "fake" else SUBSCRIPTION_ARTIFACT_DIR
     if artifact_root.exists():
         raise RuntimeError(f"refusing to replace existing smoke evidence: {artifact_root}")
-    cells = (
-        (("fix-git--pi", "fix-git", "pi"), ("fix-git--thinharness", "fix-git", "thinharness"))
-        if mode == "preflight"
-        else tuple((cell_id, task, harness) for task in TASKS for harness in ("pi", "thinharness") for cell_id in (f"{task}--{harness}",))
+    cells = tuple(
+        (cell_id, task, harness)
+        for task in TASKS
+        for harness in ("pi", "thinharness")
+        for cell_id in (f"{task}--{harness}",)
     )
-    if mode == "run" and tuple(cell_id for cell_id, _, _ in cells) != EXPECTED_CELLS:
-        raise RuntimeError("planned cell order differs from the frozen eight-cell design")
+    if tuple(cell_id for cell_id, _, _ in cells) != EXPECTED_CELLS:
+        raise RuntimeError("planned cell order differs from the frozen two-cell design")
     state_path = SUBSCRIPTION_RUNS_DIR / f"{mode}-state.json"
     with _lock(), _source_bundle() as source_bundle:
         bundle = source_bundle.path
@@ -341,7 +356,7 @@ def run(mode: str) -> int:
         _atomic_json(state_path, state)
     artifact_root.mkdir(parents=True, exist_ok=True)
     shutil.copy2(state_path, artifact_root / "run-state.json")
-    shutil.copy2(REPOSITORY_ROOT / "configs" / "subscription-smoke-selection.json", artifact_root / "selection.json")
+    shutil.copy2(SELECTION_PATH, artifact_root / "selection.json")
     if mode == "preflight":
         _record_real_backend_preflight(artifact_root)
     return 0

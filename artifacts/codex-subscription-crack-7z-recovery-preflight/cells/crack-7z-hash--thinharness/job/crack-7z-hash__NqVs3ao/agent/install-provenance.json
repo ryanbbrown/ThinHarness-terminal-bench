@@ -1,0 +1,13 @@
+{
+  "build_location": "harbor-task-container",
+  "canonical_commit": "84105f07bb9c1ad366fc8fe4fef49e700f5e88ef",
+  "harness": "thinharness",
+  "installed_version": "0.7.0",
+  "platform": "Linux-6.12.76-linuxkit-x86_64-with-glibc2.39",
+  "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+  "schema_version": 1,
+  "source_bundle_sha256": "f6e4ba9d009c9a9750e9efe0d75fbfca3aa87f6b747720618276783a3d2d2bd2",
+  "source_mode": "transient-local-git-bundle",
+  "wheel_path": "/opt/thinharness-subscription-wheels/thinharness-0.7.0-py3-none-any.whl",
+  "wheel_sha256": "31a67da89bcbe36c947334514275200686bf667e2096ef75329824d047bcc7ba"
+}

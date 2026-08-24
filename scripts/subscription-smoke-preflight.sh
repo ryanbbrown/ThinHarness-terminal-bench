@@ -6,5 +6,5 @@ if [[ -n "${OPENAI_API_KEY:-}" ]]; then
   exit 2
 fi
 uv run python -m tbench.subscription_launch preflight
-uv run python -m tbench.subscription_validate finalize-preflight artifacts/codex-subscription-4task-preflight \
-  --report reports/codex-subscription-4task-preflight.json >/dev/null
+uv run python -m tbench.subscription_validate finalize-preflight artifacts/codex-subscription-crack-7z-recovery-preflight \
+  --report reports/codex-subscription-crack-7z-recovery-preflight.json >/dev/null

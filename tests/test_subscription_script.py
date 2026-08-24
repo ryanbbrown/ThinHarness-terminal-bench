@@ -45,6 +45,6 @@ def test_run_script_accepts_codex_chatgpt_status_from_stderr_without_echoing_it(
     assert "private-status-detail" not in completed.stdout + completed.stderr
     assert commands.read_text().splitlines() == [
         "run python -m tbench.subscription_launch run",
-        "run python -m tbench.subscription_validate finalize-run artifacts/codex-subscription-4task --report "
-        "reports/codex-subscription-4task.json",
+        "run python -m tbench.subscription_validate finalize-run artifacts/codex-subscription-crack-7z-recovery --report "
+        "reports/codex-subscription-crack-7z-recovery.json",
     ]

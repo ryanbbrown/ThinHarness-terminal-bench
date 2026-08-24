@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "dataset": {
+    "name": "terminal-bench/terminal-bench-2-1",
+    "digest": "sha256:7d7bdc1cbedad549fc1140404bd4dc45e5fd0ea7c4186773687d177ad3a0699a",
+    "task_count": 89
+  },
+  "selection_rule": "Recover only the last unattempted task from the previously frozen low-cost five-minute tier. Exclude every task found in preserved paid Pi or ThinHarness evidence, including interrupted subscription launches. Refuse launch if preserved real-cell evidence names the selected task.",
+  "prior_evidence": {
+    "current_repository": [
+      "evidence/preserved-direct-api-regex-log/",
+      "artifacts/paid-e2e/",
+      "artifacts/paid-e2e-84105f07/",
+      "artifacts/codex-subscription-4task/",
+      "jobs/codex-subscription-4task/"
+    ],
+    "preserved_experiment_path_checked": "/Users/ryanbrown/code/thinharness/experiments/terminal_bench_2_1",
+    "preserved_experiment_path_present": false,
+    "note": "The preserved ignored experiment directory was no longer present. Preserved real subscription cells exist for raman-fitting with both harnesses, fix-git with both harnesses, and prove-plus-comm with Pi. No preserved real cell or job names crack-7z-hash. A missing receipt can only add exclusions; the conservative exclusion set retains every earlier paid or launched task."
+  },
+  "excluded_prior_paid_or_launched_tasks": [
+    "build-pmars",
+    "extract-elf",
+    "fix-code-vulnerability",
+    "fix-git",
+    "hf-model-inference",
+    "kv-store-grpc",
+    "overfull-hbox",
+    "prove-plus-comm",
+    "raman-fitting",
+    "regex-log",
+    "reshard-c4-data",
+    "write-compressor"
+  ],
+  "preserved_real_subscription_cells": [
+    "raman-fitting--pi",
+    "raman-fitting--thinharness",
+    "fix-git--pi",
+    "fix-git--thinharness",
+    "prove-plus-comm--pi"
+  ],
+  "selected": [
+    {
+      "task": "crack-7z-hash",
+      "difficulty": "medium",
+      "category": "security",
+      "expert_time_estimate_min": 5.0,
+      "agent_timeout_sec": 1800,
+      "verifier_timeout_sec": 900,
+      "cpus": 1,
+      "memory_mb": 4096,
+      "image": "alexgshaw/crack-7z-hash:20251031",
+      "amd64_image_digest": "sha256:0f4453abd774c5a3d3d7e66ba28fae88ec2e49ada3a993b324ebc16c348666d3",
+      "amd64_compressed_layer_bytes": 355841799,
+      "task_toml_sha256": "8e192bcbe00e817419bde7ff9b562a5fa0c1e24ec4f3384cba4a31eda0a7b013"
+    }
+  ],
+  "planned_execution_order": [
+    "crack-7z-hash--pi",
+    "crack-7z-hash--thinharness"
+  ],
+  "planned_cells": 2,
+  "attempts_per_cell": 1,
+  "concurrency": 1,
+  "retries": {"gateway": 0, "provider": 0, "agent": 0, "harbor": 0}
+}

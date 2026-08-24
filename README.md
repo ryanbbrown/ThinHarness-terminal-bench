@@ -63,20 +63,18 @@ The result passed with reward `1.0`. It used 4 direct OpenAI requests, 13,474 in
 
 The prior `758fcf30` E2E result remains unchanged in `artifacts/paid-e2e/` and `reports/implementation-e2e.json`: reward 1.0 and corrected USD 0.12674175 API-equivalent spend. The new immutable result is in `artifacts/paid-e2e-84105f07/` and `reports/implementation-e2e-84105f07.json`.
 
-## Matched Codex-subscription smoke
+## Matched Codex-subscription recovery
 
-The next smoke compares Pi 0.84.2 and native ThinHarness on four previously unused, low-cost tasks through the same cproxy/Codex ChatGPT subscription backend. It does not use direct OpenAI or Doppler credentials. See `reports/subscription-smoke-methodology.md` and `configs/subscription-smoke-selection.json`.
+The recovery compares Pi 0.84.2 and native ThinHarness once on `crack-7z-hash`, the only task from the frozen low-cost tier with no preserved real cell. It uses the existing pinned cproxy/Codex ChatGPT subscription bridge. It does not use direct OpenAI or Doppler credentials. See `reports/subscription-recovery-methodology.md` and `configs/subscription-recovery-selection.json`.
 
-Preview the exact transient bundle with no Harbor, gateway, cproxy, or upstream request. The clean checkout can have later commits at `HEAD`, but it must contain the pin:
+Preview the exact transient bundle with no Harbor, gateway, cproxy, or upstream request:
 
 ```bash
 TB_THINHARNESS_LOCAL_SOURCE=/Users/ryanbrown/code/thinharness \
   uv run python -m tbench.subscription_launch bundle-preview
 ```
 
-The committed zero-subscription-call gate is unchanged in `artifacts/codex-subscription-4task-preflight/`. To create new preflight evidence at a new artifact path, use the launcher directly rather than replacing those immutable bytes.
-
-After the committed preflight evidence passes, the authorized eight-cell command is:
+After the controlled zero-upstream preflight passes, the exact authorized two-cell command is:
 
 ```bash
 env -u OPENAI_API_KEY -u ANTHROPIC_API_KEY -u OPENROUTER_API_KEY \
@@ -84,7 +82,7 @@ env -u OPENAI_API_KEY -u ANTHROPIC_API_KEY -u OPENROUTER_API_KEY \
   ./scripts/run-subscription-smoke.sh
 ```
 
-Both commands keep OAuth on the host. The real launcher validates `codex login status`, runs each Harbor cell sequentially, uses a random authenticated gateway for that cell only, and records every sanitized request and complete response. It refuses to replace existing smoke evidence.
+The real launcher runs Pi first and ThinHarness second with one attempt, concurrency one, and zero retries. It refuses preserved real-cell evidence for the selected task and refuses to replace `artifacts/codex-subscription-crack-7z-recovery/`.
 
 ## Evidence boundary
 

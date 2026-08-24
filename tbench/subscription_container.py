@@ -100,8 +100,45 @@ def _usage_from_response(response: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def _subscription_provider(
+    provider_type: type[Any], provider_error: type[Exception], *, url: str, token: str, requests: list[dict[str, Any]]
+) -> Any:
+    class SubscriptionProvider(provider_type):
+        def __init__(self) -> None:
+            super().__init__(api_key=token, base_url=url, timeout=1800, request_retries=0, request_retry_backoff=0)
+
+        async def create_response(self, payload: dict[str, Any]) -> dict[str, Any]:
+            if payload.get("model") != MODEL or payload.get("reasoning") != REASONING or payload.get("text") != TEXT:
+                raise provider_error("ThinHarness subscription payload differs from frozen model settings")
+            response = await super().create_response(payload)
+            if response.get("model") != MODEL:
+                raise provider_error("subscription backend response model identity differs")
+            usage = _usage_from_response(response)
+            if not all(isinstance(usage[key], int) for key in ("input_tokens", "cached_input_tokens", "output_tokens", "reasoning_tokens")):
+                raise provider_error("subscription backend response usage is incomplete")
+            requests.append({"sequence": len(requests) + 1, "payload": payload, "response": response, "usage": usage})
+            return response
+
+    return SubscriptionProvider()
+
+
+def _provider_transport_identity(provider: Any) -> dict[str, Any]:
+    client = provider._client()
+    timeout = client.timeout
+    values = {name: getattr(timeout, name) for name in ("connect", "read", "write", "pool")}
+    identity = {
+        "provider_timeout_seconds": provider.timeout,
+        "client_timeout_seconds": values,
+        "provider_owns_client": provider._owns_client,
+        "client_type": f"{type(client).__module__}.{type(client).__qualname__}",
+        "requests_made": 0,
+    }
+    if provider.timeout != 1800 or set(values.values()) != {1800} or provider._owns_client is not True:
+        raise RuntimeError(f"ThinHarness provider transport does not use its owned 1800-second timeout: {identity}")
+    return identity
+
+
 async def _run_thinharness(args: argparse.Namespace, *, url: str, token: str, mode: str) -> int:
-    import httpx
     from thinharness import (
         BashPlugin,
         FilesystemPlugin,
@@ -116,28 +153,11 @@ async def _run_thinharness(args: argparse.Namespace, *, url: str, token: str, mo
 
     security = harden_linux_model_loop_parent()
     requests: list[dict[str, Any]] = []
-
-    class SubscriptionProvider(OpenAIProvider):
-        def __init__(self) -> None:
-            client = httpx.AsyncClient(headers={"Authorization": f"Bearer {token}"})
-            super().__init__(api_key=token, base_url=url, timeout=1800, request_retries=0, request_retry_backoff=0, http_client=client)
-
-        async def create_response(self, payload: dict[str, Any]) -> dict[str, Any]:
-            if payload.get("model") != MODEL or payload.get("reasoning") != REASONING or payload.get("text") != TEXT:
-                raise ProviderError("ThinHarness subscription payload differs from frozen model settings")
-            response = await super().create_response(payload)
-            if response.get("model") != MODEL:
-                raise ProviderError("subscription backend response model identity differs")
-            usage = _usage_from_response(response)
-            if not all(isinstance(usage[key], int) for key in ("input_tokens", "cached_input_tokens", "output_tokens", "reasoning_tokens")):
-                raise ProviderError("subscription backend response usage is incomplete")
-            requests.append({"sequence": len(requests) + 1, "payload": payload, "response": response, "usage": usage})
-            return response
-
     prompt = _load_prompt(args.prompt)
     instruction = args.instruction.read_text(encoding="utf-8")
     install = json.loads(args.install_provenance.read_text(encoding="utf-8"))
-    provider = SubscriptionProvider()
+    provider = _subscription_provider(OpenAIProvider, ProviderError, url=url, token=token, requests=requests)
+    provider_transport = _provider_transport_identity(provider)
     settings = ModelSettings(effort="xhigh", extra_body={"reasoning": dict(REASONING), "text": dict(TEXT)})
     harness = Harness(
         HarnessConfig(
@@ -193,6 +213,7 @@ async def _run_thinharness(args: argparse.Namespace, *, url: str, token: str, mo
             "install": install,
             "harness_version": __version__,
             "thinharness_commit": install.get("canonical_commit"),
+            "provider_transport": provider_transport,
             "tool_names": [tool["name"] for tool in tools],
             "tool_schemas": tools,
             "tool_origins": {

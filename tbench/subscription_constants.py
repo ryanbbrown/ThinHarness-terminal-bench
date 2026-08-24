@@ -4,7 +4,7 @@ from pathlib import Path
 
 from .constants import MODEL_ID, PROMPT_PATH, PROMPT_SHA256, REPOSITORY_ROOT
 
-SMOKE_ID = "codex-subscription-4task"
+SMOKE_ID = "codex-subscription-crack-7z-recovery"
 DATASET_NAME = "terminal-bench/terminal-bench-2-1"
 DATASET_DIGEST = "sha256:7d7bdc1cbedad549fc1140404bd4dc45e5fd0ea7c4186773687d177ad3a0699a"
 THINHARNESS_COMMIT = "84105f07bb9c1ad366fc8fe4fef49e700f5e88ef"
@@ -18,10 +18,10 @@ NODE_VERSION = "22.23.1"
 MODEL = MODEL_ID
 REASONING = {"effort": "xhigh", "summary": "auto"}
 TEXT = {"verbosity": "low"}
-TASKS = ("raman-fitting", "fix-git", "prove-plus-comm", "crack-7z-hash")
+TASKS = ("crack-7z-hash",)
 HARNESSES = ("pi", "thinharness")
 EXPECTED_CELLS = tuple(f"{task}--{harness}" for task in TASKS for harness in HARNESSES)
-SELECTION_PATH = REPOSITORY_ROOT / "configs" / "subscription-smoke-selection.json"
+SELECTION_PATH = REPOSITORY_ROOT / "configs" / "subscription-recovery-selection.json"
 SUBSCRIPTION_PROMPT_PATH = PROMPT_PATH
 SUBSCRIPTION_PROMPT_SHA256 = PROMPT_SHA256
 SUBSCRIPTION_JOBS_DIR = REPOSITORY_ROOT / "jobs" / SMOKE_ID
