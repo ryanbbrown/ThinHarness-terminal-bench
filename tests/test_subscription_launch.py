@@ -35,8 +35,9 @@ def test_expected_cells_are_one_pi_then_thinharness_pair() -> None:
     assert EXPECTED_CELLS == ("crack-7z-hash--pi", "crack-7z-hash--thinharness")
 
 
-def test_selected_task_has_no_preserved_real_cell_evidence() -> None:
-    subscription_launch._validate_fresh_task_evidence()
+def test_completed_recovery_task_is_now_refused() -> None:
+    with pytest.raises(RuntimeError, match="artifacts/codex-subscription-crack-7z-recovery/cells/crack-7z-hash--pi"):
+        subscription_launch._validate_fresh_task_evidence()
 
 
 def test_cproxy_lock_pins_exact_commit() -> None:

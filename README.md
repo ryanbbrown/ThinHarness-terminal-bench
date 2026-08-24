@@ -82,7 +82,7 @@ env -u OPENAI_API_KEY -u ANTHROPIC_API_KEY -u OPENROUTER_API_KEY \
   ./scripts/run-subscription-smoke.sh
 ```
 
-The real launcher runs Pi first and ThinHarness second with one attempt, concurrency one, and zero retries. It refuses preserved real-cell evidence for the selected task and refuses to replace `artifacts/codex-subscription-crack-7z-recovery/`.
+The authorized recovery is complete. Both cells passed with reward `1.0`. The authoritative report is `reports/codex-subscription-crack-7z-recovery.json`; see `artifacts/subscription-recovery-handoff.md` for the concise trace comparison. The launcher refuses preserved real-cell evidence for the selected task and refuses to replace `artifacts/codex-subscription-crack-7z-recovery/`.
 
 ## Evidence boundary
 

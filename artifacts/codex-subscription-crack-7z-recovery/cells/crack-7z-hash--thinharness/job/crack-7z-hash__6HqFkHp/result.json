@@ -1,0 +1,134 @@
+{
+    "id": "b45c28bd-928a-466a-83bb-2000ae89e9b2",
+    "task_name": "terminal-bench/crack-7z-hash",
+    "trial_name": "crack-7z-hash__6HqFkHp",
+    "trial_uri": "file:///Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/codex-subscription-crack-7z-recovery/codex-subscription-crack-7z-recovery-real-crack-7z-hash--thinharness-20260824-210918-1c58dd91/crack-7z-hash__6HqFkHp",
+    "task_id": {
+        "org": "terminal-bench",
+        "name": "crack-7z-hash",
+        "ref": "sha256:99cbb2269f6bd112d3387fd01cb6900118fe4aded3f75a8d656580a8296a1ae5"
+    },
+    "source": "terminal-bench/terminal-bench-2-1",
+    "task_checksum": "22789e2dc5cc9b54c430b61556ac8ad3cddb9052d1c7ef349f25acd6f0d1db28",
+    "config": {
+        "task": {
+            "path": null,
+            "git_url": null,
+            "git_commit_id": null,
+            "name": "terminal-bench/crack-7z-hash",
+            "ref": "sha256:99cbb2269f6bd112d3387fd01cb6900118fe4aded3f75a8d656580a8296a1ae5",
+            "overwrite": false,
+            "download_dir": null,
+            "source": "terminal-bench/terminal-bench-2-1"
+        },
+        "trial_name": "crack-7z-hash__6HqFkHp",
+        "trials_dir": "/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/codex-subscription-crack-7z-recovery/codex-subscription-crack-7z-recovery-real-crack-7z-hash--thinharness-20260824-210918-1c58dd91",
+        "install_only": false,
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": 3.0,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "tbench.subscription_agent:SubscriptionSmokeAgent",
+            "import_path": null,
+            "model_name": "openai/gpt-5.6-sol",
+            "n_concurrent": 1,
+            "concurrency_group": null,
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "resume_trajectory": false,
+            "load_trajectory": null,
+            "extra_allowed_hosts": [],
+            "include_logs": [
+                "*"
+            ],
+            "kwargs": {
+                "harness": "thinharness",
+                "cell_id": "crack-7z-hash--thinharness",
+                "mode": "real"
+            },
+            "mcp_servers": []
+        },
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [],
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "extra_instruction_paths": [],
+        "job_id": "7b3fef1c-089d-4b36-8fb5-7097bff51906",
+        "source_trial": null
+    },
+    "agent_info": {
+        "name": "matched-subscription-smoke",
+        "version": "1.0+84105f07",
+        "model_info": {
+            "name": "gpt-5.6-sol",
+            "provider": "openai"
+        }
+    },
+    "agent_result": {
+        "n_input_tokens": 285637,
+        "n_cache_tokens": 220160,
+        "n_output_tokens": 2318,
+        "cost_usd": null,
+        "rollout_details": null,
+        "metadata": {
+            "cell_id": "crack-7z-hash--thinharness",
+            "harness": "thinharness",
+            "backend": "cproxy-codex-subscription",
+            "model_requests": 23,
+            "tool_calls": 26,
+            "response_models": [
+                "gpt-5.6-sol"
+            ],
+            "verifier_handoff": true
+        }
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 1.0
+        }
+    },
+    "verifier_environment_mode": "shared",
+    "exception_info": null,
+    "started_at": "2026-08-24T21:09:20.504525Z",
+    "finished_at": "2026-08-24T21:27:31.720400Z",
+    "environment_setup": {
+        "started_at": "2026-08-24T21:09:20.595702Z",
+        "finished_at": "2026-08-24T21:09:21.704209Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-08-24T21:09:21.704334Z",
+        "finished_at": "2026-08-24T21:10:26.294418Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-08-24T21:10:26.294801Z",
+        "finished_at": "2026-08-24T21:27:06.759884Z"
+    },
+    "verifier": {
+        "started_at": "2026-08-24T21:27:07.388991Z",
+        "finished_at": "2026-08-24T21:27:20.753751Z"
+    },
+    "step_results": null
+}
