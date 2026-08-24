@@ -99,20 +99,25 @@ def test_concurrent_paid_launch_is_excluded(tmp_path: Path) -> None:
                 pass
 
 
-def test_transient_local_source_bundle_is_exact_and_self_cleaning(tmp_path: Path, monkeypatch) -> None:
+def test_transient_local_source_bundle_pins_ancestor_and_excludes_later_head(tmp_path: Path, monkeypatch) -> None:
     source = tmp_path / "source"
     source.mkdir()
     subprocess.run(["git", "init", "-q", str(source)], check=True)
     subprocess.run(["git", "-C", str(source), "config", "user.name", "Test"], check=True)
     subprocess.run(["git", "-C", str(source), "config", "user.email", "test@example.com"], check=True)
-    (source / "file").write_text("content")
+    (source / "file").write_text("pinned\n")
     subprocess.run(["git", "-C", str(source), "add", "file"], check=True)
-    subprocess.run(["git", "-C", str(source), "commit", "-qm", "fixture"], check=True)
-    commit = subprocess.run(
+    subprocess.run(["git", "-C", str(source), "commit", "-qm", "pin"], check=True)
+    target = subprocess.run(
+        ["git", "-C", str(source), "rev-parse", "HEAD"], check=True, capture_output=True, text=True
+    ).stdout.strip()
+    (source / "file").write_text("later\n")
+    subprocess.run(["git", "-C", str(source), "commit", "-qam", "later"], check=True)
+    later = subprocess.run(
         ["git", "-C", str(source), "rev-parse", "HEAD"], check=True, capture_output=True, text=True
     ).stdout.strip()
     monkeypatch.setenv("TB_THINHARNESS_LOCAL_SOURCE", str(source))
-    monkeypatch.setattr("tbench.launch.THINHARNESS_COMMIT", commit)
+    monkeypatch.setattr("tbench.launch.THINHARNESS_COMMIT", target)
     bundle_path = None
 
     with _transient_source_override() as override:
@@ -121,7 +126,33 @@ def test_transient_local_source_bundle_is_exact_and_self_cleaning(tmp_path: Path
         assert bundle_path is not None and bundle_path.is_file()
         assert override.bundle_sha256 == hashlib.sha256(bundle_path.read_bytes()).hexdigest()
         assert subprocess.run(["git", "bundle", "verify", str(bundle_path)], check=False).returncode == 0
+        assert subprocess.run(
+            ["git", "bundle", "list-heads", str(bundle_path)], check=True, capture_output=True, text=True
+        ).stdout.splitlines() == [f"{target} refs/heads/thinharness-pin"]
+        staged = tmp_path / "staged.git"
+        subprocess.run(["git", "init", "-q", "--bare", str(staged)], check=True)
+        subprocess.run(
+            [
+                "git",
+                "-C",
+                str(staged),
+                "fetch",
+                "-q",
+                str(bundle_path),
+                "refs/heads/thinharness-pin:refs/heads/thinharness-pin",
+            ],
+            check=True,
+        )
+        assert subprocess.run(
+            ["git", "-C", str(staged), "cat-file", "-e", f"{target}^{{commit}}"], check=False
+        ).returncode == 0
+        assert subprocess.run(
+            ["git", "-C", str(staged), "cat-file", "-e", f"{later}^{{commit}}"], check=False
+        ).returncode != 0
 
+    assert subprocess.run(
+        ["git", "-C", str(source), "rev-parse", "HEAD"], check=True, capture_output=True, text=True
+    ).stdout.strip() == later
     assert bundle_path is not None and not bundle_path.exists()
 
 

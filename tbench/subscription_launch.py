@@ -4,12 +4,10 @@ from __future__ import annotations
 
 import argparse
 import fcntl
-import hashlib
 import json
 import os
 import shutil
 import subprocess
-import tempfile
 import time
 import uuid
 from collections.abc import Iterator
@@ -17,6 +15,7 @@ from contextlib import contextmanager
 from pathlib import Path
 from typing import Any
 
+from .source_bundle import ExactCommitBundle, exact_commit_bundle
 from .subscription_constants import (
     ATTEMPTS,
     CODEX_AUTH_PATH,
@@ -73,36 +72,29 @@ def _lock() -> Iterator[None]:
 
 
 @contextmanager
-def _source_bundle() -> Iterator[tuple[Path, str]]:
+def _source_bundle() -> Iterator[ExactCommitBundle]:
     raw = os.getenv(LOCAL_SOURCE_ENV)
     if not raw:
-        raise RuntimeError(f"{LOCAL_SOURCE_ENV} must name the clean canonical ThinHarness checkout while the pin is unpushed")
-    source = Path(raw).expanduser().resolve()
-    dirty = subprocess.run(["git", "-C", str(source), "status", "--porcelain"], check=True, capture_output=True, text=True).stdout
-    if dirty:
-        raise RuntimeError("local ThinHarness source must be clean")
-    commit_exists = subprocess.run(
-        ["git", "-C", str(source), "cat-file", "-e", f"{THINHARNESS_COMMIT}^{{commit}}"],
-        check=False,
-    )
-    if commit_exists.returncode != 0:
-        raise RuntimeError("local ThinHarness source does not contain the exact smoke pin")
-    on_main = subprocess.run(
-        ["git", "-C", str(source), "merge-base", "--is-ancestor", THINHARNESS_COMMIT, "HEAD"],
-        check=False,
-    )
-    if on_main.returncode != 0:
-        raise RuntimeError("exact smoke pin is not an ancestor of canonical local main")
-    with tempfile.TemporaryDirectory(prefix=f"{SMOKE_ID}-source-") as directory:
-        bare = Path(directory) / "source.git"
-        bundle = Path(directory) / "thinharness-source.bundle"
-        subprocess.run(["git", "clone", "--quiet", "--bare", "--no-local", str(source), str(bare)], check=True)
-        subprocess.run(["git", "-C", str(bare), "branch", "smoke-pin", THINHARNESS_COMMIT], check=True)
-        subprocess.run(["git", "-C", str(bare), "bundle", "create", str(bundle), "refs/heads/smoke-pin"], check=True)
-        advertised = subprocess.run(["git", "bundle", "list-heads", str(bundle)], check=True, capture_output=True, text=True).stdout.split()
-        if not advertised or advertised[0] != THINHARNESS_COMMIT:
-            raise RuntimeError("transient ThinHarness bundle does not advertise the pin")
-        yield bundle, hashlib.sha256(bundle.read_bytes()).hexdigest()
+        raise RuntimeError(f"{LOCAL_SOURCE_ENV} must name a clean canonical ThinHarness checkout containing the pin")
+    with exact_commit_bundle(
+        Path(raw), THINHARNESS_COMMIT, temporary_prefix=f"{SMOKE_ID}-source-"
+    ) as bundle:
+        yield bundle
+
+
+def preview_source_bundle() -> dict[str, Any]:
+    """Verify the exact bundle path without starting Harbor, a gateway, or cproxy."""
+    with _source_bundle() as bundle:
+        return {
+            "schema_version": 1,
+            "upstream_requests": 0,
+            "target_commit": bundle.target_commit,
+            "source_head": bundle.source_head,
+            "source_head_excluded": bundle.source_head_excluded,
+            "advertised_heads": [[bundle.target_commit, bundle.advertised_ref]],
+            "bundle_sha256": bundle.sha256,
+            "bundle_persisted": False,
+        }
 
 
 def _harbor_command(*, cell_id: str, task: str, harness: str, mode: str, job_name: str) -> list[str]:
@@ -310,7 +302,9 @@ def run(mode: str) -> int:
     if mode == "run" and tuple(cell_id for cell_id, _, _ in cells) != EXPECTED_CELLS:
         raise RuntimeError("planned cell order differs from the frozen eight-cell design")
     state_path = SUBSCRIPTION_RUNS_DIR / f"{mode}-state.json"
-    with _lock(), _source_bundle() as (bundle, bundle_sha256):
+    with _lock(), _source_bundle() as source_bundle:
+        bundle = source_bundle.path
+        bundle_sha256 = source_bundle.sha256
         state: dict[str, Any] = {
             "schema_version": 1,
             "status": "running",
@@ -355,8 +349,11 @@ def run(mode: str) -> int:
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("mode", choices=("preflight", "run"))
+    parser.add_argument("mode", choices=("bundle-preview", "preflight", "run"))
     args = parser.parse_args()
+    if args.mode == "bundle-preview":
+        print(json.dumps(preview_source_bundle(), indent=2, sort_keys=True))
+        return 0
     return run(args.mode)
 
 

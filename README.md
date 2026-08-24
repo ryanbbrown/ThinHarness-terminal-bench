@@ -18,7 +18,7 @@ This repository reproduces one ThinHarness run on Terminal-Bench 2.1. It owns Ha
 
 `NativeThinHarnessAgent` runs on the host only because Harbor needs an agent object. It creates a staging directory, uploads this repository's runner controls, starts setup and run processes, and copies receipts. It does not import ThinHarness and does not define model-facing tools.
 
-The setup process runs inside the task container. By default it clones canonical GitHub at the exact commit. For an explicitly authorized unpublished candidate, `TB_THINHARNESS_LOCAL_SOURCE` creates one self-cleaning exact-HEAD git bundle, stages it into Harbor, and removes both host and container bundle staging after the in-container SHA check. The repository never stores the bundle, source checkout, or local path. Both source modes build the wheel inside the task container, hash it, install it in an isolated environment, and record package and source identity.
+The setup process runs inside the task container. By default it clones canonical GitHub at the exact commit. For an explicitly authorized unpublished candidate, `TB_THINHARNESS_LOCAL_SOURCE` accepts a clean canonical checkout whose `HEAD` contains the pin, creates one self-cleaning bundle that advertises only the exact pinned commit ref, and removes both host and container bundle staging after the in-container SHA check. Later commits at `HEAD` are not bundled. The repository never stores the bundle, source checkout, or local path. Both source modes build the wheel inside the task container, hash it, install it in an isolated environment, and record package and source identity.
 
 The model loop also runs there. It uses ThinHarness `BashPlugin` and `FilesystemPlugin` with frozen complete native `bash`, `read`, `edit`, and `write` schemas rooted at `/app`. The controlled no-model preflight forces native Bash past its output bound, verifies the bounded model-facing result, downloads the complete `.thinharness/outputs` artifact to durable Harbor logs, checks exact bytes and SHA-256, and removes the container artifact before verifier handoff. The credential enters through a short-lived anonymous descriptor, not the model-loop environment. Before native tools run, the Linux parent becomes non-dumpable and verifies that `CAP_SYS_PTRACE` is absent.
 
@@ -67,12 +67,14 @@ The prior `758fcf30` E2E result remains unchanged in `artifacts/paid-e2e/` and `
 
 The next smoke compares Pi 0.84.2 and native ThinHarness on four previously unused, low-cost tasks through the same cproxy/Codex ChatGPT subscription backend. It does not use direct OpenAI or Doppler credentials. See `reports/subscription-smoke-methodology.md` and `configs/subscription-smoke-selection.json`.
 
-Run the zero-subscription-call gate first:
+Preview the exact transient bundle with no Harbor, gateway, cproxy, or upstream request. The clean checkout can have later commits at `HEAD`, but it must contain the pin:
 
 ```bash
 TB_THINHARNESS_LOCAL_SOURCE=/Users/ryanbrown/code/thinharness \
-  ./scripts/subscription-smoke-preflight.sh
+  uv run python -m tbench.subscription_launch bundle-preview
 ```
+
+The committed zero-subscription-call gate is unchanged in `artifacts/codex-subscription-4task-preflight/`. To create new preflight evidence at a new artifact path, use the launcher directly rather than replacing those immutable bytes.
 
 After the committed preflight evidence passes, the authorized eight-cell command is:
 

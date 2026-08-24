@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
-: "${TB_THINHARNESS_LOCAL_SOURCE:?Set TB_THINHARNESS_LOCAL_SOURCE to the clean exact-commit ThinHarness checkout}"
+: "${TB_THINHARNESS_LOCAL_SOURCE:?Set TB_THINHARNESS_LOCAL_SOURCE to a clean ThinHarness checkout containing the pinned commit}"
 if [[ -n "${OPENAI_API_KEY:-}" ]]; then
   echo "OPENAI_API_KEY must be unset for the subscription preflight" >&2
   exit 2

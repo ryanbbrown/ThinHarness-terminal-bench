@@ -4,12 +4,10 @@ from __future__ import annotations
 
 import argparse
 import fcntl
-import hashlib
 import json
 import os
 import shutil
 import subprocess
-import tempfile
 import time
 import uuid
 from collections.abc import Iterator
@@ -33,6 +31,7 @@ from .constants import (
     TASK_NAME,
     THINHARNESS_COMMIT,
 )
+from .source_bundle import exact_commit_bundle
 
 JOBS_DIR = REPOSITORY_ROOT / "jobs"
 RUNS_DIR = REPOSITORY_ROOT / "runs"
@@ -188,56 +187,19 @@ def _load_prior_state() -> tuple[dict[str, Any] | None, float]:
 
 @contextmanager
 def _transient_source_override() -> Iterator[SourceOverride]:
-    """Create a self-cleaning exact-HEAD bundle only when explicitly requested."""
+    """Create a self-cleaning exact-pin bundle only when explicitly requested."""
     raw_source = os.getenv(LOCAL_SOURCE_ENV)
     if not raw_source:
         yield SourceOverride(mode="canonical-github")
         return
-    source = Path(raw_source).expanduser().resolve()
-    if not source.is_dir():
-        raise RuntimeError(f"{LOCAL_SOURCE_ENV} is not a directory")
-    head = subprocess.run(
-        ["git", "-C", str(source), "rev-parse", "HEAD"],
-        check=True,
-        capture_output=True,
-        text=True,
-    ).stdout.strip()
-    if head != THINHARNESS_COMMIT:
-        raise RuntimeError(f"{LOCAL_SOURCE_ENV} HEAD must equal the pinned ThinHarness commit")
-    dirty = subprocess.run(
-        ["git", "-C", str(source), "status", "--porcelain"],
-        check=True,
-        capture_output=True,
-        text=True,
-    ).stdout
-    if dirty:
-        raise RuntimeError(f"{LOCAL_SOURCE_ENV} must be clean before bundling")
-    with tempfile.TemporaryDirectory(prefix=f"tbench-{CAMPAIGN_ID}-bundle-") as directory:
-        bundle = Path(directory) / "thinharness-source.bundle"
-        subprocess.run(["git", "-C", str(source), "bundle", "create", str(bundle), "HEAD"], check=True)
-        verify = subprocess.run(
-            ["git", "bundle", "verify", str(bundle)],
-            check=True,
-            capture_output=True,
-            text=True,
-        )
-        advertised = subprocess.run(
-            ["git", "bundle", "list-heads", str(bundle)],
-            check=True,
-            capture_output=True,
-            text=True,
-        ).stdout.split()
-        if not advertised or advertised[0] != THINHARNESS_COMMIT:
-            raise RuntimeError("transient source bundle does not advertise the pinned commit")
-        value = SourceOverride(
+    with exact_commit_bundle(
+        Path(raw_source), THINHARNESS_COMMIT, temporary_prefix=f"tbench-{CAMPAIGN_ID}-bundle-"
+    ) as bundle:
+        yield SourceOverride(
             mode="local-git-bundle-override",
-            bundle_path=bundle,
-            bundle_sha256=hashlib.sha256(bundle.read_bytes()).hexdigest(),
+            bundle_path=bundle.path,
+            bundle_sha256=bundle.sha256,
         )
-        yield value
-        if not bundle.is_file():
-            raise RuntimeError("transient source bundle disappeared before cleanup")
-        _ = verify
 
 
 @contextmanager

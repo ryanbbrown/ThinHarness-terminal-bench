@@ -4,7 +4,7 @@
 
 This smoke runs `raman-fitting`, `fix-git`, `prove-plus-comm`, and `crack-7z-hash` once with Pi and once with ThinHarness. The eight Harbor cells run sequentially with one attempt, concurrency one, and zero Harbor, agent, provider, or gateway retries. `configs/subscription-smoke-selection.json` records the task metadata, image identities, deterministic low-cost selection rule, and conservative prior-paid exclusions.
 
-Both harness loops and their native `read`, `bash`, `edit`, and `write` tools run inside the Harbor task container at `/app`. Pi is pinned to `@earendil-works/pi-coding-agent@0.84.2` with Node `22.23.1`. ThinHarness is built and installed as a wheel inside each task container from exact commit `84105f07bb9c1ad366fc8fe4fef49e700f5e88ef`; the unpushed commit enters through a transient local Git bundle and is not retained.
+Both harness loops and their native `read`, `bash`, `edit`, and `write` tools run inside the Harbor task container at `/app`. Pi is pinned to `@earendil-works/pi-coding-agent@0.84.2` with Node `22.23.1`. ThinHarness is built and installed as a wheel inside each task container from exact commit `84105f07bb9c1ad366fc8fe4fef49e700f5e88ef`; the unpushed commit enters through a transient local Git bundle and is not retained. The clean canonical checkout may have later commits at `HEAD`. The launcher requires the pin to be its ancestor, advertises only a dedicated exact-pin ref, verifies that ref in an isolated repository, and proves that the later `HEAD` commit is absent from the bundle.
 
 Each cell gets a short-lived authenticated host gateway. The gateway uses cproxy `0.1.0` at commit `ef96cbaea614753171627c059297e163fed0bc53` and Ryan's host Codex CLI ChatGPT OAuth to call `https://chatgpt.com/backend-api/codex/responses`. OAuth never enters a task container. The gateway rejects calls without a random per-cell bearer, logs every sanitized request and complete response, and stops after that cell. Pi 0.84.2 passes that ephemeral bearer in its process environment and its native Bash inherits process environment; ThinHarness filters it from native Bash. This is an unavoidable security-surface mismatch, but the bearer is not reusable after the cell and can reach only the audited gateway. No direct OpenAI API URL, API key, Doppler credential, or estimated cash cost is used.
 
@@ -27,7 +27,14 @@ The gate validates complete tool schemas, roots, model payloads, response identi
 
 ## Authorized launch
 
-Run only after the no-model gate passes:
+Preview the exact bundle with no Harbor, gateway, cproxy, or upstream request:
+
+```bash
+TB_THINHARNESS_LOCAL_SOURCE=/Users/ryanbrown/code/thinharness \
+  uv run python -m tbench.subscription_launch bundle-preview
+```
+
+Run the eight cells only after the no-model gate passes:
 
 ```bash
 env -u OPENAI_API_KEY -u ANTHROPIC_API_KEY -u OPENROUTER_API_KEY \

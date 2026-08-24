@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import subprocess
 from pathlib import Path
 
 import pytest
@@ -52,3 +53,40 @@ def test_pi_lock_pins_exact_package_and_integrity() -> None:
     package = lock["packages"]["node_modules/@earendil-works/pi-coding-agent"]
     assert package["version"] == "0.84.2"
     assert package["integrity"].startswith("sha512-")
+
+
+def test_bundle_preview_accepts_later_clean_head_and_stages_only_pin(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    source = tmp_path / "source"
+    subprocess.run(["git", "init", "-q", str(source)], check=True)
+    subprocess.run(["git", "-C", str(source), "config", "user.name", "Test"], check=True)
+    subprocess.run(["git", "-C", str(source), "config", "user.email", "test@example.com"], check=True)
+    (source / "source.py").write_text("pin = True\n")
+    subprocess.run(["git", "-C", str(source), "add", "source.py"], check=True)
+    subprocess.run(["git", "-C", str(source), "commit", "-qm", "pin"], check=True)
+    target = subprocess.run(
+        ["git", "-C", str(source), "rev-parse", "HEAD"], check=True, capture_output=True, text=True
+    ).stdout.strip()
+    (source / "source.py").write_text("pin = True\nlater = True\n")
+    subprocess.run(["git", "-C", str(source), "commit", "-qam", "later"], check=True)
+    later = subprocess.run(
+        ["git", "-C", str(source), "rev-parse", "HEAD"], check=True, capture_output=True, text=True
+    ).stdout.strip()
+    monkeypatch.setenv("TB_THINHARNESS_LOCAL_SOURCE", str(source))
+    monkeypatch.setattr(subscription_launch, "THINHARNESS_COMMIT", target)
+
+    preview = subscription_launch.preview_source_bundle()
+
+    assert preview == {
+        "schema_version": 1,
+        "upstream_requests": 0,
+        "target_commit": target,
+        "source_head": later,
+        "source_head_excluded": True,
+        "advertised_heads": [[target, "refs/heads/thinharness-pin"]],
+        "bundle_sha256": preview["bundle_sha256"],
+        "bundle_persisted": False,
+    }
+    assert len(preview["bundle_sha256"]) == 64
+    assert not list(tmp_path.rglob("*.bundle"))
