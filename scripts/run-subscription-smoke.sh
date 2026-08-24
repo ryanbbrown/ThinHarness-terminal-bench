@@ -7,7 +7,17 @@ for name in OPENAI_API_KEY ANTHROPIC_API_KEY OPENROUTER_API_KEY; do
     exit 2
   fi
 done
-codex login status | grep -F "Logged in using ChatGPT" >/dev/null
+if ! codex_status="$(codex login status 2>&1)"; then
+  unset codex_status
+  echo "Codex CLI login status check failed" >&2
+  exit 2
+fi
+if [[ "$codex_status" != *"Logged in using ChatGPT"* ]]; then
+  unset codex_status
+  echo "Codex CLI is not logged in using ChatGPT" >&2
+  exit 2
+fi
+unset codex_status
 uv run python -m tbench.subscription_launch run
 uv run python -m tbench.subscription_validate finalize-run artifacts/codex-subscription-4task \
   --report reports/codex-subscription-4task.json >/dev/null
