@@ -63,6 +63,27 @@ The result passed with reward `1.0`. It used 4 direct OpenAI requests, 13,474 in
 
 The prior `758fcf30` E2E result remains unchanged in `artifacts/paid-e2e/` and `reports/implementation-e2e.json`: reward 1.0 and corrected USD 0.12674175 API-equivalent spend. The new immutable result is in `artifacts/paid-e2e-84105f07/` and `reports/implementation-e2e-84105f07.json`.
 
+## Matched Codex-subscription smoke
+
+The next smoke compares Pi 0.84.2 and native ThinHarness on four previously unused, low-cost tasks through the same cproxy/Codex ChatGPT subscription backend. It does not use direct OpenAI or Doppler credentials. See `reports/subscription-smoke-methodology.md` and `configs/subscription-smoke-selection.json`.
+
+Run the zero-subscription-call gate first:
+
+```bash
+TB_THINHARNESS_LOCAL_SOURCE=/Users/ryanbrown/code/thinharness \
+  ./scripts/subscription-smoke-preflight.sh
+```
+
+After the committed preflight evidence passes, the authorized eight-cell command is:
+
+```bash
+env -u OPENAI_API_KEY -u ANTHROPIC_API_KEY -u OPENROUTER_API_KEY \
+  TB_THINHARNESS_LOCAL_SOURCE=/Users/ryanbrown/code/thinharness \
+  ./scripts/run-subscription-smoke.sh
+```
+
+Both commands keep OAuth on the host. The real launcher validates `codex login status`, runs each Harbor cell sequentially, uses a random authenticated gateway for that cell only, and records every sanitized request and complete response. It refuses to replace existing smoke evidence.
+
 ## Evidence boundary
 
 `evidence/preserved-direct-api-regex-log/` contains immutable historical receipts used to select the cheapest preserved valid task. `evidence/migration-manifest.json` lists every migrated item and every superseded path. The old `adapter.py` host loop and its custom bash/read/edit/write ToolSpecs were not copied. Historical JSON may describe that old run, but it is inert and never imported.

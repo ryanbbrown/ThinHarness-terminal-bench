@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -euo pipefail
+: "${TB_THINHARNESS_LOCAL_SOURCE:?Set TB_THINHARNESS_LOCAL_SOURCE to the clean exact-commit ThinHarness checkout}"
+if [[ -n "${OPENAI_API_KEY:-}" ]]; then
+  echo "OPENAI_API_KEY must be unset for the subscription preflight" >&2
+  exit 2
+fi
+uv run python -m tbench.subscription_launch preflight
+uv run python -m tbench.subscription_validate finalize-preflight artifacts/codex-subscription-4task-preflight \
+  --report reports/codex-subscription-4task-preflight.json >/dev/null

@@ -1,0 +1,38 @@
+{
+  "cells": [
+    {
+      "artifact": "artifacts/codex-subscription-4task-preflight/cells/fix-git--pi",
+      "cell_id": "fix-git--pi",
+      "exception": null,
+      "harbor_exit_code": 0,
+      "harness": "pi",
+      "job": "jobs/codex-subscription-4task/codex-subscription-4task-fake-fix-git--pi-20260824-193809-e3f9fb31",
+      "mode": "fake",
+      "reward": 0.0,
+      "task": "fix-git",
+      "trial": "fix-git__jjYLPNo"
+    },
+    {
+      "artifact": "artifacts/codex-subscription-4task-preflight/cells/fix-git--thinharness",
+      "cell_id": "fix-git--thinharness",
+      "exception": null,
+      "harbor_exit_code": 0,
+      "harness": "thinharness",
+      "job": "jobs/codex-subscription-4task/codex-subscription-4task-fake-fix-git--thinharness-20260824-193936-7cb161d8",
+      "mode": "fake",
+      "reward": 0.0,
+      "task": "fix-git",
+      "trial": "fix-git__Um9rAML"
+    }
+  ],
+  "dataset": "terminal-bench/terminal-bench-2-1@sha256:7d7bdc1cbedad549fc1140404bd4dc45e5fd0ea7c4186773687d177ad3a0699a",
+  "finished_at": 1787600409.384696,
+  "gateway_mode": "fake",
+  "mode": "preflight",
+  "model": "gpt-5.6-sol",
+  "schema_version": 1,
+  "source_bundle_committed": false,
+  "source_bundle_sha256": "3762a6c9275b884406ededa4207dcacb91cee2ad0dd2b72377bf8d88f46be82b",
+  "started_at": 1787600289.1423419,
+  "status": "completed"
+}

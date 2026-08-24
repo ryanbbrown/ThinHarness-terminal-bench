@@ -26,24 +26,25 @@ def check() -> None:
     )
     if found:
         raise RuntimeError(f"superseded runnable adapter path is present: {found}")
-    host_source = (REPOSITORY_ROOT / "tbench" / "agent.py").read_text(encoding="utf-8")
-    host_tree = ast.parse(host_source)
-    import_roots: set[str] = set()
-    for node in ast.walk(host_tree):
-        if isinstance(node, ast.Import):
-            import_roots.update(alias.name.split(".", 1)[0] for alias in node.names)
-        elif isinstance(node, ast.ImportFrom) and node.module:
-            import_roots.add(node.module.split(".", 1)[0])
-    if "ToolSpec" in host_source or "thinharness" in import_roots:
-        raise RuntimeError("host agent must not import ThinHarness or define ToolSpecs")
-    forbidden_functions = {"bash", "read", "edit", "write"}
-    custom = [
-        node.name
-        for node in ast.walk(host_tree)
-        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and node.name in forbidden_functions
-    ]
-    if custom:
-        raise RuntimeError(f"host agent defines model-facing proxy functions: {custom}")
+    for host_name in ("agent.py", "subscription_agent.py"):
+        host_source = (REPOSITORY_ROOT / "tbench" / host_name).read_text(encoding="utf-8")
+        host_tree = ast.parse(host_source)
+        import_roots: set[str] = set()
+        for node in ast.walk(host_tree):
+            if isinstance(node, ast.Import):
+                import_roots.update(alias.name.split(".", 1)[0] for alias in node.names)
+            elif isinstance(node, ast.ImportFrom) and node.module:
+                import_roots.add(node.module.split(".", 1)[0])
+        if "ToolSpec" in host_source or "thinharness" in import_roots:
+            raise RuntimeError(f"host agent {host_name} must not import ThinHarness or define ToolSpecs")
+        forbidden_functions = {"bash", "read", "edit", "write"}
+        custom = [
+            node.name
+            for node in ast.walk(host_tree)
+            if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and node.name in forbidden_functions
+        ]
+        if custom:
+            raise RuntimeError(f"host agent {host_name} defines model-facing proxy functions: {custom}")
     runner_source = (REPOSITORY_ROOT / "tbench" / "container_runner.py").read_text(encoding="utf-8")
     for required in ("BashPlugin", "FilesystemPlugin", 'root=CONTAINER_ROOT'):
         if required not in runner_source:

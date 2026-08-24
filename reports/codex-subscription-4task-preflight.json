@@ -1,0 +1,230 @@
+{
+  "backend": "controlled-fake-cproxy-contract",
+  "cells": [
+    {
+      "agent_phase_seconds": 2.917244,
+      "agent_seconds": 1.370603041999999,
+      "artifact": "artifacts/codex-subscription-4task-preflight/cells/fix-git--pi",
+      "cell_id": "fix-git--pi",
+      "gateway": {
+        "commit": "ef96cbaea614753171627c059297e163fed0bc53",
+        "config_fingerprint": null,
+        "request_retries": 0,
+        "upstream": "https://chatgpt.com/backend-api/codex/responses",
+        "version": "0.1.0"
+      },
+      "harness": "pi",
+      "install": {
+        "build_location": "harbor-task-container",
+        "harness": "pi",
+        "node_executable": "/root/.nvm/versions/node/v22.23.1/bin/node",
+        "node_version": "v22.23.1",
+        "package": "@earendil-works/pi-coding-agent",
+        "package_lock_sha256": "0f34d01dda1837fd634d0562d2c0350ff982da133de59f36fccdac62835fc1c0",
+        "package_version": "0.84.2",
+        "pi_executable": "/opt/pi-subscription/node_modules/@earendil-works/pi-coding-agent/dist/cli.js",
+        "pi_version": "0.84.2",
+        "platform": "Linux-6.12.76-linuxkit-x86_64-with-glibc2.36",
+        "schema_version": 1
+      },
+      "request_count": 2,
+      "request_payload_bytes": [
+        6071,
+        6516
+      ],
+      "request_usage": [
+        {
+          "input_tokens": 1200,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 256
+          },
+          "output_tokens": 96,
+          "output_tokens_details": {
+            "reasoning_tokens": 64
+          },
+          "total_tokens": 1296
+        },
+        {
+          "input_tokens": 1500,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 512
+          },
+          "output_tokens": 64,
+          "output_tokens_details": {
+            "reasoning_tokens": 16
+          },
+          "total_tokens": 1564
+        }
+      ],
+      "response_models": [
+        "gpt-5.6-sol"
+      ],
+      "reward": 0.0,
+      "task": "fix-git",
+      "tool_arguments": [
+        {
+          "arguments": {
+            "command": "set -eu; if printenv OPENAI_API_KEY >/dev/null 2>&1; then exit 41; fi; if test -e /root/.codex/auth.json -o -e /root/.pi/agent/auth.json; then exit 42; fi; printf 'no reusable model credential in task container\\n'"
+          },
+          "name": "bash"
+        }
+      ],
+      "tool_count": 1,
+      "tool_names": [
+        "bash"
+      ],
+      "usage": {
+        "cache_write_tokens": 0,
+        "cache_write_tokens_available": true,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      },
+      "verifier_seconds": 5.900395,
+      "wall_seconds": 84.565272
+    },
+    {
+      "agent_phase_seconds": 0.828505,
+      "agent_seconds": 0.06947200000000464,
+      "artifact": "artifacts/codex-subscription-4task-preflight/cells/fix-git--thinharness",
+      "cell_id": "fix-git--thinharness",
+      "gateway": {
+        "commit": "ef96cbaea614753171627c059297e163fed0bc53",
+        "config_fingerprint": null,
+        "request_retries": 0,
+        "upstream": "https://chatgpt.com/backend-api/codex/responses",
+        "version": "0.1.0"
+      },
+      "harness": "thinharness",
+      "install": {
+        "build_location": "harbor-task-container",
+        "canonical_commit": "84105f07bb9c1ad366fc8fe4fef49e700f5e88ef",
+        "harness": "thinharness",
+        "installed_version": "0.7.0",
+        "platform": "Linux-6.12.76-linuxkit-x86_64-with-glibc2.36",
+        "python": "3.13.12 (main, Mar 16 2026, 23:05:54) [GCC 12.2.0]",
+        "schema_version": 1,
+        "source_bundle_sha256": "3762a6c9275b884406ededa4207dcacb91cee2ad0dd2b72377bf8d88f46be82b",
+        "source_mode": "transient-local-git-bundle",
+        "wheel_path": "/opt/thinharness-subscription-wheels/thinharness-0.7.0-py3-none-any.whl",
+        "wheel_sha256": "40033931385540a8cdb08a73c4259aa294b66ed74821f89ed70c37c556548ec9"
+      },
+      "request_count": 2,
+      "request_payload_bytes": [
+        6586,
+        6880
+      ],
+      "request_usage": [
+        {
+          "input_tokens": 1200,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 256
+          },
+          "output_tokens": 96,
+          "output_tokens_details": {
+            "reasoning_tokens": 64
+          },
+          "total_tokens": 1296
+        },
+        {
+          "input_tokens": 1500,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 512
+          },
+          "output_tokens": 64,
+          "output_tokens_details": {
+            "reasoning_tokens": 16
+          },
+          "total_tokens": 1564
+        }
+      ],
+      "response_models": [
+        "gpt-5.6-sol"
+      ],
+      "reward": 0.0,
+      "task": "fix-git",
+      "tool_arguments": [
+        {
+          "arguments": "{\"command\": \"set -eu; if printenv OPENAI_API_KEY >/dev/null 2>&1; then exit 41; fi; if test -e /root/.codex/auth.json -o -e /root/.pi/agent/auth.json; then exit 42; fi; printf 'no reusable model credential in task container\\\\n'\", \"cwd\": \"/app\"}",
+          "name": "bash"
+        }
+      ],
+      "tool_count": 1,
+      "tool_names": [
+        "bash"
+      ],
+      "usage": {
+        "cache_write_tokens": 0,
+        "cache_write_tokens_available": true,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      },
+      "verifier_seconds": 7.321047,
+      "wall_seconds": 30.044561
+    }
+  ],
+  "codex_backend_preflight": {
+    "bind": "0.0.0.0",
+    "cell_id": "backend-preflight-no-model-call",
+    "codex_auth": {
+      "path_persisted": false,
+      "source": "host Codex CLI auth file",
+      "validated": true
+    },
+    "container_base_url": "http://host.docker.internal:56355/v1",
+    "cproxy": {
+      "commit": "ef96cbaea614753171627c059297e163fed0bc53",
+      "config_fingerprint": "8ddb0646e496e8ff",
+      "request_retries": 0,
+      "upstream": "https://chatgpt.com/backend-api/codex/responses",
+      "version": "0.1.0"
+    },
+    "downstream_auth": "ephemeral-random-bearer",
+    "downstream_token_persisted": false,
+    "mode": "real",
+    "port": 56355,
+    "schema_version": 1,
+    "subscription_requests": 0,
+    "upstream_network_requests": 0
+  },
+  "direct_openai": false,
+  "mode": "fake",
+  "model": "gpt-5.6-sol",
+  "passed": true,
+  "reasoning": {
+    "effort": "xhigh",
+    "summary": "auto"
+  },
+  "schema_version": 1,
+  "selected_tasks": [
+    "raman-fitting",
+    "fix-git",
+    "prove-plus-comm",
+    "crack-7z-hash"
+  ],
+  "text": {
+    "verbosity": "low"
+  },
+  "unavoidable_mismatches": [
+    "Pi uses streaming OpenAI Responses and the gateway re-emits cproxy's complete response as SSE; ThinHarness uses cproxy's non-streaming JSON response.",
+    "Pi and ThinHarness use their own native filesystem and Bash schemas and declaration order. Tool names, workspace root, prompt, model, reasoning, text verbosity, backend, retry policy, and task are matched.",
+    "Pi serializes the frozen prompt through its native developer/system input while ThinHarness uses native Responses instructions; the prompt text and hash are identical.",
+    "Pi 0.84.2 native Bash inherits the process environment containing the ephemeral per-cell gateway bearer; ThinHarness filters that bearer. OAuth never enters either container, the bearer expires when the cell gateway stops, and every use is audited.",
+    "The subscription backend reports no cash cost. This comparison records usage only and does not estimate API cost."
+  ],
+  "versions": {
+    "cproxy": "0.1.0",
+    "cproxy_commit": "ef96cbaea614753171627c059297e163fed0bc53",
+    "pi": "0.84.2",
+    "thinharness_commit": "84105f07bb9c1ad366fc8fe4fef49e700f5e88ef"
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "dataset": {
+    "name": "terminal-bench/terminal-bench-2-1",
+    "digest": "sha256:7d7bdc1cbedad549fc1140404bd4dc45e5fd0ea7c4186773687d177ad3a0699a",
+    "task_count": 89
+  },
+  "selection_rule": "Exclude every task found in prior paid Pi or ThinHarness evidence. From the remaining tasks, take tasks in the minimum five-minute expert-time tier, reject resources above 4096 MiB or agent timeout above 1800 seconds, then sort by memory, agent timeout, compressed amd64 image bytes, and task name. The only five-minute task rejected is mteb-leaderboard because it requires 8192 MiB and a 3600-second agent timeout.",
+  "prior_evidence": {
+    "current_repository": [
+      "evidence/preserved-direct-api-regex-log/",
+      "artifacts/paid-e2e/",
+      "artifacts/paid-e2e-84105f07/"
+    ],
+    "preserved_experiment_path_checked": "/Users/ryanbrown/code/thinharness/experiments/terminal_bench_2_1",
+    "preserved_experiment_path_present": false,
+    "note": "The preserved ignored experiment directory was no longer present. The conservative exclusion set retains every task named by the earlier paid-run receipts and interrupted paid launch evidence. A missing receipt can only add exclusions; it cannot make a selected task previously used."
+  },
+  "excluded_prior_paid_or_launched_tasks": [
+    "build-pmars",
+    "extract-elf",
+    "fix-code-vulnerability",
+    "hf-model-inference",
+    "kv-store-grpc",
+    "overfull-hbox",
+    "regex-log",
+    "reshard-c4-data",
+    "write-compressor"
+  ],
+  "selected": [
+    {
+      "task": "fix-git",
+      "difficulty": "easy",
+      "category": "software-engineering",
+      "expert_time_estimate_min": 5.0,
+      "agent_timeout_sec": 900,
+      "verifier_timeout_sec": 900,
+      "cpus": 1,
+      "memory_mb": 2048,
+      "image": "alexgshaw/fix-git:20260403",
+      "amd64_image_digest": "sha256:389b9c8247610c2c5be080b1ac00429007c2c69bf57f7f26c79f0f75ba2d5c74",
+      "amd64_compressed_layer_bytes": 155744708,
+      "task_toml_sha256": "f59d711003b974e4ef8ed63556614e2ea9ea7d0e394af13b2071225e3fda7805"
+    },
+    {
+      "task": "prove-plus-comm",
+      "difficulty": "easy",
+      "category": "software-engineering",
+      "expert_time_estimate_min": 5.0,
+      "agent_timeout_sec": 900,
+      "verifier_timeout_sec": 900,
+      "cpus": 1,
+      "memory_mb": 2048,
+      "image": "alexgshaw/prove-plus-comm:20251031",
+      "amd64_image_digest": "sha256:e26741d01681a9da1beeff8b7b7b65fe2b921b8b122a306a3707a81ebd051f73",
+      "amd64_compressed_layer_bytes": 491449847,
+      "task_toml_sha256": "240f3ac0076e3362685c8598c4e56658e3882eb25a14ae6cc7e9ab3a4f6b09ea"
+    },
+    {
+      "task": "raman-fitting",
+      "difficulty": "medium",
+      "category": "scientific-computing",
+      "expert_time_estimate_min": 5.0,
+      "agent_timeout_sec": 900,
+      "verifier_timeout_sec": 900,
+      "cpus": 1,
+      "memory_mb": 2048,
+      "image": "alexgshaw/raman-fitting:20251031",
+      "amd64_image_digest": "sha256:401fa95d5d491f44a473eda9d2c52930f9565cc889c796eabcb6e20fec26852e",
+      "amd64_compressed_layer_bytes": 44205352,
+      "task_toml_sha256": "0f3f6b580d7435954b3a114e77cdfb6cd0a856f15cc0ad83cd1b69c48492dfed"
+    },
+    {
+      "task": "crack-7z-hash",
+      "difficulty": "medium",
+      "category": "security",
+      "expert_time_estimate_min": 5.0,
+      "agent_timeout_sec": 1800,
+      "verifier_timeout_sec": 900,
+      "cpus": 1,
+      "memory_mb": 4096,
+      "image": "alexgshaw/crack-7z-hash:20251031",
+      "amd64_image_digest": "sha256:0f4453abd774c5a3d3d7e66ba28fae88ec2e49ada3a993b324ebc16c348666d3",
+      "amd64_compressed_layer_bytes": 355841799,
+      "task_toml_sha256": "8e192bcbe00e817419bde7ff9b562a5fa0c1e24ec4f3384cba4a31eda0a7b013"
+    }
+  ],
+  "rejected_same_cost_tier": [
+    {
+      "task": "mteb-leaderboard",
+      "reason": "8192 MiB memory and 3600-second agent timeout exceed the low-cost smoke bounds"
+    }
+  ],
+  "planned_execution_order": [
+    "raman-fitting--pi",
+    "raman-fitting--thinharness",
+    "fix-git--pi",
+    "fix-git--thinharness",
+    "prove-plus-comm--pi",
+    "prove-plus-comm--thinharness",
+    "crack-7z-hash--pi",
+    "crack-7z-hash--thinharness"
+  ],
+  "planned_cells": 8,
+  "attempts_per_cell": 1,
+  "concurrency": 1,
+  "retries": {"gateway": 0, "provider": 0, "agent": 0, "harbor": 0}
+}
