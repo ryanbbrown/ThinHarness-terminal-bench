@@ -99,6 +99,18 @@ The no-model Harbor gate is complete: 40/40 controlled fake-provider cells, zero
 
 The authorized run is complete and cannot be rerun. `OUTCOME.json` records 40/40 checkpoints. Pi has 17 positive rewards; ThinHarness has 14. Two ThinHarness cells have no verifier reward after provider policy errors. See `artifacts/direct-openai-20task-handoff.md`, `reports/direct-openai-20task-analysis.json`, and `reports/direct-openai-20task-pairwise.json`. The full hashed run is in `artifacts/direct-openai-20task-pairwise/`, and the preserved process ledger is `artifacts/direct-openai-20task-runner.log`.
 
+## Prepared additional ten-task run
+
+Ten fresh tasks and 20 future direct-OpenAI matched cells are frozen but not launched. The preparation evaluates all 89 Terminal-Bench 2.1 tasks, excludes 36 with qualifying prior evidence, scores all 53 eligible tasks from frozen resource and build metadata, and selects 3 low, 3 medium, and 4 high proxy tasks. The preparation entry point cannot launch model, Harbor, Docker, Doppler, credential, or fake-provider work.
+
+Validate and reproduce the preparation without a model call:
+
+```bash
+./scripts/direct-openai-additional-10-checks.sh
+```
+
+See `reports/direct-openai-additional-10-methodology.md`, `reports/direct-openai-additional-10-population.json`, and `configs/direct-openai-additional-10-runner-spec.json`. No paid launcher exists for this preparation.
+
 ## Evidence boundary
 
 `evidence/preserved-direct-api-regex-log/` contains immutable historical receipts used to select the cheapest preserved valid task. `evidence/migration-manifest.json` lists every migrated item and every superseded path. The old `adapter.py` host loop and its custom bash/read/edit/write ToolSpecs were not copied. Historical JSON may describe that old run, but it is inert and never imported.

@@ -1,0 +1,19 @@
+{
+  "algorithm": "sha256",
+  "files": {
+    "configs/direct-openai-20task-settings.json": "79a0cd91ddff45d5e765e05b2de114c57fbd4f17d3cf15da67f28162d7f77c1e",
+    "configs/direct-openai-additional-10-catalog.json": "3a64968490d280f10f3f8c3add55cde99b036c074b6181d83f2e5426650ac17b",
+    "configs/direct-openai-additional-10-exclusion-proof.json": "1f7a4c6be33b1de181b0d2a8baac39efcb3cdf2b5cc22cc30498da35a5d55b2e",
+    "configs/direct-openai-additional-10-runner-spec.json": "0e040f78d9a9b066ad808f3582375a9a4ebd3aef954309729624246d9c291e9d",
+    "configs/direct-openai-additional-10-selection.json": "2acad6015b4f30b19d250283c7612da071c70e9d33a6214cf4ba7dda7da1df86",
+    "configs/native-tool-schemas.json": "1c1c1e985590e9980264a2e6b8364bd96f1b052c0761eed7f127ac9ab60cfd24",
+    "configs/pi-native-tool-schemas.json": "88fda428f9a9114a62d2f3a394d85c7d15cddd111eddadbe7abbe728bff2afde",
+    "prompts/pi-0.84.2-system-prompt.md": "bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e",
+    "reports/direct-openai-additional-10-methodology.md": "1aec96bffd8c2c3089da131f344c2388f4666531363245e5c60a1de86d178c21",
+    "reports/direct-openai-additional-10-population.json": "4d5216f13e1fb2d1725b0c8c786cf5d1143bc1c31b422c2ecbf51fc7c8cb96f8",
+    "scripts/direct-openai-additional-10-checks.sh": "d393d8b095980f57a858dcf1aa9e0cc283de1b98bfdf8fcd47628d1e629bfaf8",
+    "tbench/direct_additional.py": "c202c208b6a463301778ce325f43797db824437a5b2483ea1b28d638e255cfe9",
+    "tests/test_direct_additional.py": "8ca9f970b225c402946dcea97fdfd780b3f4f5fef3be7da7f1cdffec267202af"
+  },
+  "schema_version": 1
+}

@@ -1,0 +1,524 @@
+{
+  "allocation": {
+    "extra_task_rule": "assign the remainder to high to increase coverage of infrastructure and expense risk",
+    "high": 4,
+    "low": 3,
+    "medium": 3,
+    "within_stratum_rule": "choose floor(i * (N - 1) / (K - 1)) for i from 0 through K - 1 in proxy order"
+  },
+  "attempts_per_cell": 1,
+  "benchmark_id": "direct-openai-additional-10-pairwise",
+  "concurrency": 1,
+  "dataset": "terminal-bench/terminal-bench-2-1@sha256:7d7bdc1cbedad549fc1140404bd4dc45e5fd0ea7c4186773687d177ad3a0699a",
+  "expense_proxy": {
+    "image_build_subweights": {
+      "build_timeout": "0.20",
+      "dockerfile_copy_add": "0.20",
+      "dockerfile_instructions": "0.20",
+      "environment_context": "0.40"
+    },
+    "method": "weighted min-max score over the complete eligible population",
+    "missing_expert_time": "normalize to 1.0 (highest burden)",
+    "normalization": {
+      "agent_timeout": {
+        "maximum": "12000",
+        "method": "eligible-population min-max; constants normalize to zero",
+        "minimum": "600"
+      },
+      "build_timeout": {
+        "maximum": "600",
+        "method": "eligible-population min-max; constants normalize to zero",
+        "minimum": "600"
+      },
+      "cpu": {
+        "maximum": "4",
+        "method": "eligible-population min-max; constants normalize to zero",
+        "minimum": "1"
+      },
+      "dockerfile_copy_add": {
+        "maximum": "8",
+        "method": "eligible-population min-max; constants normalize to zero",
+        "minimum": "0"
+      },
+      "dockerfile_instructions": {
+        "maximum": "20",
+        "method": "eligible-population min-max; constants normalize to zero",
+        "minimum": "2"
+      },
+      "environment_context": {
+        "maximum": "12217078",
+        "method": "eligible-population min-max; constants normalize to zero",
+        "minimum": "200"
+      },
+      "expert_time": {
+        "maximum": "2400.0",
+        "method": "eligible-population min-max; constants normalize to zero",
+        "minimum": "5.0"
+      },
+      "memory": {
+        "maximum": "8192",
+        "method": "eligible-population min-max; constants normalize to zero",
+        "minimum": "2048"
+      },
+      "storage": {
+        "maximum": "10240",
+        "method": "eligible-population min-max; constants normalize to zero",
+        "minimum": "10240"
+      },
+      "verifier_timeout": {
+        "maximum": "12000",
+        "method": "eligible-population min-max; constants normalize to zero",
+        "minimum": "600"
+      }
+    },
+    "tie_break": "task name in ascending bytewise order",
+    "weights": {
+      "agent_timeout": "0.15",
+      "cpu": "0.10",
+      "expert_time": "0.30",
+      "image_build": "0.15",
+      "memory": "0.10",
+      "storage": "0.05",
+      "verifier_timeout": "0.15"
+    }
+  },
+  "frozen_before_spend": true,
+  "planned_cells": 20,
+  "planned_execution_order": [
+    "build-cython-ext--pi",
+    "build-cython-ext--thinharness",
+    "largest-eigenval--pi",
+    "largest-eigenval--thinharness",
+    "llm-inference-batching-scheduler--pi",
+    "llm-inference-batching-scheduler--thinharness",
+    "mteb-retrieve--pi",
+    "mteb-retrieve--thinharness",
+    "schemelike-metacircular-eval--pi",
+    "schemelike-metacircular-eval--thinharness",
+    "torch-pipeline-parallelism--pi",
+    "torch-pipeline-parallelism--thinharness",
+    "torch-tensor-parallelism--pi",
+    "torch-tensor-parallelism--thinharness",
+    "feal-linear-cryptanalysis--pi",
+    "feal-linear-cryptanalysis--thinharness",
+    "fix-ocaml-gc--pi",
+    "fix-ocaml-gc--thinharness",
+    "caffe-cifar-10--pi",
+    "caffe-cifar-10--thinharness"
+  ],
+  "population_counts": {
+    "complete": 89,
+    "eligible": 53,
+    "excluded": 36
+  },
+  "publication_baseline_commit": "70f5a7b69e7cbbcd09464e275b5a75a8821baa7f",
+  "retries": {
+    "harbor": 0,
+    "model": 0,
+    "output": 0,
+    "provider": 0,
+    "tool": 0,
+    "transport": 0
+  },
+  "schema_version": 1,
+  "selected": [
+    {
+      "agent_timeout_sec": 900,
+      "build_timeout_sec": 600,
+      "category": "debugging",
+      "cpus": 1,
+      "difficulty": "medium",
+      "dockerfile_copy_add_count": 0,
+      "dockerfile_instruction_count": 4,
+      "eligible_rank": 1,
+      "environment_context_bytes": 395,
+      "expense_proxy_score": "1.811838",
+      "expert_time_estimate_min": 60.0,
+      "image": "alexgshaw/build-cython-ext:20251031",
+      "instruction_sha256": "7e52874e45f88505bd21540229719de6639a401477557d814489981d472f0e34",
+      "memory_mb": 2048,
+      "proxy_components_normalized": {
+        "agent_timeout": "0.026316",
+        "cpu": "0.000000",
+        "expert_time": "0.022965",
+        "image_build": "0.022229",
+        "memory": "0.000000",
+        "storage": "0.000000",
+        "verifier_timeout": "0.026316"
+      },
+      "storage_mb": 10240,
+      "stratum": "low",
+      "task": "build-cython-ext",
+      "task_package_digest": "sha256:35dc561790e73f13e59837828ac0863c0893edc6b71d42cf7d58656c843adf12",
+      "task_toml_sha256": "c472f0e7522c128fb7f03e00b50c8cdf2e5e6474daa1e094e7441f4b54e770b2",
+      "task_tree_file_count": 7,
+      "task_tree_manifest_sha256": "2ee7166e33154facf42ee414c60738311f7d3314bf3256b9027251dd6a2a0b1c",
+      "task_tree_total_bytes": 12052,
+      "verifier_timeout_sec": 900
+    },
+    {
+      "agent_timeout_sec": 900,
+      "build_timeout_sec": 600,
+      "category": "mathematics",
+      "cpus": 1,
+      "difficulty": "medium",
+      "dockerfile_copy_add_count": 2,
+      "dockerfile_instruction_count": 5,
+      "eligible_rank": 9,
+      "environment_context_bytes": 3195,
+      "expense_proxy_score": "2.729880",
+      "expert_time_estimate_min": 60.0,
+      "image": "alexgshaw/largest-eigenval:20251031",
+      "instruction_sha256": "6fa938389f99648508e5a9772e0d5e95d1102738c68d1ff61bd65469d76c52ab",
+      "memory_mb": 2048,
+      "proxy_components_normalized": {
+        "agent_timeout": "0.026316",
+        "cpu": "0.000000",
+        "expert_time": "0.022965",
+        "image_build": "0.083431",
+        "memory": "0.000000",
+        "storage": "0.000000",
+        "verifier_timeout": "0.026316"
+      },
+      "storage_mb": 10240,
+      "stratum": "low",
+      "task": "largest-eigenval",
+      "task_package_digest": "sha256:1b6f17c344d23e97435ba3fa93400d141f6bb7763ed2014fab418830983791b3",
+      "task_toml_sha256": "f7b9b7dda446f969a3ce88f61039d216f4d58b5fc5c10ff9faa24e2403bbd830",
+      "task_tree_file_count": 9,
+      "task_tree_manifest_sha256": "9d8f96f64462e32943705852a92f2cdb0aab90448be03fbdb0b5b87896255f71",
+      "task_tree_total_bytes": 11697,
+      "verifier_timeout_sec": 900
+    },
+    {
+      "agent_timeout_sec": 1800,
+      "build_timeout_sec": 600,
+      "category": "machine-learning",
+      "cpus": 1,
+      "difficulty": "hard",
+      "dockerfile_copy_add_count": 1,
+      "dockerfile_instruction_count": 3,
+      "eligible_rank": 18,
+      "environment_context_bytes": 111925,
+      "expense_proxy_score": "4.255476",
+      "expert_time_estimate_min": 45.0,
+      "image": "alexgshaw/llm-inference-batching-scheduler:20251031",
+      "instruction_sha256": "0817374767533fbf51bb93345ee1bba266263c216c6cc55c096e71b4a1d37dfc",
+      "memory_mb": 2048,
+      "proxy_components_normalized": {
+        "agent_timeout": "0.105263",
+        "cpu": "0.000000",
+        "expert_time": "0.016701",
+        "image_build": "0.039769",
+        "memory": "0.000000",
+        "storage": "0.000000",
+        "verifier_timeout": "0.105263"
+      },
+      "storage_mb": 10240,
+      "stratum": "low",
+      "task": "llm-inference-batching-scheduler",
+      "task_package_digest": "sha256:a3bf47589118daec5124fe3689b4439802c805b2f4ed9d402a48ae73ca2fea67",
+      "task_toml_sha256": "52aaac942f917e6a91ff658e0272195bd1cd842d41d71e302414c52603cc588b",
+      "task_tree_file_count": 14,
+      "task_tree_manifest_sha256": "297f8457f7392c182d0c3c83a0fb6c72ecdc5adc7aa35fc2cefa0475eb16ac70",
+      "task_tree_total_bytes": 167637,
+      "verifier_timeout_sec": 1800
+    },
+    {
+      "agent_timeout_sec": 1800,
+      "build_timeout_sec": 600,
+      "category": "data-science",
+      "cpus": 1,
+      "difficulty": "medium",
+      "dockerfile_copy_add_count": 1,
+      "dockerfile_instruction_count": 6,
+      "eligible_rank": 19,
+      "environment_context_bytes": 2660,
+      "expense_proxy_score": "4.326031",
+      "expert_time_estimate_min": 15.0,
+      "image": "alexgshaw/mteb-retrieve:20260430",
+      "instruction_sha256": "071305482e6989fe84634227be9a19386a31b3c2d1fc9fb0d3e604490b3f1dca",
+      "memory_mb": 2048,
+      "proxy_components_normalized": {
+        "agent_timeout": "0.105263",
+        "cpu": "0.000000",
+        "expert_time": "0.004175",
+        "image_build": "0.069525",
+        "memory": "0.000000",
+        "storage": "0.000000",
+        "verifier_timeout": "0.105263"
+      },
+      "storage_mb": 10240,
+      "stratum": "medium",
+      "task": "mteb-retrieve",
+      "task_package_digest": "sha256:fa7c777df6ed8987a2bb144b4b73a1200935bbea69da03a2aaa1dc8aa9bd9dc9",
+      "task_toml_sha256": "a2a4ded9824d296ce99bfba6aa2c9341dcc58f10e66de2e8f95dc8e07379c3aa",
+      "task_tree_file_count": 8,
+      "task_tree_manifest_sha256": "3303974cbb5a42f677ba5d6209651a41a5dc65a547798e94b3f65e3154d9e67a",
+      "task_tree_total_bytes": 8046,
+      "verifier_timeout_sec": 1800
+    },
+    {
+      "agent_timeout_sec": 2400,
+      "build_timeout_sec": 600,
+      "category": "software-engineering",
+      "cpus": 1,
+      "difficulty": "medium",
+      "dockerfile_copy_add_count": 2,
+      "dockerfile_instruction_count": 4,
+      "eligible_rank": 27,
+      "environment_context_bytes": 109675,
+      "expense_proxy_score": "9.569140",
+      "expert_time_estimate_min": 300.0,
+      "image": "alexgshaw/schemelike-metacircular-eval:20251031",
+      "instruction_sha256": "3af5f9567b62f93683db7518ec6fcb609f83796258aa02166b5a7091c5b69031",
+      "memory_mb": 2048,
+      "proxy_components_normalized": {
+        "agent_timeout": "0.157895",
+        "cpu": "0.000000",
+        "expert_time": "0.123173",
+        "image_build": "0.075807",
+        "memory": "0.000000",
+        "storage": "0.000000",
+        "verifier_timeout": "0.157895"
+      },
+      "storage_mb": 10240,
+      "stratum": "medium",
+      "task": "schemelike-metacircular-eval",
+      "task_package_digest": "sha256:58130c2166c3115276dc8592f358e326ff2d81ea852e3d88636c82fd1dff57e6",
+      "task_toml_sha256": "8dae8eb226183b0ca92331c1106152a7abc93b03b4e5a95291b86a4ddc9b44e0",
+      "task_tree_file_count": 138,
+      "task_tree_manifest_sha256": "3c635ec4c3d0de1363c9556fce17d982db7c1c22082b2ae33bf279cb2eb51e80",
+      "task_tree_total_bytes": 236400,
+      "verifier_timeout_sec": 2400
+    },
+    {
+      "agent_timeout_sec": 900,
+      "build_timeout_sec": 600,
+      "category": "software-engineering",
+      "cpus": 1,
+      "difficulty": "hard",
+      "dockerfile_copy_add_count": 0,
+      "dockerfile_instruction_count": 2,
+      "eligible_rank": 36,
+      "environment_context_bytes": 200,
+      "expense_proxy_score": "13.733106",
+      "expert_time_estimate_min": 240.0,
+      "image": "alexgshaw/torch-pipeline-parallelism:20251031",
+      "instruction_sha256": "989bfcf0c54baf6c8cdc391743dbb2f9e858c5779dd85112536875d4d1b2dcd2",
+      "memory_mb": 8192,
+      "proxy_components_normalized": {
+        "agent_timeout": "0.026316",
+        "cpu": "0.000000",
+        "expert_time": "0.098121",
+        "image_build": "0.000000",
+        "memory": "1.000000",
+        "storage": "0.000000",
+        "verifier_timeout": "0.026316"
+      },
+      "storage_mb": 10240,
+      "stratum": "medium",
+      "task": "torch-pipeline-parallelism",
+      "task_package_digest": "sha256:db605337c749a872cea7b5b413429b3915bb4c3efe0f7875f0c46ce81bd8c4fb",
+      "task_toml_sha256": "8b4f9f525c08afbbc4eca9168e46238a61ccb903486773e9ca4da64bb7ffe857",
+      "task_tree_file_count": 7,
+      "task_tree_manifest_sha256": "c2dc7c6bcfc91cb28b52ea162895fb56e3aacd36fb02d183aa5765987ca2982d",
+      "task_tree_total_bytes": 15318,
+      "verifier_timeout_sec": 900
+    },
+    {
+      "agent_timeout_sec": 900,
+      "build_timeout_sec": 600,
+      "category": "software-engineering",
+      "cpus": 1,
+      "difficulty": "hard",
+      "dockerfile_copy_add_count": 0,
+      "dockerfile_instruction_count": 2,
+      "eligible_rank": 37,
+      "environment_context_bytes": 201,
+      "expense_proxy_score": "13.733107",
+      "expert_time_estimate_min": 240.0,
+      "image": "alexgshaw/torch-tensor-parallelism:20251031",
+      "instruction_sha256": "13bde2ab165d72a311e2bf066d5d6c3c8761bf9d3dd39d1b23eda23bc546b910",
+      "memory_mb": 8192,
+      "proxy_components_normalized": {
+        "agent_timeout": "0.026316",
+        "cpu": "0.000000",
+        "expert_time": "0.098121",
+        "image_build": "0.000000",
+        "memory": "1.000000",
+        "storage": "0.000000",
+        "verifier_timeout": "0.026316"
+      },
+      "storage_mb": 10240,
+      "stratum": "high",
+      "task": "torch-tensor-parallelism",
+      "task_package_digest": "sha256:f32ce74a5aeb6638480247ab799fe46127bbee631acdd0921b0f394ec49b3684",
+      "task_toml_sha256": "72fd2a5500d1fe8795dcae76cccb1a29fb25894881a7475f2fa519c87d425a8d",
+      "task_tree_file_count": 7,
+      "task_tree_manifest_sha256": "3d074f880e8a095a027e5b49e8a857d35a0b16459ff5aa4fc3ac73af893ed031",
+      "task_tree_total_bytes": 16713,
+      "verifier_timeout_sec": 900
+    },
+    {
+      "agent_timeout_sec": 1800,
+      "build_timeout_sec": 600,
+      "category": "mathematics",
+      "cpus": 1,
+      "difficulty": "hard",
+      "dockerfile_copy_add_count": 1,
+      "dockerfile_instruction_count": 10,
+      "eligible_rank": 42,
+      "environment_context_bytes": 11336,
+      "expense_proxy_score": "16.834119",
+      "expert_time_estimate_min": 960.0,
+      "image": "alexgshaw/feal-linear-cryptanalysis:20251031",
+      "instruction_sha256": "a2f1669d4067af6c7b8ac05ff7d5849ca5df68397c94701645c4b9a3b6f71b03",
+      "memory_mb": 2048,
+      "proxy_components_normalized": {
+        "agent_timeout": "0.105263",
+        "cpu": "0.000000",
+        "expert_time": "0.398747",
+        "image_build": "0.114253",
+        "memory": "0.000000",
+        "storage": "0.000000",
+        "verifier_timeout": "0.105263"
+      },
+      "storage_mb": 10240,
+      "stratum": "high",
+      "task": "feal-linear-cryptanalysis",
+      "task_package_digest": "sha256:0f3234c5fde85f9dc610d94cfefd4c892afb75c9e571f21f18fee66972b67332",
+      "task_toml_sha256": "a39ec2c427af534c96c719dc87f70eb536956b487ce909d04b6365160e7c9fc4",
+      "task_tree_file_count": 10,
+      "task_tree_manifest_sha256": "717e1ba55ed99a9ebd00f9ee9ea05b7d70e5ba86954f3c1d5d435c5e6b4aa397",
+      "task_tree_total_bytes": 25930,
+      "verifier_timeout_sec": 1800
+    },
+    {
+      "agent_timeout_sec": 3600,
+      "build_timeout_sec": 600,
+      "category": "software-engineering",
+      "cpus": 1,
+      "difficulty": "hard",
+      "dockerfile_copy_add_count": 0,
+      "dockerfile_instruction_count": 5,
+      "eligible_rank": 47,
+      "environment_context_bytes": 583,
+      "expense_proxy_score": "26.369873",
+      "expert_time_estimate_min": 1440.0,
+      "image": "alexgshaw/fix-ocaml-gc:20251031",
+      "instruction_sha256": "a8867e4f8a537b3b1622ca2b80cbb278eeba772ce95602ed735c2581d23b2dec",
+      "memory_mb": 2048,
+      "proxy_components_normalized": {
+        "agent_timeout": "0.263158",
+        "cpu": "0.000000",
+        "expert_time": "0.599165",
+        "image_build": "0.033346",
+        "memory": "0.000000",
+        "storage": "0.000000",
+        "verifier_timeout": "0.263158"
+      },
+      "storage_mb": 10240,
+      "stratum": "high",
+      "task": "fix-ocaml-gc",
+      "task_package_digest": "sha256:2031f3d5224b891fe443a31526b569eb756be2f88b663cb025448af9c4f97e2c",
+      "task_toml_sha256": "423aab8ce6f44ce9349dcde647ca3cbd09afd5ac023910c25699ed687a3c71b2",
+      "task_tree_file_count": 7,
+      "task_tree_manifest_sha256": "c75922ff520f83643fd34d8d1efb8dd97bdeb1d55fe6cd4bb19de14e7991b1e3",
+      "task_tree_total_bytes": 5920,
+      "verifier_timeout_sec": 3600
+    },
+    {
+      "agent_timeout_sec": 3600,
+      "build_timeout_sec": 600,
+      "category": "machine-learning",
+      "cpus": 4,
+      "difficulty": "medium",
+      "dockerfile_copy_add_count": 0,
+      "dockerfile_instruction_count": 4,
+      "eligible_rank": 53,
+      "environment_context_bytes": 509,
+      "expense_proxy_score": "55.070327",
+      "expert_time_estimate_min": null,
+      "image": "alexgshaw/caffe-cifar-10:20260403",
+      "instruction_sha256": "46907b0ee048f74269c29a15e0e086546b2b1220149597017da8b5ccc05a0cea",
+      "memory_mb": 8192,
+      "proxy_components_normalized": {
+        "agent_timeout": "0.263158",
+        "cpu": "1.000000",
+        "expert_time": "1.000000",
+        "image_build": "0.022232",
+        "memory": "1.000000",
+        "storage": "0.000000",
+        "verifier_timeout": "0.052632"
+      },
+      "storage_mb": 10240,
+      "stratum": "high",
+      "task": "caffe-cifar-10",
+      "task_package_digest": "sha256:7b0045106d7d5af724efe96b610ba64f7893f5c88528401c573c4d47e384e2bf",
+      "task_toml_sha256": "2831165ad9d9e8bbc646e6d85c0a2290640dcc4f13749547a2937c7675012a8b",
+      "task_tree_file_count": 7,
+      "task_tree_manifest_sha256": "042225157dab3a4e4719dfa1e3affee9dcbd2f61595340ef16bb9f5bd74a5e1a",
+      "task_tree_total_bytes": 14846,
+      "verifier_timeout_sec": 1200
+    }
+  ],
+  "selection_sha256": "795c281f2f015ba9cd9b0389934d36d036e15ed4af0170b0eb0e0bb54492f523",
+  "strata": {
+    "high": {
+      "chosen": [
+        "torch-tensor-parallelism",
+        "feal-linear-cryptanalysis",
+        "fix-ocaml-gc",
+        "caffe-cifar-10"
+      ],
+      "count": 17,
+      "first_rank": 37,
+      "last_rank": 53,
+      "lower_boundary": {
+        "score": "13.733107",
+        "task": "torch-tensor-parallelism"
+      },
+      "upper_boundary": {
+        "score": "55.070327",
+        "task": "caffe-cifar-10"
+      }
+    },
+    "low": {
+      "chosen": [
+        "build-cython-ext",
+        "largest-eigenval",
+        "llm-inference-batching-scheduler"
+      ],
+      "count": 18,
+      "first_rank": 1,
+      "last_rank": 18,
+      "lower_boundary": {
+        "score": "1.811838",
+        "task": "build-cython-ext"
+      },
+      "upper_boundary": {
+        "score": "4.255476",
+        "task": "llm-inference-batching-scheduler"
+      }
+    },
+    "medium": {
+      "chosen": [
+        "mteb-retrieve",
+        "schemelike-metacircular-eval",
+        "torch-pipeline-parallelism"
+      ],
+      "count": 18,
+      "first_rank": 19,
+      "last_rank": 36,
+      "lower_boundary": {
+        "score": "4.326031",
+        "task": "mteb-retrieve"
+      },
+      "upper_boundary": {
+        "score": "13.733106",
+        "task": "torch-pipeline-parallelism"
+      }
+    }
+  }
+}

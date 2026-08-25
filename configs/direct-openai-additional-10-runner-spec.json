@@ -1,0 +1,229 @@
+{
+  "benchmark_id": "direct-openai-additional-10-pairwise",
+  "budget": {
+    "basis": "USD 3.00 is the next whole-dollar ceiling above the USD 2.2227785 maximum observed prior matched cell; this is an API-equivalent planning authorization, not reported cash cost",
+    "credit_or_billing_error": "consume the cell and stop before any later cell",
+    "missing_usage_or_identity": "missing usage or an identity mismatch consumes the cell and stops all future cells; never infer zero cost",
+    "per_cell_usd": "3.00",
+    "pricing_schedule": {
+      "cache_write": 6.25,
+      "cached_input": 0.5,
+      "ordinary_input": 5.0,
+      "output": 30.0
+    },
+    "settlement": "exact reported usage at the frozen schedule after every response and cell",
+    "stop_policy": "fail closed before a new cell unless USD 3.00 remains unreserved; stop before a new request when settled cell spend reaches USD 3.00 or settled plus reserved run spend reaches USD 60.00; if one in-flight response crosses a cap, consume and checkpoint that cell, launch nothing else, and report the bounded-overshoot risk",
+    "total_usd": "60.00"
+  },
+  "checkpoint_contract": {
+    "consumed_definition": "any cell with a durable pre-upstream MODEL_REQUEST_STARTED marker",
+    "one_attempt_per_cell": true,
+    "pre_request_failure": "preserve under infrastructure-attempts and stop; only an operator-authorized future runner may resume",
+    "progress_files": [
+      "progress.json",
+      "progress.jsonl",
+      "OUTCOME.json",
+      "cells/<cell-id>/CHECKPOINT.json"
+    ],
+    "restart": "skip every consumed cell forever, including interruption, policy failure, missing usage, or corrupt response",
+    "write": "atomic and fsync after each cell"
+  },
+  "exact_future_runner_changes_required": [
+    "add a new constants module that reads only this selection and uses a new artifact/job/run/report namespace",
+    "reuse the existing DirectOpenAIAgent, container loops, prompt, schemas, source bundle, and direct gateway without changing model-facing behavior",
+    "parameterize the gateway audit identity and launcher paths by benchmark ID; do not copy or mutate prior evidence",
+    "add a budget ledger that reserves USD 3.00 before each cell, settles exact usage after each response, and applies the frozen stop policy",
+    "add a new sequential launcher that validates the exclusion proof and all refs before each cell, writes restart-safe checkpoints, and iterates only the frozen 20-cell order",
+    "add a no-model Harbor preflight only after separate authorization; preflight must use a local controlled provider and make zero upstream requests",
+    "add the final credential-bound launch script only after preflight approval; keep the existing secure launcher-only boundary and zero retries"
+  ],
+  "forbidden_preparation_actions": [
+    "model request",
+    "Harbor cell",
+    "Docker build or run",
+    "Doppler invocation",
+    "secret or environment credential inspection",
+    "fake model cell",
+    "publication or archive"
+  ],
+  "frozen_before_spend": true,
+  "implementation_status": "specification only; no paid launcher, gateway entry point, Harbor command, provider credential path, or fake cell exists",
+  "infrastructure_risks": [
+    "high stratum includes 8192 MiB, 4 CPU, and 3600-second tasks that exceed the earlier low-cost runner bounds",
+    "prebuilt image size is not present in task metadata; the proxy uses frozen static image/build burden and can understate pull cost",
+    "image tags can become unavailable even though task package refs are frozen",
+    "container setup, disk pressure, verifier timeouts, and source-wheel build can stop the sequential run"
+  ],
+  "launch_enabled": false,
+  "methodology_identity": {
+    "dataset": "terminal-bench/terminal-bench-2-1@sha256:7d7bdc1cbedad549fc1140404bd4dc45e5fd0ea7c4186773687d177ad3a0699a",
+    "harbor": {
+      "agent_setup_timeout_multiplier": 3.0,
+      "attempts_per_cell": 1,
+      "concurrency": 1,
+      "environment": "docker",
+      "retries": 0,
+      "timeout_multiplier": 1.0,
+      "version": "0.21.0"
+    },
+    "model": {
+      "bridge": null,
+      "max_model_requests": 64,
+      "max_output_tokens": 100000,
+      "max_tool_calls": 128,
+      "model": "gpt-5.6-sol",
+      "provider": "OpenAI",
+      "reasoning": {
+        "effort": "xhigh",
+        "summary": "auto"
+      },
+      "request_timeout_seconds": 1800,
+      "retries": {
+        "model": 0,
+        "output": 0,
+        "provider": 0,
+        "tool": 0,
+        "transport": 0
+      },
+      "route": "direct https://api.openai.com/v1/responses",
+      "text": {
+        "verbosity": "low"
+      }
+    },
+    "order": "for each selected task in frozen order: Pi, then native ThinHarness",
+    "pi": {
+      "package": "@earendil-works/pi-coding-agent",
+      "package_lock_sha256": "0f34d01dda1837fd634d0562d2c0350ff982da133de59f36fccdac62835fc1c0",
+      "tool_execution": "native Pi policy",
+      "tool_schema_sha256": "88fda428f9a9114a62d2f3a394d85c7d15cddd111eddadbe7abbe728bff2afde",
+      "version": "0.84.2"
+    },
+    "pricing_usd_per_million_tokens": {
+      "cache_write": 6.25,
+      "cached_input": 0.5,
+      "ordinary_input": 5.0,
+      "output": 30.0
+    },
+    "prompt": {
+      "path": "prompts/pi-0.84.2-system-prompt.md",
+      "sha256": "bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e"
+    },
+    "thinharness": {
+      "commit": "84105f07bb9c1ad366fc8fe4fef49e700f5e88ef",
+      "provider_timeout_seconds": 1800,
+      "tool_execution": "sequential",
+      "tool_schema_sha256": "1c1c1e985590e9980264a2e6b8364bd96f1b052c0761eed7f127ac9ab60cfd24",
+      "version": "0.7.0"
+    }
+  },
+  "methodology_identity_sha256": "af0e39770a61081bff13a2d317b14dea924def349cea3035a71eb0bd132dc8a7",
+  "no_model_preflight_plan": [
+    "run the static preparation check with all API-key variables unset",
+    "reproduce selection and population reports into a temporary directory and compare exact bytes",
+    "validate all 89 catalog rows, package refs, task hashes, exclusion sources, methodology hashes, budget arithmetic, and 20-cell order",
+    "build the Python distribution and inspect wheel/sdist contents",
+    "do not add or invoke a fake provider, Harbor, Docker, Doppler, a credential reader, or a network client"
+  ],
+  "planned_cells": 20,
+  "planned_execution_order": [
+    "build-cython-ext--pi",
+    "build-cython-ext--thinharness",
+    "largest-eigenval--pi",
+    "largest-eigenval--thinharness",
+    "llm-inference-batching-scheduler--pi",
+    "llm-inference-batching-scheduler--thinharness",
+    "mteb-retrieve--pi",
+    "mteb-retrieve--thinharness",
+    "schemelike-metacircular-eval--pi",
+    "schemelike-metacircular-eval--thinharness",
+    "torch-pipeline-parallelism--pi",
+    "torch-pipeline-parallelism--thinharness",
+    "torch-tensor-parallelism--pi",
+    "torch-tensor-parallelism--thinharness",
+    "feal-linear-cryptanalysis--pi",
+    "feal-linear-cryptanalysis--thinharness",
+    "fix-ocaml-gc--pi",
+    "fix-ocaml-gc--thinharness",
+    "caffe-cifar-10--pi",
+    "caffe-cifar-10--thinharness"
+  ],
+  "provider_policy_risks": [
+    "provider safety policy can consume a cell before verifier handoff",
+    "provider can change or reject the pinned model despite a fixed request identity",
+    "one in-flight response can cross a planning cap before exact usage is known",
+    "rate or service failures consume a cell after the request marker because retries stay zero"
+  ],
+  "schema_version": 1,
+  "selected_task_refs": [
+    {
+      "instruction_sha256": "7e52874e45f88505bd21540229719de6639a401477557d814489981d472f0e34",
+      "task": "build-cython-ext",
+      "task_package_digest": "sha256:35dc561790e73f13e59837828ac0863c0893edc6b71d42cf7d58656c843adf12",
+      "task_toml_sha256": "c472f0e7522c128fb7f03e00b50c8cdf2e5e6474daa1e094e7441f4b54e770b2",
+      "task_tree_manifest_sha256": "2ee7166e33154facf42ee414c60738311f7d3314bf3256b9027251dd6a2a0b1c"
+    },
+    {
+      "instruction_sha256": "6fa938389f99648508e5a9772e0d5e95d1102738c68d1ff61bd65469d76c52ab",
+      "task": "largest-eigenval",
+      "task_package_digest": "sha256:1b6f17c344d23e97435ba3fa93400d141f6bb7763ed2014fab418830983791b3",
+      "task_toml_sha256": "f7b9b7dda446f969a3ce88f61039d216f4d58b5fc5c10ff9faa24e2403bbd830",
+      "task_tree_manifest_sha256": "9d8f96f64462e32943705852a92f2cdb0aab90448be03fbdb0b5b87896255f71"
+    },
+    {
+      "instruction_sha256": "0817374767533fbf51bb93345ee1bba266263c216c6cc55c096e71b4a1d37dfc",
+      "task": "llm-inference-batching-scheduler",
+      "task_package_digest": "sha256:a3bf47589118daec5124fe3689b4439802c805b2f4ed9d402a48ae73ca2fea67",
+      "task_toml_sha256": "52aaac942f917e6a91ff658e0272195bd1cd842d41d71e302414c52603cc588b",
+      "task_tree_manifest_sha256": "297f8457f7392c182d0c3c83a0fb6c72ecdc5adc7aa35fc2cefa0475eb16ac70"
+    },
+    {
+      "instruction_sha256": "071305482e6989fe84634227be9a19386a31b3c2d1fc9fb0d3e604490b3f1dca",
+      "task": "mteb-retrieve",
+      "task_package_digest": "sha256:fa7c777df6ed8987a2bb144b4b73a1200935bbea69da03a2aaa1dc8aa9bd9dc9",
+      "task_toml_sha256": "a2a4ded9824d296ce99bfba6aa2c9341dcc58f10e66de2e8f95dc8e07379c3aa",
+      "task_tree_manifest_sha256": "3303974cbb5a42f677ba5d6209651a41a5dc65a547798e94b3f65e3154d9e67a"
+    },
+    {
+      "instruction_sha256": "3af5f9567b62f93683db7518ec6fcb609f83796258aa02166b5a7091c5b69031",
+      "task": "schemelike-metacircular-eval",
+      "task_package_digest": "sha256:58130c2166c3115276dc8592f358e326ff2d81ea852e3d88636c82fd1dff57e6",
+      "task_toml_sha256": "8dae8eb226183b0ca92331c1106152a7abc93b03b4e5a95291b86a4ddc9b44e0",
+      "task_tree_manifest_sha256": "3c635ec4c3d0de1363c9556fce17d982db7c1c22082b2ae33bf279cb2eb51e80"
+    },
+    {
+      "instruction_sha256": "989bfcf0c54baf6c8cdc391743dbb2f9e858c5779dd85112536875d4d1b2dcd2",
+      "task": "torch-pipeline-parallelism",
+      "task_package_digest": "sha256:db605337c749a872cea7b5b413429b3915bb4c3efe0f7875f0c46ce81bd8c4fb",
+      "task_toml_sha256": "8b4f9f525c08afbbc4eca9168e46238a61ccb903486773e9ca4da64bb7ffe857",
+      "task_tree_manifest_sha256": "c2dc7c6bcfc91cb28b52ea162895fb56e3aacd36fb02d183aa5765987ca2982d"
+    },
+    {
+      "instruction_sha256": "13bde2ab165d72a311e2bf066d5d6c3c8761bf9d3dd39d1b23eda23bc546b910",
+      "task": "torch-tensor-parallelism",
+      "task_package_digest": "sha256:f32ce74a5aeb6638480247ab799fe46127bbee631acdd0921b0f394ec49b3684",
+      "task_toml_sha256": "72fd2a5500d1fe8795dcae76cccb1a29fb25894881a7475f2fa519c87d425a8d",
+      "task_tree_manifest_sha256": "3d074f880e8a095a027e5b49e8a857d35a0b16459ff5aa4fc3ac73af893ed031"
+    },
+    {
+      "instruction_sha256": "a2f1669d4067af6c7b8ac05ff7d5849ca5df68397c94701645c4b9a3b6f71b03",
+      "task": "feal-linear-cryptanalysis",
+      "task_package_digest": "sha256:0f3234c5fde85f9dc610d94cfefd4c892afb75c9e571f21f18fee66972b67332",
+      "task_toml_sha256": "a39ec2c427af534c96c719dc87f70eb536956b487ce909d04b6365160e7c9fc4",
+      "task_tree_manifest_sha256": "717e1ba55ed99a9ebd00f9ee9ea05b7d70e5ba86954f3c1d5d435c5e6b4aa397"
+    },
+    {
+      "instruction_sha256": "a8867e4f8a537b3b1622ca2b80cbb278eeba772ce95602ed735c2581d23b2dec",
+      "task": "fix-ocaml-gc",
+      "task_package_digest": "sha256:2031f3d5224b891fe443a31526b569eb756be2f88b663cb025448af9c4f97e2c",
+      "task_toml_sha256": "423aab8ce6f44ce9349dcde647ca3cbd09afd5ac023910c25699ed687a3c71b2",
+      "task_tree_manifest_sha256": "c75922ff520f83643fd34d8d1efb8dd97bdeb1d55fe6cd4bb19de14e7991b1e3"
+    },
+    {
+      "instruction_sha256": "46907b0ee048f74269c29a15e0e086546b2b1220149597017da8b5ccc05a0cea",
+      "task": "caffe-cifar-10",
+      "task_package_digest": "sha256:7b0045106d7d5af724efe96b610ba64f7893f5c88528401c573c4d47e384e2bf",
+      "task_toml_sha256": "2831165ad9d9e8bbc646e6d85c0a2290640dcc4f13749547a2937c7675012a8b",
+      "task_tree_manifest_sha256": "042225157dab3a4e4719dfa1e3affee9dcbd2f61595340ef16bb9f5bd74a5e1a"
+    }
+  ]
+}

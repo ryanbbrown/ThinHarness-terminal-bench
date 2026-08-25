@@ -1,0 +1,281 @@
+{
+  "evidence_sources": [
+    "evidence/migration-manifest.json",
+    "configs/subscription-smoke-selection.json",
+    "configs/subscription-recovery-selection.json",
+    "configs/subscription-extension-selection.json",
+    "configs/direct-openai-20task-selection.json",
+    "configs/direct-openai-exclusion-proof.json",
+    "configs/direct-openai-thinharness-replicates.json",
+    "artifacts/**/cells/**",
+    "artifacts/**/progress.json",
+    "artifacts/**/SUMMARY.json",
+    "artifacts/**/OUTCOME.json"
+  ],
+  "excluded_tasks": [
+    "break-filter-js-from-html",
+    "build-pmars",
+    "cobol-modernization",
+    "code-from-image",
+    "configure-git-webserver",
+    "constraints-scheduling",
+    "count-dataset-tokens",
+    "crack-7z-hash",
+    "custom-memory-heap-crash",
+    "dna-insert",
+    "extract-elf",
+    "financial-document-processor",
+    "fix-code-vulnerability",
+    "fix-git",
+    "git-leak-recovery",
+    "hf-model-inference",
+    "kv-store-grpc",
+    "merge-diff-arc-agi-task",
+    "multi-source-data-merger",
+    "nginx-request-logging",
+    "openssl-selfsigned-cert",
+    "overfull-hbox",
+    "polyglot-c-py",
+    "prove-plus-comm",
+    "pytorch-model-cli",
+    "pytorch-model-recovery",
+    "qemu-alpine-ssh",
+    "qemu-startup",
+    "raman-fitting",
+    "regex-log",
+    "reshard-c4-data",
+    "sanitize-git-repo",
+    "sqlite-with-gcov",
+    "tune-mjcf",
+    "vulnerable-secret",
+    "write-compressor"
+  ],
+  "exclusion_count": 36,
+  "frozen_before_spend": true,
+  "history_scope": {
+    "baseline_ancestor_commit_count": 24,
+    "qualifying_evidence": "real, attempted, consumed, selected-for-real, or replicate evidence; rejected and first-not-selected metadata alone is not qualifying",
+    "refs_at_baseline": [
+      "refs/heads/main",
+      "refs/remotes/origin/main"
+    ],
+    "tracked_blob_scope": "all repository history, including artifacts, configs, evidence, manifests, reports, plans, tests, and runner files"
+  },
+  "nonqualifying_prior_mentions": [
+    {
+      "status": "first_not_selected only",
+      "task": "large-scale-text-editing"
+    },
+    {
+      "status": "resource-rejected only",
+      "task": "mteb-leaderboard"
+    },
+    {
+      "status": "same-tier rejected only",
+      "task": "mteb-retrieve"
+    }
+  ],
+  "population_accounting": {
+    "complete": 89,
+    "eligible": 53,
+    "excluded": 36
+  },
+  "publication_baseline_commit": "70f5a7b69e7cbbcd09464e275b5a75a8821baa7f",
+  "result": "fresh against every qualifying baseline evidence class",
+  "schema_version": 1,
+  "selected_conflicts": [],
+  "selected_tasks": [
+    "build-cython-ext",
+    "largest-eigenval",
+    "llm-inference-batching-scheduler",
+    "mteb-retrieve",
+    "schemelike-metacircular-eval",
+    "torch-pipeline-parallelism",
+    "torch-tensor-parallelism",
+    "feal-linear-cryptanalysis",
+    "fix-ocaml-gc",
+    "caffe-cifar-10"
+  ],
+  "task_evidence": [
+    {
+      "evidence": "prior real direct matched pair; replicate evidence also applies where present",
+      "source": "configs/direct-openai-20task-selection.json",
+      "task": "break-filter-js-from-html"
+    },
+    {
+      "evidence": "prior attempted/paid selection",
+      "source": "configs/subscription-smoke-selection.json",
+      "task": "build-pmars"
+    },
+    {
+      "evidence": "prior real direct matched pair; replicate evidence also applies where present",
+      "source": "configs/direct-openai-20task-selection.json",
+      "task": "cobol-modernization"
+    },
+    {
+      "evidence": "prior real direct matched pair; replicate evidence also applies where present",
+      "source": "configs/direct-openai-20task-selection.json",
+      "task": "code-from-image"
+    },
+    {
+      "evidence": "prior real matched pair",
+      "source": "configs/subscription-extension-selection.json",
+      "task": "configure-git-webserver"
+    },
+    {
+      "evidence": "prior real matched pair",
+      "source": "configs/subscription-extension-selection.json",
+      "task": "constraints-scheduling"
+    },
+    {
+      "evidence": "prior real direct matched pair; replicate evidence also applies where present",
+      "source": "configs/direct-openai-20task-selection.json",
+      "task": "count-dataset-tokens"
+    },
+    {
+      "evidence": "prior real matched pair",
+      "source": "configs/subscription-recovery-selection.json",
+      "task": "crack-7z-hash"
+    },
+    {
+      "evidence": "prior real direct matched pair; replicate evidence also applies where present",
+      "source": "configs/direct-openai-20task-selection.json",
+      "task": "custom-memory-heap-crash"
+    },
+    {
+      "evidence": "prior real direct matched pair; replicate evidence also applies where present",
+      "source": "configs/direct-openai-20task-selection.json",
+      "task": "dna-insert"
+    },
+    {
+      "evidence": "prior attempted/paid selection",
+      "source": "configs/subscription-smoke-selection.json",
+      "task": "extract-elf"
+    },
+    {
+      "evidence": "prior real direct matched pair; replicate evidence also applies where present",
+      "source": "configs/direct-openai-20task-selection.json",
+      "task": "financial-document-processor"
+    },
+    {
+      "evidence": "prior attempted/paid selection",
+      "source": "configs/subscription-smoke-selection.json",
+      "task": "fix-code-vulnerability"
+    },
+    {
+      "evidence": "prior real subscription cell",
+      "source": "configs/subscription-smoke-selection.json",
+      "task": "fix-git"
+    },
+    {
+      "evidence": "prior real direct matched pair; replicate evidence also applies where present",
+      "source": "configs/direct-openai-20task-selection.json",
+      "task": "git-leak-recovery"
+    },
+    {
+      "evidence": "prior attempted/paid selection",
+      "source": "configs/subscription-smoke-selection.json",
+      "task": "hf-model-inference"
+    },
+    {
+      "evidence": "prior attempted/paid selection",
+      "source": "configs/subscription-smoke-selection.json",
+      "task": "kv-store-grpc"
+    },
+    {
+      "evidence": "prior real direct matched pair; replicate evidence also applies where present",
+      "source": "configs/direct-openai-20task-selection.json",
+      "task": "merge-diff-arc-agi-task"
+    },
+    {
+      "evidence": "prior real direct matched pair; replicate evidence also applies where present",
+      "source": "configs/direct-openai-20task-selection.json",
+      "task": "multi-source-data-merger"
+    },
+    {
+      "evidence": "prior real direct matched pair; replicate evidence also applies where present",
+      "source": "configs/direct-openai-20task-selection.json",
+      "task": "nginx-request-logging"
+    },
+    {
+      "evidence": "prior real direct matched pair; replicate evidence also applies where present",
+      "source": "configs/direct-openai-20task-selection.json",
+      "task": "openssl-selfsigned-cert"
+    },
+    {
+      "evidence": "prior attempted/paid selection",
+      "source": "configs/subscription-smoke-selection.json",
+      "task": "overfull-hbox"
+    },
+    {
+      "evidence": "prior real direct matched pair; replicate evidence also applies where present",
+      "source": "configs/direct-openai-20task-selection.json",
+      "task": "polyglot-c-py"
+    },
+    {
+      "evidence": "prior real subscription cell",
+      "source": "configs/subscription-smoke-selection.json",
+      "task": "prove-plus-comm"
+    },
+    {
+      "evidence": "prior real direct matched pair; replicate evidence also applies where present",
+      "source": "configs/direct-openai-20task-selection.json",
+      "task": "pytorch-model-cli"
+    },
+    {
+      "evidence": "prior real matched pair",
+      "source": "configs/subscription-extension-selection.json",
+      "task": "pytorch-model-recovery"
+    },
+    {
+      "evidence": "prior real direct matched pair; replicate evidence also applies where present",
+      "source": "configs/direct-openai-20task-selection.json",
+      "task": "qemu-alpine-ssh"
+    },
+    {
+      "evidence": "prior real direct matched pair; replicate evidence also applies where present",
+      "source": "configs/direct-openai-20task-selection.json",
+      "task": "qemu-startup"
+    },
+    {
+      "evidence": "prior real subscription cells",
+      "source": "configs/subscription-smoke-selection.json",
+      "task": "raman-fitting"
+    },
+    {
+      "evidence": "prior real and consumed",
+      "source": "evidence/migration-manifest.json",
+      "task": "regex-log"
+    },
+    {
+      "evidence": "prior attempted/paid selection",
+      "source": "configs/subscription-smoke-selection.json",
+      "task": "reshard-c4-data"
+    },
+    {
+      "evidence": "prior real direct matched pair; replicate evidence also applies where present",
+      "source": "configs/direct-openai-20task-selection.json",
+      "task": "sanitize-git-repo"
+    },
+    {
+      "evidence": "prior real direct matched pair; replicate evidence also applies where present",
+      "source": "configs/direct-openai-20task-selection.json",
+      "task": "sqlite-with-gcov"
+    },
+    {
+      "evidence": "prior real direct matched pair; replicate evidence also applies where present",
+      "source": "configs/direct-openai-20task-selection.json",
+      "task": "tune-mjcf"
+    },
+    {
+      "evidence": "prior real direct matched pair; replicate evidence also applies where present",
+      "source": "configs/direct-openai-20task-selection.json",
+      "task": "vulnerable-secret"
+    },
+    {
+      "evidence": "prior attempted/paid selection",
+      "source": "configs/subscription-smoke-selection.json",
+      "task": "write-compressor"
+    }
+  ]
+}
