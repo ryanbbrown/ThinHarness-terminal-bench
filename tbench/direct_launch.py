@@ -47,10 +47,10 @@ from .direct_constants import (
     THINHARNESS_COMMIT,
 )
 from .direct_gateway import GatewayIdentity, run_gateway
-from .source_bundle import ExactCommitBundle, exact_commit_bundle
+from .source_bundle import EXACT_BUNDLE_REF, ExactCommitBundle, exact_commit_bundle
 
 _LOCK = RUNS_DIR / "launch.lock"
-_RECOVERY_IDENTITY_FILES = {"tbench/direct_launch.py", "tbench/direct_validate.py"}
+_RECOVERY_IDENTITY_FILES = {"tbench/direct_launch.py", "tbench/direct_validate.py", "tbench/source_bundle.py"}
 _IDENTITY_FILES = (
     "configs/container-runtime-requirements.txt",
     "configs/direct-openai-20task-selection.json",
@@ -255,7 +255,22 @@ def _validate_preflight_gate() -> None:
     direct_validate.validate_finalized_preflight(PREFLIGHT_DIR)
 
 
-def _initial_progress(mode: str, identity: dict[str, Any], bundle_sha256: str) -> dict[str, Any]:
+def _source_identity(bundle: ExactCommitBundle) -> dict[str, Any]:
+    return {
+        "schema_version": 1,
+        "source_mode": "transient-local-exact-commit-git-bundle",
+        "canonical_commit": bundle.target_commit,
+        "canonical_tree": bundle.target_tree,
+        "canonical_commit_content_sha256": bundle.target_commit_sha256,
+        "advertised_ref": bundle.advertised_ref,
+        "provenance": {
+            "canonical_source_head": bundle.source_head,
+            "later_source_head_excluded": bundle.source_head_excluded,
+        },
+    }
+
+
+def _initial_progress(mode: str, identity: dict[str, Any], bundle: ExactCommitBundle) -> dict[str, Any]:
     return {
         "schema_version": 1,
         "benchmark_id": BENCHMARK_ID,
@@ -267,7 +282,8 @@ def _initial_progress(mode: str, identity: dict[str, Any], bundle_sha256: str) -
         "model": MODEL,
         "planned_cells": list(EXPECTED_CELLS),
         "cells": [],
-        "source_bundle_sha256": bundle_sha256,
+        "source_bundle_sha256": bundle.sha256,
+        "source_identity": _source_identity(bundle),
         "runner_identity": identity,
     }
 
@@ -299,18 +315,72 @@ def _is_safe_policy_recovery_upgrade(
     return len(pending) == 1 and pending[0].get("cell_id") == "vulnerable-secret--pi" and pending[0].get("status") == "model_attempt_failed"
 
 
-def _load_or_create_progress(root: Path, mode: str, identity: dict[str, Any], bundle_sha256: str) -> dict[str, Any]:
+def _legacy_source_identity_is_attested(root: Path, progress: dict[str, Any], bundle: ExactCommitBundle) -> bool:
+    old_bundle_sha256 = progress.get("source_bundle_sha256")
+    if not isinstance(old_bundle_sha256, str) or len(old_bundle_sha256) != 64:
+        return False
+    if (
+        bundle.target_commit != THINHARNESS_COMMIT
+        or bundle.advertised_ref != EXACT_BUNDLE_REF
+        or not bundle.source_head_excluded
+    ):
+        return False
+    receipts = 0
+    for checkpoint in progress.get("cells") or []:
+        cell_id = checkpoint.get("cell_id")
+        if not isinstance(cell_id, str) or not cell_id.endswith("--thinharness"):
+            continue
+        cell_dir = root / "cells" / cell_id
+        try:
+            launch = _read_checkpoint(cell_dir / "launch.json")
+        except (FileNotFoundError, json.JSONDecodeError, RuntimeError):
+            return False
+        if launch.get("source_bundle_sha256") != old_bundle_sha256:
+            return False
+        installs = list((cell_dir / "job").glob("*/agent/install-provenance.json"))
+        if len(installs) != 1:
+            return False
+        try:
+            install = _read_checkpoint(installs[0])
+        except (json.JSONDecodeError, RuntimeError):
+            return False
+        if (
+            install.get("canonical_commit") != THINHARNESS_COMMIT
+            or install.get("source_mode") != "transient-local-git-bundle"
+            or install.get("source_bundle_sha256") != old_bundle_sha256
+        ):
+            return False
+        receipts += 1
+    return receipts > 0
+
+
+def _load_or_create_progress(
+    root: Path, mode: str, identity: dict[str, Any], bundle: ExactCommitBundle
+) -> dict[str, Any]:
     progress_path = root / "progress.json"
     if progress_path.is_file():
         value = json.loads(progress_path.read_text(encoding="utf-8"))
         if value.get("mode") != mode or value.get("planned_cells") != list(EXPECTED_CELLS):
             raise RuntimeError("existing progress ledger differs from the frozen run")
-        if value.get("source_bundle_sha256") != bundle_sha256:
-            raise RuntimeError("existing progress source bundle differs from the exact pinned commit")
+        source_identity = _source_identity(bundle)
         old_identity = value.get("runner_identity") or {}
+        real_markers = list(root.glob("cells/*/MODEL_REQUEST_STARTED.jsonl"))
+        safe_recovery_upgrade = mode == "real" and bool(real_markers) and _is_safe_policy_recovery_upgrade(
+            root, value, old_identity, identity
+        )
+        prior_source_identity = value.get("source_identity")
+        if prior_source_identity is None:
+            if not safe_recovery_upgrade or not _legacy_source_identity_is_attested(root, value, bundle):
+                raise RuntimeError("existing progress lacks an attested canonical source identity")
+            value["source_identity"] = source_identity
+            value["source_identity_upgrade"] = {
+                "prior_transient_bundle_sha256": value.get("source_bundle_sha256"),
+                "basis": "completed exact-commit install receipts and narrowly attested consumed-cell runner recovery",
+            }
+        elif prior_source_identity != source_identity:
+            raise RuntimeError("existing progress canonical source identity differs")
         if old_identity.get("files_sha256") != identity["files_sha256"]:
-            real_markers = list(root.glob("cells/*/MODEL_REQUEST_STARTED.jsonl"))
-            if mode == "real" and real_markers and not _is_safe_policy_recovery_upgrade(root, value, old_identity, identity):
+            if mode == "real" and real_markers and not safe_recovery_upgrade:
                 raise RuntimeError("runner identity changed after a real model request began")
             value.setdefault("runner_identity_history", []).append(old_identity)
             value["runner_identity"] = identity
@@ -321,7 +391,7 @@ def _load_or_create_progress(root: Path, mode: str, identity: dict[str, Any], bu
     root.mkdir(parents=True, exist_ok=True)
     shutil.copy2(SELECTION_PATH, root / "selection.json")
     shutil.copy2(SETTINGS_PATH, root / "settings.json")
-    return _initial_progress(mode, identity, bundle_sha256)
+    return _initial_progress(mode, identity, bundle)
 
 
 def _write_progress(root: Path, progress: dict[str, Any], event: dict[str, Any] | None = None) -> None:
@@ -499,7 +569,7 @@ def run(mode: str) -> int:
         _validate_preflight_gate()
     identity = _repository_identity()
     with _lock(), _source_bundle() as bundle:
-        progress = _load_or_create_progress(root, gateway_mode, identity, bundle.sha256)
+        progress = _load_or_create_progress(root, gateway_mode, identity, bundle)
         _write_progress(root, progress)
         if any(item.get("status") == "credit_exhausted" for item in progress["cells"]):
             return _finish(root, progress, "credit_exhausted", {"reason": "prior genuine API billing or quota exhaustion"})

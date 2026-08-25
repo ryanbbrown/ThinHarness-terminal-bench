@@ -7,9 +7,12 @@ import shutil
 import subprocess
 from pathlib import Path
 
+import pytest
+
 from tbench import direct_launch, direct_validate
-from tbench.direct_constants import EXPECTED_CELLS, TASKS
+from tbench.direct_constants import EXPECTED_CELLS, TASKS, THINHARNESS_COMMIT
 from tbench.direct_gateway import run_gateway
+from tbench.source_bundle import EXACT_BUNDLE_REF, ExactCommitBundle
 
 
 def _post(port: int, token: str) -> tuple[int, dict]:
@@ -86,6 +89,81 @@ def test_restart_skips_a_consumed_real_cell_and_preserves_pre_request_attempt(tm
     assert list((tmp_path / "infrastructure-attempts" / pending_id).iterdir())
 
 
+def _test_bundle(tmp_path: Path, *, sha256: str, commit: str = "a" * 40, source_head: str = "b" * 40) -> ExactCommitBundle:
+    return ExactCommitBundle(
+        path=tmp_path / "source.bundle",
+        sha256=sha256,
+        source_head=source_head,
+        target_commit=commit,
+        target_tree="c" * 40,
+        target_commit_sha256="d" * 64,
+        advertised_ref=EXACT_BUNDLE_REF,
+        source_head_excluded=True,
+    )
+
+
+def test_restart_accepts_a_same_source_bundle_with_different_transient_bytes(tmp_path: Path) -> None:
+    identity = {"files_sha256": "1" * 64, "files": {}}
+    original = _test_bundle(tmp_path, sha256="2" * 64)
+    progress = direct_launch._load_or_create_progress(tmp_path, "real", identity, original)
+    direct_launch._write_progress(tmp_path, progress)
+
+    regenerated = _test_bundle(tmp_path, sha256="3" * 64)
+    resumed = direct_launch._load_or_create_progress(tmp_path, "real", identity, regenerated)
+
+    assert resumed["source_bundle_sha256"] == original.sha256
+    assert resumed["source_identity"] == direct_launch._source_identity(regenerated)
+
+
+def test_restart_rejects_a_different_commit_or_source(tmp_path: Path) -> None:
+    identity = {"files_sha256": "1" * 64, "files": {}}
+    original = _test_bundle(tmp_path, sha256="2" * 64)
+    progress = direct_launch._load_or_create_progress(tmp_path, "real", identity, original)
+    direct_launch._write_progress(tmp_path, progress)
+
+    different_commit = _test_bundle(tmp_path, sha256="3" * 64, commit="e" * 40)
+    with pytest.raises(RuntimeError, match="canonical source identity"):
+        direct_launch._load_or_create_progress(tmp_path, "real", identity, different_commit)
+
+    different_source = _test_bundle(tmp_path, sha256="4" * 64, source_head="f" * 40)
+    with pytest.raises(RuntimeError, match="canonical source identity"):
+        direct_launch._load_or_create_progress(tmp_path, "real", identity, different_source)
+
+
+def test_legacy_real_restart_upgrade_appends_the_consumed_checkpoint_without_rerun(tmp_path: Path, monkeypatch) -> None:
+    source_root = Path("artifacts/direct-openai-20task-pairwise")
+    progress = json.loads((source_root / "progress.json").read_text())
+    (tmp_path / "cells").mkdir()
+    shutil.copy2(source_root / "progress.json", tmp_path / "progress.json")
+    for checkpoint in progress["cells"]:
+        cell_id = checkpoint["cell_id"]
+        source_cell = source_root / "cells" / cell_id
+        target_cell = tmp_path / "cells" / cell_id
+        target_cell.mkdir()
+        shutil.copy2(source_cell / "MODEL_REQUEST_STARTED.jsonl", target_cell / "MODEL_REQUEST_STARTED.jsonl")
+        if cell_id.endswith("--thinharness"):
+            shutil.copy2(source_cell / "launch.json", target_cell / "launch.json")
+            install = next((source_cell / "job").glob("*/agent/install-provenance.json"))
+            target_install = target_cell / install.relative_to(source_cell)
+            target_install.parent.mkdir(parents=True)
+            shutil.copy2(install, target_install)
+    consumed_id = "vulnerable-secret--pi"
+    shutil.copytree(source_root / "cells" / consumed_id, tmp_path / "cells" / consumed_id)
+    audit_before = (tmp_path / "cells" / consumed_id / "gateway-audit.jsonl").read_bytes()
+    monkeypatch.setattr(direct_launch, "RUNS_DIR", tmp_path / "logs")
+    bundle = _test_bundle(tmp_path, sha256="9" * 64, commit=THINHARNESS_COMMIT, source_head=THINHARNESS_COMMIT)
+
+    resumed = direct_launch._load_or_create_progress(tmp_path, "real", direct_launch._repository_identity(), bundle)
+    assert direct_launch._recover_interrupted(tmp_path, resumed, consumed_id, "real") is True
+
+    assert len(resumed["cells"]) == len(progress["cells"]) + 1
+    assert resumed["cells"][-1]["cell_id"] == consumed_id
+    assert resumed["cells"][-1]["never_rerun"] is True
+    assert (tmp_path / "cells" / consumed_id / "gateway-audit.jsonl").read_bytes() == audit_before
+    assert resumed["source_bundle_sha256"] == progress["source_bundle_sha256"]
+    assert resumed["source_identity_upgrade"]["prior_transient_bundle_sha256"] == progress["source_bundle_sha256"]
+
+
 def test_policy_error_is_a_final_consumed_failure_with_complete_evidence() -> None:
     cell = Path("artifacts/direct-openai-20task-pairwise/cells/vulnerable-secret--pi")
 
@@ -120,14 +198,15 @@ def test_policy_error_is_a_final_consumed_failure_with_complete_evidence() -> No
     assert all(checkpoint["traces"].values())
 
 
-def test_policy_recovery_upgrade_allows_only_runner_and_validator_changes() -> None:
+def test_policy_recovery_upgrade_allows_only_attested_recovery_files() -> None:
     root = Path("artifacts/direct-openai-20task-pairwise")
     progress = json.loads((root / "progress.json").read_text())
     old_identity = progress["runner_identity"]
     new_identity = json.loads(json.dumps(old_identity))
     new_identity["files"]["tbench/direct_launch.py"] = "1" * 64
     new_identity["files"]["tbench/direct_validate.py"] = "2" * 64
-    new_identity["files_sha256"] = "3" * 64
+    new_identity["files"]["tbench/source_bundle.py"] = "3" * 64
+    new_identity["files_sha256"] = "4" * 64
 
     assert direct_launch._is_safe_policy_recovery_upgrade(root, progress, old_identity, new_identity) is True
     new_identity["files"]["tbench/direct_gateway.py"] = "4" * 64

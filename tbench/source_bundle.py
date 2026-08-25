@@ -21,6 +21,8 @@ class ExactCommitBundle:
     sha256: str
     source_head: str
     target_commit: str
+    target_tree: str
+    target_commit_sha256: str
     advertised_ref: str = EXACT_BUNDLE_REF
     source_head_excluded: bool = False
 
@@ -51,6 +53,9 @@ def exact_commit_bundle(source: Path, target_commit: str, *, temporary_prefix: s
     if _run("git", "-C", str(source), "cat-file", "-e", f"{target_commit}^{{commit}}", check=False).returncode:
         raise RuntimeError("local ThinHarness source does not contain the exact pin")
     source_head = _run("git", "-C", str(source), "rev-parse", "HEAD^{commit}").stdout.strip()
+    target_tree = _run("git", "-C", str(source), "rev-parse", f"{target_commit}^{{tree}}").stdout.strip()
+    target_commit_content = _run("git", "-C", str(source), "cat-file", "commit", target_commit).stdout.encode()
+    target_commit_sha256 = hashlib.sha256(target_commit_content).hexdigest()
     if _run(
         "git", "-C", str(source), "merge-base", "--is-ancestor", target_commit, source_head, check=False
     ).returncode:
@@ -85,5 +90,7 @@ def exact_commit_bundle(source: Path, target_commit: str, *, temporary_prefix: s
             sha256=hashlib.sha256(bundle.read_bytes()).hexdigest(),
             source_head=source_head,
             target_commit=target_commit,
+            target_tree=target_tree,
+            target_commit_sha256=target_commit_sha256,
             source_head_excluded=source_head_excluded,
         )

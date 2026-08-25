@@ -439,6 +439,7 @@ def build_report(root: Path) -> dict[str, Any]:
         },
         "runner_identity": progress.get("runner_identity"),
         "source_bundle_sha256": progress.get("source_bundle_sha256"),
+        "source_identity": progress.get("source_identity"),
         "stop": progress.get("stop"),
     }
 
