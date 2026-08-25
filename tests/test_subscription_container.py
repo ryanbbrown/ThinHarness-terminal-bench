@@ -48,6 +48,11 @@ def test_pi_event_parser_preserves_request_tool_and_reasoning_usage() -> None:
     assert value["stop_reason"] == "stop"
 
 
+def test_pi_instruction_uses_end_of_options_boundary() -> None:
+    source = inspect.getsource(subscription_container._run_pi)
+    assert '"--",\n        instruction,' in source
+
+
 def test_native_provider_owns_client_with_effective_1800_second_timeout() -> None:
     class ControlledNativeProvider:
         def __init__(self, **kwargs: object) -> None:

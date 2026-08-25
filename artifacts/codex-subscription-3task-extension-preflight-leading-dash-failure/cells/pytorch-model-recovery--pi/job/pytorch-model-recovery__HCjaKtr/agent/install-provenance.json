@@ -1,0 +1,13 @@
+{
+  "build_location": "harbor-task-container",
+  "harness": "pi",
+  "node_executable": "/root/.nvm/versions/node/v22.23.1/bin/node",
+  "node_version": "v22.23.1",
+  "package": "@earendil-works/pi-coding-agent",
+  "package_lock_sha256": "0f34d01dda1837fd634d0562d2c0350ff982da133de59f36fccdac62835fc1c0",
+  "package_version": "0.84.2",
+  "pi_executable": "/opt/pi-subscription/node_modules/@earendil-works/pi-coding-agent/dist/cli.js",
+  "pi_version": "0.84.2",
+  "platform": "Linux-6.12.76-linuxkit-aarch64-with-glibc2.36",
+  "schema_version": 1
+}

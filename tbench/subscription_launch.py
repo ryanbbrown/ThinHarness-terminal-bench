@@ -209,12 +209,21 @@ def _archive(job_dir: Path, *, cell_id: str, mode: str, gateway_dir: Path, launc
     return target
 
 
+def _is_preserved_real_cell(path: Path) -> bool:
+    launch = path / "launch.json"
+    try:
+        mode = json.loads(launch.read_text(encoding="utf-8")).get("mode")
+    except (FileNotFoundError, json.JSONDecodeError, AttributeError):
+        return True
+    return mode != "fake"
+
+
 def _validate_fresh_task_evidence() -> None:
     conflicts = []
-    artifact_cell_roots = [path for path in (REPOSITORY_ROOT / "artifacts").glob("*/cells") if not path.parent.name.endswith("-preflight")]
+    artifact_cell_roots = list((REPOSITORY_ROOT / "artifacts").glob("*/cells"))
     for task in TASKS:
         for cells in artifact_cell_roots:
-            conflicts.extend(sorted(cells.glob(f"{task}--*")))
+            conflicts.extend(path for path in sorted(cells.glob(f"{task}--*")) if _is_preserved_real_cell(path))
         conflicts.extend(sorted((REPOSITORY_ROOT / "jobs").glob(f"*/*-real-{task}--*")))
     if conflicts:
         names = ", ".join(str(path.relative_to(REPOSITORY_ROOT)) for path in conflicts)

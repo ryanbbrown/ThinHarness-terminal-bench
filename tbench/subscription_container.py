@@ -364,6 +364,7 @@ def _run_pi(args: argparse.Namespace, *, url: str, token: str, mode: str) -> int
         "read,bash,edit,write",
         "--approve",
         "--offline",
+        "--",
         instruction,
     ]
     environment = os.environ.copy()
