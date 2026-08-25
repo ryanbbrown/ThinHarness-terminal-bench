@@ -1,0 +1,906 @@
+{
+  "api_equivalent_price_schedule_usd_per_token": {
+    "cache_write": 6.25e-06,
+    "cached_input": 5e-07,
+    "ordinary_input": 5e-06,
+    "output": 3e-05
+  },
+  "backend": "controlled-fake-cproxy-contract",
+  "cells": [
+    {
+      "agent_phase_seconds": 2.946077,
+      "agent_seconds": 1.3836286250000285,
+      "artifact": "artifacts/codex-subscription-3task-extension-preflight/cells/configure-git-webserver--pi",
+      "batching": {
+        "max_tool_calls_in_response": 1,
+        "multi_tool_responses": 0,
+        "tool_bearing_responses": 1,
+        "tool_calls_per_response": [
+          1,
+          0
+        ]
+      },
+      "cell_id": "configure-git-webserver--pi",
+      "gateway": {
+        "commit": "ef96cbaea614753171627c059297e163fed0bc53",
+        "config_fingerprint": null,
+        "request_retries": 0,
+        "upstream": "https://chatgpt.com/backend-api/codex/responses",
+        "version": "0.1.0"
+      },
+      "harness": "pi",
+      "install": {
+        "build_location": "harbor-task-container",
+        "harness": "pi",
+        "node_executable": "/root/.nvm/versions/node/v22.23.1/bin/node",
+        "node_version": "v22.23.1",
+        "package": "@earendil-works/pi-coding-agent",
+        "package_lock_sha256": "0f34d01dda1837fd634d0562d2c0350ff982da133de59f36fccdac62835fc1c0",
+        "package_version": "0.84.2",
+        "pi_executable": "/opt/pi-subscription/node_modules/@earendil-works/pi-coding-agent/dist/cli.js",
+        "pi_version": "0.84.2",
+        "platform": "Linux-6.12.76-linuxkit-x86_64-with-glibc2.39",
+        "schema_version": 1
+      },
+      "request_count": 2,
+      "request_durations_seconds": [
+        2.6499968953430653e-05,
+        7.2909751906991005e-06
+      ],
+      "request_payload_bytes": [
+        6379,
+        6824
+      ],
+      "request_usage": [
+        {
+          "input_tokens": 1200,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 256
+          },
+          "output_tokens": 96,
+          "output_tokens_details": {
+            "reasoning_tokens": 64
+          },
+          "total_tokens": 1296
+        },
+        {
+          "input_tokens": 1500,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 512
+          },
+          "output_tokens": 64,
+          "output_tokens_details": {
+            "reasoning_tokens": 16
+          },
+          "total_tokens": 1564
+        }
+      ],
+      "response_models": [
+        "gpt-5.6-sol"
+      ],
+      "reward": 0.0,
+      "runner_identity": {
+        "files": {
+          "configs/container-runtime-requirements.txt": "61d52e09e2edaa56c84a8f139c77dc6052312648d726366a6ec4be50e392c3a6",
+          "configs/pi-subscription-package-lock.json": "0f34d01dda1837fd634d0562d2c0350ff982da133de59f36fccdac62835fc1c0",
+          "configs/pi-subscription-package.json": "fdecbea847897b2ebdbc54aaabc1899c115dde083f81de65daf13e46feba80ba",
+          "configs/subscription-extension-selection.json": "c0c57124bd0642780c684c2915cd404b45833286c598c596ff5267840afa2b4e",
+          "prompts/pi-0.84.2-system-prompt.md": "bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e",
+          "pyproject.toml": "cc59d90f1cbb42bad8f11ab631dda9c4da55379c0d3c651215e6efcf176557cc",
+          "scripts/install-subscription-pi.sh": "e1168d4dc587b25dd36c1cc5d40f6623b0a0fea3086ee797cf47eb139dcf90d4",
+          "scripts/install-subscription-thinharness.sh": "45fa543fc958bd698ec4e88c9456888e3dc878998566c15eca88bb9d2c5d8f8f",
+          "tbench/container_security.py": "45e669996dcab219a827df78fb3fff7b8e8d6aa7abdc737746e2560666398603",
+          "tbench/pi_subscription_probe.mjs": "c7cd70f7344700f980dd898dc3c43aabc35a810d108c5d972b9438fccb4e5a4a",
+          "tbench/source_bundle.py": "bab0c0d80dc54f68ff9a927ef8dea789e229dfdf65be9d56de2dff2bd51194f9",
+          "tbench/subscription_agent.py": "a03c7a63613a5bce93365568ae5f37627235ba2f0af9ffe24bf595a46f05c0ff",
+          "tbench/subscription_constants.py": "f94ea0d2819ceb858dbee4181e276cca27d42f7efd1dbc337cd27d86becc9cc3",
+          "tbench/subscription_container.py": "c665f896c5639971da1dd2055ce2fc96c48a49b9c17ff22314bcf1496af4671c",
+          "tbench/subscription_gateway.py": "deeb43e69a02a74b085a7238bdf3c0e4c50134b47d25363d563cab5f79adcb26",
+          "tbench/subscription_launch.py": "250c8c1b877d4e0bbeddb6c84b017006056a64c693f3d4d44a3d4c76c28cb086",
+          "tbench/subscription_validate.py": "d48504dbb273578e32da1ec1eb4a847295913c09963db4a3cea92f43c2989c91",
+          "uv.lock": "b960a45efb63fb5c5b738df1711410d1fe0c226f92bded3d29c0e6bf52f7e6d4"
+        },
+        "files_sha256": "854a6ff8380f966de4ae5a7c2b4d6ea6ebee5e55f599f0e8c6d299719339f300",
+        "git_head": "2c72c97ba97ffa2d1d23d75eb3d4baad3fc1f892"
+      },
+      "task": "configure-git-webserver",
+      "tool_arguments": [
+        {
+          "arguments": {
+            "command": "set -eu; if printenv OPENAI_API_KEY >/dev/null 2>&1; then exit 41; fi; if test -e /root/.codex/auth.json -o -e /root/.pi/agent/auth.json; then exit 42; fi; printf 'no reusable model credential in task container\\n'"
+          },
+          "name": "bash"
+        }
+      ],
+      "tool_count": 1,
+      "tool_names": [
+        "bash"
+      ],
+      "usage": {
+        "api_equivalent_cost_usd": 0.014844000000000001,
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      },
+      "verifier_evidence": {
+        "ctrf.json": {
+          "bytes": 1865,
+          "sha256": "c6b3c21912fcc4395258f057d461cb2c6e2522e79a9370c268e5a92d2d3aa1f2"
+        },
+        "reward.txt": {
+          "bytes": 2,
+          "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+        },
+        "test-stdout.txt": {
+          "bytes": 2106,
+          "sha256": "dbf36747f9e63059903ff1ef80883d604d3cd4b0318696f97562b5784e31716d"
+        }
+      },
+      "verifier_seconds": 12.344688,
+      "wall_seconds": 93.473423
+    },
+    {
+      "agent_phase_seconds": 0.763631,
+      "agent_seconds": 0.07101583300004677,
+      "artifact": "artifacts/codex-subscription-3task-extension-preflight/cells/configure-git-webserver--thinharness",
+      "batching": {
+        "max_tool_calls_in_response": 1,
+        "multi_tool_responses": 0,
+        "tool_bearing_responses": 1,
+        "tool_calls_per_response": [
+          1,
+          0
+        ]
+      },
+      "cell_id": "configure-git-webserver--thinharness",
+      "gateway": {
+        "commit": "ef96cbaea614753171627c059297e163fed0bc53",
+        "config_fingerprint": null,
+        "request_retries": 0,
+        "upstream": "https://chatgpt.com/backend-api/codex/responses",
+        "version": "0.1.0"
+      },
+      "harness": "thinharness",
+      "install": {
+        "build_location": "harbor-task-container",
+        "canonical_commit": "84105f07bb9c1ad366fc8fe4fef49e700f5e88ef",
+        "harness": "thinharness",
+        "installed_version": "0.7.0",
+        "platform": "Linux-6.12.76-linuxkit-x86_64-with-glibc2.39",
+        "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+        "schema_version": 1,
+        "source_bundle_sha256": "3ed463d4de176f2c75f8e32504b2666de4e23ccf9987df0992a8269aee09e9cb",
+        "source_mode": "transient-local-git-bundle",
+        "wheel_path": "/opt/thinharness-subscription-wheels/thinharness-0.7.0-py3-none-any.whl",
+        "wheel_sha256": "ae068f28e8e5b5237a6e224d73cff523b8fda209e84eafba07d55bcd2ae26c7c"
+      },
+      "request_count": 2,
+      "request_durations_seconds": [
+        2.6958005037158728e-05,
+        6.041023880243301e-06
+      ],
+      "request_payload_bytes": [
+        6910,
+        6896
+      ],
+      "request_usage": [
+        {
+          "input_tokens": 1200,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 256
+          },
+          "output_tokens": 96,
+          "output_tokens_details": {
+            "reasoning_tokens": 64
+          },
+          "total_tokens": 1296
+        },
+        {
+          "input_tokens": 1500,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 512
+          },
+          "output_tokens": 64,
+          "output_tokens_details": {
+            "reasoning_tokens": 16
+          },
+          "total_tokens": 1564
+        }
+      ],
+      "response_models": [
+        "gpt-5.6-sol"
+      ],
+      "reward": 0.0,
+      "runner_identity": {
+        "files": {
+          "configs/container-runtime-requirements.txt": "61d52e09e2edaa56c84a8f139c77dc6052312648d726366a6ec4be50e392c3a6",
+          "configs/pi-subscription-package-lock.json": "0f34d01dda1837fd634d0562d2c0350ff982da133de59f36fccdac62835fc1c0",
+          "configs/pi-subscription-package.json": "fdecbea847897b2ebdbc54aaabc1899c115dde083f81de65daf13e46feba80ba",
+          "configs/subscription-extension-selection.json": "c0c57124bd0642780c684c2915cd404b45833286c598c596ff5267840afa2b4e",
+          "prompts/pi-0.84.2-system-prompt.md": "bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e",
+          "pyproject.toml": "cc59d90f1cbb42bad8f11ab631dda9c4da55379c0d3c651215e6efcf176557cc",
+          "scripts/install-subscription-pi.sh": "e1168d4dc587b25dd36c1cc5d40f6623b0a0fea3086ee797cf47eb139dcf90d4",
+          "scripts/install-subscription-thinharness.sh": "45fa543fc958bd698ec4e88c9456888e3dc878998566c15eca88bb9d2c5d8f8f",
+          "tbench/container_security.py": "45e669996dcab219a827df78fb3fff7b8e8d6aa7abdc737746e2560666398603",
+          "tbench/pi_subscription_probe.mjs": "c7cd70f7344700f980dd898dc3c43aabc35a810d108c5d972b9438fccb4e5a4a",
+          "tbench/source_bundle.py": "bab0c0d80dc54f68ff9a927ef8dea789e229dfdf65be9d56de2dff2bd51194f9",
+          "tbench/subscription_agent.py": "a03c7a63613a5bce93365568ae5f37627235ba2f0af9ffe24bf595a46f05c0ff",
+          "tbench/subscription_constants.py": "f94ea0d2819ceb858dbee4181e276cca27d42f7efd1dbc337cd27d86becc9cc3",
+          "tbench/subscription_container.py": "c665f896c5639971da1dd2055ce2fc96c48a49b9c17ff22314bcf1496af4671c",
+          "tbench/subscription_gateway.py": "deeb43e69a02a74b085a7238bdf3c0e4c50134b47d25363d563cab5f79adcb26",
+          "tbench/subscription_launch.py": "250c8c1b877d4e0bbeddb6c84b017006056a64c693f3d4d44a3d4c76c28cb086",
+          "tbench/subscription_validate.py": "d48504dbb273578e32da1ec1eb4a847295913c09963db4a3cea92f43c2989c91",
+          "uv.lock": "b960a45efb63fb5c5b738df1711410d1fe0c226f92bded3d29c0e6bf52f7e6d4"
+        },
+        "files_sha256": "854a6ff8380f966de4ae5a7c2b4d6ea6ebee5e55f599f0e8c6d299719339f300",
+        "git_head": "2c72c97ba97ffa2d1d23d75eb3d4baad3fc1f892"
+      },
+      "task": "configure-git-webserver",
+      "tool_arguments": [
+        {
+          "arguments": "{\"command\": \"set -eu; if printenv OPENAI_API_KEY >/dev/null 2>&1; then exit 41; fi; if test -e /root/.codex/auth.json -o -e /root/.pi/agent/auth.json; then exit 42; fi; printf 'no reusable model credential in task container\\\\n'\", \"cwd\": \"/app\"}",
+          "name": "bash"
+        }
+      ],
+      "tool_count": 1,
+      "tool_names": [
+        "bash"
+      ],
+      "usage": {
+        "api_equivalent_cost_usd": 0.014844000000000001,
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      },
+      "verifier_evidence": {
+        "ctrf.json": {
+          "bytes": 1867,
+          "sha256": "5106003b1bb3b7c289d45a1f2ae3b1a74b0e1100e0f77081fd44b30c4124d4ab"
+        },
+        "reward.txt": {
+          "bytes": 2,
+          "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+        },
+        "test-stdout.txt": {
+          "bytes": 2106,
+          "sha256": "574e8bd3c0088e635b888e8578e5cb6cbbecd4b6ad632f40dff66ac3f6e250b5"
+        }
+      },
+      "verifier_seconds": 11.164098,
+      "wall_seconds": 89.394652
+    },
+    {
+      "agent_phase_seconds": 2.986143,
+      "agent_seconds": 1.3781114169999,
+      "artifact": "artifacts/codex-subscription-3task-extension-preflight/cells/constraints-scheduling--pi",
+      "batching": {
+        "max_tool_calls_in_response": 1,
+        "multi_tool_responses": 0,
+        "tool_bearing_responses": 1,
+        "tool_calls_per_response": [
+          1,
+          0
+        ]
+      },
+      "cell_id": "constraints-scheduling--pi",
+      "gateway": {
+        "commit": "ef96cbaea614753171627c059297e163fed0bc53",
+        "config_fingerprint": null,
+        "request_retries": 0,
+        "upstream": "https://chatgpt.com/backend-api/codex/responses",
+        "version": "0.1.0"
+      },
+      "harness": "pi",
+      "install": {
+        "build_location": "harbor-task-container",
+        "harness": "pi",
+        "node_executable": "/root/.nvm/versions/node/v22.23.1/bin/node",
+        "node_version": "v22.23.1",
+        "package": "@earendil-works/pi-coding-agent",
+        "package_lock_sha256": "0f34d01dda1837fd634d0562d2c0350ff982da133de59f36fccdac62835fc1c0",
+        "package_version": "0.84.2",
+        "pi_executable": "/opt/pi-subscription/node_modules/@earendil-works/pi-coding-agent/dist/cli.js",
+        "pi_version": "0.84.2",
+        "platform": "Linux-6.12.76-linuxkit-x86_64-with-glibc2.39",
+        "schema_version": 1
+      },
+      "request_count": 2,
+      "request_durations_seconds": [
+        3.4791999496519566e-05,
+        5.500041879713535e-06
+      ],
+      "request_payload_bytes": [
+        8359,
+        8804
+      ],
+      "request_usage": [
+        {
+          "input_tokens": 1200,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 256
+          },
+          "output_tokens": 96,
+          "output_tokens_details": {
+            "reasoning_tokens": 64
+          },
+          "total_tokens": 1296
+        },
+        {
+          "input_tokens": 1500,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 512
+          },
+          "output_tokens": 64,
+          "output_tokens_details": {
+            "reasoning_tokens": 16
+          },
+          "total_tokens": 1564
+        }
+      ],
+      "response_models": [
+        "gpt-5.6-sol"
+      ],
+      "reward": 0.0,
+      "runner_identity": {
+        "files": {
+          "configs/container-runtime-requirements.txt": "61d52e09e2edaa56c84a8f139c77dc6052312648d726366a6ec4be50e392c3a6",
+          "configs/pi-subscription-package-lock.json": "0f34d01dda1837fd634d0562d2c0350ff982da133de59f36fccdac62835fc1c0",
+          "configs/pi-subscription-package.json": "fdecbea847897b2ebdbc54aaabc1899c115dde083f81de65daf13e46feba80ba",
+          "configs/subscription-extension-selection.json": "c0c57124bd0642780c684c2915cd404b45833286c598c596ff5267840afa2b4e",
+          "prompts/pi-0.84.2-system-prompt.md": "bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e",
+          "pyproject.toml": "cc59d90f1cbb42bad8f11ab631dda9c4da55379c0d3c651215e6efcf176557cc",
+          "scripts/install-subscription-pi.sh": "e1168d4dc587b25dd36c1cc5d40f6623b0a0fea3086ee797cf47eb139dcf90d4",
+          "scripts/install-subscription-thinharness.sh": "45fa543fc958bd698ec4e88c9456888e3dc878998566c15eca88bb9d2c5d8f8f",
+          "tbench/container_security.py": "45e669996dcab219a827df78fb3fff7b8e8d6aa7abdc737746e2560666398603",
+          "tbench/pi_subscription_probe.mjs": "c7cd70f7344700f980dd898dc3c43aabc35a810d108c5d972b9438fccb4e5a4a",
+          "tbench/source_bundle.py": "bab0c0d80dc54f68ff9a927ef8dea789e229dfdf65be9d56de2dff2bd51194f9",
+          "tbench/subscription_agent.py": "a03c7a63613a5bce93365568ae5f37627235ba2f0af9ffe24bf595a46f05c0ff",
+          "tbench/subscription_constants.py": "f94ea0d2819ceb858dbee4181e276cca27d42f7efd1dbc337cd27d86becc9cc3",
+          "tbench/subscription_container.py": "c665f896c5639971da1dd2055ce2fc96c48a49b9c17ff22314bcf1496af4671c",
+          "tbench/subscription_gateway.py": "deeb43e69a02a74b085a7238bdf3c0e4c50134b47d25363d563cab5f79adcb26",
+          "tbench/subscription_launch.py": "250c8c1b877d4e0bbeddb6c84b017006056a64c693f3d4d44a3d4c76c28cb086",
+          "tbench/subscription_validate.py": "d48504dbb273578e32da1ec1eb4a847295913c09963db4a3cea92f43c2989c91",
+          "uv.lock": "b960a45efb63fb5c5b738df1711410d1fe0c226f92bded3d29c0e6bf52f7e6d4"
+        },
+        "files_sha256": "854a6ff8380f966de4ae5a7c2b4d6ea6ebee5e55f599f0e8c6d299719339f300",
+        "git_head": "2c72c97ba97ffa2d1d23d75eb3d4baad3fc1f892"
+      },
+      "task": "constraints-scheduling",
+      "tool_arguments": [
+        {
+          "arguments": {
+            "command": "set -eu; if printenv OPENAI_API_KEY >/dev/null 2>&1; then exit 41; fi; if test -e /root/.codex/auth.json -o -e /root/.pi/agent/auth.json; then exit 42; fi; printf 'no reusable model credential in task container\\n'"
+          },
+          "name": "bash"
+        }
+      ],
+      "tool_count": 1,
+      "tool_names": [
+        "bash"
+      ],
+      "usage": {
+        "api_equivalent_cost_usd": 0.014844000000000001,
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      },
+      "verifier_evidence": {
+        "ctrf.json": {
+          "bytes": 8270,
+          "sha256": "4d6efa472791bb43ebc952c68032dcb1b83b9c24d03b68f6957d42563cc8ddb3"
+        },
+        "reward.txt": {
+          "bytes": 2,
+          "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+        },
+        "test-stdout.txt": {
+          "bytes": 8169,
+          "sha256": "d350f50d5382177eb68d9398271a3b7a77693d56353cdc1ed34895605adf0ecf"
+        }
+      },
+      "verifier_seconds": 8.988949,
+      "wall_seconds": 93.719879
+    },
+    {
+      "agent_phase_seconds": 0.760816,
+      "agent_seconds": 0.0704749169999559,
+      "artifact": "artifacts/codex-subscription-3task-extension-preflight/cells/constraints-scheduling--thinharness",
+      "batching": {
+        "max_tool_calls_in_response": 1,
+        "multi_tool_responses": 0,
+        "tool_bearing_responses": 1,
+        "tool_calls_per_response": [
+          1,
+          0
+        ]
+      },
+      "cell_id": "constraints-scheduling--thinharness",
+      "gateway": {
+        "commit": "ef96cbaea614753171627c059297e163fed0bc53",
+        "config_fingerprint": null,
+        "request_retries": 0,
+        "upstream": "https://chatgpt.com/backend-api/codex/responses",
+        "version": "0.1.0"
+      },
+      "harness": "thinharness",
+      "install": {
+        "build_location": "harbor-task-container",
+        "canonical_commit": "84105f07bb9c1ad366fc8fe4fef49e700f5e88ef",
+        "harness": "thinharness",
+        "installed_version": "0.7.0",
+        "platform": "Linux-6.12.76-linuxkit-x86_64-with-glibc2.39",
+        "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+        "schema_version": 1,
+        "source_bundle_sha256": "3ed463d4de176f2c75f8e32504b2666de4e23ccf9987df0992a8269aee09e9cb",
+        "source_mode": "transient-local-git-bundle",
+        "wheel_path": "/opt/thinharness-subscription-wheels/thinharness-0.7.0-py3-none-any.whl",
+        "wheel_sha256": "b767618a7fb0394d330291f56c3bd83a234f4d38c18773e2b917e6b65adaf110"
+      },
+      "request_count": 2,
+      "request_durations_seconds": [
+        2.72089964710176e-05,
+        6.125017534941435e-06
+      ],
+      "request_payload_bytes": [
+        8889,
+        6895
+      ],
+      "request_usage": [
+        {
+          "input_tokens": 1200,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 256
+          },
+          "output_tokens": 96,
+          "output_tokens_details": {
+            "reasoning_tokens": 64
+          },
+          "total_tokens": 1296
+        },
+        {
+          "input_tokens": 1500,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 512
+          },
+          "output_tokens": 64,
+          "output_tokens_details": {
+            "reasoning_tokens": 16
+          },
+          "total_tokens": 1564
+        }
+      ],
+      "response_models": [
+        "gpt-5.6-sol"
+      ],
+      "reward": 0.0,
+      "runner_identity": {
+        "files": {
+          "configs/container-runtime-requirements.txt": "61d52e09e2edaa56c84a8f139c77dc6052312648d726366a6ec4be50e392c3a6",
+          "configs/pi-subscription-package-lock.json": "0f34d01dda1837fd634d0562d2c0350ff982da133de59f36fccdac62835fc1c0",
+          "configs/pi-subscription-package.json": "fdecbea847897b2ebdbc54aaabc1899c115dde083f81de65daf13e46feba80ba",
+          "configs/subscription-extension-selection.json": "c0c57124bd0642780c684c2915cd404b45833286c598c596ff5267840afa2b4e",
+          "prompts/pi-0.84.2-system-prompt.md": "bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e",
+          "pyproject.toml": "cc59d90f1cbb42bad8f11ab631dda9c4da55379c0d3c651215e6efcf176557cc",
+          "scripts/install-subscription-pi.sh": "e1168d4dc587b25dd36c1cc5d40f6623b0a0fea3086ee797cf47eb139dcf90d4",
+          "scripts/install-subscription-thinharness.sh": "45fa543fc958bd698ec4e88c9456888e3dc878998566c15eca88bb9d2c5d8f8f",
+          "tbench/container_security.py": "45e669996dcab219a827df78fb3fff7b8e8d6aa7abdc737746e2560666398603",
+          "tbench/pi_subscription_probe.mjs": "c7cd70f7344700f980dd898dc3c43aabc35a810d108c5d972b9438fccb4e5a4a",
+          "tbench/source_bundle.py": "bab0c0d80dc54f68ff9a927ef8dea789e229dfdf65be9d56de2dff2bd51194f9",
+          "tbench/subscription_agent.py": "a03c7a63613a5bce93365568ae5f37627235ba2f0af9ffe24bf595a46f05c0ff",
+          "tbench/subscription_constants.py": "f94ea0d2819ceb858dbee4181e276cca27d42f7efd1dbc337cd27d86becc9cc3",
+          "tbench/subscription_container.py": "c665f896c5639971da1dd2055ce2fc96c48a49b9c17ff22314bcf1496af4671c",
+          "tbench/subscription_gateway.py": "deeb43e69a02a74b085a7238bdf3c0e4c50134b47d25363d563cab5f79adcb26",
+          "tbench/subscription_launch.py": "250c8c1b877d4e0bbeddb6c84b017006056a64c693f3d4d44a3d4c76c28cb086",
+          "tbench/subscription_validate.py": "d48504dbb273578e32da1ec1eb4a847295913c09963db4a3cea92f43c2989c91",
+          "uv.lock": "b960a45efb63fb5c5b738df1711410d1fe0c226f92bded3d29c0e6bf52f7e6d4"
+        },
+        "files_sha256": "854a6ff8380f966de4ae5a7c2b4d6ea6ebee5e55f599f0e8c6d299719339f300",
+        "git_head": "2c72c97ba97ffa2d1d23d75eb3d4baad3fc1f892"
+      },
+      "task": "constraints-scheduling",
+      "tool_arguments": [
+        {
+          "arguments": "{\"command\": \"set -eu; if printenv OPENAI_API_KEY >/dev/null 2>&1; then exit 41; fi; if test -e /root/.codex/auth.json -o -e /root/.pi/agent/auth.json; then exit 42; fi; printf 'no reusable model credential in task container\\\\n'\", \"cwd\": \"/app\"}",
+          "name": "bash"
+        }
+      ],
+      "tool_count": 1,
+      "tool_names": [
+        "bash"
+      ],
+      "usage": {
+        "api_equivalent_cost_usd": 0.014844000000000001,
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      },
+      "verifier_evidence": {
+        "ctrf.json": {
+          "bytes": 8270,
+          "sha256": "936cbb0d278e61beaddc4447e10282546fda4cae2978695ac4da4583379e6573"
+        },
+        "reward.txt": {
+          "bytes": 2,
+          "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+        },
+        "test-stdout.txt": {
+          "bytes": 9768,
+          "sha256": "93c1f8dcebf7282f37afecbf8c54b2e17e87ac6382919906dd2b68df80beeb85"
+        }
+      },
+      "verifier_seconds": 10.970259,
+      "wall_seconds": 88.357329
+    },
+    {
+      "agent_phase_seconds": 1.638811,
+      "agent_seconds": 0.728536374999976,
+      "artifact": "artifacts/codex-subscription-3task-extension-preflight/cells/pytorch-model-recovery--pi",
+      "batching": {
+        "max_tool_calls_in_response": 1,
+        "multi_tool_responses": 0,
+        "tool_bearing_responses": 1,
+        "tool_calls_per_response": [
+          1,
+          0
+        ]
+      },
+      "cell_id": "pytorch-model-recovery--pi",
+      "gateway": {
+        "commit": "ef96cbaea614753171627c059297e163fed0bc53",
+        "config_fingerprint": null,
+        "request_retries": 0,
+        "upstream": "https://chatgpt.com/backend-api/codex/responses",
+        "version": "0.1.0"
+      },
+      "harness": "pi",
+      "install": {
+        "build_location": "harbor-task-container",
+        "harness": "pi",
+        "node_executable": "/root/.nvm/versions/node/v22.23.1/bin/node",
+        "node_version": "v22.23.1",
+        "package": "@earendil-works/pi-coding-agent",
+        "package_lock_sha256": "0f34d01dda1837fd634d0562d2c0350ff982da133de59f36fccdac62835fc1c0",
+        "package_version": "0.84.2",
+        "pi_executable": "/opt/pi-subscription/node_modules/@earendil-works/pi-coding-agent/dist/cli.js",
+        "pi_version": "0.84.2",
+        "platform": "Linux-6.12.76-linuxkit-aarch64-with-glibc2.36",
+        "schema_version": 1
+      },
+      "request_count": 2,
+      "request_durations_seconds": [
+        3.1957984901964664e-05,
+        6.375019438564777e-06
+      ],
+      "request_payload_bytes": [
+        7307,
+        7752
+      ],
+      "request_usage": [
+        {
+          "input_tokens": 1200,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 256
+          },
+          "output_tokens": 96,
+          "output_tokens_details": {
+            "reasoning_tokens": 64
+          },
+          "total_tokens": 1296
+        },
+        {
+          "input_tokens": 1500,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 512
+          },
+          "output_tokens": 64,
+          "output_tokens_details": {
+            "reasoning_tokens": 16
+          },
+          "total_tokens": 1564
+        }
+      ],
+      "response_models": [
+        "gpt-5.6-sol"
+      ],
+      "reward": 0.0,
+      "runner_identity": {
+        "files": {
+          "configs/container-runtime-requirements.txt": "61d52e09e2edaa56c84a8f139c77dc6052312648d726366a6ec4be50e392c3a6",
+          "configs/pi-subscription-package-lock.json": "0f34d01dda1837fd634d0562d2c0350ff982da133de59f36fccdac62835fc1c0",
+          "configs/pi-subscription-package.json": "fdecbea847897b2ebdbc54aaabc1899c115dde083f81de65daf13e46feba80ba",
+          "configs/subscription-extension-selection.json": "c0c57124bd0642780c684c2915cd404b45833286c598c596ff5267840afa2b4e",
+          "prompts/pi-0.84.2-system-prompt.md": "bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e",
+          "pyproject.toml": "cc59d90f1cbb42bad8f11ab631dda9c4da55379c0d3c651215e6efcf176557cc",
+          "scripts/install-subscription-pi.sh": "e1168d4dc587b25dd36c1cc5d40f6623b0a0fea3086ee797cf47eb139dcf90d4",
+          "scripts/install-subscription-thinharness.sh": "45fa543fc958bd698ec4e88c9456888e3dc878998566c15eca88bb9d2c5d8f8f",
+          "tbench/container_security.py": "45e669996dcab219a827df78fb3fff7b8e8d6aa7abdc737746e2560666398603",
+          "tbench/pi_subscription_probe.mjs": "c7cd70f7344700f980dd898dc3c43aabc35a810d108c5d972b9438fccb4e5a4a",
+          "tbench/source_bundle.py": "bab0c0d80dc54f68ff9a927ef8dea789e229dfdf65be9d56de2dff2bd51194f9",
+          "tbench/subscription_agent.py": "a03c7a63613a5bce93365568ae5f37627235ba2f0af9ffe24bf595a46f05c0ff",
+          "tbench/subscription_constants.py": "f94ea0d2819ceb858dbee4181e276cca27d42f7efd1dbc337cd27d86becc9cc3",
+          "tbench/subscription_container.py": "c665f896c5639971da1dd2055ce2fc96c48a49b9c17ff22314bcf1496af4671c",
+          "tbench/subscription_gateway.py": "deeb43e69a02a74b085a7238bdf3c0e4c50134b47d25363d563cab5f79adcb26",
+          "tbench/subscription_launch.py": "250c8c1b877d4e0bbeddb6c84b017006056a64c693f3d4d44a3d4c76c28cb086",
+          "tbench/subscription_validate.py": "d48504dbb273578e32da1ec1eb4a847295913c09963db4a3cea92f43c2989c91",
+          "uv.lock": "b960a45efb63fb5c5b738df1711410d1fe0c226f92bded3d29c0e6bf52f7e6d4"
+        },
+        "files_sha256": "854a6ff8380f966de4ae5a7c2b4d6ea6ebee5e55f599f0e8c6d299719339f300",
+        "git_head": "2c72c97ba97ffa2d1d23d75eb3d4baad3fc1f892"
+      },
+      "task": "pytorch-model-recovery",
+      "tool_arguments": [
+        {
+          "arguments": {
+            "command": "set -eu; if printenv OPENAI_API_KEY >/dev/null 2>&1; then exit 41; fi; if test -e /root/.codex/auth.json -o -e /root/.pi/agent/auth.json; then exit 42; fi; printf 'no reusable model credential in task container\\n'"
+          },
+          "name": "bash"
+        }
+      ],
+      "tool_count": 1,
+      "tool_names": [
+        "bash"
+      ],
+      "usage": {
+        "api_equivalent_cost_usd": 0.014844000000000001,
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      },
+      "verifier_evidence": {
+        "ctrf.json": {
+          "bytes": 14461,
+          "sha256": "70b6b3537c8f5a216880492a46f340ffed4eccb7a98021593b94fc574376059d"
+        },
+        "reward.txt": {
+          "bytes": 2,
+          "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+        },
+        "test-stdout.txt": {
+          "bytes": 14646,
+          "sha256": "14ddc287c6ac09d9b50bb150ffb06e27d2bcdea452a090c34f1371ee5def2af3"
+        }
+      },
+      "verifier_seconds": 7.420083,
+      "wall_seconds": 35.870786
+    },
+    {
+      "agent_phase_seconds": 0.52029,
+      "agent_seconds": 0.013115707999986626,
+      "artifact": "artifacts/codex-subscription-3task-extension-preflight/cells/pytorch-model-recovery--thinharness",
+      "batching": {
+        "max_tool_calls_in_response": 1,
+        "multi_tool_responses": 0,
+        "tool_bearing_responses": 1,
+        "tool_calls_per_response": [
+          1,
+          0
+        ]
+      },
+      "cell_id": "pytorch-model-recovery--thinharness",
+      "gateway": {
+        "commit": "ef96cbaea614753171627c059297e163fed0bc53",
+        "config_fingerprint": null,
+        "request_retries": 0,
+        "upstream": "https://chatgpt.com/backend-api/codex/responses",
+        "version": "0.1.0"
+      },
+      "harness": "thinharness",
+      "install": {
+        "build_location": "harbor-task-container",
+        "canonical_commit": "84105f07bb9c1ad366fc8fe4fef49e700f5e88ef",
+        "harness": "thinharness",
+        "installed_version": "0.7.0",
+        "platform": "Linux-6.12.76-linuxkit-aarch64-with-glibc2.36",
+        "python": "3.13.12 (main, Mar 16 2026, 23:10:02) [GCC 12.2.0]",
+        "schema_version": 1,
+        "source_bundle_sha256": "3ed463d4de176f2c75f8e32504b2666de4e23ccf9987df0992a8269aee09e9cb",
+        "source_mode": "transient-local-git-bundle",
+        "wheel_path": "/opt/thinharness-subscription-wheels/thinharness-0.7.0-py3-none-any.whl",
+        "wheel_sha256": "e3bd211d241b07ed0ad53a65219c177e62d9a3b71b29b67043ae483869cb7165"
+      },
+      "request_count": 2,
+      "request_durations_seconds": [
+        2.4500011932104826e-05,
+        4.582980182021856e-06
+      ],
+      "request_payload_bytes": [
+        7835,
+        6895
+      ],
+      "request_usage": [
+        {
+          "input_tokens": 1200,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 256
+          },
+          "output_tokens": 96,
+          "output_tokens_details": {
+            "reasoning_tokens": 64
+          },
+          "total_tokens": 1296
+        },
+        {
+          "input_tokens": 1500,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 512
+          },
+          "output_tokens": 64,
+          "output_tokens_details": {
+            "reasoning_tokens": 16
+          },
+          "total_tokens": 1564
+        }
+      ],
+      "response_models": [
+        "gpt-5.6-sol"
+      ],
+      "reward": 0.0,
+      "runner_identity": {
+        "files": {
+          "configs/container-runtime-requirements.txt": "61d52e09e2edaa56c84a8f139c77dc6052312648d726366a6ec4be50e392c3a6",
+          "configs/pi-subscription-package-lock.json": "0f34d01dda1837fd634d0562d2c0350ff982da133de59f36fccdac62835fc1c0",
+          "configs/pi-subscription-package.json": "fdecbea847897b2ebdbc54aaabc1899c115dde083f81de65daf13e46feba80ba",
+          "configs/subscription-extension-selection.json": "c0c57124bd0642780c684c2915cd404b45833286c598c596ff5267840afa2b4e",
+          "prompts/pi-0.84.2-system-prompt.md": "bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e",
+          "pyproject.toml": "cc59d90f1cbb42bad8f11ab631dda9c4da55379c0d3c651215e6efcf176557cc",
+          "scripts/install-subscription-pi.sh": "e1168d4dc587b25dd36c1cc5d40f6623b0a0fea3086ee797cf47eb139dcf90d4",
+          "scripts/install-subscription-thinharness.sh": "45fa543fc958bd698ec4e88c9456888e3dc878998566c15eca88bb9d2c5d8f8f",
+          "tbench/container_security.py": "45e669996dcab219a827df78fb3fff7b8e8d6aa7abdc737746e2560666398603",
+          "tbench/pi_subscription_probe.mjs": "c7cd70f7344700f980dd898dc3c43aabc35a810d108c5d972b9438fccb4e5a4a",
+          "tbench/source_bundle.py": "bab0c0d80dc54f68ff9a927ef8dea789e229dfdf65be9d56de2dff2bd51194f9",
+          "tbench/subscription_agent.py": "a03c7a63613a5bce93365568ae5f37627235ba2f0af9ffe24bf595a46f05c0ff",
+          "tbench/subscription_constants.py": "f94ea0d2819ceb858dbee4181e276cca27d42f7efd1dbc337cd27d86becc9cc3",
+          "tbench/subscription_container.py": "c665f896c5639971da1dd2055ce2fc96c48a49b9c17ff22314bcf1496af4671c",
+          "tbench/subscription_gateway.py": "deeb43e69a02a74b085a7238bdf3c0e4c50134b47d25363d563cab5f79adcb26",
+          "tbench/subscription_launch.py": "250c8c1b877d4e0bbeddb6c84b017006056a64c693f3d4d44a3d4c76c28cb086",
+          "tbench/subscription_validate.py": "d48504dbb273578e32da1ec1eb4a847295913c09963db4a3cea92f43c2989c91",
+          "uv.lock": "b960a45efb63fb5c5b738df1711410d1fe0c226f92bded3d29c0e6bf52f7e6d4"
+        },
+        "files_sha256": "854a6ff8380f966de4ae5a7c2b4d6ea6ebee5e55f599f0e8c6d299719339f300",
+        "git_head": "2c72c97ba97ffa2d1d23d75eb3d4baad3fc1f892"
+      },
+      "task": "pytorch-model-recovery",
+      "tool_arguments": [
+        {
+          "arguments": "{\"command\": \"set -eu; if printenv OPENAI_API_KEY >/dev/null 2>&1; then exit 41; fi; if test -e /root/.codex/auth.json -o -e /root/.pi/agent/auth.json; then exit 42; fi; printf 'no reusable model credential in task container\\\\n'\", \"cwd\": \"/app\"}",
+          "name": "bash"
+        }
+      ],
+      "tool_count": 1,
+      "tool_names": [
+        "bash"
+      ],
+      "usage": {
+        "api_equivalent_cost_usd": 0.014844000000000001,
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      },
+      "verifier_evidence": {
+        "ctrf.json": {
+          "bytes": 14457,
+          "sha256": "c0258c5049c8cbf9fb847e8bfda4b41305c4738ffbfa5cc88e05f096cf431f3a"
+        },
+        "reward.txt": {
+          "bytes": 2,
+          "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+        },
+        "test-stdout.txt": {
+          "bytes": 16206,
+          "sha256": "6d576ee357e28f838b7c2af4973dc97a2976c8f28ef9b729e7d179506a9a7a01"
+        }
+      },
+      "verifier_seconds": 8.149342,
+      "wall_seconds": 34.83768
+    }
+  ],
+  "codex_backend_preflight": {
+    "bind": "0.0.0.0",
+    "cell_id": "backend-preflight-no-model-call",
+    "codex_auth": {
+      "path_persisted": false,
+      "source": "host Codex CLI auth file",
+      "validated": true
+    },
+    "container_base_url": "http://host.docker.internal:55010/v1",
+    "cproxy": {
+      "commit": "ef96cbaea614753171627c059297e163fed0bc53",
+      "config_fingerprint": "8ddb0646e496e8ff",
+      "request_retries": 0,
+      "upstream": "https://chatgpt.com/backend-api/codex/responses",
+      "version": "0.1.0"
+    },
+    "downstream_auth": "ephemeral-random-bearer",
+    "downstream_token_persisted": false,
+    "mode": "real",
+    "port": 55010,
+    "schema_version": 1,
+    "subscription_requests": 0,
+    "upstream_network_requests": 0
+  },
+  "direct_openai": false,
+  "mode": "fake",
+  "model": "gpt-5.6-sol",
+  "passed": true,
+  "reasoning": {
+    "effort": "xhigh",
+    "summary": "auto"
+  },
+  "runner_identity": {
+    "files": {
+      "configs/container-runtime-requirements.txt": "61d52e09e2edaa56c84a8f139c77dc6052312648d726366a6ec4be50e392c3a6",
+      "configs/pi-subscription-package-lock.json": "0f34d01dda1837fd634d0562d2c0350ff982da133de59f36fccdac62835fc1c0",
+      "configs/pi-subscription-package.json": "fdecbea847897b2ebdbc54aaabc1899c115dde083f81de65daf13e46feba80ba",
+      "configs/subscription-extension-selection.json": "c0c57124bd0642780c684c2915cd404b45833286c598c596ff5267840afa2b4e",
+      "prompts/pi-0.84.2-system-prompt.md": "bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e",
+      "pyproject.toml": "cc59d90f1cbb42bad8f11ab631dda9c4da55379c0d3c651215e6efcf176557cc",
+      "scripts/install-subscription-pi.sh": "e1168d4dc587b25dd36c1cc5d40f6623b0a0fea3086ee797cf47eb139dcf90d4",
+      "scripts/install-subscription-thinharness.sh": "45fa543fc958bd698ec4e88c9456888e3dc878998566c15eca88bb9d2c5d8f8f",
+      "tbench/container_security.py": "45e669996dcab219a827df78fb3fff7b8e8d6aa7abdc737746e2560666398603",
+      "tbench/pi_subscription_probe.mjs": "c7cd70f7344700f980dd898dc3c43aabc35a810d108c5d972b9438fccb4e5a4a",
+      "tbench/source_bundle.py": "bab0c0d80dc54f68ff9a927ef8dea789e229dfdf65be9d56de2dff2bd51194f9",
+      "tbench/subscription_agent.py": "a03c7a63613a5bce93365568ae5f37627235ba2f0af9ffe24bf595a46f05c0ff",
+      "tbench/subscription_constants.py": "f94ea0d2819ceb858dbee4181e276cca27d42f7efd1dbc337cd27d86becc9cc3",
+      "tbench/subscription_container.py": "c665f896c5639971da1dd2055ce2fc96c48a49b9c17ff22314bcf1496af4671c",
+      "tbench/subscription_gateway.py": "deeb43e69a02a74b085a7238bdf3c0e4c50134b47d25363d563cab5f79adcb26",
+      "tbench/subscription_launch.py": "250c8c1b877d4e0bbeddb6c84b017006056a64c693f3d4d44a3d4c76c28cb086",
+      "tbench/subscription_validate.py": "d48504dbb273578e32da1ec1eb4a847295913c09963db4a3cea92f43c2989c91",
+      "uv.lock": "b960a45efb63fb5c5b738df1711410d1fe0c226f92bded3d29c0e6bf52f7e6d4"
+    },
+    "files_sha256": "854a6ff8380f966de4ae5a7c2b4d6ea6ebee5e55f599f0e8c6d299719339f300",
+    "git_head": "2c72c97ba97ffa2d1d23d75eb3d4baad3fc1f892"
+  },
+  "schema_version": 1,
+  "selected_tasks": [
+    "configure-git-webserver",
+    "pytorch-model-recovery",
+    "constraints-scheduling"
+  ],
+  "subscription_cash_cost": null,
+  "text": {
+    "verbosity": "low"
+  },
+  "unavoidable_mismatches": [
+    "Pi uses streaming OpenAI Responses and the gateway re-emits cproxy's complete response as SSE; ThinHarness uses cproxy's non-streaming JSON response.",
+    "Pi and ThinHarness use their own native filesystem and Bash schemas and declaration order. Tool names, workspace root, prompt, model, reasoning, text verbosity, backend, retry policy, and task are matched.",
+    "Pi serializes the frozen prompt through its native developer/system input while ThinHarness uses native Responses instructions; the prompt text and hash are identical.",
+    "Pi 0.84.2 native Bash inherits the process environment containing the ephemeral per-cell gateway bearer; ThinHarness filters that bearer. OAuth never enters either container, the bearer expires when the cell gateway stops, and every use is audited.",
+    "The subscription backend reports no cash cost. API-equivalent cost uses the repository's frozen direct-API schedule and is not cash cost."
+  ],
+  "versions": {
+    "cproxy": "0.1.0",
+    "cproxy_commit": "ef96cbaea614753171627c059297e163fed0bc53",
+    "pi": "0.84.2",
+    "thinharness_commit": "84105f07bb9c1ad366fc8fe4fef49e700f5e88ef"
+  }
+}

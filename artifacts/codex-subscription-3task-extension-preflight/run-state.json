@@ -1,0 +1,110 @@
+{
+  "cells": [
+    {
+      "artifact": "artifacts/codex-subscription-3task-extension-preflight/cells/configure-git-webserver--pi",
+      "cell_id": "configure-git-webserver--pi",
+      "exception": null,
+      "harbor_exit_code": 0,
+      "harness": "pi",
+      "job": "jobs/codex-subscription-3task-extension/codex-subscription-3task-extension-fake-configure-git-webserver--pi-20260825-034227-0247e8e8",
+      "mode": "fake",
+      "reward": 0.0,
+      "task": "configure-git-webserver",
+      "trial": "configure-git-webserver__dg6SgTQ"
+    },
+    {
+      "artifact": "artifacts/codex-subscription-3task-extension-preflight/cells/configure-git-webserver--thinharness",
+      "cell_id": "configure-git-webserver--thinharness",
+      "exception": null,
+      "harbor_exit_code": 0,
+      "harness": "thinharness",
+      "job": "jobs/codex-subscription-3task-extension/codex-subscription-3task-extension-fake-configure-git-webserver--thinharness-20260825-034404-66e0bdce",
+      "mode": "fake",
+      "reward": 0.0,
+      "task": "configure-git-webserver",
+      "trial": "configure-git-webserver__YfkUhxf"
+    },
+    {
+      "artifact": "artifacts/codex-subscription-3task-extension-preflight/cells/pytorch-model-recovery--pi",
+      "cell_id": "pytorch-model-recovery--pi",
+      "exception": null,
+      "harbor_exit_code": 0,
+      "harness": "pi",
+      "job": "jobs/codex-subscription-3task-extension/codex-subscription-3task-extension-fake-pytorch-model-recovery--pi-20260825-034537-4aacdce2",
+      "mode": "fake",
+      "reward": 0.0,
+      "task": "pytorch-model-recovery",
+      "trial": "pytorch-model-recovery__9Bk6AtA"
+    },
+    {
+      "artifact": "artifacts/codex-subscription-3task-extension-preflight/cells/pytorch-model-recovery--thinharness",
+      "cell_id": "pytorch-model-recovery--thinharness",
+      "exception": null,
+      "harbor_exit_code": 0,
+      "harness": "thinharness",
+      "job": "jobs/codex-subscription-3task-extension/codex-subscription-3task-extension-fake-pytorch-model-recovery--thinharness-20260825-034616-299b89b2",
+      "mode": "fake",
+      "reward": 0.0,
+      "task": "pytorch-model-recovery",
+      "trial": "pytorch-model-recovery__moQarEm"
+    },
+    {
+      "artifact": "artifacts/codex-subscription-3task-extension-preflight/cells/constraints-scheduling--pi",
+      "cell_id": "constraints-scheduling--pi",
+      "exception": null,
+      "harbor_exit_code": 0,
+      "harness": "pi",
+      "job": "jobs/codex-subscription-3task-extension/codex-subscription-3task-extension-fake-constraints-scheduling--pi-20260825-034654-5310f9c9",
+      "mode": "fake",
+      "reward": 0.0,
+      "task": "constraints-scheduling",
+      "trial": "constraints-scheduling__uvHpgdp"
+    },
+    {
+      "artifact": "artifacts/codex-subscription-3task-extension-preflight/cells/constraints-scheduling--thinharness",
+      "cell_id": "constraints-scheduling--thinharness",
+      "exception": null,
+      "harbor_exit_code": 0,
+      "harness": "thinharness",
+      "job": "jobs/codex-subscription-3task-extension/codex-subscription-3task-extension-fake-constraints-scheduling--thinharness-20260825-034832-9b237c91",
+      "mode": "fake",
+      "reward": 0.0,
+      "task": "constraints-scheduling",
+      "trial": "constraints-scheduling__N7GSrBJ"
+    }
+  ],
+  "dataset": "terminal-bench/terminal-bench-2-1@sha256:7d7bdc1cbedad549fc1140404bd4dc45e5fd0ea7c4186773687d177ad3a0699a",
+  "finished_at": 1787629803.7980402,
+  "gateway_mode": "fake",
+  "mode": "preflight",
+  "model": "gpt-5.6-sol",
+  "runner_identity": {
+    "files": {
+      "configs/container-runtime-requirements.txt": "61d52e09e2edaa56c84a8f139c77dc6052312648d726366a6ec4be50e392c3a6",
+      "configs/pi-subscription-package-lock.json": "0f34d01dda1837fd634d0562d2c0350ff982da133de59f36fccdac62835fc1c0",
+      "configs/pi-subscription-package.json": "fdecbea847897b2ebdbc54aaabc1899c115dde083f81de65daf13e46feba80ba",
+      "configs/subscription-extension-selection.json": "c0c57124bd0642780c684c2915cd404b45833286c598c596ff5267840afa2b4e",
+      "prompts/pi-0.84.2-system-prompt.md": "bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e",
+      "pyproject.toml": "cc59d90f1cbb42bad8f11ab631dda9c4da55379c0d3c651215e6efcf176557cc",
+      "scripts/install-subscription-pi.sh": "e1168d4dc587b25dd36c1cc5d40f6623b0a0fea3086ee797cf47eb139dcf90d4",
+      "scripts/install-subscription-thinharness.sh": "45fa543fc958bd698ec4e88c9456888e3dc878998566c15eca88bb9d2c5d8f8f",
+      "tbench/container_security.py": "45e669996dcab219a827df78fb3fff7b8e8d6aa7abdc737746e2560666398603",
+      "tbench/pi_subscription_probe.mjs": "c7cd70f7344700f980dd898dc3c43aabc35a810d108c5d972b9438fccb4e5a4a",
+      "tbench/source_bundle.py": "bab0c0d80dc54f68ff9a927ef8dea789e229dfdf65be9d56de2dff2bd51194f9",
+      "tbench/subscription_agent.py": "a03c7a63613a5bce93365568ae5f37627235ba2f0af9ffe24bf595a46f05c0ff",
+      "tbench/subscription_constants.py": "f94ea0d2819ceb858dbee4181e276cca27d42f7efd1dbc337cd27d86becc9cc3",
+      "tbench/subscription_container.py": "c665f896c5639971da1dd2055ce2fc96c48a49b9c17ff22314bcf1496af4671c",
+      "tbench/subscription_gateway.py": "deeb43e69a02a74b085a7238bdf3c0e4c50134b47d25363d563cab5f79adcb26",
+      "tbench/subscription_launch.py": "250c8c1b877d4e0bbeddb6c84b017006056a64c693f3d4d44a3d4c76c28cb086",
+      "tbench/subscription_validate.py": "d48504dbb273578e32da1ec1eb4a847295913c09963db4a3cea92f43c2989c91",
+      "uv.lock": "b960a45efb63fb5c5b738df1711410d1fe0c226f92bded3d29c0e6bf52f7e6d4"
+    },
+    "files_sha256": "854a6ff8380f966de4ae5a7c2b4d6ea6ebee5e55f599f0e8c6d299719339f300",
+    "git_head": "2c72c97ba97ffa2d1d23d75eb3d4baad3fc1f892"
+  },
+  "schema_version": 1,
+  "source_bundle_committed": false,
+  "source_bundle_sha256": "3ed463d4de176f2c75f8e32504b2666de4e23ccf9987df0992a8269aee09e9cb",
+  "started_at": 1787629347.942354,
+  "status": "completed"
+}

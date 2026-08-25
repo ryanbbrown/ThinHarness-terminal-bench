@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "dataset": {
+    "name": "terminal-bench/terminal-bench-2-1",
+    "digest": "sha256:7d7bdc1cbedad549fc1140404bd4dc45e5fd0ea7c4186773687d177ad3a0699a",
+    "task_count": 89
+  },
+  "selection_rule": "Exclude every task found in preserved real Pi or ThinHarness evidence, including interrupted cells and all earlier paid or launched tasks. Among remaining tasks within 4096 MiB and an 1800-second agent timeout, use the minimum expert-time tier, sort by memory, agent timeout, compressed amd64 image bytes, and task name, and freeze the first three.",
+  "freshness_proof": {
+    "selected_names_absent_from_current_repository_before_extension": true,
+    "selected_names_absent_from_all_current_repository_git_refs_before_extension": true,
+    "selected_names_absent_from_preserved_canonical_benchmark_checkout": true,
+    "selected_names_absent_from_all_preserved_canonical_benchmark_git_refs": true,
+    "preserved_canonical_benchmark_checkout": "/Users/ryanbrown/code/thin-harness-terminal-bench",
+    "preserved_canonical_benchmark_commit": "c2b64a411f498dc163fc13eb96a0e2c61c3ea340",
+    "preserved_experiment_path_checked": "/Users/ryanbrown/code/thinharness/experiments/terminal_bench_2_1",
+    "preserved_experiment_path_present": false,
+    "search_roots_checked": [
+      "/Users/ryanbrown/code",
+      "/Users/ryanbrown/.bb/worktrees"
+    ],
+    "note": "A content search found no selected task name in the preserved code and worktree roots. The launcher rechecks durable real-cell and real-job paths before preflight and before the real run, then validates each archived cell before it can start the next cell. A missing receipt can only add exclusions, so every earlier conservative exclusion remains frozen."
+  },
+  "excluded_prior_paid_or_launched_tasks": [
+    "build-pmars",
+    "crack-7z-hash",
+    "extract-elf",
+    "fix-code-vulnerability",
+    "fix-git",
+    "hf-model-inference",
+    "kv-store-grpc",
+    "overfull-hbox",
+    "prove-plus-comm",
+    "raman-fitting",
+    "regex-log",
+    "reshard-c4-data",
+    "write-compressor"
+  ],
+  "preserved_real_subscription_cells": [
+    "raman-fitting--pi",
+    "raman-fitting--thinharness",
+    "fix-git--pi",
+    "fix-git--thinharness",
+    "prove-plus-comm--pi",
+    "crack-7z-hash--pi",
+    "crack-7z-hash--thinharness"
+  ],
+  "selected": [
+    {
+      "task": "configure-git-webserver",
+      "difficulty": "hard",
+      "category": "system-administration",
+      "expert_time_estimate_min": 15.0,
+      "agent_timeout_sec": 900,
+      "verifier_timeout_sec": 900,
+      "cpus": 1,
+      "memory_mb": 2048,
+      "image": "alexgshaw/configure-git-webserver:20251031",
+      "amd64_image_digest": "sha256:9e48389b917fd4650dda1f64406bd7198bbf20dc1c6b0e5c4d81a3c16369f88c",
+      "amd64_compressed_layer_bytes": 72338544,
+      "task_toml_sha256": "ebb40d72f689512cbd90d865d88ef966b6665ab215544f9247b898b7fa94751b"
+    },
+    {
+      "task": "pytorch-model-recovery",
+      "difficulty": "medium",
+      "category": "model-training",
+      "expert_time_estimate_min": 15.0,
+      "agent_timeout_sec": 900,
+      "verifier_timeout_sec": 900,
+      "cpus": 1,
+      "memory_mb": 2048,
+      "image": "alexgshaw/pytorch-model-recovery:20260430",
+      "amd64_image_digest": "sha256:63c804250786f1450028e68f66efac1b0ab58718e6bc98686e62f3cd72b0f395",
+      "amd64_compressed_layer_bytes": 269651480,
+      "task_toml_sha256": "851a51204f53482a31f47cdf8833128cf421113b0331011286940fc857c37dfd"
+    },
+    {
+      "task": "constraints-scheduling",
+      "difficulty": "medium",
+      "category": "personal-assistant",
+      "expert_time_estimate_min": 15.0,
+      "agent_timeout_sec": 1200,
+      "verifier_timeout_sec": 1200,
+      "cpus": 1,
+      "memory_mb": 2048,
+      "image": "alexgshaw/constraints-scheduling:20251031",
+      "amd64_image_digest": "sha256:567ce5a189f8d11ac461790876e934cc7af38391baf89a78f95f4dafc1fec3b0",
+      "amd64_compressed_layer_bytes": 49849705,
+      "task_toml_sha256": "7b9842de16d74e8faf8c7c0aa03b0b81145941cb12dd322d81ae23fc48607250"
+    }
+  ],
+  "rejected_same_cost_tier": [
+    {
+      "task": "mteb-retrieve",
+      "reason": "fourth after sorting eligible 15-minute tasks by memory, agent timeout, compressed amd64 image bytes, and task name"
+    }
+  ],
+  "planned_execution_order": [
+    "configure-git-webserver--pi",
+    "configure-git-webserver--thinharness",
+    "pytorch-model-recovery--pi",
+    "pytorch-model-recovery--thinharness",
+    "constraints-scheduling--pi",
+    "constraints-scheduling--thinharness"
+  ],
+  "planned_cells": 6,
+  "attempts_per_cell": 1,
+  "concurrency": 1,
+  "retries": {"gateway": 0, "provider": 0, "agent": 0, "harbor": 0},
+  "api_equivalent_price_schedule_usd_per_million_tokens": {
+    "ordinary_input": 5.0,
+    "cached_input": 0.5,
+    "cache_write": 6.25,
+    "output": 30.0
+  }
+}
