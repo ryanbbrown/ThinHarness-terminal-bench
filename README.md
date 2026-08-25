@@ -89,7 +89,7 @@ env -u OPENAI_API_KEY -u ANTHROPIC_API_KEY -u OPENROUTER_API_KEY \
   ./scripts/run-subscription-smoke.sh
 ```
 
-It refuses prior real evidence for a selected task, existing extension output, direct API credentials, evidence mismatch, and reruns. API-equivalent cost uses the repository's frozen price schedule; subscription cash cost is not available. Results must not be generalized beyond the four-task post-fix sample formed by these three tasks and `crack-7z-hash`.
+The authorized run is complete and cannot be rerun. Pi passed 2/3 extension tasks and ThinHarness passed 1/3. The authoritative report is `reports/codex-subscription-3task-extension.json`; trace findings are in `artifacts/subscription-extension-handoff.md`. API-equivalent cost uses the repository's frozen price schedule; subscription cash cost is not available. Results must not be generalized beyond the four-task post-fix sample formed by these three tasks and `crack-7z-hash`.
 
 ## Evidence boundary
 

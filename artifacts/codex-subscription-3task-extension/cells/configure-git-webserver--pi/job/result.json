@@ -1,0 +1,39 @@
+{
+    "id": "47296ef7-ed2c-4559-b7dc-d8b723d3e638",
+    "started_at": "2026-08-24T23:50:40.763336",
+    "updated_at": "2026-08-24T23:56:47.487351",
+    "finished_at": "2026-08-24T23:56:47.487351",
+    "n_total_trials": 1,
+    "stats": {
+        "n_completed_trials": 1,
+        "n_errored_trials": 0,
+        "n_running_trials": 0,
+        "n_pending_trials": 0,
+        "n_cancelled_trials": 0,
+        "n_retries": 0,
+        "evals": {
+            "matched-subscription-smoke__gpt-5.6-sol__terminal-bench/terminal-bench-2-1": {
+                "n_trials": 1,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 1.0
+                    }
+                ],
+                "pass_at_k": {},
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "configure-git-webserver__wXU3NKc"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        },
+        "n_input_tokens": 188741,
+        "n_cache_tokens": 139776,
+        "n_output_tokens": 11645,
+        "cost_usd": null
+    }
+}

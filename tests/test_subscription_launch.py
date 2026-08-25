@@ -42,8 +42,9 @@ def test_expected_cells_are_three_pi_then_thinharness_pairs() -> None:
     )
 
 
-def test_selected_extension_tasks_are_fresh_in_preserved_repository_evidence() -> None:
-    subscription_launch._validate_fresh_task_evidence()
+def test_completed_extension_tasks_are_now_refused() -> None:
+    with pytest.raises(RuntimeError, match="artifacts/codex-subscription-3task-extension/cells/configure-git-webserver--pi"):
+        subscription_launch._validate_fresh_task_evidence()
 
 
 def test_cproxy_lock_pins_exact_commit() -> None:

@@ -1,0 +1,30 @@
+{
+    "job_name": "codex-subscription-3task-extension-real-pytorch-model-recovery--thinharness-20260825-040541-935a26af",
+    "jobs_dir": "/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/codex-subscription-3task-extension",
+    "agent_setup_timeout_multiplier": 3.0,
+    "n_concurrent_trials": 1,
+    "agents": [
+        {
+            "name": "tbench.subscription_agent:SubscriptionSmokeAgent",
+            "model_name": "openai/gpt-5.6-sol",
+            "n_concurrent": 1,
+            "include_logs": [
+                "*"
+            ],
+            "kwargs": {
+                "harness": "thinharness",
+                "cell_id": "pytorch-model-recovery--thinharness",
+                "mode": "real"
+            }
+        }
+    ],
+    "datasets": [
+        {
+            "name": "terminal-bench/terminal-bench-2-1",
+            "ref": "sha256:7d7bdc1cbedad549fc1140404bd4dc45e5fd0ea7c4186773687d177ad3a0699a",
+            "task_names": [
+                "terminal-bench/pytorch-model-recovery"
+            ]
+        }
+    ]
+}

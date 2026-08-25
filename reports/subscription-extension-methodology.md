@@ -22,7 +22,9 @@ env -u OPENAI_API_KEY -u ANTHROPIC_API_KEY -u OPENROUTER_API_KEY \
 
 If any selected task, image, installation, native loop, verifier handoff, usage field, identity, or evidence check fails, the process stops before real model calls.
 
-## Authorized six-cell run and reporting
+## Completed six-cell run and reporting
+
+The one authorized run used:
 
 ```bash
 env -u OPENAI_API_KEY -u ANTHROPIC_API_KEY -u OPENROUTER_API_KEY \
@@ -30,4 +32,4 @@ env -u OPENAI_API_KEY -u ANTHROPIC_API_KEY -u OPENROUTER_API_KEY \
   ./scripts/run-subscription-smoke.sh
 ```
 
-The report preserves reward; exact ordinary, cached, cache-write, output, and reasoning usage; API-equivalent cost under the frozen USD 5.00 / 0.50 / 6.25 / 30.00 per million token schedule; request payload sizes and durations; tool names and arguments; tool calls per response; agent, Harbor agent-phase, verifier, and wall times; runner, model, package, image, bridge, transport, and task identities; raw traces; and hashed verifier evidence. Subscription cash cost remains unavailable. Pair and aggregate comparisons are descriptive only. The post-fix sample is exactly these three tasks plus `crack-7z-hash`; no conclusion can be generalized beyond those four tasks.
+The run is complete and the launcher refuses a rerun. The report preserves reward; exact ordinary, cached, cache-write, output, and reasoning usage; API-equivalent cost under the frozen USD 5.00 / 0.50 / 6.25 / 30.00 per million token schedule; request payload sizes and durations; tool names and arguments; tool calls per response; agent, Harbor agent-phase, verifier, and wall times; runner, model, package, image, bridge, transport, and task identities; raw traces; and hashed verifier evidence. Subscription cash cost remains unavailable. Pair and aggregate comparisons are descriptive only. The post-fix sample is exactly these three tasks plus `crack-7z-hash`; no conclusion can be generalized beyond those four tasks.

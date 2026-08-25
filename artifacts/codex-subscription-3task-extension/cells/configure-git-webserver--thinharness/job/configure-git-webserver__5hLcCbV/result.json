@@ -1,0 +1,134 @@
+{
+    "id": "dbd36f83-6b66-48e4-bc5a-2094f4a36e9f",
+    "task_name": "terminal-bench/configure-git-webserver",
+    "trial_name": "configure-git-webserver__5hLcCbV",
+    "trial_uri": "file:///Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/codex-subscription-3task-extension/codex-subscription-3task-extension-real-configure-git-webserver--thinharness-20260825-035649-f32b4002/configure-git-webserver__5hLcCbV",
+    "task_id": {
+        "org": "terminal-bench",
+        "name": "configure-git-webserver",
+        "ref": "sha256:e3dc712acfecdb1338a889f86c97b37422c3778351253f9aca4236e895fdb36e"
+    },
+    "source": "terminal-bench/terminal-bench-2-1",
+    "task_checksum": "84d7c2fd653dad4307c7d2e9dd4f937ecbcd7ad4d1acf5d2b74c35166634178e",
+    "config": {
+        "task": {
+            "path": null,
+            "git_url": null,
+            "git_commit_id": null,
+            "name": "terminal-bench/configure-git-webserver",
+            "ref": "sha256:e3dc712acfecdb1338a889f86c97b37422c3778351253f9aca4236e895fdb36e",
+            "overwrite": false,
+            "download_dir": null,
+            "source": "terminal-bench/terminal-bench-2-1"
+        },
+        "trial_name": "configure-git-webserver__5hLcCbV",
+        "trials_dir": "/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/codex-subscription-3task-extension/codex-subscription-3task-extension-real-configure-git-webserver--thinharness-20260825-035649-f32b4002",
+        "install_only": false,
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": 3.0,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "tbench.subscription_agent:SubscriptionSmokeAgent",
+            "import_path": null,
+            "model_name": "openai/gpt-5.6-sol",
+            "n_concurrent": 1,
+            "concurrency_group": null,
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "resume_trajectory": false,
+            "load_trajectory": null,
+            "extra_allowed_hosts": [],
+            "include_logs": [
+                "*"
+            ],
+            "kwargs": {
+                "harness": "thinharness",
+                "cell_id": "configure-git-webserver--thinharness",
+                "mode": "real"
+            },
+            "mcp_servers": []
+        },
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [],
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "extra_instruction_paths": [],
+        "job_id": "9d08f86f-c614-46b4-bea7-7a30be7ca18a",
+        "source_trial": null
+    },
+    "agent_info": {
+        "name": "matched-subscription-smoke",
+        "version": "1.0+84105f07",
+        "model_info": {
+            "name": "gpt-5.6-sol",
+            "provider": "openai"
+        }
+    },
+    "agent_result": {
+        "n_input_tokens": 62817,
+        "n_cache_tokens": 34816,
+        "n_output_tokens": 6728,
+        "cost_usd": null,
+        "rollout_details": null,
+        "metadata": {
+            "cell_id": "configure-git-webserver--thinharness",
+            "harness": "thinharness",
+            "backend": "cproxy-codex-subscription",
+            "model_requests": 10,
+            "tool_calls": 12,
+            "response_models": [
+                "gpt-5.6-sol"
+            ],
+            "verifier_handoff": true
+        }
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 0.0
+        }
+    },
+    "verifier_environment_mode": "shared",
+    "exception_info": null,
+    "started_at": "2026-08-25T03:56:50.688832Z",
+    "finished_at": "2026-08-25T04:01:21.676162Z",
+    "environment_setup": {
+        "started_at": "2026-08-25T03:56:50.776108Z",
+        "finished_at": "2026-08-25T03:56:51.825048Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-08-25T03:56:51.825177Z",
+        "finished_at": "2026-08-25T03:57:59.039673Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-08-25T03:57:59.039940Z",
+        "finished_at": "2026-08-25T04:00:55.290677Z"
+    },
+    "verifier": {
+        "started_at": "2026-08-25T04:00:55.739247Z",
+        "finished_at": "2026-08-25T04:01:10.724680Z"
+    },
+    "step_results": null
+}
