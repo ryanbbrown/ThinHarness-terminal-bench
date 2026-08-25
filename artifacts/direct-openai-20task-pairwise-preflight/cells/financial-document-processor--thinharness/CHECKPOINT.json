@@ -1,0 +1,104 @@
+{
+  "batching": [
+    {
+      "sequence": 1,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 2,
+      "tool_calls_in_response": 0,
+      "tool_names": []
+    }
+  ],
+  "cell_id": "financial-document-processor--thinharness",
+  "cost": {
+    "actual_cash_total": null,
+    "api_equivalent_total": 0.014844000000000001,
+    "components": {
+      "cache_write": 0.0,
+      "cached_input": 0.000384,
+      "ordinary_input": 0.00966,
+      "output": 0.0048000000000000004
+    },
+    "currency": "USD",
+    "prices_usd_per_million_tokens": {
+      "cache_write": 6.25,
+      "cached_input": 0.5,
+      "ordinary_input": 5.0,
+      "output": 30.0
+    }
+  },
+  "harbor_exit_code": 0,
+  "harness": "thinharness",
+  "identities": {
+    "gateway": {
+      "base_url": "http://host.docker.internal:60272/v1",
+      "bridge": null,
+      "cell_id": "financial-document-processor--thinharness",
+      "direct_openai": false,
+      "ephemeral_token_persisted": false,
+      "mode": "fake",
+      "port": 60272,
+      "provider": "controlled fake",
+      "upstream": null
+    },
+    "model": "gpt-5.6-sol",
+    "runner_files_sha256": "b8365355010dd3d81b85e14d07f2f8bced41644be3dc1654a20516e9f3b2bec6",
+    "source_bundle_sha256": "96ce4cd81c551a38217fd5f9dd21a110afe1ed8d87198acd98db61ba27239840"
+  },
+  "mode": "fake",
+  "never_rerun": false,
+  "real_model_attempted": false,
+  "request_count": 2,
+  "reward": 0.0,
+  "schema_version": 1,
+  "status": "completed",
+  "task": "financial-document-processor",
+  "timing": {
+    "agent_execution": {
+      "finished_at": "2026-08-25T07:37:19.038667Z",
+      "started_at": "2026-08-25T07:37:18.217383Z"
+    },
+    "agent_setup": {
+      "finished_at": "2026-08-25T07:37:18.217150Z",
+      "started_at": "2026-08-25T07:36:29.089704Z"
+    },
+    "environment_setup": {
+      "finished_at": "2026-08-25T07:36:29.089578Z",
+      "started_at": "2026-08-25T07:36:28.066290Z"
+    },
+    "harbor_finished_at": "2026-08-25T07:37:43.110740Z",
+    "harbor_started_at": "2026-08-25T07:36:27.955961Z",
+    "launcher_finished_at": 1787643464.876565,
+    "launcher_started_at": 1787643386.370029,
+    "request_seconds": [
+      1.8874998204410076e-05,
+      6.208021659404039e-06
+    ],
+    "verifier": {
+      "finished_at": "2026-08-25T07:37:32.097046Z",
+      "started_at": "2026-08-25T07:37:19.437675Z"
+    }
+  },
+  "traces": {
+    "gateway_audit": "cells/financial-document-processor--thinharness/gateway-audit.jsonl",
+    "harbor_result": "cells/financial-document-processor--thinharness/job/financial-document-processor__E2oykDY/result.json",
+    "native_receipt": "cells/financial-document-processor--thinharness/job/financial-document-processor__E2oykDY/agent/thinharness-direct-result.json",
+    "staging_stderr": "cells/financial-document-processor--thinharness/harbor.stderr.log",
+    "staging_stdout": "cells/financial-document-processor--thinharness/harbor.stdout.log",
+    "verifier_evidence": "cells/financial-document-processor--thinharness/job/financial-document-processor__E2oykDY/verifier/ctrf.json",
+    "verifier_evidence_sha256": "a46a705444ca800fd0450375528699527b425f7bae86dec89b81d7a420f9ba48",
+    "verifier_evidence_type": "ctrf.json"
+  },
+  "usage": {
+    "cache_write_tokens": 0,
+    "cached_input_tokens": 768,
+    "input_tokens": 2700,
+    "ordinary_input_tokens": 1932,
+    "output_tokens": 160,
+    "reasoning_tokens": 80
+  }
+}

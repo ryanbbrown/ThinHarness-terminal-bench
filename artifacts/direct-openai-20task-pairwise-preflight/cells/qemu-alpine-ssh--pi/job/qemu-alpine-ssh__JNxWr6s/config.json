@@ -1,0 +1,24 @@
+{
+    "task": {
+        "name": "terminal-bench/qemu-alpine-ssh",
+        "ref": "sha256:60b7050b0e0aa51641208cf65766743d340e59575db2c4d2f8628240846c2a28",
+        "source": "terminal-bench/terminal-bench-2-1"
+    },
+    "trial_name": "qemu-alpine-ssh__JNxWr6s",
+    "trials_dir": "/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/direct-openai-20task-pairwise-preflight/direct-openai-20task-pairwise-fake-qemu-alpine-ssh--pi-20260825-072648-ea8151a8",
+    "agent_setup_timeout_multiplier": 3.0,
+    "agent": {
+        "name": "tbench.direct_agent:DirectOpenAIAgent",
+        "model_name": "openai/gpt-5.6-sol",
+        "n_concurrent": 1,
+        "include_logs": [
+            "*"
+        ],
+        "kwargs": {
+            "harness": "pi",
+            "cell_id": "qemu-alpine-ssh--pi",
+            "mode": "fake"
+        }
+    },
+    "job_id": "40bb1532-2e43-4399-9a5c-0f5e7f8dc533"
+}

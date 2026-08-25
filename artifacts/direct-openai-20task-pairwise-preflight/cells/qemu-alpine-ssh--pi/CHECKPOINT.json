@@ -1,0 +1,104 @@
+{
+  "batching": [
+    {
+      "sequence": 1,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 2,
+      "tool_calls_in_response": 0,
+      "tool_names": []
+    }
+  ],
+  "cell_id": "qemu-alpine-ssh--pi",
+  "cost": {
+    "actual_cash_total": null,
+    "api_equivalent_total": 0.014844000000000001,
+    "components": {
+      "cache_write": 0.0,
+      "cached_input": 0.000384,
+      "ordinary_input": 0.00966,
+      "output": 0.0048000000000000004
+    },
+    "currency": "USD",
+    "prices_usd_per_million_tokens": {
+      "cache_write": 6.25,
+      "cached_input": 0.5,
+      "ordinary_input": 5.0,
+      "output": 30.0
+    }
+  },
+  "harbor_exit_code": 0,
+  "harness": "pi",
+  "identities": {
+    "gateway": {
+      "base_url": "http://host.docker.internal:59672/v1",
+      "bridge": null,
+      "cell_id": "qemu-alpine-ssh--pi",
+      "direct_openai": false,
+      "ephemeral_token_persisted": false,
+      "mode": "fake",
+      "port": 59672,
+      "provider": "controlled fake",
+      "upstream": null
+    },
+    "model": "gpt-5.6-sol",
+    "runner_files_sha256": "08d50d4e7a3835d2ade586431b87c45371ff99442d8e07bd591a0e02032d9f56",
+    "source_bundle_sha256": null
+  },
+  "mode": "fake",
+  "never_rerun": false,
+  "real_model_attempted": false,
+  "request_count": 2,
+  "reward": 0.0,
+  "schema_version": 1,
+  "status": "completed",
+  "task": "qemu-alpine-ssh",
+  "timing": {
+    "agent_execution": {
+      "finished_at": "2026-08-25T07:28:22.374108Z",
+      "started_at": "2026-08-25T07:28:19.583474Z"
+    },
+    "agent_setup": {
+      "finished_at": "2026-08-25T07:28:19.583270Z",
+      "started_at": "2026-08-25T07:27:22.879824Z"
+    },
+    "environment_setup": {
+      "finished_at": "2026-08-25T07:27:22.879743Z",
+      "started_at": "2026-08-25T07:26:50.712079Z"
+    },
+    "harbor_finished_at": "2026-08-25T07:28:43.729538Z",
+    "harbor_started_at": "2026-08-25T07:26:50.621997Z",
+    "launcher_finished_at": 1787642925.628633,
+    "launcher_started_at": 1787642808.16609,
+    "request_seconds": [
+      1.837499439716339e-05,
+      5.249981768429279e-06
+    ],
+    "verifier": {
+      "finished_at": "2026-08-25T07:28:32.739119Z",
+      "started_at": "2026-08-25T07:28:23.077687Z"
+    }
+  },
+  "traces": {
+    "gateway_audit": "cells/qemu-alpine-ssh--pi/gateway-audit.jsonl",
+    "harbor_result": "cells/qemu-alpine-ssh--pi/job/qemu-alpine-ssh__JNxWr6s/result.json",
+    "native_receipt": "cells/qemu-alpine-ssh--pi/job/qemu-alpine-ssh__JNxWr6s/agent/pi-direct-result.json",
+    "staging_stderr": "cells/qemu-alpine-ssh--pi/harbor.stderr.log",
+    "staging_stdout": "cells/qemu-alpine-ssh--pi/harbor.stdout.log",
+    "verifier_evidence": "cells/qemu-alpine-ssh--pi/job/qemu-alpine-ssh__JNxWr6s/verifier/ctrf.json",
+    "verifier_evidence_sha256": "9dd1b917c42ebb1c76820e943078f9b02fc4052bbdb44fe6ca0a5886e49321b5",
+    "verifier_evidence_type": "ctrf.json"
+  },
+  "usage": {
+    "cache_write_tokens": 0,
+    "cached_input_tokens": 768,
+    "input_tokens": 2700,
+    "ordinary_input_tokens": 1932,
+    "output_tokens": 160,
+    "reasoning_tokens": 80
+  }
+}

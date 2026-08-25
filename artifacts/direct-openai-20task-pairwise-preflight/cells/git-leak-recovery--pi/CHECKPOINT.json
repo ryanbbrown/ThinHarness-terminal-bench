@@ -1,0 +1,103 @@
+{
+  "batching": [
+    {
+      "sequence": 1,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 2,
+      "tool_calls_in_response": 0,
+      "tool_names": []
+    }
+  ],
+  "cell_id": "git-leak-recovery--pi",
+  "cost": {
+    "actual_cash_total": null,
+    "api_equivalent_total": 0.014844000000000001,
+    "components": {
+      "cache_write": 0.0,
+      "cached_input": 0.000384,
+      "ordinary_input": 0.00966,
+      "output": 0.0048000000000000004
+    },
+    "currency": "USD",
+    "prices_usd_per_million_tokens": {
+      "cache_write": 6.25,
+      "cached_input": 0.5,
+      "ordinary_input": 5.0,
+      "output": 30.0
+    }
+  },
+  "harbor_exit_code": 0,
+  "harness": "pi",
+  "identities": {
+    "gateway": {
+      "base_url": "http://host.docker.internal:57705/v1",
+      "bridge": null,
+      "cell_id": "git-leak-recovery--pi",
+      "direct_openai": false,
+      "ephemeral_token_persisted": false,
+      "mode": "fake",
+      "port": 57705,
+      "provider": "controlled fake",
+      "upstream": null
+    },
+    "model": "gpt-5.6-sol",
+    "runner_files_sha256": "6198690dca625c4062f98c3fd2fd3197e49680b9cd53b277b36085ffed8f1b30",
+    "source_bundle_sha256": null
+  },
+  "mode": "fake",
+  "never_rerun": false,
+  "real_model_attempted": false,
+  "request_count": 2,
+  "reward": 0.0,
+  "schema_version": 1,
+  "status": "completed",
+  "task": "git-leak-recovery",
+  "timing": {
+    "agent_execution": {
+      "finished_at": "2026-08-25T06:59:58.536418Z",
+      "started_at": "2026-08-25T06:59:55.386331Z"
+    },
+    "agent_setup": {
+      "finished_at": "2026-08-25T06:59:55.386069Z",
+      "started_at": "2026-08-25T06:58:46.448714Z"
+    },
+    "environment_setup": {
+      "finished_at": "2026-08-25T06:58:46.448610Z",
+      "started_at": "2026-08-25T06:58:26.492521Z"
+    },
+    "harbor_finished_at": "2026-08-25T07:00:21.416949Z",
+    "harbor_started_at": "2026-08-25T06:58:26.392908Z",
+    "launcher_finished_at": 1787641223.634485,
+    "launcher_started_at": 1787641104.093899,
+    "request_seconds": [
+      1.8042046576738358e-05,
+      4.916975740343332e-06
+    ],
+    "verifier": {
+      "finished_at": "2026-08-25T07:00:10.367329Z",
+      "started_at": "2026-08-25T06:59:59.356043Z"
+    }
+  },
+  "traces": {
+    "gateway_audit": "cells/git-leak-recovery--pi/gateway-audit.jsonl",
+    "harbor_result": "cells/git-leak-recovery--pi/job/git-leak-recovery__9tZViKf/result.json",
+    "native_receipt": "cells/git-leak-recovery--pi/job/git-leak-recovery__9tZViKf/agent/pi-direct-result.json",
+    "staging_stderr": "cells/git-leak-recovery--pi/harbor.stderr.log",
+    "staging_stdout": "cells/git-leak-recovery--pi/harbor.stdout.log",
+    "verifier_ctrf": "cells/git-leak-recovery--pi/job/git-leak-recovery__9tZViKf/verifier/ctrf.json",
+    "verifier_ctrf_sha256": "db1e410b33528251eb58de1373565bd03b1891e8bcc0c825023dac13e88ef5be"
+  },
+  "usage": {
+    "cache_write_tokens": 0,
+    "cached_input_tokens": 768,
+    "input_tokens": 2700,
+    "ordinary_input_tokens": 1932,
+    "output_tokens": 160,
+    "reasoning_tokens": 80
+  }
+}

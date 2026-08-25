@@ -1,0 +1,24 @@
+{
+    "task": {
+        "name": "terminal-bench/qemu-startup",
+        "ref": "sha256:8e58263747da7dc688ad470688fb72825c4ba2c1c40443fa0f52963645bbd999",
+        "source": "terminal-bench/terminal-bench-2-1"
+    },
+    "trial_name": "qemu-startup__JxPJrTX",
+    "trials_dir": "/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/direct-openai-20task-pairwise-preflight/direct-openai-20task-pairwise-fake-qemu-startup--pi-20260825-073205-d783317d",
+    "agent_setup_timeout_multiplier": 3.0,
+    "agent": {
+        "name": "tbench.direct_agent:DirectOpenAIAgent",
+        "model_name": "openai/gpt-5.6-sol",
+        "n_concurrent": 1,
+        "include_logs": [
+            "*"
+        ],
+        "kwargs": {
+            "harness": "pi",
+            "cell_id": "qemu-startup--pi",
+            "mode": "fake"
+        }
+    },
+    "job_id": "cfa7a6e1-a6df-4c2f-b926-be6401e87594"
+}

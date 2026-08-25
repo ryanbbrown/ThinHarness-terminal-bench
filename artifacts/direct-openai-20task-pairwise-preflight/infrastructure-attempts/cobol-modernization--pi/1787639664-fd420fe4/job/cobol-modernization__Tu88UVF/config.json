@@ -1,0 +1,24 @@
+{
+    "task": {
+        "name": "terminal-bench/cobol-modernization",
+        "ref": "sha256:e03aa03965eee48c9f772d566ff9bcd741fceeac9693123f82a13fdd46be0d88",
+        "source": "terminal-bench/terminal-bench-2-1"
+    },
+    "trial_name": "cobol-modernization__Tu88UVF",
+    "trials_dir": "/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/direct-openai-20task-pairwise-preflight/direct-openai-20task-pairwise-fake-cobol-modernization--pi-20260825-063141-7374c35a",
+    "agent_setup_timeout_multiplier": 3.0,
+    "agent": {
+        "name": "tbench.direct_agent:DirectOpenAIAgent",
+        "model_name": "openai/gpt-5.6-sol",
+        "n_concurrent": 1,
+        "include_logs": [
+            "*"
+        ],
+        "kwargs": {
+            "harness": "pi",
+            "cell_id": "cobol-modernization--pi",
+            "mode": "fake"
+        }
+    },
+    "job_id": "78280c25-59cf-4d17-bf98-28a71d383fff"
+}

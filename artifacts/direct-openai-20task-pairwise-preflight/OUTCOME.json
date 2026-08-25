@@ -1,0 +1,10 @@
+{
+  "benchmark_id": "direct-openai-20task-pairwise",
+  "completed_cells": 40,
+  "mode": "fake",
+  "planned_cells": 40,
+  "schema_version": 1,
+  "status": "completed",
+  "stop": null,
+  "updated_at": 1787643627.462359
+}

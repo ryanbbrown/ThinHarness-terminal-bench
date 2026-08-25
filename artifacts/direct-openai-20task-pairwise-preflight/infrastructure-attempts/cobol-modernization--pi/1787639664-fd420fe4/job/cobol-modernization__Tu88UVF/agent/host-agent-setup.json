@@ -1,0 +1,24 @@
+{
+  "cell_id": "cobol-modernization--pi",
+  "custom_host_tools": false,
+  "execution": "harbor-task-container",
+  "harness": "pi",
+  "host_model_loop": false,
+  "install": null,
+  "install_exit_code": 1,
+  "install_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "install_stdout_sha256": "bef8dbe4173a54bf50d2c82ba76aa89f11f9a1928b4559e3fe9129225ef8492c",
+  "schema_version": 1,
+  "source_bundle_container_removed": true,
+  "source_bundle_sha256": null,
+  "stage_and_launch_only": true,
+  "staged_targets": [
+    "/opt/thinharness-terminal-bench-direct/container_security.py",
+    "/opt/thinharness-terminal-bench-direct/direct_container.py",
+    "/opt/thinharness-terminal-bench-direct/install.sh",
+    "/opt/thinharness-terminal-bench-direct/pi-subscription-package-lock.json",
+    "/opt/thinharness-terminal-bench-direct/pi-subscription-package.json",
+    "/opt/thinharness-terminal-bench-direct/pi_subscription_probe.mjs",
+    "/opt/thinharness-terminal-bench-direct/system-prompt.md"
+  ]
+}

@@ -1,0 +1,4190 @@
+{
+  "aggregate": {
+    "api_equivalent_cost_usd": 0.5937600000000002,
+    "reward_count": 40,
+    "reward_sum": 0.0,
+    "usage": {
+      "cache_write_tokens": 0,
+      "cached_input_tokens": 30720,
+      "input_tokens": 108000,
+      "ordinary_input_tokens": 77280,
+      "output_tokens": 6400,
+      "reasoning_tokens": 3200
+    }
+  },
+  "benchmark_id": "direct-openai-20task-pairwise",
+  "cells": [
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "cobol-modernization--pi",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.014844000000000001,
+        "components": {
+          "cache_write": 0.0,
+          "cached_input": 0.000384,
+          "ordinary_input": 0.00966,
+          "output": 0.0048000000000000004
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "pi",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:54130/v1",
+          "bridge": null,
+          "cell_id": "cobol-modernization--pi",
+          "direct_openai": false,
+          "ephemeral_token_persisted": false,
+          "mode": "fake",
+          "port": 54130,
+          "provider": "controlled fake",
+          "upstream": null
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "6198690dca625c4062f98c3fd2fd3197e49680b9cd53b277b36085ffed8f1b30",
+        "source_bundle_sha256": null
+      },
+      "mode": "fake",
+      "never_rerun": false,
+      "real_model_attempted": false,
+      "request_count": 2,
+      "reward": 0.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "cobol-modernization",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T06:35:35.706201Z",
+          "started_at": "2026-08-25T06:35:32.605883Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T06:35:32.605689Z",
+          "started_at": "2026-08-25T06:34:27.965920Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T06:34:27.965844Z",
+          "started_at": "2026-08-25T06:34:26.911281Z"
+        },
+        "harbor_finished_at": "2026-08-25T06:35:53.722801Z",
+        "harbor_started_at": "2026-08-25T06:34:26.820596Z",
+        "launcher_finished_at": 1787639755.323623,
+        "launcher_started_at": 1787639664.64576,
+        "request_seconds": [
+          2.270803088322282e-05,
+          5.916052032262087e-06
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T06:35:42.705149Z",
+          "started_at": "2026-08-25T06:35:36.123648Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/cobol-modernization--pi/gateway-audit.jsonl",
+        "harbor_result": "cells/cobol-modernization--pi/job/cobol-modernization__FjKk363/result.json",
+        "native_receipt": "cells/cobol-modernization--pi/job/cobol-modernization__FjKk363/agent/pi-direct-result.json",
+        "staging_stderr": "cells/cobol-modernization--pi/harbor.stderr.log",
+        "staging_stdout": "cells/cobol-modernization--pi/harbor.stdout.log",
+        "verifier_ctrf": "cells/cobol-modernization--pi/job/cobol-modernization__FjKk363/verifier/ctrf.json",
+        "verifier_ctrf_sha256": "95a47cf2b96cc8c3dd4ccf951f2b1092e0f15de3c34e01f75a79d1858d62319e"
+      },
+      "usage": {
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "cobol-modernization--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.014844000000000001,
+        "components": {
+          "cache_write": 0.0,
+          "cached_input": 0.000384,
+          "ordinary_input": 0.00966,
+          "output": 0.0048000000000000004
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "thinharness",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:54264/v1",
+          "bridge": null,
+          "cell_id": "cobol-modernization--thinharness",
+          "direct_openai": false,
+          "ephemeral_token_persisted": false,
+          "mode": "fake",
+          "port": 54264,
+          "provider": "controlled fake",
+          "upstream": null
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "6198690dca625c4062f98c3fd2fd3197e49680b9cd53b277b36085ffed8f1b30",
+        "source_bundle_sha256": "96ce4cd81c551a38217fd5f9dd21a110afe1ed8d87198acd98db61ba27239840"
+      },
+      "mode": "fake",
+      "never_rerun": false,
+      "real_model_attempted": false,
+      "request_count": 2,
+      "reward": 0.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "cobol-modernization",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T06:37:00.815621Z",
+          "started_at": "2026-08-25T06:36:59.938630Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T06:36:59.938424Z",
+          "started_at": "2026-08-25T06:35:58.016455Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T06:35:58.016368Z",
+          "started_at": "2026-08-25T06:35:56.995157Z"
+        },
+        "harbor_finished_at": "2026-08-25T06:37:19.691593Z",
+        "harbor_started_at": "2026-08-25T06:35:56.901834Z",
+        "launcher_finished_at": 1787639841.636224,
+        "launcher_started_at": 1787639755.332201,
+        "request_seconds": [
+          1.9041006453335285e-05,
+          5.374953616410494e-06
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T06:37:08.794132Z",
+          "started_at": "2026-08-25T06:37:01.617712Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/cobol-modernization--thinharness/gateway-audit.jsonl",
+        "harbor_result": "cells/cobol-modernization--thinharness/job/cobol-modernization__A8tMiyR/result.json",
+        "native_receipt": "cells/cobol-modernization--thinharness/job/cobol-modernization__A8tMiyR/agent/thinharness-direct-result.json",
+        "staging_stderr": "cells/cobol-modernization--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/cobol-modernization--thinharness/harbor.stdout.log",
+        "verifier_ctrf": "cells/cobol-modernization--thinharness/job/cobol-modernization__A8tMiyR/verifier/ctrf.json",
+        "verifier_ctrf_sha256": "93942cfdf9f7675d99183d5421f29eba154d1a592ec371a5713ca090faef1172"
+      },
+      "usage": {
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "nginx-request-logging--pi",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.014844000000000001,
+        "components": {
+          "cache_write": 0.0,
+          "cached_input": 0.000384,
+          "ordinary_input": 0.00966,
+          "output": 0.0048000000000000004
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "pi",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:54364/v1",
+          "bridge": null,
+          "cell_id": "nginx-request-logging--pi",
+          "direct_openai": false,
+          "ephemeral_token_persisted": false,
+          "mode": "fake",
+          "port": 54364,
+          "provider": "controlled fake",
+          "upstream": null
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "6198690dca625c4062f98c3fd2fd3197e49680b9cd53b277b36085ffed8f1b30",
+        "source_bundle_sha256": null
+      },
+      "mode": "fake",
+      "never_rerun": false,
+      "real_model_attempted": false,
+      "request_count": 2,
+      "reward": 0.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "nginx-request-logging",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T06:38:45.785984Z",
+          "started_at": "2026-08-25T06:38:42.594005Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T06:38:42.593805Z",
+          "started_at": "2026-08-25T06:37:32.472441Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T06:37:32.472350Z",
+          "started_at": "2026-08-25T06:37:24.313240Z"
+        },
+        "harbor_finished_at": "2026-08-25T06:39:08.627755Z",
+        "harbor_started_at": "2026-08-25T06:37:24.213881Z",
+        "launcher_finished_at": 1787639950.8414998,
+        "launcher_started_at": 1787639841.6451359,
+        "request_seconds": [
+          2.1625019144266844e-05,
+          4.62500611320138e-06
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T06:38:57.548350Z",
+          "started_at": "2026-08-25T06:38:46.615372Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/nginx-request-logging--pi/gateway-audit.jsonl",
+        "harbor_result": "cells/nginx-request-logging--pi/job/nginx-request-logging__BPtQ9Mt/result.json",
+        "native_receipt": "cells/nginx-request-logging--pi/job/nginx-request-logging__BPtQ9Mt/agent/pi-direct-result.json",
+        "staging_stderr": "cells/nginx-request-logging--pi/harbor.stderr.log",
+        "staging_stdout": "cells/nginx-request-logging--pi/harbor.stdout.log",
+        "verifier_ctrf": "cells/nginx-request-logging--pi/job/nginx-request-logging__BPtQ9Mt/verifier/ctrf.json",
+        "verifier_ctrf_sha256": "d422477367ab2bf54bad6b29d35d733b465b717a28d5c2291e1988576445a06d"
+      },
+      "usage": {
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "nginx-request-logging--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.014844000000000001,
+        "components": {
+          "cache_write": 0.0,
+          "cached_input": 0.000384,
+          "ordinary_input": 0.00966,
+          "output": 0.0048000000000000004
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "thinharness",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:54544/v1",
+          "bridge": null,
+          "cell_id": "nginx-request-logging--thinharness",
+          "direct_openai": false,
+          "ephemeral_token_persisted": false,
+          "mode": "fake",
+          "port": 54544,
+          "provider": "controlled fake",
+          "upstream": null
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "6198690dca625c4062f98c3fd2fd3197e49680b9cd53b277b36085ffed8f1b30",
+        "source_bundle_sha256": "96ce4cd81c551a38217fd5f9dd21a110afe1ed8d87198acd98db61ba27239840"
+      },
+      "mode": "fake",
+      "never_rerun": false,
+      "real_model_attempted": false,
+      "request_count": 2,
+      "reward": 0.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "nginx-request-logging",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T06:40:17.549166Z",
+          "started_at": "2026-08-25T06:40:16.672628Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T06:40:16.672408Z",
+          "started_at": "2026-08-25T06:39:13.857910Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T06:39:13.857809Z",
+          "started_at": "2026-08-25T06:39:12.779976Z"
+        },
+        "harbor_finished_at": "2026-08-25T06:40:40.126553Z",
+        "harbor_started_at": "2026-08-25T06:39:12.672556Z",
+        "launcher_finished_at": 1787640041.873149,
+        "launcher_started_at": 1787639950.8524108,
+        "request_seconds": [
+          1.795799471437931e-05,
+          6.249989382922649e-06
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T06:40:29.232763Z",
+          "started_at": "2026-08-25T06:40:17.970046Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/nginx-request-logging--thinharness/gateway-audit.jsonl",
+        "harbor_result": "cells/nginx-request-logging--thinharness/job/nginx-request-logging__padCtNM/result.json",
+        "native_receipt": "cells/nginx-request-logging--thinharness/job/nginx-request-logging__padCtNM/agent/thinharness-direct-result.json",
+        "staging_stderr": "cells/nginx-request-logging--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/nginx-request-logging--thinharness/harbor.stdout.log",
+        "verifier_ctrf": "cells/nginx-request-logging--thinharness/job/nginx-request-logging__padCtNM/verifier/ctrf.json",
+        "verifier_ctrf_sha256": "40188f3fd260d6e372842bf42df54316a62aec4f3febcfea733c8670dac69f0d"
+      },
+      "usage": {
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "openssl-selfsigned-cert--pi",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.014844000000000001,
+        "components": {
+          "cache_write": 0.0,
+          "cached_input": 0.000384,
+          "ordinary_input": 0.00966,
+          "output": 0.0048000000000000004
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "pi",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:54715/v1",
+          "bridge": null,
+          "cell_id": "openssl-selfsigned-cert--pi",
+          "direct_openai": false,
+          "ephemeral_token_persisted": false,
+          "mode": "fake",
+          "port": 54715,
+          "provider": "controlled fake",
+          "upstream": null
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "6198690dca625c4062f98c3fd2fd3197e49680b9cd53b277b36085ffed8f1b30",
+        "source_bundle_sha256": null
+      },
+      "mode": "fake",
+      "never_rerun": false,
+      "real_model_attempted": false,
+      "request_count": 2,
+      "reward": 0.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "openssl-selfsigned-cert",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T06:41:57.262682Z",
+          "started_at": "2026-08-25T06:41:54.281539Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T06:41:54.281265Z",
+          "started_at": "2026-08-25T06:40:46.597400Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T06:40:46.597324Z",
+          "started_at": "2026-08-25T06:40:44.478592Z"
+        },
+        "harbor_finished_at": "2026-08-25T06:42:14.732660Z",
+        "harbor_started_at": "2026-08-25T06:40:44.350333Z",
+        "launcher_finished_at": 1787640136.4022279,
+        "launcher_started_at": 1787640041.8826659,
+        "request_seconds": [
+          1.875002635642886e-05,
+          4.250032361596823e-06
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T06:42:03.826635Z",
+          "started_at": "2026-08-25T06:41:57.764380Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/openssl-selfsigned-cert--pi/gateway-audit.jsonl",
+        "harbor_result": "cells/openssl-selfsigned-cert--pi/job/openssl-selfsigned-cert__ASMbxW9/result.json",
+        "native_receipt": "cells/openssl-selfsigned-cert--pi/job/openssl-selfsigned-cert__ASMbxW9/agent/pi-direct-result.json",
+        "staging_stderr": "cells/openssl-selfsigned-cert--pi/harbor.stderr.log",
+        "staging_stdout": "cells/openssl-selfsigned-cert--pi/harbor.stdout.log",
+        "verifier_ctrf": "cells/openssl-selfsigned-cert--pi/job/openssl-selfsigned-cert__ASMbxW9/verifier/ctrf.json",
+        "verifier_ctrf_sha256": "4cf725e53e38709e643ee4e8be2f7f4b2d8c7f4fcce6f4877ebb7b5fcb3db73f"
+      },
+      "usage": {
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "openssl-selfsigned-cert--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.014844000000000001,
+        "components": {
+          "cache_write": 0.0,
+          "cached_input": 0.000384,
+          "ordinary_input": 0.00966,
+          "output": 0.0048000000000000004
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "thinharness",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:55308/v1",
+          "bridge": null,
+          "cell_id": "openssl-selfsigned-cert--thinharness",
+          "direct_openai": false,
+          "ephemeral_token_persisted": false,
+          "mode": "fake",
+          "port": 55308,
+          "provider": "controlled fake",
+          "upstream": null
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "6198690dca625c4062f98c3fd2fd3197e49680b9cd53b277b36085ffed8f1b30",
+        "source_bundle_sha256": "96ce4cd81c551a38217fd5f9dd21a110afe1ed8d87198acd98db61ba27239840"
+      },
+      "mode": "fake",
+      "never_rerun": false,
+      "real_model_attempted": false,
+      "request_count": 2,
+      "reward": 0.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "openssl-selfsigned-cert",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T06:43:23.421502Z",
+          "started_at": "2026-08-25T06:43:22.573434Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T06:43:22.573161Z",
+          "started_at": "2026-08-25T06:42:18.966385Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T06:42:18.966253Z",
+          "started_at": "2026-08-25T06:42:17.922285Z"
+        },
+        "harbor_finished_at": "2026-08-25T06:43:41.349025Z",
+        "harbor_started_at": "2026-08-25T06:42:17.826187Z",
+        "launcher_finished_at": 1787640222.73728,
+        "launcher_started_at": 1787640136.4103339,
+        "request_seconds": [
+          2.0000035874545574e-05,
+          4.915986210107803e-06
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T06:43:30.530800Z",
+          "started_at": "2026-08-25T06:43:23.833787Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/openssl-selfsigned-cert--thinharness/gateway-audit.jsonl",
+        "harbor_result": "cells/openssl-selfsigned-cert--thinharness/job/openssl-selfsigned-cert__qcsQGf4/result.json",
+        "native_receipt": "cells/openssl-selfsigned-cert--thinharness/job/openssl-selfsigned-cert__qcsQGf4/agent/thinharness-direct-result.json",
+        "staging_stderr": "cells/openssl-selfsigned-cert--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/openssl-selfsigned-cert--thinharness/harbor.stdout.log",
+        "verifier_ctrf": "cells/openssl-selfsigned-cert--thinharness/job/openssl-selfsigned-cert__qcsQGf4/verifier/ctrf.json",
+        "verifier_ctrf_sha256": "5e9cf1a4a46817dd072ccc05bebeb37f451feddd59112af4099d2f7c7fab19bd"
+      },
+      "usage": {
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "polyglot-c-py--pi",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.014844000000000001,
+        "components": {
+          "cache_write": 0.0,
+          "cached_input": 0.000384,
+          "ordinary_input": 0.00966,
+          "output": 0.0048000000000000004
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "pi",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:55417/v1",
+          "bridge": null,
+          "cell_id": "polyglot-c-py--pi",
+          "direct_openai": false,
+          "ephemeral_token_persisted": false,
+          "mode": "fake",
+          "port": 55417,
+          "provider": "controlled fake",
+          "upstream": null
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "6198690dca625c4062f98c3fd2fd3197e49680b9cd53b277b36085ffed8f1b30",
+        "source_bundle_sha256": null
+      },
+      "mode": "fake",
+      "never_rerun": false,
+      "real_model_attempted": false,
+      "request_count": 2,
+      "reward": 0.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "polyglot-c-py",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T06:44:40.590666Z",
+          "started_at": "2026-08-25T06:44:37.570314Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T06:44:37.570069Z",
+          "started_at": "2026-08-25T06:43:49.683708Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T06:43:49.683594Z",
+          "started_at": "2026-08-25T06:43:44.611178Z"
+        },
+        "harbor_finished_at": "2026-08-25T06:45:01.525293Z",
+        "harbor_started_at": "2026-08-25T06:43:44.523355Z",
+        "launcher_finished_at": 1787640303.253972,
+        "launcher_started_at": 1787640222.7440262,
+        "request_seconds": [
+          2.2124964743852615e-05,
+          4.958012141287327e-06
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T06:44:50.504393Z",
+          "started_at": "2026-08-25T06:44:41.021815Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/polyglot-c-py--pi/gateway-audit.jsonl",
+        "harbor_result": "cells/polyglot-c-py--pi/job/polyglot-c-py__H9C9KzK/result.json",
+        "native_receipt": "cells/polyglot-c-py--pi/job/polyglot-c-py__H9C9KzK/agent/pi-direct-result.json",
+        "staging_stderr": "cells/polyglot-c-py--pi/harbor.stderr.log",
+        "staging_stdout": "cells/polyglot-c-py--pi/harbor.stdout.log",
+        "verifier_ctrf": "cells/polyglot-c-py--pi/job/polyglot-c-py__H9C9KzK/verifier/ctrf.json",
+        "verifier_ctrf_sha256": "3c6821ff963988ea2e97fcb5436514c150ca6989f6d2d78e44b0efef7b7f5c2b"
+      },
+      "usage": {
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "polyglot-c-py--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.014844000000000001,
+        "components": {
+          "cache_write": 0.0,
+          "cached_input": 0.000384,
+          "ordinary_input": 0.00966,
+          "output": 0.0048000000000000004
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "thinharness",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:55509/v1",
+          "bridge": null,
+          "cell_id": "polyglot-c-py--thinharness",
+          "direct_openai": false,
+          "ephemeral_token_persisted": false,
+          "mode": "fake",
+          "port": 55509,
+          "provider": "controlled fake",
+          "upstream": null
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "6198690dca625c4062f98c3fd2fd3197e49680b9cd53b277b36085ffed8f1b30",
+        "source_bundle_sha256": "96ce4cd81c551a38217fd5f9dd21a110afe1ed8d87198acd98db61ba27239840"
+      },
+      "mode": "fake",
+      "never_rerun": false,
+      "real_model_attempted": false,
+      "request_count": 2,
+      "reward": 0.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "polyglot-c-py",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T06:45:50.528940Z",
+          "started_at": "2026-08-25T06:45:49.611732Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T06:45:49.611449Z",
+          "started_at": "2026-08-25T06:45:06.020361Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T06:45:06.020244Z",
+          "started_at": "2026-08-25T06:45:05.023906Z"
+        },
+        "harbor_finished_at": "2026-08-25T06:46:12.412085Z",
+        "harbor_started_at": "2026-08-25T06:45:04.936918Z",
+        "launcher_finished_at": 1787640373.800891,
+        "launcher_started_at": 1787640303.262351,
+        "request_seconds": [
+          3.416696563363075e-05,
+          6.249989382922649e-06
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T06:46:01.312179Z",
+          "started_at": "2026-08-25T06:45:51.034515Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/polyglot-c-py--thinharness/gateway-audit.jsonl",
+        "harbor_result": "cells/polyglot-c-py--thinharness/job/polyglot-c-py__HwEBjXg/result.json",
+        "native_receipt": "cells/polyglot-c-py--thinharness/job/polyglot-c-py__HwEBjXg/agent/thinharness-direct-result.json",
+        "staging_stderr": "cells/polyglot-c-py--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/polyglot-c-py--thinharness/harbor.stdout.log",
+        "verifier_ctrf": "cells/polyglot-c-py--thinharness/job/polyglot-c-py__HwEBjXg/verifier/ctrf.json",
+        "verifier_ctrf_sha256": "c98e0e857eddb12a49734c7c0dc70e4a4e3e934220473cd0ab85bbf8d59065a1"
+      },
+      "usage": {
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "vulnerable-secret--pi",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.014844000000000001,
+        "components": {
+          "cache_write": 0.0,
+          "cached_input": 0.000384,
+          "ordinary_input": 0.00966,
+          "output": 0.0048000000000000004
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "pi",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:55571/v1",
+          "bridge": null,
+          "cell_id": "vulnerable-secret--pi",
+          "direct_openai": false,
+          "ephemeral_token_persisted": false,
+          "mode": "fake",
+          "port": 55571,
+          "provider": "controlled fake",
+          "upstream": null
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "6198690dca625c4062f98c3fd2fd3197e49680b9cd53b277b36085ffed8f1b30",
+        "source_bundle_sha256": null
+      },
+      "mode": "fake",
+      "never_rerun": false,
+      "real_model_attempted": false,
+      "request_count": 2,
+      "reward": 0.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "vulnerable-secret",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T06:47:28.381448Z",
+          "started_at": "2026-08-25T06:47:25.416586Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T06:47:25.416312Z",
+          "started_at": "2026-08-25T06:46:20.842225Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T06:46:20.842095Z",
+          "started_at": "2026-08-25T06:46:15.694964Z"
+        },
+        "harbor_finished_at": "2026-08-25T06:47:45.559479Z",
+        "harbor_started_at": "2026-08-25T06:46:15.607042Z",
+        "launcher_finished_at": 1787640467.019457,
+        "launcher_started_at": 1787640373.80769,
+        "request_seconds": [
+          2.2457970771938562e-05,
+          5.66698145121336e-06
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T06:47:34.667069Z",
+          "started_at": "2026-08-25T06:47:28.781237Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/vulnerable-secret--pi/gateway-audit.jsonl",
+        "harbor_result": "cells/vulnerable-secret--pi/job/vulnerable-secret__uJCHVWx/result.json",
+        "native_receipt": "cells/vulnerable-secret--pi/job/vulnerable-secret__uJCHVWx/agent/pi-direct-result.json",
+        "staging_stderr": "cells/vulnerable-secret--pi/harbor.stderr.log",
+        "staging_stdout": "cells/vulnerable-secret--pi/harbor.stdout.log",
+        "verifier_ctrf": "cells/vulnerable-secret--pi/job/vulnerable-secret__uJCHVWx/verifier/ctrf.json",
+        "verifier_ctrf_sha256": "30d0428208059ec3368536392c83f199bc34eea45376fda75c44aa1f35d0163a"
+      },
+      "usage": {
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "vulnerable-secret--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.014844000000000001,
+        "components": {
+          "cache_write": 0.0,
+          "cached_input": 0.000384,
+          "ordinary_input": 0.00966,
+          "output": 0.0048000000000000004
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "thinharness",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:55665/v1",
+          "bridge": null,
+          "cell_id": "vulnerable-secret--thinharness",
+          "direct_openai": false,
+          "ephemeral_token_persisted": false,
+          "mode": "fake",
+          "port": 55665,
+          "provider": "controlled fake",
+          "upstream": null
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "6198690dca625c4062f98c3fd2fd3197e49680b9cd53b277b36085ffed8f1b30",
+        "source_bundle_sha256": "96ce4cd81c551a38217fd5f9dd21a110afe1ed8d87198acd98db61ba27239840"
+      },
+      "mode": "fake",
+      "never_rerun": false,
+      "real_model_attempted": false,
+      "request_count": 2,
+      "reward": 0.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "vulnerable-secret",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T06:48:54.397648Z",
+          "started_at": "2026-08-25T06:48:53.537065Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T06:48:53.536815Z",
+          "started_at": "2026-08-25T06:47:49.919224Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T06:47:49.919094Z",
+          "started_at": "2026-08-25T06:47:48.833481Z"
+        },
+        "harbor_finished_at": "2026-08-25T06:49:12.926190Z",
+        "harbor_started_at": "2026-08-25T06:47:48.744446Z",
+        "launcher_finished_at": 1787640554.716075,
+        "launcher_started_at": 1787640467.02639,
+        "request_seconds": [
+          2.6541994884610176e-05,
+          4.04199818149209e-06
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T06:49:02.040038Z",
+          "started_at": "2026-08-25T06:48:54.824969Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/vulnerable-secret--thinharness/gateway-audit.jsonl",
+        "harbor_result": "cells/vulnerable-secret--thinharness/job/vulnerable-secret__3h9o8Wv/result.json",
+        "native_receipt": "cells/vulnerable-secret--thinharness/job/vulnerable-secret__3h9o8Wv/agent/thinharness-direct-result.json",
+        "staging_stderr": "cells/vulnerable-secret--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/vulnerable-secret--thinharness/harbor.stdout.log",
+        "verifier_ctrf": "cells/vulnerable-secret--thinharness/job/vulnerable-secret__3h9o8Wv/verifier/ctrf.json",
+        "verifier_ctrf_sha256": "6102db1b37a838ef60b452536b1aba931add8ee329a6bd1378d7132da6e05666"
+      },
+      "usage": {
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "break-filter-js-from-html--pi",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.014844000000000001,
+        "components": {
+          "cache_write": 0.0,
+          "cached_input": 0.000384,
+          "ordinary_input": 0.00966,
+          "output": 0.0048000000000000004
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "pi",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:55807/v1",
+          "bridge": null,
+          "cell_id": "break-filter-js-from-html--pi",
+          "direct_openai": false,
+          "ephemeral_token_persisted": false,
+          "mode": "fake",
+          "port": 55807,
+          "provider": "controlled fake",
+          "upstream": null
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "6198690dca625c4062f98c3fd2fd3197e49680b9cd53b277b36085ffed8f1b30",
+        "source_bundle_sha256": null
+      },
+      "mode": "fake",
+      "never_rerun": false,
+      "real_model_attempted": false,
+      "request_count": 2,
+      "reward": 0.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "break-filter-js-from-html",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T06:50:38.508609Z",
+          "started_at": "2026-08-25T06:50:35.328661Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T06:50:35.328433Z",
+          "started_at": "2026-08-25T06:49:29.286901Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T06:49:29.286796Z",
+          "started_at": "2026-08-25T06:49:17.146753Z"
+        },
+        "harbor_finished_at": "2026-08-25T06:50:57.086878Z",
+        "harbor_started_at": "2026-08-25T06:49:17.046988Z",
+        "launcher_finished_at": 1787640659.0618272,
+        "launcher_started_at": 1787640554.725593,
+        "request_seconds": [
+          2.1459010895341635e-05,
+          7.750000804662704e-06
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T06:50:46.096907Z",
+          "started_at": "2026-08-25T06:50:39.303008Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/break-filter-js-from-html--pi/gateway-audit.jsonl",
+        "harbor_result": "cells/break-filter-js-from-html--pi/job/break-filter-js-from-html__iZnFL8i/result.json",
+        "native_receipt": "cells/break-filter-js-from-html--pi/job/break-filter-js-from-html__iZnFL8i/agent/pi-direct-result.json",
+        "staging_stderr": "cells/break-filter-js-from-html--pi/harbor.stderr.log",
+        "staging_stdout": "cells/break-filter-js-from-html--pi/harbor.stdout.log",
+        "verifier_ctrf": "cells/break-filter-js-from-html--pi/job/break-filter-js-from-html__iZnFL8i/verifier/ctrf.json",
+        "verifier_ctrf_sha256": "6d9c7feb8940f43e7a0d4f2d3ab0741f75ff4fe4f119fc979a467ef95dbdf8a0"
+      },
+      "usage": {
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "break-filter-js-from-html--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.014844000000000001,
+        "components": {
+          "cache_write": 0.0,
+          "cached_input": 0.000384,
+          "ordinary_input": 0.00966,
+          "output": 0.0048000000000000004
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "thinharness",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:55990/v1",
+          "bridge": null,
+          "cell_id": "break-filter-js-from-html--thinharness",
+          "direct_openai": false,
+          "ephemeral_token_persisted": false,
+          "mode": "fake",
+          "port": 55990,
+          "provider": "controlled fake",
+          "upstream": null
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "6198690dca625c4062f98c3fd2fd3197e49680b9cd53b277b36085ffed8f1b30",
+        "source_bundle_sha256": "96ce4cd81c551a38217fd5f9dd21a110afe1ed8d87198acd98db61ba27239840"
+      },
+      "mode": "fake",
+      "never_rerun": false,
+      "real_model_attempted": false,
+      "request_count": 2,
+      "reward": 0.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "break-filter-js-from-html",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T06:52:07.242104Z",
+          "started_at": "2026-08-25T06:52:06.020887Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T06:52:06.020519Z",
+          "started_at": "2026-08-25T06:51:02.177022Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T06:51:02.176927Z",
+          "started_at": "2026-08-25T06:51:01.092561Z"
+        },
+        "harbor_finished_at": "2026-08-25T06:52:29.116953Z",
+        "harbor_started_at": "2026-08-25T06:51:00.981815Z",
+        "launcher_finished_at": 1787640751.347198,
+        "launcher_started_at": 1787640659.071112,
+        "request_seconds": [
+          2.4084001779556274e-05,
+          1.1333031579852104e-05
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T06:52:18.065890Z",
+          "started_at": "2026-08-25T06:52:08.276053Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/break-filter-js-from-html--thinharness/gateway-audit.jsonl",
+        "harbor_result": "cells/break-filter-js-from-html--thinharness/job/break-filter-js-from-html__dtXUKuY/result.json",
+        "native_receipt": "cells/break-filter-js-from-html--thinharness/job/break-filter-js-from-html__dtXUKuY/agent/thinharness-direct-result.json",
+        "staging_stderr": "cells/break-filter-js-from-html--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/break-filter-js-from-html--thinharness/harbor.stdout.log",
+        "verifier_ctrf": "cells/break-filter-js-from-html--thinharness/job/break-filter-js-from-html__dtXUKuY/verifier/ctrf.json",
+        "verifier_ctrf_sha256": "6b09bf1f4fe27f21c84aa0f0e8e3de02b65d18e7db865a5dc97488a674e79aef"
+      },
+      "usage": {
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "merge-diff-arc-agi-task--pi",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.014844000000000001,
+        "components": {
+          "cache_write": 0.0,
+          "cached_input": 0.000384,
+          "ordinary_input": 0.00966,
+          "output": 0.0048000000000000004
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "pi",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:56204/v1",
+          "bridge": null,
+          "cell_id": "merge-diff-arc-agi-task--pi",
+          "direct_openai": false,
+          "ephemeral_token_persisted": false,
+          "mode": "fake",
+          "port": 56204,
+          "provider": "controlled fake",
+          "upstream": null
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "6198690dca625c4062f98c3fd2fd3197e49680b9cd53b277b36085ffed8f1b30",
+        "source_bundle_sha256": null
+      },
+      "mode": "fake",
+      "never_rerun": false,
+      "real_model_attempted": false,
+      "request_count": 2,
+      "reward": 0.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "merge-diff-arc-agi-task",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T06:53:30.209109Z",
+          "started_at": "2026-08-25T06:53:27.019142Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T06:53:27.018912Z",
+          "started_at": "2026-08-25T06:52:35.850393Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T06:52:35.850292Z",
+          "started_at": "2026-08-25T06:52:33.712285Z"
+        },
+        "harbor_finished_at": "2026-08-25T06:53:57.447494Z",
+        "harbor_started_at": "2026-08-25T06:52:33.610723Z",
+        "launcher_finished_at": 1787640840.656828,
+        "launcher_started_at": 1787640751.358229,
+        "request_seconds": [
+          1.879199407994747e-05,
+          9.66701190918684e-06
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T06:53:46.131515Z",
+          "started_at": "2026-08-25T06:53:30.732792Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/merge-diff-arc-agi-task--pi/gateway-audit.jsonl",
+        "harbor_result": "cells/merge-diff-arc-agi-task--pi/job/merge-diff-arc-agi-task__dLqoffM/result.json",
+        "native_receipt": "cells/merge-diff-arc-agi-task--pi/job/merge-diff-arc-agi-task__dLqoffM/agent/pi-direct-result.json",
+        "staging_stderr": "cells/merge-diff-arc-agi-task--pi/harbor.stderr.log",
+        "staging_stdout": "cells/merge-diff-arc-agi-task--pi/harbor.stdout.log",
+        "verifier_ctrf": "cells/merge-diff-arc-agi-task--pi/job/merge-diff-arc-agi-task__dLqoffM/verifier/ctrf.json",
+        "verifier_ctrf_sha256": "43376fb46021109c399c094162a85cf67c9eda471021f41a04999f5b594e46d9"
+      },
+      "usage": {
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "merge-diff-arc-agi-task--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.014844000000000001,
+        "components": {
+          "cache_write": 0.0,
+          "cached_input": 0.000384,
+          "ordinary_input": 0.00966,
+          "output": 0.0048000000000000004
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "thinharness",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:56856/v1",
+          "bridge": null,
+          "cell_id": "merge-diff-arc-agi-task--thinharness",
+          "direct_openai": false,
+          "ephemeral_token_persisted": false,
+          "mode": "fake",
+          "port": 56856,
+          "provider": "controlled fake",
+          "upstream": null
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "6198690dca625c4062f98c3fd2fd3197e49680b9cd53b277b36085ffed8f1b30",
+        "source_bundle_sha256": "96ce4cd81c551a38217fd5f9dd21a110afe1ed8d87198acd98db61ba27239840"
+      },
+      "mode": "fake",
+      "never_rerun": false,
+      "real_model_attempted": false,
+      "request_count": 2,
+      "reward": 0.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "merge-diff-arc-agi-task",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T06:54:51.481293Z",
+          "started_at": "2026-08-25T06:54:50.617396Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T06:54:50.617131Z",
+          "started_at": "2026-08-25T06:54:03.453834Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T06:54:03.453713Z",
+          "started_at": "2026-08-25T06:54:02.318975Z"
+        },
+        "harbor_finished_at": "2026-08-25T06:55:13.038683Z",
+        "harbor_started_at": "2026-08-25T06:54:02.209115Z",
+        "launcher_finished_at": 1787640914.764572,
+        "launcher_started_at": 1787640840.6699991,
+        "request_seconds": [
+          1.9749975763261318e-05,
+          4.833971615880728e-06
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T06:55:02.034318Z",
+          "started_at": "2026-08-25T06:54:51.954058Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/merge-diff-arc-agi-task--thinharness/gateway-audit.jsonl",
+        "harbor_result": "cells/merge-diff-arc-agi-task--thinharness/job/merge-diff-arc-agi-task__mD3A2NU/result.json",
+        "native_receipt": "cells/merge-diff-arc-agi-task--thinharness/job/merge-diff-arc-agi-task__mD3A2NU/agent/thinharness-direct-result.json",
+        "staging_stderr": "cells/merge-diff-arc-agi-task--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/merge-diff-arc-agi-task--thinharness/harbor.stdout.log",
+        "verifier_ctrf": "cells/merge-diff-arc-agi-task--thinharness/job/merge-diff-arc-agi-task__mD3A2NU/verifier/ctrf.json",
+        "verifier_ctrf_sha256": "c4e317152c3523d7488deedb0341fa3d636258155de4e5c46891a8a81432e3d1"
+      },
+      "usage": {
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "count-dataset-tokens--pi",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.014844000000000001,
+        "components": {
+          "cache_write": 0.0,
+          "cached_input": 0.000384,
+          "ordinary_input": 0.00966,
+          "output": 0.0048000000000000004
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "pi",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:56925/v1",
+          "bridge": null,
+          "cell_id": "count-dataset-tokens--pi",
+          "direct_openai": false,
+          "ephemeral_token_persisted": false,
+          "mode": "fake",
+          "port": 56925,
+          "provider": "controlled fake",
+          "upstream": null
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "6198690dca625c4062f98c3fd2fd3197e49680b9cd53b277b36085ffed8f1b30",
+        "source_bundle_sha256": null
+      },
+      "mode": "fake",
+      "never_rerun": false,
+      "real_model_attempted": false,
+      "request_count": 2,
+      "reward": 0.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "count-dataset-tokens",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T06:56:35.172383Z",
+          "started_at": "2026-08-25T06:56:31.670947Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T06:56:31.670549Z",
+          "started_at": "2026-08-25T06:55:22.091019Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T06:55:22.090865Z",
+          "started_at": "2026-08-25T06:55:17.729092Z"
+        },
+        "harbor_finished_at": "2026-08-25T06:56:54.098072Z",
+        "harbor_started_at": "2026-08-25T06:55:17.617861Z",
+        "launcher_finished_at": 1787641016.0963058,
+        "launcher_started_at": 1787640914.7763379,
+        "request_seconds": [
+          1.9916973542422056e-05,
+          5.374953616410494e-06
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T06:56:42.868878Z",
+          "started_at": "2026-08-25T06:56:36.021010Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/count-dataset-tokens--pi/gateway-audit.jsonl",
+        "harbor_result": "cells/count-dataset-tokens--pi/job/count-dataset-tokens__xphmJXH/result.json",
+        "native_receipt": "cells/count-dataset-tokens--pi/job/count-dataset-tokens__xphmJXH/agent/pi-direct-result.json",
+        "staging_stderr": "cells/count-dataset-tokens--pi/harbor.stderr.log",
+        "staging_stdout": "cells/count-dataset-tokens--pi/harbor.stdout.log",
+        "verifier_ctrf": "cells/count-dataset-tokens--pi/job/count-dataset-tokens__xphmJXH/verifier/ctrf.json",
+        "verifier_ctrf_sha256": "2e7d3f5cad4c6655098c042d72449f61760c8f58fcb8e45bfaa8eadfcef8ebb6"
+      },
+      "usage": {
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "count-dataset-tokens--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.014844000000000001,
+        "components": {
+          "cache_write": 0.0,
+          "cached_input": 0.000384,
+          "ordinary_input": 0.00966,
+          "output": 0.0048000000000000004
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "thinharness",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:57537/v1",
+          "bridge": null,
+          "cell_id": "count-dataset-tokens--thinharness",
+          "direct_openai": false,
+          "ephemeral_token_persisted": false,
+          "mode": "fake",
+          "port": 57537,
+          "provider": "controlled fake",
+          "upstream": null
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "6198690dca625c4062f98c3fd2fd3197e49680b9cd53b277b36085ffed8f1b30",
+        "source_bundle_sha256": "96ce4cd81c551a38217fd5f9dd21a110afe1ed8d87198acd98db61ba27239840"
+      },
+      "mode": "fake",
+      "never_rerun": false,
+      "real_model_attempted": false,
+      "request_count": 2,
+      "reward": 0.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "count-dataset-tokens",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T06:58:04.277873Z",
+          "started_at": "2026-08-25T06:58:03.421376Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T06:58:03.421168Z",
+          "started_at": "2026-08-25T06:56:59.289295Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T06:56:59.289190Z",
+          "started_at": "2026-08-25T06:56:58.206215Z"
+        },
+        "harbor_finished_at": "2026-08-25T06:58:22.337322Z",
+        "harbor_started_at": "2026-08-25T06:56:58.035761Z",
+        "launcher_finished_at": 1787641104.0836768,
+        "launcher_started_at": 1787641016.1114938,
+        "request_seconds": [
+          1.9208004232496023e-05,
+          4.166970029473305e-06
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T06:58:11.454015Z",
+          "started_at": "2026-08-25T06:58:04.704769Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/count-dataset-tokens--thinharness/gateway-audit.jsonl",
+        "harbor_result": "cells/count-dataset-tokens--thinharness/job/count-dataset-tokens__Xhr8Lnc/result.json",
+        "native_receipt": "cells/count-dataset-tokens--thinharness/job/count-dataset-tokens__Xhr8Lnc/agent/thinharness-direct-result.json",
+        "staging_stderr": "cells/count-dataset-tokens--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/count-dataset-tokens--thinharness/harbor.stdout.log",
+        "verifier_ctrf": "cells/count-dataset-tokens--thinharness/job/count-dataset-tokens__Xhr8Lnc/verifier/ctrf.json",
+        "verifier_ctrf_sha256": "55baf7d2ddf6da11c970df1f2d085ef166882da8a1b95753dd2cf7ed3feb075b"
+      },
+      "usage": {
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "git-leak-recovery--pi",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.014844000000000001,
+        "components": {
+          "cache_write": 0.0,
+          "cached_input": 0.000384,
+          "ordinary_input": 0.00966,
+          "output": 0.0048000000000000004
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "pi",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:57705/v1",
+          "bridge": null,
+          "cell_id": "git-leak-recovery--pi",
+          "direct_openai": false,
+          "ephemeral_token_persisted": false,
+          "mode": "fake",
+          "port": 57705,
+          "provider": "controlled fake",
+          "upstream": null
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "6198690dca625c4062f98c3fd2fd3197e49680b9cd53b277b36085ffed8f1b30",
+        "source_bundle_sha256": null
+      },
+      "mode": "fake",
+      "never_rerun": false,
+      "real_model_attempted": false,
+      "request_count": 2,
+      "reward": 0.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "git-leak-recovery",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T06:59:58.536418Z",
+          "started_at": "2026-08-25T06:59:55.386331Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T06:59:55.386069Z",
+          "started_at": "2026-08-25T06:58:46.448714Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T06:58:46.448610Z",
+          "started_at": "2026-08-25T06:58:26.492521Z"
+        },
+        "harbor_finished_at": "2026-08-25T07:00:21.416949Z",
+        "harbor_started_at": "2026-08-25T06:58:26.392908Z",
+        "launcher_finished_at": 1787641223.634485,
+        "launcher_started_at": 1787641104.093899,
+        "request_seconds": [
+          1.8042046576738358e-05,
+          4.916975740343332e-06
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T07:00:10.367329Z",
+          "started_at": "2026-08-25T06:59:59.356043Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/git-leak-recovery--pi/gateway-audit.jsonl",
+        "harbor_result": "cells/git-leak-recovery--pi/job/git-leak-recovery__9tZViKf/result.json",
+        "native_receipt": "cells/git-leak-recovery--pi/job/git-leak-recovery__9tZViKf/agent/pi-direct-result.json",
+        "staging_stderr": "cells/git-leak-recovery--pi/harbor.stderr.log",
+        "staging_stdout": "cells/git-leak-recovery--pi/harbor.stdout.log",
+        "verifier_ctrf": "cells/git-leak-recovery--pi/job/git-leak-recovery__9tZViKf/verifier/ctrf.json",
+        "verifier_ctrf_sha256": "db1e410b33528251eb58de1373565bd03b1891e8bcc0c825023dac13e88ef5be"
+      },
+      "usage": {
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "git-leak-recovery--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.014844000000000001,
+        "components": {
+          "cache_write": 0.0,
+          "cached_input": 0.000384,
+          "ordinary_input": 0.00966,
+          "output": 0.0048000000000000004
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "thinharness",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:57946/v1",
+          "bridge": null,
+          "cell_id": "git-leak-recovery--thinharness",
+          "direct_openai": false,
+          "ephemeral_token_persisted": false,
+          "mode": "fake",
+          "port": 57946,
+          "provider": "controlled fake",
+          "upstream": null
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "6198690dca625c4062f98c3fd2fd3197e49680b9cd53b277b36085ffed8f1b30",
+        "source_bundle_sha256": "96ce4cd81c551a38217fd5f9dd21a110afe1ed8d87198acd98db61ba27239840"
+      },
+      "mode": "fake",
+      "never_rerun": false,
+      "real_model_attempted": false,
+      "request_count": 2,
+      "reward": 0.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "git-leak-recovery",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T07:01:30.247337Z",
+          "started_at": "2026-08-25T07:01:29.486754Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T07:01:29.486568Z",
+          "started_at": "2026-08-25T07:00:26.780203Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T07:00:26.780117Z",
+          "started_at": "2026-08-25T07:00:25.747421Z"
+        },
+        "harbor_finished_at": "2026-08-25T07:01:52.801771Z",
+        "harbor_started_at": "2026-08-25T07:00:25.643309Z",
+        "launcher_finished_at": 1787641314.5729191,
+        "launcher_started_at": 1787641223.645004,
+        "request_seconds": [
+          1.8874998204410076e-05,
+          4.708010237663984e-06
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T07:01:41.997478Z",
+          "started_at": "2026-08-25T07:01:30.684076Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/git-leak-recovery--thinharness/gateway-audit.jsonl",
+        "harbor_result": "cells/git-leak-recovery--thinharness/job/git-leak-recovery__cJCyzKh/result.json",
+        "native_receipt": "cells/git-leak-recovery--thinharness/job/git-leak-recovery__cJCyzKh/agent/thinharness-direct-result.json",
+        "staging_stderr": "cells/git-leak-recovery--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/git-leak-recovery--thinharness/harbor.stdout.log",
+        "verifier_ctrf": "cells/git-leak-recovery--thinharness/job/git-leak-recovery__cJCyzKh/verifier/ctrf.json",
+        "verifier_ctrf_sha256": "82a6dd4f1cf213c650e6e10209b6287da84b84c5bcf882a427f51a4223bb425e"
+      },
+      "usage": {
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "multi-source-data-merger--pi",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.014844000000000001,
+        "components": {
+          "cache_write": 0.0,
+          "cached_input": 0.000384,
+          "ordinary_input": 0.00966,
+          "output": 0.0048000000000000004
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "pi",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:58021/v1",
+          "bridge": null,
+          "cell_id": "multi-source-data-merger--pi",
+          "direct_openai": false,
+          "ephemeral_token_persisted": false,
+          "mode": "fake",
+          "port": 58021,
+          "provider": "controlled fake",
+          "upstream": null
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "6198690dca625c4062f98c3fd2fd3197e49680b9cd53b277b36085ffed8f1b30",
+        "source_bundle_sha256": null
+      },
+      "mode": "fake",
+      "never_rerun": false,
+      "real_model_attempted": false,
+      "request_count": 2,
+      "reward": 0.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "multi-source-data-merger",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T07:02:33.857847Z",
+          "started_at": "2026-08-25T07:02:30.829908Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T07:02:30.829656Z",
+          "started_at": "2026-08-25T07:02:04.767888Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T07:02:04.767758Z",
+          "started_at": "2026-08-25T07:01:56.938466Z"
+        },
+        "harbor_finished_at": "2026-08-25T07:02:57.392586Z",
+        "harbor_started_at": "2026-08-25T07:01:56.850181Z",
+        "launcher_finished_at": 1787641379.0119302,
+        "launcher_started_at": 1787641314.5811598,
+        "request_seconds": [
+          1.9832979887723923e-05,
+          4.458997864276171e-06
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T07:02:46.485970Z",
+          "started_at": "2026-08-25T07:02:34.291226Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/multi-source-data-merger--pi/gateway-audit.jsonl",
+        "harbor_result": "cells/multi-source-data-merger--pi/job/multi-source-data-merger__9Z4NFZE/result.json",
+        "native_receipt": "cells/multi-source-data-merger--pi/job/multi-source-data-merger__9Z4NFZE/agent/pi-direct-result.json",
+        "staging_stderr": "cells/multi-source-data-merger--pi/harbor.stderr.log",
+        "staging_stdout": "cells/multi-source-data-merger--pi/harbor.stdout.log",
+        "verifier_ctrf": "cells/multi-source-data-merger--pi/job/multi-source-data-merger__9Z4NFZE/verifier/ctrf.json",
+        "verifier_ctrf_sha256": "c7a523aaa0c5ebe40ee9f601e495e5c3249d98e7e9aefb795f8f9bc79699fe57"
+      },
+      "usage": {
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "multi-source-data-merger--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.014844000000000001,
+        "components": {
+          "cache_write": 0.0,
+          "cached_input": 0.000384,
+          "ordinary_input": 0.00966,
+          "output": 0.0048000000000000004
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "thinharness",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:58132/v1",
+          "bridge": null,
+          "cell_id": "multi-source-data-merger--thinharness",
+          "direct_openai": false,
+          "ephemeral_token_persisted": false,
+          "mode": "fake",
+          "port": 58132,
+          "provider": "controlled fake",
+          "upstream": null
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "6198690dca625c4062f98c3fd2fd3197e49680b9cd53b277b36085ffed8f1b30",
+        "source_bundle_sha256": "96ce4cd81c551a38217fd5f9dd21a110afe1ed8d87198acd98db61ba27239840"
+      },
+      "mode": "fake",
+      "never_rerun": false,
+      "real_model_attempted": false,
+      "request_count": 2,
+      "reward": 0.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "multi-source-data-merger",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T07:03:27.734439Z",
+          "started_at": "2026-08-25T07:03:26.963791Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T07:03:26.963518Z",
+          "started_at": "2026-08-25T07:03:01.603875Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T07:03:01.603703Z",
+          "started_at": "2026-08-25T07:03:00.566555Z"
+        },
+        "harbor_finished_at": "2026-08-25T07:03:51.761956Z",
+        "harbor_started_at": "2026-08-25T07:03:00.478535Z",
+        "launcher_finished_at": 1787641433.569154,
+        "launcher_started_at": 1787641379.020946,
+        "request_seconds": [
+          1.9916973542422056e-05,
+          5.209003575146198e-06
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T07:03:40.924247Z",
+          "started_at": "2026-08-25T07:03:28.142809Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/multi-source-data-merger--thinharness/gateway-audit.jsonl",
+        "harbor_result": "cells/multi-source-data-merger--thinharness/job/multi-source-data-merger__dZeuBWS/result.json",
+        "native_receipt": "cells/multi-source-data-merger--thinharness/job/multi-source-data-merger__dZeuBWS/agent/thinharness-direct-result.json",
+        "staging_stderr": "cells/multi-source-data-merger--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/multi-source-data-merger--thinharness/harbor.stdout.log",
+        "verifier_ctrf": "cells/multi-source-data-merger--thinharness/job/multi-source-data-merger__dZeuBWS/verifier/ctrf.json",
+        "verifier_ctrf_sha256": "cefd7507c2b2eb45eff41a71271e50c53cdad25228e146ed2c078af4116e150a"
+      },
+      "usage": {
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "pytorch-model-cli--pi",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.014844000000000001,
+        "components": {
+          "cache_write": 0.0,
+          "cached_input": 0.000384,
+          "ordinary_input": 0.00966,
+          "output": 0.0048000000000000004
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "pi",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:58233/v1",
+          "bridge": null,
+          "cell_id": "pytorch-model-cli--pi",
+          "direct_openai": false,
+          "ephemeral_token_persisted": false,
+          "mode": "fake",
+          "port": 58233,
+          "provider": "controlled fake",
+          "upstream": null
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "6198690dca625c4062f98c3fd2fd3197e49680b9cd53b277b36085ffed8f1b30",
+        "source_bundle_sha256": null
+      },
+      "mode": "fake",
+      "never_rerun": false,
+      "real_model_attempted": false,
+      "request_count": 2,
+      "reward": 0.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "pytorch-model-cli",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T07:05:08.312743Z",
+          "started_at": "2026-08-25T07:05:05.387021Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T07:05:05.386759Z",
+          "started_at": "2026-08-25T07:03:58.609291Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T07:03:58.609154Z",
+          "started_at": "2026-08-25T07:03:56.003088Z"
+        },
+        "harbor_finished_at": "2026-08-25T07:06:26.501550Z",
+        "harbor_started_at": "2026-08-25T07:03:55.913968Z",
+        "launcher_finished_at": 1787641588.229161,
+        "launcher_started_at": 1787641433.578215,
+        "request_seconds": [
+          1.8749968148767948e-05,
+          4.917033948004246e-06
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T07:06:15.322783Z",
+          "started_at": "2026-08-25T07:05:08.714683Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/pytorch-model-cli--pi/gateway-audit.jsonl",
+        "harbor_result": "cells/pytorch-model-cli--pi/job/pytorch-model-cli__7o2RZ9H/result.json",
+        "native_receipt": "cells/pytorch-model-cli--pi/job/pytorch-model-cli__7o2RZ9H/agent/pi-direct-result.json",
+        "staging_stderr": "cells/pytorch-model-cli--pi/harbor.stderr.log",
+        "staging_stdout": "cells/pytorch-model-cli--pi/harbor.stdout.log",
+        "verifier_ctrf": "cells/pytorch-model-cli--pi/job/pytorch-model-cli__7o2RZ9H/verifier/ctrf.json",
+        "verifier_ctrf_sha256": "effe546302d99b6c52a84aa04ae22d0d5178eee54856ae266aac6cc8c76a67f5"
+      },
+      "usage": {
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "pytorch-model-cli--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.014844000000000001,
+        "components": {
+          "cache_write": 0.0,
+          "cached_input": 0.000384,
+          "ordinary_input": 0.00966,
+          "output": 0.0048000000000000004
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "thinharness",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:58428/v1",
+          "bridge": null,
+          "cell_id": "pytorch-model-cli--thinharness",
+          "direct_openai": false,
+          "ephemeral_token_persisted": false,
+          "mode": "fake",
+          "port": 58428,
+          "provider": "controlled fake",
+          "upstream": null
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "6198690dca625c4062f98c3fd2fd3197e49680b9cd53b277b36085ffed8f1b30",
+        "source_bundle_sha256": "96ce4cd81c551a38217fd5f9dd21a110afe1ed8d87198acd98db61ba27239840"
+      },
+      "mode": "fake",
+      "never_rerun": false,
+      "real_model_attempted": false,
+      "request_count": 2,
+      "reward": 0.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "pytorch-model-cli",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T07:07:32.599563Z",
+          "started_at": "2026-08-25T07:07:31.736316Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T07:07:31.736066Z",
+          "started_at": "2026-08-25T07:06:30.927529Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T07:06:30.927430Z",
+          "started_at": "2026-08-25T07:06:29.855744Z"
+        },
+        "harbor_finished_at": "2026-08-25T07:08:52.253459Z",
+        "harbor_started_at": "2026-08-25T07:06:29.760781Z",
+        "launcher_finished_at": 1787641734.125391,
+        "launcher_started_at": 1787641588.240333,
+        "request_seconds": [
+          1.7624988686293364e-05,
+          5.375011824071407e-06
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T07:08:41.109083Z",
+          "started_at": "2026-08-25T07:07:33.039164Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/pytorch-model-cli--thinharness/gateway-audit.jsonl",
+        "harbor_result": "cells/pytorch-model-cli--thinharness/job/pytorch-model-cli__g2MeSdk/result.json",
+        "native_receipt": "cells/pytorch-model-cli--thinharness/job/pytorch-model-cli__g2MeSdk/agent/thinharness-direct-result.json",
+        "staging_stderr": "cells/pytorch-model-cli--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/pytorch-model-cli--thinharness/harbor.stdout.log",
+        "verifier_ctrf": "cells/pytorch-model-cli--thinharness/job/pytorch-model-cli__g2MeSdk/verifier/ctrf.json",
+        "verifier_ctrf_sha256": "f9a582f179c5f00947d9b48e6261199add83b763f7a8922578c37f0654d42990"
+      },
+      "usage": {
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "sanitize-git-repo--pi",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.014844000000000001,
+        "components": {
+          "cache_write": 0.0,
+          "cached_input": 0.000384,
+          "ordinary_input": 0.00966,
+          "output": 0.0048000000000000004
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "pi",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:58591/v1",
+          "bridge": null,
+          "cell_id": "sanitize-git-repo--pi",
+          "direct_openai": false,
+          "ephemeral_token_persisted": false,
+          "mode": "fake",
+          "port": 58591,
+          "provider": "controlled fake",
+          "upstream": null
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "6198690dca625c4062f98c3fd2fd3197e49680b9cd53b277b36085ffed8f1b30",
+        "source_bundle_sha256": null
+      },
+      "mode": "fake",
+      "never_rerun": false,
+      "real_model_attempted": false,
+      "request_count": 2,
+      "reward": 0.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "sanitize-git-repo",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T07:10:09.375809Z",
+          "started_at": "2026-08-25T07:10:06.274490Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T07:10:06.274273Z",
+          "started_at": "2026-08-25T07:09:02.711118Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T07:09:02.711049Z",
+          "started_at": "2026-08-25T07:08:56.300075Z"
+        },
+        "harbor_finished_at": "2026-08-25T07:10:27.679098Z",
+        "harbor_started_at": "2026-08-25T07:08:56.207279Z",
+        "launcher_finished_at": 1787641829.476736,
+        "launcher_started_at": 1787641734.135558,
+        "request_seconds": [
+          1.937500201165676e-05,
+          4.707952030003071e-06
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T07:10:16.749335Z",
+          "started_at": "2026-08-25T07:10:09.845528Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/sanitize-git-repo--pi/gateway-audit.jsonl",
+        "harbor_result": "cells/sanitize-git-repo--pi/job/sanitize-git-repo__nUpdA3j/result.json",
+        "native_receipt": "cells/sanitize-git-repo--pi/job/sanitize-git-repo__nUpdA3j/agent/pi-direct-result.json",
+        "staging_stderr": "cells/sanitize-git-repo--pi/harbor.stderr.log",
+        "staging_stdout": "cells/sanitize-git-repo--pi/harbor.stdout.log",
+        "verifier_ctrf": "cells/sanitize-git-repo--pi/job/sanitize-git-repo__nUpdA3j/verifier/ctrf.json",
+        "verifier_ctrf_sha256": "7c1c4f82089811a520f5ce7602269f99b987cc3f14b2c4ab1dd075b3d9860d20"
+      },
+      "usage": {
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "sanitize-git-repo--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.014844000000000001,
+        "components": {
+          "cache_write": 0.0,
+          "cached_input": 0.000384,
+          "ordinary_input": 0.00966,
+          "output": 0.0048000000000000004
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "thinharness",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:58690/v1",
+          "bridge": null,
+          "cell_id": "sanitize-git-repo--thinharness",
+          "direct_openai": false,
+          "ephemeral_token_persisted": false,
+          "mode": "fake",
+          "port": 58690,
+          "provider": "controlled fake",
+          "upstream": null
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "6198690dca625c4062f98c3fd2fd3197e49680b9cd53b277b36085ffed8f1b30",
+        "source_bundle_sha256": "96ce4cd81c551a38217fd5f9dd21a110afe1ed8d87198acd98db61ba27239840"
+      },
+      "mode": "fake",
+      "never_rerun": false,
+      "real_model_attempted": false,
+      "request_count": 2,
+      "reward": 0.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "sanitize-git-repo",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T07:10:41.684827Z",
+          "started_at": "2026-08-25T07:10:40.839187Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T07:10:40.838897Z",
+          "started_at": "2026-08-25T07:10:32.030983Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T07:10:32.030865Z",
+          "started_at": "2026-08-25T07:10:31.039351Z"
+        },
+        "harbor_finished_at": "2026-08-25T07:11:02.607822Z",
+        "harbor_started_at": "2026-08-25T07:10:30.949960Z",
+        "launcher_finished_at": 1787641864.014241,
+        "launcher_started_at": 1787641829.4856079,
+        "request_seconds": [
+          2.0292005501687527e-05,
+          4.833040293306112e-06
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T07:10:51.858201Z",
+          "started_at": "2026-08-25T07:10:42.079608Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/sanitize-git-repo--thinharness/gateway-audit.jsonl",
+        "harbor_result": "cells/sanitize-git-repo--thinharness/job/sanitize-git-repo__dVX4Hmi/result.json",
+        "native_receipt": "cells/sanitize-git-repo--thinharness/job/sanitize-git-repo__dVX4Hmi/agent/thinharness-direct-result.json",
+        "staging_stderr": "cells/sanitize-git-repo--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/sanitize-git-repo--thinharness/harbor.stdout.log",
+        "verifier_ctrf": "cells/sanitize-git-repo--thinharness/job/sanitize-git-repo__dVX4Hmi/verifier/ctrf.json",
+        "verifier_ctrf_sha256": "e38e0c86e7785b88e52d7851178499fad600e5059278744220f6c9a5415e4b91"
+      },
+      "usage": {
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "sqlite-with-gcov--pi",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.014844000000000001,
+        "components": {
+          "cache_write": 0.0,
+          "cached_input": 0.000384,
+          "ordinary_input": 0.00966,
+          "output": 0.0048000000000000004
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "pi",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:58748/v1",
+          "bridge": null,
+          "cell_id": "sqlite-with-gcov--pi",
+          "direct_openai": false,
+          "ephemeral_token_persisted": false,
+          "mode": "fake",
+          "port": 58748,
+          "provider": "controlled fake",
+          "upstream": null
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "6198690dca625c4062f98c3fd2fd3197e49680b9cd53b277b36085ffed8f1b30",
+        "source_bundle_sha256": null
+      },
+      "mode": "fake",
+      "never_rerun": false,
+      "real_model_attempted": false,
+      "request_count": 2,
+      "reward": 0.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "sqlite-with-gcov",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T07:11:59.323371Z",
+          "started_at": "2026-08-25T07:11:56.314765Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T07:11:56.314572Z",
+          "started_at": "2026-08-25T07:11:08.922253Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T07:11:08.922168Z",
+          "started_at": "2026-08-25T07:11:06.654231Z"
+        },
+        "harbor_finished_at": "2026-08-25T07:12:20.567234Z",
+        "harbor_started_at": "2026-08-25T07:11:06.558057Z",
+        "launcher_finished_at": 1787641942.492518,
+        "launcher_started_at": 1787641864.021856,
+        "request_seconds": [
+          1.9667029846459627e-05,
+          4.332978278398514e-06
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T07:12:09.560450Z",
+          "started_at": "2026-08-25T07:11:59.774709Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/sqlite-with-gcov--pi/gateway-audit.jsonl",
+        "harbor_result": "cells/sqlite-with-gcov--pi/job/sqlite-with-gcov__k4eYJPL/result.json",
+        "native_receipt": "cells/sqlite-with-gcov--pi/job/sqlite-with-gcov__k4eYJPL/agent/pi-direct-result.json",
+        "staging_stderr": "cells/sqlite-with-gcov--pi/harbor.stderr.log",
+        "staging_stdout": "cells/sqlite-with-gcov--pi/harbor.stdout.log",
+        "verifier_ctrf": "cells/sqlite-with-gcov--pi/job/sqlite-with-gcov__k4eYJPL/verifier/ctrf.json",
+        "verifier_ctrf_sha256": "d80ce2ba019e50e62f210aca88af24dcb0239f40a5b09992a187fe8d8b4d2bf5"
+      },
+      "usage": {
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "sqlite-with-gcov--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.014844000000000001,
+        "components": {
+          "cache_write": 0.0,
+          "cached_input": 0.000384,
+          "ordinary_input": 0.00966,
+          "output": 0.0048000000000000004
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "thinharness",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:58846/v1",
+          "bridge": null,
+          "cell_id": "sqlite-with-gcov--thinharness",
+          "direct_openai": false,
+          "ephemeral_token_persisted": false,
+          "mode": "fake",
+          "port": 58846,
+          "provider": "controlled fake",
+          "upstream": null
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "6198690dca625c4062f98c3fd2fd3197e49680b9cd53b277b36085ffed8f1b30",
+        "source_bundle_sha256": "96ce4cd81c551a38217fd5f9dd21a110afe1ed8d87198acd98db61ba27239840"
+      },
+      "mode": "fake",
+      "never_rerun": false,
+      "real_model_attempted": false,
+      "request_count": 2,
+      "reward": 0.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "sqlite-with-gcov",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T07:13:11.626837Z",
+          "started_at": "2026-08-25T07:13:10.865726Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T07:13:10.865472Z",
+          "started_at": "2026-08-25T07:12:24.966387Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T07:12:24.966272Z",
+          "started_at": "2026-08-25T07:12:23.945472Z"
+        },
+        "harbor_finished_at": "2026-08-25T07:13:33.914574Z",
+        "harbor_started_at": "2026-08-25T07:12:23.849782Z",
+        "launcher_finished_at": 1787642015.4566,
+        "launcher_started_at": 1787641942.504385,
+        "request_seconds": [
+          1.9000028260052204e-05,
+          4.833971615880728e-06
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T07:13:23.005348Z",
+          "started_at": "2026-08-25T07:13:12.297316Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/sqlite-with-gcov--thinharness/gateway-audit.jsonl",
+        "harbor_result": "cells/sqlite-with-gcov--thinharness/job/sqlite-with-gcov__hJLSgPX/result.json",
+        "native_receipt": "cells/sqlite-with-gcov--thinharness/job/sqlite-with-gcov__hJLSgPX/agent/thinharness-direct-result.json",
+        "staging_stderr": "cells/sqlite-with-gcov--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/sqlite-with-gcov--thinharness/harbor.stdout.log",
+        "verifier_ctrf": "cells/sqlite-with-gcov--thinharness/job/sqlite-with-gcov__hJLSgPX/verifier/ctrf.json",
+        "verifier_ctrf_sha256": "0c6c1819dc399577c64372a30ad881e426d3436b29696fc6b7797be6b99656b0"
+      },
+      "usage": {
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "tune-mjcf--pi",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.014844000000000001,
+        "components": {
+          "cache_write": 0.0,
+          "cached_input": 0.000384,
+          "ordinary_input": 0.00966,
+          "output": 0.0048000000000000004
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "pi",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:59061/v1",
+          "bridge": null,
+          "cell_id": "tune-mjcf--pi",
+          "direct_openai": false,
+          "ephemeral_token_persisted": false,
+          "mode": "fake",
+          "port": 59061,
+          "provider": "controlled fake",
+          "upstream": null
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "21b5f08f4e4a4b682b87c3f4dfe14020243966f31f669e2f8fd7c62430840328",
+        "source_bundle_sha256": null
+      },
+      "mode": "fake",
+      "never_rerun": false,
+      "real_model_attempted": false,
+      "request_count": 2,
+      "reward": 0.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "tune-mjcf",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T07:17:13.324073Z",
+          "started_at": "2026-08-25T07:17:10.374042Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T07:17:10.373857Z",
+          "started_at": "2026-08-25T07:16:05.069911Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T07:16:05.069832Z",
+          "started_at": "2026-08-25T07:16:04.094821Z"
+        },
+        "harbor_finished_at": "2026-08-25T07:17:31.170021Z",
+        "harbor_started_at": "2026-08-25T07:16:04.003651Z",
+        "launcher_finished_at": 1787642252.986409,
+        "launcher_started_at": 1787642162.372173,
+        "request_seconds": [
+          1.950003206729889e-05,
+          5.374953616410494e-06
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T07:17:20.236785Z",
+          "started_at": "2026-08-25T07:17:13.740677Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/tune-mjcf--pi/gateway-audit.jsonl",
+        "harbor_result": "cells/tune-mjcf--pi/job/tune-mjcf__kFgSCxj/result.json",
+        "native_receipt": "cells/tune-mjcf--pi/job/tune-mjcf__kFgSCxj/agent/pi-direct-result.json",
+        "staging_stderr": "cells/tune-mjcf--pi/harbor.stderr.log",
+        "staging_stdout": "cells/tune-mjcf--pi/harbor.stdout.log",
+        "verifier_evidence": "cells/tune-mjcf--pi/job/tune-mjcf__kFgSCxj/verifier/reward.txt",
+        "verifier_evidence_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+        "verifier_evidence_type": "reward.txt"
+      },
+      "usage": {
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "tune-mjcf--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.014844000000000001,
+        "components": {
+          "cache_write": 0.0,
+          "cached_input": 0.000384,
+          "ordinary_input": 0.00966,
+          "output": 0.0048000000000000004
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "thinharness",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:59143/v1",
+          "bridge": null,
+          "cell_id": "tune-mjcf--thinharness",
+          "direct_openai": false,
+          "ephemeral_token_persisted": false,
+          "mode": "fake",
+          "port": 59143,
+          "provider": "controlled fake",
+          "upstream": null
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "21b5f08f4e4a4b682b87c3f4dfe14020243966f31f669e2f8fd7c62430840328",
+        "source_bundle_sha256": "96ce4cd81c551a38217fd5f9dd21a110afe1ed8d87198acd98db61ba27239840"
+      },
+      "mode": "fake",
+      "never_rerun": false,
+      "real_model_attempted": false,
+      "request_count": 2,
+      "reward": 0.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "tune-mjcf",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T07:18:36.674102Z",
+          "started_at": "2026-08-25T07:18:35.818988Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T07:18:35.818738Z",
+          "started_at": "2026-08-25T07:17:35.679090Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T07:17:35.678984Z",
+          "started_at": "2026-08-25T07:17:34.660672Z"
+        },
+        "harbor_finished_at": "2026-08-25T07:18:55.289107Z",
+        "harbor_started_at": "2026-08-25T07:17:34.570548Z",
+        "launcher_finished_at": 1787642336.999446,
+        "launcher_started_at": 1787642252.994756,
+        "request_seconds": [
+          2.0458013750612736e-05,
+          4.500034265220165e-06
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T07:18:44.447211Z",
+          "started_at": "2026-08-25T07:18:37.094098Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/tune-mjcf--thinharness/gateway-audit.jsonl",
+        "harbor_result": "cells/tune-mjcf--thinharness/job/tune-mjcf__MtzEEu2/result.json",
+        "native_receipt": "cells/tune-mjcf--thinharness/job/tune-mjcf__MtzEEu2/agent/thinharness-direct-result.json",
+        "staging_stderr": "cells/tune-mjcf--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/tune-mjcf--thinharness/harbor.stdout.log",
+        "verifier_evidence": "cells/tune-mjcf--thinharness/job/tune-mjcf__MtzEEu2/verifier/reward.txt",
+        "verifier_evidence_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+        "verifier_evidence_type": "reward.txt"
+      },
+      "usage": {
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "code-from-image--pi",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.014844000000000001,
+        "components": {
+          "cache_write": 0.0,
+          "cached_input": 0.000384,
+          "ordinary_input": 0.00966,
+          "output": 0.0048000000000000004
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "pi",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:59251/v1",
+          "bridge": null,
+          "cell_id": "code-from-image--pi",
+          "direct_openai": false,
+          "ephemeral_token_persisted": false,
+          "mode": "fake",
+          "port": 59251,
+          "provider": "controlled fake",
+          "upstream": null
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "21b5f08f4e4a4b682b87c3f4dfe14020243966f31f669e2f8fd7c62430840328",
+        "source_bundle_sha256": null
+      },
+      "mode": "fake",
+      "never_rerun": false,
+      "real_model_attempted": false,
+      "request_count": 2,
+      "reward": 0.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "code-from-image",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T07:20:07.894517Z",
+          "started_at": "2026-08-25T07:20:04.948398Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T07:20:04.948142Z",
+          "started_at": "2026-08-25T07:19:01.835583Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T07:19:01.835459Z",
+          "started_at": "2026-08-25T07:18:59.496652Z"
+        },
+        "harbor_finished_at": "2026-08-25T07:20:25.017565Z",
+        "harbor_started_at": "2026-08-25T07:18:59.406547Z",
+        "launcher_finished_at": 1787642426.5678332,
+        "launcher_started_at": 1787642337.0086982,
+        "request_seconds": [
+          2.1249987185001373e-05,
+          4.958012141287327e-06
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T07:20:14.099371Z",
+          "started_at": "2026-08-25T07:20:08.302962Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/code-from-image--pi/gateway-audit.jsonl",
+        "harbor_result": "cells/code-from-image--pi/job/code-from-image__zJFKeXe/result.json",
+        "native_receipt": "cells/code-from-image--pi/job/code-from-image__zJFKeXe/agent/pi-direct-result.json",
+        "staging_stderr": "cells/code-from-image--pi/harbor.stderr.log",
+        "staging_stdout": "cells/code-from-image--pi/harbor.stdout.log",
+        "verifier_evidence": "cells/code-from-image--pi/job/code-from-image__zJFKeXe/verifier/ctrf.json",
+        "verifier_evidence_sha256": "d38f1cb7f9633ba49f47297f9102f08220a73e2672b33423b71589d945634722",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "code-from-image--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.014844000000000001,
+        "components": {
+          "cache_write": 0.0,
+          "cached_input": 0.000384,
+          "ordinary_input": 0.00966,
+          "output": 0.0048000000000000004
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "thinharness",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:59336/v1",
+          "bridge": null,
+          "cell_id": "code-from-image--thinharness",
+          "direct_openai": false,
+          "ephemeral_token_persisted": false,
+          "mode": "fake",
+          "port": 59336,
+          "provider": "controlled fake",
+          "upstream": null
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "21b5f08f4e4a4b682b87c3f4dfe14020243966f31f669e2f8fd7c62430840328",
+        "source_bundle_sha256": "96ce4cd81c551a38217fd5f9dd21a110afe1ed8d87198acd98db61ba27239840"
+      },
+      "mode": "fake",
+      "never_rerun": false,
+      "real_model_attempted": false,
+      "request_count": 2,
+      "reward": 0.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "code-from-image",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T07:21:30.547752Z",
+          "started_at": "2026-08-25T07:21:29.695564Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T07:21:29.695343Z",
+          "started_at": "2026-08-25T07:20:29.398612Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T07:20:29.398508Z",
+          "started_at": "2026-08-25T07:20:28.411866Z"
+        },
+        "harbor_finished_at": "2026-08-25T07:21:48.439933Z",
+        "harbor_started_at": "2026-08-25T07:20:28.323071Z",
+        "launcher_finished_at": 1787642509.866914,
+        "launcher_started_at": 1787642426.5763369,
+        "request_seconds": [
+          2.1083978936076164e-05,
+          4.62500611320138e-06
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T07:21:37.555535Z",
+          "started_at": "2026-08-25T07:21:30.964841Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/code-from-image--thinharness/gateway-audit.jsonl",
+        "harbor_result": "cells/code-from-image--thinharness/job/code-from-image__m4JEsWN/result.json",
+        "native_receipt": "cells/code-from-image--thinharness/job/code-from-image__m4JEsWN/agent/thinharness-direct-result.json",
+        "staging_stderr": "cells/code-from-image--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/code-from-image--thinharness/harbor.stdout.log",
+        "verifier_evidence": "cells/code-from-image--thinharness/job/code-from-image__m4JEsWN/verifier/ctrf.json",
+        "verifier_evidence_sha256": "46d4ed502f56777943559b2cda1ff5e7a5fb4a42e512f9415aa6fe45b1dc3df4",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "custom-memory-heap-crash--pi",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.014844000000000001,
+        "components": {
+          "cache_write": 0.0,
+          "cached_input": 0.000384,
+          "ordinary_input": 0.00966,
+          "output": 0.0048000000000000004
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "pi",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:59407/v1",
+          "bridge": null,
+          "cell_id": "custom-memory-heap-crash--pi",
+          "direct_openai": false,
+          "ephemeral_token_persisted": false,
+          "mode": "fake",
+          "port": 59407,
+          "provider": "controlled fake",
+          "upstream": null
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "21b5f08f4e4a4b682b87c3f4dfe14020243966f31f669e2f8fd7c62430840328",
+        "source_bundle_sha256": null
+      },
+      "mode": "fake",
+      "never_rerun": false,
+      "real_model_attempted": false,
+      "request_count": 2,
+      "reward": 0.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "custom-memory-heap-crash",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T07:23:50.876159Z",
+          "started_at": "2026-08-25T07:23:47.845991Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T07:23:47.845730Z",
+          "started_at": "2026-08-25T07:22:30.797240Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T07:22:30.797124Z",
+          "started_at": "2026-08-25T07:21:52.094925Z"
+        },
+        "harbor_finished_at": "2026-08-25T07:24:20.920580Z",
+        "harbor_started_at": "2026-08-25T07:21:52.005453Z",
+        "launcher_finished_at": 1787642662.556279,
+        "launcher_started_at": 1787642509.876572,
+        "request_seconds": [
+          1.9332976080477238e-05,
+          4.62500611320138e-06
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T07:24:09.989879Z",
+          "started_at": "2026-08-25T07:23:51.631191Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/custom-memory-heap-crash--pi/gateway-audit.jsonl",
+        "harbor_result": "cells/custom-memory-heap-crash--pi/job/custom-memory-heap-crash__qSKvCuD/result.json",
+        "native_receipt": "cells/custom-memory-heap-crash--pi/job/custom-memory-heap-crash__qSKvCuD/agent/pi-direct-result.json",
+        "staging_stderr": "cells/custom-memory-heap-crash--pi/harbor.stderr.log",
+        "staging_stdout": "cells/custom-memory-heap-crash--pi/harbor.stdout.log",
+        "verifier_evidence": "cells/custom-memory-heap-crash--pi/job/custom-memory-heap-crash__qSKvCuD/verifier/ctrf.json",
+        "verifier_evidence_sha256": "52585c9421a705423089159a18db69f05cdb519ddd5929dd7df919c3596a607d",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "custom-memory-heap-crash--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.014844000000000001,
+        "components": {
+          "cache_write": 0.0,
+          "cached_input": 0.000384,
+          "ordinary_input": 0.00966,
+          "output": 0.0048000000000000004
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "thinharness",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:59600/v1",
+          "bridge": null,
+          "cell_id": "custom-memory-heap-crash--thinharness",
+          "direct_openai": false,
+          "ephemeral_token_persisted": false,
+          "mode": "fake",
+          "port": 59600,
+          "provider": "controlled fake",
+          "upstream": null
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "08d50d4e7a3835d2ade586431b87c45371ff99442d8e07bd591a0e02032d9f56",
+        "source_bundle_sha256": "96ce4cd81c551a38217fd5f9dd21a110afe1ed8d87198acd98db61ba27239840"
+      },
+      "mode": "fake",
+      "never_rerun": false,
+      "real_model_attempted": false,
+      "request_count": 2,
+      "reward": 0.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "custom-memory-heap-crash",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T07:26:16.307191Z",
+          "started_at": "2026-08-25T07:26:15.529304Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T07:26:15.529104Z",
+          "started_at": "2026-08-25T07:25:14.141845Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T07:25:14.141748Z",
+          "started_at": "2026-08-25T07:25:13.132615Z"
+        },
+        "harbor_finished_at": "2026-08-25T07:26:46.388583Z",
+        "harbor_started_at": "2026-08-25T07:25:13.044935Z",
+        "launcher_finished_at": 1787642808.155505,
+        "launcher_started_at": 1787642711.675308,
+        "request_seconds": [
+          1.6874982975423336e-05,
+          5.875015631318092e-06
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T07:26:35.592513Z",
+          "started_at": "2026-08-25T07:26:16.727488Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/custom-memory-heap-crash--thinharness/gateway-audit.jsonl",
+        "harbor_result": "cells/custom-memory-heap-crash--thinharness/job/custom-memory-heap-crash__r2wkmAk/result.json",
+        "native_receipt": "cells/custom-memory-heap-crash--thinharness/job/custom-memory-heap-crash__r2wkmAk/agent/thinharness-direct-result.json",
+        "staging_stderr": "cells/custom-memory-heap-crash--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/custom-memory-heap-crash--thinharness/harbor.stdout.log",
+        "verifier_evidence": "cells/custom-memory-heap-crash--thinharness/job/custom-memory-heap-crash__r2wkmAk/verifier/ctrf.json",
+        "verifier_evidence_sha256": "0dcf39ba751d3c501db223d0244d268f9e23bdb4619a60e73790c2bf9d9980fd",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "qemu-alpine-ssh--pi",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.014844000000000001,
+        "components": {
+          "cache_write": 0.0,
+          "cached_input": 0.000384,
+          "ordinary_input": 0.00966,
+          "output": 0.0048000000000000004
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "pi",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:59672/v1",
+          "bridge": null,
+          "cell_id": "qemu-alpine-ssh--pi",
+          "direct_openai": false,
+          "ephemeral_token_persisted": false,
+          "mode": "fake",
+          "port": 59672,
+          "provider": "controlled fake",
+          "upstream": null
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "08d50d4e7a3835d2ade586431b87c45371ff99442d8e07bd591a0e02032d9f56",
+        "source_bundle_sha256": null
+      },
+      "mode": "fake",
+      "never_rerun": false,
+      "real_model_attempted": false,
+      "request_count": 2,
+      "reward": 0.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "qemu-alpine-ssh",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T07:28:22.374108Z",
+          "started_at": "2026-08-25T07:28:19.583474Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T07:28:19.583270Z",
+          "started_at": "2026-08-25T07:27:22.879824Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T07:27:22.879743Z",
+          "started_at": "2026-08-25T07:26:50.712079Z"
+        },
+        "harbor_finished_at": "2026-08-25T07:28:43.729538Z",
+        "harbor_started_at": "2026-08-25T07:26:50.621997Z",
+        "launcher_finished_at": 1787642925.628633,
+        "launcher_started_at": 1787642808.16609,
+        "request_seconds": [
+          1.837499439716339e-05,
+          5.249981768429279e-06
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T07:28:32.739119Z",
+          "started_at": "2026-08-25T07:28:23.077687Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/qemu-alpine-ssh--pi/gateway-audit.jsonl",
+        "harbor_result": "cells/qemu-alpine-ssh--pi/job/qemu-alpine-ssh__JNxWr6s/result.json",
+        "native_receipt": "cells/qemu-alpine-ssh--pi/job/qemu-alpine-ssh__JNxWr6s/agent/pi-direct-result.json",
+        "staging_stderr": "cells/qemu-alpine-ssh--pi/harbor.stderr.log",
+        "staging_stdout": "cells/qemu-alpine-ssh--pi/harbor.stdout.log",
+        "verifier_evidence": "cells/qemu-alpine-ssh--pi/job/qemu-alpine-ssh__JNxWr6s/verifier/ctrf.json",
+        "verifier_evidence_sha256": "9dd1b917c42ebb1c76820e943078f9b02fc4052bbdb44fe6ca0a5886e49321b5",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "qemu-alpine-ssh--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.014844000000000001,
+        "components": {
+          "cache_write": 0.0,
+          "cached_input": 0.000384,
+          "ordinary_input": 0.00966,
+          "output": 0.0048000000000000004
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "thinharness",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:59863/v1",
+          "bridge": null,
+          "cell_id": "qemu-alpine-ssh--thinharness",
+          "direct_openai": false,
+          "ephemeral_token_persisted": false,
+          "mode": "fake",
+          "port": 59863,
+          "provider": "controlled fake",
+          "upstream": null
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "b8365355010dd3d81b85e14d07f2f8bced41644be3dc1654a20516e9f3b2bec6",
+        "source_bundle_sha256": "96ce4cd81c551a38217fd5f9dd21a110afe1ed8d87198acd98db61ba27239840"
+      },
+      "mode": "fake",
+      "never_rerun": false,
+      "real_model_attempted": false,
+      "request_count": 2,
+      "reward": 0.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "qemu-alpine-ssh",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T07:31:41.994050Z",
+          "started_at": "2026-08-25T07:31:41.204318Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T07:31:41.204037Z",
+          "started_at": "2026-08-25T07:30:38.656100Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T07:30:38.656027Z",
+          "started_at": "2026-08-25T07:30:37.675153Z"
+        },
+        "harbor_finished_at": "2026-08-25T07:32:03.607067Z",
+        "harbor_started_at": "2026-08-25T07:30:37.585891Z",
+        "launcher_finished_at": 1787643125.322193,
+        "launcher_started_at": 1787643036.128736,
+        "request_seconds": [
+          2.679100725799799e-05,
+          5.249981768429279e-06
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T07:31:52.593866Z",
+          "started_at": "2026-08-25T07:31:42.711411Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/qemu-alpine-ssh--thinharness/gateway-audit.jsonl",
+        "harbor_result": "cells/qemu-alpine-ssh--thinharness/job/qemu-alpine-ssh__RBFqeim/result.json",
+        "native_receipt": "cells/qemu-alpine-ssh--thinharness/job/qemu-alpine-ssh__RBFqeim/agent/thinharness-direct-result.json",
+        "staging_stderr": "cells/qemu-alpine-ssh--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/qemu-alpine-ssh--thinharness/harbor.stdout.log",
+        "verifier_evidence": "cells/qemu-alpine-ssh--thinharness/job/qemu-alpine-ssh__RBFqeim/verifier/ctrf.json",
+        "verifier_evidence_sha256": "1cc5f8067fc9afed98ce6264e1610d3b0a9f0f06239ad9dfb5b1a5ad3d67513d",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "qemu-startup--pi",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.014844000000000001,
+        "components": {
+          "cache_write": 0.0,
+          "cached_input": 0.000384,
+          "ordinary_input": 0.00966,
+          "output": 0.0048000000000000004
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "pi",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:59951/v1",
+          "bridge": null,
+          "cell_id": "qemu-startup--pi",
+          "direct_openai": false,
+          "ephemeral_token_persisted": false,
+          "mode": "fake",
+          "port": 59951,
+          "provider": "controlled fake",
+          "upstream": null
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "b8365355010dd3d81b85e14d07f2f8bced41644be3dc1654a20516e9f3b2bec6",
+        "source_bundle_sha256": null
+      },
+      "mode": "fake",
+      "never_rerun": false,
+      "real_model_attempted": false,
+      "request_count": 2,
+      "reward": 0.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "qemu-startup",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T07:33:09.346090Z",
+          "started_at": "2026-08-25T07:33:06.523868Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T07:33:06.523611Z",
+          "started_at": "2026-08-25T07:32:09.479103Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T07:32:09.478920Z",
+          "started_at": "2026-08-25T07:32:07.548484Z"
+        },
+        "harbor_finished_at": "2026-08-25T07:33:31.194087Z",
+        "harbor_started_at": "2026-08-25T07:32:07.451778Z",
+        "launcher_finished_at": 1787643213.051234,
+        "launcher_started_at": 1787643125.333361,
+        "request_seconds": [
+          2.1249987185001373e-05,
+          4.500034265220165e-06
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T07:33:20.230173Z",
+          "started_at": "2026-08-25T07:33:09.766257Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/qemu-startup--pi/gateway-audit.jsonl",
+        "harbor_result": "cells/qemu-startup--pi/job/qemu-startup__JxPJrTX/result.json",
+        "native_receipt": "cells/qemu-startup--pi/job/qemu-startup__JxPJrTX/agent/pi-direct-result.json",
+        "staging_stderr": "cells/qemu-startup--pi/harbor.stderr.log",
+        "staging_stdout": "cells/qemu-startup--pi/harbor.stdout.log",
+        "verifier_evidence": "cells/qemu-startup--pi/job/qemu-startup__JxPJrTX/verifier/ctrf.json",
+        "verifier_evidence_sha256": "81213975e5d4cf1dafc8ae11687ed5b840bc74cb034cc947f019b3bb1800ba11",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "qemu-startup--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.014844000000000001,
+        "components": {
+          "cache_write": 0.0,
+          "cached_input": 0.000384,
+          "ordinary_input": 0.00966,
+          "output": 0.0048000000000000004
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "thinharness",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:60042/v1",
+          "bridge": null,
+          "cell_id": "qemu-startup--thinharness",
+          "direct_openai": false,
+          "ephemeral_token_persisted": false,
+          "mode": "fake",
+          "port": 60042,
+          "provider": "controlled fake",
+          "upstream": null
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "b8365355010dd3d81b85e14d07f2f8bced41644be3dc1654a20516e9f3b2bec6",
+        "source_bundle_sha256": "96ce4cd81c551a38217fd5f9dd21a110afe1ed8d87198acd98db61ba27239840"
+      },
+      "mode": "fake",
+      "never_rerun": false,
+      "real_model_attempted": false,
+      "request_count": 2,
+      "reward": 0.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "qemu-startup",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T07:34:38.788915Z",
+          "started_at": "2026-08-25T07:34:38.003052Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T07:34:38.002782Z",
+          "started_at": "2026-08-25T07:33:35.545845Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T07:33:35.545731Z",
+          "started_at": "2026-08-25T07:33:34.532086Z"
+        },
+        "harbor_finished_at": "2026-08-25T07:35:02.318557Z",
+        "harbor_started_at": "2026-08-25T07:33:34.440882Z",
+        "launcher_finished_at": 1787643304.133962,
+        "launcher_started_at": 1787643213.060234,
+        "request_seconds": [
+          2.216699067503214e-05,
+          4.208006430417299e-06
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T07:34:51.354805Z",
+          "started_at": "2026-08-25T07:34:39.542636Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/qemu-startup--thinharness/gateway-audit.jsonl",
+        "harbor_result": "cells/qemu-startup--thinharness/job/qemu-startup__qC6zcvW/result.json",
+        "native_receipt": "cells/qemu-startup--thinharness/job/qemu-startup__qC6zcvW/agent/thinharness-direct-result.json",
+        "staging_stderr": "cells/qemu-startup--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/qemu-startup--thinharness/harbor.stdout.log",
+        "verifier_evidence": "cells/qemu-startup--thinharness/job/qemu-startup__qC6zcvW/verifier/ctrf.json",
+        "verifier_evidence_sha256": "6ae4b57c418ebe5ec7b3e0a205c46c2f1cd50b11350a61fa71fcd114f79224d7",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "financial-document-processor--pi",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.014844000000000001,
+        "components": {
+          "cache_write": 0.0,
+          "cached_input": 0.000384,
+          "ordinary_input": 0.00966,
+          "output": 0.0048000000000000004
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "pi",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:60153/v1",
+          "bridge": null,
+          "cell_id": "financial-document-processor--pi",
+          "direct_openai": false,
+          "ephemeral_token_persisted": false,
+          "mode": "fake",
+          "port": 60153,
+          "provider": "controlled fake",
+          "upstream": null
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "b8365355010dd3d81b85e14d07f2f8bced41644be3dc1654a20516e9f3b2bec6",
+        "source_bundle_sha256": null
+      },
+      "mode": "fake",
+      "never_rerun": false,
+      "real_model_attempted": false,
+      "request_count": 2,
+      "reward": 0.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "financial-document-processor",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T07:36:00.635521Z",
+          "started_at": "2026-08-25T07:35:57.742162Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T07:35:57.741873Z",
+          "started_at": "2026-08-25T07:35:09.343267Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T07:35:09.343160Z",
+          "started_at": "2026-08-25T07:35:06.498214Z"
+        },
+        "harbor_finished_at": "2026-08-25T07:36:24.351006Z",
+        "harbor_started_at": "2026-08-25T07:35:06.393845Z",
+        "launcher_finished_at": 1787643386.359744,
+        "launcher_started_at": 1787643304.144038,
+        "request_seconds": [
+          2.1249987185001373e-05,
+          4.791014362126589e-06
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T07:36:13.205500Z",
+          "started_at": "2026-08-25T07:36:01.385709Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/financial-document-processor--pi/gateway-audit.jsonl",
+        "harbor_result": "cells/financial-document-processor--pi/job/financial-document-processor__44Zv35R/result.json",
+        "native_receipt": "cells/financial-document-processor--pi/job/financial-document-processor__44Zv35R/agent/pi-direct-result.json",
+        "staging_stderr": "cells/financial-document-processor--pi/harbor.stderr.log",
+        "staging_stdout": "cells/financial-document-processor--pi/harbor.stdout.log",
+        "verifier_evidence": "cells/financial-document-processor--pi/job/financial-document-processor__44Zv35R/verifier/ctrf.json",
+        "verifier_evidence_sha256": "599dd4f2cda53c395e60494d225368af7af7bf216e52f8d56559a7054c309182",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "financial-document-processor--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.014844000000000001,
+        "components": {
+          "cache_write": 0.0,
+          "cached_input": 0.000384,
+          "ordinary_input": 0.00966,
+          "output": 0.0048000000000000004
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "thinharness",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:60272/v1",
+          "bridge": null,
+          "cell_id": "financial-document-processor--thinharness",
+          "direct_openai": false,
+          "ephemeral_token_persisted": false,
+          "mode": "fake",
+          "port": 60272,
+          "provider": "controlled fake",
+          "upstream": null
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "b8365355010dd3d81b85e14d07f2f8bced41644be3dc1654a20516e9f3b2bec6",
+        "source_bundle_sha256": "96ce4cd81c551a38217fd5f9dd21a110afe1ed8d87198acd98db61ba27239840"
+      },
+      "mode": "fake",
+      "never_rerun": false,
+      "real_model_attempted": false,
+      "request_count": 2,
+      "reward": 0.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "financial-document-processor",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T07:37:19.038667Z",
+          "started_at": "2026-08-25T07:37:18.217383Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T07:37:18.217150Z",
+          "started_at": "2026-08-25T07:36:29.089704Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T07:36:29.089578Z",
+          "started_at": "2026-08-25T07:36:28.066290Z"
+        },
+        "harbor_finished_at": "2026-08-25T07:37:43.110740Z",
+        "harbor_started_at": "2026-08-25T07:36:27.955961Z",
+        "launcher_finished_at": 1787643464.876565,
+        "launcher_started_at": 1787643386.370029,
+        "request_seconds": [
+          1.8874998204410076e-05,
+          6.208021659404039e-06
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T07:37:32.097046Z",
+          "started_at": "2026-08-25T07:37:19.437675Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/financial-document-processor--thinharness/gateway-audit.jsonl",
+        "harbor_result": "cells/financial-document-processor--thinharness/job/financial-document-processor__E2oykDY/result.json",
+        "native_receipt": "cells/financial-document-processor--thinharness/job/financial-document-processor__E2oykDY/agent/thinharness-direct-result.json",
+        "staging_stderr": "cells/financial-document-processor--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/financial-document-processor--thinharness/harbor.stdout.log",
+        "verifier_evidence": "cells/financial-document-processor--thinharness/job/financial-document-processor__E2oykDY/verifier/ctrf.json",
+        "verifier_evidence_sha256": "a46a705444ca800fd0450375528699527b425f7bae86dec89b81d7a420f9ba48",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "dna-insert--pi",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.014844000000000001,
+        "components": {
+          "cache_write": 0.0,
+          "cached_input": 0.000384,
+          "ordinary_input": 0.00966,
+          "output": 0.0048000000000000004
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "pi",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:60361/v1",
+          "bridge": null,
+          "cell_id": "dna-insert--pi",
+          "direct_openai": false,
+          "ephemeral_token_persisted": false,
+          "mode": "fake",
+          "port": 60361,
+          "provider": "controlled fake",
+          "upstream": null
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "b8365355010dd3d81b85e14d07f2f8bced41644be3dc1654a20516e9f3b2bec6",
+        "source_bundle_sha256": null
+      },
+      "mode": "fake",
+      "never_rerun": false,
+      "real_model_attempted": false,
+      "request_count": 2,
+      "reward": 0.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "dna-insert",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T07:38:40.043990Z",
+          "started_at": "2026-08-25T07:38:37.137418Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T07:38:37.137190Z",
+          "started_at": "2026-08-25T07:37:49.239626Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T07:37:49.239518Z",
+          "started_at": "2026-08-25T07:37:47.302802Z"
+        },
+        "harbor_finished_at": "2026-08-25T07:39:01.704772Z",
+        "harbor_started_at": "2026-08-25T07:37:47.206101Z",
+        "launcher_finished_at": 1787643543.226824,
+        "launcher_started_at": 1787643464.888292,
+        "request_seconds": [
+          2.466695150360465e-05,
+          4.999979864805937e-06
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T07:38:50.658941Z",
+          "started_at": "2026-08-25T07:38:40.543529Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/dna-insert--pi/gateway-audit.jsonl",
+        "harbor_result": "cells/dna-insert--pi/job/dna-insert__FcBV9u6/result.json",
+        "native_receipt": "cells/dna-insert--pi/job/dna-insert__FcBV9u6/agent/pi-direct-result.json",
+        "staging_stderr": "cells/dna-insert--pi/harbor.stderr.log",
+        "staging_stdout": "cells/dna-insert--pi/harbor.stdout.log",
+        "verifier_evidence": "cells/dna-insert--pi/job/dna-insert__FcBV9u6/verifier/ctrf.json",
+        "verifier_evidence_sha256": "d0dc27be6e8faf1988011c2745b7e474816781981c347d6a1388a625cf86c58c",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "dna-insert--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.014844000000000001,
+        "components": {
+          "cache_write": 0.0,
+          "cached_input": 0.000384,
+          "ordinary_input": 0.00966,
+          "output": 0.0048000000000000004
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "thinharness",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:60675/v1",
+          "bridge": null,
+          "cell_id": "dna-insert--thinharness",
+          "direct_openai": false,
+          "ephemeral_token_persisted": false,
+          "mode": "fake",
+          "port": 60675,
+          "provider": "controlled fake",
+          "upstream": null
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "b8365355010dd3d81b85e14d07f2f8bced41644be3dc1654a20516e9f3b2bec6",
+        "source_bundle_sha256": "96ce4cd81c551a38217fd5f9dd21a110afe1ed8d87198acd98db61ba27239840"
+      },
+      "mode": "fake",
+      "never_rerun": false,
+      "real_model_attempted": false,
+      "request_count": 2,
+      "reward": 0.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "dna-insert",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T07:39:57.587530Z",
+          "started_at": "2026-08-25T07:39:56.758238Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T07:39:56.757912Z",
+          "started_at": "2026-08-25T07:39:05.851286Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T07:39:05.851162Z",
+          "started_at": "2026-08-25T07:39:04.770819Z"
+        },
+        "harbor_finished_at": "2026-08-25T07:40:25.331359Z",
+        "harbor_started_at": "2026-08-25T07:39:04.674470Z",
+        "launcher_finished_at": 1787643626.931787,
+        "launcher_started_at": 1787643543.237219,
+        "request_seconds": [
+          1.9583036191761494e-05,
+          4.499976057559252e-06
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T07:40:14.009543Z",
+          "started_at": "2026-08-25T07:39:58.016701Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/dna-insert--thinharness/gateway-audit.jsonl",
+        "harbor_result": "cells/dna-insert--thinharness/job/dna-insert__wW2reYK/result.json",
+        "native_receipt": "cells/dna-insert--thinharness/job/dna-insert__wW2reYK/agent/thinharness-direct-result.json",
+        "staging_stderr": "cells/dna-insert--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/dna-insert--thinharness/harbor.stdout.log",
+        "verifier_evidence": "cells/dna-insert--thinharness/job/dna-insert__wW2reYK/verifier/ctrf.json",
+        "verifier_evidence_sha256": "921c40575520bae7c7efe02fdf2bd52722122cd39469ec8fae77000cad726a5c",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      }
+    }
+  ],
+  "checkpointed_cells": 40,
+  "dataset": "terminal-bench/terminal-bench-2-1@sha256:7d7bdc1cbedad549fc1140404bd4dc45e5fd0ea7c4186773687d177ad3a0699a",
+  "mode": "fake",
+  "model": "gpt-5.6-sol",
+  "planned_cells": 40,
+  "runner_identity": {
+    "files": {
+      "configs/container-runtime-requirements.txt": "61d52e09e2edaa56c84a8f139c77dc6052312648d726366a6ec4be50e392c3a6",
+      "configs/direct-openai-20task-selection.json": "c800c80251d4880fdafb066ef1bc690473c68923c160e9f4c31cc53879382960",
+      "configs/direct-openai-20task-settings.json": "79a0cd91ddff45d5e765e05b2de114c57fbd4f17d3cf15da67f28162d7f77c1e",
+      "configs/direct-openai-exclusion-proof.json": "eb7f357aa6de1a9795ac3495f5dcc90e82647698ca3231cc05c7b11ec4543cb0",
+      "configs/native-tool-schemas.json": "1c1c1e985590e9980264a2e6b8364bd96f1b052c0761eed7f127ac9ab60cfd24",
+      "configs/pi-native-tool-schemas.json": "88fda428f9a9114a62d2f3a394d85c7d15cddd111eddadbe7abbe728bff2afde",
+      "configs/pi-subscription-package-lock.json": "0f34d01dda1837fd634d0562d2c0350ff982da133de59f36fccdac62835fc1c0",
+      "configs/pi-subscription-package.json": "fdecbea847897b2ebdbc54aaabc1899c115dde083f81de65daf13e46feba80ba",
+      "prompts/pi-0.84.2-system-prompt.md": "bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e",
+      "pyproject.toml": "cc59d90f1cbb42bad8f11ab631dda9c4da55379c0d3c651215e6efcf176557cc",
+      "scripts/install-direct-pi.sh": "03b2a5504dc3c14c280dce99637058e3b3dbc9075372bd6fad079531b0242a7b",
+      "scripts/install-direct-thinharness.sh": "8b444733dcdbb29fc44e70a60d3c9a97640de79fc5c4e8d933c88eda024c7e6e",
+      "tbench/container_security.py": "45e669996dcab219a827df78fb3fff7b8e8d6aa7abdc737746e2560666398603",
+      "tbench/direct_agent.py": "a4b244501f1de1b578a61d8607747679f8bcf93e0eeae7cfeb2137f0b83b362c",
+      "tbench/direct_behavior_preflight.py": "b52594f6e7eca6ba89ded456747bb98a7e8fa7d53e4ddb06adae96deaabd8da2",
+      "tbench/direct_constants.py": "0a307d0d55e463deab616e20962140b2aafbe00259f45397ecd9cf0f57f9ec31",
+      "tbench/direct_container.py": "49e25a9caeb37fb51088a54981bd3be44234cb0fd7a030d246bf111db28921a0",
+      "tbench/direct_gateway.py": "6a2710ac23230aad9643a10a9ff15317bd9e9c781abbff9ad052dd75d68b885f",
+      "tbench/direct_launch.py": "68e57195a0d35bb98a8c240c7342accf8d99b485b17fc960465fdb5aa4a63b34",
+      "tbench/direct_validate.py": "63513fa7b93f9b63c2c4b651d4b89b871cc8e6b438ae2dae86035d468c53171d",
+      "tbench/pi_subscription_probe.mjs": "c7cd70f7344700f980dd898dc3c43aabc35a810d108c5d972b9438fccb4e5a4a",
+      "tbench/source_bundle.py": "bab0c0d80dc54f68ff9a927ef8dea789e229dfdf65be9d56de2dff2bd51194f9",
+      "uv.lock": "b960a45efb63fb5c5b738df1711410d1fe0c226f92bded3d29c0e6bf52f7e6d4"
+    },
+    "files_sha256": "b8365355010dd3d81b85e14d07f2f8bced41644be3dc1654a20516e9f3b2bec6",
+    "git_head": "64a282f6d53f1ee5a299cb9ffc6783ca6fd93ba7"
+  },
+  "schema_version": 1,
+  "source_bundle_sha256": "96ce4cd81c551a38217fd5f9dd21a110afe1ed8d87198acd98db61ba27239840",
+  "status": "completed",
+  "stop": null
+}

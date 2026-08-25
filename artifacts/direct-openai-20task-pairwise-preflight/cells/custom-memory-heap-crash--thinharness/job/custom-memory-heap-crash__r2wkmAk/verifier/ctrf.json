@@ -1,0 +1,77 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 6,
+            "passed": 5,
+            "failed": 1,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1787642786.7861385,
+            "stop": 1787642795.5175502
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_protected_files_not_modified",
+                "status": "passed",
+                "duration": 0.0013868740002180857,
+                "start": 1787642786.8392465,
+                "stop": 1787642786.841366,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_program_compiles_debug",
+                "status": "passed",
+                "duration": 1.0443506680003338,
+                "start": 1787642786.8415368,
+                "stop": 1787642787.8864164,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_program_compiles_release",
+                "status": "passed",
+                "duration": 1.2436545000000478,
+                "start": 1787642787.886723,
+                "stop": 1787642789.1308937,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_debug_build_runs_without_crash",
+                "status": "passed",
+                "duration": 2.2611685839997335,
+                "start": 1787642789.1312284,
+                "stop": 1787642791.3928442,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_release_build_runs_without_crash",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 1.4022112090005976,
+                "start": 1787642791.3932176,
+                "stop": 1787642792.8046436,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_release_build_runs_without_crash():\n        \"\"\"\n        Test that the release build runs without crashing.\n        This test will fail on the buggy version but pass on the fixed version.\n        \"\"\"\n        executable = compile_program(\"release\")\n        result = run_program(executable)\n    \n        # After the fix, release build should complete successfully\n>       assert (\n            result.returncode == 0\n        ), f\"Release build crashed! This indicates the bug is not fixed.\\nSTDOUT:\\n{result.stdout}\\nSTDERR:\\n{result.stderr}\"\nE       AssertionError: Release build crashed! This indicates the bug is not fixed.\nE         STDOUT:\nE         === Monte Carlo \u03c0 Estimation Application ===\nE         \nE         === Running Monte Carlo Simulation ===\nE         \nE         Estimating \u03c0 using Monte Carlo method...\nE         Samples: 1000000\nE         Estimated \u03c0: 3.142428\nE         Actual \u03c0: 3.141593\nE         Error: 0.000835\nE         Accuracy: 99.97%\nE         \nE         === Computation completed successfully ===\nE         \nE         STDERR:\nE         \nE       assert -11 == 0\nE        +  where -11 = CompletedProcess(args='/app/release', returncode=-11, stdout='=== Monte Carlo \u03c0 Estimation Application ===\\n\\n=== Runn...428\\nActual \u03c0: 3.141593\\nError: 0.000835\\nAccuracy: 99.97%\\n\\n=== Computation completed successfully ===\\n', stderr='').returncode\n\n/tests/test_outputs.py:139: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_no_memory_leaks_with_valgrind",
+                "status": "passed",
+                "duration": 2.7110977930001354,
+                "start": 1787642792.804973,
+                "stop": 1787642795.5165014,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

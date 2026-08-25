@@ -1,0 +1,103 @@
+{
+  "batching": [
+    {
+      "sequence": 1,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 2,
+      "tool_calls_in_response": 0,
+      "tool_names": []
+    }
+  ],
+  "cell_id": "sanitize-git-repo--thinharness",
+  "cost": {
+    "actual_cash_total": null,
+    "api_equivalent_total": 0.014844000000000001,
+    "components": {
+      "cache_write": 0.0,
+      "cached_input": 0.000384,
+      "ordinary_input": 0.00966,
+      "output": 0.0048000000000000004
+    },
+    "currency": "USD",
+    "prices_usd_per_million_tokens": {
+      "cache_write": 6.25,
+      "cached_input": 0.5,
+      "ordinary_input": 5.0,
+      "output": 30.0
+    }
+  },
+  "harbor_exit_code": 0,
+  "harness": "thinharness",
+  "identities": {
+    "gateway": {
+      "base_url": "http://host.docker.internal:58690/v1",
+      "bridge": null,
+      "cell_id": "sanitize-git-repo--thinharness",
+      "direct_openai": false,
+      "ephemeral_token_persisted": false,
+      "mode": "fake",
+      "port": 58690,
+      "provider": "controlled fake",
+      "upstream": null
+    },
+    "model": "gpt-5.6-sol",
+    "runner_files_sha256": "6198690dca625c4062f98c3fd2fd3197e49680b9cd53b277b36085ffed8f1b30",
+    "source_bundle_sha256": "96ce4cd81c551a38217fd5f9dd21a110afe1ed8d87198acd98db61ba27239840"
+  },
+  "mode": "fake",
+  "never_rerun": false,
+  "real_model_attempted": false,
+  "request_count": 2,
+  "reward": 0.0,
+  "schema_version": 1,
+  "status": "completed",
+  "task": "sanitize-git-repo",
+  "timing": {
+    "agent_execution": {
+      "finished_at": "2026-08-25T07:10:41.684827Z",
+      "started_at": "2026-08-25T07:10:40.839187Z"
+    },
+    "agent_setup": {
+      "finished_at": "2026-08-25T07:10:40.838897Z",
+      "started_at": "2026-08-25T07:10:32.030983Z"
+    },
+    "environment_setup": {
+      "finished_at": "2026-08-25T07:10:32.030865Z",
+      "started_at": "2026-08-25T07:10:31.039351Z"
+    },
+    "harbor_finished_at": "2026-08-25T07:11:02.607822Z",
+    "harbor_started_at": "2026-08-25T07:10:30.949960Z",
+    "launcher_finished_at": 1787641864.014241,
+    "launcher_started_at": 1787641829.4856079,
+    "request_seconds": [
+      2.0292005501687527e-05,
+      4.833040293306112e-06
+    ],
+    "verifier": {
+      "finished_at": "2026-08-25T07:10:51.858201Z",
+      "started_at": "2026-08-25T07:10:42.079608Z"
+    }
+  },
+  "traces": {
+    "gateway_audit": "cells/sanitize-git-repo--thinharness/gateway-audit.jsonl",
+    "harbor_result": "cells/sanitize-git-repo--thinharness/job/sanitize-git-repo__dVX4Hmi/result.json",
+    "native_receipt": "cells/sanitize-git-repo--thinharness/job/sanitize-git-repo__dVX4Hmi/agent/thinharness-direct-result.json",
+    "staging_stderr": "cells/sanitize-git-repo--thinharness/harbor.stderr.log",
+    "staging_stdout": "cells/sanitize-git-repo--thinharness/harbor.stdout.log",
+    "verifier_ctrf": "cells/sanitize-git-repo--thinharness/job/sanitize-git-repo__dVX4Hmi/verifier/ctrf.json",
+    "verifier_ctrf_sha256": "e38e0c86e7785b88e52d7851178499fad600e5059278744220f6c9a5415e4b91"
+  },
+  "usage": {
+    "cache_write_tokens": 0,
+    "cached_input_tokens": 768,
+    "input_tokens": 2700,
+    "ordinary_input_tokens": 1932,
+    "output_tokens": 160,
+    "reasoning_tokens": 80
+  }
+}

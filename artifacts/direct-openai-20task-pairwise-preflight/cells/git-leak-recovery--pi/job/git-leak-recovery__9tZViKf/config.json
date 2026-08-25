@@ -1,0 +1,24 @@
+{
+    "task": {
+        "name": "terminal-bench/git-leak-recovery",
+        "ref": "sha256:22a9ec10dbd4cd8b99477b70e1944103775ca41de9b9e0025ec4898cd17bd334",
+        "source": "terminal-bench/terminal-bench-2-1"
+    },
+    "trial_name": "git-leak-recovery__9tZViKf",
+    "trials_dir": "/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/direct-openai-20task-pairwise-preflight/direct-openai-20task-pairwise-fake-git-leak-recovery--pi-20260825-065824-69f41bc7",
+    "agent_setup_timeout_multiplier": 3.0,
+    "agent": {
+        "name": "tbench.direct_agent:DirectOpenAIAgent",
+        "model_name": "openai/gpt-5.6-sol",
+        "n_concurrent": 1,
+        "include_logs": [
+            "*"
+        ],
+        "kwargs": {
+            "harness": "pi",
+            "cell_id": "git-leak-recovery--pi",
+            "mode": "fake"
+        }
+    },
+    "job_id": "c3478e05-679f-4b6d-bcdf-3a51852dd93b"
+}

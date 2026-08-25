@@ -1,0 +1,103 @@
+{
+  "batching": [
+    {
+      "sequence": 1,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 2,
+      "tool_calls_in_response": 0,
+      "tool_names": []
+    }
+  ],
+  "cell_id": "vulnerable-secret--pi",
+  "cost": {
+    "actual_cash_total": null,
+    "api_equivalent_total": 0.014844000000000001,
+    "components": {
+      "cache_write": 0.0,
+      "cached_input": 0.000384,
+      "ordinary_input": 0.00966,
+      "output": 0.0048000000000000004
+    },
+    "currency": "USD",
+    "prices_usd_per_million_tokens": {
+      "cache_write": 6.25,
+      "cached_input": 0.5,
+      "ordinary_input": 5.0,
+      "output": 30.0
+    }
+  },
+  "harbor_exit_code": 0,
+  "harness": "pi",
+  "identities": {
+    "gateway": {
+      "base_url": "http://host.docker.internal:55571/v1",
+      "bridge": null,
+      "cell_id": "vulnerable-secret--pi",
+      "direct_openai": false,
+      "ephemeral_token_persisted": false,
+      "mode": "fake",
+      "port": 55571,
+      "provider": "controlled fake",
+      "upstream": null
+    },
+    "model": "gpt-5.6-sol",
+    "runner_files_sha256": "6198690dca625c4062f98c3fd2fd3197e49680b9cd53b277b36085ffed8f1b30",
+    "source_bundle_sha256": null
+  },
+  "mode": "fake",
+  "never_rerun": false,
+  "real_model_attempted": false,
+  "request_count": 2,
+  "reward": 0.0,
+  "schema_version": 1,
+  "status": "completed",
+  "task": "vulnerable-secret",
+  "timing": {
+    "agent_execution": {
+      "finished_at": "2026-08-25T06:47:28.381448Z",
+      "started_at": "2026-08-25T06:47:25.416586Z"
+    },
+    "agent_setup": {
+      "finished_at": "2026-08-25T06:47:25.416312Z",
+      "started_at": "2026-08-25T06:46:20.842225Z"
+    },
+    "environment_setup": {
+      "finished_at": "2026-08-25T06:46:20.842095Z",
+      "started_at": "2026-08-25T06:46:15.694964Z"
+    },
+    "harbor_finished_at": "2026-08-25T06:47:45.559479Z",
+    "harbor_started_at": "2026-08-25T06:46:15.607042Z",
+    "launcher_finished_at": 1787640467.019457,
+    "launcher_started_at": 1787640373.80769,
+    "request_seconds": [
+      2.2457970771938562e-05,
+      5.66698145121336e-06
+    ],
+    "verifier": {
+      "finished_at": "2026-08-25T06:47:34.667069Z",
+      "started_at": "2026-08-25T06:47:28.781237Z"
+    }
+  },
+  "traces": {
+    "gateway_audit": "cells/vulnerable-secret--pi/gateway-audit.jsonl",
+    "harbor_result": "cells/vulnerable-secret--pi/job/vulnerable-secret__uJCHVWx/result.json",
+    "native_receipt": "cells/vulnerable-secret--pi/job/vulnerable-secret__uJCHVWx/agent/pi-direct-result.json",
+    "staging_stderr": "cells/vulnerable-secret--pi/harbor.stderr.log",
+    "staging_stdout": "cells/vulnerable-secret--pi/harbor.stdout.log",
+    "verifier_ctrf": "cells/vulnerable-secret--pi/job/vulnerable-secret__uJCHVWx/verifier/ctrf.json",
+    "verifier_ctrf_sha256": "30d0428208059ec3368536392c83f199bc34eea45376fda75c44aa1f35d0163a"
+  },
+  "usage": {
+    "cache_write_tokens": 0,
+    "cached_input_tokens": 768,
+    "input_tokens": 2700,
+    "ordinary_input_tokens": 1932,
+    "output_tokens": 160,
+    "reasoning_tokens": 80
+  }
+}

@@ -1,0 +1,72 @@
+{
+    "schema_version": 3,
+    "created_at": "2026-08-25T07:18:59.280726Z",
+    "harbor": {
+        "version": "0.21.0",
+        "is_editable": false
+    },
+    "n_concurrent_trials": 1,
+    "retry": {
+        "max_retries": 0,
+        "exclude_exceptions": [
+            "ApiUsageLimitError",
+            "RewardFileEmptyError",
+            "AgentSafetyRefusalError",
+            "RewardFileNotFoundError",
+            "VerifierOutputParseError",
+            "AgentAuthenticationError",
+            "AgentTimeoutError",
+            "ModelNotFoundError",
+            "VerifierTimeoutError"
+        ],
+        "wait_multiplier": 1.0,
+        "min_wait_sec": 1.0,
+        "max_wait_sec": 60.0
+    },
+    "trials": [
+        {
+            "schema_version": 2,
+            "task": {
+                "name": "terminal-bench/code-from-image",
+                "type": "package",
+                "digest": "sha256:ef2907bb300d9b3352410c2a75dbf831278c187c073298371870ea9c83526f78",
+                "source": "terminal-bench/terminal-bench-2-1"
+            },
+            "install_only": false,
+            "timeout_multiplier": 1.0,
+            "agent_setup_timeout_multiplier": 3.0,
+            "agent": {
+                "name": "tbench.direct_agent:DirectOpenAIAgent",
+                "model_name": "openai/gpt-5.6-sol",
+                "n_concurrent": 1,
+                "skills": [],
+                "resume_trajectory": false,
+                "extra_allowed_hosts": [],
+                "include_logs": [
+                    "*"
+                ],
+                "kwargs": {
+                    "harness": "pi",
+                    "cell_id": "code-from-image--pi",
+                    "mode": "fake"
+                },
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "cpu_enforcement_policy": "auto",
+                "memory_enforcement_policy": "auto",
+                "extra_docker_compose": [],
+                "kwargs": {},
+                "extra_allowed_hosts": []
+            },
+            "verifier": {
+                "disable": false,
+                "environment_mode": "shared"
+            }
+        }
+    ]
+}

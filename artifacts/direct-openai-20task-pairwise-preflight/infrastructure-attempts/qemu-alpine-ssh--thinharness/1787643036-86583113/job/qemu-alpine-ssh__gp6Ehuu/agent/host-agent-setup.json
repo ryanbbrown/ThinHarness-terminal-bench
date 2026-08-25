@@ -1,0 +1,22 @@
+{
+  "cell_id": "qemu-alpine-ssh--thinharness",
+  "custom_host_tools": false,
+  "execution": "harbor-task-container",
+  "harness": "thinharness",
+  "host_model_loop": false,
+  "install": null,
+  "install_exit_code": 1,
+  "install_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "install_stdout_sha256": "77fbf147c3df1eafcc4e6e4f425932c2bc081cd900075dcffd1bd4f7995bfc5c",
+  "schema_version": 1,
+  "source_bundle_container_removed": true,
+  "source_bundle_sha256": "96ce4cd81c551a38217fd5f9dd21a110afe1ed8d87198acd98db61ba27239840",
+  "stage_and_launch_only": true,
+  "staged_targets": [
+    "/opt/thinharness-terminal-bench-direct/container-runtime-requirements.txt",
+    "/opt/thinharness-terminal-bench-direct/container_security.py",
+    "/opt/thinharness-terminal-bench-direct/direct_container.py",
+    "/opt/thinharness-terminal-bench-direct/install.sh",
+    "/opt/thinharness-terminal-bench-direct/system-prompt.md"
+  ]
+}

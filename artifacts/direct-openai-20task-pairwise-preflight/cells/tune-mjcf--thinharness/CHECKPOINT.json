@@ -1,0 +1,104 @@
+{
+  "batching": [
+    {
+      "sequence": 1,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 2,
+      "tool_calls_in_response": 0,
+      "tool_names": []
+    }
+  ],
+  "cell_id": "tune-mjcf--thinharness",
+  "cost": {
+    "actual_cash_total": null,
+    "api_equivalent_total": 0.014844000000000001,
+    "components": {
+      "cache_write": 0.0,
+      "cached_input": 0.000384,
+      "ordinary_input": 0.00966,
+      "output": 0.0048000000000000004
+    },
+    "currency": "USD",
+    "prices_usd_per_million_tokens": {
+      "cache_write": 6.25,
+      "cached_input": 0.5,
+      "ordinary_input": 5.0,
+      "output": 30.0
+    }
+  },
+  "harbor_exit_code": 0,
+  "harness": "thinharness",
+  "identities": {
+    "gateway": {
+      "base_url": "http://host.docker.internal:59143/v1",
+      "bridge": null,
+      "cell_id": "tune-mjcf--thinharness",
+      "direct_openai": false,
+      "ephemeral_token_persisted": false,
+      "mode": "fake",
+      "port": 59143,
+      "provider": "controlled fake",
+      "upstream": null
+    },
+    "model": "gpt-5.6-sol",
+    "runner_files_sha256": "21b5f08f4e4a4b682b87c3f4dfe14020243966f31f669e2f8fd7c62430840328",
+    "source_bundle_sha256": "96ce4cd81c551a38217fd5f9dd21a110afe1ed8d87198acd98db61ba27239840"
+  },
+  "mode": "fake",
+  "never_rerun": false,
+  "real_model_attempted": false,
+  "request_count": 2,
+  "reward": 0.0,
+  "schema_version": 1,
+  "status": "completed",
+  "task": "tune-mjcf",
+  "timing": {
+    "agent_execution": {
+      "finished_at": "2026-08-25T07:18:36.674102Z",
+      "started_at": "2026-08-25T07:18:35.818988Z"
+    },
+    "agent_setup": {
+      "finished_at": "2026-08-25T07:18:35.818738Z",
+      "started_at": "2026-08-25T07:17:35.679090Z"
+    },
+    "environment_setup": {
+      "finished_at": "2026-08-25T07:17:35.678984Z",
+      "started_at": "2026-08-25T07:17:34.660672Z"
+    },
+    "harbor_finished_at": "2026-08-25T07:18:55.289107Z",
+    "harbor_started_at": "2026-08-25T07:17:34.570548Z",
+    "launcher_finished_at": 1787642336.999446,
+    "launcher_started_at": 1787642252.994756,
+    "request_seconds": [
+      2.0458013750612736e-05,
+      4.500034265220165e-06
+    ],
+    "verifier": {
+      "finished_at": "2026-08-25T07:18:44.447211Z",
+      "started_at": "2026-08-25T07:18:37.094098Z"
+    }
+  },
+  "traces": {
+    "gateway_audit": "cells/tune-mjcf--thinharness/gateway-audit.jsonl",
+    "harbor_result": "cells/tune-mjcf--thinharness/job/tune-mjcf__MtzEEu2/result.json",
+    "native_receipt": "cells/tune-mjcf--thinharness/job/tune-mjcf__MtzEEu2/agent/thinharness-direct-result.json",
+    "staging_stderr": "cells/tune-mjcf--thinharness/harbor.stderr.log",
+    "staging_stdout": "cells/tune-mjcf--thinharness/harbor.stdout.log",
+    "verifier_evidence": "cells/tune-mjcf--thinharness/job/tune-mjcf__MtzEEu2/verifier/reward.txt",
+    "verifier_evidence_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "verifier_evidence_type": "reward.txt"
+  },
+  "usage": {
+    "cache_write_tokens": 0,
+    "cached_input_tokens": 768,
+    "input_tokens": 2700,
+    "ordinary_input_tokens": 1932,
+    "output_tokens": 160,
+    "reasoning_tokens": 80
+  }
+}

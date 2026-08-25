@@ -1,0 +1,15 @@
+{
+  "credit_exhaustion": {
+    "passed": true,
+    "simulated": true,
+    "status": 429,
+    "stop_launching_immediately": true
+  },
+  "restart": {
+    "passed": true,
+    "pre_request_infrastructure_decision": "preserve_and_retry_after_fix",
+    "real_model_marker_decision": "skip_forever"
+  },
+  "schema_version": 1,
+  "upstream_requests": 0
+}

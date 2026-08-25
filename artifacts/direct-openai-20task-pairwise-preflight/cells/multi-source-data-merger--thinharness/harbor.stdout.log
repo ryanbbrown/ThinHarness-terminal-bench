@@ -1,0 +1,28 @@
+  1/1 Mean: 0.000 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0:00:51 0:00:00
+terminal-bench/terminal-bench-2-1 • direct-openai-pairwise • gpt-5.6-sol
+┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━┓
+┃ Trials ┃ Exceptions ┃  Mean ┃
+┡━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━┩
+│      1 │          0 │ 0.000 │
+└────────┴────────────┴───────┘
+
+┏━━━━━━━━┳━━━━━━━┓
+┃ Reward ┃ Count ┃
+┡━━━━━━━━╇━━━━━━━┩
+│ 0.0    │     1 │
+└────────┴───────┘
+
+Job Info
+Total runtime: 51s
+Results written to 
+/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/d
+irect-openai-20task-pairwise-preflight/direct-openai-20task-pairwise-fake-multi-
+source-data-merger--thinharness-20260825-070259-bc160bdd/result.json
+Inspect results by running `harbor view 
+/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/d
+irect-openai-20task-pairwise-preflight`
+Share results by running `harbor upload 
+/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/d
+irect-openai-20task-pairwise-preflight/direct-openai-20task-pairwise-fake-multi-
+source-data-merger--thinharness-20260825-070259-bc160bdd`
+

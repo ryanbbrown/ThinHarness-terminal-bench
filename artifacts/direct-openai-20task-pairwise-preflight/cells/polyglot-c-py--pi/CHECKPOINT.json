@@ -1,0 +1,103 @@
+{
+  "batching": [
+    {
+      "sequence": 1,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 2,
+      "tool_calls_in_response": 0,
+      "tool_names": []
+    }
+  ],
+  "cell_id": "polyglot-c-py--pi",
+  "cost": {
+    "actual_cash_total": null,
+    "api_equivalent_total": 0.014844000000000001,
+    "components": {
+      "cache_write": 0.0,
+      "cached_input": 0.000384,
+      "ordinary_input": 0.00966,
+      "output": 0.0048000000000000004
+    },
+    "currency": "USD",
+    "prices_usd_per_million_tokens": {
+      "cache_write": 6.25,
+      "cached_input": 0.5,
+      "ordinary_input": 5.0,
+      "output": 30.0
+    }
+  },
+  "harbor_exit_code": 0,
+  "harness": "pi",
+  "identities": {
+    "gateway": {
+      "base_url": "http://host.docker.internal:55417/v1",
+      "bridge": null,
+      "cell_id": "polyglot-c-py--pi",
+      "direct_openai": false,
+      "ephemeral_token_persisted": false,
+      "mode": "fake",
+      "port": 55417,
+      "provider": "controlled fake",
+      "upstream": null
+    },
+    "model": "gpt-5.6-sol",
+    "runner_files_sha256": "6198690dca625c4062f98c3fd2fd3197e49680b9cd53b277b36085ffed8f1b30",
+    "source_bundle_sha256": null
+  },
+  "mode": "fake",
+  "never_rerun": false,
+  "real_model_attempted": false,
+  "request_count": 2,
+  "reward": 0.0,
+  "schema_version": 1,
+  "status": "completed",
+  "task": "polyglot-c-py",
+  "timing": {
+    "agent_execution": {
+      "finished_at": "2026-08-25T06:44:40.590666Z",
+      "started_at": "2026-08-25T06:44:37.570314Z"
+    },
+    "agent_setup": {
+      "finished_at": "2026-08-25T06:44:37.570069Z",
+      "started_at": "2026-08-25T06:43:49.683708Z"
+    },
+    "environment_setup": {
+      "finished_at": "2026-08-25T06:43:49.683594Z",
+      "started_at": "2026-08-25T06:43:44.611178Z"
+    },
+    "harbor_finished_at": "2026-08-25T06:45:01.525293Z",
+    "harbor_started_at": "2026-08-25T06:43:44.523355Z",
+    "launcher_finished_at": 1787640303.253972,
+    "launcher_started_at": 1787640222.7440262,
+    "request_seconds": [
+      2.2124964743852615e-05,
+      4.958012141287327e-06
+    ],
+    "verifier": {
+      "finished_at": "2026-08-25T06:44:50.504393Z",
+      "started_at": "2026-08-25T06:44:41.021815Z"
+    }
+  },
+  "traces": {
+    "gateway_audit": "cells/polyglot-c-py--pi/gateway-audit.jsonl",
+    "harbor_result": "cells/polyglot-c-py--pi/job/polyglot-c-py__H9C9KzK/result.json",
+    "native_receipt": "cells/polyglot-c-py--pi/job/polyglot-c-py__H9C9KzK/agent/pi-direct-result.json",
+    "staging_stderr": "cells/polyglot-c-py--pi/harbor.stderr.log",
+    "staging_stdout": "cells/polyglot-c-py--pi/harbor.stdout.log",
+    "verifier_ctrf": "cells/polyglot-c-py--pi/job/polyglot-c-py__H9C9KzK/verifier/ctrf.json",
+    "verifier_ctrf_sha256": "3c6821ff963988ea2e97fcb5436514c150ca6989f6d2d78e44b0efef7b7f5c2b"
+  },
+  "usage": {
+    "cache_write_tokens": 0,
+    "cached_input_tokens": 768,
+    "input_tokens": 2700,
+    "ordinary_input_tokens": 1932,
+    "output_tokens": 160,
+    "reasoning_tokens": 80
+  }
+}

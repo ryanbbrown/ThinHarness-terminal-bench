@@ -1,0 +1,24 @@
+{
+    "task": {
+        "name": "terminal-bench/break-filter-js-from-html",
+        "ref": "sha256:678008d1a4fd1e6e1b9b3cc9a327219fe4b410a31eafc52e9099bbf947eea600",
+        "source": "terminal-bench/terminal-bench-2-1"
+    },
+    "trial_name": "break-filter-js-from-html__dtXUKuY",
+    "trials_dir": "/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/direct-openai-20task-pairwise-preflight/direct-openai-20task-pairwise-fake-break-filter-js-from-html--thinharness-20260825-065059-66ece917",
+    "agent_setup_timeout_multiplier": 3.0,
+    "agent": {
+        "name": "tbench.direct_agent:DirectOpenAIAgent",
+        "model_name": "openai/gpt-5.6-sol",
+        "n_concurrent": 1,
+        "include_logs": [
+            "*"
+        ],
+        "kwargs": {
+            "harness": "thinharness",
+            "cell_id": "break-filter-js-from-html--thinharness",
+            "mode": "fake"
+        }
+    },
+    "job_id": "ed1c42c4-4a9b-473f-83fa-9c06fda76419"
+}

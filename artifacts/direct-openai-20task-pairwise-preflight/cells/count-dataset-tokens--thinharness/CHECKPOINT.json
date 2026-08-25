@@ -1,0 +1,103 @@
+{
+  "batching": [
+    {
+      "sequence": 1,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 2,
+      "tool_calls_in_response": 0,
+      "tool_names": []
+    }
+  ],
+  "cell_id": "count-dataset-tokens--thinharness",
+  "cost": {
+    "actual_cash_total": null,
+    "api_equivalent_total": 0.014844000000000001,
+    "components": {
+      "cache_write": 0.0,
+      "cached_input": 0.000384,
+      "ordinary_input": 0.00966,
+      "output": 0.0048000000000000004
+    },
+    "currency": "USD",
+    "prices_usd_per_million_tokens": {
+      "cache_write": 6.25,
+      "cached_input": 0.5,
+      "ordinary_input": 5.0,
+      "output": 30.0
+    }
+  },
+  "harbor_exit_code": 0,
+  "harness": "thinharness",
+  "identities": {
+    "gateway": {
+      "base_url": "http://host.docker.internal:57537/v1",
+      "bridge": null,
+      "cell_id": "count-dataset-tokens--thinharness",
+      "direct_openai": false,
+      "ephemeral_token_persisted": false,
+      "mode": "fake",
+      "port": 57537,
+      "provider": "controlled fake",
+      "upstream": null
+    },
+    "model": "gpt-5.6-sol",
+    "runner_files_sha256": "6198690dca625c4062f98c3fd2fd3197e49680b9cd53b277b36085ffed8f1b30",
+    "source_bundle_sha256": "96ce4cd81c551a38217fd5f9dd21a110afe1ed8d87198acd98db61ba27239840"
+  },
+  "mode": "fake",
+  "never_rerun": false,
+  "real_model_attempted": false,
+  "request_count": 2,
+  "reward": 0.0,
+  "schema_version": 1,
+  "status": "completed",
+  "task": "count-dataset-tokens",
+  "timing": {
+    "agent_execution": {
+      "finished_at": "2026-08-25T06:58:04.277873Z",
+      "started_at": "2026-08-25T06:58:03.421376Z"
+    },
+    "agent_setup": {
+      "finished_at": "2026-08-25T06:58:03.421168Z",
+      "started_at": "2026-08-25T06:56:59.289295Z"
+    },
+    "environment_setup": {
+      "finished_at": "2026-08-25T06:56:59.289190Z",
+      "started_at": "2026-08-25T06:56:58.206215Z"
+    },
+    "harbor_finished_at": "2026-08-25T06:58:22.337322Z",
+    "harbor_started_at": "2026-08-25T06:56:58.035761Z",
+    "launcher_finished_at": 1787641104.0836768,
+    "launcher_started_at": 1787641016.1114938,
+    "request_seconds": [
+      1.9208004232496023e-05,
+      4.166970029473305e-06
+    ],
+    "verifier": {
+      "finished_at": "2026-08-25T06:58:11.454015Z",
+      "started_at": "2026-08-25T06:58:04.704769Z"
+    }
+  },
+  "traces": {
+    "gateway_audit": "cells/count-dataset-tokens--thinharness/gateway-audit.jsonl",
+    "harbor_result": "cells/count-dataset-tokens--thinharness/job/count-dataset-tokens__Xhr8Lnc/result.json",
+    "native_receipt": "cells/count-dataset-tokens--thinharness/job/count-dataset-tokens__Xhr8Lnc/agent/thinharness-direct-result.json",
+    "staging_stderr": "cells/count-dataset-tokens--thinharness/harbor.stderr.log",
+    "staging_stdout": "cells/count-dataset-tokens--thinharness/harbor.stdout.log",
+    "verifier_ctrf": "cells/count-dataset-tokens--thinharness/job/count-dataset-tokens__Xhr8Lnc/verifier/ctrf.json",
+    "verifier_ctrf_sha256": "55baf7d2ddf6da11c970df1f2d085ef166882da8a1b95753dd2cf7ed3feb075b"
+  },
+  "usage": {
+    "cache_write_tokens": 0,
+    "cached_input_tokens": 768,
+    "input_tokens": 2700,
+    "ordinary_input_tokens": 1932,
+    "output_tokens": 160,
+    "reasoning_tokens": 80
+  }
+}

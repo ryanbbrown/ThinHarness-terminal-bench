@@ -1,0 +1,104 @@
+{
+  "batching": [
+    {
+      "sequence": 1,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 2,
+      "tool_calls_in_response": 0,
+      "tool_names": []
+    }
+  ],
+  "cell_id": "financial-document-processor--pi",
+  "cost": {
+    "actual_cash_total": null,
+    "api_equivalent_total": 0.014844000000000001,
+    "components": {
+      "cache_write": 0.0,
+      "cached_input": 0.000384,
+      "ordinary_input": 0.00966,
+      "output": 0.0048000000000000004
+    },
+    "currency": "USD",
+    "prices_usd_per_million_tokens": {
+      "cache_write": 6.25,
+      "cached_input": 0.5,
+      "ordinary_input": 5.0,
+      "output": 30.0
+    }
+  },
+  "harbor_exit_code": 0,
+  "harness": "pi",
+  "identities": {
+    "gateway": {
+      "base_url": "http://host.docker.internal:60153/v1",
+      "bridge": null,
+      "cell_id": "financial-document-processor--pi",
+      "direct_openai": false,
+      "ephemeral_token_persisted": false,
+      "mode": "fake",
+      "port": 60153,
+      "provider": "controlled fake",
+      "upstream": null
+    },
+    "model": "gpt-5.6-sol",
+    "runner_files_sha256": "b8365355010dd3d81b85e14d07f2f8bced41644be3dc1654a20516e9f3b2bec6",
+    "source_bundle_sha256": null
+  },
+  "mode": "fake",
+  "never_rerun": false,
+  "real_model_attempted": false,
+  "request_count": 2,
+  "reward": 0.0,
+  "schema_version": 1,
+  "status": "completed",
+  "task": "financial-document-processor",
+  "timing": {
+    "agent_execution": {
+      "finished_at": "2026-08-25T07:36:00.635521Z",
+      "started_at": "2026-08-25T07:35:57.742162Z"
+    },
+    "agent_setup": {
+      "finished_at": "2026-08-25T07:35:57.741873Z",
+      "started_at": "2026-08-25T07:35:09.343267Z"
+    },
+    "environment_setup": {
+      "finished_at": "2026-08-25T07:35:09.343160Z",
+      "started_at": "2026-08-25T07:35:06.498214Z"
+    },
+    "harbor_finished_at": "2026-08-25T07:36:24.351006Z",
+    "harbor_started_at": "2026-08-25T07:35:06.393845Z",
+    "launcher_finished_at": 1787643386.359744,
+    "launcher_started_at": 1787643304.144038,
+    "request_seconds": [
+      2.1249987185001373e-05,
+      4.791014362126589e-06
+    ],
+    "verifier": {
+      "finished_at": "2026-08-25T07:36:13.205500Z",
+      "started_at": "2026-08-25T07:36:01.385709Z"
+    }
+  },
+  "traces": {
+    "gateway_audit": "cells/financial-document-processor--pi/gateway-audit.jsonl",
+    "harbor_result": "cells/financial-document-processor--pi/job/financial-document-processor__44Zv35R/result.json",
+    "native_receipt": "cells/financial-document-processor--pi/job/financial-document-processor__44Zv35R/agent/pi-direct-result.json",
+    "staging_stderr": "cells/financial-document-processor--pi/harbor.stderr.log",
+    "staging_stdout": "cells/financial-document-processor--pi/harbor.stdout.log",
+    "verifier_evidence": "cells/financial-document-processor--pi/job/financial-document-processor__44Zv35R/verifier/ctrf.json",
+    "verifier_evidence_sha256": "599dd4f2cda53c395e60494d225368af7af7bf216e52f8d56559a7054c309182",
+    "verifier_evidence_type": "ctrf.json"
+  },
+  "usage": {
+    "cache_write_tokens": 0,
+    "cached_input_tokens": 768,
+    "input_tokens": 2700,
+    "ordinary_input_tokens": 1932,
+    "output_tokens": 160,
+    "reasoning_tokens": 80
+  }
+}

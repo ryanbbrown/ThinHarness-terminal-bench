@@ -1,0 +1,112 @@
+{
+    "id": "9ed0e927-3655-4f0c-b9e6-4f689bf0019c",
+    "task_name": "terminal-bench/custom-memory-heap-crash",
+    "trial_name": "custom-memory-heap-crash__eSWiqWg",
+    "trial_uri": "file:///Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/direct-openai-20task-pairwise-preflight/direct-openai-20task-pairwise-fake-custom-memory-heap-crash--thinharness-20260825-072422-70a63494/custom-memory-heap-crash__eSWiqWg",
+    "task_id": {
+        "org": "terminal-bench",
+        "name": "custom-memory-heap-crash",
+        "ref": "sha256:61e021e0304c9818a9be2c9173c8a0938ce5d136e95c5422e099f1fdb2dc080e"
+    },
+    "source": "terminal-bench/terminal-bench-2-1",
+    "task_checksum": "a0db695f342c1b72f1b3d0b6c234eb802e970c4758931355e4ceeea4c9e73c37",
+    "config": {
+        "task": {
+            "path": null,
+            "git_url": null,
+            "git_commit_id": null,
+            "name": "terminal-bench/custom-memory-heap-crash",
+            "ref": "sha256:61e021e0304c9818a9be2c9173c8a0938ce5d136e95c5422e099f1fdb2dc080e",
+            "overwrite": false,
+            "download_dir": null,
+            "source": "terminal-bench/terminal-bench-2-1"
+        },
+        "trial_name": "custom-memory-heap-crash__eSWiqWg",
+        "trials_dir": "/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/direct-openai-20task-pairwise-preflight/direct-openai-20task-pairwise-fake-custom-memory-heap-crash--thinharness-20260825-072422-70a63494",
+        "install_only": false,
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": 3.0,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "tbench.direct_agent:DirectOpenAIAgent",
+            "import_path": null,
+            "model_name": "openai/gpt-5.6-sol",
+            "n_concurrent": 1,
+            "concurrency_group": null,
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "resume_trajectory": false,
+            "load_trajectory": null,
+            "extra_allowed_hosts": [],
+            "include_logs": [
+                "*"
+            ],
+            "kwargs": {
+                "harness": "thinharness",
+                "cell_id": "custom-memory-heap-crash--thinharness",
+                "mode": "fake"
+            },
+            "mcp_servers": []
+        },
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [],
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "extra_instruction_paths": [],
+        "job_id": "40f104eb-29b0-4a0c-9ac6-ce939ea7914e",
+        "source_trial": null
+    },
+    "agent_info": {
+        "name": "direct-openai-pairwise",
+        "version": "1.0+84105f07",
+        "model_info": {
+            "name": "gpt-5.6-sol",
+            "provider": "openai"
+        }
+    },
+    "agent_result": null,
+    "verifier_result": null,
+    "verifier_environment_mode": "shared",
+    "exception_info": {
+        "exception_type": "RuntimeError",
+        "exception_message": "direct container install failed: The virtual environment was not created successfully because ensurepip is not\navailable.  On Debian/Ubuntu systems, you need to install the python3-venv\npackage using the following command.\n\n    apt install python3.12-venv\n\nYou may need to use sudo with that command.  After installing the python3-venv\npackage, recreate your virtual environment.\n\nFailing command: /opt/thinharness-direct-venv/bin/python3\n\n",
+        "exception_traceback": "Traceback (most recent call last):\n  File \"/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/.venv/lib/python3.12/site-packages/harbor/trial/trial.py\", line 375, in run\n    await self._prepare()\n  File \"/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/.venv/lib/python3.12/site-packages/harbor/trial/trial.py\", line 413, in _prepare\n    await self._setup_agent()\n  File \"/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/.venv/lib/python3.12/site-packages/harbor/trial/trial.py\", line 1242, in _setup_agent\n    await asyncio.wait_for(\n  File \"/Users/ryanbrown/.local/share/uv/python/cpython-3.12.11-macos-aarch64-none/lib/python3.12/asyncio/tasks.py\", line 520, in wait_for\n    return await fut\n           ^^^^^^^^^\n  File \"/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/tbench/direct_agent.py\", line 135, in setup\n    raise RuntimeError(f\"direct container install failed: {detail}\")\nRuntimeError: direct container install failed: The virtual environment was not created successfully because ensurepip is not\navailable.  On Debian/Ubuntu systems, you need to install the python3-venv\npackage using the following command.\n\n    apt install python3.12-venv\n\nYou may need to use sudo with that command.  After installing the python3-venv\npackage, recreate your virtual environment.\n\nFailing command: /opt/thinharness-direct-venv/bin/python3\n\n\n",
+        "occurred_at": "2026-08-25T07:24:25.955663Z"
+    },
+    "started_at": "2026-08-25T07:24:23.948614Z",
+    "finished_at": "2026-08-25T07:24:37.092781Z",
+    "environment_setup": {
+        "started_at": "2026-08-25T07:24:24.044851Z",
+        "finished_at": "2026-08-25T07:24:25.080245Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-08-25T07:24:25.080374Z",
+        "finished_at": "2026-08-25T07:24:25.953458Z"
+    },
+    "agent_execution": null,
+    "verifier": null,
+    "step_results": null
+}

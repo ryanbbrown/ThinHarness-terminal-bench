@@ -26,7 +26,7 @@ def check() -> None:
     )
     if found:
         raise RuntimeError(f"superseded runnable adapter path is present: {found}")
-    for host_name in ("agent.py", "subscription_agent.py"):
+    for host_name in ("agent.py", "subscription_agent.py", "direct_agent.py"):
         host_source = (REPOSITORY_ROOT / "tbench" / host_name).read_text(encoding="utf-8")
         host_tree = ast.parse(host_source)
         import_roots: set[str] = set()

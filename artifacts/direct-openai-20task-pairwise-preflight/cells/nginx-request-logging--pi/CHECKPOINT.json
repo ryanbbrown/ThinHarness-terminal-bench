@@ -1,0 +1,103 @@
+{
+  "batching": [
+    {
+      "sequence": 1,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 2,
+      "tool_calls_in_response": 0,
+      "tool_names": []
+    }
+  ],
+  "cell_id": "nginx-request-logging--pi",
+  "cost": {
+    "actual_cash_total": null,
+    "api_equivalent_total": 0.014844000000000001,
+    "components": {
+      "cache_write": 0.0,
+      "cached_input": 0.000384,
+      "ordinary_input": 0.00966,
+      "output": 0.0048000000000000004
+    },
+    "currency": "USD",
+    "prices_usd_per_million_tokens": {
+      "cache_write": 6.25,
+      "cached_input": 0.5,
+      "ordinary_input": 5.0,
+      "output": 30.0
+    }
+  },
+  "harbor_exit_code": 0,
+  "harness": "pi",
+  "identities": {
+    "gateway": {
+      "base_url": "http://host.docker.internal:54364/v1",
+      "bridge": null,
+      "cell_id": "nginx-request-logging--pi",
+      "direct_openai": false,
+      "ephemeral_token_persisted": false,
+      "mode": "fake",
+      "port": 54364,
+      "provider": "controlled fake",
+      "upstream": null
+    },
+    "model": "gpt-5.6-sol",
+    "runner_files_sha256": "6198690dca625c4062f98c3fd2fd3197e49680b9cd53b277b36085ffed8f1b30",
+    "source_bundle_sha256": null
+  },
+  "mode": "fake",
+  "never_rerun": false,
+  "real_model_attempted": false,
+  "request_count": 2,
+  "reward": 0.0,
+  "schema_version": 1,
+  "status": "completed",
+  "task": "nginx-request-logging",
+  "timing": {
+    "agent_execution": {
+      "finished_at": "2026-08-25T06:38:45.785984Z",
+      "started_at": "2026-08-25T06:38:42.594005Z"
+    },
+    "agent_setup": {
+      "finished_at": "2026-08-25T06:38:42.593805Z",
+      "started_at": "2026-08-25T06:37:32.472441Z"
+    },
+    "environment_setup": {
+      "finished_at": "2026-08-25T06:37:32.472350Z",
+      "started_at": "2026-08-25T06:37:24.313240Z"
+    },
+    "harbor_finished_at": "2026-08-25T06:39:08.627755Z",
+    "harbor_started_at": "2026-08-25T06:37:24.213881Z",
+    "launcher_finished_at": 1787639950.8414998,
+    "launcher_started_at": 1787639841.6451359,
+    "request_seconds": [
+      2.1625019144266844e-05,
+      4.62500611320138e-06
+    ],
+    "verifier": {
+      "finished_at": "2026-08-25T06:38:57.548350Z",
+      "started_at": "2026-08-25T06:38:46.615372Z"
+    }
+  },
+  "traces": {
+    "gateway_audit": "cells/nginx-request-logging--pi/gateway-audit.jsonl",
+    "harbor_result": "cells/nginx-request-logging--pi/job/nginx-request-logging__BPtQ9Mt/result.json",
+    "native_receipt": "cells/nginx-request-logging--pi/job/nginx-request-logging__BPtQ9Mt/agent/pi-direct-result.json",
+    "staging_stderr": "cells/nginx-request-logging--pi/harbor.stderr.log",
+    "staging_stdout": "cells/nginx-request-logging--pi/harbor.stdout.log",
+    "verifier_ctrf": "cells/nginx-request-logging--pi/job/nginx-request-logging__BPtQ9Mt/verifier/ctrf.json",
+    "verifier_ctrf_sha256": "d422477367ab2bf54bad6b29d35d733b465b717a28d5c2291e1988576445a06d"
+  },
+  "usage": {
+    "cache_write_tokens": 0,
+    "cached_input_tokens": 768,
+    "input_tokens": 2700,
+    "ordinary_input_tokens": 1932,
+    "output_tokens": 160,
+    "reasoning_tokens": 80
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "batching": [
+    {
+      "sequence": 1,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 2,
+      "tool_calls_in_response": 0,
+      "tool_names": []
+    }
+  ],
+  "cell_id": "dna-insert--pi",
+  "cost": {
+    "actual_cash_total": null,
+    "api_equivalent_total": 0.014844000000000001,
+    "components": {
+      "cache_write": 0.0,
+      "cached_input": 0.000384,
+      "ordinary_input": 0.00966,
+      "output": 0.0048000000000000004
+    },
+    "currency": "USD",
+    "prices_usd_per_million_tokens": {
+      "cache_write": 6.25,
+      "cached_input": 0.5,
+      "ordinary_input": 5.0,
+      "output": 30.0
+    }
+  },
+  "harbor_exit_code": 0,
+  "harness": "pi",
+  "identities": {
+    "gateway": {
+      "base_url": "http://host.docker.internal:60361/v1",
+      "bridge": null,
+      "cell_id": "dna-insert--pi",
+      "direct_openai": false,
+      "ephemeral_token_persisted": false,
+      "mode": "fake",
+      "port": 60361,
+      "provider": "controlled fake",
+      "upstream": null
+    },
+    "model": "gpt-5.6-sol",
+    "runner_files_sha256": "b8365355010dd3d81b85e14d07f2f8bced41644be3dc1654a20516e9f3b2bec6",
+    "source_bundle_sha256": null
+  },
+  "mode": "fake",
+  "never_rerun": false,
+  "real_model_attempted": false,
+  "request_count": 2,
+  "reward": 0.0,
+  "schema_version": 1,
+  "status": "completed",
+  "task": "dna-insert",
+  "timing": {
+    "agent_execution": {
+      "finished_at": "2026-08-25T07:38:40.043990Z",
+      "started_at": "2026-08-25T07:38:37.137418Z"
+    },
+    "agent_setup": {
+      "finished_at": "2026-08-25T07:38:37.137190Z",
+      "started_at": "2026-08-25T07:37:49.239626Z"
+    },
+    "environment_setup": {
+      "finished_at": "2026-08-25T07:37:49.239518Z",
+      "started_at": "2026-08-25T07:37:47.302802Z"
+    },
+    "harbor_finished_at": "2026-08-25T07:39:01.704772Z",
+    "harbor_started_at": "2026-08-25T07:37:47.206101Z",
+    "launcher_finished_at": 1787643543.226824,
+    "launcher_started_at": 1787643464.888292,
+    "request_seconds": [
+      2.466695150360465e-05,
+      4.999979864805937e-06
+    ],
+    "verifier": {
+      "finished_at": "2026-08-25T07:38:50.658941Z",
+      "started_at": "2026-08-25T07:38:40.543529Z"
+    }
+  },
+  "traces": {
+    "gateway_audit": "cells/dna-insert--pi/gateway-audit.jsonl",
+    "harbor_result": "cells/dna-insert--pi/job/dna-insert__FcBV9u6/result.json",
+    "native_receipt": "cells/dna-insert--pi/job/dna-insert__FcBV9u6/agent/pi-direct-result.json",
+    "staging_stderr": "cells/dna-insert--pi/harbor.stderr.log",
+    "staging_stdout": "cells/dna-insert--pi/harbor.stdout.log",
+    "verifier_evidence": "cells/dna-insert--pi/job/dna-insert__FcBV9u6/verifier/ctrf.json",
+    "verifier_evidence_sha256": "d0dc27be6e8faf1988011c2745b7e474816781981c347d6a1388a625cf86c58c",
+    "verifier_evidence_type": "ctrf.json"
+  },
+  "usage": {
+    "cache_write_tokens": 0,
+    "cached_input_tokens": 768,
+    "input_tokens": 2700,
+    "ordinary_input_tokens": 1932,
+    "output_tokens": 160,
+    "reasoning_tokens": 80
+  }
+}

@@ -1,0 +1,24 @@
+{
+    "task": {
+        "name": "terminal-bench/custom-memory-heap-crash",
+        "ref": "sha256:61e021e0304c9818a9be2c9173c8a0938ce5d136e95c5422e099f1fdb2dc080e",
+        "source": "terminal-bench/terminal-bench-2-1"
+    },
+    "trial_name": "custom-memory-heap-crash__qSKvCuD",
+    "trials_dir": "/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/direct-openai-20task-pairwise-preflight/direct-openai-20task-pairwise-fake-custom-memory-heap-crash--pi-20260825-072149-e47fa16f",
+    "agent_setup_timeout_multiplier": 3.0,
+    "agent": {
+        "name": "tbench.direct_agent:DirectOpenAIAgent",
+        "model_name": "openai/gpt-5.6-sol",
+        "n_concurrent": 1,
+        "include_logs": [
+            "*"
+        ],
+        "kwargs": {
+            "harness": "pi",
+            "cell_id": "custom-memory-heap-crash--pi",
+            "mode": "fake"
+        }
+    },
+    "job_id": "009424a2-a8d4-4f23-830e-608fe36309a7"
+}

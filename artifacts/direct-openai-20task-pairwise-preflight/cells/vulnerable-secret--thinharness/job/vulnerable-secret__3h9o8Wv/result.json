@@ -1,0 +1,134 @@
+{
+    "id": "791a95ca-21d3-4398-bcd1-2111a4137bf5",
+    "task_name": "terminal-bench/vulnerable-secret",
+    "trial_name": "vulnerable-secret__3h9o8Wv",
+    "trial_uri": "file:///Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/direct-openai-20task-pairwise-preflight/direct-openai-20task-pairwise-fake-vulnerable-secret--thinharness-20260825-064747-819e253a/vulnerable-secret__3h9o8Wv",
+    "task_id": {
+        "org": "terminal-bench",
+        "name": "vulnerable-secret",
+        "ref": "sha256:d76dfa9e256487c5542905b892156f694137aeef784e1abf3f41e15a8c946eac"
+    },
+    "source": "terminal-bench/terminal-bench-2-1",
+    "task_checksum": "08ff9cb3cd416576bed330e9b92191ce0acbf5322f64714b6955ea6638361256",
+    "config": {
+        "task": {
+            "path": null,
+            "git_url": null,
+            "git_commit_id": null,
+            "name": "terminal-bench/vulnerable-secret",
+            "ref": "sha256:d76dfa9e256487c5542905b892156f694137aeef784e1abf3f41e15a8c946eac",
+            "overwrite": false,
+            "download_dir": null,
+            "source": "terminal-bench/terminal-bench-2-1"
+        },
+        "trial_name": "vulnerable-secret__3h9o8Wv",
+        "trials_dir": "/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/direct-openai-20task-pairwise-preflight/direct-openai-20task-pairwise-fake-vulnerable-secret--thinharness-20260825-064747-819e253a",
+        "install_only": false,
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": 3.0,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "tbench.direct_agent:DirectOpenAIAgent",
+            "import_path": null,
+            "model_name": "openai/gpt-5.6-sol",
+            "n_concurrent": 1,
+            "concurrency_group": null,
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "resume_trajectory": false,
+            "load_trajectory": null,
+            "extra_allowed_hosts": [],
+            "include_logs": [
+                "*"
+            ],
+            "kwargs": {
+                "harness": "thinharness",
+                "cell_id": "vulnerable-secret--thinharness",
+                "mode": "fake"
+            },
+            "mcp_servers": []
+        },
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [],
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "extra_instruction_paths": [],
+        "job_id": "26adb2f9-5b97-4bd9-8b7c-539acca6d328",
+        "source_trial": null
+    },
+    "agent_info": {
+        "name": "direct-openai-pairwise",
+        "version": "1.0+84105f07",
+        "model_info": {
+            "name": "gpt-5.6-sol",
+            "provider": "openai"
+        }
+    },
+    "agent_result": {
+        "n_input_tokens": 2700,
+        "n_cache_tokens": 768,
+        "n_output_tokens": 160,
+        "cost_usd": null,
+        "rollout_details": null,
+        "metadata": {
+            "cell_id": "vulnerable-secret--thinharness",
+            "harness": "thinharness",
+            "backend": "controlled-fake-direct-openai-contract",
+            "model_requests": 2,
+            "tool_calls": 1,
+            "response_models": [
+                "gpt-5.6-sol"
+            ],
+            "verifier_handoff": true
+        }
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 0.0
+        }
+    },
+    "verifier_environment_mode": "shared",
+    "exception_info": null,
+    "started_at": "2026-08-25T06:47:48.744446Z",
+    "finished_at": "2026-08-25T06:49:12.926190Z",
+    "environment_setup": {
+        "started_at": "2026-08-25T06:47:48.833481Z",
+        "finished_at": "2026-08-25T06:47:49.919094Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-08-25T06:47:49.919224Z",
+        "finished_at": "2026-08-25T06:48:53.536815Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-08-25T06:48:53.537065Z",
+        "finished_at": "2026-08-25T06:48:54.397648Z"
+    },
+    "verifier": {
+        "started_at": "2026-08-25T06:48:54.824969Z",
+        "finished_at": "2026-08-25T06:49:02.040038Z"
+    },
+    "step_results": null
+}

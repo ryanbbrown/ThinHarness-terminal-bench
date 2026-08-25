@@ -91,6 +91,22 @@ env -u OPENAI_API_KEY -u ANTHROPIC_API_KEY -u OPENROUTER_API_KEY \
 
 The authorized run is complete and cannot be rerun. Pi passed 2/3 extension tasks and ThinHarness passed 1/3. The authoritative report is `reports/codex-subscription-3task-extension.json`; trace findings are in `artifacts/subscription-extension-handoff.md`. API-equivalent cost uses the repository's frozen price schedule; subscription cash cost is not available. Results must not be generalized beyond the four-task post-fix sample formed by these three tasks and `crack-7z-hash`.
 
+## Direct-OpenAI 20-task pairwise runner
+
+The prepared runner freezes 20 fresh low-cost tasks and 40 ordered Pi/ThinHarness cells. It uses direct OpenAI only. The key enters only through the final Doppler boundary and never enters Harbor, a task container, or native Bash. The restart-safe launcher checkpoints every cell and never reruns a cell after its first real request marker.
+
+The no-model Harbor gate is complete: 40/40 controlled fake-provider cells, zero upstream requests, reward zero in every unsolved verifier, plus credit-exhaustion and restart checks. See `reports/direct-openai-20task-methodology.md`, `configs/direct-openai-20task-selection.json`, and `artifacts/direct-openai-20task-pairwise-preflight/`.
+
+The authorized long-running command is frozen but was not run:
+
+```bash
+env -u OPENAI_API_KEY -u ANTHROPIC_API_KEY -u OPENROUTER_API_KEY \
+  TB_THINHARNESS_LOCAL_SOURCE=/Users/ryanbrown/code/thinharness \
+  ./scripts/run-direct-openai-20task.sh
+```
+
+Real progress will be in `artifacts/direct-openai-20task-pairwise/progress.json`; the terminal marker is `artifacts/direct-openai-20task-pairwise/OUTCOME.json`; durable staging and gateway logs are under its `cells/` directory and `runs/direct-openai-20task-pairwise/runner.log`.
+
 ## Evidence boundary
 
 `evidence/preserved-direct-api-regex-log/` contains immutable historical receipts used to select the cheapest preserved valid task. `evidence/migration-manifest.json` lists every migrated item and every superseded path. The old `adapter.py` host loop and its custom bash/read/edit/write ToolSpecs were not copied. Historical JSON may describe that old run, but it is inert and never imported.

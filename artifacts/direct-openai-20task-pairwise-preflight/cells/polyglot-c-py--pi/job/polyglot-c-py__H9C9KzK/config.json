@@ -1,0 +1,24 @@
+{
+    "task": {
+        "name": "terminal-bench/polyglot-c-py",
+        "ref": "sha256:25570ccacf63f573a252eaa2a9c62ee8b55f5aa228cc803b5beb39dd6d8afeb7",
+        "source": "terminal-bench/terminal-bench-2-1"
+    },
+    "trial_name": "polyglot-c-py__H9C9KzK",
+    "trials_dir": "/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/direct-openai-20task-pairwise-preflight/direct-openai-20task-pairwise-fake-polyglot-c-py--pi-20260825-064342-949bc389",
+    "agent_setup_timeout_multiplier": 3.0,
+    "agent": {
+        "name": "tbench.direct_agent:DirectOpenAIAgent",
+        "model_name": "openai/gpt-5.6-sol",
+        "n_concurrent": 1,
+        "include_logs": [
+            "*"
+        ],
+        "kwargs": {
+            "harness": "pi",
+            "cell_id": "polyglot-c-py--pi",
+            "mode": "fake"
+        }
+    },
+    "job_id": "9dba53f2-8daf-4b87-856d-5f553ed8299d"
+}

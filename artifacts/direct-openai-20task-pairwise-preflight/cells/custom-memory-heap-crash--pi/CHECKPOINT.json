@@ -1,0 +1,104 @@
+{
+  "batching": [
+    {
+      "sequence": 1,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 2,
+      "tool_calls_in_response": 0,
+      "tool_names": []
+    }
+  ],
+  "cell_id": "custom-memory-heap-crash--pi",
+  "cost": {
+    "actual_cash_total": null,
+    "api_equivalent_total": 0.014844000000000001,
+    "components": {
+      "cache_write": 0.0,
+      "cached_input": 0.000384,
+      "ordinary_input": 0.00966,
+      "output": 0.0048000000000000004
+    },
+    "currency": "USD",
+    "prices_usd_per_million_tokens": {
+      "cache_write": 6.25,
+      "cached_input": 0.5,
+      "ordinary_input": 5.0,
+      "output": 30.0
+    }
+  },
+  "harbor_exit_code": 0,
+  "harness": "pi",
+  "identities": {
+    "gateway": {
+      "base_url": "http://host.docker.internal:59407/v1",
+      "bridge": null,
+      "cell_id": "custom-memory-heap-crash--pi",
+      "direct_openai": false,
+      "ephemeral_token_persisted": false,
+      "mode": "fake",
+      "port": 59407,
+      "provider": "controlled fake",
+      "upstream": null
+    },
+    "model": "gpt-5.6-sol",
+    "runner_files_sha256": "21b5f08f4e4a4b682b87c3f4dfe14020243966f31f669e2f8fd7c62430840328",
+    "source_bundle_sha256": null
+  },
+  "mode": "fake",
+  "never_rerun": false,
+  "real_model_attempted": false,
+  "request_count": 2,
+  "reward": 0.0,
+  "schema_version": 1,
+  "status": "completed",
+  "task": "custom-memory-heap-crash",
+  "timing": {
+    "agent_execution": {
+      "finished_at": "2026-08-25T07:23:50.876159Z",
+      "started_at": "2026-08-25T07:23:47.845991Z"
+    },
+    "agent_setup": {
+      "finished_at": "2026-08-25T07:23:47.845730Z",
+      "started_at": "2026-08-25T07:22:30.797240Z"
+    },
+    "environment_setup": {
+      "finished_at": "2026-08-25T07:22:30.797124Z",
+      "started_at": "2026-08-25T07:21:52.094925Z"
+    },
+    "harbor_finished_at": "2026-08-25T07:24:20.920580Z",
+    "harbor_started_at": "2026-08-25T07:21:52.005453Z",
+    "launcher_finished_at": 1787642662.556279,
+    "launcher_started_at": 1787642509.876572,
+    "request_seconds": [
+      1.9332976080477238e-05,
+      4.62500611320138e-06
+    ],
+    "verifier": {
+      "finished_at": "2026-08-25T07:24:09.989879Z",
+      "started_at": "2026-08-25T07:23:51.631191Z"
+    }
+  },
+  "traces": {
+    "gateway_audit": "cells/custom-memory-heap-crash--pi/gateway-audit.jsonl",
+    "harbor_result": "cells/custom-memory-heap-crash--pi/job/custom-memory-heap-crash__qSKvCuD/result.json",
+    "native_receipt": "cells/custom-memory-heap-crash--pi/job/custom-memory-heap-crash__qSKvCuD/agent/pi-direct-result.json",
+    "staging_stderr": "cells/custom-memory-heap-crash--pi/harbor.stderr.log",
+    "staging_stdout": "cells/custom-memory-heap-crash--pi/harbor.stdout.log",
+    "verifier_evidence": "cells/custom-memory-heap-crash--pi/job/custom-memory-heap-crash__qSKvCuD/verifier/ctrf.json",
+    "verifier_evidence_sha256": "52585c9421a705423089159a18db69f05cdb519ddd5929dd7df919c3596a607d",
+    "verifier_evidence_type": "ctrf.json"
+  },
+  "usage": {
+    "cache_write_tokens": 0,
+    "cached_input_tokens": 768,
+    "input_tokens": 2700,
+    "ordinary_input_tokens": 1932,
+    "output_tokens": 160,
+    "reasoning_tokens": 80
+  }
+}

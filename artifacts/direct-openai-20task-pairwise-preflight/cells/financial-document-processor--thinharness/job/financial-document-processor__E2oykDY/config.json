@@ -1,0 +1,24 @@
+{
+    "task": {
+        "name": "terminal-bench/financial-document-processor",
+        "ref": "sha256:63dc43a15d9ec401613016e9114d1a93ec860eea63b2db02abfe8060deea30fb",
+        "source": "terminal-bench/terminal-bench-2-1"
+    },
+    "trial_name": "financial-document-processor__E2oykDY",
+    "trials_dir": "/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/direct-openai-20task-pairwise-preflight/direct-openai-20task-pairwise-fake-financial-document-processor--thinharness-20260825-073626-09f9f396",
+    "agent_setup_timeout_multiplier": 3.0,
+    "agent": {
+        "name": "tbench.direct_agent:DirectOpenAIAgent",
+        "model_name": "openai/gpt-5.6-sol",
+        "n_concurrent": 1,
+        "include_logs": [
+            "*"
+        ],
+        "kwargs": {
+            "harness": "thinharness",
+            "cell_id": "financial-document-processor--thinharness",
+            "mode": "fake"
+        }
+    },
+    "job_id": "95964919-1b62-44d9-8579-834167f4c518"
+}

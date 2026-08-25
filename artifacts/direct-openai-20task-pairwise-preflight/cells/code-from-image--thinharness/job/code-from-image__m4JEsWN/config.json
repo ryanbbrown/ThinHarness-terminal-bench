@@ -1,0 +1,24 @@
+{
+    "task": {
+        "name": "terminal-bench/code-from-image",
+        "ref": "sha256:ef2907bb300d9b3352410c2a75dbf831278c187c073298371870ea9c83526f78",
+        "source": "terminal-bench/terminal-bench-2-1"
+    },
+    "trial_name": "code-from-image__m4JEsWN",
+    "trials_dir": "/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/direct-openai-20task-pairwise-preflight/direct-openai-20task-pairwise-fake-code-from-image--thinharness-20260825-072026-e6a0e41c",
+    "agent_setup_timeout_multiplier": 3.0,
+    "agent": {
+        "name": "tbench.direct_agent:DirectOpenAIAgent",
+        "model_name": "openai/gpt-5.6-sol",
+        "n_concurrent": 1,
+        "include_logs": [
+            "*"
+        ],
+        "kwargs": {
+            "harness": "thinharness",
+            "cell_id": "code-from-image--thinharness",
+            "mode": "fake"
+        }
+    },
+    "job_id": "e2f52678-08ce-4afd-9c98-e7f96f98fd3b"
+}

@@ -1,0 +1,104 @@
+{
+  "batching": [
+    {
+      "sequence": 1,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 2,
+      "tool_calls_in_response": 0,
+      "tool_names": []
+    }
+  ],
+  "cell_id": "custom-memory-heap-crash--thinharness",
+  "cost": {
+    "actual_cash_total": null,
+    "api_equivalent_total": 0.014844000000000001,
+    "components": {
+      "cache_write": 0.0,
+      "cached_input": 0.000384,
+      "ordinary_input": 0.00966,
+      "output": 0.0048000000000000004
+    },
+    "currency": "USD",
+    "prices_usd_per_million_tokens": {
+      "cache_write": 6.25,
+      "cached_input": 0.5,
+      "ordinary_input": 5.0,
+      "output": 30.0
+    }
+  },
+  "harbor_exit_code": 0,
+  "harness": "thinharness",
+  "identities": {
+    "gateway": {
+      "base_url": "http://host.docker.internal:59600/v1",
+      "bridge": null,
+      "cell_id": "custom-memory-heap-crash--thinharness",
+      "direct_openai": false,
+      "ephemeral_token_persisted": false,
+      "mode": "fake",
+      "port": 59600,
+      "provider": "controlled fake",
+      "upstream": null
+    },
+    "model": "gpt-5.6-sol",
+    "runner_files_sha256": "08d50d4e7a3835d2ade586431b87c45371ff99442d8e07bd591a0e02032d9f56",
+    "source_bundle_sha256": "96ce4cd81c551a38217fd5f9dd21a110afe1ed8d87198acd98db61ba27239840"
+  },
+  "mode": "fake",
+  "never_rerun": false,
+  "real_model_attempted": false,
+  "request_count": 2,
+  "reward": 0.0,
+  "schema_version": 1,
+  "status": "completed",
+  "task": "custom-memory-heap-crash",
+  "timing": {
+    "agent_execution": {
+      "finished_at": "2026-08-25T07:26:16.307191Z",
+      "started_at": "2026-08-25T07:26:15.529304Z"
+    },
+    "agent_setup": {
+      "finished_at": "2026-08-25T07:26:15.529104Z",
+      "started_at": "2026-08-25T07:25:14.141845Z"
+    },
+    "environment_setup": {
+      "finished_at": "2026-08-25T07:25:14.141748Z",
+      "started_at": "2026-08-25T07:25:13.132615Z"
+    },
+    "harbor_finished_at": "2026-08-25T07:26:46.388583Z",
+    "harbor_started_at": "2026-08-25T07:25:13.044935Z",
+    "launcher_finished_at": 1787642808.155505,
+    "launcher_started_at": 1787642711.675308,
+    "request_seconds": [
+      1.6874982975423336e-05,
+      5.875015631318092e-06
+    ],
+    "verifier": {
+      "finished_at": "2026-08-25T07:26:35.592513Z",
+      "started_at": "2026-08-25T07:26:16.727488Z"
+    }
+  },
+  "traces": {
+    "gateway_audit": "cells/custom-memory-heap-crash--thinharness/gateway-audit.jsonl",
+    "harbor_result": "cells/custom-memory-heap-crash--thinharness/job/custom-memory-heap-crash__r2wkmAk/result.json",
+    "native_receipt": "cells/custom-memory-heap-crash--thinharness/job/custom-memory-heap-crash__r2wkmAk/agent/thinharness-direct-result.json",
+    "staging_stderr": "cells/custom-memory-heap-crash--thinharness/harbor.stderr.log",
+    "staging_stdout": "cells/custom-memory-heap-crash--thinharness/harbor.stdout.log",
+    "verifier_evidence": "cells/custom-memory-heap-crash--thinharness/job/custom-memory-heap-crash__r2wkmAk/verifier/ctrf.json",
+    "verifier_evidence_sha256": "0dcf39ba751d3c501db223d0244d268f9e23bdb4619a60e73790c2bf9d9980fd",
+    "verifier_evidence_type": "ctrf.json"
+  },
+  "usage": {
+    "cache_write_tokens": 0,
+    "cached_input_tokens": 768,
+    "input_tokens": 2700,
+    "ordinary_input_tokens": 1932,
+    "output_tokens": 160,
+    "reasoning_tokens": 80
+  }
+}

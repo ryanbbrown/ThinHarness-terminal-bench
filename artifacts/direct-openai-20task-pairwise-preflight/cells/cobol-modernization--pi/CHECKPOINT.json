@@ -1,0 +1,103 @@
+{
+  "batching": [
+    {
+      "sequence": 1,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 2,
+      "tool_calls_in_response": 0,
+      "tool_names": []
+    }
+  ],
+  "cell_id": "cobol-modernization--pi",
+  "cost": {
+    "actual_cash_total": null,
+    "api_equivalent_total": 0.014844000000000001,
+    "components": {
+      "cache_write": 0.0,
+      "cached_input": 0.000384,
+      "ordinary_input": 0.00966,
+      "output": 0.0048000000000000004
+    },
+    "currency": "USD",
+    "prices_usd_per_million_tokens": {
+      "cache_write": 6.25,
+      "cached_input": 0.5,
+      "ordinary_input": 5.0,
+      "output": 30.0
+    }
+  },
+  "harbor_exit_code": 0,
+  "harness": "pi",
+  "identities": {
+    "gateway": {
+      "base_url": "http://host.docker.internal:54130/v1",
+      "bridge": null,
+      "cell_id": "cobol-modernization--pi",
+      "direct_openai": false,
+      "ephemeral_token_persisted": false,
+      "mode": "fake",
+      "port": 54130,
+      "provider": "controlled fake",
+      "upstream": null
+    },
+    "model": "gpt-5.6-sol",
+    "runner_files_sha256": "6198690dca625c4062f98c3fd2fd3197e49680b9cd53b277b36085ffed8f1b30",
+    "source_bundle_sha256": null
+  },
+  "mode": "fake",
+  "never_rerun": false,
+  "real_model_attempted": false,
+  "request_count": 2,
+  "reward": 0.0,
+  "schema_version": 1,
+  "status": "completed",
+  "task": "cobol-modernization",
+  "timing": {
+    "agent_execution": {
+      "finished_at": "2026-08-25T06:35:35.706201Z",
+      "started_at": "2026-08-25T06:35:32.605883Z"
+    },
+    "agent_setup": {
+      "finished_at": "2026-08-25T06:35:32.605689Z",
+      "started_at": "2026-08-25T06:34:27.965920Z"
+    },
+    "environment_setup": {
+      "finished_at": "2026-08-25T06:34:27.965844Z",
+      "started_at": "2026-08-25T06:34:26.911281Z"
+    },
+    "harbor_finished_at": "2026-08-25T06:35:53.722801Z",
+    "harbor_started_at": "2026-08-25T06:34:26.820596Z",
+    "launcher_finished_at": 1787639755.323623,
+    "launcher_started_at": 1787639664.64576,
+    "request_seconds": [
+      2.270803088322282e-05,
+      5.916052032262087e-06
+    ],
+    "verifier": {
+      "finished_at": "2026-08-25T06:35:42.705149Z",
+      "started_at": "2026-08-25T06:35:36.123648Z"
+    }
+  },
+  "traces": {
+    "gateway_audit": "cells/cobol-modernization--pi/gateway-audit.jsonl",
+    "harbor_result": "cells/cobol-modernization--pi/job/cobol-modernization__FjKk363/result.json",
+    "native_receipt": "cells/cobol-modernization--pi/job/cobol-modernization__FjKk363/agent/pi-direct-result.json",
+    "staging_stderr": "cells/cobol-modernization--pi/harbor.stderr.log",
+    "staging_stdout": "cells/cobol-modernization--pi/harbor.stdout.log",
+    "verifier_ctrf": "cells/cobol-modernization--pi/job/cobol-modernization__FjKk363/verifier/ctrf.json",
+    "verifier_ctrf_sha256": "95a47cf2b96cc8c3dd4ccf951f2b1092e0f15de3c34e01f75a79d1858d62319e"
+  },
+  "usage": {
+    "cache_write_tokens": 0,
+    "cached_input_tokens": 768,
+    "input_tokens": 2700,
+    "ordinary_input_tokens": 1932,
+    "output_tokens": 160,
+    "reasoning_tokens": 80
+  }
+}
