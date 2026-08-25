@@ -1,0 +1,73 @@
+{
+  "all_sequence_valid_split_indices": [
+    213,
+    214,
+    215
+  ],
+  "answer": "No",
+  "conclusion": "Both requested repeated-AG endpoint partitions convert the exact public input to the exact public output and have preserved one-pair designs that meet the stated length and Tm rules. Only split 213 matches the verifier's hidden constants. The sequence also permits an intermediate split at 214, which further disproves deterministic selection.",
+  "deterministic_public_split": false,
+  "evidence": {
+    "pi_trace": "artifacts/direct-openai-20task-pairwise/cells/dna-insert--pi/job/dna-insert__awQcgmQ/agent/pi-events.jsonl",
+    "public_instruction": "evidence/dna-insert-prompt-analysis/instruction.md",
+    "public_instruction_sha256": "49fce0ee8b73d7ccdf4b8476c6bb87cf362689fd1d77b21a0d8737d16019a473",
+    "thinharness_trace": "artifacts/direct-openai-20task-pairwise/cells/dna-insert--thinharness/gateway-audit.jsonl",
+    "thinharness_verifier": "artifacts/direct-openai-20task-pairwise/cells/dna-insert--thinharness/job/dna-insert__SHwX67r/verifier/test-stdout.txt",
+    "verifier_source": "evidence/dna-insert-prompt-analysis/verifier-test_outputs.py",
+    "verifier_source_sha256": "5bf0651b48969968dea30956d4b0cf9e499af59d73cc6886af3ad7aa92934647"
+  },
+  "input_length": 3591,
+  "length_delta": 39,
+  "output_length": 3630,
+  "partitions": [
+    {
+      "hidden_verifier_accepts": true,
+      "input_context": "acatatg|agcaagg",
+      "insert": "agtagattagaagaagaattaagaagaagattaacagaa",
+      "output_context": "acatatg|agtagattagaagaagaattaagaagaagattaacagaa|agcaagg",
+      "preserved_primer_evidence": {
+        "annealed_forward_length": 16,
+        "annealed_reverse_length": 44,
+        "forward_tm_c": 63.484852,
+        "primer_pairs": 1,
+        "reverse_tm_c": 63.170057,
+        "tm_delta_c": 0.314795
+      },
+      "public_requirement_met": true,
+      "split_index": 213
+    },
+    {
+      "hidden_verifier_accepts": false,
+      "hidden_verifier_reparse": {
+        "annealed_forward_length": 18,
+        "annealed_reverse_length": 30,
+        "forward_tm_c": 66.274364,
+        "reverse_tm_c": 58.082753,
+        "tm_delta_c": 8.191611
+      },
+      "input_context": "atatgag|caagggc",
+      "insert": "tagattagaagaagaattaagaagaagattaacagaaag",
+      "output_context": "atatgag|tagattagaagaagaattaagaagaagattaacagaaag|caagggc",
+      "preserved_primer_evidence": {
+        "annealed_forward_length": 16,
+        "annealed_reverse_length": 32,
+        "forward_tm_c": 61.23666,
+        "primer_pairs": 1,
+        "reverse_tm_c": 59.837385,
+        "tm_delta_c": 1.399275
+      },
+      "public_requirement_met": true,
+      "split_index": 215
+    }
+  ],
+  "question": "Does the exact public prompt deterministically select the verifier's two-base-shifted split?",
+  "reason": "The repeated AG permits the two endpoint 39-base insertion partitions at 213 and 215. The public instruction gives no boundary-assignment rule; a one-base intermediate split at 214 is also sequence-valid.",
+  "relationship": "split_213_insert = 'ag' + split_215_insert[:-2]",
+  "reproduce": "uv run python -m tbench.dna_analysis --check",
+  "requested_repeated_ag_endpoint_partitions": [
+    213,
+    215
+  ],
+  "schema_version": 1,
+  "verifier_hidden_split_index": 213
+}

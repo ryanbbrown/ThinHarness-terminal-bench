@@ -104,3 +104,17 @@ The authorized run is complete and cannot be rerun. `OUTCOME.json` records 40/40
 `evidence/preserved-direct-api-regex-log/` contains immutable historical receipts used to select the cheapest preserved valid task. `evidence/migration-manifest.json` lists every migrated item and every superseded path. The old `adapter.py` host loop and its custom bash/read/edit/write ToolSpecs were not copied. Historical JSON may describe that old run, but it is inert and never imported.
 
 No command in this repository uploads, publishes, pushes, creates a remote, or runs a broader pilot.
+
+## New ThinHarness replicates
+
+`artifacts/direct-openai-thinharness-replicates-v1/` contains two separately labelled native ThinHarness replicates for `nginx-request-logging` and `sanitize-git-repo`. The original 20-task evidence remains unchanged. The two-cell runner is restart-safe, skips every consumed cell, runs only ThinHarness, and uses the same task refs, model settings, timeouts, limits, zero-retry policy, direct OpenAI gateway, and Doppler credential boundary as the original cells.
+
+Validate and reproduce the reports without a model call:
+
+```bash
+./scripts/direct-openai-thinharness-replicates-checks.sh
+uv run python -m tbench.direct_replicates validate artifacts/direct-openai-thinharness-replicates-v1 --mode real --check-report
+uv run python -m tbench.dna_analysis --check
+```
+
+The replicate report is `reports/direct-openai-thinharness-replicates-v1.json`. The separate `reports/dna-insert-prompt-analysis.json` proves from preserved evidence, without rerunning DNA, that the public prompt does not uniquely select the verifier's hidden repeated-boundary split.

@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "frozen_before_spend": true,
+  "benchmark_id": "direct-openai-thinharness-replicates-v1",
+  "label": "new_replicates",
+  "original_benchmark_id": "direct-openai-20task-pairwise",
+  "cells": [
+    {
+      "replicate_id": "nginx-request-logging--thinharness--replicate-1",
+      "cell_id": "nginx-request-logging--thinharness",
+      "task": "nginx-request-logging",
+      "harness": "thinharness",
+      "original_cell_id": "nginx-request-logging--thinharness",
+      "task_package_digest": "sha256:9d1b8bebd989ea0bc8080c3b159480068caf183c5fd61385868b2574b206e097",
+      "task_toml_sha256": "b7a78d00be13656f75069197100b7b8c4fd268decf6f78929c853b3222a2729d",
+      "instruction_sha256": "26a7ac98aced6107f147206790ada77bbf8ed3c25fb360cf323d5fc6889edf99",
+      "task_tree_sha256": "a6ab883f9869ef23d6e4d13007af3d78f94c3a323913c527a448f190f4ba4d26",
+      "agent_timeout_sec": 900,
+      "verifier_timeout_sec": 900,
+      "cpus": 1,
+      "memory_mb": 2048,
+      "storage_mb": 10240,
+      "image": "alexgshaw/nginx-request-logging:20251031"
+    },
+    {
+      "replicate_id": "sanitize-git-repo--thinharness--replicate-1",
+      "cell_id": "sanitize-git-repo--thinharness",
+      "task": "sanitize-git-repo",
+      "harness": "thinharness",
+      "original_cell_id": "sanitize-git-repo--thinharness",
+      "task_package_digest": "sha256:6e86297715fae62cd499fbdd27013e11a38d05d7e05b7f661cb50b4ecead128f",
+      "task_toml_sha256": "ff209feb7d07c68b8bd0d2e9abee96a1431c332095a1bbe0a532c44a833a264d",
+      "instruction_sha256": "d9e10a56e94e51592c6016efb02adef852d4fd08f9ba23dc304d2673d1478e8a",
+      "task_tree_sha256": "f781f560980f6ac724711e648fc2a6d387cb5c4df9b47a0bdc34e24253132693",
+      "agent_timeout_sec": 900,
+      "verifier_timeout_sec": 900,
+      "cpus": 1,
+      "memory_mb": 2048,
+      "storage_mb": 10240,
+      "image": "alexgshaw/sanitize-git-repo:20251031"
+    }
+  ],
+  "execution": {
+    "harness": "native ThinHarness",
+    "thinharness_version": "0.7.0",
+    "thinharness_commit": "84105f07bb9c1ad366fc8fe4fef49e700f5e88ef",
+    "model": "gpt-5.6-sol",
+    "provider": "direct OpenAI Responses API",
+    "provider_url": "https://api.openai.com/v1/responses",
+    "reasoning": {"effort": "xhigh", "summary": "auto"},
+    "text": {"verbosity": "low"},
+    "provider_timeout_seconds": 1800,
+    "agent_timeout_seconds": 1800,
+    "max_model_requests": 64,
+    "max_tool_calls": 128,
+    "max_output_tokens": 100000,
+    "attempts_per_cell": 1,
+    "concurrency": 1,
+    "retries": {"harbor": 0, "model": 0, "transport": 0, "provider": 0, "output": 0, "tool": 0}
+  },
+  "dataset": "terminal-bench/terminal-bench-2-1@sha256:7d7bdc1cbedad549fc1140404bd4dc45e5fd0ea7c4186773687d177ad3a0699a",
+  "prompt": {
+    "path": "prompts/pi-0.84.2-system-prompt.md",
+    "sha256": "bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e"
+  },
+  "pricing_usd_per_million_tokens": {
+    "ordinary_input": 5.0,
+    "cached_input": 0.5,
+    "cache_write": 6.25,
+    "output": 30.0
+  },
+  "credential_boundary": {
+    "source": "Doppler api-keys/dev_personal OPENAI_API_KEY",
+    "launcher_only": true,
+    "task_container_receives_key": false,
+    "native_bash_receives_key": false,
+    "key_persisted": false
+  },
+  "original_immutability": {
+    "artifact_root": "artifacts/direct-openai-20task-pairwise",
+    "sha256_manifest_sha256": "cfa1fd7618f56f08f742ed11842d536f3a9aee925614ab15ef9dc1a3e9802a31",
+    "summary_sha256": "73cd514778f151988eef2f39307a587b7f902136b14eb06916e9ae79294573bb",
+    "report_sha256": "73cd514778f151988eef2f39307a587b7f902136b14eb06916e9ae79294573bb"
+  },
+  "forbidden_cells": {
+    "pi": true,
+    "dna_insert": true,
+    "policy_tasks": true,
+    "all_other_tasks": true
+  }
+}

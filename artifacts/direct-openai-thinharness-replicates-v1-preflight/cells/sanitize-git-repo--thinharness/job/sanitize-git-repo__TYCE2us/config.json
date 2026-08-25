@@ -1,0 +1,24 @@
+{
+    "task": {
+        "name": "terminal-bench/sanitize-git-repo",
+        "ref": "sha256:6e86297715fae62cd499fbdd27013e11a38d05d7e05b7f661cb50b4ecead128f",
+        "source": "terminal-bench/terminal-bench-2-1"
+    },
+    "trial_name": "sanitize-git-repo__TYCE2us",
+    "trials_dir": "/Users/ryanbrown/.bb/worktrees/env_sdnb7kazkx/thin-harness-terminal-bench/jobs/direct-openai-20task-pairwise-preflight/direct-openai-20task-pairwise-fake-sanitize-git-repo--thinharness-20260825-210457-7b7f197b",
+    "agent_setup_timeout_multiplier": 3.0,
+    "agent": {
+        "name": "tbench.direct_agent:DirectOpenAIAgent",
+        "model_name": "openai/gpt-5.6-sol",
+        "n_concurrent": 1,
+        "include_logs": [
+            "*"
+        ],
+        "kwargs": {
+            "harness": "thinharness",
+            "cell_id": "sanitize-git-repo--thinharness",
+            "mode": "fake"
+        }
+    },
+    "job_id": "2dcb15ff-1b1e-4461-99fe-e1b6dffe34a2"
+}

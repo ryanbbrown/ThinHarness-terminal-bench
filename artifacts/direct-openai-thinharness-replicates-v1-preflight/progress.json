@@ -1,0 +1,837 @@
+{
+  "benchmark_id": "direct-openai-thinharness-replicates-v1",
+  "cells": [
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "nginx-request-logging--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.014844000000000001,
+        "components": {
+          "cache_write": 0.0,
+          "cached_input": 0.000384,
+          "ordinary_input": 0.00966,
+          "output": 0.0048000000000000004
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "thinharness",
+      "identities": {
+        "gateway": {
+          "bind": "0.0.0.0",
+          "bridge": null,
+          "cell_id": "nginx-request-logging--thinharness",
+          "container_base_url": "http://host.docker.internal:61270/v1",
+          "direct_openai": false,
+          "downstream_auth": "ephemeral-random-bearer",
+          "downstream_token_persisted": false,
+          "mode": "fake",
+          "openai_key_persisted": false,
+          "openai_key_source": "none",
+          "port": 61270,
+          "provider": "controlled fake",
+          "request_retries": 0,
+          "schema_version": 1,
+          "transport_retries": 0,
+          "upstream": null
+        },
+        "harbor": {
+          "agent_info": {
+            "model_info": {
+              "name": "gpt-5.6-sol",
+              "provider": "openai"
+            },
+            "name": "direct-openai-pairwise",
+            "version": "1.0+84105f07"
+          },
+          "id": "b2dc32d2-2d65-483a-ac8e-4889cb7d1bc8",
+          "source": "terminal-bench/terminal-bench-2-1",
+          "task_checksum": "913305d8f286ff121b30e4893217142190b27f12952343f22c0999dd2a4d725e",
+          "task_id": {
+            "name": "nginx-request-logging",
+            "org": "terminal-bench",
+            "ref": "sha256:9d1b8bebd989ea0bc8080c3b159480068caf183c5fd61385868b2574b206e097"
+          },
+          "task_name": "terminal-bench/nginx-request-logging",
+          "trial_name": "nginx-request-logging__kqTfZ3P"
+        },
+        "launch_gateway": {
+          "base_url": "http://host.docker.internal:61270/v1",
+          "bridge": null,
+          "cell_id": "nginx-request-logging--thinharness",
+          "direct_openai": false,
+          "ephemeral_token_persisted": false,
+          "mode": "fake",
+          "port": 61270,
+          "provider": "controlled fake",
+          "upstream": null
+        },
+        "model": {
+          "backend": "controlled-fake-direct-openai-contract",
+          "name": "gpt-5.6-sol",
+          "reasoning": {
+            "effort": "xhigh",
+            "summary": "auto"
+          },
+          "response_models": [
+            "gpt-5.6-sol"
+          ],
+          "text": {
+            "verbosity": "low"
+          }
+        },
+        "native_harness": {
+          "cell_id": "nginx-request-logging--thinharness",
+          "execution": {
+            "cwd": "/app",
+            "execution": "harbor-task-container",
+            "hostname": "07950b6f3dcc",
+            "machine": "x86_64",
+            "os_release": {
+              "ID": "debian",
+              "PRETTY_NAME": "Debian GNU/Linux 12 (bookworm)",
+              "VERSION_ID": "12"
+            },
+            "pid": 5555,
+            "platform": "Linux-6.12.76-linuxkit-x86_64-with-glibc2.36",
+            "python": "3.12.11 (main, Aug 18 2025, 19:19:11) [Clang 20.1.4 ]",
+            "root": "/app",
+            "uid": 0
+          },
+          "harness": "thinharness",
+          "harness_version": "0.7.0",
+          "install": {
+            "build_location": "harbor-task-container",
+            "canonical_commit": "84105f07bb9c1ad366fc8fe4fef49e700f5e88ef",
+            "harness": "thinharness",
+            "installed_version": "0.7.0",
+            "platform": "Linux-6.12.76-linuxkit-x86_64-with-glibc2.36",
+            "python": "3.12.11 (main, Aug 18 2025, 19:19:11) [Clang 20.1.4 ]",
+            "schema_version": 1,
+            "source_bundle_sha256": "8cdaddefc284f1cabf69c4772132b86bb29fa0de7961919fdd68096864a202d4",
+            "source_mode": "transient-local-git-bundle",
+            "wheel_path": "/opt/thinharness-direct-wheels/thinharness-0.7.0-py3-none-any.whl",
+            "wheel_sha256": "5aaa83dbd5d06d5ed9e53fe6ef7e026913634913b3580ad9dcccbddf3a0e3280"
+          },
+          "kind": "direct-openai-pairwise-cell",
+          "mode": "fake",
+          "prompt_sha256": "bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e",
+          "provider_transport": {
+            "client_timeout_seconds": {
+              "connect": 1800,
+              "pool": 1800,
+              "read": 1800,
+              "write": 1800
+            },
+            "client_type": "httpx.AsyncClient",
+            "provider_owns_client": true,
+            "provider_timeout_seconds": 1800,
+            "requests_made": 0
+          },
+          "thinharness_commit": "84105f07bb9c1ad366fc8fe4fef49e700f5e88ef",
+          "tool_schemas": [
+            {
+              "description": "Run one non-interactive Bash command. The cwd must be inside the workspace. Each call starts a fresh shell and does not share shell state with other calls. Background processes in the same process group are terminated on a best-effort basis. timeout is in seconds and is capped by the host.",
+              "name": "bash",
+              "parameters": {
+                "additionalProperties": false,
+                "description": "Model arguments for one Bash call.",
+                "properties": {
+                  "command": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "cwd": {
+                    "default": ".",
+                    "type": "string"
+                  },
+                  "timeout": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "command"
+                ],
+                "type": "object"
+              },
+              "type": "function"
+            },
+            {
+              "description": "Read a UTF-8 text file with line numbers and optional offset/limit.",
+              "name": "read",
+              "parameters": {
+                "additionalProperties": false,
+                "description": "Arguments for read.",
+                "properties": {
+                  "limit": {
+                    "minimum": 1,
+                    "type": "integer"
+                  },
+                  "max_chars": {
+                    "minimum": 1,
+                    "type": "integer"
+                  },
+                  "offset": {
+                    "default": 1,
+                    "minimum": 1,
+                    "type": "integer"
+                  },
+                  "path": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "path"
+                ],
+                "type": "object"
+              },
+              "type": "function"
+            },
+            {
+              "description": "Apply one or more exact text replacements to UTF-8 files. Each old_string must be unique unless all=true.",
+              "name": "edit",
+              "parameters": {
+                "additionalProperties": false,
+                "description": "Arguments for edit.",
+                "properties": {
+                  "edits": {
+                    "items": {
+                      "additionalProperties": false,
+                      "description": "One exact replacement for edit.",
+                      "properties": {
+                        "all": {
+                          "default": false,
+                          "type": "boolean"
+                        },
+                        "expected_replacements": {
+                          "minimum": 1,
+                          "type": "integer"
+                        },
+                        "new_string": {
+                          "type": "string"
+                        },
+                        "old_string": {
+                          "type": "string"
+                        },
+                        "path": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "path",
+                        "old_string",
+                        "new_string"
+                      ],
+                      "type": "object"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "edits"
+                ],
+                "type": "object"
+              },
+              "type": "function"
+            },
+            {
+              "description": "Create, overwrite, or append to a UTF-8 text file under the workspace root.",
+              "name": "write",
+              "parameters": {
+                "additionalProperties": false,
+                "description": "Arguments for write.",
+                "properties": {
+                  "append": {
+                    "default": false,
+                    "type": "boolean"
+                  },
+                  "content": {
+                    "type": "string"
+                  },
+                  "path": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "path",
+                  "content"
+                ],
+                "type": "object"
+              },
+              "type": "function"
+            }
+          ],
+          "tools": null
+        },
+        "runner": {
+          "files": {
+            "configs/container-runtime-requirements.txt": "61d52e09e2edaa56c84a8f139c77dc6052312648d726366a6ec4be50e392c3a6",
+            "configs/direct-openai-20task-selection.json": "c800c80251d4880fdafb066ef1bc690473c68923c160e9f4c31cc53879382960",
+            "configs/direct-openai-20task-settings.json": "79a0cd91ddff45d5e765e05b2de114c57fbd4f17d3cf15da67f28162d7f77c1e",
+            "configs/direct-openai-exclusion-proof.json": "eb7f357aa6de1a9795ac3495f5dcc90e82647698ca3231cc05c7b11ec4543cb0",
+            "configs/direct-openai-thinharness-replicates.json": "6d6cf0e08923a6c9adaa39efdc9dbf1e31c8196b016b86b9c881b97b0c56c2e5",
+            "configs/native-tool-schemas.json": "1c1c1e985590e9980264a2e6b8364bd96f1b052c0761eed7f127ac9ab60cfd24",
+            "configs/pi-native-tool-schemas.json": "88fda428f9a9114a62d2f3a394d85c7d15cddd111eddadbe7abbe728bff2afde",
+            "configs/pi-subscription-package-lock.json": "0f34d01dda1837fd634d0562d2c0350ff982da133de59f36fccdac62835fc1c0",
+            "configs/pi-subscription-package.json": "fdecbea847897b2ebdbc54aaabc1899c115dde083f81de65daf13e46feba80ba",
+            "prompts/pi-0.84.2-system-prompt.md": "bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e",
+            "pyproject.toml": "0fd879950695fb6005b43fe36b72f08459a025ebb0a398a3532ad66c450395a2",
+            "scripts/direct-openai-thinharness-replicates-checks.sh": "036e7e70c25117b1ac9cfb607ad0a52d193f237252d61715fd70f56c3fcc9890",
+            "scripts/direct-openai-thinharness-replicates-preflight.sh": "9c5f887c7ea329842e5e1ceebf3dc4da31a708caef215f9f31b56e2185cd6aaf",
+            "scripts/install-direct-pi.sh": "03b2a5504dc3c14c280dce99637058e3b3dbc9075372bd6fad079531b0242a7b",
+            "scripts/install-direct-thinharness.sh": "8b444733dcdbb29fc44e70a60d3c9a97640de79fc5c4e8d933c88eda024c7e6e",
+            "scripts/run-direct-openai-thinharness-replicates.sh": "9f4742763fc2cb8b1ad1a1b369ee965a2b854f2dbecf01ffa523722b5ac0d636",
+            "tbench/container_security.py": "45e669996dcab219a827df78fb3fff7b8e8d6aa7abdc737746e2560666398603",
+            "tbench/direct_agent.py": "a4b244501f1de1b578a61d8607747679f8bcf93e0eeae7cfeb2137f0b83b362c",
+            "tbench/direct_behavior_preflight.py": "b52594f6e7eca6ba89ded456747bb98a7e8fa7d53e4ddb06adae96deaabd8da2",
+            "tbench/direct_constants.py": "0a307d0d55e463deab616e20962140b2aafbe00259f45397ecd9cf0f57f9ec31",
+            "tbench/direct_container.py": "49e25a9caeb37fb51088a54981bd3be44234cb0fd7a030d246bf111db28921a0",
+            "tbench/direct_gateway.py": "6a2710ac23230aad9643a10a9ff15317bd9e9c781abbff9ad052dd75d68b885f",
+            "tbench/direct_launch.py": "5aefd8cf22daa566d08f953f2265e73fe5a0b8f33db63473c5ee579597104c2a",
+            "tbench/direct_replicates.py": "55d694d882795eb67d04b6aa89d6b16a15e002f56f00d2e0bae9e72ce7a7473d",
+            "tbench/direct_validate.py": "b9d7f17a2134a519a0730151e1bf0fdd560bd015a7bd86022fb7b1e541cc0e82",
+            "tbench/pi_subscription_probe.mjs": "c7cd70f7344700f980dd898dc3c43aabc35a810d108c5d972b9438fccb4e5a4a",
+            "tbench/source_bundle.py": "ac208f36136b9314c7c57c9456b5304a92fd715b9eb3fd81c6ddb54a78a88077",
+            "uv.lock": "b960a45efb63fb5c5b738df1711410d1fe0c226f92bded3d29c0e6bf52f7e6d4"
+          },
+          "files_sha256": "a9727ab482eb2aaad189de3be3ba6f5821a3d63068990eb6d54fed4a5aee6ae3"
+        },
+        "source_bundle_sha256": "8cdaddefc284f1cabf69c4772132b86bb29fa0de7961919fdd68096864a202d4"
+      },
+      "mode": "fake",
+      "model_attempt_failure": null,
+      "never_rerun": false,
+      "original_cell_id": "nginx-request-logging--thinharness",
+      "real_model_attempted": false,
+      "replicate_id": "nginx-request-logging--thinharness--replicate-1",
+      "request_count": 2,
+      "restart_action": "recoverable before any model request",
+      "reward": 0.0,
+      "schema_version": 1,
+      "status": "completed",
+      "successful_request_count": 2,
+      "task": "nginx-request-logging",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T21:04:31.653754Z",
+          "started_at": "2026-08-25T21:04:30.870850Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T21:04:30.870647Z",
+          "started_at": "2026-08-25T21:03:10.861843Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T21:03:10.861656Z",
+          "started_at": "2026-08-25T21:03:04.480742Z"
+        },
+        "harbor_finished_at": "2026-08-25T21:04:53.715441Z",
+        "harbor_started_at": "2026-08-25T21:03:04.014278Z",
+        "launcher_finished_at": 1787691897.4552052,
+        "launcher_started_at": 1787691776.304781,
+        "native_agent_seconds": 0.06681620800000587,
+        "request_seconds": [
+          5.329097621142864e-05,
+          1.1625001206994057e-05
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T21:04:42.844194Z",
+          "started_at": "2026-08-25T21:04:32.087842Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/nginx-request-logging--thinharness/gateway-audit.jsonl",
+        "gateway_identity": "cells/nginx-request-logging--thinharness/gateway-identity.json",
+        "harbor_result": "cells/nginx-request-logging--thinharness/job/nginx-request-logging__kqTfZ3P/result.json",
+        "launch": "cells/nginx-request-logging--thinharness/launch.json",
+        "model_request_markers": null,
+        "native_events": "cells/nginx-request-logging--thinharness/job/nginx-request-logging__kqTfZ3P/agent/thinharness-events.jsonl",
+        "native_receipt": "cells/nginx-request-logging--thinharness/job/nginx-request-logging__kqTfZ3P/agent/thinharness-direct-result.json",
+        "native_stderr": "cells/nginx-request-logging--thinharness/job/nginx-request-logging__kqTfZ3P/agent/thinharness-stderr.log",
+        "staging_stderr": "cells/nginx-request-logging--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/nginx-request-logging--thinharness/harbor.stdout.log",
+        "verifier_evidence": "cells/nginx-request-logging--thinharness/job/nginx-request-logging__kqTfZ3P/verifier/ctrf.json",
+        "verifier_evidence_sha256": "229a5081e17ddf8b25425f0190a1c30d75122e8c45843b9c45e5b2ebd1f263ca",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      },
+      "verifier_outcome": {
+        "rewards": {
+          "reward": 0.0
+        }
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "sanitize-git-repo--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.014844000000000001,
+        "components": {
+          "cache_write": 0.0,
+          "cached_input": 0.000384,
+          "ordinary_input": 0.00966,
+          "output": 0.0048000000000000004
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "thinharness",
+      "identities": {
+        "gateway": {
+          "bind": "0.0.0.0",
+          "bridge": null,
+          "cell_id": "sanitize-git-repo--thinharness",
+          "container_base_url": "http://host.docker.internal:61702/v1",
+          "direct_openai": false,
+          "downstream_auth": "ephemeral-random-bearer",
+          "downstream_token_persisted": false,
+          "mode": "fake",
+          "openai_key_persisted": false,
+          "openai_key_source": "none",
+          "port": 61702,
+          "provider": "controlled fake",
+          "request_retries": 0,
+          "schema_version": 1,
+          "transport_retries": 0,
+          "upstream": null
+        },
+        "harbor": {
+          "agent_info": {
+            "model_info": {
+              "name": "gpt-5.6-sol",
+              "provider": "openai"
+            },
+            "name": "direct-openai-pairwise",
+            "version": "1.0+84105f07"
+          },
+          "id": "8ad73b6d-a666-4544-9503-adf4e6ede55c",
+          "source": "terminal-bench/terminal-bench-2-1",
+          "task_checksum": "b2e4391be7422fb3cf8686964979a57704aae85a36bccd2df40e22c049f58e13",
+          "task_id": {
+            "name": "sanitize-git-repo",
+            "org": "terminal-bench",
+            "ref": "sha256:6e86297715fae62cd499fbdd27013e11a38d05d7e05b7f661cb50b4ecead128f"
+          },
+          "task_name": "terminal-bench/sanitize-git-repo",
+          "trial_name": "sanitize-git-repo__TYCE2us"
+        },
+        "launch_gateway": {
+          "base_url": "http://host.docker.internal:61702/v1",
+          "bridge": null,
+          "cell_id": "sanitize-git-repo--thinharness",
+          "direct_openai": false,
+          "ephemeral_token_persisted": false,
+          "mode": "fake",
+          "port": 61702,
+          "provider": "controlled fake",
+          "upstream": null
+        },
+        "model": {
+          "backend": "controlled-fake-direct-openai-contract",
+          "name": "gpt-5.6-sol",
+          "reasoning": {
+            "effort": "xhigh",
+            "summary": "auto"
+          },
+          "response_models": [
+            "gpt-5.6-sol"
+          ],
+          "text": {
+            "verbosity": "low"
+          }
+        },
+        "native_harness": {
+          "cell_id": "sanitize-git-repo--thinharness",
+          "execution": {
+            "cwd": "/app",
+            "execution": "harbor-task-container",
+            "hostname": "65d5289b9dc3",
+            "machine": "x86_64",
+            "os_release": {
+              "ID": "debian",
+              "PRETTY_NAME": "Debian GNU/Linux 12 (bookworm)",
+              "VERSION_ID": "12"
+            },
+            "pid": 106,
+            "platform": "Linux-6.12.76-linuxkit-x86_64-with-glibc2.36",
+            "python": "3.12.11 (main, Aug 18 2025, 19:19:11) [Clang 20.1.4 ]",
+            "root": "/app",
+            "uid": 0
+          },
+          "harness": "thinharness",
+          "harness_version": "0.7.0",
+          "install": {
+            "build_location": "harbor-task-container",
+            "canonical_commit": "84105f07bb9c1ad366fc8fe4fef49e700f5e88ef",
+            "harness": "thinharness",
+            "installed_version": "0.7.0",
+            "platform": "Linux-6.12.76-linuxkit-x86_64-with-glibc2.36",
+            "python": "3.12.11 (main, Aug 18 2025, 19:19:11) [Clang 20.1.4 ]",
+            "schema_version": 1,
+            "source_bundle_sha256": "8cdaddefc284f1cabf69c4772132b86bb29fa0de7961919fdd68096864a202d4",
+            "source_mode": "transient-local-git-bundle",
+            "wheel_path": "/opt/thinharness-direct-wheels/thinharness-0.7.0-py3-none-any.whl",
+            "wheel_sha256": "eecebf612f436caa9dbb9e63d88ac8ff328d8ebed6d944efa9e142feae2f5b29"
+          },
+          "kind": "direct-openai-pairwise-cell",
+          "mode": "fake",
+          "prompt_sha256": "bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e",
+          "provider_transport": {
+            "client_timeout_seconds": {
+              "connect": 1800,
+              "pool": 1800,
+              "read": 1800,
+              "write": 1800
+            },
+            "client_type": "httpx.AsyncClient",
+            "provider_owns_client": true,
+            "provider_timeout_seconds": 1800,
+            "requests_made": 0
+          },
+          "thinharness_commit": "84105f07bb9c1ad366fc8fe4fef49e700f5e88ef",
+          "tool_schemas": [
+            {
+              "description": "Run one non-interactive Bash command. The cwd must be inside the workspace. Each call starts a fresh shell and does not share shell state with other calls. Background processes in the same process group are terminated on a best-effort basis. timeout is in seconds and is capped by the host.",
+              "name": "bash",
+              "parameters": {
+                "additionalProperties": false,
+                "description": "Model arguments for one Bash call.",
+                "properties": {
+                  "command": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "cwd": {
+                    "default": ".",
+                    "type": "string"
+                  },
+                  "timeout": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "command"
+                ],
+                "type": "object"
+              },
+              "type": "function"
+            },
+            {
+              "description": "Read a UTF-8 text file with line numbers and optional offset/limit.",
+              "name": "read",
+              "parameters": {
+                "additionalProperties": false,
+                "description": "Arguments for read.",
+                "properties": {
+                  "limit": {
+                    "minimum": 1,
+                    "type": "integer"
+                  },
+                  "max_chars": {
+                    "minimum": 1,
+                    "type": "integer"
+                  },
+                  "offset": {
+                    "default": 1,
+                    "minimum": 1,
+                    "type": "integer"
+                  },
+                  "path": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "path"
+                ],
+                "type": "object"
+              },
+              "type": "function"
+            },
+            {
+              "description": "Apply one or more exact text replacements to UTF-8 files. Each old_string must be unique unless all=true.",
+              "name": "edit",
+              "parameters": {
+                "additionalProperties": false,
+                "description": "Arguments for edit.",
+                "properties": {
+                  "edits": {
+                    "items": {
+                      "additionalProperties": false,
+                      "description": "One exact replacement for edit.",
+                      "properties": {
+                        "all": {
+                          "default": false,
+                          "type": "boolean"
+                        },
+                        "expected_replacements": {
+                          "minimum": 1,
+                          "type": "integer"
+                        },
+                        "new_string": {
+                          "type": "string"
+                        },
+                        "old_string": {
+                          "type": "string"
+                        },
+                        "path": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "path",
+                        "old_string",
+                        "new_string"
+                      ],
+                      "type": "object"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "edits"
+                ],
+                "type": "object"
+              },
+              "type": "function"
+            },
+            {
+              "description": "Create, overwrite, or append to a UTF-8 text file under the workspace root.",
+              "name": "write",
+              "parameters": {
+                "additionalProperties": false,
+                "description": "Arguments for write.",
+                "properties": {
+                  "append": {
+                    "default": false,
+                    "type": "boolean"
+                  },
+                  "content": {
+                    "type": "string"
+                  },
+                  "path": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "path",
+                  "content"
+                ],
+                "type": "object"
+              },
+              "type": "function"
+            }
+          ],
+          "tools": null
+        },
+        "runner": {
+          "files": {
+            "configs/container-runtime-requirements.txt": "61d52e09e2edaa56c84a8f139c77dc6052312648d726366a6ec4be50e392c3a6",
+            "configs/direct-openai-20task-selection.json": "c800c80251d4880fdafb066ef1bc690473c68923c160e9f4c31cc53879382960",
+            "configs/direct-openai-20task-settings.json": "79a0cd91ddff45d5e765e05b2de114c57fbd4f17d3cf15da67f28162d7f77c1e",
+            "configs/direct-openai-exclusion-proof.json": "eb7f357aa6de1a9795ac3495f5dcc90e82647698ca3231cc05c7b11ec4543cb0",
+            "configs/direct-openai-thinharness-replicates.json": "6d6cf0e08923a6c9adaa39efdc9dbf1e31c8196b016b86b9c881b97b0c56c2e5",
+            "configs/native-tool-schemas.json": "1c1c1e985590e9980264a2e6b8364bd96f1b052c0761eed7f127ac9ab60cfd24",
+            "configs/pi-native-tool-schemas.json": "88fda428f9a9114a62d2f3a394d85c7d15cddd111eddadbe7abbe728bff2afde",
+            "configs/pi-subscription-package-lock.json": "0f34d01dda1837fd634d0562d2c0350ff982da133de59f36fccdac62835fc1c0",
+            "configs/pi-subscription-package.json": "fdecbea847897b2ebdbc54aaabc1899c115dde083f81de65daf13e46feba80ba",
+            "prompts/pi-0.84.2-system-prompt.md": "bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e",
+            "pyproject.toml": "0fd879950695fb6005b43fe36b72f08459a025ebb0a398a3532ad66c450395a2",
+            "scripts/direct-openai-thinharness-replicates-checks.sh": "036e7e70c25117b1ac9cfb607ad0a52d193f237252d61715fd70f56c3fcc9890",
+            "scripts/direct-openai-thinharness-replicates-preflight.sh": "9c5f887c7ea329842e5e1ceebf3dc4da31a708caef215f9f31b56e2185cd6aaf",
+            "scripts/install-direct-pi.sh": "03b2a5504dc3c14c280dce99637058e3b3dbc9075372bd6fad079531b0242a7b",
+            "scripts/install-direct-thinharness.sh": "8b444733dcdbb29fc44e70a60d3c9a97640de79fc5c4e8d933c88eda024c7e6e",
+            "scripts/run-direct-openai-thinharness-replicates.sh": "9f4742763fc2cb8b1ad1a1b369ee965a2b854f2dbecf01ffa523722b5ac0d636",
+            "tbench/container_security.py": "45e669996dcab219a827df78fb3fff7b8e8d6aa7abdc737746e2560666398603",
+            "tbench/direct_agent.py": "a4b244501f1de1b578a61d8607747679f8bcf93e0eeae7cfeb2137f0b83b362c",
+            "tbench/direct_behavior_preflight.py": "b52594f6e7eca6ba89ded456747bb98a7e8fa7d53e4ddb06adae96deaabd8da2",
+            "tbench/direct_constants.py": "0a307d0d55e463deab616e20962140b2aafbe00259f45397ecd9cf0f57f9ec31",
+            "tbench/direct_container.py": "49e25a9caeb37fb51088a54981bd3be44234cb0fd7a030d246bf111db28921a0",
+            "tbench/direct_gateway.py": "6a2710ac23230aad9643a10a9ff15317bd9e9c781abbff9ad052dd75d68b885f",
+            "tbench/direct_launch.py": "5aefd8cf22daa566d08f953f2265e73fe5a0b8f33db63473c5ee579597104c2a",
+            "tbench/direct_replicates.py": "55d694d882795eb67d04b6aa89d6b16a15e002f56f00d2e0bae9e72ce7a7473d",
+            "tbench/direct_validate.py": "b9d7f17a2134a519a0730151e1bf0fdd560bd015a7bd86022fb7b1e541cc0e82",
+            "tbench/pi_subscription_probe.mjs": "c7cd70f7344700f980dd898dc3c43aabc35a810d108c5d972b9438fccb4e5a4a",
+            "tbench/source_bundle.py": "ac208f36136b9314c7c57c9456b5304a92fd715b9eb3fd81c6ddb54a78a88077",
+            "uv.lock": "b960a45efb63fb5c5b738df1711410d1fe0c226f92bded3d29c0e6bf52f7e6d4"
+          },
+          "files_sha256": "a9727ab482eb2aaad189de3be3ba6f5821a3d63068990eb6d54fed4a5aee6ae3"
+        },
+        "source_bundle_sha256": "8cdaddefc284f1cabf69c4772132b86bb29fa0de7961919fdd68096864a202d4"
+      },
+      "mode": "fake",
+      "model_attempt_failure": null,
+      "never_rerun": false,
+      "original_cell_id": "sanitize-git-repo--thinharness",
+      "real_model_attempted": false,
+      "replicate_id": "sanitize-git-repo--thinharness--replicate-1",
+      "request_count": 2,
+      "restart_action": "recoverable before any model request",
+      "reward": 0.0,
+      "schema_version": 1,
+      "status": "completed",
+      "successful_request_count": 2,
+      "task": "sanitize-git-repo",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T21:05:16.838953Z",
+          "started_at": "2026-08-25T21:05:16.043490Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T21:05:16.043309Z",
+          "started_at": "2026-08-25T21:05:00.723958Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T21:05:00.723889Z",
+          "started_at": "2026-08-25T21:04:59.743059Z"
+        },
+        "harbor_finished_at": "2026-08-25T21:05:36.789091Z",
+        "harbor_started_at": "2026-08-25T21:04:59.644100Z",
+        "launcher_finished_at": 1787691938.1294131,
+        "launcher_started_at": 1787691897.4644969,
+        "native_agent_seconds": 0.06619549999999208,
+        "request_seconds": [
+          2.0458013750612736e-05,
+          4.207948222756386e-06
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T21:05:25.984170Z",
+          "started_at": "2026-08-25T21:05:17.241955Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/sanitize-git-repo--thinharness/gateway-audit.jsonl",
+        "gateway_identity": "cells/sanitize-git-repo--thinharness/gateway-identity.json",
+        "harbor_result": "cells/sanitize-git-repo--thinharness/job/sanitize-git-repo__TYCE2us/result.json",
+        "launch": "cells/sanitize-git-repo--thinharness/launch.json",
+        "model_request_markers": null,
+        "native_events": "cells/sanitize-git-repo--thinharness/job/sanitize-git-repo__TYCE2us/agent/thinharness-events.jsonl",
+        "native_receipt": "cells/sanitize-git-repo--thinharness/job/sanitize-git-repo__TYCE2us/agent/thinharness-direct-result.json",
+        "native_stderr": "cells/sanitize-git-repo--thinharness/job/sanitize-git-repo__TYCE2us/agent/thinharness-stderr.log",
+        "staging_stderr": "cells/sanitize-git-repo--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/sanitize-git-repo--thinharness/harbor.stdout.log",
+        "verifier_evidence": "cells/sanitize-git-repo--thinharness/job/sanitize-git-repo__TYCE2us/verifier/ctrf.json",
+        "verifier_evidence_sha256": "752b1152e4078f2a82dea0e20c42247bce17ce8904d9fcfd48832323170cc10f",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 768,
+        "input_tokens": 2700,
+        "ordinary_input_tokens": 1932,
+        "output_tokens": 160,
+        "reasoning_tokens": 80
+      },
+      "verifier_outcome": {
+        "rewards": {
+          "reward": 0.0
+        }
+      }
+    }
+  ],
+  "finished_at": 1787691938.1372,
+  "label": "new_replicates",
+  "mode": "fake",
+  "original_benchmark_id": "direct-openai-20task-pairwise",
+  "planned_cells": [
+    "nginx-request-logging--thinharness",
+    "sanitize-git-repo--thinharness"
+  ],
+  "runner_identity": {
+    "files": {
+      "configs/container-runtime-requirements.txt": "61d52e09e2edaa56c84a8f139c77dc6052312648d726366a6ec4be50e392c3a6",
+      "configs/direct-openai-20task-selection.json": "c800c80251d4880fdafb066ef1bc690473c68923c160e9f4c31cc53879382960",
+      "configs/direct-openai-20task-settings.json": "79a0cd91ddff45d5e765e05b2de114c57fbd4f17d3cf15da67f28162d7f77c1e",
+      "configs/direct-openai-exclusion-proof.json": "eb7f357aa6de1a9795ac3495f5dcc90e82647698ca3231cc05c7b11ec4543cb0",
+      "configs/direct-openai-thinharness-replicates.json": "6d6cf0e08923a6c9adaa39efdc9dbf1e31c8196b016b86b9c881b97b0c56c2e5",
+      "configs/native-tool-schemas.json": "1c1c1e985590e9980264a2e6b8364bd96f1b052c0761eed7f127ac9ab60cfd24",
+      "configs/pi-native-tool-schemas.json": "88fda428f9a9114a62d2f3a394d85c7d15cddd111eddadbe7abbe728bff2afde",
+      "configs/pi-subscription-package-lock.json": "0f34d01dda1837fd634d0562d2c0350ff982da133de59f36fccdac62835fc1c0",
+      "configs/pi-subscription-package.json": "fdecbea847897b2ebdbc54aaabc1899c115dde083f81de65daf13e46feba80ba",
+      "prompts/pi-0.84.2-system-prompt.md": "bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e",
+      "pyproject.toml": "0fd879950695fb6005b43fe36b72f08459a025ebb0a398a3532ad66c450395a2",
+      "scripts/direct-openai-thinharness-replicates-checks.sh": "036e7e70c25117b1ac9cfb607ad0a52d193f237252d61715fd70f56c3fcc9890",
+      "scripts/direct-openai-thinharness-replicates-preflight.sh": "9c5f887c7ea329842e5e1ceebf3dc4da31a708caef215f9f31b56e2185cd6aaf",
+      "scripts/install-direct-pi.sh": "03b2a5504dc3c14c280dce99637058e3b3dbc9075372bd6fad079531b0242a7b",
+      "scripts/install-direct-thinharness.sh": "8b444733dcdbb29fc44e70a60d3c9a97640de79fc5c4e8d933c88eda024c7e6e",
+      "scripts/run-direct-openai-thinharness-replicates.sh": "9f4742763fc2cb8b1ad1a1b369ee965a2b854f2dbecf01ffa523722b5ac0d636",
+      "tbench/container_security.py": "45e669996dcab219a827df78fb3fff7b8e8d6aa7abdc737746e2560666398603",
+      "tbench/direct_agent.py": "a4b244501f1de1b578a61d8607747679f8bcf93e0eeae7cfeb2137f0b83b362c",
+      "tbench/direct_behavior_preflight.py": "b52594f6e7eca6ba89ded456747bb98a7e8fa7d53e4ddb06adae96deaabd8da2",
+      "tbench/direct_constants.py": "0a307d0d55e463deab616e20962140b2aafbe00259f45397ecd9cf0f57f9ec31",
+      "tbench/direct_container.py": "49e25a9caeb37fb51088a54981bd3be44234cb0fd7a030d246bf111db28921a0",
+      "tbench/direct_gateway.py": "6a2710ac23230aad9643a10a9ff15317bd9e9c781abbff9ad052dd75d68b885f",
+      "tbench/direct_launch.py": "5aefd8cf22daa566d08f953f2265e73fe5a0b8f33db63473c5ee579597104c2a",
+      "tbench/direct_replicates.py": "55d694d882795eb67d04b6aa89d6b16a15e002f56f00d2e0bae9e72ce7a7473d",
+      "tbench/direct_validate.py": "b9d7f17a2134a519a0730151e1bf0fdd560bd015a7bd86022fb7b1e541cc0e82",
+      "tbench/pi_subscription_probe.mjs": "c7cd70f7344700f980dd898dc3c43aabc35a810d108c5d972b9438fccb4e5a4a",
+      "tbench/source_bundle.py": "ac208f36136b9314c7c57c9456b5304a92fd715b9eb3fd81c6ddb54a78a88077",
+      "uv.lock": "b960a45efb63fb5c5b738df1711410d1fe0c226f92bded3d29c0e6bf52f7e6d4"
+    },
+    "files_sha256": "a9727ab482eb2aaad189de3be3ba6f5821a3d63068990eb6d54fed4a5aee6ae3"
+  },
+  "schema_version": 1,
+  "source_bundle_sha256": "8cdaddefc284f1cabf69c4772132b86bb29fa0de7961919fdd68096864a202d4",
+  "source_identity": {
+    "advertised_ref": "refs/heads/thinharness-pin",
+    "canonical_commit": "84105f07bb9c1ad366fc8fe4fef49e700f5e88ef",
+    "canonical_commit_content_sha256": "8467e4061800e3aae3d12e51278fb71f3bd6a95cfb9abec3a0855e495ee97f43",
+    "canonical_tree": "d027dd1527c813b6e939d1ea63e8a08da86f0c0e",
+    "provenance": {
+      "canonical_source_head": "7c3bf249350ccea1ea6eca1b0b2bf5d1a2bb0856",
+      "later_source_head_excluded": true
+    },
+    "schema_version": 1,
+    "source_mode": "transient-local-exact-commit-git-bundle"
+  },
+  "started_at": 1787691776.303222,
+  "status": "completed",
+  "updated_at": 1787691938.1372
+}

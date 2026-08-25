@@ -1,0 +1,28 @@
+  1/1 Mean: 1.000 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0:09:29 0:00:00
+terminal-bench/terminal-bench-2-1 • direct-openai-pairwise • gpt-5.6-sol
+┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━┓
+┃ Trials ┃ Exceptions ┃  Mean ┃
+┡━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━┩
+│      1 │          0 │ 1.000 │
+└────────┴────────────┴───────┘
+
+┏━━━━━━━━┳━━━━━━━┓
+┃ Reward ┃ Count ┃
+┡━━━━━━━━╇━━━━━━━┩
+│ 1.0    │     1 │
+└────────┴───────┘
+
+Job Info
+Total runtime: 9m 29s
+Results written to 
+/Users/ryanbrown/.bb/worktrees/env_sdnb7kazkx/thin-harness-terminal-bench/jobs/d
+irect-openai-20task-pairwise/direct-openai-20task-pairwise-real-sanitize-git-rep
+o--thinharness-20260825-211204-9b0da7f4/result.json
+Inspect results by running `harbor view 
+/Users/ryanbrown/.bb/worktrees/env_sdnb7kazkx/thin-harness-terminal-bench/jobs/d
+irect-openai-20task-pairwise`
+Share results by running `harbor upload 
+/Users/ryanbrown/.bb/worktrees/env_sdnb7kazkx/thin-harness-terminal-bench/jobs/d
+irect-openai-20task-pairwise/direct-openai-20task-pairwise-real-sanitize-git-rep
+o--thinharness-20260825-211204-9b0da7f4`
+

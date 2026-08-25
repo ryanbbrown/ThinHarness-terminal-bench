@@ -43,6 +43,7 @@ addopts = "-q"
 
 [tool.ruff]
 line-length = 140
+extend-exclude = ["evidence"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B"]

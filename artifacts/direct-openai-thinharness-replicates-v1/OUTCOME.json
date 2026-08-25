@@ -1,0 +1,10 @@
+{
+  "benchmark_id": "direct-openai-thinharness-replicates-v1",
+  "checkpointed_cells": 2,
+  "label": "new_replicates",
+  "mode": "real",
+  "planned_cells": 2,
+  "schema_version": 1,
+  "status": "completed",
+  "stop": null
+}
