@@ -1,0 +1,52 @@
+Trial vulnerable-secret__AQiYrHg failed: thinharness direct runner failed: ile "/opt/thinharness-direct-venv/lib/python3.12/site-packages/thinharness/turns.py", line 157, in advance_until_terminal
+    turn, decision = await run_ctx.advance_model(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/thinharness-direct-venv/lib/python3.12/site-packages/thinharness/runtime.py", line 346, in advance_model
+    turn = await request(notices)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/thinharness-direct-venv/lib/python3.12/site-packages/thinharness/providers/openai.py", line 184, in start
+    return await self._complete(payload)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/thinharness-direct-venv/lib/python3.12/site-packages/thinharness/providers/openai.py", line 256, in _complete
+    response = await self.model.provider.create_response(payload)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/thinharness-terminal-bench-direct/direct_container.py", line 113, in create_response
+    response = await super().create_response(payload)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/thinharness-direct-venv/lib/python3.12/site-packages/thinharness/providers/openai.py", line 73, in create_response
+    return await self.post_json("/responses", payload)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/thinharness-direct-venv/lib/python3.12/site-packages/thinharness/providers/transport.py", line 132, in post_json
+    raise ProviderError(
+thinharness.providers.transport.ProviderError: provider error 400: {"error": {"message": "This content was flagged for possible cybersecurity risk. If this seems wrong, try rephrasing your request. To get authorized for security work, join the Trusted Access for Cyber program: https://chatgpt.com/cyber", "type": "invalid_request", "param": null, "code": "cyber_policy"}}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/thinharness-terminal-bench-direct/direct_container.py", line 462, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/opt/thinharness-terminal-bench-direct/direct_container.py", line 457, in main
+    return asyncio.run(_run_thinharness(args, url=url, token=token, mode=mode))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.local/share/uv/python/cpython-3.12.11-linux-x86_64-gnu/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/root/.local/share/uv/python/cpython-3.12.11-linux-x86_64-gnu/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.local/share/uv/python/cpython-3.12.11-linux-x86_64-gnu/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/opt/thinharness-terminal-bench-direct/direct_container.py", line 189, in _run_thinharness
+    result = await harness.run(instruction, metadata={"cell_id": args.cell_id, "route": "direct-openai"})
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/thinharness-direct-venv/lib/python3.12/site-packages/thinharness/core.py", line 324, in run
+    async for event in events:
+  File "/opt/thinharness-direct-venv/lib/python3.12/site-packages/thinharness/events.py", line 268, in __anext__
+    raise exc
+  File "/opt/thinharness-direct-venv/lib/python3.12/site-packages/thinharness/core.py", line 597, in _run_streaming
+    raise failure from exc
+thinharness.types.HarnessError: provider error 400: {"error": {"message": "This content was flagged for possible cybersecurity risk. If this seems wrong, try rephrasing your request. To get authorized for security work, join the Trusted Access for Cyber program: https://chatgpt.com/cyber", "type": "invalid_request", "param": null, "code": "cyber_policy"}}
+
+Collecting main service artifacts

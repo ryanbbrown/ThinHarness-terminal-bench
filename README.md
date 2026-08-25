@@ -97,15 +97,7 @@ The prepared runner freezes 20 fresh low-cost tasks and 40 ordered Pi/ThinHarnes
 
 The no-model Harbor gate is complete: 40/40 controlled fake-provider cells, zero upstream requests, reward zero in every unsolved verifier, plus credit-exhaustion and restart checks. See `reports/direct-openai-20task-methodology.md`, `configs/direct-openai-20task-selection.json`, and `artifacts/direct-openai-20task-pairwise-preflight/`.
 
-The authorized long-running command is frozen but was not run:
-
-```bash
-env -u OPENAI_API_KEY -u ANTHROPIC_API_KEY -u OPENROUTER_API_KEY \
-  TB_THINHARNESS_LOCAL_SOURCE=/Users/ryanbrown/code/thinharness \
-  ./scripts/run-direct-openai-20task.sh
-```
-
-Real progress will be in `artifacts/direct-openai-20task-pairwise/progress.json`; the terminal marker is `artifacts/direct-openai-20task-pairwise/OUTCOME.json`; durable staging and gateway logs are under its `cells/` directory and `runs/direct-openai-20task-pairwise/runner.log`.
+The authorized run is complete and cannot be rerun. `OUTCOME.json` records 40/40 checkpoints. Pi has 17 positive rewards; ThinHarness has 14. Two ThinHarness cells have no verifier reward after provider policy errors. See `artifacts/direct-openai-20task-handoff.md`, `reports/direct-openai-20task-analysis.json`, and `reports/direct-openai-20task-pairwise.json`. The full hashed run is in `artifacts/direct-openai-20task-pairwise/`, and the preserved process ledger is `artifacts/direct-openai-20task-runner.log`.
 
 ## Evidence boundary
 

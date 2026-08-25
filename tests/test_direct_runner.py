@@ -132,9 +132,16 @@ def test_restart_rejects_a_different_commit_or_source(tmp_path: Path) -> None:
 
 def test_legacy_real_restart_upgrade_appends_the_consumed_checkpoint_without_rerun(tmp_path: Path, monkeypatch) -> None:
     source_root = Path("artifacts/direct-openai-20task-pairwise")
-    progress = json.loads((source_root / "progress.json").read_text())
+    finalized = json.loads((source_root / "progress.json").read_text())
+    progress = json.loads(json.dumps(finalized))
+    progress["cells"] = progress["cells"][:8]
+    progress["runner_identity"] = progress["runner_identity_history"][0]
+    progress["status"] = "external_blocker"
+    progress["stop"] = {"message": "gateway audit sequence failed for vulnerable-secret--pi"}
+    progress.pop("source_identity", None)
+    progress.pop("source_identity_upgrade", None)
     (tmp_path / "cells").mkdir()
-    shutil.copy2(source_root / "progress.json", tmp_path / "progress.json")
+    (tmp_path / "progress.json").write_text(json.dumps(progress))
     for checkpoint in progress["cells"]:
         cell_id = checkpoint["cell_id"]
         source_cell = source_root / "cells" / cell_id
@@ -153,7 +160,7 @@ def test_legacy_real_restart_upgrade_appends_the_consumed_checkpoint_without_rer
     monkeypatch.setattr(direct_launch, "RUNS_DIR", tmp_path / "logs")
     bundle = _test_bundle(tmp_path, sha256="9" * 64, commit=THINHARNESS_COMMIT, source_head=THINHARNESS_COMMIT)
 
-    resumed = direct_launch._load_or_create_progress(tmp_path, "real", direct_launch._repository_identity(), bundle)
+    resumed = direct_launch._load_or_create_progress(tmp_path, "real", finalized["runner_identity"], bundle)
     assert direct_launch._recover_interrupted(tmp_path, resumed, consumed_id, "real") is True
 
     assert len(resumed["cells"]) == len(progress["cells"]) + 1
@@ -198,19 +205,25 @@ def test_policy_error_is_a_final_consumed_failure_with_complete_evidence() -> No
     assert all(checkpoint["traces"].values())
 
 
-def test_policy_recovery_upgrade_allows_only_attested_recovery_files() -> None:
-    root = Path("artifacts/direct-openai-20task-pairwise")
-    progress = json.loads((root / "progress.json").read_text())
-    old_identity = progress["runner_identity"]
+def test_policy_recovery_upgrade_allows_only_attested_recovery_files(tmp_path: Path) -> None:
+    source_root = Path("artifacts/direct-openai-20task-pairwise")
+    finalized = json.loads((source_root / "progress.json").read_text())
+    progress = {
+        "cells": [],
+        "stop": {"message": "gateway audit sequence failed for vulnerable-secret--pi"},
+    }
+    old_identity = finalized["runner_identity_history"][0]
     new_identity = json.loads(json.dumps(old_identity))
     new_identity["files"]["tbench/direct_launch.py"] = "1" * 64
     new_identity["files"]["tbench/direct_validate.py"] = "2" * 64
     new_identity["files"]["tbench/source_bundle.py"] = "3" * 64
     new_identity["files_sha256"] = "4" * 64
+    consumed = "vulnerable-secret--pi"
+    shutil.copytree(source_root / "cells" / consumed, tmp_path / "cells" / consumed)
 
-    assert direct_launch._is_safe_policy_recovery_upgrade(root, progress, old_identity, new_identity) is True
+    assert direct_launch._is_safe_policy_recovery_upgrade(tmp_path, progress, old_identity, new_identity) is True
     new_identity["files"]["tbench/direct_gateway.py"] = "4" * 64
-    assert direct_launch._is_safe_policy_recovery_upgrade(root, progress, old_identity, new_identity) is False
+    assert direct_launch._is_safe_policy_recovery_upgrade(tmp_path, progress, old_identity, new_identity) is False
 
 
 def test_restart_recovers_exact_policy_failure_once_then_advances(tmp_path: Path, monkeypatch) -> None:

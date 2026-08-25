@@ -1,0 +1,134 @@
+{
+    "id": "4e3d509e-1601-43b4-a8d0-dc2ddb774781",
+    "task_name": "terminal-bench/tune-mjcf",
+    "trial_name": "tune-mjcf__MdbuFa2",
+    "trial_uri": "file:///Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/direct-openai-20task-pairwise/direct-openai-20task-pairwise-real-tune-mjcf--pi-20260825-092735-39102e83/tune-mjcf__MdbuFa2",
+    "task_id": {
+        "org": "terminal-bench",
+        "name": "tune-mjcf",
+        "ref": "sha256:7da0fd3b906624df9eff8829ccd4f19cbb1ba967411b6d64d92b85b2f3fbdfb0"
+    },
+    "source": "terminal-bench/terminal-bench-2-1",
+    "task_checksum": "f3acebfbcd525ce06e2f0103acd078d66d9afa9ed4e72c380ff9b7302e50f63a",
+    "config": {
+        "task": {
+            "path": null,
+            "git_url": null,
+            "git_commit_id": null,
+            "name": "terminal-bench/tune-mjcf",
+            "ref": "sha256:7da0fd3b906624df9eff8829ccd4f19cbb1ba967411b6d64d92b85b2f3fbdfb0",
+            "overwrite": false,
+            "download_dir": null,
+            "source": "terminal-bench/terminal-bench-2-1"
+        },
+        "trial_name": "tune-mjcf__MdbuFa2",
+        "trials_dir": "/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/direct-openai-20task-pairwise/direct-openai-20task-pairwise-real-tune-mjcf--pi-20260825-092735-39102e83",
+        "install_only": false,
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": 3.0,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "tbench.direct_agent:DirectOpenAIAgent",
+            "import_path": null,
+            "model_name": "openai/gpt-5.6-sol",
+            "n_concurrent": 1,
+            "concurrency_group": null,
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "resume_trajectory": false,
+            "load_trajectory": null,
+            "extra_allowed_hosts": [],
+            "include_logs": [
+                "*"
+            ],
+            "kwargs": {
+                "harness": "pi",
+                "cell_id": "tune-mjcf--pi",
+                "mode": "real"
+            },
+            "mcp_servers": []
+        },
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [],
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "extra_instruction_paths": [],
+        "job_id": "86c78e59-8ab8-4707-b9d5-69c138c49517",
+        "source_trial": null
+    },
+    "agent_info": {
+        "name": "direct-openai-pairwise",
+        "version": "1.0+84105f07",
+        "model_info": {
+            "name": "gpt-5.6-sol",
+            "provider": "openai"
+        }
+    },
+    "agent_result": {
+        "n_input_tokens": 745537,
+        "n_cache_tokens": 705822,
+        "n_output_tokens": 13882,
+        "cost_usd": null,
+        "rollout_details": null,
+        "metadata": {
+            "cell_id": "tune-mjcf--pi",
+            "harness": "pi",
+            "backend": "direct-openai",
+            "model_requests": 45,
+            "tool_calls": 52,
+            "response_models": [
+                "gpt-5.6-sol"
+            ],
+            "verifier_handoff": true
+        }
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 0.0
+        }
+    },
+    "verifier_environment_mode": "shared",
+    "exception_info": null,
+    "started_at": "2026-08-25T09:27:36.948330Z",
+    "finished_at": "2026-08-25T09:43:17.830800Z",
+    "environment_setup": {
+        "started_at": "2026-08-25T09:27:37.027920Z",
+        "finished_at": "2026-08-25T09:27:38.008550Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-08-25T09:27:38.008674Z",
+        "finished_at": "2026-08-25T09:28:38.215537Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-08-25T09:28:38.215778Z",
+        "finished_at": "2026-08-25T09:42:59.157534Z"
+    },
+    "verifier": {
+        "started_at": "2026-08-25T09:42:59.577101Z",
+        "finished_at": "2026-08-25T09:43:06.635663Z"
+    },
+    "step_results": null
+}

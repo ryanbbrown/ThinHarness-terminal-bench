@@ -1,0 +1,30 @@
+{
+    "job_name": "direct-openai-20task-pairwise-real-sqlite-with-gcov--pi-20260825-091941-7af3bbc9",
+    "jobs_dir": "/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/direct-openai-20task-pairwise",
+    "agent_setup_timeout_multiplier": 3.0,
+    "n_concurrent_trials": 1,
+    "agents": [
+        {
+            "name": "tbench.direct_agent:DirectOpenAIAgent",
+            "model_name": "openai/gpt-5.6-sol",
+            "n_concurrent": 1,
+            "include_logs": [
+                "*"
+            ],
+            "kwargs": {
+                "harness": "pi",
+                "cell_id": "sqlite-with-gcov--pi",
+                "mode": "real"
+            }
+        }
+    ],
+    "datasets": [
+        {
+            "name": "terminal-bench/terminal-bench-2-1",
+            "ref": "sha256:7d7bdc1cbedad549fc1140404bd4dc45e5fd0ea7c4186773687d177ad3a0699a",
+            "task_names": [
+                "terminal-bench/sqlite-with-gcov"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,418 @@
+{
+  "batching": [
+    {
+      "sequence": 1,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "read"
+      ]
+    },
+    {
+      "sequence": 2,
+      "tool_calls_in_response": 2,
+      "tool_names": [
+        "bash",
+        "bash"
+      ]
+    },
+    {
+      "sequence": 3,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 4,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 5,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 6,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 7,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 8,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 9,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "write"
+      ]
+    },
+    {
+      "sequence": 10,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 11,
+      "tool_calls_in_response": 0,
+      "tool_names": []
+    }
+  ],
+  "cell_id": "code-from-image--pi",
+  "cost": {
+    "actual_cash_total": null,
+    "api_equivalent_total": 0.1043915,
+    "components": {
+      "cache_write": 0.048325,
+      "cached_input": 0.0190615,
+      "ordinary_input": 0.00016500000000000003,
+      "output": 0.036840000000000005
+    },
+    "currency": "USD",
+    "prices_usd_per_million_tokens": {
+      "cache_write": 6.25,
+      "cached_input": 0.5,
+      "ordinary_input": 5.0,
+      "output": 30.0
+    }
+  },
+  "harbor_exit_code": 0,
+  "harness": "pi",
+  "identities": {
+    "gateway": {
+      "bind": "0.0.0.0",
+      "bridge": null,
+      "cell_id": "code-from-image--pi",
+      "container_base_url": "http://host.docker.internal:50994/v1",
+      "direct_openai": true,
+      "downstream_auth": "ephemeral-random-bearer",
+      "downstream_token_persisted": false,
+      "mode": "real",
+      "openai_key_persisted": false,
+      "openai_key_source": "Doppler launcher environment",
+      "port": 50994,
+      "provider": "OpenAI",
+      "request_retries": 0,
+      "schema_version": 1,
+      "transport_retries": 0,
+      "upstream": "https://api.openai.com/v1/responses"
+    },
+    "harbor": {
+      "agent_info": {
+        "model_info": {
+          "name": "gpt-5.6-sol",
+          "provider": "openai"
+        },
+        "name": "direct-openai-pairwise",
+        "version": "1.0+84105f07"
+      },
+      "id": "2bc6a8d0-fafb-46ac-969e-efbf1984ce93",
+      "source": "terminal-bench/terminal-bench-2-1",
+      "task_checksum": "fc8d3d89bfdedcbd8bac8a5e2387ed975532bb48a285d106fc37984b9890202f",
+      "task_id": {
+        "name": "code-from-image",
+        "org": "terminal-bench",
+        "ref": "sha256:ef2907bb300d9b3352410c2a75dbf831278c187c073298371870ea9c83526f78"
+      },
+      "task_name": "terminal-bench/code-from-image",
+      "trial_name": "code-from-image__HhAYZvq"
+    },
+    "launch_gateway": {
+      "base_url": "http://host.docker.internal:50994/v1",
+      "bridge": null,
+      "cell_id": "code-from-image--pi",
+      "direct_openai": true,
+      "ephemeral_token_persisted": false,
+      "mode": "real",
+      "port": 50994,
+      "provider": "OpenAI",
+      "upstream": "https://api.openai.com/v1/responses"
+    },
+    "model": {
+      "backend": "direct-openai",
+      "name": "gpt-5.6-sol",
+      "reasoning": {
+        "effort": "xhigh",
+        "summary": "auto"
+      },
+      "response_models": [
+        "gpt-5.6-sol"
+      ],
+      "text": {
+        "verbosity": "low"
+      }
+    },
+    "native_harness": {
+      "cell_id": "code-from-image--pi",
+      "execution": {
+        "cwd": "/app",
+        "execution": "harbor-task-container",
+        "hostname": "3e90c47e52d8",
+        "machine": "x86_64",
+        "os_release": {
+          "ID": "debian",
+          "PRETTY_NAME": "Debian GNU/Linux 12 (bookworm)",
+          "VERSION_ID": "12"
+        },
+        "pid": 6071,
+        "platform": "Linux-6.12.76-linuxkit-x86_64-with-glibc2.36",
+        "python": "3.11.2 (main, May 12 2026, 05:17:27) [GCC 12.2.0]",
+        "root": "/app",
+        "uid": 0
+      },
+      "harness": "pi",
+      "harness_version": "0.84.2",
+      "install": {
+        "build_location": "harbor-task-container",
+        "harness": "pi",
+        "node_executable": "/root/.nvm/versions/node/v22.23.1/bin/node",
+        "node_version": "v22.23.1",
+        "package": "@earendil-works/pi-coding-agent",
+        "package_lock_sha256": "0f34d01dda1837fd634d0562d2c0350ff982da133de59f36fccdac62835fc1c0",
+        "package_version": "0.84.2",
+        "pi_executable": "/opt/pi-subscription/node_modules/@earendil-works/pi-coding-agent/dist/cli.js",
+        "pi_version": "0.84.2",
+        "platform": "Linux-6.12.76-linuxkit-x86_64-with-glibc2.36",
+        "schema_version": 1
+      },
+      "kind": "direct-openai-pairwise-cell",
+      "mode": "real",
+      "prompt_sha256": "bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e",
+      "provider_transport": null,
+      "thinharness_commit": null,
+      "tool_schemas": null,
+      "tools": {
+        "root": "/app",
+        "tools": [
+          {
+            "description": "Read the contents of a file. Supports text files and images (jpg, png, gif, webp, bmp). Images are sent as attachments. For text files, output is truncated to 2000 lines or 50KB (whichever is hit first). Use offset/limit for large files. When you need the full file, continue with offset until complete.",
+            "name": "read",
+            "parameters": {
+              "properties": {
+                "limit": {
+                  "description": "Maximum number of lines to read",
+                  "type": "number"
+                },
+                "offset": {
+                  "description": "Line number to start reading from (1-indexed)",
+                  "type": "number"
+                },
+                "path": {
+                  "description": "Path to the file to read (relative or absolute)",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path"
+              ],
+              "type": "object"
+            }
+          },
+          {
+            "description": "Execute a bash command in the current working directory. Returns stdout and stderr. Output is truncated to last 2000 lines or 50KB (whichever is hit first). If truncated, full output is saved to a temp file. Optionally provide a timeout in seconds.",
+            "name": "bash",
+            "parameters": {
+              "properties": {
+                "command": {
+                  "description": "Bash command to execute",
+                  "type": "string"
+                },
+                "timeout": {
+                  "description": "Timeout in seconds (optional, no default timeout)",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "command"
+              ],
+              "type": "object"
+            }
+          },
+          {
+            "description": "Edit a single file using exact text replacement. Every edits[].oldText must match a unique, non-overlapping region of the original file. If two changes affect the same block or nearby lines, merge them into one edit instead of emitting overlapping edits. Do not include large unchanged regions just to connect distant changes.",
+            "name": "edit",
+            "parameters": {
+              "properties": {
+                "edits": {
+                  "description": "One or more targeted replacements. Each edit is matched against the original file, not incrementally. Do not include overlapping or nested edits. If two changes touch the same block or nearby lines, merge them into one edit instead.",
+                  "items": {
+                    "properties": {
+                      "newText": {
+                        "description": "Replacement text for this targeted edit.",
+                        "type": "string"
+                      },
+                      "oldText": {
+                        "description": "Exact text for one targeted replacement. It must be unique in the original file and must not overlap with any other edits[].oldText in the same call.",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "oldText",
+                      "newText"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "path": {
+                  "description": "Path to the file to edit (relative or absolute)",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "edits"
+              ],
+              "type": "object"
+            }
+          },
+          {
+            "description": "Write content to a file. Creates the file if it doesn't exist, overwrites if it does. Automatically creates parent directories.",
+            "name": "write",
+            "parameters": {
+              "properties": {
+                "content": {
+                  "description": "Content to write to the file",
+                  "type": "string"
+                },
+                "path": {
+                  "description": "Path to the file to write (relative or absolute)",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "content"
+              ],
+              "type": "object"
+            }
+          }
+        ]
+      }
+    },
+    "runner": {
+      "files": {
+        "configs/container-runtime-requirements.txt": "61d52e09e2edaa56c84a8f139c77dc6052312648d726366a6ec4be50e392c3a6",
+        "configs/direct-openai-20task-selection.json": "c800c80251d4880fdafb066ef1bc690473c68923c160e9f4c31cc53879382960",
+        "configs/direct-openai-20task-settings.json": "79a0cd91ddff45d5e765e05b2de114c57fbd4f17d3cf15da67f28162d7f77c1e",
+        "configs/direct-openai-exclusion-proof.json": "eb7f357aa6de1a9795ac3495f5dcc90e82647698ca3231cc05c7b11ec4543cb0",
+        "configs/native-tool-schemas.json": "1c1c1e985590e9980264a2e6b8364bd96f1b052c0761eed7f127ac9ab60cfd24",
+        "configs/pi-native-tool-schemas.json": "88fda428f9a9114a62d2f3a394d85c7d15cddd111eddadbe7abbe728bff2afde",
+        "configs/pi-subscription-package-lock.json": "0f34d01dda1837fd634d0562d2c0350ff982da133de59f36fccdac62835fc1c0",
+        "configs/pi-subscription-package.json": "fdecbea847897b2ebdbc54aaabc1899c115dde083f81de65daf13e46feba80ba",
+        "prompts/pi-0.84.2-system-prompt.md": "bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e",
+        "pyproject.toml": "cc59d90f1cbb42bad8f11ab631dda9c4da55379c0d3c651215e6efcf176557cc",
+        "scripts/install-direct-pi.sh": "03b2a5504dc3c14c280dce99637058e3b3dbc9075372bd6fad079531b0242a7b",
+        "scripts/install-direct-thinharness.sh": "8b444733dcdbb29fc44e70a60d3c9a97640de79fc5c4e8d933c88eda024c7e6e",
+        "tbench/container_security.py": "45e669996dcab219a827df78fb3fff7b8e8d6aa7abdc737746e2560666398603",
+        "tbench/direct_agent.py": "a4b244501f1de1b578a61d8607747679f8bcf93e0eeae7cfeb2137f0b83b362c",
+        "tbench/direct_behavior_preflight.py": "b52594f6e7eca6ba89ded456747bb98a7e8fa7d53e4ddb06adae96deaabd8da2",
+        "tbench/direct_constants.py": "0a307d0d55e463deab616e20962140b2aafbe00259f45397ecd9cf0f57f9ec31",
+        "tbench/direct_container.py": "49e25a9caeb37fb51088a54981bd3be44234cb0fd7a030d246bf111db28921a0",
+        "tbench/direct_gateway.py": "6a2710ac23230aad9643a10a9ff15317bd9e9c781abbff9ad052dd75d68b885f",
+        "tbench/direct_launch.py": "5aefd8cf22daa566d08f953f2265e73fe5a0b8f33db63473c5ee579597104c2a",
+        "tbench/direct_validate.py": "b9d7f17a2134a519a0730151e1bf0fdd560bd015a7bd86022fb7b1e541cc0e82",
+        "tbench/pi_subscription_probe.mjs": "c7cd70f7344700f980dd898dc3c43aabc35a810d108c5d972b9438fccb4e5a4a",
+        "tbench/source_bundle.py": "ac208f36136b9314c7c57c9456b5304a92fd715b9eb3fd81c6ddb54a78a88077",
+        "uv.lock": "b960a45efb63fb5c5b738df1711410d1fe0c226f92bded3d29c0e6bf52f7e6d4"
+      },
+      "files_sha256": "c53749fdc7ad76376a617ed874dc72da43fdf32cd7cbfdda8a1fa8d5c6d411e3",
+      "git_head": "2bbb74cf2d991f89a4a94d7b1748d9a6758ba420"
+    },
+    "source_bundle_sha256": null
+  },
+  "mode": "real",
+  "model_attempt_failure": null,
+  "never_rerun": true,
+  "real_model_attempted": true,
+  "request_count": 11,
+  "restart_action": "never rerun; continue to the next frozen cell",
+  "reward": 1.0,
+  "schema_version": 1,
+  "status": "completed",
+  "successful_request_count": 11,
+  "task": "code-from-image",
+  "timing": {
+    "agent_execution": {
+      "finished_at": "2026-08-25T10:02:37.999143Z",
+      "started_at": "2026-08-25T10:01:28.096914Z"
+    },
+    "agent_setup": {
+      "finished_at": "2026-08-25T10:01:28.096662Z",
+      "started_at": "2026-08-25T10:00:26.765281Z"
+    },
+    "environment_setup": {
+      "finished_at": "2026-08-25T10:00:26.765167Z",
+      "started_at": "2026-08-25T10:00:25.703989Z"
+    },
+    "harbor_finished_at": "2026-08-25T10:02:55.101718Z",
+    "harbor_started_at": "2026-08-25T10:00:25.620815Z",
+    "launcher_finished_at": 1787652176.475026,
+    "launcher_started_at": 1787652023.7008939,
+    "native_agent_seconds": 68.3580759890001,
+    "request_seconds": [
+      2.656120583997108,
+      2.680521000002045,
+      2.6088937089662068,
+      4.926608584006317,
+      4.717260000004899,
+      4.311588709009811,
+      8.891981541004498,
+      3.80675974994665,
+      7.354573750053532,
+      2.0132799160201102,
+      1.8850578750134446
+    ],
+    "verifier": {
+      "finished_at": "2026-08-25T10:02:44.204622Z",
+      "started_at": "2026-08-25T10:02:38.394405Z"
+    }
+  },
+  "traces": {
+    "gateway_audit": "cells/code-from-image--pi/gateway-audit.jsonl",
+    "gateway_identity": "cells/code-from-image--pi/gateway-identity.json",
+    "harbor_result": "cells/code-from-image--pi/job/code-from-image__HhAYZvq/result.json",
+    "launch": "cells/code-from-image--pi/launch.json",
+    "model_request_markers": "cells/code-from-image--pi/MODEL_REQUEST_STARTED.jsonl",
+    "native_events": "cells/code-from-image--pi/job/code-from-image__HhAYZvq/agent/pi-events.jsonl",
+    "native_receipt": "cells/code-from-image--pi/job/code-from-image__HhAYZvq/agent/pi-direct-result.json",
+    "native_stderr": "cells/code-from-image--pi/job/code-from-image__HhAYZvq/agent/pi-stderr.log",
+    "staging_stderr": "cells/code-from-image--pi/harbor.stderr.log",
+    "staging_stdout": "cells/code-from-image--pi/harbor.stdout.log",
+    "verifier_evidence": "cells/code-from-image--pi/job/code-from-image__HhAYZvq/verifier/ctrf.json",
+    "verifier_evidence_sha256": "e5520ca4c43b0c0064bddac4ec9f92a3b49a34ca3c9d6a7dbe88e21834872361",
+    "verifier_evidence_type": "ctrf.json"
+  },
+  "usage": {
+    "cache_write_tokens": 7732,
+    "cached_input_tokens": 38123,
+    "input_tokens": 45888,
+    "ordinary_input_tokens": 33,
+    "output_tokens": 1228,
+    "reasoning_tokens": 510
+  },
+  "verifier_outcome": {
+    "rewards": {
+      "reward": 1.0
+    }
+  }
+}

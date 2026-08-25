@@ -1,0 +1,24 @@
+{
+    "task": {
+        "name": "terminal-bench/tune-mjcf",
+        "ref": "sha256:7da0fd3b906624df9eff8829ccd4f19cbb1ba967411b6d64d92b85b2f3fbdfb0",
+        "source": "terminal-bench/terminal-bench-2-1"
+    },
+    "trial_name": "tune-mjcf__MdbuFa2",
+    "trials_dir": "/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/direct-openai-20task-pairwise/direct-openai-20task-pairwise-real-tune-mjcf--pi-20260825-092735-39102e83",
+    "agent_setup_timeout_multiplier": 3.0,
+    "agent": {
+        "name": "tbench.direct_agent:DirectOpenAIAgent",
+        "model_name": "openai/gpt-5.6-sol",
+        "n_concurrent": 1,
+        "include_logs": [
+            "*"
+        ],
+        "kwargs": {
+            "harness": "pi",
+            "cell_id": "tune-mjcf--pi",
+            "mode": "real"
+        }
+    },
+    "job_id": "86c78e59-8ab8-4707-b9d5-69c138c49517"
+}

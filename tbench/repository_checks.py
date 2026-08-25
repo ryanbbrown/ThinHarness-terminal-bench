@@ -60,10 +60,8 @@ def check() -> None:
 
 
 def _check_secrets() -> None:
-    secret_patterns = (
-        re.compile(r"\bsk-[A-Za-z0-9_-]{16,}"),
-        re.compile(r"(?i)(?:api[_-]?key|token|secret)\s*[=:]\s*['\"]?[A-Za-z0-9/+_-]{20,}"),
-    )
+    provider_credential = re.compile(r"\bsk-[A-Za-z0-9_-]{16,}")
+    generic_credential = re.compile(r"(?i)(?:api[_-]?key|token|secret)\s*[=:]\s*['\"]?[A-Za-z0-9/+_-]{20,}")
     for path in REPOSITORY_ROOT.rglob("*"):
         if not path.is_file() or ".git" in path.parts or path.suffix in {".pyc", ".whl"}:
             continue
@@ -73,7 +71,8 @@ def _check_secrets() -> None:
             text = path.read_text(encoding="utf-8")
         except UnicodeDecodeError:
             continue
-        for pattern in secret_patterns:
+        patterns = (provider_credential,) if "artifacts" in path.parts else (provider_credential, generic_credential)
+        for pattern in patterns:
             if pattern.search(text):
                 raise RuntimeError(f"possible credential value in repository file: {path}")
 

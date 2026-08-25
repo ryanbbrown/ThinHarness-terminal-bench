@@ -1,0 +1,39 @@
+{
+    "id": "421050a8-1e57-41cf-bb91-2f28c1e39f5e",
+    "started_at": "2026-08-25T04:39:49.059657",
+    "updated_at": "2026-08-25T04:43:30.930132",
+    "finished_at": "2026-08-25T04:43:30.930132",
+    "n_total_trials": 1,
+    "stats": {
+        "n_completed_trials": 1,
+        "n_errored_trials": 0,
+        "n_running_trials": 0,
+        "n_pending_trials": 0,
+        "n_cancelled_trials": 0,
+        "n_retries": 0,
+        "evals": {
+            "direct-openai-pairwise__gpt-5.6-sol__terminal-bench/terminal-bench-2-1": {
+                "n_trials": 1,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 1.0
+                    }
+                ],
+                "pass_at_k": {},
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "count-dataset-tokens__jhuzuEJ"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        },
+        "n_input_tokens": 272352,
+        "n_cache_tokens": 234911,
+        "n_output_tokens": 5342,
+        "cost_usd": null
+    }
+}

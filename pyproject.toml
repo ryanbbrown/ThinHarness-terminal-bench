@@ -22,6 +22,18 @@ tbench-validate = "tbench.validate:main"
 [tool.hatch.metadata]
 allow-direct-references = true
 
+[tool.hatch.build]
+exclude = [
+  "/.plans",
+  "/.reviews",
+  "/artifacts",
+  "/dist",
+  "/evidence",
+  "/jobs",
+  "/reports",
+  "/runs",
+]
+
 [tool.hatch.build.targets.wheel]
 packages = ["tbench"]
 

@@ -1,0 +1,3550 @@
+{
+  "aggregate_by_harness": {
+    "pi": {
+      "actual_cash_total_usd": null,
+      "api_equivalent_cost_usd": 9.175158,
+      "batching": {
+        "max_tools_in_response": 11,
+        "multi_tool_responses": 72,
+        "tool_bearing_responses": 268
+      },
+      "cells": 20,
+      "completed_cells": 18,
+      "model_attempt_failed_cells": 2,
+      "positive_rewards": 17,
+      "reported_rewards": 20,
+      "requests": 288,
+      "reward_sum": 17.0,
+      "successful_requests": 286,
+      "timing_medians_seconds": {
+        "agent_execution": 122.927273,
+        "harbor": 209.8058505,
+        "verifier": 9.0350985,
+        "wall": 213.15541648864746
+      },
+      "timing_seconds": {
+        "agent_execution": 3918.218667,
+        "harbor": 5519.804475,
+        "verifier": 238.00606,
+        "wall": 5582.736942052841
+      },
+      "tool_name_counts": {
+        "bash": 344,
+        "edit": 9,
+        "read": 41,
+        "write": 13
+      },
+      "tools": 407,
+      "usage": {
+        "cache_write_tokens": 491786,
+        "cached_input_tokens": 5611091,
+        "input_tokens": 6103735,
+        "ordinary_input_tokens": 858,
+        "output_tokens": 109722,
+        "reasoning_tokens": 55592
+      }
+    },
+    "pi_minus_thinharness": {
+      "api_equivalent_cost_usd": 1.7190265,
+      "batching": {
+        "max_tools_in_response": 7,
+        "multi_tool_responses": 6,
+        "tool_bearing_responses": 57
+      },
+      "cells": 0,
+      "completed_cells": 1,
+      "model_attempt_failed_cells": -1,
+      "positive_rewards": 3,
+      "reported_rewards": 2,
+      "requests": 58,
+      "reward_sum": 3.0,
+      "successful_requests": 58,
+      "timing_medians_seconds": {
+        "agent_execution": 9.827306500000006,
+        "harbor": 13.557814999999977,
+        "verifier": -1.530557,
+        "wall": 13.601946473121643
+      },
+      "timing_seconds": {
+        "agent_execution": 414.625215,
+        "harbor": 344.4773439999999,
+        "verifier": -32.54499400000003,
+        "wall": 342.70133328437805
+      },
+      "tool_name_counts": {
+        "bash": 52,
+        "edit": 3,
+        "read": 23,
+        "write": 3
+      },
+      "tools": 81,
+      "usage": {
+        "cache_write_tokens": 58018,
+        "cached_input_tokens": 1890168,
+        "input_tokens": 1948360,
+        "ordinary_input_tokens": 174,
+        "output_tokens": 13682,
+        "reasoning_tokens": 11207
+      }
+    },
+    "thinharness": {
+      "actual_cash_total_usd": null,
+      "api_equivalent_cost_usd": 7.4561315,
+      "batching": {
+        "max_tools_in_response": 4,
+        "multi_tool_responses": 66,
+        "tool_bearing_responses": 211
+      },
+      "cells": 20,
+      "completed_cells": 17,
+      "model_attempt_failed_cells": 3,
+      "positive_rewards": 14,
+      "reported_rewards": 18,
+      "requests": 230,
+      "reward_sum": 14.0,
+      "successful_requests": 228,
+      "timing_medians_seconds": {
+        "agent_execution": 113.0999665,
+        "harbor": 196.24803550000001,
+        "verifier": 10.5656555,
+        "wall": 199.55347001552582
+      },
+      "timing_seconds": {
+        "agent_execution": 3503.593452,
+        "harbor": 5175.327131,
+        "verifier": 270.551054,
+        "wall": 5240.035608768463
+      },
+      "tool_name_counts": {
+        "bash": 292,
+        "edit": 6,
+        "read": 18,
+        "write": 10
+      },
+      "tools": 326,
+      "usage": {
+        "cache_write_tokens": 433768,
+        "cached_input_tokens": 3720923,
+        "input_tokens": 4155375,
+        "ordinary_input_tokens": 684,
+        "output_tokens": 96040,
+        "reasoning_tokens": 44385
+      }
+    }
+  },
+  "benchmark_id": "direct-openai-20task-pairwise",
+  "cells": [
+    {
+      "batching": {
+        "max_tools_in_response": 3,
+        "multi_tool_responses": 3,
+        "tool_bearing_responses": 17
+      },
+      "cell_id": "cobol-modernization--pi",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.53397775,
+        "components": {
+          "cache_write": 0.11443125,
+          "cached_input": 0.0912565,
+          "ordinary_input": 0.00027000000000000006,
+          "output": 0.32802
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harness": "pi",
+      "identities": {
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "b8365355010dd3d81b85e14d07f2f8bced41644be3dc1654a20516e9f3b2bec6",
+        "source_bundle_sha256": null
+      },
+      "requests": 18,
+      "reward": 1.0,
+      "status": "completed",
+      "successful_requests": 18,
+      "task": "cobol-modernization",
+      "timing_seconds": {
+        "agent_execution": 222.760726,
+        "harbor": 303.201855,
+        "verifier": 6.032981,
+        "wall": 306.012818813324
+      },
+      "tool_name_counts": {
+        "bash": 15,
+        "edit": 2,
+        "read": 3,
+        "write": 1
+      },
+      "tools": 21,
+      "trace_paths": {
+        "gateway_audit": "cells/cobol-modernization--pi/gateway-audit.jsonl",
+        "harbor_result": "cells/cobol-modernization--pi/job/cobol-modernization__xch6UHf/result.json",
+        "native_receipt": "cells/cobol-modernization--pi/job/cobol-modernization__xch6UHf/agent/pi-direct-result.json",
+        "staging_stderr": "cells/cobol-modernization--pi/harbor.stderr.log",
+        "staging_stdout": "cells/cobol-modernization--pi/harbor.stdout.log",
+        "verifier_evidence": "cells/cobol-modernization--pi/job/cobol-modernization__xch6UHf/verifier/ctrf.json",
+        "verifier_evidence_sha256": "bec2eed1e35653485032b49aeaed2964cefa9e423808836a22a6124e902ea987",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 18309,
+        "cached_input_tokens": 182513,
+        "input_tokens": 200876,
+        "ordinary_input_tokens": 54,
+        "output_tokens": 10934,
+        "reasoning_tokens": 7137
+      }
+    },
+    {
+      "batching": {
+        "max_tools_in_response": 3,
+        "multi_tool_responses": 2,
+        "tool_bearing_responses": 12
+      },
+      "cell_id": "cobol-modernization--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.44168675,
+        "components": {
+          "cache_write": 0.11548125000000001,
+          "cached_input": 0.0623705,
+          "ordinary_input": 0.00019500000000000005,
+          "output": 0.26364
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harness": "thinharness",
+      "identities": {
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "b8365355010dd3d81b85e14d07f2f8bced41644be3dc1654a20516e9f3b2bec6",
+        "source_bundle_sha256": "e21a975f633dae3e8e75c95e39d1f80a68155656b6dbaeaf2acc9067d702e093"
+      },
+      "requests": 13,
+      "reward": 1.0,
+      "status": "completed",
+      "successful_requests": 13,
+      "task": "cobol-modernization",
+      "timing_seconds": {
+        "agent_execution": 169.559394,
+        "harbor": 255.210871,
+        "verifier": 7.2552,
+        "wall": 258.37759804725647
+      },
+      "tool_name_counts": {
+        "bash": 14,
+        "read": 1,
+        "write": 1
+      },
+      "tools": 16,
+      "trace_paths": {
+        "gateway_audit": "cells/cobol-modernization--thinharness/gateway-audit.jsonl",
+        "harbor_result": "cells/cobol-modernization--thinharness/job/cobol-modernization__tgNHnLi/result.json",
+        "native_receipt": "cells/cobol-modernization--thinharness/job/cobol-modernization__tgNHnLi/agent/thinharness-direct-result.json",
+        "staging_stderr": "cells/cobol-modernization--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/cobol-modernization--thinharness/harbor.stdout.log",
+        "verifier_evidence": "cells/cobol-modernization--thinharness/job/cobol-modernization__tgNHnLi/verifier/ctrf.json",
+        "verifier_evidence_sha256": "0f89300a1c1c966536df0b92cbe2a6bcfbc3ecdc3d7d2a2928fa9f41fc38b534",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 18477,
+        "cached_input_tokens": 124741,
+        "input_tokens": 143257,
+        "ordinary_input_tokens": 39,
+        "output_tokens": 8788,
+        "reasoning_tokens": 5086
+      }
+    },
+    {
+      "batching": {
+        "max_tools_in_response": 2,
+        "multi_tool_responses": 1,
+        "tool_bearing_responses": 4
+      },
+      "cell_id": "nginx-request-logging--pi",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.11053300000000002,
+        "components": {
+          "cache_write": 0.033612500000000003,
+          "cached_input": 0.0066455,
+          "ordinary_input": 7.500000000000001e-05,
+          "output": 0.07020000000000001
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harness": "pi",
+      "identities": {
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "b8365355010dd3d81b85e14d07f2f8bced41644be3dc1654a20516e9f3b2bec6",
+        "source_bundle_sha256": null
+      },
+      "requests": 5,
+      "reward": 1.0,
+      "status": "completed",
+      "successful_requests": 5,
+      "task": "nginx-request-logging",
+      "timing_seconds": {
+        "agent_execution": 44.831177,
+        "harbor": 127.669084,
+        "verifier": 8.72065,
+        "wall": 130.48574376106262
+      },
+      "tool_name_counts": {
+        "bash": 5
+      },
+      "tools": 5,
+      "trace_paths": {
+        "gateway_audit": "cells/nginx-request-logging--pi/gateway-audit.jsonl",
+        "harbor_result": "cells/nginx-request-logging--pi/job/nginx-request-logging__iB2CRxs/result.json",
+        "native_receipt": "cells/nginx-request-logging--pi/job/nginx-request-logging__iB2CRxs/agent/pi-direct-result.json",
+        "staging_stderr": "cells/nginx-request-logging--pi/harbor.stderr.log",
+        "staging_stdout": "cells/nginx-request-logging--pi/harbor.stdout.log",
+        "verifier_evidence": "cells/nginx-request-logging--pi/job/nginx-request-logging__iB2CRxs/verifier/ctrf.json",
+        "verifier_evidence_sha256": "f44565e460499ed9253e868722a55588632933b8a768b6859cf895d358f2f975",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 5378,
+        "cached_input_tokens": 13291,
+        "input_tokens": 18684,
+        "ordinary_input_tokens": 15,
+        "output_tokens": 2340,
+        "reasoning_tokens": 1029
+      }
+    },
+    {
+      "batching": {
+        "max_tools_in_response": 2,
+        "multi_tool_responses": 1,
+        "tool_bearing_responses": 2
+      },
+      "cell_id": "nginx-request-logging--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.0788165,
+        "components": {
+          "cache_write": 0.0253125,
+          "cached_input": 0.002489,
+          "ordinary_input": 4.5e-05,
+          "output": 0.050969999999999994
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harness": "thinharness",
+      "identities": {
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "b8365355010dd3d81b85e14d07f2f8bced41644be3dc1654a20516e9f3b2bec6",
+        "source_bundle_sha256": "e21a975f633dae3e8e75c95e39d1f80a68155656b6dbaeaf2acc9067d702e093"
+      },
+      "requests": 3,
+      "reward": 0.0,
+      "status": "completed",
+      "successful_requests": 3,
+      "task": "nginx-request-logging",
+      "timing_seconds": {
+        "agent_execution": 32.959738,
+        "harbor": 118.518727,
+        "verifier": 7.879748,
+        "wall": 121.85660409927368
+      },
+      "tool_name_counts": {
+        "bash": 3
+      },
+      "tools": 3,
+      "trace_paths": {
+        "gateway_audit": "cells/nginx-request-logging--thinharness/gateway-audit.jsonl",
+        "harbor_result": "cells/nginx-request-logging--thinharness/job/nginx-request-logging__5335W5V/result.json",
+        "native_receipt": "cells/nginx-request-logging--thinharness/job/nginx-request-logging__5335W5V/agent/thinharness-direct-result.json",
+        "staging_stderr": "cells/nginx-request-logging--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/nginx-request-logging--thinharness/harbor.stdout.log",
+        "verifier_evidence": "cells/nginx-request-logging--thinharness/job/nginx-request-logging__5335W5V/verifier/ctrf.json",
+        "verifier_evidence_sha256": "19eaf91cd8e6ca9b77e6e01713e936d5982f5c5c765444cd1bcd1ec954cfd963",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 4050,
+        "cached_input_tokens": 4978,
+        "input_tokens": 9037,
+        "ordinary_input_tokens": 9,
+        "output_tokens": 1699,
+        "reasoning_tokens": 695
+      }
+    },
+    {
+      "batching": {
+        "max_tools_in_response": 1,
+        "multi_tool_responses": 0,
+        "tool_bearing_responses": 3
+      },
+      "cell_id": "openssl-selfsigned-cert--pi",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.07420225,
+        "components": {
+          "cache_write": 0.02105625,
+          "cached_input": 0.0033160000000000004,
+          "ordinary_input": 6e-05,
+          "output": 0.04977
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harness": "pi",
+      "identities": {
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "b8365355010dd3d81b85e14d07f2f8bced41644be3dc1654a20516e9f3b2bec6",
+        "source_bundle_sha256": null
+      },
+      "requests": 4,
+      "reward": 1.0,
+      "status": "completed",
+      "successful_requests": 4,
+      "task": "openssl-selfsigned-cert",
+      "timing_seconds": {
+        "agent_execution": 31.115954,
+        "harbor": 113.356016,
+        "verifier": 6.178203,
+        "wall": 116.38413691520691
+      },
+      "tool_name_counts": {
+        "bash": 2,
+        "write": 1
+      },
+      "tools": 3,
+      "trace_paths": {
+        "gateway_audit": "cells/openssl-selfsigned-cert--pi/gateway-audit.jsonl",
+        "harbor_result": "cells/openssl-selfsigned-cert--pi/job/openssl-selfsigned-cert__MABMTiz/result.json",
+        "native_receipt": "cells/openssl-selfsigned-cert--pi/job/openssl-selfsigned-cert__MABMTiz/agent/pi-direct-result.json",
+        "staging_stderr": "cells/openssl-selfsigned-cert--pi/harbor.stderr.log",
+        "staging_stdout": "cells/openssl-selfsigned-cert--pi/harbor.stdout.log",
+        "verifier_evidence": "cells/openssl-selfsigned-cert--pi/job/openssl-selfsigned-cert__MABMTiz/verifier/ctrf.json",
+        "verifier_evidence_sha256": "84d5634b8f3c08387b4b53b16389cd73f040cf9a39cc3d4662e2e8503ebe426d",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 3369,
+        "cached_input_tokens": 6632,
+        "input_tokens": 10013,
+        "ordinary_input_tokens": 12,
+        "output_tokens": 1659,
+        "reasoning_tokens": 697
+      }
+    },
+    {
+      "batching": {
+        "max_tools_in_response": 1,
+        "multi_tool_responses": 0,
+        "tool_bearing_responses": 3
+      },
+      "cell_id": "openssl-selfsigned-cert--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.08425075,
+        "components": {
+          "cache_write": 0.01679375,
+          "cached_input": 0.004157,
+          "ordinary_input": 6e-05,
+          "output": 0.06324
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harness": "thinharness",
+      "identities": {
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "b8365355010dd3d81b85e14d07f2f8bced41644be3dc1654a20516e9f3b2bec6",
+        "source_bundle_sha256": "e21a975f633dae3e8e75c95e39d1f80a68155656b6dbaeaf2acc9067d702e093"
+      },
+      "requests": 4,
+      "reward": 1.0,
+      "status": "completed",
+      "successful_requests": 4,
+      "task": "openssl-selfsigned-cert",
+      "timing_seconds": {
+        "agent_execution": 36.906244,
+        "harbor": 124.240484,
+        "verifier": 7.496753,
+        "wall": 127.17348790168762
+      },
+      "tool_name_counts": {
+        "bash": 2,
+        "write": 1
+      },
+      "tools": 3,
+      "trace_paths": {
+        "gateway_audit": "cells/openssl-selfsigned-cert--thinharness/gateway-audit.jsonl",
+        "harbor_result": "cells/openssl-selfsigned-cert--thinharness/job/openssl-selfsigned-cert__5dm8Kfg/result.json",
+        "native_receipt": "cells/openssl-selfsigned-cert--thinharness/job/openssl-selfsigned-cert__5dm8Kfg/agent/thinharness-direct-result.json",
+        "staging_stderr": "cells/openssl-selfsigned-cert--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/openssl-selfsigned-cert--thinharness/harbor.stdout.log",
+        "verifier_evidence": "cells/openssl-selfsigned-cert--thinharness/job/openssl-selfsigned-cert__5dm8Kfg/verifier/ctrf.json",
+        "verifier_evidence_sha256": "5b1896407f3419bda5291f31824babd38cf79fb3c8c580bc4f0bed4d27d4cfc9",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 2687,
+        "cached_input_tokens": 8314,
+        "input_tokens": 11013,
+        "ordinary_input_tokens": 12,
+        "output_tokens": 2108,
+        "reasoning_tokens": 1018
+      }
+    },
+    {
+      "batching": {
+        "max_tools_in_response": 1,
+        "multi_tool_responses": 0,
+        "tool_bearing_responses": 3
+      },
+      "cell_id": "polyglot-c-py--pi",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.1748725,
+        "components": {
+          "cache_write": 0.036625000000000005,
+          "cached_input": 0.0049275,
+          "ordinary_input": 6e-05,
+          "output": 0.13326
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harness": "pi",
+      "identities": {
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "b8365355010dd3d81b85e14d07f2f8bced41644be3dc1654a20516e9f3b2bec6",
+        "source_bundle_sha256": null
+      },
+      "requests": 4,
+      "reward": 1.0,
+      "status": "completed",
+      "successful_requests": 4,
+      "task": "polyglot-c-py",
+      "timing_seconds": {
+        "agent_execution": 78.165488,
+        "harbor": 146.475598,
+        "verifier": 9.816679,
+        "wall": 149.6301131248474
+      },
+      "tool_name_counts": {
+        "bash": 2,
+        "write": 1
+      },
+      "tools": 3,
+      "trace_paths": {
+        "gateway_audit": "cells/polyglot-c-py--pi/gateway-audit.jsonl",
+        "harbor_result": "cells/polyglot-c-py--pi/job/polyglot-c-py__THn2oTE/result.json",
+        "native_receipt": "cells/polyglot-c-py--pi/job/polyglot-c-py__THn2oTE/agent/pi-direct-result.json",
+        "staging_stderr": "cells/polyglot-c-py--pi/harbor.stderr.log",
+        "staging_stdout": "cells/polyglot-c-py--pi/harbor.stdout.log",
+        "verifier_evidence": "cells/polyglot-c-py--pi/job/polyglot-c-py__THn2oTE/verifier/ctrf.json",
+        "verifier_evidence_sha256": "3b630d725095e6990c9f3302de1052ff1c8173cb87b59880e425b08689c835cc",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 5860,
+        "cached_input_tokens": 9855,
+        "input_tokens": 15727,
+        "ordinary_input_tokens": 12,
+        "output_tokens": 4442,
+        "reasoning_tokens": 3169
+      }
+    },
+    {
+      "batching": {
+        "max_tools_in_response": 1,
+        "multi_tool_responses": 0,
+        "tool_bearing_responses": 6
+      },
+      "cell_id": "polyglot-c-py--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.151589,
+        "components": {
+          "cache_write": 0.0286,
+          "cached_input": 0.013294,
+          "ordinary_input": 0.000105,
+          "output": 0.10958999999999999
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harness": "thinharness",
+      "identities": {
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "b8365355010dd3d81b85e14d07f2f8bced41644be3dc1654a20516e9f3b2bec6",
+        "source_bundle_sha256": "e21a975f633dae3e8e75c95e39d1f80a68155656b6dbaeaf2acc9067d702e093"
+      },
+      "requests": 7,
+      "reward": 1.0,
+      "status": "completed",
+      "successful_requests": 7,
+      "task": "polyglot-c-py",
+      "timing_seconds": {
+        "agent_execution": 70.250389,
+        "harbor": 143.055327,
+        "verifier": 11.597931,
+        "wall": 146.30263209342957
+      },
+      "tool_name_counts": {
+        "bash": 4,
+        "edit": 2
+      },
+      "tools": 6,
+      "trace_paths": {
+        "gateway_audit": "cells/polyglot-c-py--thinharness/gateway-audit.jsonl",
+        "harbor_result": "cells/polyglot-c-py--thinharness/job/polyglot-c-py__7ioMnoD/result.json",
+        "native_receipt": "cells/polyglot-c-py--thinharness/job/polyglot-c-py__7ioMnoD/agent/thinharness-direct-result.json",
+        "staging_stderr": "cells/polyglot-c-py--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/polyglot-c-py--thinharness/harbor.stdout.log",
+        "verifier_evidence": "cells/polyglot-c-py--thinharness/job/polyglot-c-py__7ioMnoD/verifier/ctrf.json",
+        "verifier_evidence_sha256": "cfcad93fffd0f697e5d38ff966c735cb34d8f0e2a44ae8905671c463e792d5d9",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 4576,
+        "cached_input_tokens": 26588,
+        "input_tokens": 31185,
+        "ordinary_input_tokens": 21,
+        "output_tokens": 3653,
+        "reasoning_tokens": 2033
+      }
+    },
+    {
+      "batching": {
+        "max_tools_in_response": 1,
+        "multi_tool_responses": 0,
+        "tool_bearing_responses": 1
+      },
+      "cell_id": "vulnerable-secret--pi",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.008977500000000001,
+        "components": {
+          "cache_write": 0.0073125,
+          "cached_input": 0.0,
+          "ordinary_input": 1.5e-05,
+          "output": 0.00165
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harness": "pi",
+      "identities": {
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "b8365355010dd3d81b85e14d07f2f8bced41644be3dc1654a20516e9f3b2bec6",
+        "source_bundle_sha256": null
+      },
+      "requests": 2,
+      "reward": 0.0,
+      "status": "model_attempt_failed",
+      "successful_requests": 1,
+      "task": "vulnerable-secret",
+      "timing_seconds": {
+        "agent_execution": 13.359687,
+        "harbor": 93.219781,
+        "verifier": 6.238218,
+        "wall": 96.59108138084412
+      },
+      "tool_name_counts": {
+        "bash": 1
+      },
+      "tools": 1,
+      "trace_paths": {
+        "gateway_audit": "cells/vulnerable-secret--pi/gateway-audit.jsonl",
+        "gateway_identity": "cells/vulnerable-secret--pi/gateway-identity.json",
+        "harbor_result": "cells/vulnerable-secret--pi/job/vulnerable-secret__AHja2SN/result.json",
+        "launch": "cells/vulnerable-secret--pi/launch.json",
+        "model_request_markers": "cells/vulnerable-secret--pi/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/vulnerable-secret--pi/job/vulnerable-secret__AHja2SN/agent/pi-events.jsonl",
+        "native_receipt": "cells/vulnerable-secret--pi/job/vulnerable-secret__AHja2SN/agent/pi-direct-result.json",
+        "native_stderr": "cells/vulnerable-secret--pi/job/vulnerable-secret__AHja2SN/agent/pi-stderr.log",
+        "staging_stderr": "cells/vulnerable-secret--pi/harbor.stderr.log",
+        "staging_stdout": "cells/vulnerable-secret--pi/harbor.stdout.log",
+        "verifier_evidence": "cells/vulnerable-secret--pi/job/vulnerable-secret__AHja2SN/verifier/ctrf.json",
+        "verifier_evidence_sha256": "f1838b1c9d3d06e52c90f28cd198387e62027b347dfea5c2031eb7af939dc6a6",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 1170,
+        "cached_input_tokens": 0,
+        "input_tokens": 1173,
+        "ordinary_input_tokens": 3,
+        "output_tokens": 55,
+        "reasoning_tokens": 9
+      }
+    },
+    {
+      "batching": {
+        "max_tools_in_response": 0,
+        "multi_tool_responses": 0,
+        "tool_bearing_responses": 0
+      },
+      "cell_id": "vulnerable-secret--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.0,
+        "components": {
+          "cache_write": 0.0,
+          "cached_input": 0.0,
+          "ordinary_input": 0.0,
+          "output": 0.0
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harness": "thinharness",
+      "identities": {
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "c53749fdc7ad76376a617ed874dc72da43fdf32cd7cbfdda8a1fa8d5c6d411e3",
+        "source_bundle_sha256": "c66ad97fbaa86429dd006864d1dcc5079e77459a881336a194da9f4340257034"
+      },
+      "requests": 1,
+      "reward": null,
+      "status": "model_attempt_failed",
+      "successful_requests": 0,
+      "task": "vulnerable-secret",
+      "timing_seconds": {
+        "agent_execution": 8.307841,
+        "harbor": 89.277494,
+        "verifier": null,
+        "wall": 92.80392503738403
+      },
+      "tool_name_counts": {},
+      "tools": 0,
+      "trace_paths": {
+        "gateway_audit": "cells/vulnerable-secret--thinharness/gateway-audit.jsonl",
+        "gateway_identity": "cells/vulnerable-secret--thinharness/gateway-identity.json",
+        "harbor_result": "cells/vulnerable-secret--thinharness/job/vulnerable-secret__AQiYrHg/result.json",
+        "launch": "cells/vulnerable-secret--thinharness/launch.json",
+        "model_request_markers": "cells/vulnerable-secret--thinharness/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/vulnerable-secret--thinharness/job/vulnerable-secret__AQiYrHg/agent/thinharness-events.jsonl",
+        "native_receipt": "cells/vulnerable-secret--thinharness/job/vulnerable-secret__AQiYrHg/agent/thinharness-direct-result.json",
+        "native_stderr": "cells/vulnerable-secret--thinharness/job/vulnerable-secret__AQiYrHg/agent/thinharness-stderr.log",
+        "staging_stderr": "cells/vulnerable-secret--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/vulnerable-secret--thinharness/harbor.stdout.log",
+        "verifier_evidence": null,
+        "verifier_evidence_sha256": null,
+        "verifier_evidence_type": null
+      },
+      "usage": {
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 0,
+        "input_tokens": 0,
+        "ordinary_input_tokens": 0,
+        "output_tokens": 0,
+        "reasoning_tokens": 0
+      }
+    },
+    {
+      "batching": {
+        "max_tools_in_response": 3,
+        "multi_tool_responses": 1,
+        "tool_bearing_responses": 2
+      },
+      "cell_id": "break-filter-js-from-html--pi",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.065633,
+        "components": {
+          "cache_write": 0.0149625,
+          "cached_input": 0.0006005,
+          "ordinary_input": 3e-05,
+          "output": 0.05004
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harness": "pi",
+      "identities": {
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "c53749fdc7ad76376a617ed874dc72da43fdf32cd7cbfdda8a1fa8d5c6d411e3",
+        "source_bundle_sha256": null
+      },
+      "requests": 3,
+      "reward": 0.0,
+      "status": "model_attempt_failed",
+      "successful_requests": 2,
+      "task": "break-filter-js-from-html",
+      "timing_seconds": {
+        "agent_execution": 52.857346,
+        "harbor": 130.559596,
+        "verifier": 6.442349,
+        "wall": 133.58580613136292
+      },
+      "tool_name_counts": {
+        "bash": 2,
+        "read": 2
+      },
+      "tools": 4,
+      "trace_paths": {
+        "gateway_audit": "cells/break-filter-js-from-html--pi/gateway-audit.jsonl",
+        "gateway_identity": "cells/break-filter-js-from-html--pi/gateway-identity.json",
+        "harbor_result": "cells/break-filter-js-from-html--pi/job/break-filter-js-from-html__2UZ4GCS/result.json",
+        "launch": "cells/break-filter-js-from-html--pi/launch.json",
+        "model_request_markers": "cells/break-filter-js-from-html--pi/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/break-filter-js-from-html--pi/job/break-filter-js-from-html__2UZ4GCS/agent/pi-events.jsonl",
+        "native_receipt": "cells/break-filter-js-from-html--pi/job/break-filter-js-from-html__2UZ4GCS/agent/pi-direct-result.json",
+        "native_stderr": "cells/break-filter-js-from-html--pi/job/break-filter-js-from-html__2UZ4GCS/agent/pi-stderr.log",
+        "staging_stderr": "cells/break-filter-js-from-html--pi/harbor.stderr.log",
+        "staging_stdout": "cells/break-filter-js-from-html--pi/harbor.stdout.log",
+        "verifier_evidence": "cells/break-filter-js-from-html--pi/job/break-filter-js-from-html__2UZ4GCS/verifier/ctrf.json",
+        "verifier_evidence_sha256": "8e44d586e551b8a08b76b0238ca13f3a57733b5e3f9296aac45ffd2bc96ffd0c",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 2394,
+        "cached_input_tokens": 1201,
+        "input_tokens": 3601,
+        "ordinary_input_tokens": 6,
+        "output_tokens": 1668,
+        "reasoning_tokens": 1323
+      }
+    },
+    {
+      "batching": {
+        "max_tools_in_response": 3,
+        "multi_tool_responses": 1,
+        "tool_bearing_responses": 1
+      },
+      "cell_id": "break-filter-js-from-html--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.00586075,
+        "components": {
+          "cache_write": 0.00076875,
+          "cached_input": 0.000607,
+          "ordinary_input": 1.5e-05,
+          "output": 0.00447
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harness": "thinharness",
+      "identities": {
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "c53749fdc7ad76376a617ed874dc72da43fdf32cd7cbfdda8a1fa8d5c6d411e3",
+        "source_bundle_sha256": "c66ad97fbaa86429dd006864d1dcc5079e77459a881336a194da9f4340257034"
+      },
+      "requests": 2,
+      "reward": null,
+      "status": "model_attempt_failed",
+      "successful_requests": 1,
+      "task": "break-filter-js-from-html",
+      "timing_seconds": {
+        "agent_execution": 19.092581,
+        "harbor": 97.992023,
+        "verifier": null,
+        "wall": 101.24124383926392
+      },
+      "tool_name_counts": {
+        "bash": 1,
+        "read": 2
+      },
+      "tools": 3,
+      "trace_paths": {
+        "gateway_audit": "cells/break-filter-js-from-html--thinharness/gateway-audit.jsonl",
+        "gateway_identity": "cells/break-filter-js-from-html--thinharness/gateway-identity.json",
+        "harbor_result": "cells/break-filter-js-from-html--thinharness/job/break-filter-js-from-html__mPQwc4e/result.json",
+        "launch": "cells/break-filter-js-from-html--thinharness/launch.json",
+        "model_request_markers": "cells/break-filter-js-from-html--thinharness/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/break-filter-js-from-html--thinharness/job/break-filter-js-from-html__mPQwc4e/agent/thinharness-events.jsonl",
+        "native_receipt": "cells/break-filter-js-from-html--thinharness/job/break-filter-js-from-html__mPQwc4e/agent/thinharness-direct-result.json",
+        "native_stderr": "cells/break-filter-js-from-html--thinharness/job/break-filter-js-from-html__mPQwc4e/agent/thinharness-stderr.log",
+        "staging_stderr": "cells/break-filter-js-from-html--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/break-filter-js-from-html--thinharness/harbor.stdout.log",
+        "verifier_evidence": null,
+        "verifier_evidence_sha256": null,
+        "verifier_evidence_type": null
+      },
+      "usage": {
+        "cache_write_tokens": 123,
+        "cached_input_tokens": 1214,
+        "input_tokens": 1340,
+        "ordinary_input_tokens": 3,
+        "output_tokens": 149,
+        "reasoning_tokens": 41
+      }
+    },
+    {
+      "batching": {
+        "max_tools_in_response": 1,
+        "multi_tool_responses": 0,
+        "tool_bearing_responses": 11
+      },
+      "cell_id": "merge-diff-arc-agi-task--pi",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.2043255,
+        "components": {
+          "cache_write": 0.0810375,
+          "cached_input": 0.038838,
+          "ordinary_input": 0.00018000000000000004,
+          "output": 0.08427
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harness": "pi",
+      "identities": {
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "c53749fdc7ad76376a617ed874dc72da43fdf32cd7cbfdda8a1fa8d5c6d411e3",
+        "source_bundle_sha256": null
+      },
+      "requests": 12,
+      "reward": 1.0,
+      "status": "completed",
+      "successful_requests": 12,
+      "task": "merge-diff-arc-agi-task",
+      "timing_seconds": {
+        "agent_execution": 75.43283,
+        "harbor": 142.816137,
+        "verifier": 9.540568,
+        "wall": 145.92600178718567
+      },
+      "tool_name_counts": {
+        "bash": 10,
+        "write": 1
+      },
+      "tools": 11,
+      "trace_paths": {
+        "gateway_audit": "cells/merge-diff-arc-agi-task--pi/gateway-audit.jsonl",
+        "gateway_identity": "cells/merge-diff-arc-agi-task--pi/gateway-identity.json",
+        "harbor_result": "cells/merge-diff-arc-agi-task--pi/job/merge-diff-arc-agi-task__UFJzDE2/result.json",
+        "launch": "cells/merge-diff-arc-agi-task--pi/launch.json",
+        "model_request_markers": "cells/merge-diff-arc-agi-task--pi/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/merge-diff-arc-agi-task--pi/job/merge-diff-arc-agi-task__UFJzDE2/agent/pi-events.jsonl",
+        "native_receipt": "cells/merge-diff-arc-agi-task--pi/job/merge-diff-arc-agi-task__UFJzDE2/agent/pi-direct-result.json",
+        "native_stderr": "cells/merge-diff-arc-agi-task--pi/job/merge-diff-arc-agi-task__UFJzDE2/agent/pi-stderr.log",
+        "staging_stderr": "cells/merge-diff-arc-agi-task--pi/harbor.stderr.log",
+        "staging_stdout": "cells/merge-diff-arc-agi-task--pi/harbor.stdout.log",
+        "verifier_evidence": "cells/merge-diff-arc-agi-task--pi/job/merge-diff-arc-agi-task__UFJzDE2/verifier/ctrf.json",
+        "verifier_evidence_sha256": "0820c795d79bf54fa06ff822638d27e495a70d107a115be5bbe1c2636d782c1c",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 12966,
+        "cached_input_tokens": 77676,
+        "input_tokens": 90678,
+        "ordinary_input_tokens": 36,
+        "output_tokens": 2809,
+        "reasoning_tokens": 1087
+      }
+    },
+    {
+      "batching": {
+        "max_tools_in_response": 2,
+        "multi_tool_responses": 1,
+        "tool_bearing_responses": 8
+      },
+      "cell_id": "merge-diff-arc-agi-task--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.1676065,
+        "components": {
+          "cache_write": 0.0547375,
+          "cached_input": 0.026123999999999998,
+          "ordinary_input": 0.000135,
+          "output": 0.08660999999999999
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harness": "thinharness",
+      "identities": {
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "c53749fdc7ad76376a617ed874dc72da43fdf32cd7cbfdda8a1fa8d5c6d411e3",
+        "source_bundle_sha256": "c66ad97fbaa86429dd006864d1dcc5079e77459a881336a194da9f4340257034"
+      },
+      "requests": 9,
+      "reward": 1.0,
+      "status": "completed",
+      "successful_requests": 9,
+      "task": "merge-diff-arc-agi-task",
+      "timing_seconds": {
+        "agent_execution": 65.431197,
+        "harbor": 142.904218,
+        "verifier": 11.124501,
+        "wall": 145.94733834266663
+      },
+      "tool_name_counts": {
+        "bash": 7,
+        "read": 1,
+        "write": 1
+      },
+      "tools": 9,
+      "trace_paths": {
+        "gateway_audit": "cells/merge-diff-arc-agi-task--thinharness/gateway-audit.jsonl",
+        "gateway_identity": "cells/merge-diff-arc-agi-task--thinharness/gateway-identity.json",
+        "harbor_result": "cells/merge-diff-arc-agi-task--thinharness/job/merge-diff-arc-agi-task__HSar8WH/result.json",
+        "launch": "cells/merge-diff-arc-agi-task--thinharness/launch.json",
+        "model_request_markers": "cells/merge-diff-arc-agi-task--thinharness/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/merge-diff-arc-agi-task--thinharness/job/merge-diff-arc-agi-task__HSar8WH/agent/thinharness-events.jsonl",
+        "native_receipt": "cells/merge-diff-arc-agi-task--thinharness/job/merge-diff-arc-agi-task__HSar8WH/agent/thinharness-direct-result.json",
+        "native_stderr": "cells/merge-diff-arc-agi-task--thinharness/job/merge-diff-arc-agi-task__HSar8WH/agent/thinharness-stderr.log",
+        "staging_stderr": "cells/merge-diff-arc-agi-task--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/merge-diff-arc-agi-task--thinharness/harbor.stdout.log",
+        "verifier_evidence": "cells/merge-diff-arc-agi-task--thinharness/job/merge-diff-arc-agi-task__HSar8WH/verifier/ctrf.json",
+        "verifier_evidence_sha256": "e4a487d2fa8ea48e3960e424ac8162b05c76526f84cd0aa8ed47ff9f44688290",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 8758,
+        "cached_input_tokens": 52248,
+        "input_tokens": 61033,
+        "ordinary_input_tokens": 27,
+        "output_tokens": 2887,
+        "reasoning_tokens": 1453
+      }
+    },
+    {
+      "batching": {
+        "max_tools_in_response": 3,
+        "multi_tool_responses": 4,
+        "tool_bearing_responses": 14
+      },
+      "cell_id": "count-dataset-tokens--pi",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.44666950000000005,
+        "components": {
+          "cache_write": 0.21923750000000003,
+          "cached_input": 0.09475700000000001,
+          "ordinary_input": 0.00022500000000000008,
+          "output": 0.13245
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harness": "pi",
+      "identities": {
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "c53749fdc7ad76376a617ed874dc72da43fdf32cd7cbfdda8a1fa8d5c6d411e3",
+        "source_bundle_sha256": null
+      },
+      "requests": 15,
+      "reward": 1.0,
+      "status": "completed",
+      "successful_requests": 15,
+      "task": "count-dataset-tokens",
+      "timing_seconds": {
+        "agent_execution": 116.527534,
+        "harbor": 198.616078,
+        "verifier": 5.917688,
+        "wall": 201.8055558204651
+      },
+      "tool_name_counts": {
+        "bash": 21,
+        "write": 1
+      },
+      "tools": 22,
+      "trace_paths": {
+        "gateway_audit": "cells/count-dataset-tokens--pi/gateway-audit.jsonl",
+        "gateway_identity": "cells/count-dataset-tokens--pi/gateway-identity.json",
+        "harbor_result": "cells/count-dataset-tokens--pi/job/count-dataset-tokens__hUPLnNr/result.json",
+        "launch": "cells/count-dataset-tokens--pi/launch.json",
+        "model_request_markers": "cells/count-dataset-tokens--pi/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/count-dataset-tokens--pi/job/count-dataset-tokens__hUPLnNr/agent/pi-events.jsonl",
+        "native_receipt": "cells/count-dataset-tokens--pi/job/count-dataset-tokens__hUPLnNr/agent/pi-direct-result.json",
+        "native_stderr": "cells/count-dataset-tokens--pi/job/count-dataset-tokens__hUPLnNr/agent/pi-stderr.log",
+        "staging_stderr": "cells/count-dataset-tokens--pi/harbor.stderr.log",
+        "staging_stdout": "cells/count-dataset-tokens--pi/harbor.stdout.log",
+        "verifier_evidence": "cells/count-dataset-tokens--pi/job/count-dataset-tokens__hUPLnNr/verifier/ctrf.json",
+        "verifier_evidence_sha256": "450c8c2b1a5ec855094bc749afb27800d8076bd1784e186de6873c18247d9ebc",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 35078,
+        "cached_input_tokens": 189514,
+        "input_tokens": 224637,
+        "ordinary_input_tokens": 45,
+        "output_tokens": 4415,
+        "reasoning_tokens": 2133
+      }
+    },
+    {
+      "batching": {
+        "max_tools_in_response": 2,
+        "multi_tool_responses": 7,
+        "tool_bearing_responses": 15
+      },
+      "cell_id": "count-dataset-tokens--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.51166175,
+        "components": {
+          "cache_write": 0.23370625,
+          "cached_input": 0.11745550000000002,
+          "ordinary_input": 0.0002400000000000001,
+          "output": 0.16026000000000004
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harness": "thinharness",
+      "identities": {
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "c53749fdc7ad76376a617ed874dc72da43fdf32cd7cbfdda8a1fa8d5c6d411e3",
+        "source_bundle_sha256": "c66ad97fbaa86429dd006864d1dcc5079e77459a881336a194da9f4340257034"
+      },
+      "requests": 16,
+      "reward": 1.0,
+      "status": "completed",
+      "successful_requests": 16,
+      "task": "count-dataset-tokens",
+      "timing_seconds": {
+        "agent_execution": 137.45067,
+        "harbor": 221.746911,
+        "verifier": 6.61794,
+        "wall": 224.97215509414673
+      },
+      "tool_name_counts": {
+        "bash": 21,
+        "write": 1
+      },
+      "tools": 22,
+      "trace_paths": {
+        "gateway_audit": "cells/count-dataset-tokens--thinharness/gateway-audit.jsonl",
+        "gateway_identity": "cells/count-dataset-tokens--thinharness/gateway-identity.json",
+        "harbor_result": "cells/count-dataset-tokens--thinharness/job/count-dataset-tokens__jhuzuEJ/result.json",
+        "launch": "cells/count-dataset-tokens--thinharness/launch.json",
+        "model_request_markers": "cells/count-dataset-tokens--thinharness/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/count-dataset-tokens--thinharness/job/count-dataset-tokens__jhuzuEJ/agent/thinharness-events.jsonl",
+        "native_receipt": "cells/count-dataset-tokens--thinharness/job/count-dataset-tokens__jhuzuEJ/agent/thinharness-direct-result.json",
+        "native_stderr": "cells/count-dataset-tokens--thinharness/job/count-dataset-tokens__jhuzuEJ/agent/thinharness-stderr.log",
+        "staging_stderr": "cells/count-dataset-tokens--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/count-dataset-tokens--thinharness/harbor.stdout.log",
+        "verifier_evidence": "cells/count-dataset-tokens--thinharness/job/count-dataset-tokens__jhuzuEJ/verifier/ctrf.json",
+        "verifier_evidence_sha256": "6c67fb54d6d32498dd871f1c30265bf1e2654813512c71899e98f98e9b0fc222",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 37393,
+        "cached_input_tokens": 234911,
+        "input_tokens": 272352,
+        "ordinary_input_tokens": 48,
+        "output_tokens": 5342,
+        "reasoning_tokens": 2061
+      }
+    },
+    {
+      "batching": {
+        "max_tools_in_response": 3,
+        "multi_tool_responses": 2,
+        "tool_bearing_responses": 4
+      },
+      "cell_id": "git-leak-recovery--pi",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.116082,
+        "components": {
+          "cache_write": 0.028374999999999997,
+          "cached_input": 0.004742,
+          "ordinary_input": 7.500000000000001e-05,
+          "output": 0.08289
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harness": "pi",
+      "identities": {
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "c53749fdc7ad76376a617ed874dc72da43fdf32cd7cbfdda8a1fa8d5c6d411e3",
+        "source_bundle_sha256": null
+      },
+      "requests": 5,
+      "reward": 1.0,
+      "status": "completed",
+      "successful_requests": 5,
+      "task": "git-leak-recovery",
+      "timing_seconds": {
+        "agent_execution": 47.108787,
+        "harbor": 135.959921,
+        "verifier": 9.759049,
+        "wall": 138.87206315994263
+      },
+      "tool_name_counts": {
+        "bash": 7
+      },
+      "tools": 7,
+      "trace_paths": {
+        "gateway_audit": "cells/git-leak-recovery--pi/gateway-audit.jsonl",
+        "gateway_identity": "cells/git-leak-recovery--pi/gateway-identity.json",
+        "harbor_result": "cells/git-leak-recovery--pi/job/git-leak-recovery__SDwRGeM/result.json",
+        "launch": "cells/git-leak-recovery--pi/launch.json",
+        "model_request_markers": "cells/git-leak-recovery--pi/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/git-leak-recovery--pi/job/git-leak-recovery__SDwRGeM/agent/pi-events.jsonl",
+        "native_receipt": "cells/git-leak-recovery--pi/job/git-leak-recovery__SDwRGeM/agent/pi-direct-result.json",
+        "native_stderr": "cells/git-leak-recovery--pi/job/git-leak-recovery__SDwRGeM/agent/pi-stderr.log",
+        "staging_stderr": "cells/git-leak-recovery--pi/harbor.stderr.log",
+        "staging_stdout": "cells/git-leak-recovery--pi/harbor.stdout.log",
+        "verifier_evidence": "cells/git-leak-recovery--pi/job/git-leak-recovery__SDwRGeM/verifier/ctrf.json",
+        "verifier_evidence_sha256": "10a3eabd241989ef1e5cdd10f7d2b7f7fe9f4f2df8c37c98aedaccacd78e39f4",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 4540,
+        "cached_input_tokens": 9484,
+        "input_tokens": 14039,
+        "ordinary_input_tokens": 15,
+        "output_tokens": 2763,
+        "reasoning_tokens": 1757
+      }
+    },
+    {
+      "batching": {
+        "max_tools_in_response": 3,
+        "multi_tool_responses": 3,
+        "tool_bearing_responses": 5
+      },
+      "cell_id": "git-leak-recovery--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.16896075000000002,
+        "components": {
+          "cache_write": 0.03676875,
+          "cached_input": 0.009402,
+          "ordinary_input": 9e-05,
+          "output": 0.1227
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harness": "thinharness",
+      "identities": {
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "c53749fdc7ad76376a617ed874dc72da43fdf32cd7cbfdda8a1fa8d5c6d411e3",
+        "source_bundle_sha256": "c66ad97fbaa86429dd006864d1dcc5079e77459a881336a194da9f4340257034"
+      },
+      "requests": 6,
+      "reward": 1.0,
+      "status": "completed",
+      "successful_requests": 6,
+      "task": "git-leak-recovery",
+      "timing_seconds": {
+        "agent_execution": 77.883068,
+        "harbor": 166.352014,
+        "verifier": 11.107383,
+        "wall": 169.50651097297668
+      },
+      "tool_name_counts": {
+        "bash": 10
+      },
+      "tools": 10,
+      "trace_paths": {
+        "gateway_audit": "cells/git-leak-recovery--thinharness/gateway-audit.jsonl",
+        "gateway_identity": "cells/git-leak-recovery--thinharness/gateway-identity.json",
+        "harbor_result": "cells/git-leak-recovery--thinharness/job/git-leak-recovery__yJKD7qn/result.json",
+        "launch": "cells/git-leak-recovery--thinharness/launch.json",
+        "model_request_markers": "cells/git-leak-recovery--thinharness/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/git-leak-recovery--thinharness/job/git-leak-recovery__yJKD7qn/agent/thinharness-events.jsonl",
+        "native_receipt": "cells/git-leak-recovery--thinharness/job/git-leak-recovery__yJKD7qn/agent/thinharness-direct-result.json",
+        "native_stderr": "cells/git-leak-recovery--thinharness/job/git-leak-recovery__yJKD7qn/agent/thinharness-stderr.log",
+        "staging_stderr": "cells/git-leak-recovery--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/git-leak-recovery--thinharness/harbor.stdout.log",
+        "verifier_evidence": "cells/git-leak-recovery--thinharness/job/git-leak-recovery__yJKD7qn/verifier/ctrf.json",
+        "verifier_evidence_sha256": "8fd36bc4c2312173d8192414cb0e52d468d3e6cfac105eb5c1a1e464379e12e0",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 5883,
+        "cached_input_tokens": 18804,
+        "input_tokens": 24705,
+        "ordinary_input_tokens": 18,
+        "output_tokens": 4090,
+        "reasoning_tokens": 2722
+      }
+    },
+    {
+      "batching": {
+        "max_tools_in_response": 3,
+        "multi_tool_responses": 1,
+        "tool_bearing_responses": 3
+      },
+      "cell_id": "multi-source-data-merger--pi",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.120779,
+        "components": {
+          "cache_write": 0.0316625,
+          "cached_input": 0.0028065,
+          "ordinary_input": 6e-05,
+          "output": 0.08625
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harness": "pi",
+      "identities": {
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "c53749fdc7ad76376a617ed874dc72da43fdf32cd7cbfdda8a1fa8d5c6d411e3",
+        "source_bundle_sha256": null
+      },
+      "requests": 4,
+      "reward": 1.0,
+      "status": "completed",
+      "successful_requests": 4,
+      "task": "multi-source-data-merger",
+      "timing_seconds": {
+        "agent_execution": 53.882562,
+        "harbor": 100.415424,
+        "verifier": 8.910652,
+        "wall": 103.59777975082397
+      },
+      "tool_name_counts": {
+        "bash": 3,
+        "read": 2
+      },
+      "tools": 5,
+      "trace_paths": {
+        "gateway_audit": "cells/multi-source-data-merger--pi/gateway-audit.jsonl",
+        "gateway_identity": "cells/multi-source-data-merger--pi/gateway-identity.json",
+        "harbor_result": "cells/multi-source-data-merger--pi/job/multi-source-data-merger__wHYRHxa/result.json",
+        "launch": "cells/multi-source-data-merger--pi/launch.json",
+        "model_request_markers": "cells/multi-source-data-merger--pi/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/multi-source-data-merger--pi/job/multi-source-data-merger__wHYRHxa/agent/pi-events.jsonl",
+        "native_receipt": "cells/multi-source-data-merger--pi/job/multi-source-data-merger__wHYRHxa/agent/pi-direct-result.json",
+        "native_stderr": "cells/multi-source-data-merger--pi/job/multi-source-data-merger__wHYRHxa/agent/pi-stderr.log",
+        "staging_stderr": "cells/multi-source-data-merger--pi/harbor.stderr.log",
+        "staging_stdout": "cells/multi-source-data-merger--pi/harbor.stdout.log",
+        "verifier_evidence": "cells/multi-source-data-merger--pi/job/multi-source-data-merger__wHYRHxa/verifier/ctrf.json",
+        "verifier_evidence_sha256": "34a3351247adcdc50e2e346d17aca479bf88a284ff475328eaeee112b3debaca",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 5066,
+        "cached_input_tokens": 5613,
+        "input_tokens": 10691,
+        "ordinary_input_tokens": 12,
+        "output_tokens": 2875,
+        "reasoning_tokens": 1262
+      }
+    },
+    {
+      "batching": {
+        "max_tools_in_response": 4,
+        "multi_tool_responses": 1,
+        "tool_bearing_responses": 3
+      },
+      "cell_id": "multi-source-data-merger--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.10197525,
+        "components": {
+          "cache_write": 0.02589375,
+          "cached_input": 0.0041115,
+          "ordinary_input": 6e-05,
+          "output": 0.07191
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harness": "thinharness",
+      "identities": {
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "c53749fdc7ad76376a617ed874dc72da43fdf32cd7cbfdda8a1fa8d5c6d411e3",
+        "source_bundle_sha256": "c66ad97fbaa86429dd006864d1dcc5079e77459a881336a194da9f4340257034"
+      },
+      "requests": 4,
+      "reward": 1.0,
+      "status": "completed",
+      "successful_requests": 4,
+      "task": "multi-source-data-merger",
+      "timing_seconds": {
+        "agent_execution": 39.304609,
+        "harbor": 89.394349,
+        "verifier": 10.457577,
+        "wall": 92.5522210597992
+      },
+      "tool_name_counts": {
+        "bash": 4,
+        "read": 2
+      },
+      "tools": 6,
+      "trace_paths": {
+        "gateway_audit": "cells/multi-source-data-merger--thinharness/gateway-audit.jsonl",
+        "gateway_identity": "cells/multi-source-data-merger--thinharness/gateway-identity.json",
+        "harbor_result": "cells/multi-source-data-merger--thinharness/job/multi-source-data-merger__6eDK6Lt/result.json",
+        "launch": "cells/multi-source-data-merger--thinharness/launch.json",
+        "model_request_markers": "cells/multi-source-data-merger--thinharness/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/multi-source-data-merger--thinharness/job/multi-source-data-merger__6eDK6Lt/agent/thinharness-events.jsonl",
+        "native_receipt": "cells/multi-source-data-merger--thinharness/job/multi-source-data-merger__6eDK6Lt/agent/thinharness-direct-result.json",
+        "native_stderr": "cells/multi-source-data-merger--thinharness/job/multi-source-data-merger__6eDK6Lt/agent/thinharness-stderr.log",
+        "staging_stderr": "cells/multi-source-data-merger--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/multi-source-data-merger--thinharness/harbor.stdout.log",
+        "verifier_evidence": "cells/multi-source-data-merger--thinharness/job/multi-source-data-merger__6eDK6Lt/verifier/ctrf.json",
+        "verifier_evidence_sha256": "252e0a656e04bfe51a3748441bce8cffd493c2dcc90de4a85cd664718ee7ff5a",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 4143,
+        "cached_input_tokens": 8223,
+        "input_tokens": 12378,
+        "ordinary_input_tokens": 12,
+        "output_tokens": 2397,
+        "reasoning_tokens": 922
+      }
+    },
+    {
+      "batching": {
+        "max_tools_in_response": 3,
+        "multi_tool_responses": 6,
+        "tool_bearing_responses": 13
+      },
+      "cell_id": "pytorch-model-cli--pi",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.40112949999999997,
+        "components": {
+          "cache_write": 0.1315625,
+          "cached_input": 0.069977,
+          "ordinary_input": 0.00021000000000000006,
+          "output": 0.19938
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harness": "pi",
+      "identities": {
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "c53749fdc7ad76376a617ed874dc72da43fdf32cd7cbfdda8a1fa8d5c6d411e3",
+        "source_bundle_sha256": null
+      },
+      "requests": 14,
+      "reward": 1.0,
+      "status": "completed",
+      "successful_requests": 14,
+      "task": "pytorch-model-cli",
+      "timing_seconds": {
+        "agent_execution": 129.327012,
+        "harbor": 277.075504,
+        "verifier": 73.316905,
+        "wall": 280.3121848106384
+      },
+      "tool_name_counts": {
+        "bash": 20,
+        "read": 1,
+        "write": 1
+      },
+      "tools": 22,
+      "trace_paths": {
+        "gateway_audit": "cells/pytorch-model-cli--pi/gateway-audit.jsonl",
+        "gateway_identity": "cells/pytorch-model-cli--pi/gateway-identity.json",
+        "harbor_result": "cells/pytorch-model-cli--pi/job/pytorch-model-cli__oxRk2Dq/result.json",
+        "launch": "cells/pytorch-model-cli--pi/launch.json",
+        "model_request_markers": "cells/pytorch-model-cli--pi/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/pytorch-model-cli--pi/job/pytorch-model-cli__oxRk2Dq/agent/pi-events.jsonl",
+        "native_receipt": "cells/pytorch-model-cli--pi/job/pytorch-model-cli__oxRk2Dq/agent/pi-direct-result.json",
+        "native_stderr": "cells/pytorch-model-cli--pi/job/pytorch-model-cli__oxRk2Dq/agent/pi-stderr.log",
+        "staging_stderr": "cells/pytorch-model-cli--pi/harbor.stderr.log",
+        "staging_stdout": "cells/pytorch-model-cli--pi/harbor.stdout.log",
+        "verifier_evidence": "cells/pytorch-model-cli--pi/job/pytorch-model-cli__oxRk2Dq/verifier/ctrf.json",
+        "verifier_evidence_sha256": "7d8cc003bdf8f5b414cca5d25bf3ca445a6f0d0f4a29832c2e1bafe1b4e965b2",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 21050,
+        "cached_input_tokens": 139954,
+        "input_tokens": 161046,
+        "ordinary_input_tokens": 42,
+        "output_tokens": 6646,
+        "reasoning_tokens": 2126
+      }
+    },
+    {
+      "batching": {
+        "max_tools_in_response": 3,
+        "multi_tool_responses": 5,
+        "tool_bearing_responses": 10
+      },
+      "cell_id": "pytorch-model-cli--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.39301450000000004,
+        "components": {
+          "cache_write": 0.12953750000000003,
+          "cached_input": 0.05574200000000001,
+          "ordinary_input": 0.00016500000000000003,
+          "output": 0.20757
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harness": "thinharness",
+      "identities": {
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "c53749fdc7ad76376a617ed874dc72da43fdf32cd7cbfdda8a1fa8d5c6d411e3",
+        "source_bundle_sha256": "c66ad97fbaa86429dd006864d1dcc5079e77459a881336a194da9f4340257034"
+      },
+      "requests": 11,
+      "reward": 1.0,
+      "status": "completed",
+      "successful_requests": 11,
+      "task": "pytorch-model-cli",
+      "timing_seconds": {
+        "agent_execution": 142.658658,
+        "harbor": 305.100397,
+        "verifier": 74.131875,
+        "wall": 307.8736267089844
+      },
+      "tool_name_counts": {
+        "bash": 16,
+        "read": 1,
+        "write": 1
+      },
+      "tools": 18,
+      "trace_paths": {
+        "gateway_audit": "cells/pytorch-model-cli--thinharness/gateway-audit.jsonl",
+        "gateway_identity": "cells/pytorch-model-cli--thinharness/gateway-identity.json",
+        "harbor_result": "cells/pytorch-model-cli--thinharness/job/pytorch-model-cli__TpqmYnZ/result.json",
+        "launch": "cells/pytorch-model-cli--thinharness/launch.json",
+        "model_request_markers": "cells/pytorch-model-cli--thinharness/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/pytorch-model-cli--thinharness/job/pytorch-model-cli__TpqmYnZ/agent/thinharness-events.jsonl",
+        "native_receipt": "cells/pytorch-model-cli--thinharness/job/pytorch-model-cli__TpqmYnZ/agent/thinharness-direct-result.json",
+        "native_stderr": "cells/pytorch-model-cli--thinharness/job/pytorch-model-cli__TpqmYnZ/agent/thinharness-stderr.log",
+        "staging_stderr": "cells/pytorch-model-cli--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/pytorch-model-cli--thinharness/harbor.stdout.log",
+        "verifier_evidence": "cells/pytorch-model-cli--thinharness/job/pytorch-model-cli__TpqmYnZ/verifier/ctrf.json",
+        "verifier_evidence_sha256": "ed3f21a5505ea83b2224739f2171cc1f3db51e2550b7fcc1d0ea8f40a8aaab82",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 20726,
+        "cached_input_tokens": 111484,
+        "input_tokens": 132243,
+        "ordinary_input_tokens": 33,
+        "output_tokens": 6919,
+        "reasoning_tokens": 2495
+      }
+    },
+    {
+      "batching": {
+        "max_tools_in_response": 4,
+        "multi_tool_responses": 11,
+        "tool_bearing_responses": 25
+      },
+      "cell_id": "sanitize-git-repo--pi",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 2.2227785000000004,
+        "components": {
+          "cache_write": 0.7969625000000002,
+          "cached_input": 1.015206,
+          "ordinary_input": 0.00038999999999999994,
+          "output": 0.41022
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harness": "pi",
+      "identities": {
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "c53749fdc7ad76376a617ed874dc72da43fdf32cd7cbfdda8a1fa8d5c6d411e3",
+        "source_bundle_sha256": null
+      },
+      "requests": 26,
+      "reward": 1.0,
+      "status": "completed",
+      "successful_requests": 26,
+      "task": "sanitize-git-repo",
+      "timing_seconds": {
+        "agent_execution": 639.801667,
+        "harbor": 720.099144,
+        "verifier": 6.045863,
+        "wall": 723.2664620876312
+      },
+      "tool_name_counts": {
+        "bash": 42,
+        "edit": 3,
+        "read": 6
+      },
+      "tools": 51,
+      "trace_paths": {
+        "gateway_audit": "cells/sanitize-git-repo--pi/gateway-audit.jsonl",
+        "gateway_identity": "cells/sanitize-git-repo--pi/gateway-identity.json",
+        "harbor_result": "cells/sanitize-git-repo--pi/job/sanitize-git-repo__8jZznbZ/result.json",
+        "launch": "cells/sanitize-git-repo--pi/launch.json",
+        "model_request_markers": "cells/sanitize-git-repo--pi/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/sanitize-git-repo--pi/job/sanitize-git-repo__8jZznbZ/agent/pi-events.jsonl",
+        "native_receipt": "cells/sanitize-git-repo--pi/job/sanitize-git-repo__8jZznbZ/agent/pi-direct-result.json",
+        "native_stderr": "cells/sanitize-git-repo--pi/job/sanitize-git-repo__8jZznbZ/agent/pi-stderr.log",
+        "staging_stderr": "cells/sanitize-git-repo--pi/harbor.stderr.log",
+        "staging_stdout": "cells/sanitize-git-repo--pi/harbor.stdout.log",
+        "verifier_evidence": "cells/sanitize-git-repo--pi/job/sanitize-git-repo__8jZznbZ/verifier/ctrf.json",
+        "verifier_evidence_sha256": "335ad543cfa2fb097ff6cc2e00edae6484f27f8dad8d6eb1914c67c39eca35c6",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 127514,
+        "cached_input_tokens": 2030412,
+        "input_tokens": 2158004,
+        "ordinary_input_tokens": 78,
+        "output_tokens": 13674,
+        "reasoning_tokens": 4948
+      }
+    },
+    {
+      "batching": {
+        "max_tools_in_response": 4,
+        "multi_tool_responses": 11,
+        "tool_bearing_responses": 13
+      },
+      "cell_id": "sanitize-git-repo--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 1.41333,
+        "components": {
+          "cache_write": 0.63175,
+          "cached_input": 0.40973,
+          "ordinary_input": 0.00021000000000000006,
+          "output": 0.37163999999999997
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harness": "thinharness",
+      "identities": {
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "c53749fdc7ad76376a617ed874dc72da43fdf32cd7cbfdda8a1fa8d5c6d411e3",
+        "source_bundle_sha256": "c66ad97fbaa86429dd006864d1dcc5079e77459a881336a194da9f4340257034"
+      },
+      "requests": 14,
+      "reward": 0.0,
+      "status": "completed",
+      "successful_requests": 14,
+      "task": "sanitize-git-repo",
+      "timing_seconds": {
+        "agent_execution": 313.532363,
+        "harbor": 349.658116,
+        "verifier": 8.645699,
+        "wall": 352.72908902168274
+      },
+      "tool_name_counts": {
+        "bash": 36,
+        "edit": 1,
+        "read": 2
+      },
+      "tools": 39,
+      "trace_paths": {
+        "gateway_audit": "cells/sanitize-git-repo--thinharness/gateway-audit.jsonl",
+        "gateway_identity": "cells/sanitize-git-repo--thinharness/gateway-identity.json",
+        "harbor_result": "cells/sanitize-git-repo--thinharness/job/sanitize-git-repo__Je8tCQQ/result.json",
+        "launch": "cells/sanitize-git-repo--thinharness/launch.json",
+        "model_request_markers": "cells/sanitize-git-repo--thinharness/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/sanitize-git-repo--thinharness/job/sanitize-git-repo__Je8tCQQ/agent/thinharness-events.jsonl",
+        "native_receipt": "cells/sanitize-git-repo--thinharness/job/sanitize-git-repo__Je8tCQQ/agent/thinharness-direct-result.json",
+        "native_stderr": "cells/sanitize-git-repo--thinharness/job/sanitize-git-repo__Je8tCQQ/agent/thinharness-stderr.log",
+        "staging_stderr": "cells/sanitize-git-repo--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/sanitize-git-repo--thinharness/harbor.stdout.log",
+        "verifier_evidence": "cells/sanitize-git-repo--thinharness/job/sanitize-git-repo__Je8tCQQ/verifier/ctrf.json",
+        "verifier_evidence_sha256": "16e171ba0636ce68303f6dd573694b4dc3b91990e413a70b65c170c03e2b63ce",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 101080,
+        "cached_input_tokens": 819460,
+        "input_tokens": 920582,
+        "ordinary_input_tokens": 42,
+        "output_tokens": 12388,
+        "reasoning_tokens": 4681
+      }
+    },
+    {
+      "batching": {
+        "max_tools_in_response": 2,
+        "multi_tool_responses": 2,
+        "tool_bearing_responses": 12
+      },
+      "cell_id": "sqlite-with-gcov--pi",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.40034000000000003,
+        "components": {
+          "cache_write": 0.19678750000000006,
+          "cached_input": 0.1190875,
+          "ordinary_input": 0.00019500000000000005,
+          "output": 0.08427
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harness": "pi",
+      "identities": {
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "c53749fdc7ad76376a617ed874dc72da43fdf32cd7cbfdda8a1fa8d5c6d411e3",
+        "source_bundle_sha256": null
+      },
+      "requests": 13,
+      "reward": 1.0,
+      "status": "completed",
+      "successful_requests": 13,
+      "task": "sqlite-with-gcov",
+      "timing_seconds": {
+        "agent_execution": 176.337996,
+        "harbor": 250.714649,
+        "verifier": 9.556738,
+        "wall": 254.45934200286865
+      },
+      "tool_name_counts": {
+        "bash": 13,
+        "read": 1
+      },
+      "tools": 14,
+      "trace_paths": {
+        "gateway_audit": "cells/sqlite-with-gcov--pi/gateway-audit.jsonl",
+        "gateway_identity": "cells/sqlite-with-gcov--pi/gateway-identity.json",
+        "harbor_result": "cells/sqlite-with-gcov--pi/job/sqlite-with-gcov__pvJT9SP/result.json",
+        "launch": "cells/sqlite-with-gcov--pi/launch.json",
+        "model_request_markers": "cells/sqlite-with-gcov--pi/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/sqlite-with-gcov--pi/job/sqlite-with-gcov__pvJT9SP/agent/pi-events.jsonl",
+        "native_receipt": "cells/sqlite-with-gcov--pi/job/sqlite-with-gcov__pvJT9SP/agent/pi-direct-result.json",
+        "native_stderr": "cells/sqlite-with-gcov--pi/job/sqlite-with-gcov__pvJT9SP/agent/pi-stderr.log",
+        "staging_stderr": "cells/sqlite-with-gcov--pi/harbor.stderr.log",
+        "staging_stdout": "cells/sqlite-with-gcov--pi/harbor.stdout.log",
+        "verifier_evidence": "cells/sqlite-with-gcov--pi/job/sqlite-with-gcov__pvJT9SP/verifier/ctrf.json",
+        "verifier_evidence_sha256": "63fae5911f1966fde1f7231ff3b36f6a9e908ebe01506e9fd47284f42d4af2d2",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 31486,
+        "cached_input_tokens": 238175,
+        "input_tokens": 269700,
+        "ordinary_input_tokens": 39,
+        "output_tokens": 2809,
+        "reasoning_tokens": 1607
+      }
+    },
+    {
+      "batching": {
+        "max_tools_in_response": 1,
+        "multi_tool_responses": 0,
+        "tool_bearing_responses": 7
+      },
+      "cell_id": "sqlite-with-gcov--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.200621,
+        "components": {
+          "cache_write": 0.11069999999999999,
+          "cached_input": 0.034151,
+          "ordinary_input": 0.00012,
+          "output": 0.055650000000000005
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harness": "thinharness",
+      "identities": {
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "c53749fdc7ad76376a617ed874dc72da43fdf32cd7cbfdda8a1fa8d5c6d411e3",
+        "source_bundle_sha256": "c66ad97fbaa86429dd006864d1dcc5079e77459a881336a194da9f4340257034"
+      },
+      "requests": 8,
+      "reward": 1.0,
+      "status": "completed",
+      "successful_requests": 8,
+      "task": "sqlite-with-gcov",
+      "timing_seconds": {
+        "agent_execution": 146.826727,
+        "harbor": 216.448682,
+        "verifier": 10.110102,
+        "wall": 219.53071999549866
+      },
+      "tool_name_counts": {
+        "bash": 7
+      },
+      "tools": 7,
+      "trace_paths": {
+        "gateway_audit": "cells/sqlite-with-gcov--thinharness/gateway-audit.jsonl",
+        "gateway_identity": "cells/sqlite-with-gcov--thinharness/gateway-identity.json",
+        "harbor_result": "cells/sqlite-with-gcov--thinharness/job/sqlite-with-gcov__FxkPKpa/result.json",
+        "launch": "cells/sqlite-with-gcov--thinharness/launch.json",
+        "model_request_markers": "cells/sqlite-with-gcov--thinharness/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/sqlite-with-gcov--thinharness/job/sqlite-with-gcov__FxkPKpa/agent/thinharness-events.jsonl",
+        "native_receipt": "cells/sqlite-with-gcov--thinharness/job/sqlite-with-gcov__FxkPKpa/agent/thinharness-direct-result.json",
+        "native_stderr": "cells/sqlite-with-gcov--thinharness/job/sqlite-with-gcov__FxkPKpa/agent/thinharness-stderr.log",
+        "staging_stderr": "cells/sqlite-with-gcov--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/sqlite-with-gcov--thinharness/harbor.stdout.log",
+        "verifier_evidence": "cells/sqlite-with-gcov--thinharness/job/sqlite-with-gcov__FxkPKpa/verifier/ctrf.json",
+        "verifier_evidence_sha256": "79ca76ce735ae4cbcfeaf6c142ffb6258054c58bfae8c000db483dd317b36dee",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 17712,
+        "cached_input_tokens": 68302,
+        "input_tokens": 86038,
+        "ordinary_input_tokens": 24,
+        "output_tokens": 1855,
+        "reasoning_tokens": 979
+      }
+    },
+    {
+      "batching": {
+        "max_tools_in_response": 3,
+        "multi_tool_responses": 5,
+        "tool_bearing_responses": 44
+      },
+      "cell_id": "tune-mjcf--pi",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 1.017421,
+        "components": {
+          "cache_write": 0.2473749999999999,
+          "cached_input": 0.3529110000000001,
+          "ordinary_input": 0.0006750000000000004,
+          "output": 0.41645999999999994
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harness": "pi",
+      "identities": {
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "c53749fdc7ad76376a617ed874dc72da43fdf32cd7cbfdda8a1fa8d5c6d411e3",
+        "source_bundle_sha256": null
+      },
+      "requests": 45,
+      "reward": 0.0,
+      "status": "completed",
+      "successful_requests": 45,
+      "task": "tune-mjcf",
+      "timing_seconds": {
+        "agent_execution": 860.941756,
+        "harbor": 940.88247,
+        "verifier": 7.058562,
+        "wall": 943.7957761287689
+      },
+      "tool_name_counts": {
+        "bash": 45,
+        "edit": 2,
+        "read": 4,
+        "write": 1
+      },
+      "tools": 52,
+      "trace_paths": {
+        "gateway_audit": "cells/tune-mjcf--pi/gateway-audit.jsonl",
+        "gateway_identity": "cells/tune-mjcf--pi/gateway-identity.json",
+        "harbor_result": "cells/tune-mjcf--pi/job/tune-mjcf__MdbuFa2/result.json",
+        "launch": "cells/tune-mjcf--pi/launch.json",
+        "model_request_markers": "cells/tune-mjcf--pi/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/tune-mjcf--pi/job/tune-mjcf__MdbuFa2/agent/pi-events.jsonl",
+        "native_receipt": "cells/tune-mjcf--pi/job/tune-mjcf__MdbuFa2/agent/pi-direct-result.json",
+        "native_stderr": "cells/tune-mjcf--pi/job/tune-mjcf__MdbuFa2/agent/pi-stderr.log",
+        "staging_stderr": "cells/tune-mjcf--pi/harbor.stderr.log",
+        "staging_stdout": "cells/tune-mjcf--pi/harbor.stdout.log",
+        "verifier_evidence": "cells/tune-mjcf--pi/job/tune-mjcf__MdbuFa2/verifier/reward.txt",
+        "verifier_evidence_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+        "verifier_evidence_type": "reward.txt"
+      },
+      "usage": {
+        "cache_write_tokens": 39580,
+        "cached_input_tokens": 705822,
+        "input_tokens": 745537,
+        "ordinary_input_tokens": 135,
+        "output_tokens": 13882,
+        "reasoning_tokens": 7221
+      }
+    },
+    {
+      "batching": {
+        "max_tools_in_response": 3,
+        "multi_tool_responses": 3,
+        "tool_bearing_responses": 26
+      },
+      "cell_id": "tune-mjcf--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.516282,
+        "components": {
+          "cache_write": 0.19288750000000002,
+          "cached_input": 0.1866845,
+          "ordinary_input": 0.00038999999999999994,
+          "output": 0.13632
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harness": "thinharness",
+      "identities": {
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "c53749fdc7ad76376a617ed874dc72da43fdf32cd7cbfdda8a1fa8d5c6d411e3",
+        "source_bundle_sha256": "c66ad97fbaa86429dd006864d1dcc5079e77459a881336a194da9f4340257034"
+      },
+      "requests": 26,
+      "reward": 0.0,
+      "status": "model_attempt_failed",
+      "successful_requests": 26,
+      "task": "tune-mjcf",
+      "timing_seconds": {
+        "agent_execution": 900.008958,
+        "harbor": 1021.262787,
+        "verifier": 34.56928,
+        "wall": 1024.287398815155
+      },
+      "tool_name_counts": {
+        "bash": 29,
+        "read": 3
+      },
+      "tools": 32,
+      "trace_paths": {
+        "gateway_audit": "cells/tune-mjcf--thinharness/gateway-audit.jsonl",
+        "gateway_identity": "cells/tune-mjcf--thinharness/gateway-identity.json",
+        "harbor_result": "cells/tune-mjcf--thinharness/job/tune-mjcf__HRaojqz/result.json",
+        "launch": "cells/tune-mjcf--thinharness/launch.json",
+        "model_request_markers": "cells/tune-mjcf--thinharness/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": null,
+        "native_receipt": null,
+        "native_stderr": null,
+        "staging_stderr": "cells/tune-mjcf--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/tune-mjcf--thinharness/harbor.stdout.log",
+        "verifier_evidence": "cells/tune-mjcf--thinharness/job/tune-mjcf__HRaojqz/verifier/reward.txt",
+        "verifier_evidence_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+        "verifier_evidence_type": "reward.txt"
+      },
+      "usage": {
+        "cache_write_tokens": 30862,
+        "cached_input_tokens": 373369,
+        "input_tokens": 404309,
+        "ordinary_input_tokens": 78,
+        "output_tokens": 4544,
+        "reasoning_tokens": 1871
+      }
+    },
+    {
+      "batching": {
+        "max_tools_in_response": 2,
+        "multi_tool_responses": 1,
+        "tool_bearing_responses": 10
+      },
+      "cell_id": "code-from-image--pi",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.1043915,
+        "components": {
+          "cache_write": 0.048325,
+          "cached_input": 0.0190615,
+          "ordinary_input": 0.00016500000000000003,
+          "output": 0.036840000000000005
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harness": "pi",
+      "identities": {
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "c53749fdc7ad76376a617ed874dc72da43fdf32cd7cbfdda8a1fa8d5c6d411e3",
+        "source_bundle_sha256": null
+      },
+      "requests": 11,
+      "reward": 1.0,
+      "status": "completed",
+      "successful_requests": 11,
+      "task": "code-from-image",
+      "timing_seconds": {
+        "agent_execution": 69.902229,
+        "harbor": 149.480903,
+        "verifier": 5.810217,
+        "wall": 152.77413201332092
+      },
+      "tool_name_counts": {
+        "bash": 9,
+        "read": 1,
+        "write": 1
+      },
+      "tools": 11,
+      "trace_paths": {
+        "gateway_audit": "cells/code-from-image--pi/gateway-audit.jsonl",
+        "gateway_identity": "cells/code-from-image--pi/gateway-identity.json",
+        "harbor_result": "cells/code-from-image--pi/job/code-from-image__HhAYZvq/result.json",
+        "launch": "cells/code-from-image--pi/launch.json",
+        "model_request_markers": "cells/code-from-image--pi/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/code-from-image--pi/job/code-from-image__HhAYZvq/agent/pi-events.jsonl",
+        "native_receipt": "cells/code-from-image--pi/job/code-from-image__HhAYZvq/agent/pi-direct-result.json",
+        "native_stderr": "cells/code-from-image--pi/job/code-from-image__HhAYZvq/agent/pi-stderr.log",
+        "staging_stderr": "cells/code-from-image--pi/harbor.stderr.log",
+        "staging_stdout": "cells/code-from-image--pi/harbor.stdout.log",
+        "verifier_evidence": "cells/code-from-image--pi/job/code-from-image__HhAYZvq/verifier/ctrf.json",
+        "verifier_evidence_sha256": "e5520ca4c43b0c0064bddac4ec9f92a3b49a34ca3c9d6a7dbe88e21834872361",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 7732,
+        "cached_input_tokens": 38123,
+        "input_tokens": 45888,
+        "ordinary_input_tokens": 33,
+        "output_tokens": 1228,
+        "reasoning_tokens": 510
+      }
+    },
+    {
+      "batching": {
+        "max_tools_in_response": 2,
+        "multi_tool_responses": 4,
+        "tool_bearing_responses": 9
+      },
+      "cell_id": "code-from-image--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.14069975,
+        "components": {
+          "cache_write": 0.058481250000000005,
+          "cached_input": 0.0277985,
+          "ordinary_input": 0.00015000000000000001,
+          "output": 0.054270000000000006
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harness": "thinharness",
+      "identities": {
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "c53749fdc7ad76376a617ed874dc72da43fdf32cd7cbfdda8a1fa8d5c6d411e3",
+        "source_bundle_sha256": "c66ad97fbaa86429dd006864d1dcc5079e77459a881336a194da9f4340257034"
+      },
+      "requests": 10,
+      "reward": 1.0,
+      "status": "completed",
+      "successful_requests": 10,
+      "task": "code-from-image",
+      "timing_seconds": {
+        "agent_execution": 61.496712,
+        "harbor": 143.840063,
+        "verifier": 5.991377,
+        "wall": 147.42028903961182
+      },
+      "tool_name_counts": {
+        "bash": 12,
+        "write": 1
+      },
+      "tools": 13,
+      "trace_paths": {
+        "gateway_audit": "cells/code-from-image--thinharness/gateway-audit.jsonl",
+        "gateway_identity": "cells/code-from-image--thinharness/gateway-identity.json",
+        "harbor_result": "cells/code-from-image--thinharness/job/code-from-image__HLcToFA/result.json",
+        "launch": "cells/code-from-image--thinharness/launch.json",
+        "model_request_markers": "cells/code-from-image--thinharness/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/code-from-image--thinharness/job/code-from-image__HLcToFA/agent/thinharness-events.jsonl",
+        "native_receipt": "cells/code-from-image--thinharness/job/code-from-image__HLcToFA/agent/thinharness-direct-result.json",
+        "native_stderr": "cells/code-from-image--thinharness/job/code-from-image__HLcToFA/agent/thinharness-stderr.log",
+        "staging_stderr": "cells/code-from-image--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/code-from-image--thinharness/harbor.stdout.log",
+        "verifier_evidence": "cells/code-from-image--thinharness/job/code-from-image__HLcToFA/verifier/ctrf.json",
+        "verifier_evidence_sha256": "1ccdc00d25d6c5621235e6db70cb3fee384d538ff415cd86ae1fb0eefa0fd198",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 9357,
+        "cached_input_tokens": 55597,
+        "input_tokens": 64984,
+        "ordinary_input_tokens": 30,
+        "output_tokens": 1809,
+        "reasoning_tokens": 567
+      }
+    },
+    {
+      "batching": {
+        "max_tools_in_response": 4,
+        "multi_tool_responses": 15,
+        "tool_bearing_responses": 20
+      },
+      "cell_id": "custom-memory-heap-crash--pi",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.917037,
+        "components": {
+          "cache_write": 0.36261249999999995,
+          "cached_input": 0.30906950000000005,
+          "ordinary_input": 0.000315,
+          "output": 0.24503999999999998
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harness": "pi",
+      "identities": {
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "c53749fdc7ad76376a617ed874dc72da43fdf32cd7cbfdda8a1fa8d5c6d411e3",
+        "source_bundle_sha256": null
+      },
+      "requests": 21,
+      "reward": 1.0,
+      "status": "completed",
+      "successful_requests": 21,
+      "task": "custom-memory-heap-crash",
+      "timing_seconds": {
+        "agent_execution": 223.235029,
+        "harbor": 316.513117,
+        "verifier": 17.611939,
+        "wall": 319.79160809516907
+      },
+      "tool_name_counts": {
+        "bash": 39,
+        "edit": 2,
+        "read": 7
+      },
+      "tools": 48,
+      "trace_paths": {
+        "gateway_audit": "cells/custom-memory-heap-crash--pi/gateway-audit.jsonl",
+        "gateway_identity": "cells/custom-memory-heap-crash--pi/gateway-identity.json",
+        "harbor_result": "cells/custom-memory-heap-crash--pi/job/custom-memory-heap-crash__U8eS6HH/result.json",
+        "launch": "cells/custom-memory-heap-crash--pi/launch.json",
+        "model_request_markers": "cells/custom-memory-heap-crash--pi/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/custom-memory-heap-crash--pi/job/custom-memory-heap-crash__U8eS6HH/agent/pi-events.jsonl",
+        "native_receipt": "cells/custom-memory-heap-crash--pi/job/custom-memory-heap-crash__U8eS6HH/agent/pi-direct-result.json",
+        "native_stderr": "cells/custom-memory-heap-crash--pi/job/custom-memory-heap-crash__U8eS6HH/agent/pi-stderr.log",
+        "staging_stderr": "cells/custom-memory-heap-crash--pi/harbor.stderr.log",
+        "staging_stdout": "cells/custom-memory-heap-crash--pi/harbor.stdout.log",
+        "verifier_evidence": "cells/custom-memory-heap-crash--pi/job/custom-memory-heap-crash__U8eS6HH/verifier/ctrf.json",
+        "verifier_evidence_sha256": "b3c3098fa40a447e30441ae24eef33517250f5968b10dfb587aaebe0e1f14ce9",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 58018,
+        "cached_input_tokens": 618139,
+        "input_tokens": 676220,
+        "ordinary_input_tokens": 63,
+        "output_tokens": 8168,
+        "reasoning_tokens": 4350
+      }
+    },
+    {
+      "batching": {
+        "max_tools_in_response": 3,
+        "multi_tool_responses": 8,
+        "tool_bearing_responses": 16
+      },
+      "cell_id": "custom-memory-heap-crash--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.48274100000000003,
+        "components": {
+          "cache_write": 0.20658750000000003,
+          "cached_input": 0.1518185,
+          "ordinary_input": 0.00025500000000000007,
+          "output": 0.12408000000000001
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harness": "thinharness",
+      "identities": {
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "c53749fdc7ad76376a617ed874dc72da43fdf32cd7cbfdda8a1fa8d5c6d411e3",
+        "source_bundle_sha256": "c66ad97fbaa86429dd006864d1dcc5079e77459a881336a194da9f4340257034"
+      },
+      "requests": 17,
+      "reward": 1.0,
+      "status": "completed",
+      "successful_requests": 17,
+      "task": "custom-memory-heap-crash",
+      "timing_seconds": {
+        "agent_execution": 110.879492,
+        "harbor": 205.998372,
+        "verifier": 19.651151,
+        "wall": 209.39204287528992
+      },
+      "tool_name_counts": {
+        "bash": 21,
+        "edit": 3,
+        "read": 5
+      },
+      "tools": 29,
+      "trace_paths": {
+        "gateway_audit": "cells/custom-memory-heap-crash--thinharness/gateway-audit.jsonl",
+        "gateway_identity": "cells/custom-memory-heap-crash--thinharness/gateway-identity.json",
+        "harbor_result": "cells/custom-memory-heap-crash--thinharness/job/custom-memory-heap-crash__5BNLfFG/result.json",
+        "launch": "cells/custom-memory-heap-crash--thinharness/launch.json",
+        "model_request_markers": "cells/custom-memory-heap-crash--thinharness/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/custom-memory-heap-crash--thinharness/job/custom-memory-heap-crash__5BNLfFG/agent/thinharness-events.jsonl",
+        "native_receipt": "cells/custom-memory-heap-crash--thinharness/job/custom-memory-heap-crash__5BNLfFG/agent/thinharness-direct-result.json",
+        "native_stderr": "cells/custom-memory-heap-crash--thinharness/job/custom-memory-heap-crash__5BNLfFG/agent/thinharness-stderr.log",
+        "staging_stderr": "cells/custom-memory-heap-crash--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/custom-memory-heap-crash--thinharness/harbor.stdout.log",
+        "verifier_evidence": "cells/custom-memory-heap-crash--thinharness/job/custom-memory-heap-crash__5BNLfFG/verifier/ctrf.json",
+        "verifier_evidence_sha256": "16a574044e3a8bcefe15050add1857fe4910cb4341b45b8d8c1b9c52a08a6c49",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 33054,
+        "cached_input_tokens": 303637,
+        "input_tokens": 336742,
+        "ordinary_input_tokens": 51,
+        "output_tokens": 4136,
+        "reasoning_tokens": 1384
+      }
+    },
+    {
+      "batching": {
+        "max_tools_in_response": 3,
+        "multi_tool_responses": 6,
+        "tool_bearing_responses": 33
+      },
+      "cell_id": "qemu-alpine-ssh--pi",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.72149925,
+        "components": {
+          "cache_write": 0.23996875000000004,
+          "cached_input": 0.2939705,
+          "ordinary_input": 0.0005099999999999999,
+          "output": 0.18704999999999997
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harness": "pi",
+      "identities": {
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "c53749fdc7ad76376a617ed874dc72da43fdf32cd7cbfdda8a1fa8d5c6d411e3",
+        "source_bundle_sha256": null
+      },
+      "requests": 34,
+      "reward": 1.0,
+      "status": "completed",
+      "successful_requests": 34,
+      "task": "qemu-alpine-ssh",
+      "timing_seconds": {
+        "agent_execution": 398.856017,
+        "harbor": 475.925291,
+        "verifier": 9.794184,
+        "wall": 478.72755908966064
+      },
+      "tool_name_counts": {
+        "bash": 41,
+        "write": 1
+      },
+      "tools": 42,
+      "trace_paths": {
+        "gateway_audit": "cells/qemu-alpine-ssh--pi/gateway-audit.jsonl",
+        "gateway_identity": "cells/qemu-alpine-ssh--pi/gateway-identity.json",
+        "harbor_result": "cells/qemu-alpine-ssh--pi/job/qemu-alpine-ssh__oh5MGZi/result.json",
+        "launch": "cells/qemu-alpine-ssh--pi/launch.json",
+        "model_request_markers": "cells/qemu-alpine-ssh--pi/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/qemu-alpine-ssh--pi/job/qemu-alpine-ssh__oh5MGZi/agent/pi-events.jsonl",
+        "native_receipt": "cells/qemu-alpine-ssh--pi/job/qemu-alpine-ssh__oh5MGZi/agent/pi-direct-result.json",
+        "native_stderr": "cells/qemu-alpine-ssh--pi/job/qemu-alpine-ssh__oh5MGZi/agent/pi-stderr.log",
+        "staging_stderr": "cells/qemu-alpine-ssh--pi/harbor.stderr.log",
+        "staging_stdout": "cells/qemu-alpine-ssh--pi/harbor.stdout.log",
+        "verifier_evidence": "cells/qemu-alpine-ssh--pi/job/qemu-alpine-ssh__oh5MGZi/verifier/ctrf.json",
+        "verifier_evidence_sha256": "b001e249c81d29918e67a7d62f45ec03bad93d7fa7f0917bcc66ccd5cb64a275",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 38395,
+        "cached_input_tokens": 587941,
+        "input_tokens": 626438,
+        "ordinary_input_tokens": 102,
+        "output_tokens": 6235,
+        "reasoning_tokens": 2429
+      }
+    },
+    {
+      "batching": {
+        "max_tools_in_response": 4,
+        "multi_tool_responses": 8,
+        "tool_bearing_responses": 26
+      },
+      "cell_id": "qemu-alpine-ssh--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.76342325,
+        "components": {
+          "cache_write": 0.22795624999999997,
+          "cached_input": 0.22393200000000005,
+          "ordinary_input": 0.0004049999999999999,
+          "output": 0.31113
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harness": "thinharness",
+      "identities": {
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "c53749fdc7ad76376a617ed874dc72da43fdf32cd7cbfdda8a1fa8d5c6d411e3",
+        "source_bundle_sha256": "c66ad97fbaa86429dd006864d1dcc5079e77459a881336a194da9f4340257034"
+      },
+      "requests": 27,
+      "reward": 1.0,
+      "status": "completed",
+      "successful_requests": 27,
+      "task": "qemu-alpine-ssh",
+      "timing_seconds": {
+        "agent_execution": 466.081047,
+        "harbor": 548.420345,
+        "verifier": 10.27473,
+        "wall": 551.8552079200745
+      },
+      "tool_name_counts": {
+        "bash": 41,
+        "read": 1
+      },
+      "tools": 42,
+      "trace_paths": {
+        "gateway_audit": "cells/qemu-alpine-ssh--thinharness/gateway-audit.jsonl",
+        "gateway_identity": "cells/qemu-alpine-ssh--thinharness/gateway-identity.json",
+        "harbor_result": "cells/qemu-alpine-ssh--thinharness/job/qemu-alpine-ssh__bDRVRjd/result.json",
+        "launch": "cells/qemu-alpine-ssh--thinharness/launch.json",
+        "model_request_markers": "cells/qemu-alpine-ssh--thinharness/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/qemu-alpine-ssh--thinharness/job/qemu-alpine-ssh__bDRVRjd/agent/thinharness-events.jsonl",
+        "native_receipt": "cells/qemu-alpine-ssh--thinharness/job/qemu-alpine-ssh__bDRVRjd/agent/thinharness-direct-result.json",
+        "native_stderr": "cells/qemu-alpine-ssh--thinharness/job/qemu-alpine-ssh__bDRVRjd/agent/thinharness-stderr.log",
+        "staging_stderr": "cells/qemu-alpine-ssh--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/qemu-alpine-ssh--thinharness/harbor.stdout.log",
+        "verifier_evidence": "cells/qemu-alpine-ssh--thinharness/job/qemu-alpine-ssh__bDRVRjd/verifier/ctrf.json",
+        "verifier_evidence_sha256": "ed2e949093c8bcae2d373c19b39a3c17268fd9cf85794df71804d1c83afcd80a",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 36473,
+        "cached_input_tokens": 447864,
+        "input_tokens": 484418,
+        "ordinary_input_tokens": 81,
+        "output_tokens": 10371,
+        "reasoning_tokens": 4765
+      }
+    },
+    {
+      "batching": {
+        "max_tools_in_response": 4,
+        "multi_tool_responses": 10,
+        "tool_bearing_responses": 26
+      },
+      "cell_id": "qemu-startup--pi",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.9764969999999998,
+        "components": {
+          "cache_write": 0.2726124999999999,
+          "cached_input": 0.2892394999999999,
+          "ordinary_input": 0.0004049999999999999,
+          "output": 0.41423999999999994
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harness": "pi",
+      "identities": {
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "c53749fdc7ad76376a617ed874dc72da43fdf32cd7cbfdda8a1fa8d5c6d411e3",
+        "source_bundle_sha256": null
+      },
+      "requests": 27,
+      "reward": 1.0,
+      "status": "completed",
+      "successful_requests": 27,
+      "task": "qemu-startup",
+      "timing_seconds": {
+        "agent_execution": 365.460639,
+        "harbor": 443.518574,
+        "verifier": 11.235195,
+        "wall": 446.45740604400635
+      },
+      "tool_name_counts": {
+        "bash": 45,
+        "read": 2,
+        "write": 2
+      },
+      "tools": 49,
+      "trace_paths": {
+        "gateway_audit": "cells/qemu-startup--pi/gateway-audit.jsonl",
+        "gateway_identity": "cells/qemu-startup--pi/gateway-identity.json",
+        "harbor_result": "cells/qemu-startup--pi/job/qemu-startup__nXLFz7C/result.json",
+        "launch": "cells/qemu-startup--pi/launch.json",
+        "model_request_markers": "cells/qemu-startup--pi/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/qemu-startup--pi/job/qemu-startup__nXLFz7C/agent/pi-events.jsonl",
+        "native_receipt": "cells/qemu-startup--pi/job/qemu-startup__nXLFz7C/agent/pi-direct-result.json",
+        "native_stderr": "cells/qemu-startup--pi/job/qemu-startup__nXLFz7C/agent/pi-stderr.log",
+        "staging_stderr": "cells/qemu-startup--pi/harbor.stderr.log",
+        "staging_stdout": "cells/qemu-startup--pi/harbor.stdout.log",
+        "verifier_evidence": "cells/qemu-startup--pi/job/qemu-startup__nXLFz7C/verifier/ctrf.json",
+        "verifier_evidence_sha256": "0a568cb1ed2795607f26338c6c92a3d359772cec8a349341eca3bf6a4f2f0a14",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 43618,
+        "cached_input_tokens": 578479,
+        "input_tokens": 622178,
+        "ordinary_input_tokens": 81,
+        "output_tokens": 13808,
+        "reasoning_tokens": 7459
+      }
+    },
+    {
+      "batching": {
+        "max_tools_in_response": 3,
+        "multi_tool_responses": 3,
+        "tool_bearing_responses": 23
+      },
+      "cell_id": "qemu-startup--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.8730589999999999,
+        "components": {
+          "cache_write": 0.257125,
+          "cached_input": 0.27828400000000003,
+          "ordinary_input": 0.00035999999999999997,
+          "output": 0.3372899999999999
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harness": "thinharness",
+      "identities": {
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "c53749fdc7ad76376a617ed874dc72da43fdf32cd7cbfdda8a1fa8d5c6d411e3",
+        "source_bundle_sha256": "c66ad97fbaa86429dd006864d1dcc5079e77459a881336a194da9f4340257034"
+      },
+      "requests": 24,
+      "reward": 1.0,
+      "status": "completed",
+      "successful_requests": 24,
+      "task": "qemu-startup",
+      "timing_seconds": {
+        "agent_execution": 380.2505,
+        "harbor": 468.040627,
+        "verifier": 11.403394,
+        "wall": 471.9611449241638
+      },
+      "tool_name_counts": {
+        "bash": 25,
+        "write": 2
+      },
+      "tools": 27,
+      "trace_paths": {
+        "gateway_audit": "cells/qemu-startup--thinharness/gateway-audit.jsonl",
+        "gateway_identity": "cells/qemu-startup--thinharness/gateway-identity.json",
+        "harbor_result": "cells/qemu-startup--thinharness/job/qemu-startup__nJ4yd6h/result.json",
+        "launch": "cells/qemu-startup--thinharness/launch.json",
+        "model_request_markers": "cells/qemu-startup--thinharness/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/qemu-startup--thinharness/job/qemu-startup__nJ4yd6h/agent/thinharness-events.jsonl",
+        "native_receipt": "cells/qemu-startup--thinharness/job/qemu-startup__nJ4yd6h/agent/thinharness-direct-result.json",
+        "native_stderr": "cells/qemu-startup--thinharness/job/qemu-startup__nJ4yd6h/agent/thinharness-stderr.log",
+        "staging_stderr": "cells/qemu-startup--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/qemu-startup--thinharness/harbor.stdout.log",
+        "verifier_evidence": "cells/qemu-startup--thinharness/job/qemu-startup__nJ4yd6h/verifier/ctrf.json",
+        "verifier_evidence_sha256": "b4f8311f2aee24429aaa90c2047596a4c0b612fdc215102d10f041422bc78c4f",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 41140,
+        "cached_input_tokens": 556568,
+        "input_tokens": 597780,
+        "ordinary_input_tokens": 72,
+        "output_tokens": 11243,
+        "reasoning_tokens": 5784
+      }
+    },
+    {
+      "batching": {
+        "max_tools_in_response": 11,
+        "multi_tool_responses": 1,
+        "tool_bearing_responses": 11
+      },
+      "cell_id": "financial-document-processor--pi",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.23684775,
+        "components": {
+          "cache_write": 0.10718124999999999,
+          "cached_input": 0.0445265,
+          "ordinary_input": 0.00018000000000000004,
+          "output": 0.08496000000000001
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harness": "pi",
+      "identities": {
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "c53749fdc7ad76376a617ed874dc72da43fdf32cd7cbfdda8a1fa8d5c6d411e3",
+        "source_bundle_sha256": null
+      },
+      "requests": 12,
+      "reward": 1.0,
+      "status": "completed",
+      "successful_requests": 12,
+      "task": "financial-document-processor",
+      "timing_seconds": {
+        "agent_execution": 163.485231,
+        "harbor": 232.30971,
+        "verifier": 10.859875,
+        "wall": 235.75609397888184
+      },
+      "tool_name_counts": {
+        "bash": 9,
+        "read": 11,
+        "write": 1
+      },
+      "tools": 21,
+      "trace_paths": {
+        "gateway_audit": "cells/financial-document-processor--pi/gateway-audit.jsonl",
+        "gateway_identity": "cells/financial-document-processor--pi/gateway-identity.json",
+        "harbor_result": "cells/financial-document-processor--pi/job/financial-document-processor__V5dtJbK/result.json",
+        "launch": "cells/financial-document-processor--pi/launch.json",
+        "model_request_markers": "cells/financial-document-processor--pi/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/financial-document-processor--pi/job/financial-document-processor__V5dtJbK/agent/pi-events.jsonl",
+        "native_receipt": "cells/financial-document-processor--pi/job/financial-document-processor__V5dtJbK/agent/pi-direct-result.json",
+        "native_stderr": "cells/financial-document-processor--pi/job/financial-document-processor__V5dtJbK/agent/pi-stderr.log",
+        "staging_stderr": "cells/financial-document-processor--pi/harbor.stderr.log",
+        "staging_stdout": "cells/financial-document-processor--pi/harbor.stdout.log",
+        "verifier_evidence": "cells/financial-document-processor--pi/job/financial-document-processor__V5dtJbK/verifier/ctrf.json",
+        "verifier_evidence_sha256": "f79269c5ff724afbfecce91e734a6a95a3e0aa1af6c7415d2388f33f01aa4694",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 17149,
+        "cached_input_tokens": 89053,
+        "input_tokens": 106238,
+        "ordinary_input_tokens": 36,
+        "output_tokens": 2832,
+        "reasoning_tokens": 886
+      }
+    },
+    {
+      "batching": {
+        "max_tools_in_response": 4,
+        "multi_tool_responses": 4,
+        "tool_bearing_responses": 16
+      },
+      "cell_id": "financial-document-processor--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.6419777499999999,
+        "components": {
+          "cache_write": 0.24706874999999995,
+          "cached_input": 0.19962399999999997,
+          "ordinary_input": 0.00025500000000000007,
+          "output": 0.19502999999999998
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harness": "thinharness",
+      "identities": {
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "c53749fdc7ad76376a617ed874dc72da43fdf32cd7cbfdda8a1fa8d5c6d411e3",
+        "source_bundle_sha256": "c66ad97fbaa86429dd006864d1dcc5079e77459a881336a194da9f4340257034"
+      },
+      "requests": 17,
+      "reward": 1.0,
+      "status": "completed",
+      "successful_requests": 17,
+      "task": "financial-document-processor",
+      "timing_seconds": {
+        "agent_execution": 209.392823,
+        "harbor": 281.367625,
+        "verifier": 11.562679,
+        "wall": 284.5374758243561
+      },
+      "tool_name_counts": {
+        "bash": 24,
+        "write": 1
+      },
+      "tools": 25,
+      "trace_paths": {
+        "gateway_audit": "cells/financial-document-processor--thinharness/gateway-audit.jsonl",
+        "gateway_identity": "cells/financial-document-processor--thinharness/gateway-identity.json",
+        "harbor_result": "cells/financial-document-processor--thinharness/job/financial-document-processor__LsBjiF3/result.json",
+        "launch": "cells/financial-document-processor--thinharness/launch.json",
+        "model_request_markers": "cells/financial-document-processor--thinharness/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/financial-document-processor--thinharness/job/financial-document-processor__LsBjiF3/agent/thinharness-events.jsonl",
+        "native_receipt": "cells/financial-document-processor--thinharness/job/financial-document-processor__LsBjiF3/agent/thinharness-direct-result.json",
+        "native_stderr": "cells/financial-document-processor--thinharness/job/financial-document-processor__LsBjiF3/agent/thinharness-stderr.log",
+        "staging_stderr": "cells/financial-document-processor--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/financial-document-processor--thinharness/harbor.stdout.log",
+        "verifier_evidence": "cells/financial-document-processor--thinharness/job/financial-document-processor__LsBjiF3/verifier/ctrf.json",
+        "verifier_evidence_sha256": "7b5a5843c5ee5bd162cad903c31b473eeb3919023be255fd4fcfa190f32fa6e0",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 39531,
+        "cached_input_tokens": 399248,
+        "input_tokens": 438830,
+        "ordinary_input_tokens": 51,
+        "output_tokens": 6501,
+        "reasoning_tokens": 3014
+      }
+    },
+    {
+      "batching": {
+        "max_tools_in_response": 2,
+        "multi_tool_responses": 3,
+        "tool_bearing_responses": 12
+      },
+      "cell_id": "dna-insert--pi",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.32116449999999996,
+        "components": {
+          "cache_write": 0.08196249999999998,
+          "cached_input": 0.044607,
+          "ordinary_input": 0.00019500000000000005,
+          "output": 0.19439999999999996
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harness": "pi",
+      "identities": {
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "c53749fdc7ad76376a617ed874dc72da43fdf32cd7cbfdda8a1fa8d5c6d411e3",
+        "source_bundle_sha256": null
+      },
+      "requests": 13,
+      "reward": 1.0,
+      "status": "completed",
+      "successful_requests": 13,
+      "task": "dna-insert",
+      "timing_seconds": {
+        "agent_execution": 154.829,
+        "harbor": 220.995623,
+        "verifier": 9.159545,
+        "wall": 224.50527715682983
+      },
+      "tool_name_counts": {
+        "bash": 13,
+        "read": 1,
+        "write": 1
+      },
+      "tools": 15,
+      "trace_paths": {
+        "gateway_audit": "cells/dna-insert--pi/gateway-audit.jsonl",
+        "gateway_identity": "cells/dna-insert--pi/gateway-identity.json",
+        "harbor_result": "cells/dna-insert--pi/job/dna-insert__awQcgmQ/result.json",
+        "launch": "cells/dna-insert--pi/launch.json",
+        "model_request_markers": "cells/dna-insert--pi/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/dna-insert--pi/job/dna-insert__awQcgmQ/agent/pi-events.jsonl",
+        "native_receipt": "cells/dna-insert--pi/job/dna-insert__awQcgmQ/agent/pi-direct-result.json",
+        "native_stderr": "cells/dna-insert--pi/job/dna-insert__awQcgmQ/agent/pi-stderr.log",
+        "staging_stderr": "cells/dna-insert--pi/harbor.stderr.log",
+        "staging_stdout": "cells/dna-insert--pi/harbor.stdout.log",
+        "verifier_evidence": "cells/dna-insert--pi/job/dna-insert__awQcgmQ/verifier/ctrf.json",
+        "verifier_evidence_sha256": "fe762f04d2477aabc918efd2514b23756a916b8d6ac21fd12200a54cb0b5d663",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 13114,
+        "cached_input_tokens": 89214,
+        "input_tokens": 102367,
+        "ordinary_input_tokens": 39,
+        "output_tokens": 6480,
+        "reasoning_tokens": 4453
+      }
+    },
+    {
+      "batching": {
+        "max_tools_in_response": 3,
+        "multi_tool_responses": 4,
+        "tool_bearing_responses": 10
+      },
+      "cell_id": "dna-insert--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.31857525000000003,
+        "components": {
+          "cache_write": 0.11089375,
+          "cached_input": 0.0526865,
+          "ordinary_input": 0.00016500000000000003,
+          "output": 0.15483000000000002
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harness": "thinharness",
+      "identities": {
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "c53749fdc7ad76376a617ed874dc72da43fdf32cd7cbfdda8a1fa8d5c6d411e3",
+        "source_bundle_sha256": "c66ad97fbaa86429dd006864d1dcc5079e77459a881336a194da9f4340257034"
+      },
+      "requests": 11,
+      "reward": 0.0,
+      "status": "completed",
+      "successful_requests": 11,
+      "task": "dna-insert",
+      "timing_seconds": {
+        "agent_execution": 115.320441,
+        "harbor": 186.497699,
+        "verifier": 10.673734,
+        "wall": 189.71489715576172
+      },
+      "tool_name_counts": {
+        "bash": 15,
+        "write": 1
+      },
+      "tools": 16,
+      "trace_paths": {
+        "gateway_audit": "cells/dna-insert--thinharness/gateway-audit.jsonl",
+        "gateway_identity": "cells/dna-insert--thinharness/gateway-identity.json",
+        "harbor_result": "cells/dna-insert--thinharness/job/dna-insert__SHwX67r/result.json",
+        "launch": "cells/dna-insert--thinharness/launch.json",
+        "model_request_markers": "cells/dna-insert--thinharness/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/dna-insert--thinharness/job/dna-insert__SHwX67r/agent/thinharness-events.jsonl",
+        "native_receipt": "cells/dna-insert--thinharness/job/dna-insert__SHwX67r/agent/thinharness-direct-result.json",
+        "native_stderr": "cells/dna-insert--thinharness/job/dna-insert__SHwX67r/agent/thinharness-stderr.log",
+        "staging_stderr": "cells/dna-insert--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/dna-insert--thinharness/harbor.stdout.log",
+        "verifier_evidence": "cells/dna-insert--thinharness/job/dna-insert__SHwX67r/verifier/ctrf.json",
+        "verifier_evidence_sha256": "ef753155c21a8cc552ebaf462f43784ab6706f2402a420b65f03d35d5a7c2845",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 17743,
+        "cached_input_tokens": 105373,
+        "input_tokens": 123149,
+        "ordinary_input_tokens": 33,
+        "output_tokens": 5161,
+        "reasoning_tokens": 2814
+      }
+    }
+  ],
+  "design_identities": {
+    "bridge": null,
+    "dataset": "terminal-bench/terminal-bench-2-1@sha256:7d7bdc1cbedad549fc1140404bd4dc45e5fd0ea7c4186773687d177ad3a0699a",
+    "final_runner_identity": {
+      "files": {
+        "configs/container-runtime-requirements.txt": "61d52e09e2edaa56c84a8f139c77dc6052312648d726366a6ec4be50e392c3a6",
+        "configs/direct-openai-20task-selection.json": "c800c80251d4880fdafb066ef1bc690473c68923c160e9f4c31cc53879382960",
+        "configs/direct-openai-20task-settings.json": "79a0cd91ddff45d5e765e05b2de114c57fbd4f17d3cf15da67f28162d7f77c1e",
+        "configs/direct-openai-exclusion-proof.json": "eb7f357aa6de1a9795ac3495f5dcc90e82647698ca3231cc05c7b11ec4543cb0",
+        "configs/native-tool-schemas.json": "1c1c1e985590e9980264a2e6b8364bd96f1b052c0761eed7f127ac9ab60cfd24",
+        "configs/pi-native-tool-schemas.json": "88fda428f9a9114a62d2f3a394d85c7d15cddd111eddadbe7abbe728bff2afde",
+        "configs/pi-subscription-package-lock.json": "0f34d01dda1837fd634d0562d2c0350ff982da133de59f36fccdac62835fc1c0",
+        "configs/pi-subscription-package.json": "fdecbea847897b2ebdbc54aaabc1899c115dde083f81de65daf13e46feba80ba",
+        "prompts/pi-0.84.2-system-prompt.md": "bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e",
+        "pyproject.toml": "cc59d90f1cbb42bad8f11ab631dda9c4da55379c0d3c651215e6efcf176557cc",
+        "scripts/install-direct-pi.sh": "03b2a5504dc3c14c280dce99637058e3b3dbc9075372bd6fad079531b0242a7b",
+        "scripts/install-direct-thinharness.sh": "8b444733dcdbb29fc44e70a60d3c9a97640de79fc5c4e8d933c88eda024c7e6e",
+        "tbench/container_security.py": "45e669996dcab219a827df78fb3fff7b8e8d6aa7abdc737746e2560666398603",
+        "tbench/direct_agent.py": "a4b244501f1de1b578a61d8607747679f8bcf93e0eeae7cfeb2137f0b83b362c",
+        "tbench/direct_behavior_preflight.py": "b52594f6e7eca6ba89ded456747bb98a7e8fa7d53e4ddb06adae96deaabd8da2",
+        "tbench/direct_constants.py": "0a307d0d55e463deab616e20962140b2aafbe00259f45397ecd9cf0f57f9ec31",
+        "tbench/direct_container.py": "49e25a9caeb37fb51088a54981bd3be44234cb0fd7a030d246bf111db28921a0",
+        "tbench/direct_gateway.py": "6a2710ac23230aad9643a10a9ff15317bd9e9c781abbff9ad052dd75d68b885f",
+        "tbench/direct_launch.py": "5aefd8cf22daa566d08f953f2265e73fe5a0b8f33db63473c5ee579597104c2a",
+        "tbench/direct_validate.py": "b9d7f17a2134a519a0730151e1bf0fdd560bd015a7bd86022fb7b1e541cc0e82",
+        "tbench/pi_subscription_probe.mjs": "c7cd70f7344700f980dd898dc3c43aabc35a810d108c5d972b9438fccb4e5a4a",
+        "tbench/source_bundle.py": "ac208f36136b9314c7c57c9456b5304a92fd715b9eb3fd81c6ddb54a78a88077",
+        "uv.lock": "b960a45efb63fb5c5b738df1711410d1fe0c226f92bded3d29c0e6bf52f7e6d4"
+      },
+      "files_sha256": "c53749fdc7ad76376a617ed874dc72da43fdf32cd7cbfdda8a1fa8d5c6d411e3",
+      "git_head": "2bbb74cf2d991f89a4a94d7b1748d9a6758ba420"
+    },
+    "harbor": "0.21.0",
+    "model": "gpt-5.6-sol",
+    "original_transient_source_bundle_sha256": "e21a975f633dae3e8e75c95e39d1f80a68155656b6dbaeaf2acc9067d702e093",
+    "pi": {
+      "package": "@earendil-works/pi-coding-agent",
+      "version": "0.84.2"
+    },
+    "post_recovery_transient_source_bundle_sha256": "c66ad97fbaa86429dd006864d1dcc5079e77459a881336a194da9f4340257034",
+    "prompt_sha256": "bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e",
+    "provider_route": "https://api.openai.com/v1/responses",
+    "reasoning": {
+      "effort": "xhigh",
+      "summary": "auto"
+    },
+    "runner_identity_history": [
+      {
+        "files": {
+          "configs/container-runtime-requirements.txt": "61d52e09e2edaa56c84a8f139c77dc6052312648d726366a6ec4be50e392c3a6",
+          "configs/direct-openai-20task-selection.json": "c800c80251d4880fdafb066ef1bc690473c68923c160e9f4c31cc53879382960",
+          "configs/direct-openai-20task-settings.json": "79a0cd91ddff45d5e765e05b2de114c57fbd4f17d3cf15da67f28162d7f77c1e",
+          "configs/direct-openai-exclusion-proof.json": "eb7f357aa6de1a9795ac3495f5dcc90e82647698ca3231cc05c7b11ec4543cb0",
+          "configs/native-tool-schemas.json": "1c1c1e985590e9980264a2e6b8364bd96f1b052c0761eed7f127ac9ab60cfd24",
+          "configs/pi-native-tool-schemas.json": "88fda428f9a9114a62d2f3a394d85c7d15cddd111eddadbe7abbe728bff2afde",
+          "configs/pi-subscription-package-lock.json": "0f34d01dda1837fd634d0562d2c0350ff982da133de59f36fccdac62835fc1c0",
+          "configs/pi-subscription-package.json": "fdecbea847897b2ebdbc54aaabc1899c115dde083f81de65daf13e46feba80ba",
+          "prompts/pi-0.84.2-system-prompt.md": "bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e",
+          "pyproject.toml": "cc59d90f1cbb42bad8f11ab631dda9c4da55379c0d3c651215e6efcf176557cc",
+          "scripts/install-direct-pi.sh": "03b2a5504dc3c14c280dce99637058e3b3dbc9075372bd6fad079531b0242a7b",
+          "scripts/install-direct-thinharness.sh": "8b444733dcdbb29fc44e70a60d3c9a97640de79fc5c4e8d933c88eda024c7e6e",
+          "tbench/container_security.py": "45e669996dcab219a827df78fb3fff7b8e8d6aa7abdc737746e2560666398603",
+          "tbench/direct_agent.py": "a4b244501f1de1b578a61d8607747679f8bcf93e0eeae7cfeb2137f0b83b362c",
+          "tbench/direct_behavior_preflight.py": "b52594f6e7eca6ba89ded456747bb98a7e8fa7d53e4ddb06adae96deaabd8da2",
+          "tbench/direct_constants.py": "0a307d0d55e463deab616e20962140b2aafbe00259f45397ecd9cf0f57f9ec31",
+          "tbench/direct_container.py": "49e25a9caeb37fb51088a54981bd3be44234cb0fd7a030d246bf111db28921a0",
+          "tbench/direct_gateway.py": "6a2710ac23230aad9643a10a9ff15317bd9e9c781abbff9ad052dd75d68b885f",
+          "tbench/direct_launch.py": "68e57195a0d35bb98a8c240c7342accf8d99b485b17fc960465fdb5aa4a63b34",
+          "tbench/direct_validate.py": "63513fa7b93f9b63c2c4b651d4b89b871cc8e6b438ae2dae86035d468c53171d",
+          "tbench/pi_subscription_probe.mjs": "c7cd70f7344700f980dd898dc3c43aabc35a810d108c5d972b9438fccb4e5a4a",
+          "tbench/source_bundle.py": "bab0c0d80dc54f68ff9a927ef8dea789e229dfdf65be9d56de2dff2bd51194f9",
+          "uv.lock": "b960a45efb63fb5c5b738df1711410d1fe0c226f92bded3d29c0e6bf52f7e6d4"
+        },
+        "files_sha256": "b8365355010dd3d81b85e14d07f2f8bced41644be3dc1654a20516e9f3b2bec6",
+        "git_head": "1a72a1ce44138fcc6a4a9940a8c36eab4f18e5d4"
+      }
+    ],
+    "source_identity": {
+      "advertised_ref": "refs/heads/thinharness-pin",
+      "canonical_commit": "84105f07bb9c1ad366fc8fe4fef49e700f5e88ef",
+      "canonical_commit_content_sha256": "8467e4061800e3aae3d12e51278fb71f3bd6a95cfb9abec3a0855e495ee97f43",
+      "canonical_tree": "d027dd1527c813b6e939d1ea63e8a08da86f0c0e",
+      "provenance": {
+        "canonical_source_head": "1f0146f3b1bec31fec7939466d1d5b5d8ee042ae",
+        "later_source_head_excluded": true
+      },
+      "schema_version": 1,
+      "source_mode": "transient-local-exact-commit-git-bundle"
+    },
+    "text_verbosity": "low",
+    "thinharness": {
+      "commit": "84105f07bb9c1ad366fc8fe4fef49e700f5e88ef",
+      "version": "0.7.0"
+    }
+  },
+  "historical_four_task_post_fix_sample": {
+    "aggregate_comparison": {
+      "pi_minus_thinharness": {
+        "agent_phase_seconds": 127.47741700000006,
+        "agent_seconds": 126.36946135000017,
+        "api_equivalent_cost_usd": 0.2687490000000001,
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 43008,
+        "input_tokens": 52239,
+        "ordinary_input_tokens": 9231,
+        "output_tokens": 6703,
+        "passes": 1,
+        "reasoning_tokens": 4778,
+        "requests": 1,
+        "reward": 1.0,
+        "tools": 18,
+        "verifier_seconds": -17.054104999999993,
+        "wall_seconds": 125.00513699999988
+      }
+    },
+    "cells": 8,
+    "scope_limit": "Descriptive only; do not generalize beyond these four post-fix tasks.",
+    "source": "artifacts/codex-subscription-crack-7z-recovery/SUMMARY.json plus this extension",
+    "task_count": 4,
+    "tasks": [
+      "crack-7z-hash",
+      "configure-git-webserver",
+      "pytorch-model-recovery",
+      "constraints-scheduling"
+    ],
+    "totals": {
+      "pi": {
+        "agent_phase_seconds": 1544.024502,
+        "agent_seconds": 1537.5539818670004,
+        "api_equivalent_cost_usd": 1.6647070000000002,
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 410624,
+        "input_tokens": 549683,
+        "ordinary_input_tokens": 139059,
+        "output_tokens": 25470,
+        "passes": 3,
+        "reasoning_tokens": 14257,
+        "requests": 53,
+        "reward": 3.0,
+        "tools": 77,
+        "verifier_seconds": 51.520589,
+        "wall_seconds": 1913.611837
+      },
+      "thinharness": {
+        "agent_phase_seconds": 1416.547085,
+        "agent_seconds": 1411.1845205170002,
+        "api_equivalent_cost_usd": 1.395958,
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 367616,
+        "input_tokens": 497444,
+        "ordinary_input_tokens": 129828,
+        "output_tokens": 18767,
+        "passes": 2,
+        "reasoning_tokens": 9479,
+        "requests": 52,
+        "reward": 2.0,
+        "tools": 59,
+        "verifier_seconds": 68.574694,
+        "wall_seconds": 1788.6067
+      }
+    }
+  },
+  "overall": {
+    "api_equivalent_cost_usd": 16.631289500000005,
+    "cell_status_counts": {
+      "completed": 35,
+      "model_attempt_failed": 5
+    },
+    "request_count": 518,
+    "reward_count": 38,
+    "reward_sum": 31.0,
+    "successful_request_count": 514,
+    "usage": {
+      "cache_write_tokens": 925554,
+      "cached_input_tokens": 9332014,
+      "input_tokens": 10259110,
+      "ordinary_input_tokens": 1542,
+      "output_tokens": 205762,
+      "reasoning_tokens": 99977
+    }
+  },
+  "paired_comparisons": [
+    {
+      "api_equivalent_cost_usd_difference": 0.09229100000000001,
+      "input_token_difference": 57619,
+      "pi_reward": 1.0,
+      "pi_status": "completed",
+      "request_difference": 5,
+      "reward_difference": 0.0,
+      "task": "cobol-modernization",
+      "thinharness_reward": 1.0,
+      "thinharness_status": "completed",
+      "tool_difference": 5,
+      "wall_seconds_difference": 47.635220766067505
+    },
+    {
+      "api_equivalent_cost_usd_difference": 0.03171650000000002,
+      "input_token_difference": 9647,
+      "pi_reward": 1.0,
+      "pi_status": "completed",
+      "request_difference": 2,
+      "reward_difference": 1.0,
+      "task": "nginx-request-logging",
+      "thinharness_reward": 0.0,
+      "thinharness_status": "completed",
+      "tool_difference": 2,
+      "wall_seconds_difference": 8.62913966178894
+    },
+    {
+      "api_equivalent_cost_usd_difference": -0.010048500000000002,
+      "input_token_difference": -1000,
+      "pi_reward": 1.0,
+      "pi_status": "completed",
+      "request_difference": 0,
+      "reward_difference": 0.0,
+      "task": "openssl-selfsigned-cert",
+      "thinharness_reward": 1.0,
+      "thinharness_status": "completed",
+      "tool_difference": 0,
+      "wall_seconds_difference": -10.789350986480713
+    },
+    {
+      "api_equivalent_cost_usd_difference": 0.023283499999999985,
+      "input_token_difference": -15458,
+      "pi_reward": 1.0,
+      "pi_status": "completed",
+      "request_difference": -3,
+      "reward_difference": 0.0,
+      "task": "polyglot-c-py",
+      "thinharness_reward": 1.0,
+      "thinharness_status": "completed",
+      "tool_difference": -3,
+      "wall_seconds_difference": 3.3274810314178467
+    },
+    {
+      "api_equivalent_cost_usd_difference": 0.008977500000000001,
+      "input_token_difference": 1173,
+      "pi_reward": 0.0,
+      "pi_status": "model_attempt_failed",
+      "request_difference": 1,
+      "reward_difference": null,
+      "task": "vulnerable-secret",
+      "thinharness_reward": null,
+      "thinharness_status": "model_attempt_failed",
+      "tool_difference": 1,
+      "wall_seconds_difference": 3.787156343460083
+    },
+    {
+      "api_equivalent_cost_usd_difference": 0.05977225,
+      "input_token_difference": 2261,
+      "pi_reward": 0.0,
+      "pi_status": "model_attempt_failed",
+      "request_difference": 1,
+      "reward_difference": null,
+      "task": "break-filter-js-from-html",
+      "thinharness_reward": null,
+      "thinharness_status": "model_attempt_failed",
+      "tool_difference": 1,
+      "wall_seconds_difference": 32.344562292099
+    },
+    {
+      "api_equivalent_cost_usd_difference": 0.036719,
+      "input_token_difference": 29645,
+      "pi_reward": 1.0,
+      "pi_status": "completed",
+      "request_difference": 3,
+      "reward_difference": 0.0,
+      "task": "merge-diff-arc-agi-task",
+      "thinharness_reward": 1.0,
+      "thinharness_status": "completed",
+      "tool_difference": 2,
+      "wall_seconds_difference": -0.02133655548095703
+    },
+    {
+      "api_equivalent_cost_usd_difference": -0.06499224999999997,
+      "input_token_difference": -47715,
+      "pi_reward": 1.0,
+      "pi_status": "completed",
+      "request_difference": -1,
+      "reward_difference": 0.0,
+      "task": "count-dataset-tokens",
+      "thinharness_reward": 1.0,
+      "thinharness_status": "completed",
+      "tool_difference": 0,
+      "wall_seconds_difference": -23.16659927368164
+    },
+    {
+      "api_equivalent_cost_usd_difference": -0.052878750000000016,
+      "input_token_difference": -10666,
+      "pi_reward": 1.0,
+      "pi_status": "completed",
+      "request_difference": -1,
+      "reward_difference": 0.0,
+      "task": "git-leak-recovery",
+      "thinharness_reward": 1.0,
+      "thinharness_status": "completed",
+      "tool_difference": -3,
+      "wall_seconds_difference": -30.634447813034058
+    },
+    {
+      "api_equivalent_cost_usd_difference": 0.018803749999999994,
+      "input_token_difference": -1687,
+      "pi_reward": 1.0,
+      "pi_status": "completed",
+      "request_difference": 0,
+      "reward_difference": 0.0,
+      "task": "multi-source-data-merger",
+      "thinharness_reward": 1.0,
+      "thinharness_status": "completed",
+      "tool_difference": -1,
+      "wall_seconds_difference": 11.04555869102478
+    },
+    {
+      "api_equivalent_cost_usd_difference": 0.008114999999999928,
+      "input_token_difference": 28803,
+      "pi_reward": 1.0,
+      "pi_status": "completed",
+      "request_difference": 3,
+      "reward_difference": 0.0,
+      "task": "pytorch-model-cli",
+      "thinharness_reward": 1.0,
+      "thinharness_status": "completed",
+      "tool_difference": 4,
+      "wall_seconds_difference": -27.561441898345947
+    },
+    {
+      "api_equivalent_cost_usd_difference": 0.8094485000000005,
+      "input_token_difference": 1237422,
+      "pi_reward": 1.0,
+      "pi_status": "completed",
+      "request_difference": 12,
+      "reward_difference": 1.0,
+      "task": "sanitize-git-repo",
+      "thinharness_reward": 0.0,
+      "thinharness_status": "completed",
+      "tool_difference": 12,
+      "wall_seconds_difference": 370.5373730659485
+    },
+    {
+      "api_equivalent_cost_usd_difference": 0.19971900000000004,
+      "input_token_difference": 183662,
+      "pi_reward": 1.0,
+      "pi_status": "completed",
+      "request_difference": 5,
+      "reward_difference": 0.0,
+      "task": "sqlite-with-gcov",
+      "thinharness_reward": 1.0,
+      "thinharness_status": "completed",
+      "tool_difference": 7,
+      "wall_seconds_difference": 34.928622007369995
+    },
+    {
+      "api_equivalent_cost_usd_difference": 0.5011389999999999,
+      "input_token_difference": 341228,
+      "pi_reward": 0.0,
+      "pi_status": "completed",
+      "request_difference": 19,
+      "reward_difference": 0.0,
+      "task": "tune-mjcf",
+      "thinharness_reward": 0.0,
+      "thinharness_status": "model_attempt_failed",
+      "tool_difference": 20,
+      "wall_seconds_difference": -80.49162268638611
+    },
+    {
+      "api_equivalent_cost_usd_difference": -0.036308250000000014,
+      "input_token_difference": -19096,
+      "pi_reward": 1.0,
+      "pi_status": "completed",
+      "request_difference": 1,
+      "reward_difference": 0.0,
+      "task": "code-from-image",
+      "thinharness_reward": 1.0,
+      "thinharness_status": "completed",
+      "tool_difference": -2,
+      "wall_seconds_difference": 5.3538429737091064
+    },
+    {
+      "api_equivalent_cost_usd_difference": 0.43429599999999996,
+      "input_token_difference": 339478,
+      "pi_reward": 1.0,
+      "pi_status": "completed",
+      "request_difference": 4,
+      "reward_difference": 0.0,
+      "task": "custom-memory-heap-crash",
+      "thinharness_reward": 1.0,
+      "thinharness_status": "completed",
+      "tool_difference": 19,
+      "wall_seconds_difference": 110.39956521987915
+    },
+    {
+      "api_equivalent_cost_usd_difference": -0.04192399999999996,
+      "input_token_difference": 142020,
+      "pi_reward": 1.0,
+      "pi_status": "completed",
+      "request_difference": 7,
+      "reward_difference": 0.0,
+      "task": "qemu-alpine-ssh",
+      "thinharness_reward": 1.0,
+      "thinharness_status": "completed",
+      "tool_difference": 0,
+      "wall_seconds_difference": -73.12764883041382
+    },
+    {
+      "api_equivalent_cost_usd_difference": 0.10343799999999992,
+      "input_token_difference": 24398,
+      "pi_reward": 1.0,
+      "pi_status": "completed",
+      "request_difference": 3,
+      "reward_difference": 0.0,
+      "task": "qemu-startup",
+      "thinharness_reward": 1.0,
+      "thinharness_status": "completed",
+      "tool_difference": 22,
+      "wall_seconds_difference": -25.50373888015747
+    },
+    {
+      "api_equivalent_cost_usd_difference": -0.4051299999999999,
+      "input_token_difference": -332592,
+      "pi_reward": 1.0,
+      "pi_status": "completed",
+      "request_difference": -5,
+      "reward_difference": 0.0,
+      "task": "financial-document-processor",
+      "thinharness_reward": 1.0,
+      "thinharness_status": "completed",
+      "tool_difference": -4,
+      "wall_seconds_difference": -48.78138184547424
+    },
+    {
+      "api_equivalent_cost_usd_difference": 0.002589249999999932,
+      "input_token_difference": -20782,
+      "pi_reward": 1.0,
+      "pi_status": "completed",
+      "request_difference": 2,
+      "reward_difference": 1.0,
+      "task": "dna-insert",
+      "thinharness_reward": 0.0,
+      "thinharness_status": "completed",
+      "tool_difference": -1,
+      "wall_seconds_difference": 34.790380001068115
+    }
+  ],
+  "paired_outcomes": {
+    "both_positive": 14,
+    "both_zero": 1,
+    "incomplete_numeric_pairs": 2,
+    "incomplete_tasks": [
+      "vulnerable-secret",
+      "break-filter-js-from-html"
+    ],
+    "numeric_pairs": 18,
+    "pi_wins": 3,
+    "thinharness_wins": 0,
+    "ties": 15
+  },
+  "pricing": {
+    "currency": "USD",
+    "formula": "(ordinary_input_tokens*5 + cached_input_tokens*0.5 + cache_write_tokens*6.25 + output_tokens*30) / 1,000,000; reasoning tokens are included in output tokens and are not charged again",
+    "provider_reported_actual_cash_observations": 0,
+    "provider_reported_actual_cash_total_usd": null,
+    "usd_per_million_tokens": {
+      "cache_write": 6.25,
+      "cached_input": 0.5,
+      "ordinary_input": 5.0,
+      "output": 30.0
+    }
+  },
+  "run_history": [
+    {
+      "event": "initial_process_exit",
+      "evidence": [
+        "artifacts/direct-openai-20task-runner.log",
+        "progress.runner_identity_history in artifacts/direct-openai-20task-pairwise/progress.json",
+        "commit 78d90b6de65c280dd8d749267b5c0ddc21d84276"
+      ],
+      "fact": "After vulnerable-secret--pi, the initial process stopped on the terminal non-credit provider error before it checkpointed that consumed cell."
+    },
+    {
+      "event": "failed_resume_infrastructure_attempt",
+      "evidence": [
+        "commit 2bbb74cf2d991f89a4a94d7b1748d9a6758ba420",
+        "runner log has no launch between vulnerable-secret--pi and its recovered checkpoint"
+      ],
+      "fact": "The first recovery resume was blocked before a new cell because regenerated transient Git-bundle bytes differed from the stored bundle SHA. It made no model request and launched no cell."
+    },
+    {
+      "event": "successful_checkpoint_recovery",
+      "evidence": [
+        "artifacts/direct-openai-20task-runner.log",
+        "artifacts/direct-openai-20task-pairwise/cells/vulnerable-secret--pi/CHECKPOINT.json",
+        "source_identity_upgrade in artifacts/direct-openai-20task-pairwise/progress.json"
+      ],
+      "fact": "The accepted resume attested the same exact canonical commit/tree and recovered vulnerable-secret--pi from its marker, audit, receipt, Harbor result, and verifier without rerunning it."
+    }
+  ],
+  "schema_version": 1,
+  "scope_limit": "Descriptive results for this frozen 20-task sample only. The historical four-task subscription sample is separate and is not included in any 20-task total.",
+  "source_evidence": {
+    "hash_manifest": "artifacts/direct-openai-20task-pairwise/SHA256SUMS.json",
+    "outcome": "artifacts/direct-openai-20task-pairwise/OUTCOME.json",
+    "report": "reports/direct-openai-20task-pairwise.json",
+    "runner_log": "artifacts/direct-openai-20task-runner.log",
+    "summary": "artifacts/direct-openai-20task-pairwise/SUMMARY.json",
+    "summary_sha256": "73cd514778f151988eef2f39307a587b7f902136b14eb06916e9ae79294573bb"
+  },
+  "tasks": [
+    "cobol-modernization",
+    "nginx-request-logging",
+    "openssl-selfsigned-cert",
+    "polyglot-c-py",
+    "vulnerable-secret",
+    "break-filter-js-from-html",
+    "merge-diff-arc-agi-task",
+    "count-dataset-tokens",
+    "git-leak-recovery",
+    "multi-source-data-merger",
+    "pytorch-model-cli",
+    "sanitize-git-repo",
+    "sqlite-with-gcov",
+    "tune-mjcf",
+    "code-from-image",
+    "custom-memory-heap-crash",
+    "qemu-alpine-ssh",
+    "qemu-startup",
+    "financial-document-processor",
+    "dna-insert"
+  ],
+  "trace_findings": [
+    {
+      "cause": "ThinHarness wrote status as status=200. The verifier required a whitespace-delimited three-digit status and failed only test_log_file_format; Pi passed all 8 tests.",
+      "cells": [
+        "nginx-request-logging--pi",
+        "nginx-request-logging--thinharness"
+      ],
+      "evidence": [
+        "cells/nginx-request-logging--thinharness/job/nginx-request-logging__5335W5V/verifier/test-stdout.txt",
+        "cells/nginx-request-logging--pi/job/nginx-request-logging__iB2CRxs/verifier/test-stdout.txt"
+      ]
+    },
+    {
+      "cause": "ThinHarness removed all detected secrets and changed only the three contaminated files, but added single quotes around GitHub and Hugging Face placeholders in ray_cluster.yaml. The exact-reference verifier failed that replacement check; Pi passed all 3 tests.",
+      "cells": [
+        "sanitize-git-repo--pi",
+        "sanitize-git-repo--thinharness"
+      ],
+      "evidence": [
+        "cells/sanitize-git-repo--thinharness/job/sanitize-git-repo__Je8tCQQ/verifier/test-stdout.txt",
+        "cells/sanitize-git-repo--thinharness/job/sanitize-git-repo__Je8tCQQ/agent/thinharness-events.jsonl"
+      ]
+    },
+    {
+      "cause": "ThinHarness wrote one primer pair and its local oligotm check reported 61.236660 C and 59.837385 C. The verifier measured 66.274364 C and 58.082753 C for the annealed parts, a difference of 8.191611 C, and failed the <=5 C rule. The trace does not establish the reason for the measurement disagreement. Pi passed.",
+      "cells": [
+        "dna-insert--pi",
+        "dna-insert--thinharness"
+      ],
+      "evidence": [
+        "cells/dna-insert--thinharness/job/dna-insert__SHwX67r/agent/thinharness-events.jsonl",
+        "cells/dna-insert--thinharness/job/dna-insert__SHwX67r/verifier/test-stdout.txt"
+      ]
+    },
+    {
+      "cause": "OpenAI returned HTTP 400 code cyber_policy. Pi received one successful response, ran one Bash tool, then received the error; its verifier ran and returned 0. ThinHarness received the error on its first request and had no verifier reward. These were non-credit errors, so the frozen policy consumed both cells and continued.",
+      "cells": [
+        "vulnerable-secret--pi",
+        "vulnerable-secret--thinharness"
+      ],
+      "evidence": [
+        "cells/vulnerable-secret--pi/gateway-audit.jsonl",
+        "cells/vulnerable-secret--thinharness/gateway-audit.jsonl"
+      ]
+    },
+    {
+      "cause": "OpenAI returned terminal HTTP 400 code cyber_policy after two successful Pi requests and after one successful ThinHarness request. Pi had no out.html and its verifier returned 0; ThinHarness had no verifier reward.",
+      "cells": [
+        "break-filter-js-from-html--pi",
+        "break-filter-js-from-html--thinharness"
+      ],
+      "evidence": [
+        "cells/break-filter-js-from-html--pi/gateway-audit.jsonl",
+        "cells/break-filter-js-from-html--thinharness/gateway-audit.jsonl"
+      ]
+    },
+    {
+      "cause": "ThinHarness made 26 successful requests but Harbor stopped its agent at the exact 900-second task limit, so there is no native final receipt. Both verifiers then crashed with Illegal instruction while importing MuJoCo under Python 3.13 and recorded reward 0. These rewards do not establish solution quality.",
+      "cells": [
+        "tune-mjcf--pi",
+        "tune-mjcf--thinharness"
+      ],
+      "evidence": [
+        "cells/tune-mjcf--thinharness/job/tune-mjcf__HRaojqz/exception.txt",
+        "cells/tune-mjcf--thinharness/job/tune-mjcf__HRaojqz/verifier/test-stdout.txt",
+        "cells/tune-mjcf--pi/job/tune-mjcf__MdbuFa2/verifier/test-stdout.txt"
+      ]
+    }
+  ],
+  "validation": {
+    "artifact_hash_manifest": "valid",
+    "canonical_thinharness": {
+      "head": "1f0146f3b1bec31fec7939466d1d5b5d8ee042ae",
+      "path": "/Users/ryanbrown/code/thinharness",
+      "pinned_commit_object": "84105f07bb9c1ad366fc8fe4fef49e700f5e88ef",
+      "status": "clean"
+    },
+    "checkpointed_cells": 40,
+    "credential_values_found": 0,
+    "current_repository_remotes": [],
+    "direct_runner_checks": "passed",
+    "gateway_audit_records": 518,
+    "install_provenance_receipts": 40,
+    "missing_native_receipts": [
+      "tune-mjcf--thinharness"
+    ],
+    "missing_verifier_rewards": [
+      "vulnerable-secret--thinharness",
+      "break-filter-js-from-html--thinharness"
+    ],
+    "model_request_markers": 518,
+    "native_receipts": 39,
+    "outcome": "completed",
+    "package": {
+      "forbidden_product_proxy_or_evidence_files": 0,
+      "sdist_files": 72,
+      "sdist_sha256": "c9e0e206fa28628aeb18fe775af63e239f6868d8069571da5635f3c29001d137",
+      "wheel_files": 30,
+      "wheel_sha256": "ad0f50303efddc7c9899f3bd13abcdcf0ddf2ce61e0853c53beefb83d4853adb",
+      "wheel_tbench_python_files": 25
+    },
+    "pyright": "0 errors, 0 warnings, 0 informations",
+    "pytest": "71 passed",
+    "remote_count": 0,
+    "report_reproduction_from_progress": "exact",
+    "repository_boundary_and_secret_checks": "passed",
+    "rerun_cells": 0,
+    "ruff": "passed",
+    "successful_requests": 514,
+    "summary_report_byte_identity": "exact",
+    "terminal_cyber_policy_errors": 4,
+    "unique_cell_ids": 40,
+    "unique_real_job_directories": 40,
+    "verifier_ctrf_traces": 36,
+    "verifier_rewards": 38,
+    "verifier_test_stdout_traces": 38
+  }
+}

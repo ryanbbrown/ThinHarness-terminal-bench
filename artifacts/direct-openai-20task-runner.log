@@ -1,0 +1,93 @@
+2026-08-25T06:31:41Z launching fake cell cobol-modernization--pi
+2026-08-25T06:34:24Z preserved pre-request infrastructure attempt at /Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/artifacts/direct-openai-20task-pairwise-preflight/infrastructure-attempts/cobol-modernization--pi/1787639664-fd420fe4
+2026-08-25T06:34:24Z launching fake cell cobol-modernization--pi
+2026-08-25T06:35:55Z launching fake cell cobol-modernization--thinharness
+2026-08-25T06:37:21Z launching fake cell nginx-request-logging--pi
+2026-08-25T06:39:10Z launching fake cell nginx-request-logging--thinharness
+2026-08-25T06:40:41Z launching fake cell openssl-selfsigned-cert--pi
+2026-08-25T06:42:16Z launching fake cell openssl-selfsigned-cert--thinharness
+2026-08-25T06:43:42Z launching fake cell polyglot-c-py--pi
+2026-08-25T06:45:03Z launching fake cell polyglot-c-py--thinharness
+2026-08-25T06:46:13Z launching fake cell vulnerable-secret--pi
+2026-08-25T06:47:47Z launching fake cell vulnerable-secret--thinharness
+2026-08-25T06:49:14Z launching fake cell break-filter-js-from-html--pi
+2026-08-25T06:50:59Z launching fake cell break-filter-js-from-html--thinharness
+2026-08-25T06:52:31Z launching fake cell merge-diff-arc-agi-task--pi
+2026-08-25T06:54:00Z launching fake cell merge-diff-arc-agi-task--thinharness
+2026-08-25T06:55:14Z launching fake cell count-dataset-tokens--pi
+2026-08-25T06:56:56Z launching fake cell count-dataset-tokens--thinharness
+2026-08-25T06:58:24Z launching fake cell git-leak-recovery--pi
+2026-08-25T07:00:23Z launching fake cell git-leak-recovery--thinharness
+2026-08-25T07:01:54Z launching fake cell multi-source-data-merger--pi
+2026-08-25T07:02:59Z launching fake cell multi-source-data-merger--thinharness
+2026-08-25T07:03:53Z launching fake cell pytorch-model-cli--pi
+2026-08-25T07:06:28Z launching fake cell pytorch-model-cli--thinharness
+2026-08-25T07:08:54Z launching fake cell sanitize-git-repo--pi
+2026-08-25T07:10:29Z launching fake cell sanitize-git-repo--thinharness
+2026-08-25T07:11:04Z launching fake cell sqlite-with-gcov--pi
+2026-08-25T07:12:22Z launching fake cell sqlite-with-gcov--thinharness
+2026-08-25T07:13:35Z launching fake cell tune-mjcf--pi
+2026-08-25T07:16:02Z preserved pre-request infrastructure attempt at /Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/artifacts/direct-openai-20task-pairwise-preflight/infrastructure-attempts/tune-mjcf--pi/1787642162-7c1410d0
+2026-08-25T07:16:02Z launching fake cell tune-mjcf--pi
+2026-08-25T07:17:32Z launching fake cell tune-mjcf--thinharness
+2026-08-25T07:18:57Z launching fake cell code-from-image--pi
+2026-08-25T07:20:26Z launching fake cell code-from-image--thinharness
+2026-08-25T07:21:49Z launching fake cell custom-memory-heap-crash--pi
+2026-08-25T07:24:22Z launching fake cell custom-memory-heap-crash--thinharness
+2026-08-25T07:24:38Z run outcome: external_blocker; completed checkpoints: 32/40
+2026-08-25T07:25:11Z preserved recoverable infrastructure attempt at /Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/artifacts/direct-openai-20task-pairwise-preflight/infrastructure-attempts/custom-memory-heap-crash--thinharness/1787642711-7ae91de7
+2026-08-25T07:25:11Z launching fake cell custom-memory-heap-crash--thinharness
+2026-08-25T07:26:48Z launching fake cell qemu-alpine-ssh--pi
+2026-08-25T07:28:45Z launching fake cell qemu-alpine-ssh--thinharness
+2026-08-25T07:29:55Z run outcome: external_blocker; completed checkpoints: 34/40
+2026-08-25T07:30:36Z preserved recoverable infrastructure attempt at /Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/artifacts/direct-openai-20task-pairwise-preflight/infrastructure-attempts/qemu-alpine-ssh--thinharness/1787643036-86583113
+2026-08-25T07:30:36Z launching fake cell qemu-alpine-ssh--thinharness
+2026-08-25T07:32:05Z launching fake cell qemu-startup--pi
+2026-08-25T07:33:33Z launching fake cell qemu-startup--thinharness
+2026-08-25T07:35:04Z launching fake cell financial-document-processor--pi
+2026-08-25T07:36:26Z launching fake cell financial-document-processor--thinharness
+2026-08-25T07:37:44Z launching fake cell dna-insert--pi
+2026-08-25T07:39:03Z launching fake cell dna-insert--thinharness
+2026-08-25T07:40:27Z run outcome: completed; completed checkpoints: 40/40
+2026-08-25T07:43:45Z launching real cell cobol-modernization--pi
+2026-08-25T07:48:51Z launching real cell cobol-modernization--thinharness
+2026-08-25T07:53:10Z launching real cell nginx-request-logging--pi
+2026-08-25T07:55:20Z launching real cell nginx-request-logging--thinharness
+2026-08-25T07:57:22Z launching real cell openssl-selfsigned-cert--pi
+2026-08-25T07:59:18Z launching real cell openssl-selfsigned-cert--thinharness
+2026-08-25T08:01:26Z launching real cell polyglot-c-py--pi
+2026-08-25T08:03:55Z launching real cell polyglot-c-py--thinharness
+2026-08-25T08:06:21Z launching real cell vulnerable-secret--pi
+2026-08-25T08:26:06Z recovered consumed cell without rerun: vulnerable-secret--pi
+2026-08-25T08:26:06Z launching real cell vulnerable-secret--thinharness
+2026-08-25T08:27:39Z launching real cell break-filter-js-from-html--pi
+2026-08-25T08:29:52Z launching real cell break-filter-js-from-html--thinharness
+2026-08-25T08:31:33Z launching real cell merge-diff-arc-agi-task--pi
+2026-08-25T08:33:59Z launching real cell merge-diff-arc-agi-task--thinharness
+2026-08-25T08:36:25Z launching real cell count-dataset-tokens--pi
+2026-08-25T08:39:47Z launching real cell count-dataset-tokens--thinharness
+2026-08-25T08:43:32Z launching real cell git-leak-recovery--pi
+2026-08-25T08:45:51Z launching real cell git-leak-recovery--thinharness
+2026-08-25T08:48:41Z launching real cell multi-source-data-merger--pi
+2026-08-25T08:50:24Z launching real cell multi-source-data-merger--thinharness
+2026-08-25T08:51:57Z launching real cell pytorch-model-cli--pi
+2026-08-25T08:56:37Z launching real cell pytorch-model-cli--thinharness
+2026-08-25T09:01:45Z launching real cell sanitize-git-repo--pi
+2026-08-25T09:13:48Z launching real cell sanitize-git-repo--thinharness
+2026-08-25T09:19:41Z launching real cell sqlite-with-gcov--pi
+2026-08-25T09:23:56Z launching real cell sqlite-with-gcov--thinharness
+2026-08-25T09:27:35Z launching real cell tune-mjcf--pi
+2026-08-25T09:43:19Z launching real cell tune-mjcf--thinharness
+2026-08-25T10:00:23Z launching real cell code-from-image--pi
+2026-08-25T10:02:56Z launching real cell code-from-image--thinharness
+2026-08-25T10:05:23Z launching real cell custom-memory-heap-crash--pi
+2026-08-25T10:10:43Z launching real cell custom-memory-heap-crash--thinharness
+2026-08-25T10:14:13Z launching real cell qemu-alpine-ssh--pi
+2026-08-25T10:22:11Z launching real cell qemu-alpine-ssh--thinharness
+2026-08-25T10:31:23Z launching real cell qemu-startup--pi
+2026-08-25T10:38:50Z launching real cell qemu-startup--thinharness
+2026-08-25T10:46:42Z launching real cell financial-document-processor--pi
+2026-08-25T10:50:38Z launching real cell financial-document-processor--thinharness
+2026-08-25T10:55:22Z launching real cell dna-insert--pi
+2026-08-25T10:59:07Z launching real cell dna-insert--thinharness
+2026-08-25T11:02:17Z run outcome: completed; completed checkpoints: 40/40

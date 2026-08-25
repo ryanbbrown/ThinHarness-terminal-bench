@@ -1,0 +1,39 @@
+{
+    "id": "74f217da-1f0d-44dc-8cb0-c7387382751f",
+    "started_at": "2026-08-25T06:22:13.342217",
+    "updated_at": "2026-08-25T06:31:21.882037",
+    "finished_at": "2026-08-25T06:31:21.882037",
+    "n_total_trials": 1,
+    "stats": {
+        "n_completed_trials": 1,
+        "n_errored_trials": 0,
+        "n_running_trials": 0,
+        "n_pending_trials": 0,
+        "n_cancelled_trials": 0,
+        "n_retries": 0,
+        "evals": {
+            "direct-openai-pairwise__gpt-5.6-sol__terminal-bench/terminal-bench-2-1": {
+                "n_trials": 1,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 1.0
+                    }
+                ],
+                "pass_at_k": {},
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "qemu-alpine-ssh__bDRVRjd"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        },
+        "n_input_tokens": 484418,
+        "n_cache_tokens": 447864,
+        "n_output_tokens": 10371,
+        "cost_usd": null
+    }
+}

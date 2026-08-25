@@ -1,0 +1,18 @@
+{
+  "bind": "0.0.0.0",
+  "bridge": null,
+  "cell_id": "merge-diff-arc-agi-task--pi",
+  "container_base_url": "http://host.docker.internal:63039/v1",
+  "direct_openai": true,
+  "downstream_auth": "ephemeral-random-bearer",
+  "downstream_token_persisted": false,
+  "mode": "real",
+  "openai_key_persisted": false,
+  "openai_key_source": "Doppler launcher environment",
+  "port": 63039,
+  "provider": "OpenAI",
+  "request_retries": 0,
+  "schema_version": 1,
+  "transport_retries": 0,
+  "upstream": "https://api.openai.com/v1/responses"
+}

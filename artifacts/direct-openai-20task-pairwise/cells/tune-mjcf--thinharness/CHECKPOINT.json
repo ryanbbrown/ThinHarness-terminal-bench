@@ -1,0 +1,404 @@
+{
+  "batching": [
+    {
+      "sequence": 1,
+      "tool_calls_in_response": 3,
+      "tool_names": [
+        "read",
+        "read",
+        "bash"
+      ]
+    },
+    {
+      "sequence": 2,
+      "tool_calls_in_response": 3,
+      "tool_names": [
+        "bash",
+        "bash",
+        "bash"
+      ]
+    },
+    {
+      "sequence": 3,
+      "tool_calls_in_response": 3,
+      "tool_names": [
+        "bash",
+        "bash",
+        "bash"
+      ]
+    },
+    {
+      "sequence": 4,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 5,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "read"
+      ]
+    },
+    {
+      "sequence": 6,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 7,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 8,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 9,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 10,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 11,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 12,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 13,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 14,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 15,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 16,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 17,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 18,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 19,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 20,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 21,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 22,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 23,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 24,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 25,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 26,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    }
+  ],
+  "cell_id": "tune-mjcf--thinharness",
+  "cost": {
+    "actual_cash_total": null,
+    "api_equivalent_total": 0.516282,
+    "components": {
+      "cache_write": 0.19288750000000002,
+      "cached_input": 0.1866845,
+      "ordinary_input": 0.00038999999999999994,
+      "output": 0.13632
+    },
+    "currency": "USD",
+    "prices_usd_per_million_tokens": {
+      "cache_write": 6.25,
+      "cached_input": 0.5,
+      "ordinary_input": 5.0,
+      "output": 30.0
+    }
+  },
+  "harbor_exit_code": 0,
+  "harness": "thinharness",
+  "identities": {
+    "gateway": {
+      "bind": "0.0.0.0",
+      "bridge": null,
+      "cell_id": "tune-mjcf--thinharness",
+      "container_base_url": "http://host.docker.internal:50374/v1",
+      "direct_openai": true,
+      "downstream_auth": "ephemeral-random-bearer",
+      "downstream_token_persisted": false,
+      "mode": "real",
+      "openai_key_persisted": false,
+      "openai_key_source": "Doppler launcher environment",
+      "port": 50374,
+      "provider": "OpenAI",
+      "request_retries": 0,
+      "schema_version": 1,
+      "transport_retries": 0,
+      "upstream": "https://api.openai.com/v1/responses"
+    },
+    "harbor": {
+      "agent_info": {
+        "model_info": {
+          "name": "gpt-5.6-sol",
+          "provider": "openai"
+        },
+        "name": "direct-openai-pairwise",
+        "version": "1.0+84105f07"
+      },
+      "id": "2f782f7d-7ee9-47cf-8f53-751f1f21e2a0",
+      "source": "terminal-bench/terminal-bench-2-1",
+      "task_checksum": "f3acebfbcd525ce06e2f0103acd078d66d9afa9ed4e72c380ff9b7302e50f63a",
+      "task_id": {
+        "name": "tune-mjcf",
+        "org": "terminal-bench",
+        "ref": "sha256:7da0fd3b906624df9eff8829ccd4f19cbb1ba967411b6d64d92b85b2f3fbdfb0"
+      },
+      "task_name": "terminal-bench/tune-mjcf",
+      "trial_name": "tune-mjcf__HRaojqz"
+    },
+    "launch_gateway": {
+      "base_url": "http://host.docker.internal:50374/v1",
+      "bridge": null,
+      "cell_id": "tune-mjcf--thinharness",
+      "direct_openai": true,
+      "ephemeral_token_persisted": false,
+      "mode": "real",
+      "port": 50374,
+      "provider": "OpenAI",
+      "upstream": "https://api.openai.com/v1/responses"
+    },
+    "model": {
+      "backend": null,
+      "name": "gpt-5.6-sol",
+      "reasoning": null,
+      "response_models": null,
+      "text": null
+    },
+    "native_harness": {
+      "cell_id": null,
+      "execution": null,
+      "harness": null,
+      "harness_version": null,
+      "install": null,
+      "kind": null,
+      "mode": null,
+      "prompt_sha256": null,
+      "provider_transport": null,
+      "thinharness_commit": null,
+      "tool_schemas": null,
+      "tools": null
+    },
+    "runner": {
+      "files": {
+        "configs/container-runtime-requirements.txt": "61d52e09e2edaa56c84a8f139c77dc6052312648d726366a6ec4be50e392c3a6",
+        "configs/direct-openai-20task-selection.json": "c800c80251d4880fdafb066ef1bc690473c68923c160e9f4c31cc53879382960",
+        "configs/direct-openai-20task-settings.json": "79a0cd91ddff45d5e765e05b2de114c57fbd4f17d3cf15da67f28162d7f77c1e",
+        "configs/direct-openai-exclusion-proof.json": "eb7f357aa6de1a9795ac3495f5dcc90e82647698ca3231cc05c7b11ec4543cb0",
+        "configs/native-tool-schemas.json": "1c1c1e985590e9980264a2e6b8364bd96f1b052c0761eed7f127ac9ab60cfd24",
+        "configs/pi-native-tool-schemas.json": "88fda428f9a9114a62d2f3a394d85c7d15cddd111eddadbe7abbe728bff2afde",
+        "configs/pi-subscription-package-lock.json": "0f34d01dda1837fd634d0562d2c0350ff982da133de59f36fccdac62835fc1c0",
+        "configs/pi-subscription-package.json": "fdecbea847897b2ebdbc54aaabc1899c115dde083f81de65daf13e46feba80ba",
+        "prompts/pi-0.84.2-system-prompt.md": "bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e",
+        "pyproject.toml": "cc59d90f1cbb42bad8f11ab631dda9c4da55379c0d3c651215e6efcf176557cc",
+        "scripts/install-direct-pi.sh": "03b2a5504dc3c14c280dce99637058e3b3dbc9075372bd6fad079531b0242a7b",
+        "scripts/install-direct-thinharness.sh": "8b444733dcdbb29fc44e70a60d3c9a97640de79fc5c4e8d933c88eda024c7e6e",
+        "tbench/container_security.py": "45e669996dcab219a827df78fb3fff7b8e8d6aa7abdc737746e2560666398603",
+        "tbench/direct_agent.py": "a4b244501f1de1b578a61d8607747679f8bcf93e0eeae7cfeb2137f0b83b362c",
+        "tbench/direct_behavior_preflight.py": "b52594f6e7eca6ba89ded456747bb98a7e8fa7d53e4ddb06adae96deaabd8da2",
+        "tbench/direct_constants.py": "0a307d0d55e463deab616e20962140b2aafbe00259f45397ecd9cf0f57f9ec31",
+        "tbench/direct_container.py": "49e25a9caeb37fb51088a54981bd3be44234cb0fd7a030d246bf111db28921a0",
+        "tbench/direct_gateway.py": "6a2710ac23230aad9643a10a9ff15317bd9e9c781abbff9ad052dd75d68b885f",
+        "tbench/direct_launch.py": "5aefd8cf22daa566d08f953f2265e73fe5a0b8f33db63473c5ee579597104c2a",
+        "tbench/direct_validate.py": "b9d7f17a2134a519a0730151e1bf0fdd560bd015a7bd86022fb7b1e541cc0e82",
+        "tbench/pi_subscription_probe.mjs": "c7cd70f7344700f980dd898dc3c43aabc35a810d108c5d972b9438fccb4e5a4a",
+        "tbench/source_bundle.py": "ac208f36136b9314c7c57c9456b5304a92fd715b9eb3fd81c6ddb54a78a88077",
+        "uv.lock": "b960a45efb63fb5c5b738df1711410d1fe0c226f92bded3d29c0e6bf52f7e6d4"
+      },
+      "files_sha256": "c53749fdc7ad76376a617ed874dc72da43fdf32cd7cbfdda8a1fa8d5c6d411e3",
+      "git_head": "2bbb74cf2d991f89a4a94d7b1748d9a6758ba420"
+    },
+    "source_bundle_sha256": "c66ad97fbaa86429dd006864d1dcc5079e77459a881336a194da9f4340257034"
+  },
+  "mode": "real",
+  "model_attempt_failure": null,
+  "never_rerun": true,
+  "real_model_attempted": true,
+  "request_count": 26,
+  "restart_action": "never rerun; continue to the next frozen cell",
+  "reward": 0.0,
+  "schema_version": 1,
+  "status": "model_attempt_failed",
+  "successful_request_count": 26,
+  "task": "tune-mjcf",
+  "timing": {
+    "agent_execution": {
+      "finished_at": "2026-08-25T09:59:32.282517Z",
+      "started_at": "2026-08-25T09:44:32.273559Z"
+    },
+    "agent_setup": {
+      "finished_at": "2026-08-25T09:44:32.273338Z",
+      "started_at": "2026-08-25T09:43:22.228218Z"
+    },
+    "environment_setup": {
+      "finished_at": "2026-08-25T09:43:22.228114Z",
+      "started_at": "2026-08-25T09:43:21.044009Z"
+    },
+    "harbor_finished_at": "2026-08-25T10:00:22.186186Z",
+    "harbor_started_at": "2026-08-25T09:43:20.923399Z",
+    "launcher_finished_at": 1787652023.6862988,
+    "launcher_started_at": 1787650999.3989,
+    "native_agent_seconds": null,
+    "request_seconds": [
+      3.4011687919846736,
+      9.913340458995663,
+      3.757599250006024,
+      6.392654416966252,
+      2.4770055419648997,
+      2.4492077080067247,
+      7.536441000003833,
+      4.525566583033651,
+      3.604656832991168,
+      6.251978958025575,
+      6.099528583989013,
+      4.091610208037309,
+      5.502289583033416,
+      3.4465197499957867,
+      4.582561167015228,
+      7.255919499963056,
+      5.5167735000140965,
+      4.8784066660446115,
+      4.216750417021103,
+      7.888904208026361,
+      5.721080459014047,
+      6.869068416010123,
+      4.355079833010677,
+      6.416713624959812,
+      2.968244749994483,
+      7.710748457990121
+    ],
+    "verifier": {
+      "finished_at": "2026-08-25T10:00:10.954091Z",
+      "started_at": "2026-08-25T09:59:36.384811Z"
+    }
+  },
+  "traces": {
+    "gateway_audit": "cells/tune-mjcf--thinharness/gateway-audit.jsonl",
+    "gateway_identity": "cells/tune-mjcf--thinharness/gateway-identity.json",
+    "harbor_result": "cells/tune-mjcf--thinharness/job/tune-mjcf__HRaojqz/result.json",
+    "launch": "cells/tune-mjcf--thinharness/launch.json",
+    "model_request_markers": "cells/tune-mjcf--thinharness/MODEL_REQUEST_STARTED.jsonl",
+    "native_events": null,
+    "native_receipt": null,
+    "native_stderr": null,
+    "staging_stderr": "cells/tune-mjcf--thinharness/harbor.stderr.log",
+    "staging_stdout": "cells/tune-mjcf--thinharness/harbor.stdout.log",
+    "verifier_evidence": "cells/tune-mjcf--thinharness/job/tune-mjcf__HRaojqz/verifier/reward.txt",
+    "verifier_evidence_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "verifier_evidence_type": "reward.txt"
+  },
+  "usage": {
+    "cache_write_tokens": 30862,
+    "cached_input_tokens": 373369,
+    "input_tokens": 404309,
+    "ordinary_input_tokens": 78,
+    "output_tokens": 4544,
+    "reasoning_tokens": 1871
+  },
+  "verifier_outcome": {
+    "rewards": {
+      "reward": 0.0
+    }
+  }
+}

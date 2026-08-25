@@ -1,0 +1,134 @@
+{
+    "id": "c412c2a8-996e-4f2c-aaa4-6a603ed96411",
+    "task_name": "terminal-bench/merge-diff-arc-agi-task",
+    "trial_name": "merge-diff-arc-agi-task__UFJzDE2",
+    "trial_uri": "file:///Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/direct-openai-20task-pairwise/direct-openai-20task-pairwise-real-merge-diff-arc-agi-task--pi-20260825-083133-5b7c1751/merge-diff-arc-agi-task__UFJzDE2",
+    "task_id": {
+        "org": "terminal-bench",
+        "name": "merge-diff-arc-agi-task",
+        "ref": "sha256:6aab6511a5344ce87698293bb1ce4cc51d9a45f1ad9f0c075d2a83197b36727d"
+    },
+    "source": "terminal-bench/terminal-bench-2-1",
+    "task_checksum": "f6ac6f6b96613c5a110b0b0d51172b7cad781c0adc99b556425408d8d3278147",
+    "config": {
+        "task": {
+            "path": null,
+            "git_url": null,
+            "git_commit_id": null,
+            "name": "terminal-bench/merge-diff-arc-agi-task",
+            "ref": "sha256:6aab6511a5344ce87698293bb1ce4cc51d9a45f1ad9f0c075d2a83197b36727d",
+            "overwrite": false,
+            "download_dir": null,
+            "source": "terminal-bench/terminal-bench-2-1"
+        },
+        "trial_name": "merge-diff-arc-agi-task__UFJzDE2",
+        "trials_dir": "/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/direct-openai-20task-pairwise/direct-openai-20task-pairwise-real-merge-diff-arc-agi-task--pi-20260825-083133-5b7c1751",
+        "install_only": false,
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": 3.0,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "tbench.direct_agent:DirectOpenAIAgent",
+            "import_path": null,
+            "model_name": "openai/gpt-5.6-sol",
+            "n_concurrent": 1,
+            "concurrency_group": null,
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "resume_trajectory": false,
+            "load_trajectory": null,
+            "extra_allowed_hosts": [],
+            "include_logs": [
+                "*"
+            ],
+            "kwargs": {
+                "harness": "pi",
+                "cell_id": "merge-diff-arc-agi-task--pi",
+                "mode": "real"
+            },
+            "mcp_servers": []
+        },
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [],
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "extra_instruction_paths": [],
+        "job_id": "c1645f51-fd77-44dd-aaf9-f7b8ec513347",
+        "source_trial": null
+    },
+    "agent_info": {
+        "name": "direct-openai-pairwise",
+        "version": "1.0+84105f07",
+        "model_info": {
+            "name": "gpt-5.6-sol",
+            "provider": "openai"
+        }
+    },
+    "agent_result": {
+        "n_input_tokens": 90678,
+        "n_cache_tokens": 77676,
+        "n_output_tokens": 2809,
+        "cost_usd": null,
+        "rollout_details": null,
+        "metadata": {
+            "cell_id": "merge-diff-arc-agi-task--pi",
+            "harness": "pi",
+            "backend": "direct-openai",
+            "model_requests": 12,
+            "tool_calls": 11,
+            "response_models": [
+                "gpt-5.6-sol"
+            ],
+            "verifier_handoff": true
+        }
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 1.0
+        }
+    },
+    "verifier_environment_mode": "shared",
+    "exception_info": null,
+    "started_at": "2026-08-25T08:31:35.302342Z",
+    "finished_at": "2026-08-25T08:33:58.118479Z",
+    "environment_setup": {
+        "started_at": "2026-08-25T08:31:35.381191Z",
+        "finished_at": "2026-08-25T08:31:36.376785Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-08-25T08:31:36.376860Z",
+        "finished_at": "2026-08-25T08:32:21.496312Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-08-25T08:32:21.496494Z",
+        "finished_at": "2026-08-25T08:33:36.929324Z"
+    },
+    "verifier": {
+        "started_at": "2026-08-25T08:33:37.390364Z",
+        "finished_at": "2026-08-25T08:33:46.930932Z"
+    },
+    "step_results": null
+}

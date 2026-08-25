@@ -1,0 +1,24 @@
+{
+    "task": {
+        "name": "terminal-bench/merge-diff-arc-agi-task",
+        "ref": "sha256:6aab6511a5344ce87698293bb1ce4cc51d9a45f1ad9f0c075d2a83197b36727d",
+        "source": "terminal-bench/terminal-bench-2-1"
+    },
+    "trial_name": "merge-diff-arc-agi-task__UFJzDE2",
+    "trials_dir": "/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/direct-openai-20task-pairwise/direct-openai-20task-pairwise-real-merge-diff-arc-agi-task--pi-20260825-083133-5b7c1751",
+    "agent_setup_timeout_multiplier": 3.0,
+    "agent": {
+        "name": "tbench.direct_agent:DirectOpenAIAgent",
+        "model_name": "openai/gpt-5.6-sol",
+        "n_concurrent": 1,
+        "include_logs": [
+            "*"
+        ],
+        "kwargs": {
+            "harness": "pi",
+            "cell_id": "merge-diff-arc-agi-task--pi",
+            "mode": "real"
+        }
+    },
+    "job_id": "c1645f51-fd77-44dd-aaf9-f7b8ec513347"
+}

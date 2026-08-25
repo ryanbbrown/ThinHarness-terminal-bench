@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import tomllib
 
 from tbench.constants import PROMPT_PATH, PROMPT_SHA256, REPOSITORY_ROOT
 from tbench.repository_checks import check
@@ -13,6 +14,13 @@ def test_repository_contains_no_product_or_runnable_proxy_adapter() -> None:
     assert not (REPOSITORY_ROOT / "thinharness").exists()
     assert not [path for path in REPOSITORY_ROOT.rglob("*.bundle") if ".git" not in path.parts]
     assert not [path for path in REPOSITORY_ROOT.rglob("adapter.py") if ".venv" not in path.parts]
+
+
+def test_distribution_excludes_runtime_evidence() -> None:
+    config = tomllib.loads((REPOSITORY_ROOT / "pyproject.toml").read_text())
+    excluded = set(config["tool"]["hatch"]["build"]["exclude"])
+
+    assert {"/artifacts", "/evidence", "/jobs", "/reports", "/runs"} <= excluded
 
 
 def test_frozen_prompt_and_preserved_receipts_have_literal_hashes() -> None:
