@@ -1,0 +1,25 @@
+{
+  "algorithm": "sha256",
+  "files": {
+    "cells/configure-git-webserver--pi/gateway-identity.json": "2cc4159c0a564d680040c7630dc05fc60b215eb0aad647b68856ac3ee8f800c9",
+    "cells/configure-git-webserver--pi/job/config.json": "c91661061908762b35b016f867bd8ffd9b4dbfb73954bf40c2c01f9d68fd0fb2",
+    "cells/configure-git-webserver--pi/job/configure-git-webserver__q5XQo9K/agent/host-agent-setup.json": "d3f7cd7fd48646faac90eef7db4abee1fe9d12b17e9f46661955f3e754bb7120",
+    "cells/configure-git-webserver--pi/job/configure-git-webserver__q5XQo9K/agent/install-provenance.json": "489c1f00280edf45e654cda6a34d7709eaa33dddc86c3413a761541ab81e292f",
+    "cells/configure-git-webserver--pi/job/configure-git-webserver__q5XQo9K/agent/pi-events.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cells/configure-git-webserver--pi/job/configure-git-webserver__q5XQo9K/agent/pi-stderr.log": "dd5d65c61fcade7a636ce0b4f8cdf7eb60740bd9794df7fa6de4b0ad554ae359",
+    "cells/configure-git-webserver--pi/job/configure-git-webserver__q5XQo9K/agent/pi-subscription-result.json": "df4136e5c1807e43999af5ea3e09c196d9d8b73309ed76b159ae704a7b7b7924",
+    "cells/configure-git-webserver--pi/job/configure-git-webserver__q5XQo9K/artifacts/manifest.json": "c1db653f487fb773c4f9247162ab3314e7f0584a486914b9874c4b3d6949e42d",
+    "cells/configure-git-webserver--pi/job/configure-git-webserver__q5XQo9K/config.json": "1cf66c6ff6dd8dc73bf71136093878f6c275bd7a02d14f0db7863127b8411e82",
+    "cells/configure-git-webserver--pi/job/configure-git-webserver__q5XQo9K/exception.txt": "2b8272a09100f3edebfeed96c0b2ac23e0728a48e4bed8c90c23b32f3f09be4c",
+    "cells/configure-git-webserver--pi/job/configure-git-webserver__q5XQo9K/lock.json": "309f39290764a40db610ed384d1c2f5bbe72ae8bd4ce4a1e293e88bd13734613",
+    "cells/configure-git-webserver--pi/job/configure-git-webserver__q5XQo9K/result.json": "654ec1d395df5ee4816da438996290a891fef56c5701492766c567794c522b6b",
+    "cells/configure-git-webserver--pi/job/configure-git-webserver__q5XQo9K/trial.log": "80ebc16cd695b457e2eb4ea38380ba6fa70ec40cf138504b88983d1a4dd62b81",
+    "cells/configure-git-webserver--pi/job/job.log": "37861d3f7c8a9d24d9f9e6f8506d7c26d00febdf25261024da1f8f3d8c6cfc1e",
+    "cells/configure-git-webserver--pi/job/lock.json": "0a0b9611706cb28e1ecbedba9fa08551ce4c03e49416f55246602918cf7c9725",
+    "cells/configure-git-webserver--pi/job/result.json": "8c8b6fa35ee029e272719b7d579783cf9d4f716ea24d78b8de663a89a6dee6eb",
+    "cells/configure-git-webserver--pi/launch.json": "6d8bfbf51d57ec00e76d139db8749a04ab6c0de23844e41605c7bf58f002883e",
+    "run-state.json": "45a5dc9a1914c7725b40a29ad6452b996865884fe8d0bfbade32491e15bfafd5",
+    "selection.json": "c0c57124bd0642780c684c2915cd404b45833286c598c596ff5267840afa2b4e"
+  },
+  "schema_version": 1
+}

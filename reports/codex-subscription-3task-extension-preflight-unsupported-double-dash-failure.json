@@ -1,0 +1,52 @@
+{
+  "cells": [
+    {
+      "artifact": "artifacts/codex-subscription-3task-extension-preflight-unsupported-double-dash-failure/cells/configure-git-webserver--pi",
+      "cell_id": "configure-git-webserver--pi",
+      "controlled_fake_requests": 0,
+      "subscription_requests": 0
+    }
+  ],
+  "classification": "runner argument-boundary correction used an unsupported Pi CLI delimiter",
+  "completed_cells": 0,
+  "error": {
+    "message": "gateway audit is empty for configure-git-webserver--pi; evidence preserved at /Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/artifacts/codex-subscription-3task-extension-preflight/cells/configure-git-webserver--pi",
+    "type": "RuntimeError"
+  },
+  "failed_cell": "configure-git-webserver--pi",
+  "mode": "fake",
+  "passed": false,
+  "planned_cells": 6,
+  "preservation": "immutable failed preflight evidence; no evidence replaced",
+  "real_model_calls": 0,
+  "reason": "Pi 0.84.2 rejects a standalone end-of-options delimiter, so the first corrected preflight could not reach its fake gateway.",
+  "runner_identity": {
+    "files": {
+      "configs/container-runtime-requirements.txt": "61d52e09e2edaa56c84a8f139c77dc6052312648d726366a6ec4be50e392c3a6",
+      "configs/pi-subscription-package-lock.json": "0f34d01dda1837fd634d0562d2c0350ff982da133de59f36fccdac62835fc1c0",
+      "configs/pi-subscription-package.json": "fdecbea847897b2ebdbc54aaabc1899c115dde083f81de65daf13e46feba80ba",
+      "configs/subscription-extension-selection.json": "c0c57124bd0642780c684c2915cd404b45833286c598c596ff5267840afa2b4e",
+      "prompts/pi-0.84.2-system-prompt.md": "bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e",
+      "pyproject.toml": "cc59d90f1cbb42bad8f11ab631dda9c4da55379c0d3c651215e6efcf176557cc",
+      "scripts/install-subscription-pi.sh": "e1168d4dc587b25dd36c1cc5d40f6623b0a0fea3086ee797cf47eb139dcf90d4",
+      "scripts/install-subscription-thinharness.sh": "45fa543fc958bd698ec4e88c9456888e3dc878998566c15eca88bb9d2c5d8f8f",
+      "tbench/container_security.py": "45e669996dcab219a827df78fb3fff7b8e8d6aa7abdc737746e2560666398603",
+      "tbench/pi_subscription_probe.mjs": "c7cd70f7344700f980dd898dc3c43aabc35a810d108c5d972b9438fccb4e5a4a",
+      "tbench/source_bundle.py": "bab0c0d80dc54f68ff9a927ef8dea789e229dfdf65be9d56de2dff2bd51194f9",
+      "tbench/subscription_agent.py": "a03c7a63613a5bce93365568ae5f37627235ba2f0af9ffe24bf595a46f05c0ff",
+      "tbench/subscription_constants.py": "f94ea0d2819ceb858dbee4181e276cca27d42f7efd1dbc337cd27d86becc9cc3",
+      "tbench/subscription_container.py": "65c1a5b6dc269ed9b3aeef4816fa92fb23c6c9f1691675a5eca0972fd29d0472",
+      "tbench/subscription_gateway.py": "deeb43e69a02a74b085a7238bdf3c0e4c50134b47d25363d563cab5f79adcb26",
+      "tbench/subscription_launch.py": "250c8c1b877d4e0bbeddb6c84b017006056a64c693f3d4d44a3d4c76c28cb086",
+      "tbench/subscription_validate.py": "d48504dbb273578e32da1ec1eb4a847295913c09963db4a3cea92f43c2989c91",
+      "uv.lock": "b960a45efb63fb5c5b738df1711410d1fe0c226f92bded3d29c0e6bf52f7e6d4"
+    },
+    "files_sha256": "94cb92088b6986b127ebb30c778578abc5766fbdf6ee4aab99247b84c8d23dc0",
+    "git_head": "f4df69598704e1312f9236c459ee8c8b9a421dc8"
+  },
+  "schema_version": 1,
+  "selected_task_invalid": false,
+  "status": "stopped",
+  "subscription_requests": 0,
+  "upstream_network_requests": 0
+}

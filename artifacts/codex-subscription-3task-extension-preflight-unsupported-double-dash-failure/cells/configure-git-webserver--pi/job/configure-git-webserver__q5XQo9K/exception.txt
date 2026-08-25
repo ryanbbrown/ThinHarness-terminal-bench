@@ -1,0 +1,26 @@
+Traceback (most recent call last):
+  File "/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/.venv/lib/python3.12/site-packages/harbor/trial/trial.py", line 378, in run
+    await self._run()
+  File "/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/.venv/lib/python3.12/site-packages/harbor/trial/single_step.py", line 41, in _run
+    await self._run_agent()
+  File "/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/.venv/lib/python3.12/site-packages/harbor/trial/single_step.py", line 77, in _run_agent
+    await self._run_agent_phase(
+  File "/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/.venv/lib/python3.12/site-packages/harbor/trial/trial.py", line 480, in _run_agent_phase
+    await asyncio.wait_for(
+  File "/Users/ryanbrown/.local/share/uv/python/cpython-3.12.11-macos-aarch64-none/lib/python3.12/asyncio/tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/tbench/subscription_agent.py", line 183, in run
+    raise RuntimeError(f"{self.harness} subscription runner failed: {detail}")
+RuntimeError: pi subscription runner failed: Traceback (most recent call last):
+  File "/opt/thinharness-terminal-bench-subscription/subscription_container.py", line 459, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/opt/thinharness-terminal-bench-subscription/subscription_container.py", line 455, in main
+    return _run_pi(args, url=url, token=token, mode=mode)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/thinharness-terminal-bench-subscription/subscription_container.py", line 433, in _run_pi
+    raise RuntimeError(f"Pi subscription process failed: {completed.stderr[-4000:]}")
+RuntimeError: Pi subscription process failed: Error: Unknown option: --
+
+

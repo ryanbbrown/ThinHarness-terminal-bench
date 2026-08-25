@@ -6,7 +6,7 @@ import inspect
 import httpx
 
 from tbench import subscription_container
-from tbench.subscription_container import _parse_pi_events, _provider_transport_identity, _subscription_provider
+from tbench.subscription_container import _parse_pi_events, _pi_cli_instruction, _provider_transport_identity, _subscription_provider
 
 
 def test_pi_event_parser_preserves_request_tool_and_reasoning_usage() -> None:
@@ -48,9 +48,11 @@ def test_pi_event_parser_preserves_request_tool_and_reasoning_usage() -> None:
     assert value["stop_reason"] == "stop"
 
 
-def test_pi_instruction_uses_end_of_options_boundary() -> None:
+def test_pi_instruction_cannot_be_parsed_as_an_option() -> None:
+    assert _pi_cli_instruction("- leading task item") == "\n- leading task item"
+    assert _pi_cli_instruction("ordinary task") == "ordinary task"
     source = inspect.getsource(subscription_container._run_pi)
-    assert '"--",\n        instruction,' in source
+    assert 'instruction = _pi_cli_instruction' in source
 
 
 def test_native_provider_owns_client_with_effective_1800_second_timeout() -> None:

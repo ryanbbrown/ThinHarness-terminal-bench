@@ -1,0 +1,122 @@
+{
+    "id": "1fabdb0c-d4ef-4d96-82b2-53cdf470125f",
+    "task_name": "terminal-bench/configure-git-webserver",
+    "trial_name": "configure-git-webserver__q5XQo9K",
+    "trial_uri": "file:///Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/codex-subscription-3task-extension/codex-subscription-3task-extension-fake-configure-git-webserver--pi-20260825-034005-a3bf95d0/configure-git-webserver__q5XQo9K",
+    "task_id": {
+        "org": "terminal-bench",
+        "name": "configure-git-webserver",
+        "ref": "sha256:e3dc712acfecdb1338a889f86c97b37422c3778351253f9aca4236e895fdb36e"
+    },
+    "source": "terminal-bench/terminal-bench-2-1",
+    "task_checksum": "84d7c2fd653dad4307c7d2e9dd4f937ecbcd7ad4d1acf5d2b74c35166634178e",
+    "config": {
+        "task": {
+            "path": null,
+            "git_url": null,
+            "git_commit_id": null,
+            "name": "terminal-bench/configure-git-webserver",
+            "ref": "sha256:e3dc712acfecdb1338a889f86c97b37422c3778351253f9aca4236e895fdb36e",
+            "overwrite": false,
+            "download_dir": null,
+            "source": "terminal-bench/terminal-bench-2-1"
+        },
+        "trial_name": "configure-git-webserver__q5XQo9K",
+        "trials_dir": "/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/codex-subscription-3task-extension/codex-subscription-3task-extension-fake-configure-git-webserver--pi-20260825-034005-a3bf95d0",
+        "install_only": false,
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": 3.0,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "tbench.subscription_agent:SubscriptionSmokeAgent",
+            "import_path": null,
+            "model_name": "openai/gpt-5.6-sol",
+            "n_concurrent": 1,
+            "concurrency_group": null,
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "resume_trajectory": false,
+            "load_trajectory": null,
+            "extra_allowed_hosts": [],
+            "include_logs": [
+                "*"
+            ],
+            "kwargs": {
+                "harness": "pi",
+                "cell_id": "configure-git-webserver--pi",
+                "mode": "fake"
+            },
+            "mcp_servers": []
+        },
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [],
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "extra_instruction_paths": [],
+        "job_id": "1d794a7d-851b-4097-9417-3b8c5a0d1f07",
+        "source_trial": null
+    },
+    "agent_info": {
+        "name": "matched-subscription-smoke",
+        "version": "1.0+84105f07",
+        "model_info": {
+            "name": "gpt-5.6-sol",
+            "provider": "openai"
+        }
+    },
+    "agent_result": {
+        "n_input_tokens": null,
+        "n_cache_tokens": null,
+        "n_output_tokens": null,
+        "cost_usd": null,
+        "rollout_details": null,
+        "metadata": null
+    },
+    "verifier_result": null,
+    "verifier_environment_mode": "shared",
+    "exception_info": {
+        "exception_type": "RuntimeError",
+        "exception_message": "pi subscription runner failed: Traceback (most recent call last):\n  File \"/opt/thinharness-terminal-bench-subscription/subscription_container.py\", line 459, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/opt/thinharness-terminal-bench-subscription/subscription_container.py\", line 455, in main\n    return _run_pi(args, url=url, token=token, mode=mode)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/thinharness-terminal-bench-subscription/subscription_container.py\", line 433, in _run_pi\n    raise RuntimeError(f\"Pi subscription process failed: {completed.stderr[-4000:]}\")\nRuntimeError: Pi subscription process failed: Error: Unknown option: --\n\n",
+        "exception_traceback": "Traceback (most recent call last):\n  File \"/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/.venv/lib/python3.12/site-packages/harbor/trial/trial.py\", line 378, in run\n    await self._run()\n  File \"/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/.venv/lib/python3.12/site-packages/harbor/trial/single_step.py\", line 41, in _run\n    await self._run_agent()\n  File \"/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/.venv/lib/python3.12/site-packages/harbor/trial/single_step.py\", line 77, in _run_agent\n    await self._run_agent_phase(\n  File \"/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/.venv/lib/python3.12/site-packages/harbor/trial/trial.py\", line 480, in _run_agent_phase\n    await asyncio.wait_for(\n  File \"/Users/ryanbrown/.local/share/uv/python/cpython-3.12.11-macos-aarch64-none/lib/python3.12/asyncio/tasks.py\", line 520, in wait_for\n    return await fut\n           ^^^^^^^^^\n  File \"/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/tbench/subscription_agent.py\", line 183, in run\n    raise RuntimeError(f\"{self.harness} subscription runner failed: {detail}\")\nRuntimeError: pi subscription runner failed: Traceback (most recent call last):\n  File \"/opt/thinharness-terminal-bench-subscription/subscription_container.py\", line 459, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/opt/thinharness-terminal-bench-subscription/subscription_container.py\", line 455, in main\n    return _run_pi(args, url=url, token=token, mode=mode)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/thinharness-terminal-bench-subscription/subscription_container.py\", line 433, in _run_pi\n    raise RuntimeError(f\"Pi subscription process failed: {completed.stderr[-4000:]}\")\nRuntimeError: Pi subscription process failed: Error: Unknown option: --\n\n\n",
+        "occurred_at": "2026-08-25T03:41:17.395199Z"
+    },
+    "started_at": "2026-08-25T03:40:06.858931Z",
+    "finished_at": "2026-08-25T03:41:28.363264Z",
+    "environment_setup": {
+        "started_at": "2026-08-25T03:40:06.947884Z",
+        "finished_at": "2026-08-25T03:40:07.923735Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-08-25T03:40:07.923821Z",
+        "finished_at": "2026-08-25T03:41:14.097083Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-08-25T03:41:14.097291Z",
+        "finished_at": "2026-08-25T03:41:16.945296Z"
+    },
+    "verifier": null,
+    "step_results": null
+}

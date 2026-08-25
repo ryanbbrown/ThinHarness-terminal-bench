@@ -299,9 +299,13 @@ def _parse_pi_events(events: list[dict[str, Any]]) -> dict[str, Any]:
     }
 
 
+def _pi_cli_instruction(instruction: str) -> str:
+    return f"\n{instruction}" if instruction.startswith("-") else instruction
+
+
 def _run_pi(args: argparse.Namespace, *, url: str, token: str, mode: str) -> int:
     prompt = _load_prompt(args.prompt)
-    instruction = args.instruction.read_text(encoding="utf-8")
+    instruction = _pi_cli_instruction(args.instruction.read_text(encoding="utf-8"))
     install = json.loads(args.install_provenance.read_text(encoding="utf-8"))
     agent_dir = Path("/opt/pi-subscription-agent")
     agent_dir.mkdir(parents=True, exist_ok=True)
@@ -364,7 +368,6 @@ def _run_pi(args: argparse.Namespace, *, url: str, token: str, mode: str) -> int
         "read,bash,edit,write",
         "--approve",
         "--offline",
-        "--",
         instruction,
     ]
     environment = os.environ.copy()

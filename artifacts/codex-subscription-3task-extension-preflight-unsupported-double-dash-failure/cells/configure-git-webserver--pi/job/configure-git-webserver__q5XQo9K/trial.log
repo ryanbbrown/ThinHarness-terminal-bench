@@ -1,0 +1,13 @@
+Trial configure-git-webserver__q5XQo9K failed: pi subscription runner failed: Traceback (most recent call last):
+  File "/opt/thinharness-terminal-bench-subscription/subscription_container.py", line 459, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/opt/thinharness-terminal-bench-subscription/subscription_container.py", line 455, in main
+    return _run_pi(args, url=url, token=token, mode=mode)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/thinharness-terminal-bench-subscription/subscription_container.py", line 433, in _run_pi
+    raise RuntimeError(f"Pi subscription process failed: {completed.stderr[-4000:]}")
+RuntimeError: Pi subscription process failed: Error: Unknown option: --
+
+
+Collecting main service artifacts
