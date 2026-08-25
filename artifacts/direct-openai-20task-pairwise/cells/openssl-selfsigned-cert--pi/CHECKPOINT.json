@@ -1,0 +1,120 @@
+{
+  "batching": [
+    {
+      "sequence": 1,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 2,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "write"
+      ]
+    },
+    {
+      "sequence": 3,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 4,
+      "tool_calls_in_response": 0,
+      "tool_names": []
+    }
+  ],
+  "cell_id": "openssl-selfsigned-cert--pi",
+  "cost": {
+    "actual_cash_total": null,
+    "api_equivalent_total": 0.07420225,
+    "components": {
+      "cache_write": 0.02105625,
+      "cached_input": 0.0033160000000000004,
+      "ordinary_input": 6e-05,
+      "output": 0.04977
+    },
+    "currency": "USD",
+    "prices_usd_per_million_tokens": {
+      "cache_write": 6.25,
+      "cached_input": 0.5,
+      "ordinary_input": 5.0,
+      "output": 30.0
+    }
+  },
+  "harbor_exit_code": 0,
+  "harness": "pi",
+  "identities": {
+    "gateway": {
+      "base_url": "http://host.docker.internal:61542/v1",
+      "bridge": null,
+      "cell_id": "openssl-selfsigned-cert--pi",
+      "direct_openai": true,
+      "ephemeral_token_persisted": false,
+      "mode": "real",
+      "port": 61542,
+      "provider": "OpenAI",
+      "upstream": "https://api.openai.com/v1/responses"
+    },
+    "model": "gpt-5.6-sol",
+    "runner_files_sha256": "b8365355010dd3d81b85e14d07f2f8bced41644be3dc1654a20516e9f3b2bec6",
+    "source_bundle_sha256": null
+  },
+  "mode": "real",
+  "never_rerun": true,
+  "real_model_attempted": true,
+  "request_count": 4,
+  "reward": 1.0,
+  "schema_version": 1,
+  "status": "completed",
+  "task": "openssl-selfsigned-cert",
+  "timing": {
+    "agent_execution": {
+      "finished_at": "2026-08-25T07:58:59.722131Z",
+      "started_at": "2026-08-25T07:58:28.606177Z"
+    },
+    "agent_setup": {
+      "finished_at": "2026-08-25T07:58:28.605935Z",
+      "started_at": "2026-08-25T07:57:24.961472Z"
+    },
+    "environment_setup": {
+      "finished_at": "2026-08-25T07:57:24.961347Z",
+      "started_at": "2026-08-25T07:57:23.958265Z"
+    },
+    "harbor_finished_at": "2026-08-25T07:59:17.224710Z",
+    "harbor_started_at": "2026-08-25T07:57:23.868694Z",
+    "launcher_finished_at": 1787644758.8405728,
+    "launcher_started_at": 1787644642.456436,
+    "request_seconds": [
+      9.256851250014734,
+      9.827242417028174,
+      4.0511950419750065,
+      3.9369580000056885
+    ],
+    "verifier": {
+      "finished_at": "2026-08-25T07:59:06.337046Z",
+      "started_at": "2026-08-25T07:59:00.158843Z"
+    }
+  },
+  "traces": {
+    "gateway_audit": "cells/openssl-selfsigned-cert--pi/gateway-audit.jsonl",
+    "harbor_result": "cells/openssl-selfsigned-cert--pi/job/openssl-selfsigned-cert__MABMTiz/result.json",
+    "native_receipt": "cells/openssl-selfsigned-cert--pi/job/openssl-selfsigned-cert__MABMTiz/agent/pi-direct-result.json",
+    "staging_stderr": "cells/openssl-selfsigned-cert--pi/harbor.stderr.log",
+    "staging_stdout": "cells/openssl-selfsigned-cert--pi/harbor.stdout.log",
+    "verifier_evidence": "cells/openssl-selfsigned-cert--pi/job/openssl-selfsigned-cert__MABMTiz/verifier/ctrf.json",
+    "verifier_evidence_sha256": "84d5634b8f3c08387b4b53b16389cd73f040cf9a39cc3d4662e2e8503ebe426d",
+    "verifier_evidence_type": "ctrf.json"
+  },
+  "usage": {
+    "cache_write_tokens": 3369,
+    "cached_input_tokens": 6632,
+    "input_tokens": 10013,
+    "ordinary_input_tokens": 12,
+    "output_tokens": 1659,
+    "reasoning_tokens": 697
+  }
+}

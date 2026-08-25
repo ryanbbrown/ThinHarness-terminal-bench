@@ -1,0 +1,144 @@
+{
+  "batching": [
+    {
+      "sequence": 1,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 2,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "edit"
+      ]
+    },
+    {
+      "sequence": 3,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "edit"
+      ]
+    },
+    {
+      "sequence": 4,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 5,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 6,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 7,
+      "tool_calls_in_response": 0,
+      "tool_names": []
+    }
+  ],
+  "cell_id": "polyglot-c-py--thinharness",
+  "cost": {
+    "actual_cash_total": null,
+    "api_equivalent_total": 0.151589,
+    "components": {
+      "cache_write": 0.0286,
+      "cached_input": 0.013294,
+      "ordinary_input": 0.000105,
+      "output": 0.10958999999999999
+    },
+    "currency": "USD",
+    "prices_usd_per_million_tokens": {
+      "cache_write": 6.25,
+      "cached_input": 0.5,
+      "ordinary_input": 5.0,
+      "output": 30.0
+    }
+  },
+  "harbor_exit_code": 0,
+  "harness": "thinharness",
+  "identities": {
+    "gateway": {
+      "base_url": "http://host.docker.internal:61862/v1",
+      "bridge": null,
+      "cell_id": "polyglot-c-py--thinharness",
+      "direct_openai": true,
+      "ephemeral_token_persisted": false,
+      "mode": "real",
+      "port": 61862,
+      "provider": "OpenAI",
+      "upstream": "https://api.openai.com/v1/responses"
+    },
+    "model": "gpt-5.6-sol",
+    "runner_files_sha256": "b8365355010dd3d81b85e14d07f2f8bced41644be3dc1654a20516e9f3b2bec6",
+    "source_bundle_sha256": "e21a975f633dae3e8e75c95e39d1f80a68155656b6dbaeaf2acc9067d702e093"
+  },
+  "mode": "real",
+  "never_rerun": true,
+  "real_model_attempted": true,
+  "request_count": 7,
+  "reward": 1.0,
+  "schema_version": 1,
+  "status": "completed",
+  "task": "polyglot-c-py",
+  "timing": {
+    "agent_execution": {
+      "finished_at": "2026-08-25T08:05:57.318190Z",
+      "started_at": "2026-08-25T08:04:47.067801Z"
+    },
+    "agent_setup": {
+      "finished_at": "2026-08-25T08:04:47.067630Z",
+      "started_at": "2026-08-25T08:03:58.236644Z"
+    },
+    "environment_setup": {
+      "finished_at": "2026-08-25T08:03:58.236564Z",
+      "started_at": "2026-08-25T08:03:57.244420Z"
+    },
+    "harbor_finished_at": "2026-08-25T08:06:20.209392Z",
+    "harbor_started_at": "2026-08-25T08:03:57.154065Z",
+    "launcher_finished_at": 1787645181.971898,
+    "launcher_started_at": 1787645035.669266,
+    "request_seconds": [
+      30.274368125014007,
+      17.497516125033144,
+      3.4724172079586424,
+      3.7008728749933653,
+      4.5668491660035215,
+      5.910105624992866,
+      2.0093311659875326
+    ],
+    "verifier": {
+      "finished_at": "2026-08-25T08:06:09.358795Z",
+      "started_at": "2026-08-25T08:05:57.760864Z"
+    }
+  },
+  "traces": {
+    "gateway_audit": "cells/polyglot-c-py--thinharness/gateway-audit.jsonl",
+    "harbor_result": "cells/polyglot-c-py--thinharness/job/polyglot-c-py__7ioMnoD/result.json",
+    "native_receipt": "cells/polyglot-c-py--thinharness/job/polyglot-c-py__7ioMnoD/agent/thinharness-direct-result.json",
+    "staging_stderr": "cells/polyglot-c-py--thinharness/harbor.stderr.log",
+    "staging_stdout": "cells/polyglot-c-py--thinharness/harbor.stdout.log",
+    "verifier_evidence": "cells/polyglot-c-py--thinharness/job/polyglot-c-py__7ioMnoD/verifier/ctrf.json",
+    "verifier_evidence_sha256": "cfcad93fffd0f697e5d38ff966c735cb34d8f0e2a44ae8905671c463e792d5d9",
+    "verifier_evidence_type": "ctrf.json"
+  },
+  "usage": {
+    "cache_write_tokens": 4576,
+    "cached_input_tokens": 26588,
+    "input_tokens": 31185,
+    "ordinary_input_tokens": 21,
+    "output_tokens": 3653,
+    "reasoning_tokens": 2033
+  }
+}

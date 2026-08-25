@@ -1,0 +1,13 @@
+{
+  "benchmark_id": "direct-openai-20task-pairwise",
+  "completed_cells": 8,
+  "mode": "real",
+  "planned_cells": 40,
+  "schema_version": 1,
+  "status": "external_blocker",
+  "stop": {
+    "message": "gateway audit sequence failed for vulnerable-secret--pi",
+    "type": "RuntimeError"
+  },
+  "updated_at": 1787645278.5799859
+}

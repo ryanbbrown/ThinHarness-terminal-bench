@@ -1,0 +1,2 @@
+{"cell_id": "vulnerable-secret--pi", "payload_sha256": "bd5b1f4e60075edc5919fd401dd9cf5ecf44b20a249d9d4b4ddc0abb0159b7ef", "schema_version": 1, "sequence": 1, "started_at": 1787645247.483298, "transport_retries": 0, "upstream": "https://api.openai.com/v1/responses"}
+{"cell_id": "vulnerable-secret--pi", "payload_sha256": "1d6c9a7d24ec433a0b2f9032f05dc89cb1b7146935cc65f62d10c62a76b1589c", "schema_version": 1, "sequence": 2, "started_at": 1787645249.954252, "transport_retries": 0, "upstream": "https://api.openai.com/v1/responses"}

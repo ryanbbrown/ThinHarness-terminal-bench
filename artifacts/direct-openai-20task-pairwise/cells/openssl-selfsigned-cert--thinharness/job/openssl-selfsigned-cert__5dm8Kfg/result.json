@@ -1,0 +1,134 @@
+{
+    "id": "388befae-99e6-4af7-94a8-49af2ab1c3e6",
+    "task_name": "terminal-bench/openssl-selfsigned-cert",
+    "trial_name": "openssl-selfsigned-cert__5dm8Kfg",
+    "trial_uri": "file:///Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/direct-openai-20task-pairwise/direct-openai-20task-pairwise-real-openssl-selfsigned-cert--thinharness-20260825-075918-4e9aa855/openssl-selfsigned-cert__5dm8Kfg",
+    "task_id": {
+        "org": "terminal-bench",
+        "name": "openssl-selfsigned-cert",
+        "ref": "sha256:d4afa2bd2a9ba1420db8d6cfde42ffdb4873ae2d955c35014e8da94444c83302"
+    },
+    "source": "terminal-bench/terminal-bench-2-1",
+    "task_checksum": "2b70d5535b5873f644fad37b76dbef86a1e42162e018c7bc06316e5e2521929a",
+    "config": {
+        "task": {
+            "path": null,
+            "git_url": null,
+            "git_commit_id": null,
+            "name": "terminal-bench/openssl-selfsigned-cert",
+            "ref": "sha256:d4afa2bd2a9ba1420db8d6cfde42ffdb4873ae2d955c35014e8da94444c83302",
+            "overwrite": false,
+            "download_dir": null,
+            "source": "terminal-bench/terminal-bench-2-1"
+        },
+        "trial_name": "openssl-selfsigned-cert__5dm8Kfg",
+        "trials_dir": "/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/direct-openai-20task-pairwise/direct-openai-20task-pairwise-real-openssl-selfsigned-cert--thinharness-20260825-075918-4e9aa855",
+        "install_only": false,
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": 3.0,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "tbench.direct_agent:DirectOpenAIAgent",
+            "import_path": null,
+            "model_name": "openai/gpt-5.6-sol",
+            "n_concurrent": 1,
+            "concurrency_group": null,
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "resume_trajectory": false,
+            "load_trajectory": null,
+            "extra_allowed_hosts": [],
+            "include_logs": [
+                "*"
+            ],
+            "kwargs": {
+                "harness": "thinharness",
+                "cell_id": "openssl-selfsigned-cert--thinharness",
+                "mode": "real"
+            },
+            "mcp_servers": []
+        },
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [],
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "extra_instruction_paths": [],
+        "job_id": "16d8efe4-14b1-4d0b-a37a-59527a1a9146",
+        "source_trial": null
+    },
+    "agent_info": {
+        "name": "direct-openai-pairwise",
+        "version": "1.0+84105f07",
+        "model_info": {
+            "name": "gpt-5.6-sol",
+            "provider": "openai"
+        }
+    },
+    "agent_result": {
+        "n_input_tokens": 11013,
+        "n_cache_tokens": 8314,
+        "n_output_tokens": 2108,
+        "cost_usd": null,
+        "rollout_details": null,
+        "metadata": {
+            "cell_id": "openssl-selfsigned-cert--thinharness",
+            "harness": "thinharness",
+            "backend": "direct-openai",
+            "model_requests": 4,
+            "tool_calls": 3,
+            "response_models": [
+                "gpt-5.6-sol"
+            ],
+            "verifier_handoff": true
+        }
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 1.0
+        }
+    },
+    "verifier_environment_mode": "shared",
+    "exception_info": null,
+    "started_at": "2026-08-25T07:59:20.191148Z",
+    "finished_at": "2026-08-25T08:01:24.431632Z",
+    "environment_setup": {
+        "started_at": "2026-08-25T07:59:20.285030Z",
+        "finished_at": "2026-08-25T07:59:21.376379Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-08-25T07:59:21.376499Z",
+        "finished_at": "2026-08-25T08:00:28.778583Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-08-25T08:00:28.778807Z",
+        "finished_at": "2026-08-25T08:01:05.685051Z"
+    },
+    "verifier": {
+        "started_at": "2026-08-25T08:01:06.106528Z",
+        "finished_at": "2026-08-25T08:01:13.603281Z"
+    },
+    "step_results": null
+}

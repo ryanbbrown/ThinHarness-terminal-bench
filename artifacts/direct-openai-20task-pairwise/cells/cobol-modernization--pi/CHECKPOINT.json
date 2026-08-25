@@ -1,0 +1,236 @@
+{
+  "batching": [
+    {
+      "sequence": 1,
+      "tool_calls_in_response": 3,
+      "tool_names": [
+        "bash",
+        "read",
+        "read"
+      ]
+    },
+    {
+      "sequence": 2,
+      "tool_calls_in_response": 2,
+      "tool_names": [
+        "bash",
+        "bash"
+      ]
+    },
+    {
+      "sequence": 3,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 4,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 5,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 6,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 7,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "write"
+      ]
+    },
+    {
+      "sequence": 8,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 9,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 10,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "edit"
+      ]
+    },
+    {
+      "sequence": 11,
+      "tool_calls_in_response": 2,
+      "tool_names": [
+        "bash",
+        "bash"
+      ]
+    },
+    {
+      "sequence": 12,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 13,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 14,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "edit"
+      ]
+    },
+    {
+      "sequence": 15,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 16,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 17,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "read"
+      ]
+    },
+    {
+      "sequence": 18,
+      "tool_calls_in_response": 0,
+      "tool_names": []
+    }
+  ],
+  "cell_id": "cobol-modernization--pi",
+  "cost": {
+    "actual_cash_total": null,
+    "api_equivalent_total": 0.53397775,
+    "components": {
+      "cache_write": 0.11443125,
+      "cached_input": 0.0912565,
+      "ordinary_input": 0.00027000000000000006,
+      "output": 0.32802
+    },
+    "currency": "USD",
+    "prices_usd_per_million_tokens": {
+      "cache_write": 6.25,
+      "cached_input": 0.5,
+      "ordinary_input": 5.0,
+      "output": 30.0
+    }
+  },
+  "harbor_exit_code": 0,
+  "harness": "pi",
+  "identities": {
+    "gateway": {
+      "base_url": "http://host.docker.internal:60933/v1",
+      "bridge": null,
+      "cell_id": "cobol-modernization--pi",
+      "direct_openai": true,
+      "ephemeral_token_persisted": false,
+      "mode": "real",
+      "port": 60933,
+      "provider": "OpenAI",
+      "upstream": "https://api.openai.com/v1/responses"
+    },
+    "model": "gpt-5.6-sol",
+    "runner_files_sha256": "b8365355010dd3d81b85e14d07f2f8bced41644be3dc1654a20516e9f3b2bec6",
+    "source_bundle_sha256": null
+  },
+  "mode": "real",
+  "never_rerun": true,
+  "real_model_attempted": true,
+  "request_count": 18,
+  "reward": 1.0,
+  "schema_version": 1,
+  "status": "completed",
+  "task": "cobol-modernization",
+  "timing": {
+    "agent_execution": {
+      "finished_at": "2026-08-25T07:48:32.943582Z",
+      "started_at": "2026-08-25T07:44:50.182856Z"
+    },
+    "agent_setup": {
+      "finished_at": "2026-08-25T07:44:50.182620Z",
+      "started_at": "2026-08-25T07:43:48.120578Z"
+    },
+    "environment_setup": {
+      "finished_at": "2026-08-25T07:43:48.120504Z",
+      "started_at": "2026-08-25T07:43:47.135274Z"
+    },
+    "harbor_finished_at": "2026-08-25T07:48:50.244658Z",
+    "harbor_started_at": "2026-08-25T07:43:47.042803Z",
+    "launcher_finished_at": 1787644131.6894279,
+    "launcher_started_at": 1787643825.676609,
+    "request_seconds": [
+      3.3098182909889147,
+      6.871329833054915,
+      3.1249250840046443,
+      10.020605249970686,
+      4.71651799994288,
+      27.40227554104058,
+      55.5127567499876,
+      13.075553041999228,
+      10.966720167023595,
+      11.61154929199256,
+      5.290924375003669,
+      12.09555349999573,
+      19.60347858298337,
+      7.783627166994847,
+      2.872859916999005,
+      6.998445958015509,
+      2.7107653339626268,
+      9.530343750026077
+    ],
+    "verifier": {
+      "finished_at": "2026-08-25T07:48:39.372568Z",
+      "started_at": "2026-08-25T07:48:33.339587Z"
+    }
+  },
+  "traces": {
+    "gateway_audit": "cells/cobol-modernization--pi/gateway-audit.jsonl",
+    "harbor_result": "cells/cobol-modernization--pi/job/cobol-modernization__xch6UHf/result.json",
+    "native_receipt": "cells/cobol-modernization--pi/job/cobol-modernization__xch6UHf/agent/pi-direct-result.json",
+    "staging_stderr": "cells/cobol-modernization--pi/harbor.stderr.log",
+    "staging_stdout": "cells/cobol-modernization--pi/harbor.stdout.log",
+    "verifier_evidence": "cells/cobol-modernization--pi/job/cobol-modernization__xch6UHf/verifier/ctrf.json",
+    "verifier_evidence_sha256": "bec2eed1e35653485032b49aeaed2964cefa9e423808836a22a6124e902ea987",
+    "verifier_evidence_type": "ctrf.json"
+  },
+  "usage": {
+    "cache_write_tokens": 18309,
+    "cached_input_tokens": 182513,
+    "input_tokens": 200876,
+    "ordinary_input_tokens": 54,
+    "output_tokens": 10934,
+    "reasoning_tokens": 7137
+  }
+}

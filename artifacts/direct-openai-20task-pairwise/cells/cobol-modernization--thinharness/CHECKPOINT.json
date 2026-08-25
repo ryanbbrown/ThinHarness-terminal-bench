@@ -1,0 +1,196 @@
+{
+  "batching": [
+    {
+      "sequence": 1,
+      "tool_calls_in_response": 3,
+      "tool_names": [
+        "read",
+        "bash",
+        "bash"
+      ]
+    },
+    {
+      "sequence": 2,
+      "tool_calls_in_response": 3,
+      "tool_names": [
+        "bash",
+        "bash",
+        "bash"
+      ]
+    },
+    {
+      "sequence": 3,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 4,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 5,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 6,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 7,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 8,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 9,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 10,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "write"
+      ]
+    },
+    {
+      "sequence": 11,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 12,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 13,
+      "tool_calls_in_response": 0,
+      "tool_names": []
+    }
+  ],
+  "cell_id": "cobol-modernization--thinharness",
+  "cost": {
+    "actual_cash_total": null,
+    "api_equivalent_total": 0.44168675,
+    "components": {
+      "cache_write": 0.11548125000000001,
+      "cached_input": 0.0623705,
+      "ordinary_input": 0.00019500000000000005,
+      "output": 0.26364
+    },
+    "currency": "USD",
+    "prices_usd_per_million_tokens": {
+      "cache_write": 6.25,
+      "cached_input": 0.5,
+      "ordinary_input": 5.0,
+      "output": 30.0
+    }
+  },
+  "harbor_exit_code": 0,
+  "harness": "thinharness",
+  "identities": {
+    "gateway": {
+      "base_url": "http://host.docker.internal:61142/v1",
+      "bridge": null,
+      "cell_id": "cobol-modernization--thinharness",
+      "direct_openai": true,
+      "ephemeral_token_persisted": false,
+      "mode": "real",
+      "port": 61142,
+      "provider": "OpenAI",
+      "upstream": "https://api.openai.com/v1/responses"
+    },
+    "model": "gpt-5.6-sol",
+    "runner_files_sha256": "b8365355010dd3d81b85e14d07f2f8bced41644be3dc1654a20516e9f3b2bec6",
+    "source_bundle_sha256": "e21a975f633dae3e8e75c95e39d1f80a68155656b6dbaeaf2acc9067d702e093"
+  },
+  "mode": "real",
+  "never_rerun": true,
+  "real_model_attempted": true,
+  "request_count": 13,
+  "reward": 1.0,
+  "schema_version": 1,
+  "status": "completed",
+  "task": "cobol-modernization",
+  "timing": {
+    "agent_execution": {
+      "finished_at": "2026-08-25T07:52:49.918808Z",
+      "started_at": "2026-08-25T07:50:00.359414Z"
+    },
+    "agent_setup": {
+      "finished_at": "2026-08-25T07:50:00.359119Z",
+      "started_at": "2026-08-25T07:48:54.313834Z"
+    },
+    "environment_setup": {
+      "finished_at": "2026-08-25T07:48:54.313706Z",
+      "started_at": "2026-08-25T07:48:53.304333Z"
+    },
+    "harbor_finished_at": "2026-08-25T07:53:08.425410Z",
+    "harbor_started_at": "2026-08-25T07:48:53.214539Z",
+    "launcher_finished_at": 1787644390.086493,
+    "launcher_started_at": 1787644131.708895,
+    "request_seconds": [
+      3.758846875047311,
+      5.2933869999833405,
+      5.20735479198629,
+      10.840213874995243,
+      12.071587582991924,
+      25.7313638330088,
+      7.57371766702272,
+      15.833560916013084,
+      36.305861708009616,
+      23.809773624991067,
+      8.585598082980141,
+      4.203662624990102,
+      4.006027540948708
+    ],
+    "verifier": {
+      "finished_at": "2026-08-25T07:52:57.580780Z",
+      "started_at": "2026-08-25T07:52:50.325580Z"
+    }
+  },
+  "traces": {
+    "gateway_audit": "cells/cobol-modernization--thinharness/gateway-audit.jsonl",
+    "harbor_result": "cells/cobol-modernization--thinharness/job/cobol-modernization__tgNHnLi/result.json",
+    "native_receipt": "cells/cobol-modernization--thinharness/job/cobol-modernization__tgNHnLi/agent/thinharness-direct-result.json",
+    "staging_stderr": "cells/cobol-modernization--thinharness/harbor.stderr.log",
+    "staging_stdout": "cells/cobol-modernization--thinharness/harbor.stdout.log",
+    "verifier_evidence": "cells/cobol-modernization--thinharness/job/cobol-modernization__tgNHnLi/verifier/ctrf.json",
+    "verifier_evidence_sha256": "0f89300a1c1c966536df0b92cbe2a6bcfbc3ecdc3d7d2a2928fa9f41fc38b534",
+    "verifier_evidence_type": "ctrf.json"
+  },
+  "usage": {
+    "cache_write_tokens": 18477,
+    "cached_input_tokens": 124741,
+    "input_tokens": 143257,
+    "ordinary_input_tokens": 39,
+    "output_tokens": 8788,
+    "reasoning_tokens": 5086
+  }
+}

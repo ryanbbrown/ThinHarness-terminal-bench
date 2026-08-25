@@ -1,0 +1,95 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 8,
+            "passed": 7,
+            "failed": 1,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1787644627.7419777,
+            "stop": 1787644630.0457296
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_nginx_installed",
+                "status": "passed",
+                "duration": 0.01544249999915337,
+                "start": 1787644627.9279454,
+                "stop": 1787644627.9443202,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_nginx_running",
+                "status": "passed",
+                "duration": 0.009796084000299743,
+                "start": 1787644627.9448693,
+                "stop": 1787644627.9550471,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_index_page_content",
+                "status": "passed",
+                "duration": 0.0028115000013713143,
+                "start": 1787644627.9553347,
+                "stop": 1787644627.9584587,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_custom_404_page",
+                "status": "passed",
+                "duration": 0.008479166999677545,
+                "start": 1787644627.9586992,
+                "stop": 1787644627.9674997,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_nginx_config_syntax",
+                "status": "passed",
+                "duration": 0.0277811659989311,
+                "start": 1787644627.967832,
+                "stop": 1787644627.9962494,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_nginx_config_settings",
+                "status": "passed",
+                "duration": 0.001001624998934858,
+                "start": 1787644627.9967427,
+                "stop": 1787644627.9980588,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_log_file_creation",
+                "status": "passed",
+                "duration": 1.0140710420009782,
+                "start": 1787644627.998308,
+                "stop": 1787644629.0138805,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_log_file_format",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 1.0156893339999442,
+                "start": 1787644629.0148351,
+                "stop": 1787644630.0454087,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_log_file_format():\n        \"\"\"Test that the log files have the correct format with all required fields.\"\"\"\n        # Make a unique request to identify in logs\n        unique_path = f\"/test-{int(time.time())}\"\n        requests.get(f\"http://localhost:8080{unique_path}\")\n    \n        # Wait a moment for logs to be written\n        time.sleep(1)\n    \n        log_files = [\n            \"/var/log/nginx/benchmark-access.log\",\n        ]\n    \n        log_content = \"\"\n        for log_file in log_files:\n            if Path(log_file).exists():\n                log_content = Path(log_file).read_text()\n                if unique_path in log_content:\n                    break\n    \n        # Check for timestamp format [DD/MMM/YYYY:HH:MM:SS +ZZZZ]\n        timestamp_pattern = r\"\\d{2}/\\w{3}/\\d{4}:\\d{2}:\\d{2}:\\d{2}\\s[+-]\\d{4}\"\n        assert re.search(timestamp_pattern, log_content), \"Timestamp format missing in logs\"\n    \n        # Check for request method (GET, POST, etc.)\n        method_pattern = r\"(GET|POST|PUT|DELETE|HEAD)\"\n        assert re.search(method_pattern, log_content), \"Request method missing in logs\"\n    \n        # Check for status code (e.g., 200, 404, etc.)\n        status_pattern = r\"\\s(\\d{3})\\s\"\n>       assert re.search(status_pattern, log_content), \"Status code missing in logs\"\nE       AssertionError: Status code missing in logs\nE       assert None\nE        +  where None = <function search at 0x7ffffebfd800>('\\\\s(\\\\d{3})\\\\s', '25/Aug/2026:07:56:56 +0000 method=GET status=200 user_agent=\"curl/7.88.1\"\\n25/Aug/2026:07:56:56 +0000 method=GET status=404 user_agent=\"curl/7.88.1\"\\n25/Aug/2026:07:57:07 +0000 method=GET status=200 user_agent=\"python-requests/2.32.4\"\\n25/Aug/2026:07:57:07 +0000 method=GET status=200 user_agent=\"python-requests/2.32.4\"\\n25/Aug/2026:07:57:07 +0000 method=GET status=404 user_agent=\"python-requests/2.32.4\"\\n25/Aug/2026:07:57:08 +0000 method=GET status=200 user_agent=\"python-requests/2.32.4\"\\n25/Aug/2026:07:57:09 +0000 method=GET status=404 user_agent=\"python-requests/2.32.4\"\\n')\nE        +    where <function search at 0x7ffffebfd800> = re.search\n\n/tests/test_outputs.py:174: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            }
+        ]
+    }
+}

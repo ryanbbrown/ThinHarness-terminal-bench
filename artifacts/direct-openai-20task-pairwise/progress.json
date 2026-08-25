@@ -1,0 +1,1267 @@
+{
+  "benchmark_id": "direct-openai-20task-pairwise",
+  "cells": [
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 3,
+          "tool_names": [
+            "bash",
+            "read",
+            "read"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 2,
+          "tool_names": [
+            "bash",
+            "bash"
+          ]
+        },
+        {
+          "sequence": 3,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 4,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 5,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 6,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 7,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "write"
+          ]
+        },
+        {
+          "sequence": 8,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 9,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 10,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "edit"
+          ]
+        },
+        {
+          "sequence": 11,
+          "tool_calls_in_response": 2,
+          "tool_names": [
+            "bash",
+            "bash"
+          ]
+        },
+        {
+          "sequence": 12,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 13,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 14,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "edit"
+          ]
+        },
+        {
+          "sequence": 15,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 16,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 17,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "read"
+          ]
+        },
+        {
+          "sequence": 18,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "cobol-modernization--pi",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.53397775,
+        "components": {
+          "cache_write": 0.11443125,
+          "cached_input": 0.0912565,
+          "ordinary_input": 0.00027000000000000006,
+          "output": 0.32802
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "pi",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:60933/v1",
+          "bridge": null,
+          "cell_id": "cobol-modernization--pi",
+          "direct_openai": true,
+          "ephemeral_token_persisted": false,
+          "mode": "real",
+          "port": 60933,
+          "provider": "OpenAI",
+          "upstream": "https://api.openai.com/v1/responses"
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "b8365355010dd3d81b85e14d07f2f8bced41644be3dc1654a20516e9f3b2bec6",
+        "source_bundle_sha256": null
+      },
+      "mode": "real",
+      "never_rerun": true,
+      "real_model_attempted": true,
+      "request_count": 18,
+      "reward": 1.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "cobol-modernization",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T07:48:32.943582Z",
+          "started_at": "2026-08-25T07:44:50.182856Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T07:44:50.182620Z",
+          "started_at": "2026-08-25T07:43:48.120578Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T07:43:48.120504Z",
+          "started_at": "2026-08-25T07:43:47.135274Z"
+        },
+        "harbor_finished_at": "2026-08-25T07:48:50.244658Z",
+        "harbor_started_at": "2026-08-25T07:43:47.042803Z",
+        "launcher_finished_at": 1787644131.6894279,
+        "launcher_started_at": 1787643825.676609,
+        "request_seconds": [
+          3.3098182909889147,
+          6.871329833054915,
+          3.1249250840046443,
+          10.020605249970686,
+          4.71651799994288,
+          27.40227554104058,
+          55.5127567499876,
+          13.075553041999228,
+          10.966720167023595,
+          11.61154929199256,
+          5.290924375003669,
+          12.09555349999573,
+          19.60347858298337,
+          7.783627166994847,
+          2.872859916999005,
+          6.998445958015509,
+          2.7107653339626268,
+          9.530343750026077
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T07:48:39.372568Z",
+          "started_at": "2026-08-25T07:48:33.339587Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/cobol-modernization--pi/gateway-audit.jsonl",
+        "harbor_result": "cells/cobol-modernization--pi/job/cobol-modernization__xch6UHf/result.json",
+        "native_receipt": "cells/cobol-modernization--pi/job/cobol-modernization__xch6UHf/agent/pi-direct-result.json",
+        "staging_stderr": "cells/cobol-modernization--pi/harbor.stderr.log",
+        "staging_stdout": "cells/cobol-modernization--pi/harbor.stdout.log",
+        "verifier_evidence": "cells/cobol-modernization--pi/job/cobol-modernization__xch6UHf/verifier/ctrf.json",
+        "verifier_evidence_sha256": "bec2eed1e35653485032b49aeaed2964cefa9e423808836a22a6124e902ea987",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 18309,
+        "cached_input_tokens": 182513,
+        "input_tokens": 200876,
+        "ordinary_input_tokens": 54,
+        "output_tokens": 10934,
+        "reasoning_tokens": 7137
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 3,
+          "tool_names": [
+            "read",
+            "bash",
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 3,
+          "tool_names": [
+            "bash",
+            "bash",
+            "bash"
+          ]
+        },
+        {
+          "sequence": 3,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 4,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 5,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 6,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 7,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 8,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 9,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 10,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "write"
+          ]
+        },
+        {
+          "sequence": 11,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 12,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 13,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "cobol-modernization--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.44168675,
+        "components": {
+          "cache_write": 0.11548125000000001,
+          "cached_input": 0.0623705,
+          "ordinary_input": 0.00019500000000000005,
+          "output": 0.26364
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "thinharness",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:61142/v1",
+          "bridge": null,
+          "cell_id": "cobol-modernization--thinharness",
+          "direct_openai": true,
+          "ephemeral_token_persisted": false,
+          "mode": "real",
+          "port": 61142,
+          "provider": "OpenAI",
+          "upstream": "https://api.openai.com/v1/responses"
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "b8365355010dd3d81b85e14d07f2f8bced41644be3dc1654a20516e9f3b2bec6",
+        "source_bundle_sha256": "e21a975f633dae3e8e75c95e39d1f80a68155656b6dbaeaf2acc9067d702e093"
+      },
+      "mode": "real",
+      "never_rerun": true,
+      "real_model_attempted": true,
+      "request_count": 13,
+      "reward": 1.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "cobol-modernization",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T07:52:49.918808Z",
+          "started_at": "2026-08-25T07:50:00.359414Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T07:50:00.359119Z",
+          "started_at": "2026-08-25T07:48:54.313834Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T07:48:54.313706Z",
+          "started_at": "2026-08-25T07:48:53.304333Z"
+        },
+        "harbor_finished_at": "2026-08-25T07:53:08.425410Z",
+        "harbor_started_at": "2026-08-25T07:48:53.214539Z",
+        "launcher_finished_at": 1787644390.086493,
+        "launcher_started_at": 1787644131.708895,
+        "request_seconds": [
+          3.758846875047311,
+          5.2933869999833405,
+          5.20735479198629,
+          10.840213874995243,
+          12.071587582991924,
+          25.7313638330088,
+          7.57371766702272,
+          15.833560916013084,
+          36.305861708009616,
+          23.809773624991067,
+          8.585598082980141,
+          4.203662624990102,
+          4.006027540948708
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T07:52:57.580780Z",
+          "started_at": "2026-08-25T07:52:50.325580Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/cobol-modernization--thinharness/gateway-audit.jsonl",
+        "harbor_result": "cells/cobol-modernization--thinharness/job/cobol-modernization__tgNHnLi/result.json",
+        "native_receipt": "cells/cobol-modernization--thinharness/job/cobol-modernization__tgNHnLi/agent/thinharness-direct-result.json",
+        "staging_stderr": "cells/cobol-modernization--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/cobol-modernization--thinharness/harbor.stdout.log",
+        "verifier_evidence": "cells/cobol-modernization--thinharness/job/cobol-modernization__tgNHnLi/verifier/ctrf.json",
+        "verifier_evidence_sha256": "0f89300a1c1c966536df0b92cbe2a6bcfbc3ecdc3d7d2a2928fa9f41fc38b534",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 18477,
+        "cached_input_tokens": 124741,
+        "input_tokens": 143257,
+        "ordinary_input_tokens": 39,
+        "output_tokens": 8788,
+        "reasoning_tokens": 5086
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 2,
+          "tool_names": [
+            "bash",
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 3,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 4,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 5,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "nginx-request-logging--pi",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.11053300000000002,
+        "components": {
+          "cache_write": 0.033612500000000003,
+          "cached_input": 0.0066455,
+          "ordinary_input": 7.500000000000001e-05,
+          "output": 0.07020000000000001
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "pi",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:61315/v1",
+          "bridge": null,
+          "cell_id": "nginx-request-logging--pi",
+          "direct_openai": true,
+          "ephemeral_token_persisted": false,
+          "mode": "real",
+          "port": 61315,
+          "provider": "OpenAI",
+          "upstream": "https://api.openai.com/v1/responses"
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "b8365355010dd3d81b85e14d07f2f8bced41644be3dc1654a20516e9f3b2bec6",
+        "source_bundle_sha256": null
+      },
+      "mode": "real",
+      "never_rerun": true,
+      "real_model_attempted": true,
+      "request_count": 5,
+      "reward": 1.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "nginx-request-logging",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T07:54:59.086465Z",
+          "started_at": "2026-08-25T07:54:14.255288Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T07:54:14.255073Z",
+          "started_at": "2026-08-25T07:53:12.641016Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T07:53:12.640894Z",
+          "started_at": "2026-08-25T07:53:11.573163Z"
+        },
+        "harbor_finished_at": "2026-08-25T07:55:19.139426Z",
+        "harbor_started_at": "2026-08-25T07:53:11.470342Z",
+        "launcher_finished_at": 1787644520.584328,
+        "launcher_started_at": 1787644390.0985842,
+        "request_seconds": [
+          4.87893729202915,
+          18.265641291975044,
+          5.11386537499493,
+          3.7385252499952912,
+          2.743160624988377
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T07:55:08.242255Z",
+          "started_at": "2026-08-25T07:54:59.521605Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/nginx-request-logging--pi/gateway-audit.jsonl",
+        "harbor_result": "cells/nginx-request-logging--pi/job/nginx-request-logging__iB2CRxs/result.json",
+        "native_receipt": "cells/nginx-request-logging--pi/job/nginx-request-logging__iB2CRxs/agent/pi-direct-result.json",
+        "staging_stderr": "cells/nginx-request-logging--pi/harbor.stderr.log",
+        "staging_stdout": "cells/nginx-request-logging--pi/harbor.stdout.log",
+        "verifier_evidence": "cells/nginx-request-logging--pi/job/nginx-request-logging__iB2CRxs/verifier/ctrf.json",
+        "verifier_evidence_sha256": "f44565e460499ed9253e868722a55588632933b8a768b6859cf895d358f2f975",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 5378,
+        "cached_input_tokens": 13291,
+        "input_tokens": 18684,
+        "ordinary_input_tokens": 15,
+        "output_tokens": 2340,
+        "reasoning_tokens": 1029
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 2,
+          "tool_names": [
+            "bash",
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 3,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "nginx-request-logging--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.0788165,
+        "components": {
+          "cache_write": 0.0253125,
+          "cached_input": 0.002489,
+          "ordinary_input": 4.5e-05,
+          "output": 0.050969999999999994
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "thinharness",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:61459/v1",
+          "bridge": null,
+          "cell_id": "nginx-request-logging--thinharness",
+          "direct_openai": true,
+          "ephemeral_token_persisted": false,
+          "mode": "real",
+          "port": 61459,
+          "provider": "OpenAI",
+          "upstream": "https://api.openai.com/v1/responses"
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "b8365355010dd3d81b85e14d07f2f8bced41644be3dc1654a20516e9f3b2bec6",
+        "source_bundle_sha256": "e21a975f633dae3e8e75c95e39d1f80a68155656b6dbaeaf2acc9067d702e093"
+      },
+      "mode": "real",
+      "never_rerun": true,
+      "real_model_attempted": true,
+      "request_count": 3,
+      "reward": 0.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "nginx-request-logging",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T07:57:01.826595Z",
+          "started_at": "2026-08-25T07:56:28.866857Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T07:56:28.866611Z",
+          "started_at": "2026-08-25T07:55:23.586053Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T07:55:23.585928Z",
+          "started_at": "2026-08-25T07:55:22.583794Z"
+        },
+        "harbor_finished_at": "2026-08-25T07:57:21.013351Z",
+        "harbor_started_at": "2026-08-25T07:55:22.494624Z",
+        "launcher_finished_at": 1787644642.44897,
+        "launcher_started_at": 1787644520.592366,
+        "request_seconds": [
+          4.194663166999817,
+          15.354084874968976,
+          4.754740333009977
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T07:57:10.121226Z",
+          "started_at": "2026-08-25T07:57:02.241478Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/nginx-request-logging--thinharness/gateway-audit.jsonl",
+        "harbor_result": "cells/nginx-request-logging--thinharness/job/nginx-request-logging__5335W5V/result.json",
+        "native_receipt": "cells/nginx-request-logging--thinharness/job/nginx-request-logging__5335W5V/agent/thinharness-direct-result.json",
+        "staging_stderr": "cells/nginx-request-logging--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/nginx-request-logging--thinharness/harbor.stdout.log",
+        "verifier_evidence": "cells/nginx-request-logging--thinharness/job/nginx-request-logging__5335W5V/verifier/ctrf.json",
+        "verifier_evidence_sha256": "19eaf91cd8e6ca9b77e6e01713e936d5982f5c5c765444cd1bcd1ec954cfd963",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 4050,
+        "cached_input_tokens": 4978,
+        "input_tokens": 9037,
+        "ordinary_input_tokens": 9,
+        "output_tokens": 1699,
+        "reasoning_tokens": 695
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "write"
+          ]
+        },
+        {
+          "sequence": 3,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 4,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "openssl-selfsigned-cert--pi",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.07420225,
+        "components": {
+          "cache_write": 0.02105625,
+          "cached_input": 0.0033160000000000004,
+          "ordinary_input": 6e-05,
+          "output": 0.04977
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "pi",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:61542/v1",
+          "bridge": null,
+          "cell_id": "openssl-selfsigned-cert--pi",
+          "direct_openai": true,
+          "ephemeral_token_persisted": false,
+          "mode": "real",
+          "port": 61542,
+          "provider": "OpenAI",
+          "upstream": "https://api.openai.com/v1/responses"
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "b8365355010dd3d81b85e14d07f2f8bced41644be3dc1654a20516e9f3b2bec6",
+        "source_bundle_sha256": null
+      },
+      "mode": "real",
+      "never_rerun": true,
+      "real_model_attempted": true,
+      "request_count": 4,
+      "reward": 1.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "openssl-selfsigned-cert",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T07:58:59.722131Z",
+          "started_at": "2026-08-25T07:58:28.606177Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T07:58:28.605935Z",
+          "started_at": "2026-08-25T07:57:24.961472Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T07:57:24.961347Z",
+          "started_at": "2026-08-25T07:57:23.958265Z"
+        },
+        "harbor_finished_at": "2026-08-25T07:59:17.224710Z",
+        "harbor_started_at": "2026-08-25T07:57:23.868694Z",
+        "launcher_finished_at": 1787644758.8405728,
+        "launcher_started_at": 1787644642.456436,
+        "request_seconds": [
+          9.256851250014734,
+          9.827242417028174,
+          4.0511950419750065,
+          3.9369580000056885
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T07:59:06.337046Z",
+          "started_at": "2026-08-25T07:59:00.158843Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/openssl-selfsigned-cert--pi/gateway-audit.jsonl",
+        "harbor_result": "cells/openssl-selfsigned-cert--pi/job/openssl-selfsigned-cert__MABMTiz/result.json",
+        "native_receipt": "cells/openssl-selfsigned-cert--pi/job/openssl-selfsigned-cert__MABMTiz/agent/pi-direct-result.json",
+        "staging_stderr": "cells/openssl-selfsigned-cert--pi/harbor.stderr.log",
+        "staging_stdout": "cells/openssl-selfsigned-cert--pi/harbor.stdout.log",
+        "verifier_evidence": "cells/openssl-selfsigned-cert--pi/job/openssl-selfsigned-cert__MABMTiz/verifier/ctrf.json",
+        "verifier_evidence_sha256": "84d5634b8f3c08387b4b53b16389cd73f040cf9a39cc3d4662e2e8503ebe426d",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 3369,
+        "cached_input_tokens": 6632,
+        "input_tokens": 10013,
+        "ordinary_input_tokens": 12,
+        "output_tokens": 1659,
+        "reasoning_tokens": 697
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "write"
+          ]
+        },
+        {
+          "sequence": 3,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 4,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "openssl-selfsigned-cert--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.08425075,
+        "components": {
+          "cache_write": 0.01679375,
+          "cached_input": 0.004157,
+          "ordinary_input": 6e-05,
+          "output": 0.06324
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "thinharness",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:61662/v1",
+          "bridge": null,
+          "cell_id": "openssl-selfsigned-cert--thinharness",
+          "direct_openai": true,
+          "ephemeral_token_persisted": false,
+          "mode": "real",
+          "port": 61662,
+          "provider": "OpenAI",
+          "upstream": "https://api.openai.com/v1/responses"
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "b8365355010dd3d81b85e14d07f2f8bced41644be3dc1654a20516e9f3b2bec6",
+        "source_bundle_sha256": "e21a975f633dae3e8e75c95e39d1f80a68155656b6dbaeaf2acc9067d702e093"
+      },
+      "mode": "real",
+      "never_rerun": true,
+      "real_model_attempted": true,
+      "request_count": 4,
+      "reward": 1.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "openssl-selfsigned-cert",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T08:01:05.685051Z",
+          "started_at": "2026-08-25T08:00:28.778807Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T08:00:28.778583Z",
+          "started_at": "2026-08-25T07:59:21.376499Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T07:59:21.376379Z",
+          "started_at": "2026-08-25T07:59:20.285030Z"
+        },
+        "harbor_finished_at": "2026-08-25T08:01:24.431632Z",
+        "harbor_started_at": "2026-08-25T07:59:20.191148Z",
+        "launcher_finished_at": 1787644886.0216908,
+        "launcher_started_at": 1787644758.848203,
+        "request_seconds": [
+          11.958335915987846,
+          10.278139624977484,
+          6.294335082988255,
+          6.871264083019923
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T08:01:13.603281Z",
+          "started_at": "2026-08-25T08:01:06.106528Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/openssl-selfsigned-cert--thinharness/gateway-audit.jsonl",
+        "harbor_result": "cells/openssl-selfsigned-cert--thinharness/job/openssl-selfsigned-cert__5dm8Kfg/result.json",
+        "native_receipt": "cells/openssl-selfsigned-cert--thinharness/job/openssl-selfsigned-cert__5dm8Kfg/agent/thinharness-direct-result.json",
+        "staging_stderr": "cells/openssl-selfsigned-cert--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/openssl-selfsigned-cert--thinharness/harbor.stdout.log",
+        "verifier_evidence": "cells/openssl-selfsigned-cert--thinharness/job/openssl-selfsigned-cert__5dm8Kfg/verifier/ctrf.json",
+        "verifier_evidence_sha256": "5b1896407f3419bda5291f31824babd38cf79fb3c8c580bc4f0bed4d27d4cfc9",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 2687,
+        "cached_input_tokens": 8314,
+        "input_tokens": 11013,
+        "ordinary_input_tokens": 12,
+        "output_tokens": 2108,
+        "reasoning_tokens": 1018
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "write"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 3,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 4,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "polyglot-c-py--pi",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.1748725,
+        "components": {
+          "cache_write": 0.036625000000000005,
+          "cached_input": 0.0049275,
+          "ordinary_input": 6e-05,
+          "output": 0.13326
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "pi",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:61747/v1",
+          "bridge": null,
+          "cell_id": "polyglot-c-py--pi",
+          "direct_openai": true,
+          "ephemeral_token_persisted": false,
+          "mode": "real",
+          "port": 61747,
+          "provider": "OpenAI",
+          "upstream": "https://api.openai.com/v1/responses"
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "b8365355010dd3d81b85e14d07f2f8bced41644be3dc1654a20516e9f3b2bec6",
+        "source_bundle_sha256": null
+      },
+      "mode": "real",
+      "never_rerun": true,
+      "real_model_attempted": true,
+      "request_count": 4,
+      "reward": 1.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "polyglot-c-py",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T08:03:32.880863Z",
+          "started_at": "2026-08-25T08:02:14.715375Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T08:02:14.715131Z",
+          "started_at": "2026-08-25T08:01:28.731854Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T08:01:28.731727Z",
+          "started_at": "2026-08-25T08:01:27.746687Z"
+        },
+        "harbor_finished_at": "2026-08-25T08:03:54.132058Z",
+        "harbor_started_at": "2026-08-25T08:01:27.656460Z",
+        "launcher_finished_at": 1787645035.6597261,
+        "launcher_started_at": 1787644886.029613,
+        "request_seconds": [
+          41.83624824997969,
+          5.218067458015867,
+          24.840929415950086,
+          2.2299520000233315
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T08:03:43.123885Z",
+          "started_at": "2026-08-25T08:03:33.307206Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/polyglot-c-py--pi/gateway-audit.jsonl",
+        "harbor_result": "cells/polyglot-c-py--pi/job/polyglot-c-py__THn2oTE/result.json",
+        "native_receipt": "cells/polyglot-c-py--pi/job/polyglot-c-py__THn2oTE/agent/pi-direct-result.json",
+        "staging_stderr": "cells/polyglot-c-py--pi/harbor.stderr.log",
+        "staging_stdout": "cells/polyglot-c-py--pi/harbor.stdout.log",
+        "verifier_evidence": "cells/polyglot-c-py--pi/job/polyglot-c-py__THn2oTE/verifier/ctrf.json",
+        "verifier_evidence_sha256": "3b630d725095e6990c9f3302de1052ff1c8173cb87b59880e425b08689c835cc",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 5860,
+        "cached_input_tokens": 9855,
+        "input_tokens": 15727,
+        "ordinary_input_tokens": 12,
+        "output_tokens": 4442,
+        "reasoning_tokens": 3169
+      }
+    },
+    {
+      "batching": [
+        {
+          "sequence": 1,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 2,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "edit"
+          ]
+        },
+        {
+          "sequence": 3,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "edit"
+          ]
+        },
+        {
+          "sequence": 4,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 5,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 6,
+          "tool_calls_in_response": 1,
+          "tool_names": [
+            "bash"
+          ]
+        },
+        {
+          "sequence": 7,
+          "tool_calls_in_response": 0,
+          "tool_names": []
+        }
+      ],
+      "cell_id": "polyglot-c-py--thinharness",
+      "cost": {
+        "actual_cash_total": null,
+        "api_equivalent_total": 0.151589,
+        "components": {
+          "cache_write": 0.0286,
+          "cached_input": 0.013294,
+          "ordinary_input": 0.000105,
+          "output": 0.10958999999999999
+        },
+        "currency": "USD",
+        "prices_usd_per_million_tokens": {
+          "cache_write": 6.25,
+          "cached_input": 0.5,
+          "ordinary_input": 5.0,
+          "output": 30.0
+        }
+      },
+      "harbor_exit_code": 0,
+      "harness": "thinharness",
+      "identities": {
+        "gateway": {
+          "base_url": "http://host.docker.internal:61862/v1",
+          "bridge": null,
+          "cell_id": "polyglot-c-py--thinharness",
+          "direct_openai": true,
+          "ephemeral_token_persisted": false,
+          "mode": "real",
+          "port": 61862,
+          "provider": "OpenAI",
+          "upstream": "https://api.openai.com/v1/responses"
+        },
+        "model": "gpt-5.6-sol",
+        "runner_files_sha256": "b8365355010dd3d81b85e14d07f2f8bced41644be3dc1654a20516e9f3b2bec6",
+        "source_bundle_sha256": "e21a975f633dae3e8e75c95e39d1f80a68155656b6dbaeaf2acc9067d702e093"
+      },
+      "mode": "real",
+      "never_rerun": true,
+      "real_model_attempted": true,
+      "request_count": 7,
+      "reward": 1.0,
+      "schema_version": 1,
+      "status": "completed",
+      "task": "polyglot-c-py",
+      "timing": {
+        "agent_execution": {
+          "finished_at": "2026-08-25T08:05:57.318190Z",
+          "started_at": "2026-08-25T08:04:47.067801Z"
+        },
+        "agent_setup": {
+          "finished_at": "2026-08-25T08:04:47.067630Z",
+          "started_at": "2026-08-25T08:03:58.236644Z"
+        },
+        "environment_setup": {
+          "finished_at": "2026-08-25T08:03:58.236564Z",
+          "started_at": "2026-08-25T08:03:57.244420Z"
+        },
+        "harbor_finished_at": "2026-08-25T08:06:20.209392Z",
+        "harbor_started_at": "2026-08-25T08:03:57.154065Z",
+        "launcher_finished_at": 1787645181.971898,
+        "launcher_started_at": 1787645035.669266,
+        "request_seconds": [
+          30.274368125014007,
+          17.497516125033144,
+          3.4724172079586424,
+          3.7008728749933653,
+          4.5668491660035215,
+          5.910105624992866,
+          2.0093311659875326
+        ],
+        "verifier": {
+          "finished_at": "2026-08-25T08:06:09.358795Z",
+          "started_at": "2026-08-25T08:05:57.760864Z"
+        }
+      },
+      "traces": {
+        "gateway_audit": "cells/polyglot-c-py--thinharness/gateway-audit.jsonl",
+        "harbor_result": "cells/polyglot-c-py--thinharness/job/polyglot-c-py__7ioMnoD/result.json",
+        "native_receipt": "cells/polyglot-c-py--thinharness/job/polyglot-c-py__7ioMnoD/agent/thinharness-direct-result.json",
+        "staging_stderr": "cells/polyglot-c-py--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/polyglot-c-py--thinharness/harbor.stdout.log",
+        "verifier_evidence": "cells/polyglot-c-py--thinharness/job/polyglot-c-py__7ioMnoD/verifier/ctrf.json",
+        "verifier_evidence_sha256": "cfcad93fffd0f697e5d38ff966c735cb34d8f0e2a44ae8905671c463e792d5d9",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "usage": {
+        "cache_write_tokens": 4576,
+        "cached_input_tokens": 26588,
+        "input_tokens": 31185,
+        "ordinary_input_tokens": 21,
+        "output_tokens": 3653,
+        "reasoning_tokens": 2033
+      }
+    }
+  ],
+  "dataset": "terminal-bench/terminal-bench-2-1@sha256:7d7bdc1cbedad549fc1140404bd4dc45e5fd0ea7c4186773687d177ad3a0699a",
+  "finished_at": 1787645278.579984,
+  "mode": "real",
+  "model": "gpt-5.6-sol",
+  "planned_cells": [
+    "cobol-modernization--pi",
+    "cobol-modernization--thinharness",
+    "nginx-request-logging--pi",
+    "nginx-request-logging--thinharness",
+    "openssl-selfsigned-cert--pi",
+    "openssl-selfsigned-cert--thinharness",
+    "polyglot-c-py--pi",
+    "polyglot-c-py--thinharness",
+    "vulnerable-secret--pi",
+    "vulnerable-secret--thinharness",
+    "break-filter-js-from-html--pi",
+    "break-filter-js-from-html--thinharness",
+    "merge-diff-arc-agi-task--pi",
+    "merge-diff-arc-agi-task--thinharness",
+    "count-dataset-tokens--pi",
+    "count-dataset-tokens--thinharness",
+    "git-leak-recovery--pi",
+    "git-leak-recovery--thinharness",
+    "multi-source-data-merger--pi",
+    "multi-source-data-merger--thinharness",
+    "pytorch-model-cli--pi",
+    "pytorch-model-cli--thinharness",
+    "sanitize-git-repo--pi",
+    "sanitize-git-repo--thinharness",
+    "sqlite-with-gcov--pi",
+    "sqlite-with-gcov--thinharness",
+    "tune-mjcf--pi",
+    "tune-mjcf--thinharness",
+    "code-from-image--pi",
+    "code-from-image--thinharness",
+    "custom-memory-heap-crash--pi",
+    "custom-memory-heap-crash--thinharness",
+    "qemu-alpine-ssh--pi",
+    "qemu-alpine-ssh--thinharness",
+    "qemu-startup--pi",
+    "qemu-startup--thinharness",
+    "financial-document-processor--pi",
+    "financial-document-processor--thinharness",
+    "dna-insert--pi",
+    "dna-insert--thinharness"
+  ],
+  "runner_identity": {
+    "files": {
+      "configs/container-runtime-requirements.txt": "61d52e09e2edaa56c84a8f139c77dc6052312648d726366a6ec4be50e392c3a6",
+      "configs/direct-openai-20task-selection.json": "c800c80251d4880fdafb066ef1bc690473c68923c160e9f4c31cc53879382960",
+      "configs/direct-openai-20task-settings.json": "79a0cd91ddff45d5e765e05b2de114c57fbd4f17d3cf15da67f28162d7f77c1e",
+      "configs/direct-openai-exclusion-proof.json": "eb7f357aa6de1a9795ac3495f5dcc90e82647698ca3231cc05c7b11ec4543cb0",
+      "configs/native-tool-schemas.json": "1c1c1e985590e9980264a2e6b8364bd96f1b052c0761eed7f127ac9ab60cfd24",
+      "configs/pi-native-tool-schemas.json": "88fda428f9a9114a62d2f3a394d85c7d15cddd111eddadbe7abbe728bff2afde",
+      "configs/pi-subscription-package-lock.json": "0f34d01dda1837fd634d0562d2c0350ff982da133de59f36fccdac62835fc1c0",
+      "configs/pi-subscription-package.json": "fdecbea847897b2ebdbc54aaabc1899c115dde083f81de65daf13e46feba80ba",
+      "prompts/pi-0.84.2-system-prompt.md": "bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e",
+      "pyproject.toml": "cc59d90f1cbb42bad8f11ab631dda9c4da55379c0d3c651215e6efcf176557cc",
+      "scripts/install-direct-pi.sh": "03b2a5504dc3c14c280dce99637058e3b3dbc9075372bd6fad079531b0242a7b",
+      "scripts/install-direct-thinharness.sh": "8b444733dcdbb29fc44e70a60d3c9a97640de79fc5c4e8d933c88eda024c7e6e",
+      "tbench/container_security.py": "45e669996dcab219a827df78fb3fff7b8e8d6aa7abdc737746e2560666398603",
+      "tbench/direct_agent.py": "a4b244501f1de1b578a61d8607747679f8bcf93e0eeae7cfeb2137f0b83b362c",
+      "tbench/direct_behavior_preflight.py": "b52594f6e7eca6ba89ded456747bb98a7e8fa7d53e4ddb06adae96deaabd8da2",
+      "tbench/direct_constants.py": "0a307d0d55e463deab616e20962140b2aafbe00259f45397ecd9cf0f57f9ec31",
+      "tbench/direct_container.py": "49e25a9caeb37fb51088a54981bd3be44234cb0fd7a030d246bf111db28921a0",
+      "tbench/direct_gateway.py": "6a2710ac23230aad9643a10a9ff15317bd9e9c781abbff9ad052dd75d68b885f",
+      "tbench/direct_launch.py": "68e57195a0d35bb98a8c240c7342accf8d99b485b17fc960465fdb5aa4a63b34",
+      "tbench/direct_validate.py": "63513fa7b93f9b63c2c4b651d4b89b871cc8e6b438ae2dae86035d468c53171d",
+      "tbench/pi_subscription_probe.mjs": "c7cd70f7344700f980dd898dc3c43aabc35a810d108c5d972b9438fccb4e5a4a",
+      "tbench/source_bundle.py": "bab0c0d80dc54f68ff9a927ef8dea789e229dfdf65be9d56de2dff2bd51194f9",
+      "uv.lock": "b960a45efb63fb5c5b738df1711410d1fe0c226f92bded3d29c0e6bf52f7e6d4"
+    },
+    "files_sha256": "b8365355010dd3d81b85e14d07f2f8bced41644be3dc1654a20516e9f3b2bec6",
+    "git_head": "1a72a1ce44138fcc6a4a9940a8c36eab4f18e5d4"
+  },
+  "schema_version": 1,
+  "source_bundle_sha256": "e21a975f633dae3e8e75c95e39d1f80a68155656b6dbaeaf2acc9067d702e093",
+  "started_at": 1787643825.675534,
+  "status": "external_blocker",
+  "stop": {
+    "message": "gateway audit sequence failed for vulnerable-secret--pi",
+    "type": "RuntimeError"
+  },
+  "updated_at": 1787645278.5799859
+}

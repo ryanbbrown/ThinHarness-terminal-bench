@@ -3,10 +3,11 @@ from __future__ import annotations
 import http.client
 import json
 import os
+import shutil
 import subprocess
 from pathlib import Path
 
-from tbench import direct_launch
+from tbench import direct_launch, direct_validate
 from tbench.direct_constants import EXPECTED_CELLS, TASKS
 from tbench.direct_gateway import run_gateway
 
@@ -66,10 +67,14 @@ def test_restart_skips_a_consumed_real_cell_and_preserves_pre_request_attempt(tm
     consumed = tmp_path / "cells" / consumed_id
     consumed.mkdir(parents=True)
     (consumed / "MODEL_REQUEST_STARTED.jsonl").write_text('{"sequence":1}\n')
+    (consumed / "launch.json").write_text(
+        json.dumps({"cell_id": consumed_id, "task": consumed_id.rsplit("--", 1)[0], "harness": "pi", "mode": "real"})
+    )
     progress = {"mode": "real", "status": "running", "cells": [], "planned_cells": list(EXPECTED_CELLS)}
 
     assert direct_launch._recover_interrupted(tmp_path, progress, consumed_id, "real") is True
     assert progress["cells"][0]["status"] == "consumed_interrupted"
+    assert progress["cells"][0]["never_rerun"] is True
     assert json.loads((consumed / "CHECKPOINT.json").read_text())["restart_action"].startswith("never rerun")
 
     pending_id = EXPECTED_CELLS[1]
@@ -79,6 +84,73 @@ def test_restart_skips_a_consumed_real_cell_and_preserves_pre_request_attempt(tm
     assert direct_launch._recover_interrupted(tmp_path, progress, pending_id, "real") is False
     assert not pending.exists()
     assert list((tmp_path / "infrastructure-attempts" / pending_id).iterdir())
+
+
+def test_policy_error_is_a_final_consumed_failure_with_complete_evidence() -> None:
+    cell = Path("artifacts/direct-openai-20task-pairwise/cells/vulnerable-secret--pi")
+
+    checkpoint = direct_validate.validate_cell(cell, mode="real", cell_id="vulnerable-secret--pi")
+
+    assert checkpoint["status"] == "model_attempt_failed"
+    assert checkpoint["never_rerun"] is True
+    assert checkpoint["request_count"] == 2
+    assert checkpoint["successful_request_count"] == 1
+    assert checkpoint["usage"] == {
+        "input_tokens": 1173,
+        "ordinary_input_tokens": 3,
+        "cached_input_tokens": 0,
+        "cache_write_tokens": 1170,
+        "output_tokens": 55,
+        "reasoning_tokens": 9,
+    }
+    assert checkpoint["cost"]["api_equivalent_total"] == 0.008977500000000001
+    assert checkpoint["reward"] == 0.0
+    assert checkpoint["verifier_outcome"] == {"rewards": {"reward": 0.0}}
+    assert checkpoint["timing"]["native_agent_seconds"] == 11.79096371399919
+    failure = checkpoint["model_attempt_failure"]
+    assert failure["sequence"] == 2
+    assert failure["status"] == 400
+    assert failure["credit_exhausted"] is False
+    assert failure["response"]["error"]["type"] == "invalid_request"
+    assert failure["response"]["error"]["code"] == "cyber_policy"
+    assert checkpoint["identities"]["runner"]["files_sha256"] == "b8365355010dd3d81b85e14d07f2f8bced41644be3dc1654a20516e9f3b2bec6"
+    assert checkpoint["identities"]["gateway"]["upstream"] == "https://api.openai.com/v1/responses"
+    assert checkpoint["identities"]["native_harness"]["harness_version"] == "0.84.2"
+    assert checkpoint["identities"]["harbor"]["task_id"]["ref"] == "sha256:d76dfa9e256487c5542905b892156f694137aeef784e1abf3f41e15a8c946eac"
+    assert all(checkpoint["traces"].values())
+
+
+def test_policy_recovery_upgrade_allows_only_runner_and_validator_changes() -> None:
+    root = Path("artifacts/direct-openai-20task-pairwise")
+    progress = json.loads((root / "progress.json").read_text())
+    old_identity = progress["runner_identity"]
+    new_identity = json.loads(json.dumps(old_identity))
+    new_identity["files"]["tbench/direct_launch.py"] = "1" * 64
+    new_identity["files"]["tbench/direct_validate.py"] = "2" * 64
+    new_identity["files_sha256"] = "3" * 64
+
+    assert direct_launch._is_safe_policy_recovery_upgrade(root, progress, old_identity, new_identity) is True
+    new_identity["files"]["tbench/direct_gateway.py"] = "4" * 64
+    assert direct_launch._is_safe_policy_recovery_upgrade(root, progress, old_identity, new_identity) is False
+
+
+def test_restart_recovers_exact_policy_failure_once_then_advances(tmp_path: Path, monkeypatch) -> None:
+    monkeypatch.setattr(direct_launch, "RUNS_DIR", tmp_path / "logs")
+    cell_id = "vulnerable-secret--pi"
+    source = Path("artifacts/direct-openai-20task-pairwise/cells") / cell_id
+    cell = tmp_path / "cells" / cell_id
+    shutil.copytree(source, cell)
+    (cell / "CHECKPOINT.json").unlink(missing_ok=True)
+    audit_before = (cell / "gateway-audit.jsonl").read_bytes()
+    progress = {"mode": "real", "status": "running", "cells": [], "planned_cells": list(EXPECTED_CELLS)}
+
+    assert direct_launch._recover_interrupted(tmp_path, progress, cell_id, "real") is True
+    assert [item["cell_id"] for item in progress["cells"]] == [cell_id]
+    assert progress["cells"][0]["status"] == "model_attempt_failed"
+    assert (cell / "gateway-audit.jsonl").read_bytes() == audit_before
+    assert direct_launch._recover_interrupted(tmp_path, progress, cell_id, "real") is True
+    assert len(progress["cells"]) == 1
+    assert direct_launch._recover_interrupted(tmp_path, progress, "vulnerable-secret--thinharness", "real") is False
 
 
 def test_real_launcher_script_keeps_key_out_of_native_bash_boundary(tmp_path: Path) -> None:

@@ -50,6 +50,7 @@ from .direct_gateway import GatewayIdentity, run_gateway
 from .source_bundle import ExactCommitBundle, exact_commit_bundle
 
 _LOCK = RUNS_DIR / "launch.lock"
+_RECOVERY_IDENTITY_FILES = {"tbench/direct_launch.py", "tbench/direct_validate.py"}
 _IDENTITY_FILES = (
     "configs/container-runtime-requirements.txt",
     "configs/direct-openai-20task-selection.json",
@@ -271,17 +272,47 @@ def _initial_progress(mode: str, identity: dict[str, Any], bundle_sha256: str) -
     }
 
 
+def _is_safe_policy_recovery_upgrade(
+    root: Path, progress: dict[str, Any], old_identity: dict[str, Any], new_identity: dict[str, Any]
+) -> bool:
+    old_files = old_identity.get("files") or {}
+    new_files = new_identity.get("files") or {}
+    if set(old_files) != set(new_files):
+        return False
+    changed = {name for name in old_files if old_files[name] != new_files[name]}
+    stop = progress.get("stop") or {}
+    expected_stop = "gateway audit sequence failed for vulnerable-secret--pi"
+    if not changed or not changed <= _RECOVERY_IDENTITY_FILES or stop.get("message") != expected_stop:
+        return False
+    done = {item.get("cell_id") for item in progress.get("cells") or []}
+    pending = []
+    for cell_id in EXPECTED_CELLS:
+        cell_dir = root / "cells" / cell_id
+        marker = cell_dir / "MODEL_REQUEST_STARTED.jsonl"
+        if not marker.is_file() or not marker.stat().st_size or cell_id in done:
+            continue
+        try:
+            checkpoint = direct_validate.recover_consumed_cell(cell_dir, mode="real", cell_id=cell_id)
+        except (FileNotFoundError, RuntimeError, json.JSONDecodeError):
+            return False
+        pending.append(checkpoint)
+    return len(pending) == 1 and pending[0].get("cell_id") == "vulnerable-secret--pi" and pending[0].get("status") == "model_attempt_failed"
+
+
 def _load_or_create_progress(root: Path, mode: str, identity: dict[str, Any], bundle_sha256: str) -> dict[str, Any]:
     progress_path = root / "progress.json"
     if progress_path.is_file():
         value = json.loads(progress_path.read_text(encoding="utf-8"))
         if value.get("mode") != mode or value.get("planned_cells") != list(EXPECTED_CELLS):
             raise RuntimeError("existing progress ledger differs from the frozen run")
-        if value.get("runner_identity", {}).get("files_sha256") != identity["files_sha256"]:
+        if value.get("source_bundle_sha256") != bundle_sha256:
+            raise RuntimeError("existing progress source bundle differs from the exact pinned commit")
+        old_identity = value.get("runner_identity") or {}
+        if old_identity.get("files_sha256") != identity["files_sha256"]:
             real_markers = list(root.glob("cells/*/MODEL_REQUEST_STARTED.jsonl"))
-            if mode == "real" and real_markers:
+            if mode == "real" and real_markers and not _is_safe_policy_recovery_upgrade(root, value, old_identity, identity):
                 raise RuntimeError("runner identity changed after a real model request began")
-            value.setdefault("runner_identity_history", []).append(value.get("runner_identity"))
+            value.setdefault("runner_identity_history", []).append(old_identity)
             value["runner_identity"] = identity
         value["status"] = "running"
         value.pop("finished_at", None)
@@ -313,6 +344,15 @@ def _write_progress(root: Path, progress: dict[str, Any], event: dict[str, Any] 
     )
 
 
+def _recover_consumed_checkpoint(cell_dir: Path, *, cell_id: str, mode: str) -> dict[str, Any]:
+    checkpoint_path = cell_dir / "CHECKPOINT.json"
+    if checkpoint_path.is_file():
+        return _read_checkpoint(checkpoint_path)
+    checkpoint = direct_validate.recover_consumed_cell(cell_dir, mode=mode, cell_id=cell_id)
+    _atomic_json(checkpoint_path, checkpoint)
+    return checkpoint
+
+
 def _recover_interrupted(root: Path, progress: dict[str, Any], cell_id: str, mode: str) -> bool:
     checkpoint = root / "cells" / cell_id / "CHECKPOINT.json"
     done = {item["cell_id"] for item in progress["cells"]}
@@ -333,15 +373,14 @@ def _recover_interrupted(root: Path, progress: dict[str, Any], cell_id: str, mod
         return False
     model_marker = cell_dir / "MODEL_REQUEST_STARTED.jsonl"
     if mode == "real" and model_marker.is_file() and model_marker.stat().st_size:
-        recovered = {
-            "schema_version": 1,
-            "cell_id": cell_id,
-            "status": "consumed_interrupted",
-            "real_model_attempted": True,
-            "restart_action": "never rerun; continue to the next frozen cell",
-            "recovered_at": time.time(),
-        }
-        _atomic_json(checkpoint, recovered)
+        recovered = _recover_consumed_checkpoint(cell_dir, cell_id=cell_id, mode=mode)
+        valid_consumed = (
+            recovered.get("cell_id") == cell_id
+            and recovered.get("real_model_attempted") is True
+            and recovered.get("never_rerun") is True
+        )
+        if not valid_consumed:
+            raise RuntimeError(f"consumed checkpoint is invalid for {cell_id}")
         progress["cells"].append(recovered)
         _write_progress(root, progress, recovered)
         _log(f"recovered consumed cell without rerun: {cell_id}")
@@ -426,13 +465,12 @@ def _run_cell(
         and trial_result.get("agent_result") is not None
     )
     if trial_succeeded:
-        direct_validate.validate_cell(cell_dir, mode=mode, cell_id=cell_id)
-        status = "completed"
+        checkpoint = direct_validate.validate_cell(cell_dir, mode=mode, cell_id=cell_id)
     elif mode == "real" and real_attempted:
         status = "credit_exhausted" if credit else "model_attempt_failed"
+        checkpoint = direct_validate.cell_summary(cell_dir, status=status, real_model_attempted=True)
     else:
-        status = "infrastructure_blocker"
-    checkpoint = direct_validate.cell_summary(cell_dir, status=status, real_model_attempted=real_attempted)
+        checkpoint = direct_validate.cell_summary(cell_dir, status="infrastructure_blocker", real_model_attempted=False)
     _atomic_json(cell_dir / "CHECKPOINT.json", checkpoint)
     return checkpoint
 
@@ -470,6 +508,9 @@ def run(mode: str) -> int:
                 for harness in ("pi", "thinharness"):
                     cell_id = f"{task}--{harness}"
                     if _recover_interrupted(root, progress, cell_id, gateway_mode):
+                        if progress["cells"][-1].get("status") == "credit_exhausted":
+                            stop = {"cell_id": cell_id, "reason": "prior genuine API billing or quota exhaustion"}
+                            return _finish(root, progress, "credit_exhausted", stop)
                         continue
                     _log(f"launching {gateway_mode} cell {cell_id}")
                     checkpoint = _run_cell(

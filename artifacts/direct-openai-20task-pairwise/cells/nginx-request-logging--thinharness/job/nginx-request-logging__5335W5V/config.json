@@ -1,0 +1,24 @@
+{
+    "task": {
+        "name": "terminal-bench/nginx-request-logging",
+        "ref": "sha256:9d1b8bebd989ea0bc8080c3b159480068caf183c5fd61385868b2574b206e097",
+        "source": "terminal-bench/terminal-bench-2-1"
+    },
+    "trial_name": "nginx-request-logging__5335W5V",
+    "trials_dir": "/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/direct-openai-20task-pairwise/direct-openai-20task-pairwise-real-nginx-request-logging--thinharness-20260825-075520-335ce7d2",
+    "agent_setup_timeout_multiplier": 3.0,
+    "agent": {
+        "name": "tbench.direct_agent:DirectOpenAIAgent",
+        "model_name": "openai/gpt-5.6-sol",
+        "n_concurrent": 1,
+        "include_logs": [
+            "*"
+        ],
+        "kwargs": {
+            "harness": "thinharness",
+            "cell_id": "nginx-request-logging--thinharness",
+            "mode": "real"
+        }
+    },
+    "job_id": "44c42128-b0ba-471f-8796-b9c7a658e01c"
+}

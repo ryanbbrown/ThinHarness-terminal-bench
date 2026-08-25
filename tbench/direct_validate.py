@@ -66,6 +66,37 @@ def _verifier_evidence(trial: Path) -> Path:
     raise RuntimeError(f"verifier evidence is absent in {trial}")
 
 
+def _audit_outcome(audit: list[dict[str, Any]], *, mode: str, cell_id: str) -> str:
+    if not audit:
+        raise RuntimeError(f"gateway audit is empty for {cell_id}")
+    outcome = "completed"
+    for sequence, item in enumerate(audit, 1):
+        if item.get("cell_id") != cell_id or item.get("sequence") != sequence:
+            raise RuntimeError(f"gateway audit sequence failed for {cell_id}")
+        status = item.get("status")
+        if status == 200:
+            if outcome != "completed":
+                raise RuntimeError(f"gateway audit continues after a final error for {cell_id}")
+            if item.get("response_model") != MODEL or not isinstance(item.get("usage"), dict) or not isinstance(item.get("cost_usd"), dict):
+                raise RuntimeError(f"gateway response identity or accounting is incomplete for {cell_id}")
+            continue
+        error = (item.get("response") or {}).get("error")
+        if (
+            mode != "real"
+            or sequence != len(audit)
+            or not isinstance(status, int)
+            or status < 400
+            or not isinstance(error, dict)
+            or not isinstance(error.get("type"), str)
+            or item.get("response_model") is not None
+            or item.get("usage") is not None
+            or item.get("cost_usd") is not None
+        ):
+            raise RuntimeError(f"gateway terminal error evidence is invalid for {cell_id}")
+        outcome = "credit_exhausted" if item.get("credit_exhausted") is True else "model_attempt_failed"
+    return outcome
+
+
 def validate_cell(cell_dir: Path, *, mode: str, cell_id: str) -> dict[str, Any]:
     """Validate one completed Harbor cell and all native-interface receipts."""
     if mode not in {"fake", "real"}:
@@ -86,13 +117,19 @@ def validate_cell(cell_dir: Path, *, mode: str, cell_id: str) -> dict[str, Any]:
         if (cell_dir / "MODEL_REQUEST_STARTED.jsonl").exists() or gateway.get("upstream") is not None or len(audit) != 2:
             raise RuntimeError(f"fake cell does not prove zero upstream requests: {cell_id}")
     else:
-        if not (cell_dir / "MODEL_REQUEST_STARTED.jsonl").is_file() or gateway.get("direct_openai") is not True:
+        marker_path = cell_dir / "MODEL_REQUEST_STARTED.jsonl"
+        if not marker_path.is_file() or gateway.get("direct_openai") is not True:
             raise RuntimeError(f"real cell does not prove direct OpenAI routing: {cell_id}")
-    for sequence, item in enumerate(audit, 1):
-        if item.get("cell_id") != cell_id or item.get("sequence") != sequence or item.get("status") != 200:
-            raise RuntimeError(f"gateway audit sequence failed for {cell_id}")
-        if item.get("response_model") != MODEL or not isinstance(item.get("usage"), dict) or not isinstance(item.get("cost_usd"), dict):
-            raise RuntimeError(f"gateway response identity or accounting is incomplete for {cell_id}")
+        markers = _audit(marker_path)
+        if len(markers) != len(audit) or any(
+            item.get("cell_id") != cell_id or item.get("sequence") != sequence
+            for sequence, item in enumerate(markers, 1)
+        ):
+            raise RuntimeError(f"model-request markers differ from the gateway audit for {cell_id}")
+    outcome = _audit_outcome(audit, mode=mode, cell_id=cell_id)
+    credit_marker = (cell_dir / "CREDIT_EXHAUSTED.json").is_file()
+    if (outcome == "credit_exhausted") != credit_marker:
+        raise RuntimeError(f"credit-exhaustion evidence differs for {cell_id}")
     trial = _trial(cell_dir)
     result = _read_json(trial / "result.json")
     receipt = _receipt(trial, harness)
@@ -108,7 +145,10 @@ def validate_cell(cell_dir: Path, *, mode: str, cell_id: str) -> dict[str, Any]:
         raise RuntimeError(f"prompt identity differs for {cell_id}")
     if receipt.get("openai_key_in_container") is not False:
         raise RuntimeError(f"credential isolation is not proved for {cell_id}")
-    if receipt.get("response_models") != [MODEL] or receipt.get("request_count") != len(audit):
+    successful_models = sorted(
+        {model for item in audit if item.get("status") == 200 and isinstance(model := item.get("response_model"), str)}
+    )
+    if receipt.get("response_models") != successful_models or receipt.get("request_count") != len(audit):
         raise RuntimeError(f"native request identity differs from gateway trace for {cell_id}")
     if harness == "pi":
         frozen_pi = _read_json(PI_SCHEMAS_PATH)
@@ -131,7 +171,24 @@ def validate_cell(cell_dir: Path, *, mode: str, cell_id: str) -> dict[str, Any]:
     if mode == "fake" and reward != 0:
         raise RuntimeError(f"controlled unsolved fake cell unexpectedly passed: {cell_id}")
     _verifier_evidence(trial)
-    return cell_summary(cell_dir, status="completed", real_model_attempted=mode == "real")
+    return cell_summary(cell_dir, status=outcome, real_model_attempted=mode == "real")
+
+
+def recover_consumed_cell(cell_dir: Path, *, mode: str, cell_id: str) -> dict[str, Any]:
+    """Build a final checkpoint for an interrupted cell that started a real request."""
+    marker = cell_dir / "MODEL_REQUEST_STARTED.jsonl"
+    if mode != "real" or not marker.is_file() or not marker.stat().st_size:
+        raise RuntimeError(f"cell has no consumed real model attempt: {cell_id}")
+    launch = _read_json(cell_dir / "launch.json")
+    if launch.get("cell_id") != cell_id or launch.get("mode") != mode:
+        raise RuntimeError(f"launch identity differs for recovered cell {cell_id}")
+    try:
+        return validate_cell(cell_dir, mode=mode, cell_id=cell_id)
+    except (FileNotFoundError, RuntimeError, json.JSONDecodeError) as exc:
+        status = "credit_exhausted" if (cell_dir / "CREDIT_EXHAUSTED.json").is_file() else "consumed_interrupted"
+        checkpoint = cell_summary(cell_dir, status=status, real_model_attempted=True)
+        checkpoint["recovery_validation_error"] = {"type": type(exc).__name__, "message": str(exc)}
+        return checkpoint
 
 
 def _usage_and_cost(audit: list[dict[str, Any]]) -> tuple[dict[str, int], dict[str, Any]]:
@@ -145,12 +202,15 @@ def _usage_and_cost(audit: list[dict[str, Any]]) -> tuple[dict[str, int], dict[s
     }
     components = {name: 0.0 for name in PRICES}
     actual: list[float] = []
+    successful_requests = 0
     for item in audit:
         for name in usage:
             value = (item.get("usage") or {}).get(name)
             if isinstance(value, int):
                 usage[name] += value
         cost = item.get("cost_usd") or {}
+        if item.get("status") == 200:
+            successful_requests += 1
         for name in components:
             value = (cost.get("components") or {}).get(name)
             if isinstance(value, int | float):
@@ -161,7 +221,7 @@ def _usage_and_cost(audit: list[dict[str, Any]]) -> tuple[dict[str, int], dict[s
         "currency": "USD",
         "components": components,
         "api_equivalent_total": sum(components.values()),
-        "actual_cash_total": sum(actual) if len(actual) == len(audit) and audit else None,
+        "actual_cash_total": sum(actual) if len(actual) == successful_requests and successful_requests else None,
         "prices_usd_per_million_tokens": PRICES,
     }
 
@@ -173,13 +233,22 @@ def cell_summary(cell_dir: Path, *, status: str, real_model_attempted: bool) -> 
     audit = _audit(audit_path) if audit_path.is_file() else []
     usage, cost = _usage_and_cost(audit)
     result: dict[str, Any] = {}
+    receipt: dict[str, Any] = {}
+    gateway: dict[str, Any] = {}
     trial: Path | None = None
+    try:
+        gateway = _read_json(cell_dir / "gateway-identity.json")
+    except (FileNotFoundError, RuntimeError, json.JSONDecodeError):
+        pass
     try:
         trial = _trial(cell_dir)
         result = _read_json(trial / "result.json")
+        receipt = _receipt(trial, str(launch.get("harness")))
     except (FileNotFoundError, RuntimeError, json.JSONDecodeError):
         pass
     reward = ((result.get("verifier_result") or {}).get("rewards") or {}).get("reward")
+    successful_requests = [item for item in audit if item.get("status") == 200]
+    terminal_error = next((item for item in reversed(audit) if item.get("status") != 200), None)
     batching = []
     for item in audit:
         output = (item.get("response") or {}).get("output") or []
@@ -200,11 +269,28 @@ def cell_summary(cell_dir: Path, *, status: str, real_model_attempted: bool) -> 
         "status": status,
         "real_model_attempted": real_model_attempted,
         "never_rerun": real_model_attempted,
+        "restart_action": (
+            "never rerun; continue to the next frozen cell" if real_model_attempted else "recoverable before any model request"
+        ),
         "harbor_exit_code": launch.get("harbor_exit_code"),
         "request_count": len(audit),
+        "successful_request_count": len(successful_requests),
         "usage": usage,
         "cost": cost,
         "reward": reward,
+        "verifier_outcome": result.get("verifier_result"),
+        "model_attempt_failure": (
+            {
+                "sequence": terminal_error.get("sequence"),
+                "status": terminal_error.get("status"),
+                "credit_exhausted": terminal_error.get("credit_exhausted"),
+                "response": terminal_error.get("response"),
+                "response_sha256": terminal_error.get("response_sha256"),
+                "response_headers": terminal_error.get("response_headers"),
+            }
+            if terminal_error is not None
+            else None
+        ),
         "timing": {
             "launcher_started_at": launch.get("started_at"),
             "launcher_finished_at": launch.get("finished_at"),
@@ -213,18 +299,44 @@ def cell_summary(cell_dir: Path, *, status: str, real_model_attempted: bool) -> 
             "environment_setup": result.get("environment_setup"),
             "agent_setup": result.get("agent_setup"),
             "agent_execution": result.get("agent_execution"),
+            "native_agent_seconds": receipt.get("agent_seconds"),
             "verifier": result.get("verifier"),
             "request_seconds": [item.get("duration_seconds") for item in audit],
         },
         "batching": batching,
         "traces": {
-            "gateway_audit": str(audit_path.relative_to(cell_dir.parent.parent)) if audit_path.is_file() else None,
-            "native_receipt": (
-                str((trial / "agent" / f"{launch.get('harness')}-direct-result.json").relative_to(cell_dir.parent.parent))
-                if trial is not None
+            "model_request_markers": (
+                str((cell_dir / "MODEL_REQUEST_STARTED.jsonl").relative_to(cell_dir.parent.parent))
+                if (cell_dir / "MODEL_REQUEST_STARTED.jsonl").is_file()
                 else None
             ),
-            "harbor_result": str((trial / "result.json").relative_to(cell_dir.parent.parent)) if trial is not None else None,
+            "gateway_audit": str(audit_path.relative_to(cell_dir.parent.parent)) if audit_path.is_file() else None,
+            "gateway_identity": (
+                str((cell_dir / "gateway-identity.json").relative_to(cell_dir.parent.parent))
+                if (cell_dir / "gateway-identity.json").is_file()
+                else None
+            ),
+            "launch": str((cell_dir / "launch.json").relative_to(cell_dir.parent.parent)),
+            "native_receipt": (
+                str((trial / "agent" / f"{launch.get('harness')}-direct-result.json").relative_to(cell_dir.parent.parent))
+                if trial is not None and (trial / "agent" / f"{launch.get('harness')}-direct-result.json").is_file()
+                else None
+            ),
+            "native_events": (
+                str((trial / "agent" / f"{launch.get('harness')}-events.jsonl").relative_to(cell_dir.parent.parent))
+                if trial is not None and (trial / "agent" / f"{launch.get('harness')}-events.jsonl").is_file()
+                else None
+            ),
+            "native_stderr": (
+                str((trial / "agent" / f"{launch.get('harness')}-stderr.log").relative_to(cell_dir.parent.parent))
+                if trial is not None and (trial / "agent" / f"{launch.get('harness')}-stderr.log").is_file()
+                else None
+            ),
+            "harbor_result": (
+                str((trial / "result.json").relative_to(cell_dir.parent.parent))
+                if trial is not None and (trial / "result.json").is_file()
+                else None
+            ),
             "verifier_evidence": str(verifier.relative_to(cell_dir.parent.parent)) if verifier is not None else None,
             "verifier_evidence_type": verifier.name if verifier is not None else None,
             "verifier_evidence_sha256": hashlib.sha256(verifier.read_bytes()).hexdigest() if verifier is not None else None,
@@ -232,10 +344,40 @@ def cell_summary(cell_dir: Path, *, status: str, real_model_attempted: bool) -> 
             "staging_stderr": str((cell_dir / "harbor.stderr.log").relative_to(cell_dir.parent.parent)),
         },
         "identities": {
-            "runner_files_sha256": (launch.get("runner_identity") or {}).get("files_sha256"),
-            "gateway": launch.get("gateway"),
+            "runner": launch.get("runner_identity"),
+            "launch_gateway": launch.get("gateway"),
+            "gateway": gateway,
             "source_bundle_sha256": launch.get("source_bundle_sha256"),
-            "model": MODEL,
+            "model": {
+                "name": receipt.get("model") or MODEL,
+                "backend": receipt.get("backend"),
+                "reasoning": receipt.get("reasoning"),
+                "text": receipt.get("text"),
+                "response_models": receipt.get("response_models"),
+            },
+            "native_harness": {
+                "kind": receipt.get("kind"),
+                "cell_id": receipt.get("cell_id"),
+                "mode": receipt.get("mode"),
+                "harness": receipt.get("harness"),
+                "harness_version": receipt.get("harness_version"),
+                "thinharness_commit": receipt.get("thinharness_commit"),
+                "prompt_sha256": receipt.get("prompt_sha256"),
+                "install": receipt.get("install"),
+                "execution": receipt.get("execution"),
+                "tools": receipt.get("tools"),
+                "tool_schemas": receipt.get("tool_schemas"),
+                "provider_transport": receipt.get("provider_transport"),
+            },
+            "harbor": {
+                "id": result.get("id"),
+                "task_name": result.get("task_name"),
+                "trial_name": result.get("trial_name"),
+                "task_id": result.get("task_id"),
+                "task_checksum": result.get("task_checksum"),
+                "source": result.get("source"),
+                "agent_info": result.get("agent_info"),
+            },
         },
     }
 
@@ -253,6 +395,9 @@ def build_report(root: Path) -> dict[str, Any]:
     )
     totals_usage = {name: 0 for name in usage_names}
     total_cost = 0.0
+    total_requests = 0
+    successful_requests = 0
+    status_counts: dict[str, int] = {}
     rewards = []
     for cell in cells:
         for name in totals_usage:
@@ -262,6 +407,15 @@ def build_report(root: Path) -> dict[str, Any]:
         value = (cell.get("cost") or {}).get("api_equivalent_total")
         if isinstance(value, int | float):
             total_cost += float(value)
+        if isinstance(cell.get("request_count"), int):
+            total_requests += cell["request_count"]
+        if isinstance(cell.get("successful_request_count"), int):
+            successful_requests += cell["successful_request_count"]
+        elif cell.get("status") == "completed" and isinstance(cell.get("request_count"), int):
+            successful_requests += cell["request_count"]
+        cell_status = cell.get("status")
+        if isinstance(cell_status, str):
+            status_counts[cell_status] = status_counts.get(cell_status, 0) + 1
         if isinstance(cell.get("reward"), int | float):
             rewards.append(float(cell["reward"]))
     return {
@@ -277,6 +431,9 @@ def build_report(root: Path) -> dict[str, Any]:
         "aggregate": {
             "usage": totals_usage,
             "api_equivalent_cost_usd": total_cost,
+            "request_count": total_requests,
+            "successful_request_count": successful_requests,
+            "cell_status_counts": status_counts,
             "reward_sum": sum(rewards),
             "reward_count": len(rewards),
         },

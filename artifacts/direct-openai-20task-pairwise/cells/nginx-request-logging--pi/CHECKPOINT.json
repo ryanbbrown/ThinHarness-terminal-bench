@@ -1,0 +1,129 @@
+{
+  "batching": [
+    {
+      "sequence": 1,
+      "tool_calls_in_response": 2,
+      "tool_names": [
+        "bash",
+        "bash"
+      ]
+    },
+    {
+      "sequence": 2,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 3,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 4,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 5,
+      "tool_calls_in_response": 0,
+      "tool_names": []
+    }
+  ],
+  "cell_id": "nginx-request-logging--pi",
+  "cost": {
+    "actual_cash_total": null,
+    "api_equivalent_total": 0.11053300000000002,
+    "components": {
+      "cache_write": 0.033612500000000003,
+      "cached_input": 0.0066455,
+      "ordinary_input": 7.500000000000001e-05,
+      "output": 0.07020000000000001
+    },
+    "currency": "USD",
+    "prices_usd_per_million_tokens": {
+      "cache_write": 6.25,
+      "cached_input": 0.5,
+      "ordinary_input": 5.0,
+      "output": 30.0
+    }
+  },
+  "harbor_exit_code": 0,
+  "harness": "pi",
+  "identities": {
+    "gateway": {
+      "base_url": "http://host.docker.internal:61315/v1",
+      "bridge": null,
+      "cell_id": "nginx-request-logging--pi",
+      "direct_openai": true,
+      "ephemeral_token_persisted": false,
+      "mode": "real",
+      "port": 61315,
+      "provider": "OpenAI",
+      "upstream": "https://api.openai.com/v1/responses"
+    },
+    "model": "gpt-5.6-sol",
+    "runner_files_sha256": "b8365355010dd3d81b85e14d07f2f8bced41644be3dc1654a20516e9f3b2bec6",
+    "source_bundle_sha256": null
+  },
+  "mode": "real",
+  "never_rerun": true,
+  "real_model_attempted": true,
+  "request_count": 5,
+  "reward": 1.0,
+  "schema_version": 1,
+  "status": "completed",
+  "task": "nginx-request-logging",
+  "timing": {
+    "agent_execution": {
+      "finished_at": "2026-08-25T07:54:59.086465Z",
+      "started_at": "2026-08-25T07:54:14.255288Z"
+    },
+    "agent_setup": {
+      "finished_at": "2026-08-25T07:54:14.255073Z",
+      "started_at": "2026-08-25T07:53:12.641016Z"
+    },
+    "environment_setup": {
+      "finished_at": "2026-08-25T07:53:12.640894Z",
+      "started_at": "2026-08-25T07:53:11.573163Z"
+    },
+    "harbor_finished_at": "2026-08-25T07:55:19.139426Z",
+    "harbor_started_at": "2026-08-25T07:53:11.470342Z",
+    "launcher_finished_at": 1787644520.584328,
+    "launcher_started_at": 1787644390.0985842,
+    "request_seconds": [
+      4.87893729202915,
+      18.265641291975044,
+      5.11386537499493,
+      3.7385252499952912,
+      2.743160624988377
+    ],
+    "verifier": {
+      "finished_at": "2026-08-25T07:55:08.242255Z",
+      "started_at": "2026-08-25T07:54:59.521605Z"
+    }
+  },
+  "traces": {
+    "gateway_audit": "cells/nginx-request-logging--pi/gateway-audit.jsonl",
+    "harbor_result": "cells/nginx-request-logging--pi/job/nginx-request-logging__iB2CRxs/result.json",
+    "native_receipt": "cells/nginx-request-logging--pi/job/nginx-request-logging__iB2CRxs/agent/pi-direct-result.json",
+    "staging_stderr": "cells/nginx-request-logging--pi/harbor.stderr.log",
+    "staging_stdout": "cells/nginx-request-logging--pi/harbor.stdout.log",
+    "verifier_evidence": "cells/nginx-request-logging--pi/job/nginx-request-logging__iB2CRxs/verifier/ctrf.json",
+    "verifier_evidence_sha256": "f44565e460499ed9253e868722a55588632933b8a768b6859cf895d358f2f975",
+    "verifier_evidence_type": "ctrf.json"
+  },
+  "usage": {
+    "cache_write_tokens": 5378,
+    "cached_input_tokens": 13291,
+    "input_tokens": 18684,
+    "ordinary_input_tokens": 15,
+    "output_tokens": 2340,
+    "reasoning_tokens": 1029
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "batching": [
+    {
+      "sequence": 1,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 2,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "write"
+      ]
+    },
+    {
+      "sequence": 3,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 4,
+      "tool_calls_in_response": 0,
+      "tool_names": []
+    }
+  ],
+  "cell_id": "openssl-selfsigned-cert--thinharness",
+  "cost": {
+    "actual_cash_total": null,
+    "api_equivalent_total": 0.08425075,
+    "components": {
+      "cache_write": 0.01679375,
+      "cached_input": 0.004157,
+      "ordinary_input": 6e-05,
+      "output": 0.06324
+    },
+    "currency": "USD",
+    "prices_usd_per_million_tokens": {
+      "cache_write": 6.25,
+      "cached_input": 0.5,
+      "ordinary_input": 5.0,
+      "output": 30.0
+    }
+  },
+  "harbor_exit_code": 0,
+  "harness": "thinharness",
+  "identities": {
+    "gateway": {
+      "base_url": "http://host.docker.internal:61662/v1",
+      "bridge": null,
+      "cell_id": "openssl-selfsigned-cert--thinharness",
+      "direct_openai": true,
+      "ephemeral_token_persisted": false,
+      "mode": "real",
+      "port": 61662,
+      "provider": "OpenAI",
+      "upstream": "https://api.openai.com/v1/responses"
+    },
+    "model": "gpt-5.6-sol",
+    "runner_files_sha256": "b8365355010dd3d81b85e14d07f2f8bced41644be3dc1654a20516e9f3b2bec6",
+    "source_bundle_sha256": "e21a975f633dae3e8e75c95e39d1f80a68155656b6dbaeaf2acc9067d702e093"
+  },
+  "mode": "real",
+  "never_rerun": true,
+  "real_model_attempted": true,
+  "request_count": 4,
+  "reward": 1.0,
+  "schema_version": 1,
+  "status": "completed",
+  "task": "openssl-selfsigned-cert",
+  "timing": {
+    "agent_execution": {
+      "finished_at": "2026-08-25T08:01:05.685051Z",
+      "started_at": "2026-08-25T08:00:28.778807Z"
+    },
+    "agent_setup": {
+      "finished_at": "2026-08-25T08:00:28.778583Z",
+      "started_at": "2026-08-25T07:59:21.376499Z"
+    },
+    "environment_setup": {
+      "finished_at": "2026-08-25T07:59:21.376379Z",
+      "started_at": "2026-08-25T07:59:20.285030Z"
+    },
+    "harbor_finished_at": "2026-08-25T08:01:24.431632Z",
+    "harbor_started_at": "2026-08-25T07:59:20.191148Z",
+    "launcher_finished_at": 1787644886.0216908,
+    "launcher_started_at": 1787644758.848203,
+    "request_seconds": [
+      11.958335915987846,
+      10.278139624977484,
+      6.294335082988255,
+      6.871264083019923
+    ],
+    "verifier": {
+      "finished_at": "2026-08-25T08:01:13.603281Z",
+      "started_at": "2026-08-25T08:01:06.106528Z"
+    }
+  },
+  "traces": {
+    "gateway_audit": "cells/openssl-selfsigned-cert--thinharness/gateway-audit.jsonl",
+    "harbor_result": "cells/openssl-selfsigned-cert--thinharness/job/openssl-selfsigned-cert__5dm8Kfg/result.json",
+    "native_receipt": "cells/openssl-selfsigned-cert--thinharness/job/openssl-selfsigned-cert__5dm8Kfg/agent/thinharness-direct-result.json",
+    "staging_stderr": "cells/openssl-selfsigned-cert--thinharness/harbor.stderr.log",
+    "staging_stdout": "cells/openssl-selfsigned-cert--thinharness/harbor.stdout.log",
+    "verifier_evidence": "cells/openssl-selfsigned-cert--thinharness/job/openssl-selfsigned-cert__5dm8Kfg/verifier/ctrf.json",
+    "verifier_evidence_sha256": "5b1896407f3419bda5291f31824babd38cf79fb3c8c580bc4f0bed4d27d4cfc9",
+    "verifier_evidence_type": "ctrf.json"
+  },
+  "usage": {
+    "cache_write_tokens": 2687,
+    "cached_input_tokens": 8314,
+    "input_tokens": 11013,
+    "ordinary_input_tokens": 12,
+    "output_tokens": 2108,
+    "reasoning_tokens": 1018
+  }
+}
