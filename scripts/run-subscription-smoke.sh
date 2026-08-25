@@ -19,5 +19,5 @@ if [[ "$codex_status" != *"Logged in using ChatGPT"* ]]; then
 fi
 unset codex_status
 uv run python -m tbench.subscription_launch run
-uv run python -m tbench.subscription_validate finalize-run artifacts/codex-subscription-crack-7z-recovery \
-  --report reports/codex-subscription-crack-7z-recovery.json >/dev/null
+uv run python -m tbench.subscription_validate finalize-run artifacts/codex-subscription-3task-extension \
+  --report reports/codex-subscription-3task-extension.json >/dev/null

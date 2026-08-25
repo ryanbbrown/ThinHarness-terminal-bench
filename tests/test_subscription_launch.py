@@ -13,7 +13,7 @@ from tbench.subscription_constants import DATASET_DIGEST, EXPECTED_CELLS, MODEL
 def test_harbor_cell_is_single_attempt_single_concurrency_zero_retry(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setattr(subscription_launch.shutil, "which", lambda _: "/venv/bin/harbor")
     command = subscription_launch._harbor_command(
-        cell_id="crack-7z-hash--pi", task="crack-7z-hash", harness="pi", mode="fake", job_name="job"
+        cell_id="configure-git-webserver--pi", task="configure-git-webserver", harness="pi", mode="fake", job_name="job"
     )
     assert command[command.index("--dataset") + 1].endswith(f"@{DATASET_DIGEST}")
     assert command[command.index("--model") + 1] == f"openai/{MODEL}"
@@ -31,13 +31,19 @@ def test_api_credentials_are_rejected_before_fake_or_real_launch(monkeypatch: py
         subscription_launch._validate_environment("fake")
 
 
-def test_expected_cells_are_one_pi_then_thinharness_pair() -> None:
-    assert EXPECTED_CELLS == ("crack-7z-hash--pi", "crack-7z-hash--thinharness")
+def test_expected_cells_are_three_pi_then_thinharness_pairs() -> None:
+    assert EXPECTED_CELLS == (
+        "configure-git-webserver--pi",
+        "configure-git-webserver--thinharness",
+        "pytorch-model-recovery--pi",
+        "pytorch-model-recovery--thinharness",
+        "constraints-scheduling--pi",
+        "constraints-scheduling--thinharness",
+    )
 
 
-def test_completed_recovery_task_is_now_refused() -> None:
-    with pytest.raises(RuntimeError, match="artifacts/codex-subscription-crack-7z-recovery/cells/crack-7z-hash--pi"):
-        subscription_launch._validate_fresh_task_evidence()
+def test_selected_extension_tasks_are_fresh_in_preserved_repository_evidence() -> None:
+    subscription_launch._validate_fresh_task_evidence()
 
 
 def test_cproxy_lock_pins_exact_commit() -> None:
@@ -93,9 +99,22 @@ def test_bundle_preview_accepts_later_clean_head_and_stages_only_pin(
 
 
 def test_freshness_check_refuses_preserved_selected_task(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
-    preserved = tmp_path / "artifacts" / "codex-subscription-4task" / "cells" / "crack-7z-hash--pi"
+    preserved = tmp_path / "artifacts" / "older-run" / "cells" / "configure-git-webserver--pi"
     preserved.mkdir(parents=True)
     monkeypatch.setattr(subscription_launch, "REPOSITORY_ROOT", tmp_path)
 
     with pytest.raises(RuntimeError, match="preserved prior real-cell evidence"):
         subscription_launch._validate_fresh_task_evidence()
+
+
+def test_real_launch_requires_complete_validated_six_cell_preflight(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
+    with pytest.raises(RuntimeError, match="preflight evidence is absent"):
+        subscription_launch._validate_preflight_gate(tmp_path)
+
+    (tmp_path / "SUMMARY.json").write_text("{}\n")
+    (tmp_path / "SHA256SUMS.json").write_text("{}\n")
+    monkeypatch.setattr(
+        subscription_launch.subscription_validate, "validate_artifacts", lambda root, mode: {"passed": True, "cells": [1] * 6}
+    )
+    monkeypatch.setattr(subscription_launch.subscription_validate, "validate_hashes", lambda root: None)
+    subscription_launch._validate_preflight_gate(tmp_path)

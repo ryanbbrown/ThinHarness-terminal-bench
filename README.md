@@ -67,14 +67,21 @@ The prior `758fcf30` E2E result remains unchanged in `artifacts/paid-e2e/` and `
 
 The recovery compares Pi 0.84.2 and native ThinHarness once on `crack-7z-hash`, the only task from the frozen low-cost tier with no preserved real cell. It uses the existing pinned cproxy/Codex ChatGPT subscription bridge. It does not use direct OpenAI or Doppler credentials. See `reports/subscription-recovery-methodology.md` and `configs/subscription-recovery-selection.json`.
 
-Preview the exact transient bundle with no Harbor, gateway, cproxy, or upstream request:
+The authorized recovery is complete. Both cells passed with reward `1.0`. The authoritative report is `reports/codex-subscription-crack-7z-recovery.json`; see `artifacts/subscription-recovery-handoff.md` for the concise trace comparison. Recovery artifacts are immutable and the current launcher cannot rerun them.
+
+## Three-pair Codex-subscription extension
+
+The approved extension selects three fresh low-cost tasks and runs each once with Pi and once with native ThinHarness. It keeps the timeout-fixed crack-7z setup, native tool interfaces, sequential ThinHarness tool execution, pinned cproxy subscription bridge, model settings, and zero-retry policy. It does not change ThinHarness product batching. See `reports/subscription-extension-methodology.md` and `configs/subscription-extension-selection.json`.
+
+Run the six-cell no-model Harbor/Docker gate first:
 
 ```bash
-TB_THINHARNESS_LOCAL_SOURCE=/Users/ryanbrown/code/thinharness \
-  uv run python -m tbench.subscription_launch bundle-preview
+env -u OPENAI_API_KEY -u ANTHROPIC_API_KEY -u OPENROUTER_API_KEY \
+  TB_THINHARNESS_LOCAL_SOURCE=/Users/ryanbrown/code/thinharness \
+  ./scripts/subscription-smoke-preflight.sh
 ```
 
-After the controlled zero-upstream preflight passes, the exact authorized two-cell command is:
+The real launcher requires finalized preflight hashes and a complete six-cell summary. Its one authorized command is:
 
 ```bash
 env -u OPENAI_API_KEY -u ANTHROPIC_API_KEY -u OPENROUTER_API_KEY \
@@ -82,7 +89,7 @@ env -u OPENAI_API_KEY -u ANTHROPIC_API_KEY -u OPENROUTER_API_KEY \
   ./scripts/run-subscription-smoke.sh
 ```
 
-The authorized recovery is complete. Both cells passed with reward `1.0`. The authoritative report is `reports/codex-subscription-crack-7z-recovery.json`; see `artifacts/subscription-recovery-handoff.md` for the concise trace comparison. The launcher refuses preserved real-cell evidence for the selected task and refuses to replace `artifacts/codex-subscription-crack-7z-recovery/`.
+It refuses prior real evidence for a selected task, existing extension output, direct API credentials, evidence mismatch, and reruns. API-equivalent cost uses the repository's frozen price schedule; subscription cash cost is not available. Results must not be generalized beyond the four-task post-fix sample formed by these three tasks and `crack-7z-hash`.
 
 ## Evidence boundary
 

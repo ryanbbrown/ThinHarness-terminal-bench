@@ -391,6 +391,8 @@ def _validate_response_identity(response: dict[str, Any]) -> None:
         raise GatewayError("Codex backend response omitted input/output token counts")
     if not isinstance(input_details, dict) or not isinstance(input_details.get("cached_tokens"), int):
         raise GatewayError("Codex backend response omitted cached token usage")
+    if not isinstance(input_details.get("cache_write_tokens"), int):
+        raise GatewayError("Codex backend response omitted cache-write token usage")
     if not isinstance(output_details, dict) or not isinstance(output_details.get("reasoning_tokens"), int):
         raise GatewayError("Codex backend response omitted reasoning token usage")
 

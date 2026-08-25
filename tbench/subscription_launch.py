@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import fcntl
+import hashlib
 import json
 import os
 import shutil
@@ -15,6 +16,7 @@ from contextlib import contextmanager
 from pathlib import Path
 from typing import Any
 
+from . import subscription_validate
 from .source_bundle import ExactCommitBundle, exact_commit_bundle
 from .subscription_constants import (
     ATTEMPTS,
@@ -43,6 +45,40 @@ from .subscription_gateway import GatewayIdentity, run_gateway
 
 _LOCK = SUBSCRIPTION_RUNS_DIR / "launch.lock"
 _PREFLIGHT_DIR = REPOSITORY_ROOT / "artifacts" / f"{SMOKE_ID}-preflight"
+_IDENTITY_FILES = (
+    "configs/container-runtime-requirements.txt",
+    "configs/pi-subscription-package-lock.json",
+    "configs/pi-subscription-package.json",
+    "configs/subscription-extension-selection.json",
+    "prompts/pi-0.84.2-system-prompt.md",
+    "pyproject.toml",
+    "scripts/install-subscription-pi.sh",
+    "scripts/install-subscription-thinharness.sh",
+    "tbench/container_security.py",
+    "tbench/pi_subscription_probe.mjs",
+    "tbench/source_bundle.py",
+    "tbench/subscription_agent.py",
+    "tbench/subscription_constants.py",
+    "tbench/subscription_container.py",
+    "tbench/subscription_gateway.py",
+    "tbench/subscription_launch.py",
+    "tbench/subscription_validate.py",
+    "uv.lock",
+)
+
+
+def _repository_identity() -> dict[str, Any]:
+    files = {}
+    for name in _IDENTITY_FILES:
+        path = REPOSITORY_ROOT / name
+        if not path.is_file():
+            raise RuntimeError(f"runner identity input is absent: {name}")
+        files[name] = hashlib.sha256(path.read_bytes()).hexdigest()
+    head = subprocess.run(
+        ["git", "rev-parse", "HEAD"], cwd=REPOSITORY_ROOT, check=True, capture_output=True, text=True
+    ).stdout.strip()
+    digest = hashlib.sha256(json.dumps(files, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
+    return {"git_head": head, "files": files, "files_sha256": digest}
 
 
 def _atomic_json(path: Path, value: dict[str, Any]) -> None:
@@ -163,9 +199,12 @@ def _archive(job_dir: Path, *, cell_id: str, mode: str, gateway_dir: Path, launc
     if target.exists():
         raise RuntimeError(f"refusing to replace durable cell evidence: {target}")
     target.mkdir(parents=True)
-    shutil.copytree(job_dir, target / "job")
-    shutil.copy2(gateway_dir / "gateway-audit.jsonl", target / "gateway-audit.jsonl")
-    shutil.copy2(gateway_dir / "gateway-identity.json", target / "gateway-identity.json")
+    if job_dir.is_dir():
+        shutil.copytree(job_dir, target / "job")
+    for name in ("gateway-audit.jsonl", "gateway-identity.json"):
+        source = gateway_dir / name
+        if source.is_file():
+            shutil.copy2(source, target / name)
     shutil.copy2(launch_path, target / "launch.json")
     return target
 
@@ -180,6 +219,15 @@ def _validate_fresh_task_evidence() -> None:
     if conflicts:
         names = ", ".join(str(path.relative_to(REPOSITORY_ROOT)) for path in conflicts)
         raise RuntimeError(f"selected recovery task has preserved prior real-cell evidence: {names}")
+
+
+def _validate_preflight_gate(root: Path = _PREFLIGHT_DIR) -> None:
+    if not (root / "SUMMARY.json").is_file() or not (root / "SHA256SUMS.json").is_file():
+        raise RuntimeError("complete finalized preflight evidence is absent")
+    result = subscription_validate.validate_artifacts(root, mode="fake")
+    subscription_validate.validate_hashes(root)
+    if result.get("passed") is not True or len(result.get("cells") or []) != len(EXPECTED_CELLS):
+        raise RuntimeError("preflight evidence does not prove all six controlled cells")
 
 
 def _validate_environment(mode: str) -> None:
@@ -226,6 +274,7 @@ def _run_cell(
             "command": command,
             "gateway": _public_gateway_identity(gateway),
             "source_bundle_sha256": bundle_sha256 if harness == "thinharness" else None,
+            "runner_identity": _repository_identity(),
             "credentials": "host Codex CLI OAuth read only by cproxy gateway" if mode == "real" else "none; controlled fake",
             "direct_openai": False,
             "retries": {"gateway": 0, "provider": 0, "agent": 0, "harbor": 0},
@@ -244,11 +293,12 @@ def _run_cell(
             }
         )
         completed = subprocess.run(command, cwd=REPOSITORY_ROOT, env=environment, check=False)
-    if completed.returncode != 0:
-        raise RuntimeError(f"Harbor cell {cell_id} failed with exit {completed.returncode}")
-    if not audit_path.is_file() or not audit_path.read_text(encoding="utf-8").strip():
-        raise RuntimeError(f"gateway audit is empty for {cell_id}")
     target = _archive(job_dir, cell_id=cell_id, mode=mode, gateway_dir=gateway_dir, launch_path=launch_path)
+    if completed.returncode != 0:
+        raise RuntimeError(f"Harbor cell {cell_id} failed with exit {completed.returncode}; evidence preserved at {target}")
+    if not audit_path.is_file() or not audit_path.read_text(encoding="utf-8").strip():
+        raise RuntimeError(f"gateway audit is empty for {cell_id}; evidence preserved at {target}")
+    subscription_validate.validate_cell(target, mode=mode, cell_id=cell_id)
     trial = _one_trial(job_dir)
     result = json.loads((trial / "result.json").read_text(encoding="utf-8"))
     return {
@@ -299,12 +349,14 @@ def _public_gateway_identity(gateway: GatewayIdentity) -> dict[str, Any]:
 
 
 def run(mode: str) -> int:
-    """Run two controlled preflight cells or the two real matched cells."""
+    """Run six controlled preflight cells or the six real matched cells."""
     if mode not in {"preflight", "run"}:
         raise ValueError("mode must be preflight or run")
     gateway_mode = "fake" if mode == "preflight" else "real"
     _validate_environment(gateway_mode)
     _validate_fresh_task_evidence()
+    if gateway_mode == "real":
+        _validate_preflight_gate()
     artifact_root = _PREFLIGHT_DIR if gateway_mode == "fake" else SUBSCRIPTION_ARTIFACT_DIR
     if artifact_root.exists():
         raise RuntimeError(f"refusing to replace existing smoke evidence: {artifact_root}")
@@ -315,7 +367,7 @@ def run(mode: str) -> int:
         for cell_id in (f"{task}--{harness}",)
     )
     if tuple(cell_id for cell_id, _, _ in cells) != EXPECTED_CELLS:
-        raise RuntimeError("planned cell order differs from the frozen two-cell design")
+        raise RuntimeError("planned cell order differs from the frozen six-cell design")
     state_path = SUBSCRIPTION_RUNS_DIR / f"{mode}-state.json"
     with _lock(), _source_bundle() as source_bundle:
         bundle = source_bundle.path
@@ -331,8 +383,12 @@ def run(mode: str) -> int:
             "cells": [],
             "source_bundle_sha256": bundle_sha256,
             "source_bundle_committed": False,
+            "runner_identity": _repository_identity(),
         }
         _atomic_json(state_path, state)
+        artifact_root.mkdir(parents=True)
+        shutil.copy2(state_path, artifact_root / "run-state.json")
+        shutil.copy2(SELECTION_PATH, artifact_root / "selection.json")
         try:
             for cell_id, task, harness in cells:
                 result = _run_cell(
@@ -345,18 +401,18 @@ def run(mode: str) -> int:
                 )
                 state["cells"].append(result)
                 _atomic_json(state_path, state)
+                shutil.copy2(state_path, artifact_root / "run-state.json")
         except BaseException as exc:
             state["status"] = "stopped"
             state["error"] = {"type": type(exc).__name__, "message": str(exc)}
             state["finished_at"] = time.time()
             _atomic_json(state_path, state)
+            shutil.copy2(state_path, artifact_root / "run-state.json")
             raise
         state["status"] = "completed"
         state["finished_at"] = time.time()
         _atomic_json(state_path, state)
-    artifact_root.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(state_path, artifact_root / "run-state.json")
-    shutil.copy2(SELECTION_PATH, artifact_root / "selection.json")
+        shutil.copy2(state_path, artifact_root / "run-state.json")
     if mode == "preflight":
         _record_real_backend_preflight(artifact_root)
     return 0
