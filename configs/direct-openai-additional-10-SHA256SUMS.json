@@ -1,19 +1,24 @@
 {
   "algorithm": "sha256",
   "files": {
+    ".gitattributes": "7a252b5f0a090ea51e2914cec21e313aa5fb99c80df75f88c0e0e8a4109aa90f",
+    "README.md": "8a5fc52d44300d9c62b077a6bbfd0cbfc55f7253ca77a8d38b11b151eab010c2",
     "configs/direct-openai-20task-settings.json": "79a0cd91ddff45d5e765e05b2de114c57fbd4f17d3cf15da67f28162d7f77c1e",
-    "configs/direct-openai-additional-10-catalog.json": "3a64968490d280f10f3f8c3add55cde99b036c074b6181d83f2e5426650ac17b",
-    "configs/direct-openai-additional-10-exclusion-proof.json": "1f7a4c6be33b1de181b0d2a8baac39efcb3cdf2b5cc22cc30498da35a5d55b2e",
-    "configs/direct-openai-additional-10-runner-spec.json": "0e040f78d9a9b066ad808f3582375a9a4ebd3aef954309729624246d9c291e9d",
-    "configs/direct-openai-additional-10-selection.json": "2acad6015b4f30b19d250283c7612da071c70e9d33a6214cf4ba7dda7da1df86",
+    "configs/direct-openai-additional-10-catalog.json": "e1042be168641ad6bb93c890518be8654b5adf8aae8d44b285cddbe230cf368b",
+    "configs/direct-openai-additional-10-exclusion-proof.json": "c3a56191762a6d20912d1e21914bd6e704da9d7d7fe43003ee1564cc51c1a1e5",
+    "configs/direct-openai-additional-10-runner-spec.json": "56c5a79f36a464ecab72d74cb1e089f8d2ccaf413106d45804be2811e3a4c65f",
+    "configs/direct-openai-additional-10-selection.json": "bf68fc30806cbda3e5f1dfa02bf333d7dbd7dee0599c177bf1cbfe9241c91878",
     "configs/native-tool-schemas.json": "1c1c1e985590e9980264a2e6b8364bd96f1b052c0761eed7f127ac9ab60cfd24",
     "configs/pi-native-tool-schemas.json": "88fda428f9a9114a62d2f3a394d85c7d15cddd111eddadbe7abbe728bff2afde",
+    "evidence/terminal-bench-2-1-official-20260826/derived/empirical-task-outcomes.json": "c539341905b5f3abb62d021fda6c9b6c6763781d1096b7f636764d0c2867bbf0",
+    "evidence/terminal-bench-2-1-official-20260826/manifest.json": "16d8e0f1bc878e38243dd666ba40193bc83e5ac1c6b768eaac342f8df4edb439",
     "prompts/pi-0.84.2-system-prompt.md": "bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e",
-    "reports/direct-openai-additional-10-methodology.md": "1aec96bffd8c2c3089da131f344c2388f4666531363245e5c60a1de86d178c21",
-    "reports/direct-openai-additional-10-population.json": "4d5216f13e1fb2d1725b0c8c786cf5d1143bc1c31b422c2ecbf51fc7c8cb96f8",
-    "scripts/direct-openai-additional-10-checks.sh": "d393d8b095980f57a858dcf1aa9e0cc283de1b98bfdf8fcd47628d1e629bfaf8",
-    "tbench/direct_additional.py": "c202c208b6a463301778ce325f43797db824437a5b2483ea1b28d638e255cfe9",
-    "tests/test_direct_additional.py": "8ca9f970b225c402946dcea97fdfd780b3f4f5fef3be7da7f1cdffec267202af"
+    "reports/direct-openai-additional-10-methodology.md": "a6f435ebd99494064ca0abeb266b4fd9bdbf9dda09a5279fa535bb7482212bcb",
+    "reports/direct-openai-additional-10-population.json": "0c682bc8b369b4fe7c3a2f7cd767f5d4c8f67421686f6dbd01cbd33147b208c4",
+    "scripts/direct-openai-additional-10-checks.sh": "14fbce02e9d94a505fe3ab1b63127077dfc114a0f19d77724d04016ac1d5b529",
+    "tbench/direct_additional.py": "45054bbc16365d43656e28ec98322ffedace3a6728972b166aa642ce9c6c2d92",
+    "tests/test_direct_additional.py": "af80e5705cc217c3ab8c8183d7704eab079a81778e59848451c368db39df91be"
   },
-  "schema_version": 1
+  "schema_version": 2,
+  "supersedes_preparation_commit": "5feb120248de092d72771ff7f9630423350daebd"
 }

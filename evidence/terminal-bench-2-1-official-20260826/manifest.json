@@ -1,0 +1,2416 @@
+{
+  "bounded_at_fetch": true,
+  "derived_files": {
+    "derived/empirical-task-outcomes.json": {
+      "bytes": 453261,
+      "sha256": "c539341905b5f3abb62d021fda6c9b6c6763781d1096b7f636764d0c2867bbf0"
+    }
+  },
+  "derived_source_set_sha256": "3c371aa573c617847d9812a8269439001809175f43792ea9c6b772c56354111f",
+  "empirical_submissions": [
+    {
+      "disqualified_trials": [],
+      "hub_backing_job_ids": [
+        "c8fcaaeb-c49a-413a-9f8d-20bc09c53339"
+      ],
+      "hub_row_id": "f867b631-36c8-476e-aa2f-96007ae70da0",
+      "hub_row_url": "https://hub.harborframework.com/datasets/terminal-bench/terminal-bench-2-1/latest/leaderboards/main/rows/f867b631-36c8-476e-aa2f-96007ae70da0",
+      "hub_trial_count": 445,
+      "metadata": {
+        "agent_display": {
+          "label": "Terminus 2",
+          "url": "https://www.tbench.ai/news/terminus"
+        },
+        "agent_org": {
+          "label": "Terminal-Bench",
+          "url": "https://tbench.ai"
+        },
+        "date": "2026-05-01",
+        "display_date": "May 1, 2026",
+        "model_display": {
+          "label": "Opus 4.7",
+          "url": "https://www.anthropic.com/news/claude-opus-4-7"
+        },
+        "model_org": {
+          "label": "Anthropic",
+          "url": "https://www.anthropic.com"
+        },
+        "pr_url": {
+          "label": "#46",
+          "url": "https://github.com/harbor-framework/terminal-bench-2-1/pull/46"
+        },
+        "reasoning_effort": "max"
+      },
+      "metrics": {
+        "accuracy": 66.07,
+        "accuracy_stderr": 1.37,
+        "avg_trial_duration_sec": 1042.7,
+        "cached_input_tokens": 336161721,
+        "display_accuracy": "**66.1%** \u00b1 1.4%",
+        "display_reward_hacks": {
+          "label": "-0.0%",
+          "url": "https://github.com/harbor-framework/terminal-bench-2-1/pull/46#issuecomment-4918387185"
+        },
+        "display_total_cost_usd": "$582.26",
+        "n_trials": 445,
+        "output_tokens": 12451178,
+        "pass_at_2": 0.7438,
+        "pass_at_3": 0.782,
+        "pass_at_4": 0.809,
+        "pass_at_5": 0.8315,
+        "reward_hacks": 0.0,
+        "total_cost_usd": 582.26,
+        "uncached_input_tokens": 16646631
+      },
+      "raw_hub_trials_path": "raw/hub-row-trials/2026-05-01-anthropic-claude-opus-4-7-max-terminus-2.json",
+      "raw_hub_trials_url": "https://ofhuhcpkvzjlejydnvyd.supabase.co/rest/v1/leaderboard_row_trial?row_id=eq.f867b631-36c8-476e-aa2f-96007ae70da0&select=trial_id,created_at,trial:trial_id(id,job_id,trial_name,task_name,task_content_hash,rewards,status,exception_type,hosted_error,started_at,finished_at)&limit=1000&order=created_at.asc,trial_id.asc",
+      "raw_submission_path": "raw/repository-submissions/2026-05-01-anthropic-claude-opus-4-7-max-terminus-2.json",
+      "repository_trial_count": 445,
+      "source_filter": {
+        "agent": "terminus-2",
+        "agent_version": "2.0.0",
+        "model_name": "anthropic/claude-opus-4-7",
+        "reasoning_effort": "max"
+      },
+      "source_jobs": [
+        "10e2e56b-ed31-5f65-a489-69f78b902adf"
+      ],
+      "submission_file": "leaderboard/submissions/2026-05-01-anthropic-claude-opus-4-7-max-terminus-2.json"
+    },
+    {
+      "disqualified_trials": [
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/path-tracing-reverse",
+          "reason": "reward_hacking",
+          "trial_id": "4a4f0a6e-2c5b-5c0d-b11e-c7a173ca9b59"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/mteb-leaderboard",
+          "reason": "reward_hacking",
+          "trial_id": "311ab0ae-c13a-5d11-84af-7280c43569f5"
+        }
+      ],
+      "hub_backing_job_ids": [
+        "5b2904c3-c69a-4ad0-b30f-1d77729389f4"
+      ],
+      "hub_row_id": "660c330f-9cd8-4ce7-8890-3ce573d038a0",
+      "hub_row_url": "https://hub.harborframework.com/datasets/terminal-bench/terminal-bench-2-1/latest/leaderboards/main/rows/660c330f-9cd8-4ce7-8890-3ce573d038a0",
+      "hub_trial_count": 445,
+      "metadata": {
+        "agent_display": {
+          "label": "Gemini CLI",
+          "url": "https://github.com/google-gemini/gemini-cli"
+        },
+        "agent_org": {
+          "label": "Google",
+          "url": "https://deepmind.google"
+        },
+        "date": "2026-05-01",
+        "display_date": "May 1, 2026",
+        "model_display": {
+          "label": "Gemini 3 Pro",
+          "url": "https://blog.google/products-and-platforms/products/gemini/gemini-3/"
+        },
+        "model_org": {
+          "label": "Google",
+          "url": "https://deepmind.google"
+        },
+        "pr_url": {
+          "label": "#66",
+          "url": "https://github.com/harbor-framework/terminal-bench-2-1/pull/66"
+        },
+        "reasoning_effort": "high"
+      },
+      "metrics": {
+        "accuracy": 65.84,
+        "accuracy_stderr": 1.38,
+        "avg_trial_duration_sec": 436.6,
+        "cached_input_tokens": 329123284,
+        "display_accuracy": "**65.8%** \u00b1 1.4%",
+        "display_reward_hacks": {
+          "label": "-0.5%",
+          "url": "https://github.com/harbor-framework/terminal-bench-2-1/pull/66#issuecomment-4919518737"
+        },
+        "display_total_cost_usd": "$247.76",
+        "n_trials": 445,
+        "output_tokens": 7219388,
+        "pass_at_2": 0.7427,
+        "pass_at_3": 0.7831,
+        "pass_at_4": 0.8067,
+        "pass_at_5": 0.8202,
+        "reward_hacks": 0.45,
+        "total_cost_usd": 247.76,
+        "uncached_input_tokens": 47653156
+      },
+      "raw_hub_trials_path": "raw/hub-row-trials/2026-05-01-gemini-gemini-3-pro-preview-high-gemini-cli.json",
+      "raw_hub_trials_url": "https://ofhuhcpkvzjlejydnvyd.supabase.co/rest/v1/leaderboard_row_trial?row_id=eq.660c330f-9cd8-4ce7-8890-3ce573d038a0&select=trial_id,created_at,trial:trial_id(id,job_id,trial_name,task_name,task_content_hash,rewards,status,exception_type,hosted_error,started_at,finished_at)&limit=1000&order=created_at.asc,trial_id.asc",
+      "raw_submission_path": "raw/repository-submissions/2026-05-01-gemini-gemini-3-pro-preview-high-gemini-cli.json",
+      "repository_trial_count": 445,
+      "source_filter": {
+        "agent": "gemini-cli",
+        "agent_version": "0.40.0",
+        "model_name": "gemini/gemini-3-pro-preview",
+        "reasoning_effort": "high"
+      },
+      "source_jobs": [
+        "fd8707bb-51e8-56fa-8e46-769a82a531ae"
+      ],
+      "submission_file": "leaderboard/submissions/2026-05-01-gemini-gemini-3-pro-preview-high-gemini-cli.json"
+    },
+    {
+      "disqualified_trials": [
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/path-tracing-reverse",
+          "reason": "reward_hacking",
+          "trial_id": "83c38f80-accb-5c57-9f97-74bb88a295ff"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/path-tracing-reverse",
+          "reason": "reward_hacking",
+          "trial_id": "2f537cc5-417f-5476-83b7-dfb9ff0fc59f"
+        }
+      ],
+      "hub_backing_job_ids": [
+        "c8fcaaeb-c49a-413a-9f8d-20bc09c53339"
+      ],
+      "hub_row_id": "b03a8a69-fea8-42dd-a4fb-96a6a39e6857",
+      "hub_row_url": "https://hub.harborframework.com/datasets/terminal-bench/terminal-bench-2-1/latest/leaderboards/main/rows/b03a8a69-fea8-42dd-a4fb-96a6a39e6857",
+      "hub_trial_count": 445,
+      "metadata": {
+        "agent_display": {
+          "label": "Terminus 2",
+          "url": "https://www.tbench.ai/news/terminus"
+        },
+        "agent_org": {
+          "label": "Terminal-Bench",
+          "url": "https://tbench.ai"
+        },
+        "date": "2026-05-01",
+        "display_date": "May 1, 2026",
+        "model_display": {
+          "label": "Gemini 3 Pro",
+          "url": "https://blog.google/products-and-platforms/products/gemini/gemini-3/"
+        },
+        "model_org": {
+          "label": "Google",
+          "url": "https://deepmind.google"
+        },
+        "pr_url": {
+          "label": "#48",
+          "url": "https://github.com/harbor-framework/terminal-bench-2-1/pull/48"
+        },
+        "reasoning_effort": "high"
+      },
+      "metrics": {
+        "accuracy": 73.93,
+        "accuracy_stderr": 1.29,
+        "avg_trial_duration_sec": 547.8,
+        "cached_input_tokens": 89495525,
+        "display_accuracy": "**73.9%** \u00b1 1.3%",
+        "display_reward_hacks": {
+          "label": "-0.5%",
+          "url": "https://github.com/harbor-framework/terminal-bench-2-1/pull/48#issuecomment-4918384699"
+        },
+        "display_total_cost_usd": "$224.44",
+        "n_trials": 445,
+        "output_tokens": 12862730,
+        "pass_at_2": 0.8135,
+        "pass_at_3": 0.8472,
+        "pass_at_4": 0.8652,
+        "pass_at_5": 0.8764,
+        "reward_hacks": 0.45,
+        "total_cost_usd": 224.44,
+        "uncached_input_tokens": 26094316
+      },
+      "raw_hub_trials_path": "raw/hub-row-trials/2026-05-01-gemini-gemini-3-pro-preview-high-terminus-2.json",
+      "raw_hub_trials_url": "https://ofhuhcpkvzjlejydnvyd.supabase.co/rest/v1/leaderboard_row_trial?row_id=eq.b03a8a69-fea8-42dd-a4fb-96a6a39e6857&select=trial_id,created_at,trial:trial_id(id,job_id,trial_name,task_name,task_content_hash,rewards,status,exception_type,hosted_error,started_at,finished_at)&limit=1000&order=created_at.asc,trial_id.asc",
+      "raw_submission_path": "raw/repository-submissions/2026-05-01-gemini-gemini-3-pro-preview-high-terminus-2.json",
+      "repository_trial_count": 445,
+      "source_filter": {
+        "agent": "terminus-2",
+        "agent_version": "2.0.0",
+        "model_name": "gemini/gemini-3-pro-preview",
+        "reasoning_effort": "high"
+      },
+      "source_jobs": [
+        "10e2e56b-ed31-5f65-a489-69f78b902adf"
+      ],
+      "submission_file": "leaderboard/submissions/2026-05-01-gemini-gemini-3-pro-preview-high-terminus-2.json"
+    },
+    {
+      "disqualified_trials": [],
+      "hub_backing_job_ids": [
+        "5b2904c3-c69a-4ad0-b30f-1d77729389f4"
+      ],
+      "hub_row_id": "ef2b00eb-f360-41e6-8c97-23c4d762d06b",
+      "hub_row_url": "https://hub.harborframework.com/datasets/terminal-bench/terminal-bench-2-1/latest/leaderboards/main/rows/ef2b00eb-f360-41e6-8c97-23c4d762d06b",
+      "hub_trial_count": 445,
+      "metadata": {
+        "agent_display": {
+          "label": "Claude Code",
+          "url": "https://claude.com/claude-code"
+        },
+        "agent_org": {
+          "label": "Anthropic",
+          "url": "https://www.anthropic.com"
+        },
+        "date": "2026-05-01",
+        "display_date": "May 1, 2026",
+        "model_display": {
+          "label": "GLM-5.1",
+          "url": "https://z.ai/blog/glm-5.1"
+        },
+        "model_org": {
+          "label": "Z.ai",
+          "url": "https://z.ai"
+        },
+        "pr_url": {
+          "label": "#67",
+          "url": "https://github.com/harbor-framework/terminal-bench-2-1/pull/67"
+        },
+        "reasoning_effort": "max"
+      },
+      "metrics": {
+        "accuracy": 58.65,
+        "accuracy_stderr": 1.24,
+        "avg_trial_duration_sec": 944.6,
+        "cached_input_tokens": 374577728,
+        "display_accuracy": "**58.7%** \u00b1 1.2%",
+        "display_reward_hacks": {
+          "label": "-0.0%",
+          "url": "https://github.com/harbor-framework/terminal-bench-2-1/pull/67#issuecomment-4919593365"
+        },
+        "display_total_cost_usd": "$277.14",
+        "n_trials": 445,
+        "output_tokens": 10635681,
+        "pass_at_2": 0.6551,
+        "pass_at_3": 0.6899,
+        "pass_at_4": 0.7146,
+        "pass_at_5": 0.7303,
+        "reward_hacks": 0.0,
+        "total_cost_usd": 277.14,
+        "uncached_input_tokens": 13570352
+      },
+      "raw_hub_trials_path": "raw/hub-row-trials/2026-05-01-glm-5-1-max-claude-code.json",
+      "raw_hub_trials_url": "https://ofhuhcpkvzjlejydnvyd.supabase.co/rest/v1/leaderboard_row_trial?row_id=eq.ef2b00eb-f360-41e6-8c97-23c4d762d06b&select=trial_id,created_at,trial:trial_id(id,job_id,trial_name,task_name,task_content_hash,rewards,status,exception_type,hosted_error,started_at,finished_at)&limit=1000&order=created_at.asc,trial_id.asc",
+      "raw_submission_path": "raw/repository-submissions/2026-05-01-glm-5-1-max-claude-code.json",
+      "repository_trial_count": 445,
+      "source_filter": {
+        "agent": "claude-code",
+        "agent_version": "2.1.123",
+        "model_name": "glm-5.1",
+        "reasoning_effort": "max"
+      },
+      "source_jobs": [
+        "fd8707bb-51e8-56fa-8e46-769a82a531ae"
+      ],
+      "submission_file": "leaderboard/submissions/2026-05-01-glm-5-1-max-claude-code.json"
+    },
+    {
+      "disqualified_trials": [
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/count-dataset-tokens",
+          "reason": "reward_hacking",
+          "trial_id": "f25b69fc-2657-5adf-b078-1858bb572e7a"
+        }
+      ],
+      "hub_backing_job_ids": [
+        "c8fcaaeb-c49a-413a-9f8d-20bc09c53339"
+      ],
+      "hub_row_id": "6d091468-3fda-4cbf-ba1c-645b0f522e97",
+      "hub_row_url": "https://hub.harborframework.com/datasets/terminal-bench/terminal-bench-2-1/latest/leaderboards/main/rows/6d091468-3fda-4cbf-ba1c-645b0f522e97",
+      "hub_trial_count": 445,
+      "metadata": {
+        "agent_display": {
+          "label": "Codex",
+          "url": "https://openai.com/codex/"
+        },
+        "agent_org": {
+          "label": "OpenAI",
+          "url": "https://openai.com"
+        },
+        "date": "2026-05-01",
+        "display_date": "May 1, 2026",
+        "model_display": {
+          "label": "GPT-5.5",
+          "url": "https://openai.com/index/introducing-gpt-5-5/"
+        },
+        "model_org": {
+          "label": "OpenAI",
+          "url": "https://openai.com"
+        },
+        "pr_url": {
+          "label": "#45",
+          "url": "https://github.com/harbor-framework/terminal-bench-2-1/pull/45"
+        },
+        "reasoning_effort": "xhigh"
+      },
+      "metrics": {
+        "accuracy": 83.15,
+        "accuracy_stderr": 1.13,
+        "avg_trial_duration_sec": 482.6,
+        "cached_input_tokens": 392433664,
+        "display_accuracy": "**83.1%** \u00b1 1.1%",
+        "display_reward_hacks": {
+          "label": "-0.2%",
+          "url": "https://github.com/harbor-framework/terminal-bench-2-1/pull/45#issuecomment-4918390916"
+        },
+        "display_total_cost_usd": "$2,059.19",
+        "n_trials": 445,
+        "output_tokens": 5966373,
+        "pass_at_2": 0.8888,
+        "pass_at_3": 0.9135,
+        "pass_at_4": 0.9303,
+        "pass_at_5": 0.9438,
+        "reward_hacks": 0.22,
+        "total_cost_usd": 2059.19,
+        "uncached_input_tokens": 336797311
+      },
+      "raw_hub_trials_path": "raw/hub-row-trials/2026-05-01-openai-gpt-5-5-xhigh-codex.json",
+      "raw_hub_trials_url": "https://ofhuhcpkvzjlejydnvyd.supabase.co/rest/v1/leaderboard_row_trial?row_id=eq.6d091468-3fda-4cbf-ba1c-645b0f522e97&select=trial_id,created_at,trial:trial_id(id,job_id,trial_name,task_name,task_content_hash,rewards,status,exception_type,hosted_error,started_at,finished_at)&limit=1000&order=created_at.asc,trial_id.asc",
+      "raw_submission_path": "raw/repository-submissions/2026-05-01-openai-gpt-5-5-xhigh-codex.json",
+      "repository_trial_count": 445,
+      "source_filter": {
+        "agent": "codex",
+        "agent_version": "0.125.0",
+        "model_name": "openai/gpt-5.5",
+        "reasoning_effort": "xhigh"
+      },
+      "source_jobs": [
+        "10e2e56b-ed31-5f65-a489-69f78b902adf"
+      ],
+      "submission_file": "leaderboard/submissions/2026-05-01-openai-gpt-5-5-xhigh-codex.json"
+    },
+    {
+      "disqualified_trials": [
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/winning-avg-corewars",
+          "reason": "reward_hacking",
+          "trial_id": "a3ef840e-a255-512f-8899-9a205fcc35bb"
+        }
+      ],
+      "hub_backing_job_ids": [
+        "c8fcaaeb-c49a-413a-9f8d-20bc09c53339"
+      ],
+      "hub_row_id": "db1f499b-d948-43d2-9aaf-27cfe97f6caf",
+      "hub_row_url": "https://hub.harborframework.com/datasets/terminal-bench/terminal-bench-2-1/latest/leaderboards/main/rows/db1f499b-d948-43d2-9aaf-27cfe97f6caf",
+      "hub_trial_count": 445,
+      "metadata": {
+        "agent_display": {
+          "label": "Terminus 2",
+          "url": "https://www.tbench.ai/news/terminus"
+        },
+        "agent_org": {
+          "label": "Terminal-Bench",
+          "url": "https://tbench.ai"
+        },
+        "date": "2026-05-01",
+        "display_date": "May 1, 2026",
+        "model_display": {
+          "label": "GPT-5.5",
+          "url": "https://openai.com/index/introducing-gpt-5-5/"
+        },
+        "model_org": {
+          "label": "OpenAI",
+          "url": "https://openai.com"
+        },
+        "pr_url": {
+          "label": "#47",
+          "url": "https://github.com/harbor-framework/terminal-bench-2-1/pull/47"
+        },
+        "reasoning_effort": "xhigh"
+      },
+      "metrics": {
+        "accuracy": 77.98,
+        "accuracy_stderr": 1.22,
+        "avg_trial_duration_sec": 726.7,
+        "cached_input_tokens": 0,
+        "display_accuracy": "**78.0%** \u00b1 1.2%",
+        "display_reward_hacks": {
+          "label": "-0.2%",
+          "url": "https://github.com/harbor-framework/terminal-bench-2-1/pull/47#issuecomment-4918386361"
+        },
+        "display_total_cost_usd": "$493.85",
+        "n_trials": 445,
+        "output_tokens": 10768129,
+        "pass_at_2": 0.8461,
+        "pass_at_3": 0.864,
+        "pass_at_4": 0.8719,
+        "pass_at_5": 0.8764,
+        "reward_hacks": 0.22,
+        "total_cost_usd": 493.85,
+        "uncached_input_tokens": 81469069
+      },
+      "raw_hub_trials_path": "raw/hub-row-trials/2026-05-01-openai-gpt-5-5-xhigh-terminus-2.json",
+      "raw_hub_trials_url": "https://ofhuhcpkvzjlejydnvyd.supabase.co/rest/v1/leaderboard_row_trial?row_id=eq.db1f499b-d948-43d2-9aaf-27cfe97f6caf&select=trial_id,created_at,trial:trial_id(id,job_id,trial_name,task_name,task_content_hash,rewards,status,exception_type,hosted_error,started_at,finished_at)&limit=1000&order=created_at.asc,trial_id.asc",
+      "raw_submission_path": "raw/repository-submissions/2026-05-01-openai-gpt-5-5-xhigh-terminus-2.json",
+      "repository_trial_count": 445,
+      "source_filter": {
+        "agent": "terminus-2",
+        "agent_version": "2.0.0",
+        "model_name": "openai/gpt-5.5",
+        "reasoning_effort": "xhigh"
+      },
+      "source_jobs": [
+        "10e2e56b-ed31-5f65-a489-69f78b902adf"
+      ],
+      "submission_file": "leaderboard/submissions/2026-05-01-openai-gpt-5-5-xhigh-terminus-2.json"
+    },
+    {
+      "disqualified_trials": [
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/mteb-leaderboard",
+          "reason": "reward_hacking",
+          "trial_id": "c0aa8368-4146-5f50-851e-c077b9ebf1ad"
+        }
+      ],
+      "hub_backing_job_ids": [
+        "d5eae728-5413-4143-b52b-34eb170b045d"
+      ],
+      "hub_row_id": "1095d399-9d66-44f4-8adc-e11fbb407a68",
+      "hub_row_url": "https://hub.harborframework.com/datasets/terminal-bench/terminal-bench-2-1/latest/leaderboards/main/rows/1095d399-9d66-44f4-8adc-e11fbb407a68",
+      "hub_trial_count": 445,
+      "metadata": {
+        "agent_display": {
+          "label": "Gemini CLI",
+          "url": "https://github.com/google-gemini/gemini-cli"
+        },
+        "agent_org": {
+          "label": "Google",
+          "url": "https://deepmind.google"
+        },
+        "date": "2026-05-05",
+        "display_date": "May 5, 2026",
+        "model_display": {
+          "label": "Gemini 3.1 Pro",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/"
+        },
+        "model_org": {
+          "label": "Google",
+          "url": "https://deepmind.google"
+        },
+        "pr_url": {
+          "label": "#68",
+          "url": "https://github.com/harbor-framework/terminal-bench-2-1/pull/68"
+        },
+        "reasoning_effort": "high"
+      },
+      "metrics": {
+        "accuracy": 65.84,
+        "accuracy_stderr": 1.67,
+        "avg_trial_duration_sec": 652.9,
+        "cached_input_tokens": 366583353,
+        "display_accuracy": "**65.8%** \u00b1 1.7%",
+        "display_reward_hacks": {
+          "label": "-0.2%",
+          "url": "https://github.com/harbor-framework/terminal-bench-2-1/pull/68#issuecomment-4919526326"
+        },
+        "display_total_cost_usd": "$236.49",
+        "n_trials": 445,
+        "output_tokens": 6123596,
+        "pass_at_2": 0.782,
+        "pass_at_3": 0.8315,
+        "pass_at_4": 0.8584,
+        "pass_at_5": 0.8764,
+        "reward_hacks": 0.22,
+        "total_cost_usd": 236.49,
+        "uncached_input_tokens": 44843158
+      },
+      "raw_hub_trials_path": "raw/hub-row-trials/2026-05-05-gemini-gemini-3-1-pro-preview-high-gemini-cli.json",
+      "raw_hub_trials_url": "https://ofhuhcpkvzjlejydnvyd.supabase.co/rest/v1/leaderboard_row_trial?row_id=eq.1095d399-9d66-44f4-8adc-e11fbb407a68&select=trial_id,created_at,trial:trial_id(id,job_id,trial_name,task_name,task_content_hash,rewards,status,exception_type,hosted_error,started_at,finished_at)&limit=1000&order=created_at.asc,trial_id.asc",
+      "raw_submission_path": "raw/repository-submissions/2026-05-05-gemini-gemini-3-1-pro-preview-high-gemini-cli.json",
+      "repository_trial_count": 445,
+      "source_filter": {
+        "agent": "gemini-cli",
+        "agent_version": "0.40.0",
+        "model_name": "gemini/gemini-3.1-pro-preview",
+        "reasoning_effort": "high"
+      },
+      "source_jobs": [
+        "42cd19c9-42ad-5d79-b033-adf4f879423d"
+      ],
+      "submission_file": "leaderboard/submissions/2026-05-05-gemini-gemini-3-1-pro-preview-high-gemini-cli.json"
+    },
+    {
+      "disqualified_trials": [
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/financial-document-processor",
+          "reason": "reward_hacking",
+          "trial_id": "f45bc6b5-c84b-58f9-b022-7e8d682966ac"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/fix-code-vulnerability",
+          "reason": "reward_hacking",
+          "trial_id": "df0a3052-e35d-5092-b434-a429897798eb"
+        }
+      ],
+      "hub_backing_job_ids": [
+        "d5eae728-5413-4143-b52b-34eb170b045d"
+      ],
+      "hub_row_id": "360942d9-d27b-4f7e-bcf6-e0ea9cdcdee8",
+      "hub_row_url": "https://hub.harborframework.com/datasets/terminal-bench/terminal-bench-2-1/latest/leaderboards/main/rows/360942d9-d27b-4f7e-bcf6-e0ea9cdcdee8",
+      "hub_trial_count": 445,
+      "metadata": {
+        "agent_display": {
+          "label": "Terminus 2",
+          "url": "https://www.tbench.ai/news/terminus"
+        },
+        "agent_org": {
+          "label": "Terminal-Bench",
+          "url": "https://tbench.ai"
+        },
+        "date": "2026-05-05",
+        "display_date": "May 5, 2026",
+        "model_display": {
+          "label": "Gemini 3.1 Pro",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/"
+        },
+        "model_org": {
+          "label": "Google",
+          "url": "https://deepmind.google"
+        },
+        "pr_url": {
+          "label": "#69",
+          "url": "https://github.com/harbor-framework/terminal-bench-2-1/pull/69"
+        },
+        "reasoning_effort": "high"
+      },
+      "metrics": {
+        "accuracy": 65.62,
+        "accuracy_stderr": 1.65,
+        "avg_trial_duration_sec": 672.8,
+        "cached_input_tokens": 96199940,
+        "display_accuracy": "**65.6%** \u00b1 1.7%",
+        "display_reward_hacks": {
+          "label": "-0.5%",
+          "url": "https://github.com/harbor-framework/terminal-bench-2-1/pull/69#issuecomment-4919517886"
+        },
+        "display_total_cost_usd": "$229.99",
+        "n_trials": 445,
+        "output_tokens": 12935831,
+        "pass_at_2": 0.7775,
+        "pass_at_3": 0.8225,
+        "pass_at_4": 0.8472,
+        "pass_at_5": 0.8652,
+        "reward_hacks": 0.45,
+        "total_cost_usd": 229.99,
+        "uncached_input_tokens": 27525560
+      },
+      "raw_hub_trials_path": "raw/hub-row-trials/2026-05-05-gemini-gemini-3-1-pro-preview-high-terminus-2.json",
+      "raw_hub_trials_url": "https://ofhuhcpkvzjlejydnvyd.supabase.co/rest/v1/leaderboard_row_trial?row_id=eq.360942d9-d27b-4f7e-bcf6-e0ea9cdcdee8&select=trial_id,created_at,trial:trial_id(id,job_id,trial_name,task_name,task_content_hash,rewards,status,exception_type,hosted_error,started_at,finished_at)&limit=1000&order=created_at.asc,trial_id.asc",
+      "raw_submission_path": "raw/repository-submissions/2026-05-05-gemini-gemini-3-1-pro-preview-high-terminus-2.json",
+      "repository_trial_count": 445,
+      "source_filter": {
+        "agent": "terminus-2",
+        "agent_version": "2.0.0",
+        "model_name": "gemini/gemini-3.1-pro-preview",
+        "reasoning_effort": "high"
+      },
+      "source_jobs": [
+        "42cd19c9-42ad-5d79-b033-adf4f879423d"
+      ],
+      "submission_file": "leaderboard/submissions/2026-05-05-gemini-gemini-3-1-pro-preview-high-terminus-2.json"
+    },
+    {
+      "disqualified_trials": [],
+      "hub_backing_job_ids": [
+        "17f04e4f-1a75-4204-9b75-d042ef0333ec"
+      ],
+      "hub_row_id": "ce0677b9-0fea-46ce-b8de-893c4d68e77a",
+      "hub_row_url": "https://hub.harborframework.com/datasets/terminal-bench/terminal-bench-2-1/latest/leaderboards/main/rows/ce0677b9-0fea-46ce-b8de-893c4d68e77a",
+      "hub_trial_count": 445,
+      "metadata": {
+        "agent_display": {
+          "label": "Terminus 2",
+          "url": "https://www.tbench.ai/news/terminus"
+        },
+        "agent_org": {
+          "label": "Terminal-Bench",
+          "url": "https://tbench.ai"
+        },
+        "date": "2026-06-05",
+        "display_date": "Jun 5, 2026",
+        "model_display": {
+          "label": "Fable 5",
+          "url": "https://www.anthropic.com/news/claude-fable-5-mythos-5"
+        },
+        "model_org": {
+          "label": "Anthropic",
+          "url": "https://www.anthropic.com"
+        },
+        "pr_url": {
+          "label": "#78",
+          "url": "https://github.com/harbor-framework/terminal-bench-2-1/pull/78"
+        },
+        "reasoning_effort": "high"
+      },
+      "metrics": {
+        "accuracy": 80.45,
+        "accuracy_stderr": 1.16,
+        "avg_trial_duration_sec": 697.1,
+        "cached_input_tokens": 56146091,
+        "display_accuracy": "**80.4%** \u00b1 1.2%",
+        "display_reward_hacks": {
+          "label": "-0.0%",
+          "url": "https://github.com/harbor-framework/terminal-bench-2-1/pull/78#issuecomment-4920307053"
+        },
+        "display_total_cost_usd": "$438.64",
+        "n_trials": 445,
+        "output_tokens": 7412519,
+        "pass_at_2": 0.864,
+        "pass_at_3": 0.891,
+        "pass_at_4": 0.9079,
+        "pass_at_5": 0.9213,
+        "reward_hacks": 0.0,
+        "total_cost_usd": 438.64,
+        "uncached_input_tokens": 7874199
+      },
+      "raw_hub_trials_path": "raw/hub-row-trials/2026-06-05-anthropic-claude-fable-5-high-terminus-2.json",
+      "raw_hub_trials_url": "https://ofhuhcpkvzjlejydnvyd.supabase.co/rest/v1/leaderboard_row_trial?row_id=eq.ce0677b9-0fea-46ce-b8de-893c4d68e77a&select=trial_id,created_at,trial:trial_id(id,job_id,trial_name,task_name,task_content_hash,rewards,status,exception_type,hosted_error,started_at,finished_at)&limit=1000&order=created_at.asc,trial_id.asc",
+      "raw_submission_path": "raw/repository-submissions/2026-06-05-anthropic-claude-fable-5-high-terminus-2.json",
+      "repository_trial_count": 445,
+      "source_filter": {
+        "agent": "terminus-2",
+        "agent_version": "2.0.0",
+        "model_name": "anthropic/claude-fable-5",
+        "reasoning_effort": "high"
+      },
+      "source_jobs": [
+        "ed9327d8-4601-5acb-a7a2-c71dfda0f5dc"
+      ],
+      "submission_file": "leaderboard/submissions/2026-06-05-anthropic-claude-fable-5-high-terminus-2.json"
+    },
+    {
+      "disqualified_trials": [
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/mteb-retrieve",
+          "reason": "reward_hacking",
+          "trial_id": "36f1123b-5221-5f54-91e8-5b70b35e7407"
+        }
+      ],
+      "hub_backing_job_ids": [
+        "11efb542-89de-4746-8227-b776c7841a96"
+      ],
+      "hub_row_id": "40dbe33d-e8af-475b-8eba-7d5d8f70054c",
+      "hub_row_url": "https://hub.harborframework.com/datasets/terminal-bench/terminal-bench-2-1/latest/leaderboards/main/rows/40dbe33d-e8af-475b-8eba-7d5d8f70054c",
+      "hub_trial_count": 445,
+      "metadata": {
+        "agent_display": {
+          "label": "Claude Code",
+          "url": "https://claude.com/claude-code"
+        },
+        "agent_org": {
+          "label": "Anthropic",
+          "url": "https://www.anthropic.com"
+        },
+        "date": "2026-06-07",
+        "display_date": "Jun 7, 2026",
+        "model_display": {
+          "label": "Fable 5",
+          "url": "https://www.anthropic.com/news/claude-fable-5-mythos-5"
+        },
+        "model_org": {
+          "label": "Anthropic",
+          "url": "https://www.anthropic.com"
+        },
+        "pr_url": {
+          "label": "#75",
+          "url": "https://github.com/harbor-framework/terminal-bench-2-1/pull/75"
+        },
+        "reasoning_effort": "xhigh"
+      },
+      "metrics": {
+        "accuracy": 83.82,
+        "accuracy_stderr": 1.16,
+        "avg_trial_duration_sec": 579.7,
+        "cached_input_tokens": 174066133,
+        "display_accuracy": "**83.8%** \u00b1 1.2%",
+        "display_reward_hacks": {
+          "label": "-0.2%",
+          "url": "https://github.com/harbor-framework/terminal-bench-2-1/pull/75#issuecomment-4920314071"
+        },
+        "display_total_cost_usd": "$552.67",
+        "n_trials": 445,
+        "output_tokens": 9954945,
+        "pass_at_2": 0.8978,
+        "pass_at_3": 0.918,
+        "pass_at_4": 0.9281,
+        "pass_at_5": 0.9326,
+        "reward_hacks": 0.22,
+        "total_cost_usd": 552.67,
+        "uncached_input_tokens": 20480925
+      },
+      "raw_hub_trials_path": "raw/hub-row-trials/2026-06-07-anthropic-claude-fable-5-xhigh-claude-code.json",
+      "raw_hub_trials_url": "https://ofhuhcpkvzjlejydnvyd.supabase.co/rest/v1/leaderboard_row_trial?row_id=eq.40dbe33d-e8af-475b-8eba-7d5d8f70054c&select=trial_id,created_at,trial:trial_id(id,job_id,trial_name,task_name,task_content_hash,rewards,status,exception_type,hosted_error,started_at,finished_at)&limit=1000&order=created_at.asc,trial_id.asc",
+      "raw_submission_path": "raw/repository-submissions/2026-06-07-anthropic-claude-fable-5-xhigh-claude-code.json",
+      "repository_trial_count": 445,
+      "source_filter": {
+        "agent": "claude-code",
+        "agent_version": "2.1.167",
+        "model_name": "anthropic/claude-fable-5",
+        "reasoning_effort": "xhigh"
+      },
+      "source_jobs": [
+        "f9d0318d-30f9-5d6f-bd7f-0ad5acf780d7"
+      ],
+      "submission_file": "leaderboard/submissions/2026-06-07-anthropic-claude-fable-5-xhigh-claude-code.json"
+    },
+    {
+      "disqualified_trials": [],
+      "hub_backing_job_ids": [
+        "67e18b19-c047-4e2f-942b-5849801fae52"
+      ],
+      "hub_row_id": "dcd48d03-9df9-46ab-bc4c-ade6dc35b8da",
+      "hub_row_url": "https://hub.harborframework.com/datasets/terminal-bench/terminal-bench-2-1/latest/leaderboards/main/rows/dcd48d03-9df9-46ab-bc4c-ade6dc35b8da",
+      "hub_trial_count": 445,
+      "metadata": {
+        "agent_display": {
+          "label": "Claude Code",
+          "url": "https://claude.com/claude-code"
+        },
+        "agent_org": {
+          "label": "Anthropic",
+          "url": "https://www.anthropic.com"
+        },
+        "date": "2026-07-09",
+        "display_date": "Jul 9, 2026",
+        "model_display": {
+          "label": "Opus 4.8",
+          "url": "https://www.anthropic.com/news/claude-opus-4-8"
+        },
+        "model_org": {
+          "label": "Anthropic",
+          "url": "https://www.anthropic.com"
+        },
+        "pr_url": {
+          "label": "#92",
+          "url": "https://github.com/harbor-framework/terminal-bench-2-1/pull/92"
+        },
+        "reasoning_effort": "high"
+      },
+      "metrics": {
+        "accuracy": 78.88,
+        "accuracy_stderr": 1.31,
+        "avg_trial_duration_sec": 551.4,
+        "cached_input_tokens": 161931526,
+        "display_accuracy": "**78.9%** \u00b1 1.3%",
+        "display_reward_hacks": {
+          "label": "-0.0%",
+          "url": "https://github.com/harbor-framework/terminal-bench-2-1/pull/92#issuecomment-4927161895"
+        },
+        "display_total_cost_usd": "$286.94",
+        "n_trials": 445,
+        "output_tokens": 8089069,
+        "pass_at_2": 0.8652,
+        "pass_at_3": 0.9011,
+        "pass_at_4": 0.9258,
+        "pass_at_5": 0.9438,
+        "reward_hacks": 0.0,
+        "total_cost_usd": 286.94,
+        "uncached_input_tokens": 12873472
+      },
+      "raw_hub_trials_path": "raw/hub-row-trials/2026-07-09-anthropic-claude-opus-4-8-high-claude-code.json",
+      "raw_hub_trials_url": "https://ofhuhcpkvzjlejydnvyd.supabase.co/rest/v1/leaderboard_row_trial?row_id=eq.dcd48d03-9df9-46ab-bc4c-ade6dc35b8da&select=trial_id,created_at,trial:trial_id(id,job_id,trial_name,task_name,task_content_hash,rewards,status,exception_type,hosted_error,started_at,finished_at)&limit=1000&order=created_at.asc,trial_id.asc",
+      "raw_submission_path": "raw/repository-submissions/2026-07-09-anthropic-claude-opus-4-8-high-claude-code.json",
+      "repository_trial_count": 445,
+      "source_filter": {
+        "agent": "claude-code",
+        "agent_version": "2.1.205",
+        "model_name": "anthropic/claude-opus-4-8",
+        "reasoning_effort": "high"
+      },
+      "source_jobs": [
+        "a3019ec2-bc78-5ff6-9cae-d22d62470515"
+      ],
+      "submission_file": "leaderboard/submissions/2026-07-09-anthropic-claude-opus-4-8-high-claude-code.json"
+    },
+    {
+      "disqualified_trials": [
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/regex-chess",
+          "reason": "reward_hacking",
+          "trial_id": "0abe3a0f-d5f4-5ef6-979a-b808e46b7bb2"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/fix-ocaml-gc",
+          "reason": "reward_hacking",
+          "trial_id": "51d45737-7c34-530f-826d-55c94b0206a9"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/break-filter-js-from-html",
+          "reason": "reward_hacking",
+          "trial_id": "d3553334-73b7-556d-96c9-4786644cfae1"
+        }
+      ],
+      "hub_backing_job_ids": [
+        "84ac1a9d-52a7-491b-85fb-dc323231b67f"
+      ],
+      "hub_row_id": "d7540f21-67af-4b3a-ad31-b81b85fef895",
+      "hub_row_url": "https://hub.harborframework.com/datasets/terminal-bench/terminal-bench-2-1/latest/leaderboards/main/rows/d7540f21-67af-4b3a-ad31-b81b85fef895",
+      "hub_trial_count": 445,
+      "metadata": {
+        "agent_display": {
+          "label": "Claude Code",
+          "url": "https://claude.com/claude-code"
+        },
+        "agent_org": {
+          "label": "Anthropic",
+          "url": "https://www.anthropic.com"
+        },
+        "date": "2026-07-09",
+        "display_date": "Jul 9, 2026",
+        "model_display": {
+          "label": "Sonnet 5",
+          "url": "https://www.anthropic.com/news/claude-sonnet-5"
+        },
+        "model_org": {
+          "label": "Anthropic",
+          "url": "https://www.anthropic.com"
+        },
+        "pr_url": {
+          "label": "#98",
+          "url": "https://github.com/harbor-framework/terminal-bench-2-1/pull/98"
+        },
+        "reasoning_effort": "high"
+      },
+      "metrics": {
+        "accuracy": 74.61,
+        "accuracy_stderr": 1.64,
+        "avg_trial_duration_sec": 629.6,
+        "cached_input_tokens": 527220403,
+        "display_accuracy": "**74.6%** \u00b1 1.6%",
+        "display_reward_hacks": {
+          "label": "-0.7%",
+          "url": "https://github.com/harbor-framework/terminal-bench-2-1/pull/98#issuecomment-4929504188"
+        },
+        "display_total_cost_usd": "$288.18",
+        "n_trials": 445,
+        "output_tokens": 11216322,
+        "pass_at_2": 0.8652,
+        "pass_at_3": 0.8955,
+        "pass_at_4": 0.9101,
+        "pass_at_5": 0.9213,
+        "reward_hacks": 0.67,
+        "total_cost_usd": 288.18,
+        "uncached_input_tokens": 20137729
+      },
+      "raw_hub_trials_path": "raw/hub-row-trials/2026-07-09-anthropic-claude-sonnet-5-high-claude-code.json",
+      "raw_hub_trials_url": "https://ofhuhcpkvzjlejydnvyd.supabase.co/rest/v1/leaderboard_row_trial?row_id=eq.d7540f21-67af-4b3a-ad31-b81b85fef895&select=trial_id,created_at,trial:trial_id(id,job_id,trial_name,task_name,task_content_hash,rewards,status,exception_type,hosted_error,started_at,finished_at)&limit=1000&order=created_at.asc,trial_id.asc",
+      "raw_submission_path": "raw/repository-submissions/2026-07-09-anthropic-claude-sonnet-5-high-claude-code.json",
+      "repository_trial_count": 445,
+      "source_filter": {
+        "agent": "claude-code",
+        "agent_version": "2.1.205",
+        "model_name": "anthropic/claude-sonnet-5",
+        "reasoning_effort": "high"
+      },
+      "source_jobs": [
+        "36288ba6-447b-5161-babf-cb46a228436c"
+      ],
+      "submission_file": "leaderboard/submissions/2026-07-09-anthropic-claude-sonnet-5-high-claude-code.json"
+    },
+    {
+      "disqualified_trials": [
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/mteb-leaderboard",
+          "reason": "reward_hacking",
+          "trial_id": "006a9932-c89f-5ee0-88c4-4004cea20067"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/db-wal-recovery",
+          "reason": "reward_hacking",
+          "trial_id": "fe98b339-47c6-57e1-ba30-f1e1cee553da"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/gpt2-codegolf",
+          "reason": "reward_hacking",
+          "trial_id": "a487d582-e30b-5883-857c-9c7925c3be70"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/db-wal-recovery",
+          "reason": "reward_hacking",
+          "trial_id": "6776c900-7fbd-578c-bdda-60172b035f5c"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/gpt2-codegolf",
+          "reason": "reward_hacking",
+          "trial_id": "b5122301-d583-56a5-9ea4-35aca24c90a4"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/build-pov-ray",
+          "reason": "reward_hacking",
+          "trial_id": "f4da57e6-d927-5b78-992e-fba553443c9e"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/count-dataset-tokens",
+          "reason": "reward_hacking",
+          "trial_id": "255a7b9c-8977-584b-8684-e313f6362b22"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/extract-elf",
+          "reason": "reward_hacking",
+          "trial_id": "41f53679-24f0-52f9-906f-82aeb1f2cd1a"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/regex-log",
+          "reason": "reward_hacking",
+          "trial_id": "e222067d-2b0f-5b98-b16a-1e522d72052e"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/count-dataset-tokens",
+          "reason": "reward_hacking",
+          "trial_id": "81446691-c624-5bca-afcb-e994db5ee2a4"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/extract-elf",
+          "reason": "reward_hacking",
+          "trial_id": "78b9f68b-3902-59ce-9afb-c6e7709c6a05"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/crack-7z-hash",
+          "reason": "reward_hacking",
+          "trial_id": "3ed6803c-0ae0-57b0-b678-e950c72a5e5c"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/compile-compcert",
+          "reason": "reward_hacking",
+          "trial_id": "47870b05-9358-57e2-b1d0-a89a0cab7c5a"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/torch-pipeline-parallelism",
+          "reason": "reward_hacking",
+          "trial_id": "18ddf4d6-ad19-5e8a-80aa-9d11e6ecfa0c"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/gpt2-codegolf",
+          "reason": "reward_hacking",
+          "trial_id": "8518faff-3ff9-5890-933b-56c4f5073e6f"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/torch-pipeline-parallelism",
+          "reason": "reward_hacking",
+          "trial_id": "2eeb3bc9-abd9-5c74-9669-f642018c3821"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/torch-pipeline-parallelism",
+          "reason": "reward_hacking",
+          "trial_id": "0d377c6e-7132-53ec-aee9-4f9df8e5d099"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/protein-assembly",
+          "reason": "reward_hacking",
+          "trial_id": "24cc9f12-2c00-5479-9268-1fd1f611aeae"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/count-dataset-tokens",
+          "reason": "reward_hacking",
+          "trial_id": "cc88cfe4-da15-533a-bec6-117d5f2ec4d1"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/extract-elf",
+          "reason": "reward_hacking",
+          "trial_id": "d2acb679-0520-5571-a3bf-503e4fa1107f"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/regex-chess",
+          "reason": "reward_hacking",
+          "trial_id": "fccae8cb-8042-541a-be15-0229fa918ece"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/protein-assembly",
+          "reason": "reward_hacking",
+          "trial_id": "44b8d2cf-1308-5018-9ee9-975ee34e130c"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/make-mips-interpreter",
+          "reason": "reward_hacking",
+          "trial_id": "8fe0de86-7b9b-5bc5-b735-e167f9b984c9"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/polyglot-rust-c",
+          "reason": "reward_hacking",
+          "trial_id": "fad87431-b9d5-52f3-b955-e50c673ad96c"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/gpt2-codegolf",
+          "reason": "reward_hacking",
+          "trial_id": "01c2f8d6-869d-578d-b060-797e814295ed"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/torch-pipeline-parallelism",
+          "reason": "reward_hacking",
+          "trial_id": "48eb6fbc-2a51-5917-a875-8c39a0c4205e"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/crack-7z-hash",
+          "reason": "reward_hacking",
+          "trial_id": "c5166b99-ddfa-5abb-84fc-ae8420a5feab"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/reshard-c4-data",
+          "reason": "reward_hacking",
+          "trial_id": "1975bebd-3447-58a5-a279-4a9f7880d9a1"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/regex-chess",
+          "reason": "reward_hacking",
+          "trial_id": "552590aa-0d15-504e-998d-03783c659094"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/polyglot-rust-c",
+          "reason": "reward_hacking",
+          "trial_id": "5e81ec9a-66f7-5384-8816-d7f360e6d2ba"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/mteb-leaderboard",
+          "reason": "reward_hacking",
+          "trial_id": "ea49d6b8-11e5-51e7-9222-2efd5177ff16"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/count-dataset-tokens",
+          "reason": "reward_hacking",
+          "trial_id": "551668c0-1721-5dee-a8c6-65c42efe733b"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/build-pov-ray",
+          "reason": "reward_hacking",
+          "trial_id": "40c1e192-c2af-52c0-b7d0-072b42dc7355"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/install-windows-3.11",
+          "reason": "reward_hacking",
+          "trial_id": "85bc0029-39bb-53d6-aafd-ae729d2d7fc1"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/raman-fitting",
+          "reason": "reward_hacking",
+          "trial_id": "06cbd961-007e-5e81-bd4d-ab1cd4729eac"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/crack-7z-hash",
+          "reason": "reward_hacking",
+          "trial_id": "098b9a2a-271d-52c3-89ca-3a858a6ccf69"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/regex-chess",
+          "reason": "reward_hacking",
+          "trial_id": "0c693202-54f3-5c94-aeb1-ffb9ef631ba5"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/gpt2-codegolf",
+          "reason": "reward_hacking",
+          "trial_id": "a3aefab2-604f-5ec9-8c6b-a8c6fa6dde27"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/raman-fitting",
+          "reason": "reward_hacking",
+          "trial_id": "96685868-2cbc-56b5-ac8e-5a4d43fb999a"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/regex-chess",
+          "reason": "reward_hacking",
+          "trial_id": "06803dc6-dcfd-59b8-b6f6-e886d591af92"
+        }
+      ],
+      "hub_backing_job_ids": [
+        "da969e44-7659-4c1a-8041-a5dc9e624ee0"
+      ],
+      "hub_row_id": "1fe87c62-99ed-477b-9f6c-23ffbabc49f6",
+      "hub_row_url": "https://hub.harborframework.com/datasets/terminal-bench/terminal-bench-2-1/latest/leaderboards/main/rows/1fe87c62-99ed-477b-9f6c-23ffbabc49f6",
+      "hub_trial_count": 445,
+      "metadata": {
+        "agent_display": {
+          "label": "Cursor CLI",
+          "url": "https://cursor.com/docs/cli/overview"
+        },
+        "agent_org": {
+          "label": "Cursor",
+          "url": "https://cursor.com"
+        },
+        "date": "2026-07-09",
+        "display_date": "Jul 9, 2026",
+        "model_display": {
+          "label": "Grok 4.5",
+          "url": "https://docs.x.ai/developers/models/grok-4.5"
+        },
+        "model_org": {
+          "label": "xAI",
+          "url": "https://x.ai"
+        },
+        "pr_url": {
+          "label": "#86",
+          "url": "https://github.com/harbor-framework/terminal-bench-2-1/pull/86"
+        },
+        "reasoning_effort": "high"
+      },
+      "metrics": {
+        "accuracy": 79.33,
+        "accuracy_stderr": 1.46,
+        "avg_trial_duration_sec": 443.0,
+        "cached_input_tokens": 161079936,
+        "display_accuracy": "**79.3%** \u00b1 1.5%",
+        "display_reward_hacks": {
+          "label": "-9.0%",
+          "url": "https://github.com/harbor-framework/terminal-bench-2-1/pull/86#issuecomment-4922002821"
+        },
+        "display_total_cost_usd": "$134.09",
+        "n_trials": 445,
+        "output_tokens": 4734062,
+        "pass_at_2": 0.8888,
+        "pass_at_3": 0.9236,
+        "pass_at_4": 0.9416,
+        "pass_at_5": 0.9551,
+        "reward_hacks": 8.99,
+        "total_cost_usd": 134.09,
+        "uncached_input_tokens": 12570445
+      },
+      "raw_hub_trials_path": "raw/hub-row-trials/2026-07-09-cursor-grok-4-5-none-cursor-cli.json",
+      "raw_hub_trials_url": "https://ofhuhcpkvzjlejydnvyd.supabase.co/rest/v1/leaderboard_row_trial?row_id=eq.1fe87c62-99ed-477b-9f6c-23ffbabc49f6&select=trial_id,created_at,trial:trial_id(id,job_id,trial_name,task_name,task_content_hash,rewards,status,exception_type,hosted_error,started_at,finished_at)&limit=1000&order=created_at.asc,trial_id.asc",
+      "raw_submission_path": "raw/repository-submissions/2026-07-09-cursor-grok-4-5-none-cursor-cli.json",
+      "repository_trial_count": 445,
+      "source_filter": {
+        "agent": "cursor-cli",
+        "agent_version": "2026.07.08-0c04a8a",
+        "model_name": "cursor/grok-4.5",
+        "reasoning_effort": null
+      },
+      "source_jobs": [
+        "d478d2af-5348-575c-b20a-e5a2434dbff7"
+      ],
+      "submission_file": "leaderboard/submissions/2026-07-09-cursor-grok-4-5-none-cursor-cli.json"
+    },
+    {
+      "disqualified_trials": [],
+      "hub_backing_job_ids": [
+        "1c76cec0-5fbd-491c-b1d9-76021e225d4d"
+      ],
+      "hub_row_id": "64890377-54de-4cc2-bcd7-e76610983482",
+      "hub_row_url": "https://hub.harborframework.com/datasets/terminal-bench/terminal-bench-2-1/latest/leaderboards/main/rows/64890377-54de-4cc2-bcd7-e76610983482",
+      "hub_trial_count": 445,
+      "metadata": {
+        "agent_display": {
+          "label": "mini-SWE-agent",
+          "url": "https://github.com/SWE-agent/mini-swe-agent"
+        },
+        "agent_org": {
+          "label": "Princeton",
+          "url": "https://www.princeton.edu"
+        },
+        "date": "2026-07-09",
+        "display_date": "Jul 9, 2026",
+        "model_display": {
+          "label": "Muse Spark 1.1",
+          "url": "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/"
+        },
+        "model_org": {
+          "label": "Meta",
+          "url": "https://www.meta.com"
+        },
+        "pr_url": {
+          "label": "#94",
+          "url": "https://github.com/harbor-framework/terminal-bench-2-1/pull/94"
+        },
+        "reasoning_effort": "xhigh"
+      },
+      "metrics": {
+        "accuracy": 76.18,
+        "accuracy_stderr": 1.23,
+        "avg_trial_duration_sec": 687.0,
+        "cached_input_tokens": 932239373,
+        "display_accuracy": "**76.2%** \u00b1 1.2%",
+        "display_reward_hacks": {
+          "label": "-0.0%",
+          "url": "https://github.com/harbor-framework/terminal-bench-2-1/pull/94#issuecomment-4928238218"
+        },
+        "display_total_cost_usd": "$198.05",
+        "n_trials": 445,
+        "output_tokens": 13679953,
+        "pass_at_2": 0.8292,
+        "pass_at_3": 0.8697,
+        "pass_at_4": 0.8966,
+        "pass_at_5": 0.9101,
+        "reward_hacks": 0.0,
+        "total_cost_usd": 198.05,
+        "uncached_input_tokens": 60996
+      },
+      "raw_hub_trials_path": "raw/hub-row-trials/2026-07-09-openai-muse-spark-1-1-xhigh-mini-swe-agent.json",
+      "raw_hub_trials_url": "https://ofhuhcpkvzjlejydnvyd.supabase.co/rest/v1/leaderboard_row_trial?row_id=eq.64890377-54de-4cc2-bcd7-e76610983482&select=trial_id,created_at,trial:trial_id(id,job_id,trial_name,task_name,task_content_hash,rewards,status,exception_type,hosted_error,started_at,finished_at)&limit=1000&order=created_at.asc,trial_id.asc",
+      "raw_submission_path": "raw/repository-submissions/2026-07-09-openai-muse-spark-1-1-xhigh-mini-swe-agent.json",
+      "repository_trial_count": 445,
+      "source_filter": {
+        "agent": "mini-swe-agent",
+        "agent_version": "2.4.5",
+        "model_name": "openai/muse-spark-1.1",
+        "reasoning_effort": "xhigh"
+      },
+      "source_jobs": [
+        "e15e18db-c8c1-5e9f-9064-1d68975b3c91"
+      ],
+      "submission_file": "leaderboard/submissions/2026-07-09-openai-muse-spark-1-1-xhigh-mini-swe-agent.json"
+    },
+    {
+      "disqualified_trials": [
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/fix-code-vulnerability",
+          "reason": "reward_hacking",
+          "trial_id": "ad7996e0-45f8-5821-8961-560fb71cae61"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/mteb-leaderboard",
+          "reason": "reward_hacking",
+          "trial_id": "e9d465ab-e475-5598-8778-583d516d37ea"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/fix-code-vulnerability",
+          "reason": "reward_hacking",
+          "trial_id": "76b148d0-c2b1-57e3-9b8e-17c686dae995"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/fix-code-vulnerability",
+          "reason": "reward_hacking",
+          "trial_id": "7a3a513a-2b4a-565b-9a62-84ef061c4cf9"
+        }
+      ],
+      "hub_backing_job_ids": [
+        "413ec154-36fb-46f4-a0b2-2111e1c65501"
+      ],
+      "hub_row_id": "e5f3feda-4629-46ba-963f-300dcf7c2a4c",
+      "hub_row_url": "https://hub.harborframework.com/datasets/terminal-bench/terminal-bench-2-1/latest/leaderboards/main/rows/e5f3feda-4629-46ba-963f-300dcf7c2a4c",
+      "hub_trial_count": 445,
+      "metadata": {
+        "agent_display": {
+          "label": "Codex",
+          "url": "https://openai.com/codex/"
+        },
+        "agent_org": {
+          "label": "OpenAI",
+          "url": "https://openai.com"
+        },
+        "date": "2026-07-11",
+        "display_date": "Jul 11, 2026",
+        "model_display": {
+          "label": "GPT-5.6 Luna",
+          "url": "https://developers.openai.com/api/docs/models/gpt-5.6-luna"
+        },
+        "model_org": {
+          "label": "OpenAI",
+          "url": "https://openai.com"
+        },
+        "pr_url": {
+          "label": "#112",
+          "url": "https://github.com/harbor-framework/terminal-bench-2-1/pull/112"
+        },
+        "reasoning_effort": "max"
+      },
+      "metrics": {
+        "accuracy": 75.73,
+        "accuracy_stderr": 1.32,
+        "avg_trial_duration_sec": 457.3,
+        "cached_input_tokens": 1376567117,
+        "display_accuracy": "**75.7%** \u00b1 1.3%",
+        "display_reward_hacks": {
+          "label": "-0.9%",
+          "url": "https://github.com/harbor-framework/terminal-bench-2-1/pull/112#issuecomment-4948932571"
+        },
+        "display_total_cost_usd": "$241.45",
+        "n_trials": 445,
+        "output_tokens": 10628905,
+        "pass_at_2": 0.8348,
+        "pass_at_3": 0.864,
+        "pass_at_4": 0.8787,
+        "pass_at_5": 0.8876,
+        "reward_hacks": 0.9,
+        "total_cost_usd": 241.45,
+        "uncached_input_tokens": 40023670
+      },
+      "raw_hub_trials_path": "raw/hub-row-trials/2026-07-11-openai-gpt-5-6-luna-max-codex.json",
+      "raw_hub_trials_url": "https://ofhuhcpkvzjlejydnvyd.supabase.co/rest/v1/leaderboard_row_trial?row_id=eq.e5f3feda-4629-46ba-963f-300dcf7c2a4c&select=trial_id,created_at,trial:trial_id(id,job_id,trial_name,task_name,task_content_hash,rewards,status,exception_type,hosted_error,started_at,finished_at)&limit=1000&order=created_at.asc,trial_id.asc",
+      "raw_submission_path": "raw/repository-submissions/2026-07-11-openai-gpt-5-6-luna-max-codex.json",
+      "repository_trial_count": 445,
+      "source_filter": {
+        "agent": "codex",
+        "agent_version": "0.144.1",
+        "model_name": "openai/gpt-5.6-luna",
+        "reasoning_effort": "max"
+      },
+      "source_jobs": [
+        "4860a28f-bc1a-5367-9885-57ff9ccc3a15"
+      ],
+      "submission_file": "leaderboard/submissions/2026-07-11-openai-gpt-5-6-luna-max-codex.json"
+    },
+    {
+      "disqualified_trials": [
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/fix-code-vulnerability",
+          "reason": "reward_hacking",
+          "trial_id": "4678c751-30ed-5ae7-9807-9a0c9573d246"
+        }
+      ],
+      "hub_backing_job_ids": [
+        "77fc16b9-8db9-4d61-a172-dba037aba20b"
+      ],
+      "hub_row_id": "23ab6a14-4b2d-461d-9171-f8109f5692f1",
+      "hub_row_url": "https://hub.harborframework.com/datasets/terminal-bench/terminal-bench-2-1/latest/leaderboards/main/rows/23ab6a14-4b2d-461d-9171-f8109f5692f1",
+      "hub_trial_count": 445,
+      "metadata": {
+        "agent_display": {
+          "label": "Codex",
+          "url": "https://openai.com/codex/"
+        },
+        "agent_org": {
+          "label": "OpenAI",
+          "url": "https://openai.com"
+        },
+        "date": "2026-07-11",
+        "display_date": "Jul 11, 2026",
+        "model_display": {
+          "label": "GPT-5.6 Terra",
+          "url": "https://developers.openai.com/api/docs/models/gpt-5.6-terra"
+        },
+        "model_org": {
+          "label": "OpenAI",
+          "url": "https://openai.com"
+        },
+        "pr_url": {
+          "label": "#115",
+          "url": "https://github.com/harbor-framework/terminal-bench-2-1/pull/115"
+        },
+        "reasoning_effort": "max"
+      },
+      "metrics": {
+        "accuracy": 78.43,
+        "accuracy_stderr": 1.25,
+        "avg_trial_duration_sec": 432.8,
+        "cached_input_tokens": 864130644,
+        "display_accuracy": "**78.4%** \u00b1 1.3%",
+        "display_reward_hacks": {
+          "label": "-0.2%",
+          "url": "https://github.com/harbor-framework/terminal-bench-2-1/pull/115#issuecomment-4949810903"
+        },
+        "display_total_cost_usd": "$421.15",
+        "n_trials": 445,
+        "output_tokens": 8707506,
+        "pass_at_2": 0.8539,
+        "pass_at_3": 0.8753,
+        "pass_at_4": 0.8876,
+        "pass_at_5": 0.8989,
+        "reward_hacks": 0.22,
+        "total_cost_usd": 421.15,
+        "uncached_input_tokens": 29803660
+      },
+      "raw_hub_trials_path": "raw/hub-row-trials/2026-07-11-openai-gpt-5-6-terra-max-codex.json",
+      "raw_hub_trials_url": "https://ofhuhcpkvzjlejydnvyd.supabase.co/rest/v1/leaderboard_row_trial?row_id=eq.23ab6a14-4b2d-461d-9171-f8109f5692f1&select=trial_id,created_at,trial:trial_id(id,job_id,trial_name,task_name,task_content_hash,rewards,status,exception_type,hosted_error,started_at,finished_at)&limit=1000&order=created_at.asc,trial_id.asc",
+      "raw_submission_path": "raw/repository-submissions/2026-07-11-openai-gpt-5-6-terra-max-codex.json",
+      "repository_trial_count": 445,
+      "source_filter": {
+        "agent": "codex",
+        "agent_version": "0.144.1",
+        "model_name": "openai/gpt-5.6-terra",
+        "reasoning_effort": "max"
+      },
+      "source_jobs": [
+        "84f460e2-f7f8-5249-8e63-d58b197968c7"
+      ],
+      "submission_file": "leaderboard/submissions/2026-07-11-openai-gpt-5-6-terra-max-codex.json"
+    }
+  ],
+  "excluded_incomplete_hub_trials": [
+    {
+      "disqualified_trials": [
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/break-filter-js-from-html",
+          "reason": "reward_hacking",
+          "trial_id": "db4cae33-aa3f-5498-b2c2-0d1f9fc41005"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/build-pov-ray",
+          "reason": "reward_hacking",
+          "trial_id": "02edd655-4c26-54a9-ab27-856719b86f11"
+        }
+      ],
+      "hub_backing_job_ids": [
+        "c8fcaaeb-c49a-413a-9f8d-20bc09c53339"
+      ],
+      "hub_row_id": "fdb8393b-5b29-4645-b784-84f52cf31722",
+      "hub_row_url": "https://hub.harborframework.com/datasets/terminal-bench/terminal-bench-2-1/latest/leaderboards/main/rows/fdb8393b-5b29-4645-b784-84f52cf31722",
+      "hub_trial_count": 445,
+      "metadata": {
+        "agent_display": {
+          "label": "Claude Code",
+          "url": "https://claude.com/claude-code"
+        },
+        "agent_org": {
+          "label": "Anthropic",
+          "url": "https://www.anthropic.com"
+        },
+        "date": "2026-05-01",
+        "display_date": "May 1, 2026",
+        "model_display": {
+          "label": "Opus 4.7",
+          "url": "https://www.anthropic.com/news/claude-opus-4-7"
+        },
+        "model_org": {
+          "label": "Anthropic",
+          "url": "https://www.anthropic.com"
+        },
+        "pr_url": {
+          "label": "#44",
+          "url": "https://github.com/harbor-framework/terminal-bench-2-1/pull/44"
+        },
+        "reasoning_effort": "max"
+      },
+      "metrics": {
+        "accuracy": 68.9,
+        "accuracy_stderr": 1.41,
+        "avg_trial_duration_sec": 799.6,
+        "cached_input_tokens": 806584422,
+        "display_accuracy": "**68.9%** \u00b1 1.4%",
+        "display_reward_hacks": {
+          "label": "-0.5%",
+          "url": "https://github.com/harbor-framework/terminal-bench-2-1/pull/44#issuecomment-4911408552"
+        },
+        "display_total_cost_usd": "$599.52",
+        "n_trials": 447,
+        "output_tokens": 14896548,
+        "pass_at_2": 0.7801,
+        "pass_at_3": 0.8124,
+        "pass_at_4": 0.83,
+        "pass_at_5": 0.8408,
+        "reward_hacks": 0.45,
+        "total_cost_usd": 599.52,
+        "uncached_input_tokens": 31873388
+      },
+      "raw_hub_trials_path": "raw/hub-row-trials/2026-05-01-anthropic-claude-opus-4-7-max-claude-code.json",
+      "raw_hub_trials_url": "https://ofhuhcpkvzjlejydnvyd.supabase.co/rest/v1/leaderboard_row_trial?row_id=eq.fdb8393b-5b29-4645-b784-84f52cf31722&select=trial_id,created_at,trial:trial_id(id,job_id,trial_name,task_name,task_content_hash,rewards,status,exception_type,hosted_error,started_at,finished_at)&limit=1000&order=created_at.asc,trial_id.asc",
+      "raw_submission_path": "raw/repository-submissions/2026-05-01-anthropic-claude-opus-4-7-max-claude-code.json",
+      "reason": "current official Hub row association count does not match the merged submission trial count and metric denominator; incomplete per-trial evidence is excluded from empirical rates",
+      "repository_trial_count": 447,
+      "source_filter": {
+        "agent": "claude-code",
+        "agent_version": "2.1.123",
+        "model_name": "anthropic/claude-opus-4-7",
+        "reasoning_effort": "max"
+      },
+      "source_jobs": [
+        "10e2e56b-ed31-5f65-a489-69f78b902adf"
+      ],
+      "submission_file": "leaderboard/submissions/2026-05-01-anthropic-claude-opus-4-7-max-claude-code.json"
+    }
+  ],
+  "fetched_at_utc": "2026-08-26T01:37:37Z",
+  "handling": {
+    "accepted_trial": "Hub row trial not represented by an official repository disqualified_trials record for the same task; disqualified records are successful trials by the official judge workflow and are removed from both numerator and denominator",
+    "empirical_inclusion": "merged repository submission with an exact PR-linked row on the fetched official Harbor Hub leaderboard, complete public per-trial verifier outcomes, and equal repository, Hub association, and metric trial counts",
+    "error_trial": "accepted trial with missing, zero, or negative reward remains in the denominator as failure",
+    "fallback_rate": "pool successes and accepted trials across all empirical submissions by task; do not weight submissions equally or use resource metadata",
+    "hub_migration": "current Hub row trial and backing-job IDs differ from repository promotion IDs; exact PR URL, row identity, identities, trial count, and aggregate reward/disqualification reconciliation bind each current row to its merged submission",
+    "pi_rate": "use only a verified official Pi submission; none exists in this snapshot"
+  },
+  "merged_without_current_hub_trials": [
+    {
+      "disqualified_trials": [
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/gpt2-codegolf",
+          "reason": "reward_hacking",
+          "trial_id": "5e886e58-2cd4-57cc-b0f6-dedc03fbd78c"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/crack-7z-hash",
+          "reason": "reward_hacking",
+          "trial_id": "b02d7d94-b485-565f-9ea6-acc5af52b62c"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/mteb-leaderboard",
+          "reason": "reward_hacking",
+          "trial_id": "af3ff5ac-4d07-5ef4-bab7-5015237d8689"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/crack-7z-hash",
+          "reason": "reward_hacking",
+          "trial_id": "ea3f25dd-2565-57bb-b811-e2395e83397b"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/db-wal-recovery",
+          "reason": "reward_hacking",
+          "trial_id": "2e5ab26d-8825-5caa-8777-b3bf32ed5e91"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/torch-pipeline-parallelism",
+          "reason": "reward_hacking",
+          "trial_id": "931aec26-f066-5948-9792-3f761df851b6"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/raman-fitting",
+          "reason": "reward_hacking",
+          "trial_id": "55a9fd33-d7eb-5715-9723-d8994452ca8f"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/gpt2-codegolf",
+          "reason": "reward_hacking",
+          "trial_id": "e9a875d3-b29e-5c42-9eeb-26f5b96e1109"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/raman-fitting",
+          "reason": "reward_hacking",
+          "trial_id": "90f02f6b-487f-5a5b-accc-71a28bc114f8"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/extract-elf",
+          "reason": "reward_hacking",
+          "trial_id": "35dc30ad-ae03-50c6-8b45-ef3c1cb3f5cf"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/build-pov-ray",
+          "reason": "reward_hacking",
+          "trial_id": "3ddd607b-c7bb-51bf-937f-fb4921c0e071"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/mteb-leaderboard",
+          "reason": "reward_hacking",
+          "trial_id": "fe5eb321-6f01-50db-89e7-bb72ff7d34cb"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/gpt2-codegolf",
+          "reason": "reward_hacking",
+          "trial_id": "fc74c6bb-3f04-5bc9-a3bc-a3253212e053"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/gpt2-codegolf",
+          "reason": "reward_hacking",
+          "trial_id": "166ed4cf-4aa3-512a-9d71-c87983188f12"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/dna-insert",
+          "reason": "reward_hacking",
+          "trial_id": "1716a1e2-863f-5b80-bdc5-365fe89bf3b9"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/mteb-leaderboard",
+          "reason": "reward_hacking",
+          "trial_id": "e9f610b6-4f24-58a2-b555-76bce05082b0"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/extract-elf",
+          "reason": "reward_hacking",
+          "trial_id": "4109562f-d24d-569c-a593-4980f45229b8"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/extract-elf",
+          "reason": "reward_hacking",
+          "trial_id": "c78023a7-6c40-5dd0-a7d6-841786d717d2"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/winning-avg-corewars",
+          "reason": "reward_hacking",
+          "trial_id": "badc02d8-571d-5359-a3a9-0d63f3097e54"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/torch-tensor-parallelism",
+          "reason": "reward_hacking",
+          "trial_id": "bf79e691-2005-58ec-8188-c7e6eef29884"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/db-wal-recovery",
+          "reason": "reward_hacking",
+          "trial_id": "d78ba200-96cd-5725-8c57-5d9e7d42999c"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/gpt2-codegolf",
+          "reason": "reward_hacking",
+          "trial_id": "c1aff283-bafb-5450-ab1a-d6fecfec11ee"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/count-dataset-tokens",
+          "reason": "reward_hacking",
+          "trial_id": "d3b99313-7360-5070-bdec-dd7c865fb762"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/headless-terminal",
+          "reason": "reward_hacking",
+          "trial_id": "799536e6-895e-57eb-a67f-f8f2f4f29dbd"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/torch-tensor-parallelism",
+          "reason": "reward_hacking",
+          "trial_id": "e246b3f6-c39d-5ac2-b585-8f6c8f14d752"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/winning-avg-corewars",
+          "reason": "reward_hacking",
+          "trial_id": "917ee031-0544-50f9-9d9f-38f351abb87a"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/feal-linear-cryptanalysis",
+          "reason": "reward_hacking",
+          "trial_id": "86283e73-93db-5255-8541-62e0552e0640"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/build-pov-ray",
+          "reason": "reward_hacking",
+          "trial_id": "f74e273d-9b44-5d78-9ac8-68cc1e903238"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/extract-elf",
+          "reason": "reward_hacking",
+          "trial_id": "c94d38bc-282f-5860-9a2e-887cb37df899"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/db-wal-recovery",
+          "reason": "reward_hacking",
+          "trial_id": "eb0bcd7d-6734-5102-9f56-e31c6eebad56"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/mteb-leaderboard",
+          "reason": "reward_hacking",
+          "trial_id": "4fcbffcd-ab85-5b93-944f-83b2d70b41da"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/extract-elf",
+          "reason": "reward_hacking",
+          "trial_id": "98c25d51-3986-5e06-a170-142a91cb2cfe"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/mteb-leaderboard",
+          "reason": "reward_hacking",
+          "trial_id": "fe3611e0-39af-5d82-99f5-d5636d907a87"
+        }
+      ],
+      "metadata": {
+        "agent_display": {
+          "label": "Codex",
+          "url": "https://openai.com/codex/"
+        },
+        "agent_org": {
+          "label": "OpenAI",
+          "url": "https://openai.com"
+        },
+        "date": "2026-07-10",
+        "display_date": "Jul 10, 2026",
+        "model_display": {
+          "label": "GPT-5.6 Luna",
+          "url": "https://developers.openai.com/api/docs/models/gpt-5.6-luna"
+        },
+        "model_org": {
+          "label": "OpenAI",
+          "url": "https://openai.com/"
+        },
+        "pr_url": {
+          "label": "#105",
+          "url": "https://github.com/harbor-framework/terminal-bench-2-1/pull/105"
+        },
+        "reasoning_effort": "max"
+      },
+      "metrics": {
+        "accuracy": 71.24,
+        "accuracy_stderr": 1.39,
+        "avg_trial_duration_sec": 422.0,
+        "cached_input_tokens": 1210200406,
+        "display_accuracy": "**71.2%** \u00b1 1.4%",
+        "display_reward_hacks": {
+          "label": "-7.4%",
+          "url": "https://github.com/harbor-framework/terminal-bench-2-1/pull/105#issuecomment-4942210978"
+        },
+        "display_total_cost_usd": "$218.28",
+        "n_trials": 445,
+        "output_tokens": 9525636,
+        "pass_at_2": 0.7989,
+        "pass_at_3": 0.8416,
+        "pass_at_4": 0.8697,
+        "pass_at_5": 0.8876,
+        "reward_hacks": 7.42,
+        "total_cost_usd": 218.28,
+        "uncached_input_tokens": 40109860
+      },
+      "raw_submission_path": "raw/repository-submissions/2026-07-10-gpt-5-6-luna-max-codex.json",
+      "reason": "merged official submission has no row on the fetched official Harbor Hub leaderboard; its repository source job and trial IDs are not publicly readable at fetch time",
+      "repository_trial_count": 445,
+      "source_filter": {
+        "agent": "codex",
+        "agent_version": "0.144.0",
+        "model_name": "gpt-5.6-luna",
+        "reasoning_effort": "max"
+      },
+      "source_jobs": [
+        "622b427f-0ddc-54db-b64b-90960667e6be"
+      ],
+      "submission_file": "leaderboard/submissions/2026-07-10-gpt-5-6-luna-max-codex.json"
+    },
+    {
+      "disqualified_trials": [
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/extract-moves-from-video",
+          "reason": "reward_hacking",
+          "trial_id": "4832f3c4-877b-5e7d-a3d2-f4d235fed901"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/mteb-leaderboard",
+          "reason": "reward_hacking",
+          "trial_id": "e66f2109-2738-50f4-8394-95134d34638c"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/headless-terminal",
+          "reason": "reward_hacking",
+          "trial_id": "54eacf8b-97bc-5278-b53a-727d4ce8088d"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/extract-elf",
+          "reason": "reward_hacking",
+          "trial_id": "44a68a5e-329b-560e-b159-939cd44ff331"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/gpt2-codegolf",
+          "reason": "reward_hacking",
+          "trial_id": "8b445977-923d-55f1-8fa5-0f25a823f03c"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/build-pov-ray",
+          "reason": "reward_hacking",
+          "trial_id": "12d37fad-5908-52e6-881c-b76e352647eb"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/build-pov-ray",
+          "reason": "reward_hacking",
+          "trial_id": "f1841eb4-159b-56b0-96c7-8d4b70c55cba"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/torch-pipeline-parallelism",
+          "reason": "reward_hacking",
+          "trial_id": "5e514a4b-f681-530b-9e20-19450ee8a664"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/extract-elf",
+          "reason": "reward_hacking",
+          "trial_id": "8ded8d13-6ed4-5775-aecb-511799a6c53f"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/build-pov-ray",
+          "reason": "reward_hacking",
+          "trial_id": "ba799ce9-c238-52b3-92e1-88a9d241c904"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/torch-pipeline-parallelism",
+          "reason": "reward_hacking",
+          "trial_id": "7428a6f2-d9d8-5442-9b4b-443375b645bc"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/torch-pipeline-parallelism",
+          "reason": "reward_hacking",
+          "trial_id": "40c6d734-d93a-5097-98f2-8c8dc47211f1"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/gpt2-codegolf",
+          "reason": "reward_hacking",
+          "trial_id": "44f65ae8-f74c-53b8-92cd-4fcffb27cfb4"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/count-dataset-tokens",
+          "reason": "reward_hacking",
+          "trial_id": "09d7c9af-c509-5f60-abdd-7e68241893ac"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/mteb-leaderboard",
+          "reason": "reward_hacking",
+          "trial_id": "da496d35-2c0c-58d8-8b51-1d9f72d76e04"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/extract-moves-from-video",
+          "reason": "reward_hacking",
+          "trial_id": "8cfb549a-c20b-55fe-981b-93080e979dfa"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/torch-pipeline-parallelism",
+          "reason": "reward_hacking",
+          "trial_id": "f38d1101-b12b-56f7-a11a-20bb592e50a3"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/count-dataset-tokens",
+          "reason": "reward_hacking",
+          "trial_id": "05ca3bf1-8e1f-5962-a3ed-86396e3a8819"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/extract-elf",
+          "reason": "reward_hacking",
+          "trial_id": "3cd63ab0-99bd-58a6-9439-a007d6e17f3d"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/path-tracing-reverse",
+          "reason": "reward_hacking",
+          "trial_id": "9df4e77d-6950-5fc7-9f85-a53a2d2ac8f4"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/extract-elf",
+          "reason": "reward_hacking",
+          "trial_id": "c19c6eb1-8f61-5f22-ba13-454bb2f8ae15"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/torch-pipeline-parallelism",
+          "reason": "reward_hacking",
+          "trial_id": "8200ec16-1dd0-5b61-ba20-b938b350b8f0"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/raman-fitting",
+          "reason": "reward_hacking",
+          "trial_id": "702c8419-4838-5c62-a525-5a5de09bbe13"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/gpt2-codegolf",
+          "reason": "reward_hacking",
+          "trial_id": "68e52142-b7d2-5679-b033-1c53a0d04ec3"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/count-dataset-tokens",
+          "reason": "reward_hacking",
+          "trial_id": "1913d6c3-0470-574a-9d2c-81fa6a4a9e4b"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/protein-assembly",
+          "reason": "reward_hacking",
+          "trial_id": "ec88d949-dbdd-50e4-8b40-22d85ec9c245"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/build-pov-ray",
+          "reason": "reward_hacking",
+          "trial_id": "626277b8-753f-56db-a635-3e4c5b2b448c"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/crack-7z-hash",
+          "reason": "reward_hacking",
+          "trial_id": "580f19f4-4f93-5d33-b6de-ca6766ef005d"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/build-pov-ray",
+          "reason": "reward_hacking",
+          "trial_id": "4f2a536c-c1b1-5ce7-8b3d-377a699c471e"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/extract-elf",
+          "reason": "reward_hacking",
+          "trial_id": "4b7a0a63-1458-565f-990c-79ea2f4186c0"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/torch-tensor-parallelism",
+          "reason": "reward_hacking",
+          "trial_id": "cdf6f6a9-a77b-5379-bfc9-c8aaaa3786ea"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/password-recovery",
+          "reason": "reward_hacking",
+          "trial_id": "6efed60a-a05a-5577-af7d-bcf956d2e13f"
+        }
+      ],
+      "metadata": {
+        "agent_display": {
+          "label": "Codex",
+          "url": "https://openai.com/codex/"
+        },
+        "agent_org": {
+          "label": "OpenAI",
+          "url": "https://openai.com"
+        },
+        "date": "2026-07-10",
+        "display_date": "Jul 10, 2026",
+        "model_display": {
+          "label": "GPT-5.6 Sol",
+          "url": "https://developers.openai.com/api/docs/models/gpt-5.6-sol"
+        },
+        "model_org": {
+          "label": "OpenAI",
+          "url": "https://openai.com/"
+        },
+        "pr_url": {
+          "label": "#102",
+          "url": "https://github.com/harbor-framework/terminal-bench-2-1/pull/102"
+        },
+        "reasoning_effort": "max"
+      },
+      "metrics": {
+        "accuracy": 76.18,
+        "accuracy_stderr": 1.28,
+        "avg_trial_duration_sec": 431.0,
+        "cached_input_tokens": 540552541,
+        "display_accuracy": "**76.2%** \u00b1 1.3%",
+        "display_reward_hacks": {
+          "label": "-7.2%",
+          "url": "https://github.com/harbor-framework/terminal-bench-2-1/pull/102#issuecomment-4938390460"
+        },
+        "display_total_cost_usd": "$574.68",
+        "n_trials": 445,
+        "output_tokens": 5935747,
+        "pass_at_2": 0.8348,
+        "pass_at_3": 0.8663,
+        "pass_at_4": 0.8809,
+        "pass_at_5": 0.8876,
+        "reward_hacks": 7.19,
+        "total_cost_usd": 574.68,
+        "uncached_input_tokens": 25266704
+      },
+      "raw_submission_path": "raw/repository-submissions/2026-07-10-gpt-5-6-sol-max-codex.json",
+      "reason": "merged official submission has no row on the fetched official Harbor Hub leaderboard; its repository source job and trial IDs are not publicly readable at fetch time",
+      "repository_trial_count": 445,
+      "source_filter": {
+        "agent": "codex",
+        "agent_version": "0.144.0",
+        "model_name": "gpt-5.6-sol",
+        "reasoning_effort": "max"
+      },
+      "source_jobs": [
+        "fa34c325-6014-59c4-b45b-4ed08c8719ae"
+      ],
+      "submission_file": "leaderboard/submissions/2026-07-10-gpt-5-6-sol-max-codex.json"
+    },
+    {
+      "disqualified_trials": [
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/winning-avg-corewars",
+          "reason": "reward_hacking",
+          "trial_id": "a9c712b6-6153-59d7-9969-564c0a4b39de"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/code-from-image",
+          "reason": "reward_hacking",
+          "trial_id": "96c378a7-d525-567f-820c-8691c36840b8"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/mteb-leaderboard",
+          "reason": "reward_hacking",
+          "trial_id": "be25bd98-63c0-5f54-82fa-ffb0036e28d9"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/code-from-image",
+          "reason": "reward_hacking",
+          "trial_id": "39c2893c-da59-5cf1-84f0-32ea299df8cb"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/caffe-cifar-10",
+          "reason": "reward_hacking",
+          "trial_id": "b9561202-3bfc-5561-aab8-f6720cfda911"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/code-from-image",
+          "reason": "reward_hacking",
+          "trial_id": "08d74227-dd5e-553c-a029-94c6d0bf8f95"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/polyglot-rust-c",
+          "reason": "reward_hacking",
+          "trial_id": "5c6b726d-be8f-5e8f-bbd0-2658dba8a224"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/extract-elf",
+          "reason": "reward_hacking",
+          "trial_id": "9383c2a5-8c60-53bb-b9fe-23d47da8f0c2"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/extract-elf",
+          "reason": "reward_hacking",
+          "trial_id": "69a9b8de-5089-5924-840b-a113a7ec9531"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/extract-elf",
+          "reason": "reward_hacking",
+          "trial_id": "fef8e3a5-18de-5421-be11-1b2ec35a544e"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/raman-fitting",
+          "reason": "reward_hacking",
+          "trial_id": "ced4b835-33f7-50e1-8f37-53ff4c6a4d9a"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/extract-elf",
+          "reason": "reward_hacking",
+          "trial_id": "3dead896-4403-502c-9a98-b8fcb8e52b84"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/winning-avg-corewars",
+          "reason": "reward_hacking",
+          "trial_id": "68083b79-2c4f-5004-b9f2-8ff810033487"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/extract-elf",
+          "reason": "reward_hacking",
+          "trial_id": "13955f5a-23d0-5480-9ec9-9c62abbff6fd"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/count-dataset-tokens",
+          "reason": "reward_hacking",
+          "trial_id": "7d75c1a1-8249-543e-9bba-3fddced9ec37"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/code-from-image",
+          "reason": "reward_hacking",
+          "trial_id": "ef22fb76-9116-5c5d-9652-fa1ccd870abe"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/gpt2-codegolf",
+          "reason": "reward_hacking",
+          "trial_id": "948b946e-c1a0-567a-965c-2fb78d881fe2"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/caffe-cifar-10",
+          "reason": "reward_hacking",
+          "trial_id": "8bf18c62-b7cc-5af7-90d7-c6dcde3fc31f"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/gpt2-codegolf",
+          "reason": "reward_hacking",
+          "trial_id": "1487aa09-dfdb-5d8e-8c24-23b6153b4a26"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/feal-linear-cryptanalysis",
+          "reason": "reward_hacking",
+          "trial_id": "db8c651b-f99f-56fd-9d8d-ad54d72e7fce"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/build-pov-ray",
+          "reason": "reward_hacking",
+          "trial_id": "9369c6b1-244c-5ad6-a2c4-812b18147d60"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/build-pov-ray",
+          "reason": "reward_hacking",
+          "trial_id": "aaac5cf6-c33a-57a3-98d0-be5cf4324648"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/torch-pipeline-parallelism",
+          "reason": "reward_hacking",
+          "trial_id": "255575c4-20a4-520d-a90b-dabdffb4b165"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/count-dataset-tokens",
+          "reason": "reward_hacking",
+          "trial_id": "bd54a392-cb5b-5f09-b1fe-dfeda1214e34"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/gpt2-codegolf",
+          "reason": "reward_hacking",
+          "trial_id": "1d30bddf-7ae3-5029-adc7-5731cdf9629b"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/torch-tensor-parallelism",
+          "reason": "reward_hacking",
+          "trial_id": "c5da4216-8007-5e42-a54b-2cb91804691e"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/torch-pipeline-parallelism",
+          "reason": "reward_hacking",
+          "trial_id": "39bb2f60-b109-533b-93f9-2db7a0e0ea3d"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/torch-tensor-parallelism",
+          "reason": "reward_hacking",
+          "trial_id": "48f552d1-84f5-5b07-a35d-e3c5d49d1461"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/build-pov-ray",
+          "reason": "reward_hacking",
+          "trial_id": "514d6303-9629-54f1-a924-a43fa0e2e8ab"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/torch-pipeline-parallelism",
+          "reason": "reward_hacking",
+          "trial_id": "6f0f5aca-9c9d-5a90-962f-58841635cb3d"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/qemu-startup",
+          "reason": "reward_hacking",
+          "trial_id": "3009f98e-9427-5d2c-9ada-b0b01aeb8809"
+        },
+        {
+          "judge_trial": "https://hub.harborframework.com/tasks/terminal-bench/raman-fitting",
+          "reason": "reward_hacking",
+          "trial_id": "384f0b90-6746-589a-b45a-86dc177a1b53"
+        }
+      ],
+      "metadata": {
+        "agent_display": {
+          "label": "Codex",
+          "url": "https://openai.com/codex/"
+        },
+        "agent_org": {
+          "label": "OpenAI",
+          "url": "https://openai.com"
+        },
+        "date": "2026-07-10",
+        "display_date": "Jul 10, 2026",
+        "model_display": {
+          "label": "GPT-5.6 Terra",
+          "url": "https://developers.openai.com/api/docs/models/gpt-5.6-terra"
+        },
+        "model_org": {
+          "label": "OpenAI",
+          "url": "https://openai.com/"
+        },
+        "pr_url": {
+          "label": "#106",
+          "url": "https://github.com/harbor-framework/terminal-bench-2-1/pull/106"
+        },
+        "reasoning_effort": "max"
+      },
+      "metrics": {
+        "accuracy": 74.38,
+        "accuracy_stderr": 1.54,
+        "avg_trial_duration_sec": 421.6,
+        "cached_input_tokens": 791614561,
+        "display_accuracy": "**74.4%** \u00b1 1.5%",
+        "display_reward_hacks": {
+          "label": "-7.2%",
+          "url": "https://github.com/harbor-framework/terminal-bench-2-1/pull/106#issuecomment-4942210317"
+        },
+        "display_total_cost_usd": "$401.03",
+        "n_trials": 445,
+        "output_tokens": 8273026,
+        "pass_at_2": 0.8494,
+        "pass_at_3": 0.8899,
+        "pass_at_4": 0.9101,
+        "pass_at_5": 0.9213,
+        "reward_hacks": 7.19,
+        "total_cost_usd": 401.03,
+        "uncached_input_tokens": 31612623
+      },
+      "raw_submission_path": "raw/repository-submissions/2026-07-10-gpt-5-6-terra-max-codex.json",
+      "reason": "merged official submission has no row on the fetched official Harbor Hub leaderboard; its repository source job and trial IDs are not publicly readable at fetch time",
+      "repository_trial_count": 445,
+      "source_filter": {
+        "agent": "codex",
+        "agent_version": "0.144.0",
+        "model_name": "gpt-5.6-terra",
+        "reasoning_effort": "max"
+      },
+      "source_jobs": [
+        "622b427f-0ddc-54db-b64b-90960667e6be"
+      ],
+      "submission_file": "leaderboard/submissions/2026-07-10-gpt-5-6-terra-max-codex.json"
+    }
+  ],
+  "official_sources": {
+    "hub_dataset": {
+      "dataset": "terminal-bench/terminal-bench-2-1",
+      "dataset_ref": "sha256:7d7bdc1cbedad549fc1140404bd4dc45e5fd0ea7c4186773687d177ad3a0699a",
+      "dataset_version_ids": [
+        "14172910-955c-46de-9120-4ddd1078d4dd",
+        "45f21fc7-8906-416f-9dd3-99ef6c6825ba",
+        "bd220b45-1203-40ed-b403-c231ceaeda73",
+        "c2ca7974-c0f6-4581-b342-a2ed88edd454",
+        "c6a94f4b-817b-414d-b453-992bd2d7eba4",
+        "f92eea12-ff70-4d30-ace0-003abf294998"
+      ],
+      "public_pi_search_interface": "https://ofhuhcpkvzjlejydnvyd.supabase.co/rest/v1/rpc/get_jobs",
+      "public_trial_interface": "https://ofhuhcpkvzjlejydnvyd.supabase.co/rest/v1/leaderboard_row_trial",
+      "url": "https://hub.harborframework.com/datasets/terminal-bench/terminal-bench-2-1/latest"
+    },
+    "leaderboard": {
+      "hub_leaderboard_id": "60330f75-0dd8-47ea-bd1d-e2ea28945731",
+      "hub_package_id": "272adc1e-e7ec-46b0-b53b-b91e8dde79de",
+      "hub_read_endpoint": "https://ofhuhcpkvzjlejydnvyd.supabase.co/functions/v1/leaderboard-read",
+      "hub_read_request": {
+        "name": "main",
+        "package": "terminal-bench/terminal-bench-2-1",
+        "page": 1,
+        "page_size": 100
+      },
+      "hub_row_count": 17,
+      "url": "https://www.tbench.ai/leaderboard/terminal-bench/2.1"
+    },
+    "repository": {
+      "commit": "7131e4375048a0e408a8fb404b5f499d726b695b",
+      "commit_time": "2026-08-11T13:46:41-07:00",
+      "ref": "main",
+      "submission_count": 20,
+      "submission_glob": "leaderboard/submissions/*.json",
+      "url": "https://github.com/harbor-framework/terminal-bench-2-1"
+    }
+  },
+  "pi_evidence": {
+    "hub_leaderboard_search": "no fetched official leaderboard row is Pi-tagged",
+    "hub_public_job_search_requests": [
+      {
+        "p_agents": [
+          "pi"
+        ],
+        "p_page": 1,
+        "p_page_size": 100,
+        "p_scope": "public"
+      },
+      {
+        "p_page": 1,
+        "p_page_size": 100,
+        "p_scope": "public",
+        "p_search": "terminal-bench-2-1 pi"
+      },
+      {
+        "p_page": 1,
+        "p_page_size": 100,
+        "p_scope": "public",
+        "p_search": "pi"
+      }
+    ],
+    "hub_public_job_search_totals": [
+      0,
+      0,
+      0
+    ],
+    "repository_search": "no source_filter agent, filename, or display identity in the 20 merged submission files is Pi-tagged",
+    "verified_pi_per_task_evidence": false
+  },
+  "raw_files": {
+    "raw/hub-leaderboard-read.json": {
+      "bytes": 26853,
+      "sha256": "c5d4b778f35230c0ffcfc628dc7d13b3dc41a70aa534b68e8329a3e7c9b685e8"
+    },
+    "raw/hub-public-pi-job-searches.json": {
+      "bytes": 912,
+      "sha256": "ddcb5a74d0548ade87bd35a83644b342073645468487351c4fd7b233023c74ae"
+    },
+    "raw/hub-row-trials/2026-05-01-anthropic-claude-opus-4-7-max-claude-code.json": {
+      "bytes": 263426,
+      "sha256": "4f6fbe38baf2e99ed553f5ddf1e7c1bd45897e607d1cd6d9a4a8910f4cf1ee0c"
+    },
+    "raw/hub-row-trials/2026-05-01-anthropic-claude-opus-4-7-max-terminus-2.json": {
+      "bytes": 264180,
+      "sha256": "5f83c6c60143178e6d4f8b56c1472b0e69920ec4935f2dba20c90f0644cca02d"
+    },
+    "raw/hub-row-trials/2026-05-01-gemini-gemini-3-pro-preview-high-gemini-cli.json": {
+      "bytes": 262364,
+      "sha256": "54554b95db72adc14e46cd4fee6bf3f2ef2f7703e7a37df7f0bcafddac1739a6"
+    },
+    "raw/hub-row-trials/2026-05-01-gemini-gemini-3-pro-preview-high-terminus-2.json": {
+      "bytes": 262386,
+      "sha256": "42703639c08e8f7066b0aa3a99fef27738b28d672f6390faf86971d87bb6b55c"
+    },
+    "raw/hub-row-trials/2026-05-01-glm-5-1-max-claude-code.json": {
+      "bytes": 264059,
+      "sha256": "e1b50d27849f4576f915ebeaf5b64f5e24656fdb71d835a2d09085df73a2e252"
+    },
+    "raw/hub-row-trials/2026-05-01-openai-gpt-5-5-xhigh-codex.json": {
+      "bytes": 262290,
+      "sha256": "a87a6496b13b3acf67f836b5e1c60e2868cf010bd5b9d1ab10455b123e0653a9"
+    },
+    "raw/hub-row-trials/2026-05-01-openai-gpt-5-5-xhigh-terminus-2.json": {
+      "bytes": 262738,
+      "sha256": "0b2517d9a09e741ad3363b1dccbe5761d3d2c2f0b328bedbc5a5cbc641ad4ad6"
+    },
+    "raw/hub-row-trials/2026-05-05-gemini-gemini-3-1-pro-preview-high-gemini-cli.json": {
+      "bytes": 262844,
+      "sha256": "19a6daf7638c2789e71e0b4ac75fa49964b4fcd42d783be37c608dc17a0b84d4"
+    },
+    "raw/hub-row-trials/2026-05-05-gemini-gemini-3-1-pro-preview-high-terminus-2.json": {
+      "bytes": 262693,
+      "sha256": "5bd40a5b58385c839a1f5bfb79fb65f502116dfe71c3ae3fdc2dc57b6e6229e7"
+    },
+    "raw/hub-row-trials/2026-06-05-anthropic-claude-fable-5-high-terminus-2.json": {
+      "bytes": 262715,
+      "sha256": "78c135e2e001a6810e007abefc67998a8b028cc78832ed44fde843cdcd0b51de"
+    },
+    "raw/hub-row-trials/2026-06-07-anthropic-claude-fable-5-xhigh-claude-code.json": {
+      "bytes": 262492,
+      "sha256": "401e130134936a69d91563b27a279be9c932aea625a13f175d25e99f69990b3b"
+    },
+    "raw/hub-row-trials/2026-07-09-anthropic-claude-opus-4-8-high-claude-code.json": {
+      "bytes": 262955,
+      "sha256": "1c212c7dee88a1a19b412ac2d21aa04c1014107e5d86e0a5191eb4fe846d1a69"
+    },
+    "raw/hub-row-trials/2026-07-09-anthropic-claude-sonnet-5-high-claude-code.json": {
+      "bytes": 263167,
+      "sha256": "c8afb73dc520ab992cc77d826ae8bfa8f757a2f548d43362ffdcd79cd4deaf1a"
+    },
+    "raw/hub-row-trials/2026-07-09-cursor-grok-4-5-none-cursor-cli.json": {
+      "bytes": 263893,
+      "sha256": "e262afe048ec6e51a15133bfe2dca6ed70f35c3369c86570af81dcadc9af9ee8"
+    },
+    "raw/hub-row-trials/2026-07-09-openai-muse-spark-1-1-xhigh-mini-swe-agent.json": {
+      "bytes": 262858,
+      "sha256": "03ee73f92242a48645c3ea28bde4c0d5de7c625274158a2b1b5065a58edf6fba"
+    },
+    "raw/hub-row-trials/2026-07-11-openai-gpt-5-6-luna-max-codex.json": {
+      "bytes": 262689,
+      "sha256": "a9adf5931cc5f06b37db01fae005d2cc1b322f92393542a61108885eb7fbae08"
+    },
+    "raw/hub-row-trials/2026-07-11-openai-gpt-5-6-terra-max-codex.json": {
+      "bytes": 266157,
+      "sha256": "332f6391563699e7d1400997388e7d46c68236f1ac6901eed6015e30dff476b1"
+    },
+    "raw/repository-submissions/2026-05-01-anthropic-claude-opus-4-7-max-claude-code.json": {
+      "bytes": 21645,
+      "sha256": "de3833ffef181e389c86961c8b2bd99becc933a10f5149c182a0085f39d5b6c3"
+    },
+    "raw/repository-submissions/2026-05-01-anthropic-claude-opus-4-7-max-terminus-2.json": {
+      "bytes": 21152,
+      "sha256": "03d20549ae30ba035e1f591acfb3df22379164c3cdc8c52a9bbc30d90751b265"
+    },
+    "raw/repository-submissions/2026-05-01-gemini-gemini-3-pro-preview-high-gemini-cli.json": {
+      "bytes": 21587,
+      "sha256": "8afd8a98513e8d96985af29ca8de59a64e7f0dc40f995babb8714219c6310c5b"
+    },
+    "raw/repository-submissions/2026-05-01-gemini-gemini-3-pro-preview-high-terminus-2.json": {
+      "bytes": 21584,
+      "sha256": "617c01c29e60a2f9c351858fb2db99279b15817463e952feec14ed41b30add35"
+    },
+    "raw/repository-submissions/2026-05-01-glm-5-1-max-claude-code.json": {
+      "bytes": 21097,
+      "sha256": "80ba7ec32c0027fc9af0f05d55a477cc0b7fc0d77153816d62b537b8ab0990b7"
+    },
+    "raw/repository-submissions/2026-05-01-openai-gpt-5-5-xhigh-codex.json": {
+      "bytes": 21317,
+      "sha256": "fedbd2f895bfb672c64f937e10f3e49291f752b6df15a22761882550f932f54e"
+    },
+    "raw/repository-submissions/2026-05-01-openai-gpt-5-5-xhigh-terminus-2.json": {
+      "bytes": 21330,
+      "sha256": "67b179597758619e909c11d6e7d78e4dfb4f9c1942539a15eefde2e09480d3ae"
+    },
+    "raw/repository-submissions/2026-05-05-gemini-gemini-3-1-pro-preview-high-gemini-cli.json": {
+      "bytes": 21407,
+      "sha256": "f2d5268d317a9518330db213b908c7c351baa5a7f05198ef085351d05614e771"
+    },
+    "raw/repository-submissions/2026-05-05-gemini-gemini-3-1-pro-preview-high-terminus-2.json": {
+      "bytes": 21617,
+      "sha256": "1750f8e4819d4c4522c4005b68528fba18f8c4902490578fa9dcafe920a34728"
+    },
+    "raw/repository-submissions/2026-06-05-anthropic-claude-fable-5-high-terminus-2.json": {
+      "bytes": 21156,
+      "sha256": "ec4699f2d6771108eb6acbe50c0a99212258302a36d035cd96140515ee3ccf30"
+    },
+    "raw/repository-submissions/2026-06-07-anthropic-claude-fable-5-xhigh-claude-code.json": {
+      "bytes": 21361,
+      "sha256": "1524efefb5df3407b27358b13be7e775664fcbe90b111a55ebb9954d581cf73f"
+    },
+    "raw/repository-submissions/2026-07-09-anthropic-claude-opus-4-8-high-claude-code.json": {
+      "bytes": 21156,
+      "sha256": "2b8125cf8ab6a7a501d467af55317b4d87e7239508055aac9d9881621c49b40a"
+    },
+    "raw/repository-submissions/2026-07-09-anthropic-claude-sonnet-5-high-claude-code.json": {
+      "bytes": 21754,
+      "sha256": "aa4cfb2586723790e5638fa1d5e2b4f48c726a679cc9e80e7a670c3cad78acff"
+    },
+    "raw/repository-submissions/2026-07-09-cursor-grok-4-5-none-cursor-cli.json": {
+      "bytes": 29033,
+      "sha256": "a73454861c91299b501637e6df6082f2f16cf9c9f6c98f07bce315189f82eb23"
+    },
+    "raw/repository-submissions/2026-07-09-openai-muse-spark-1-1-xhigh-mini-swe-agent.json": {
+      "bytes": 21182,
+      "sha256": "57af8397e210a8a06ae0cd673190b1424df55d4e062747de48180db0233dde14"
+    },
+    "raw/repository-submissions/2026-07-10-gpt-5-6-luna-max-codex.json": {
+      "bytes": 27644,
+      "sha256": "3e289210be5bdb5ce1c13a77b456650ad1103a48f925cbbd0333d71f82680b8e"
+    },
+    "raw/repository-submissions/2026-07-10-gpt-5-6-sol-max-codex.json": {
+      "bytes": 27498,
+      "sha256": "62d1a44f1d05654833cf1770c9f2ead98dde9d47e6e431511b83964f5a525c0c"
+    },
+    "raw/repository-submissions/2026-07-10-gpt-5-6-terra-max-codex.json": {
+      "bytes": 27476,
+      "sha256": "22f251afce1ebc387560d908a6a4ea310632e6152ca3b81792148036a3bb98f2"
+    },
+    "raw/repository-submissions/2026-07-11-openai-gpt-5-6-luna-max-codex.json": {
+      "bytes": 21944,
+      "sha256": "2fb0bbc937c376fb379ab5507cdd64a1d6fd18a44ee202880e60fb5f33ef281d"
+    },
+    "raw/repository-submissions/2026-07-11-openai-gpt-5-6-terra-max-codex.json": {
+      "bytes": 21341,
+      "sha256": "142eeec16527114021a4eed383464cbaaccda6f3c5c5eebb975bb82a0057d718"
+    }
+  },
+  "raw_source_set_sha256": "80fa589f5bddd5f066f77501b123b1b7831a7e73fc46ced24e57a31afa1efd78",
+  "schema_version": 1,
+  "snapshot_id": "terminal-bench-2-1-official-20260826"
+}

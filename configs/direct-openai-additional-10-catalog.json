@@ -5,6 +5,7 @@
     "task_count": 89
   },
   "frozen_before_spend": true,
+  "official_empirical_snapshot": "evidence/terminal-bench-2-1-official-20260826/manifest.json",
   "population": [
     {
       "agent_timeout_sec": 900,
@@ -1966,11 +1967,14 @@
     }
   ],
   "provenance": {
-    "image_build_burden_source": "task.toml build timeout and image plus static environment context and Dockerfile instruction counts; no image pull or build",
     "package_index_sha256": "dc91537b10819e788b668f1e91af589388dd3a5006f39efe29b78cda474581e6",
     "publication_baseline_commit": "70f5a7b69e7cbbcd09464e275b5a75a8821baa7f",
+    "resource_metadata_source": "task package metadata and static files; descriptive only, with no image pull, build, or selection weight",
+    "selection_source": "authoritative merged Terminal-Bench 2.1 submissions and public Harbor Hub row trials in the bounded official snapshot",
     "source": "Harbor 0.21.0 cache populated from the frozen dataset plus its byte-identical full package export",
     "task_tree_manifest_algorithm": "SHA-256 of canonical compact JSON sorted by relative path; each row contains path, byte count, file SHA-256, and executable flag"
   },
-  "schema_version": 1
+  "schema_version": 2,
+  "selection_role": "complete task identity and descriptive resource catalog only; no field in population affects empirical strata or selection",
+  "supersedes_preparation_commit": "5feb120248de092d72771ff7f9630423350daebd"
 }

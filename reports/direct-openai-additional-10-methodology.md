@@ -1,56 +1,86 @@
 # Additional ten-task direct matched preparation
 
-## Scope
+## Decision
 
-This preparation freezes 10 fresh Terminal-Bench 2.1 tasks and 20 future paid cells. It launches nothing. No preparation entry point imports Harbor, opens a network client, reads credentials, invokes Doppler, or creates a fake provider cell. The frozen order is Pi and then native ThinHarness for each task.
+This preparation launches nothing. It selects 10 fresh Terminal-Bench 2.1 tasks from accepted verifier outcomes in official merged submissions. It replaces the metadata-weighted selection at commit `5feb120248de092d72771ff7f9630423350daebd`. Resource fields remain only to identify tasks and describe possible run limits.
 
-## Complete population and exclusions
+## Official evidence snapshot
 
-The frozen catalog contains all 89 task packages from `terminal-bench/terminal-bench-2-1@sha256:7d7bdc1cbedad549fc1140404bd4dc45e5fd0ea7c4186773687d177ad3a0699a`. Each row includes its package digest, task TOML hash, instruction hash, deterministic task-tree manifest hash, and all proxy inputs. The baseline is publication commit `70f5a7b69e7cbbcd09464e275b5a75a8821baa7f`.
+The bounded snapshot is `evidence/terminal-bench-2-1-official-20260826/`. It was fetched at `2026-08-26T01:37:37Z` from:
 
-The exclusion union has 36 tasks with prior real, attempted, consumed, selected-for-real, or replicate evidence. This leaves 53 eligible tasks. `mteb-retrieve`, `mteb-leaderboard`, and `large-scale-text-editing` had only rejected or first-not-selected mentions, so those mentions do not create qualifying evidence. The complete proof is in `configs/direct-openai-additional-10-exclusion-proof.json`.
+- official repository: <https://github.com/harbor-framework/terminal-bench-2-1>, `main` commit `7131e4375048a0e408a8fb404b5f499d726b695b`
+- official leaderboard: <https://www.tbench.ai/leaderboard/terminal-bench/2.1>
+- official Harbor Hub dataset and leaderboard: <https://hub.harborframework.com/datasets/terminal-bench/terminal-bench-2-1/latest>
 
-## Expense proxy and strata
+The snapshot preserves all 20 merged `leaderboard/submissions/*.json` files, the official Hub leaderboard response, public per-trial verifier outcomes, public Pi-job search responses, exact source and backing job IDs, and SHA-256 hashes for every raw file. `manifest.json` records source URLs, the fetch time, source commit, dataset digest, identities, coverage, exclusions, and raw and derived source-set hashes. The deterministic derived record is `derived/empirical-task-outcomes.json`.
 
-The proxy uses only frozen package metadata. It min-max normalizes the complete eligible population. The weights are expert time 30%, agent timeout 15%, verifier timeout 15%, CPU 10%, memory 10%, storage 5%, and image/build burden 15%. Image/build burden uses build timeout 20%, environment context bytes 40%, Dockerfile instruction count 20%, and Dockerfile COPY/ADD count 20%. A missing expert estimate gets the highest normalized burden. Constant dimensions normalize to zero. Ties use the task name in ascending bytewise order.
+The current Hub trial IDs differ from the repository promotion trial IDs after a Hub migration. Each usable trial set is bound to its merged submission by exact pull request URL, row ID, agent/model identity, trial count, task digest, and aggregate reward after official disqualifications.
 
-The ordered eligible population splits into 18 low, 18 medium, and 17 high tasks. Boundaries are score plus task name: low `1.811838/build-cython-ext` through `4.255476/llm-inference-batching-scheduler`; medium `4.326031/mteb-retrieve` through `13.733106/torch-pipeline-parallelism`; high `13.733107/torch-tensor-parallelism` through `55.070327/caffe-cifar-10`. Selection uses evenly spaced ranks within each stratum. The allocation is 3/3/4. The remainder goes to high to cover more infrastructure and expense risk.
+## Included official submissions
 
-## Selected resources
+Each included submission has all 89 tasks and 5 raw trials per task. A disqualified trial is removed from both the success count and trial count. An accepted errored or unrewarded trial stays in the denominator as a failure.
 
-| Stratum | Task | Score | Expert min | Agent s | Verifier s | CPU | Memory MiB | Storage MiB | Environment bytes | Dockerfile instructions | COPY/ADD | Image |
-|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
-| low | `build-cython-ext` | 1.811838 | 60.0 | 900 | 900 | 1 | 2048 | 10240 | 395 | 4 | 0 | `alexgshaw/build-cython-ext:20251031` |
-| low | `largest-eigenval` | 2.729880 | 60.0 | 900 | 900 | 1 | 2048 | 10240 | 3195 | 5 | 2 | `alexgshaw/largest-eigenval:20251031` |
-| low | `llm-inference-batching-scheduler` | 4.255476 | 45.0 | 1800 | 1800 | 1 | 2048 | 10240 | 111925 | 3 | 1 | `alexgshaw/llm-inference-batching-scheduler:20251031` |
-| medium | `mteb-retrieve` | 4.326031 | 15.0 | 1800 | 1800 | 1 | 2048 | 10240 | 2660 | 6 | 1 | `alexgshaw/mteb-retrieve:20260430` |
-| medium | `schemelike-metacircular-eval` | 9.569140 | 300.0 | 2400 | 2400 | 1 | 2048 | 10240 | 109675 | 4 | 2 | `alexgshaw/schemelike-metacircular-eval:20251031` |
-| medium | `torch-pipeline-parallelism` | 13.733106 | 240.0 | 900 | 900 | 1 | 8192 | 10240 | 200 | 2 | 0 | `alexgshaw/torch-pipeline-parallelism:20251031` |
-| high | `torch-tensor-parallelism` | 13.733107 | 240.0 | 900 | 900 | 1 | 8192 | 10240 | 201 | 2 | 0 | `alexgshaw/torch-tensor-parallelism:20251031` |
-| high | `feal-linear-cryptanalysis` | 16.834119 | 960.0 | 1800 | 1800 | 1 | 2048 | 10240 | 11336 | 10 | 1 | `alexgshaw/feal-linear-cryptanalysis:20251031` |
-| high | `fix-ocaml-gc` | 26.369873 | 1440.0 | 3600 | 3600 | 1 | 2048 | 10240 | 583 | 5 | 0 | `alexgshaw/fix-ocaml-gc:20251031` |
-| high | `caffe-cifar-10` | 55.070327 | missing→high | 3600 | 1200 | 4 | 8192 | 10240 | 509 | 4 | 0 | `alexgshaw/caffe-cifar-10:20260403` |
+| Merged submission | Agent | Model | Repository source job | Current Hub backing job | Raw | Disqualified | Accepted |
+|---|---|---|---|---|---:|---:|---:|
+| `2026-05-01-anthropic-claude-opus-4-7-max-terminus-2.json` | Terminus 2 | Claude Opus 4.7 | `10e2e56b-ed31-5f65-a489-69f78b902adf` | `c8fcaaeb-c49a-413a-9f8d-20bc09c53339` | 445 | 0 | 445 |
+| `2026-05-01-gemini-gemini-3-pro-preview-high-gemini-cli.json` | Gemini CLI | Gemini 3 Pro | `fd8707bb-51e8-56fa-8e46-769a82a531ae` | `5b2904c3-c69a-4ad0-b30f-1d77729389f4` | 445 | 2 | 443 |
+| `2026-05-01-gemini-gemini-3-pro-preview-high-terminus-2.json` | Terminus 2 | Gemini 3 Pro | `10e2e56b-ed31-5f65-a489-69f78b902adf` | `c8fcaaeb-c49a-413a-9f8d-20bc09c53339` | 445 | 2 | 443 |
+| `2026-05-01-glm-5-1-max-claude-code.json` | Claude Code | GLM-5.1 | `fd8707bb-51e8-56fa-8e46-769a82a531ae` | `5b2904c3-c69a-4ad0-b30f-1d77729389f4` | 445 | 0 | 445 |
+| `2026-05-01-openai-gpt-5-5-xhigh-codex.json` | Codex | GPT-5.5 | `10e2e56b-ed31-5f65-a489-69f78b902adf` | `c8fcaaeb-c49a-413a-9f8d-20bc09c53339` | 445 | 1 | 444 |
+| `2026-05-01-openai-gpt-5-5-xhigh-terminus-2.json` | Terminus 2 | GPT-5.5 | `10e2e56b-ed31-5f65-a489-69f78b902adf` | `c8fcaaeb-c49a-413a-9f8d-20bc09c53339` | 445 | 1 | 444 |
+| `2026-05-05-gemini-gemini-3-1-pro-preview-high-gemini-cli.json` | Gemini CLI | Gemini 3.1 Pro | `42cd19c9-42ad-5d79-b033-adf4f879423d` | `d5eae728-5413-4143-b52b-34eb170b045d` | 445 | 1 | 444 |
+| `2026-05-05-gemini-gemini-3-1-pro-preview-high-terminus-2.json` | Terminus 2 | Gemini 3.1 Pro | `42cd19c9-42ad-5d79-b033-adf4f879423d` | `d5eae728-5413-4143-b52b-34eb170b045d` | 445 | 2 | 443 |
+| `2026-06-05-anthropic-claude-fable-5-high-terminus-2.json` | Terminus 2 | Claude Fable 5 | `ed9327d8-4601-5acb-a7a2-c71dfda0f5dc` | `17f04e4f-1a75-4204-9b75-d042ef0333ec` | 445 | 0 | 445 |
+| `2026-06-07-anthropic-claude-fable-5-xhigh-claude-code.json` | Claude Code | Claude Fable 5 | `f9d0318d-30f9-5d6f-bd7f-0ad5acf780d7` | `11efb542-89de-4746-8227-b776c7841a96` | 445 | 1 | 444 |
+| `2026-07-09-anthropic-claude-opus-4-8-high-claude-code.json` | Claude Code | Claude Opus 4.8 | `a3019ec2-bc78-5ff6-9cae-d22d62470515` | `67e18b19-c047-4e2f-942b-5849801fae52` | 445 | 0 | 445 |
+| `2026-07-09-anthropic-claude-sonnet-5-high-claude-code.json` | Claude Code | Claude Sonnet 5 | `36288ba6-447b-5161-babf-cb46a228436c` | `84ac1a9d-52a7-491b-85fb-dc323231b67f` | 445 | 3 | 442 |
+| `2026-07-09-cursor-grok-4-5-none-cursor-cli.json` | Cursor CLI | Grok 4.5 | `d478d2af-5348-575c-b20a-e5a2434dbff7` | `da969e44-7659-4c1a-8041-a5dc9e624ee0` | 445 | 40 | 405 |
+| `2026-07-09-openai-muse-spark-1-1-xhigh-mini-swe-agent.json` | mini-SWE-agent | Muse Spark 1.1 | `e15e18db-c8c1-5e9f-9064-1d68975b3c91` | `1c76cec0-5fbd-491c-b1d9-76021e225d4d` | 445 | 0 | 445 |
+| `2026-07-11-openai-gpt-5-6-luna-max-codex.json` | Codex | GPT-5.6 Luna | `4860a28f-bc1a-5367-9885-57ff9ccc3a15` | `413ec154-36fb-46f4-a0b2-2111e1c65501` | 445 | 4 | 441 |
+| `2026-07-11-openai-gpt-5-6-terra-max-codex.json` | Codex | GPT-5.6 Terra | `84f460e2-f7f8-5249-8e63-d58b197968c7` | `77fc16b9-8db9-4d61-a172-dba037aba20b` | 445 | 1 | 444 |
 
-The full eligible population, scores, strata, and chosen flags are in `reports/direct-openai-additional-10-population.json`.
+Four merged files do not enter empirical rates. The Claude Opus 4.7/Claude Code Hub row exposes 445 trials, but its merged file and metric use 447. Three July 10 Codex files have no current official Hub row and their repository job/trial IDs are not publicly readable: GPT-5.6 Luna, Sol, and Terra. The exact-model GPT-5.6 Sol/Codex submission is the closest official comparator, but only its whole-submission metric is available. No per-task Sol rate is inferred.
 
-## Unchanged direct matched method
+## Pi evidence and aggregate rate
 
-Pi stays at 0.84.2. Native ThinHarness stays at 0.7.0 and commit `84105f07bb9c1ad366fc8fe4fef49e700f5e88ef`. Both use the frozen Pi prompt and native tool schemas with direct OpenAI `gpt-5.6-sol`, xhigh reasoning, low verbosity, timeout-fixed provider behavior, Harbor Docker isolation, concurrency one, one attempt, zero retries, and Pi-then-Thin order. The runner specification hashes this identity.
+No merged submission, official Hub leaderboard row, or public Hub job search matched Pi. There is no verified official Pi per-task evidence in this snapshot. The preparation does not infer Pi rates from Codex or any other harness.
 
-Every future cell must use atomic and fsynced progress, event, outcome, and cell checkpoints. A request-start marker consumes a cell forever. A restart skips every consumed cell, including interrupted and failed cells. A pre-request infrastructure failure is preserved separately and stops the runner.
+For every task, the fallback rate pools integer successes and accepted trials across all 16 included submissions. It does not average submission percentages. This gives every one of the 89 tasks accepted evidence. Eligible task denominators range from 75 to 80 because official disqualifications are excluded. Exact fractions control sorting; the six-decimal value is only for display.
 
-## Budget and stop policy
+## Fresh population and strata
 
-The API-equivalent planning authorization is USD 3.00 per cell and USD 60.00 for 20 cells. USD 3.00 is the next whole-dollar ceiling above the USD 2.2227785 maximum in the preserved 40-cell run. The schedule stays USD 5.00 ordinary input, USD 0.50 cached input, USD 6.25 cache write, and USD 30.00 output per million tokens. This is not a claim about cash cost.
+The complete catalog still has 89 tasks. The unchanged prior-evidence proof excludes 36 tasks, leaving 53 fresh tasks. Resource metadata is descriptive and has no selection weight.
 
-The future runner must reserve USD 3.00 before each cell and settle exact reported usage after each response. It stops before a new request or cell when a cap is reached. Missing usage, identity mismatch, billing failure, or confirmed quota failure consumes the current cell and stops all later cells. One in-flight response can cross a planning cap before usage is known; the runner must checkpoint it and launch nothing else.
+The boundaries were fixed before selection:
 
-## No-model preflight and runner work
+- easy: rate at least 3/4
+- medium: rate at least 1/2 and below 3/4
+- hard: rate below 1/2
+- unobserved: zero accepted official trials
 
-Run `scripts/direct-openai-additional-10-checks.sh`. It performs static tests, lint, types, repository boundary and secret-pattern checks, deterministic report reproduction, and package inspection. It cannot launch model, Harbor, Docker, Doppler, credential, or fake-provider work.
+Higher success means easier. The eligible counts are 28 easy, 14 medium, 11 hard, and 0 unobserved. Tasks sort by exact rate from high to low, then by task name in ascending byte order. Varying trial counts receive no shrinkage or confidence weight. If evidence had no trials for a task, that task would enter the explicit unobserved stratum instead of receiving a metadata estimate.
 
-The preparation does not include a paid launcher. `configs/direct-openai-additional-10-runner-spec.json` lists the exact future changes: a new namespaced constants module, parameterized reuse of the existing direct agent/gateway/container path, a budget ledger, a restart-safe sequential launcher limited to the frozen order, and separately authorized no-model Harbor and final credential-bound scripts.
+Ten tasks divide as evenly as possible across the three nonempty strata: 3 easy, 3 medium, and 4 hard. The extra slot goes by the fixed priority hard, medium, easy, unobserved. Within each stratum, selection uses ranks `floor(i × (N - 1) / (K - 1))` for `i = 0..K-1`.
 
-## Risks
+| Stratum | Task | Accepted success |
+|---|---|---:|
+| easy | `feal-differential-cryptanalysis` | 80/80 = 1.000000 |
+| easy | `llm-inference-batching-scheduler` | 73/80 = 0.912500 |
+| easy | `schemelike-metacircular-eval` | 60/80 = 0.750000 |
+| medium | `adaptive-rejection-sampler` | 59/80 = 0.737500 |
+| medium | `path-tracing-reverse` | 50/77 = 0.649351 |
+| medium | `torch-pipeline-parallelism` | 41/76 = 0.539474 |
+| hard | `gpt2-codegolf` | 30/75 = 0.400000 |
+| hard | `model-extraction-relu-logits` | 25/80 = 0.312500 |
+| hard | `protein-assembly` | 21/78 = 0.269231 |
+| hard | `make-doom-for-mips` | 2/80 = 0.025000 |
 
-Provider policy can consume a cell before verifier handoff. The model route or availability can change. Rate and service errors consume a marked cell because retries remain zero. High-stratum tasks need up to 8192 MiB, 4 CPUs, and 3600 seconds. Static metadata does not include compressed image size, so image pulls can cost more than the proxy indicates. Image-tag availability, disk pressure, verifier timeouts, and source-wheel builds remain infrastructure risks.
+Seven tasks replace the `5feb120` selection. The retained tasks are `llm-inference-batching-scheduler`, `schemelike-metacircular-eval`, and `torch-pipeline-parallelism`.
+
+## Unchanged matched method and budget
+
+Pi stays at 0.84.2. Native ThinHarness stays at 0.7.0 and commit `84105f07bb9c1ad366fc8fe4fef49e700f5e88ef`. The prompt, native tool schemas, direct OpenAI `gpt-5.6-sol` identity, xhigh reasoning, low verbosity, timeout behavior, one attempt, concurrency one, zero retries, Pi-then-Thin order, checkpoint rules, and stop rules do not change.
+
+The planning cap stays USD 3.00 per cell and USD 60.00 for 20 cells. Official selection evidence does not justify a model-budget correction. Descriptive resource metadata shows larger container requirements, but container resources are not model spend and did not affect selection.
+
+`configs/direct-openai-additional-10-runner-spec.json` remains a launch-disabled specification. No paid launcher exists. `scripts/direct-openai-additional-10-checks.sh` performs only static, deterministic, package, secret, boundary, and immutability checks.

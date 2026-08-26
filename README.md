@@ -101,15 +101,21 @@ The authorized run is complete and cannot be rerun. `OUTCOME.json` records 40/40
 
 ## Prepared additional ten-task run
 
-Ten fresh tasks and 20 future direct-OpenAI matched cells are frozen but not launched. The preparation evaluates all 89 Terminal-Bench 2.1 tasks, excludes 36 with qualifying prior evidence, scores all 53 eligible tasks from frozen resource and build metadata, and selects 3 low, 3 medium, and 4 high proxy tasks. The preparation entry point cannot launch model, Harbor, Docker, Doppler, credential, or fake-provider work.
+Ten fresh tasks and 20 future direct-OpenAI matched cells are frozen but not launched. This preparation supersedes commit `5feb120248de092d72771ff7f9630423350daebd`: resource metadata no longer controls selection or strata.
 
-Validate and reproduce the preparation without a model call:
+The bounded official snapshot in `evidence/terminal-bench-2-1-official-20260826/` preserves all 20 merged Terminal-Bench 2.1 submissions from official repository commit `7131e4375048a0e408a8fb404b5f499d726b695b`, plus official Harbor Hub per-trial outcomes fetched at `2026-08-26T01:37:37Z`. Sixteen complete PR-linked submissions enter the empirical rates. Official disqualified trials are removed from both numerator and denominator. Four merged submissions lack complete current Hub evidence and do not enter rates.
+
+No official merged submission, leaderboard row, or public Hub job search matched Pi. No Pi rate is inferred. The closest exact-model comparator is the merged GPT-5.6 Sol/Codex submission, but its current per-task evidence is unavailable, so it is only a labelled whole-submission comparator. Selection uses the broader accepted-trial aggregate across the 16 complete official submissions.
+
+The unchanged 36-task prior-evidence proof leaves 53 eligible tasks. Fixed empirical boundaries produce 28 easy tasks at rate 3/4 or higher, 14 medium tasks from 1/2 to below 3/4, 11 hard tasks below 1/2, and no unobserved tasks. The deterministic allocation is 3 easy, 3 medium, and 4 hard. The selected tasks are `feal-differential-cryptanalysis`, `llm-inference-batching-scheduler`, `schemelike-metacircular-eval`, `adaptive-rejection-sampler`, `path-tracing-reverse`, `torch-pipeline-parallelism`, `gpt2-codegolf`, `model-extraction-relu-logits`, `protein-assembly`, and `make-doom-for-mips`.
+
+Validate and reproduce the preparation without a model, Harbor, Docker, or Doppler call:
 
 ```bash
 ./scripts/direct-openai-additional-10-checks.sh
 ```
 
-See `reports/direct-openai-additional-10-methodology.md`, `reports/direct-openai-additional-10-population.json`, and `configs/direct-openai-additional-10-runner-spec.json`. No paid launcher exists for this preparation.
+The matched identities, prompt, order, one-attempt and zero-retry policy, launch-disabled status, USD 3 per-cell cap, and USD 60 total planning cap do not change. See `reports/direct-openai-additional-10-methodology.md`, `reports/direct-openai-additional-10-population.json`, and `configs/direct-openai-additional-10-runner-spec.json`. No paid launcher exists for this preparation.
 
 ## Evidence boundary
 

@@ -81,21 +81,23 @@
     "excluded": 36
   },
   "publication_baseline_commit": "70f5a7b69e7cbbcd09464e275b5a75a8821baa7f",
-  "result": "fresh against every qualifying baseline evidence class",
-  "schema_version": 1,
+  "result": "fresh against every qualifying baseline evidence class; selected only after empirical strata were frozen",
+  "schema_version": 2,
   "selected_conflicts": [],
   "selected_tasks": [
-    "build-cython-ext",
-    "largest-eigenval",
+    "feal-differential-cryptanalysis",
     "llm-inference-batching-scheduler",
-    "mteb-retrieve",
     "schemelike-metacircular-eval",
+    "adaptive-rejection-sampler",
+    "path-tracing-reverse",
     "torch-pipeline-parallelism",
-    "torch-tensor-parallelism",
-    "feal-linear-cryptanalysis",
-    "fix-ocaml-gc",
-    "caffe-cifar-10"
+    "gpt2-codegolf",
+    "model-extraction-relu-logits",
+    "protein-assembly",
+    "make-doom-for-mips"
   ],
+  "selection_basis": "accepted official empirical verifier outcomes from evidence/terminal-bench-2-1-official-20260826; resource metadata has no selection role",
+  "supersedes_preparation_commit": "5feb120248de092d72771ff7f9630423350daebd",
   "task_evidence": [
     {
       "evidence": "prior real direct matched pair; replicate evidence also applies where present",
