@@ -1,0 +1,24 @@
+{
+    "task": {
+        "name": "terminal-bench/feal-differential-cryptanalysis",
+        "ref": "sha256:8ea56995fcc43fb94f0e4e15adb12dd28836bf3e9c766b2cc7ae78a7ce90341f",
+        "source": "terminal-bench/terminal-bench-2-1"
+    },
+    "trial_name": "feal-differential-cryptanalysis__SttFPyx",
+    "trials_dir": "/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/direct-openai-additional-10-pairwise-preflight/direct-openai-additional-10-pairwise-fake-feal-differential-cryptanalysis--pi-20260826-222824-8b037e94",
+    "agent_setup_timeout_multiplier": 3.0,
+    "agent": {
+        "name": "tbench.direct_agent:DirectOpenAIAgent",
+        "model_name": "openai/gpt-5.6-sol",
+        "n_concurrent": 1,
+        "include_logs": [
+            "*"
+        ],
+        "kwargs": {
+            "harness": "pi",
+            "cell_id": "feal-differential-cryptanalysis--pi",
+            "mode": "fake"
+        }
+    },
+    "job_id": "970a1e47-52a4-4257-b84f-e50c5ac21d11"
+}

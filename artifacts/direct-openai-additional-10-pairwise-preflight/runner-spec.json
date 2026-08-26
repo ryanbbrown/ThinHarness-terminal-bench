@@ -1,0 +1,236 @@
+{
+  "benchmark_id": "direct-openai-additional-10-pairwise",
+  "budget": {
+    "basis": "USD 3.00 is the next whole-dollar ceiling above the USD 2.2227785 maximum observed prior matched cell; this is an API-equivalent planning authorization, not reported cash cost",
+    "credit_or_billing_error": "consume the cell and stop before any later cell",
+    "missing_usage_or_identity": "missing usage or an identity mismatch consumes the cell and stops all future cells; never infer zero cost",
+    "per_cell_usd": "3.00",
+    "pricing_schedule": {
+      "cache_write": 6.25,
+      "cached_input": 0.5,
+      "ordinary_input": 5.0,
+      "output": 30.0
+    },
+    "settlement": "exact reported usage at the frozen schedule after every response and cell",
+    "stop_policy": "fail closed before a new cell unless USD 3.00 remains unreserved; stop before a new request when settled cell spend reaches USD 3.00 or settled plus reserved run spend reaches USD 60.00; if one in-flight response crosses a cap, consume and checkpoint that cell, launch nothing else, and report the bounded-overshoot risk",
+    "total_usd": "60.00"
+  },
+  "checkpoint_contract": {
+    "consumed_definition": "any cell with a durable pre-upstream MODEL_REQUEST_STARTED marker",
+    "one_attempt_per_cell": true,
+    "pre_request_failure": "preserve under infrastructure-attempts and stop; only an operator-authorized future runner may resume",
+    "progress_files": [
+      "progress.json",
+      "progress.jsonl",
+      "OUTCOME.json",
+      "cells/<cell-id>/CHECKPOINT.json"
+    ],
+    "restart": "skip every consumed cell forever, including interruption, policy failure, missing usage, or corrupt response",
+    "write": "atomic and fsync after each cell"
+  },
+  "exact_future_runner_changes_required": [
+    "add a new constants module that reads only this selection and uses a new artifact/job/run/report namespace",
+    "reuse the existing DirectOpenAIAgent, container loops, prompt, schemas, source bundle, and direct gateway without changing model-facing behavior",
+    "parameterize the gateway audit identity and launcher paths by benchmark ID; do not copy or mutate prior evidence",
+    "add a budget ledger that reserves USD 3.00 before each cell, settles exact usage after each response, and applies the frozen stop policy",
+    "add a new sequential launcher that validates the exclusion proof and all refs before each cell, writes restart-safe checkpoints, and iterates only the frozen 20-cell order",
+    "add a no-model Harbor preflight only after separate authorization; preflight must use a local controlled provider and make zero upstream requests",
+    "add the final credential-bound launch script only after preflight approval; keep the existing secure launcher-only boundary and zero retries"
+  ],
+  "forbidden_preparation_actions": [
+    "model request",
+    "Harbor cell",
+    "Docker build or run",
+    "Doppler invocation",
+    "secret or environment credential inspection",
+    "fake model cell"
+  ],
+  "frozen_before_spend": true,
+  "implementation_status": "specification only; launch disabled; no paid launcher, gateway entry point, Harbor command, provider credential path, or fake cell exists for this preparation",
+  "infrastructure_risks": [
+    "descriptive resource metadata shows selected tasks reaching 8192 MiB, 4 CPUs, and 3600-second limits; these fields did not affect strata or selection",
+    "prebuilt image size is absent from task metadata, so pull time and disk pressure remain unknown",
+    "image tags can become unavailable even though task package refs are frozen",
+    "container setup, verifier timeouts, and source-wheel builds can stop the sequential run"
+  ],
+  "launch_enabled": false,
+  "methodology_identity": {
+    "dataset": "terminal-bench/terminal-bench-2-1@sha256:7d7bdc1cbedad549fc1140404bd4dc45e5fd0ea7c4186773687d177ad3a0699a",
+    "harbor": {
+      "agent_setup_timeout_multiplier": 3.0,
+      "attempts_per_cell": 1,
+      "concurrency": 1,
+      "environment": "docker",
+      "retries": 0,
+      "timeout_multiplier": 1.0,
+      "version": "0.21.0"
+    },
+    "model": {
+      "bridge": null,
+      "max_model_requests": 64,
+      "max_output_tokens": 100000,
+      "max_tool_calls": 128,
+      "model": "gpt-5.6-sol",
+      "provider": "OpenAI",
+      "reasoning": {
+        "effort": "xhigh",
+        "summary": "auto"
+      },
+      "request_timeout_seconds": 1800,
+      "retries": {
+        "model": 0,
+        "output": 0,
+        "provider": 0,
+        "tool": 0,
+        "transport": 0
+      },
+      "route": "direct https://api.openai.com/v1/responses",
+      "text": {
+        "verbosity": "low"
+      }
+    },
+    "order": "for each selected task in frozen order: Pi, then native ThinHarness",
+    "pi": {
+      "package": "@earendil-works/pi-coding-agent",
+      "package_lock_sha256": "0f34d01dda1837fd634d0562d2c0350ff982da133de59f36fccdac62835fc1c0",
+      "tool_execution": "native Pi policy",
+      "tool_schema_sha256": "88fda428f9a9114a62d2f3a394d85c7d15cddd111eddadbe7abbe728bff2afde",
+      "version": "0.84.2"
+    },
+    "pricing_usd_per_million_tokens": {
+      "cache_write": 6.25,
+      "cached_input": 0.5,
+      "ordinary_input": 5.0,
+      "output": 30.0
+    },
+    "prompt": {
+      "path": "prompts/pi-0.84.2-system-prompt.md",
+      "sha256": "bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e"
+    },
+    "thinharness": {
+      "commit": "84105f07bb9c1ad366fc8fe4fef49e700f5e88ef",
+      "provider_timeout_seconds": 1800,
+      "tool_execution": "sequential",
+      "tool_schema_sha256": "1c1c1e985590e9980264a2e6b8364bd96f1b052c0761eed7f127ac9ab60cfd24",
+      "version": "0.7.0"
+    }
+  },
+  "methodology_identity_sha256": "af0e39770a61081bff13a2d317b14dea924def349cea3035a71eb0bd132dc8a7",
+  "no_model_preflight_plan": [
+    "run the static preparation check with all API-key variables unset",
+    "reproduce selection and population reports into a temporary directory and compare exact bytes",
+    "validate all 89 catalog rows, package refs, task hashes, exclusion sources, methodology hashes, budget arithmetic, and 20-cell order",
+    "build the Python distribution and inspect wheel/sdist contents",
+    "do not add or invoke a fake provider, Harbor, Docker, Doppler, a credential reader, or a network client"
+  ],
+  "planned_cells": 20,
+  "planned_execution_order": [
+    "feal-differential-cryptanalysis--pi",
+    "feal-differential-cryptanalysis--thinharness",
+    "llm-inference-batching-scheduler--pi",
+    "llm-inference-batching-scheduler--thinharness",
+    "schemelike-metacircular-eval--pi",
+    "schemelike-metacircular-eval--thinharness",
+    "adaptive-rejection-sampler--pi",
+    "adaptive-rejection-sampler--thinharness",
+    "path-tracing-reverse--pi",
+    "path-tracing-reverse--thinharness",
+    "torch-pipeline-parallelism--pi",
+    "torch-pipeline-parallelism--thinharness",
+    "gpt2-codegolf--pi",
+    "gpt2-codegolf--thinharness",
+    "model-extraction-relu-logits--pi",
+    "model-extraction-relu-logits--thinharness",
+    "protein-assembly--pi",
+    "protein-assembly--thinharness",
+    "make-doom-for-mips--pi",
+    "make-doom-for-mips--thinharness"
+  ],
+  "provider_policy_risks": [
+    "provider safety policy can consume a cell before verifier handoff",
+    "provider can change or reject the pinned model despite a fixed request identity",
+    "one in-flight response can cross a planning cap before exact usage is known",
+    "rate or service failures consume a cell after the request marker because retries stay zero"
+  ],
+  "schema_version": 2,
+  "selected_task_refs": [
+    {
+      "instruction_sha256": "b4093780b283e5c9838997769fb7bca090e3f4cbbd2d7cb275ba60cdfd722572",
+      "task": "feal-differential-cryptanalysis",
+      "task_package_digest": "sha256:8ea56995fcc43fb94f0e4e15adb12dd28836bf3e9c766b2cc7ae78a7ce90341f",
+      "task_toml_sha256": "dcb9f2f15047eee0be15ca18c39c357f89187a94aae6baeff276221e2383eecb",
+      "task_tree_manifest_sha256": "0c4f8a6584a314779c1ad1ac61ba9dcf0fce14a28014f485988c805da941c7ed"
+    },
+    {
+      "instruction_sha256": "0817374767533fbf51bb93345ee1bba266263c216c6cc55c096e71b4a1d37dfc",
+      "task": "llm-inference-batching-scheduler",
+      "task_package_digest": "sha256:a3bf47589118daec5124fe3689b4439802c805b2f4ed9d402a48ae73ca2fea67",
+      "task_toml_sha256": "52aaac942f917e6a91ff658e0272195bd1cd842d41d71e302414c52603cc588b",
+      "task_tree_manifest_sha256": "297f8457f7392c182d0c3c83a0fb6c72ecdc5adc7aa35fc2cefa0475eb16ac70"
+    },
+    {
+      "instruction_sha256": "3af5f9567b62f93683db7518ec6fcb609f83796258aa02166b5a7091c5b69031",
+      "task": "schemelike-metacircular-eval",
+      "task_package_digest": "sha256:58130c2166c3115276dc8592f358e326ff2d81ea852e3d88636c82fd1dff57e6",
+      "task_toml_sha256": "8dae8eb226183b0ca92331c1106152a7abc93b03b4e5a95291b86a4ddc9b44e0",
+      "task_tree_manifest_sha256": "3c635ec4c3d0de1363c9556fce17d982db7c1c22082b2ae33bf279cb2eb51e80"
+    },
+    {
+      "instruction_sha256": "e6d28c28acd76bef61817427c74c2a29e3e8d75f535cbd708afcbfd02c54013f",
+      "task": "adaptive-rejection-sampler",
+      "task_package_digest": "sha256:bcaa2399985cd57666018025846289ab25e193ae0dd8fb7f0ffab2410c24d4de",
+      "task_toml_sha256": "6ed7b37f74beb46e9d47b0f5fad53025667c9548baff4e96d467b56d429fab1a",
+      "task_tree_manifest_sha256": "e3314420d1ba059b0a25d0bbeb1170de974c1369f1a42f2826de8979f22ef650"
+    },
+    {
+      "instruction_sha256": "03e4ef347c1b6bde7ad020b297571cf22c74cfb0434b399b267f3d87462e1176",
+      "task": "path-tracing-reverse",
+      "task_package_digest": "sha256:035880d7ef5554b217e53a75ce5e87e43193b7a44c30ad17226a6ab10fc11a6c",
+      "task_toml_sha256": "f609310c99bd5f379eea2711f4af8eca79b5bcd1178a034b2285b1171c031b5b",
+      "task_tree_manifest_sha256": "9ae58894ffd660eaaadca3087a60a2478f0325875179170312f11ee2a5748f48"
+    },
+    {
+      "instruction_sha256": "989bfcf0c54baf6c8cdc391743dbb2f9e858c5779dd85112536875d4d1b2dcd2",
+      "task": "torch-pipeline-parallelism",
+      "task_package_digest": "sha256:db605337c749a872cea7b5b413429b3915bb4c3efe0f7875f0c46ce81bd8c4fb",
+      "task_toml_sha256": "8b4f9f525c08afbbc4eca9168e46238a61ccb903486773e9ca4da64bb7ffe857",
+      "task_tree_manifest_sha256": "c2dc7c6bcfc91cb28b52ea162895fb56e3aacd36fb02d183aa5765987ca2982d"
+    },
+    {
+      "instruction_sha256": "1c8de5f0365407d57fbec968bbeb76cba2648a02fbb2045d323d2798ff5dbccc",
+      "task": "gpt2-codegolf",
+      "task_package_digest": "sha256:fe42af8e9c5aa927c3b680acd08e43032c84088fa9d770b03ce63dbc66fea4e7",
+      "task_toml_sha256": "a3fa186d438a42af5909384b8dc0dfdc2ab7a3a68af9159e9d00464988895af0",
+      "task_tree_manifest_sha256": "434afba7d4c2f3bbe5fb58af4977a568b4eefddeb3bb3dd80563909fe2dd83d5"
+    },
+    {
+      "instruction_sha256": "c9e179dd099065a34c362a865b0eb9fab5f7d96be582cf117e7519580c036ebe",
+      "task": "model-extraction-relu-logits",
+      "task_package_digest": "sha256:1ae5045ad68b5d34c3398b612066a07c4a08b6dc330d28868ec4021e17c94b17",
+      "task_toml_sha256": "eb64dfaf8ae88868911ae28855cdc4f767de464001e2704919015b595be6dc29",
+      "task_tree_manifest_sha256": "52105cb4f7c02a72c560d495c8369cebb04555ae6554dc693684aa0f0c65814e"
+    },
+    {
+      "instruction_sha256": "1bb2af1d85e9a823a8ae7273a87df8a3f67e2c93b06cddf34f0051a8b003f7c5",
+      "task": "protein-assembly",
+      "task_package_digest": "sha256:c491d45acce234e1aa1d44dcc6778c55fcf875e9eb254b8dd3ae5ef58119621b",
+      "task_toml_sha256": "9b91f32925035fba7b5a1db16c7d4ed650a117af145d3d3f8e514cb4b1e970ab",
+      "task_tree_manifest_sha256": "f7ccaabc62b46e75bc04c5b913151da6f889d1daaa4379807357e93f5c6bc150"
+    },
+    {
+      "instruction_sha256": "1903b660e4c64966ff257f828c932adff2b289de589bd6aee22b933bb4fef429",
+      "task": "make-doom-for-mips",
+      "task_package_digest": "sha256:2d83dd3dee8e0f055e09973934cf0d7e3169a9cd90704cba5c8940b170be9498",
+      "task_toml_sha256": "a7d7a498f0d3a992b384e5086ba2b411767c1c1a013d1b41f6a25cdaf6d05acc",
+      "task_tree_manifest_sha256": "ad3ba908bfede13360c7a656e97f303ceb519e68c7cdafab5c4aed326839cd04"
+    }
+  ],
+  "selection_basis": {
+    "derived_evidence": "evidence/terminal-bench-2-1-official-20260826/derived/empirical-task-outcomes.json",
+    "fallback": "pooled accepted trials from 16 complete PR-linked official submissions",
+    "method": "accepted official empirical verifier outcomes; no metadata proxy",
+    "pi_evidence": "absent; no Pi rates inferred",
+    "snapshot": "evidence/terminal-bench-2-1-official-20260826/manifest.json"
+  },
+  "supersedes_preparation_commit": "5feb120248de092d72771ff7f9630423350daebd"
+}

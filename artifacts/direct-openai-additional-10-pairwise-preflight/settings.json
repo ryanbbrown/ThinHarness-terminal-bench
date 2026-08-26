@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "frozen_before_spend": true,
+  "benchmark_id": "direct-openai-20task-pairwise",
+  "harbor": {
+    "version": "0.21.0",
+    "attempts_per_cell": 1,
+    "concurrency": 1,
+    "retries": 0,
+    "timeout_multiplier": 1.0,
+    "agent_setup_timeout_multiplier": 3.0,
+    "environment": "docker"
+  },
+  "dataset": "terminal-bench/terminal-bench-2-1@sha256:7d7bdc1cbedad549fc1140404bd4dc45e5fd0ea7c4186773687d177ad3a0699a",
+  "harnesses": {
+    "pi": {
+      "package": "@earendil-works/pi-coding-agent",
+      "version": "0.84.2",
+      "package_lock_sha256": "0f34d01dda1837fd634d0562d2c0350ff982da133de59f36fccdac62835fc1c0",
+      "tool_execution": "native Pi policy",
+      "tool_schema_file": "configs/pi-native-tool-schemas.json",
+      "tool_schema_file_sha256": "88fda428f9a9114a62d2f3a394d85c7d15cddd111eddadbe7abbe728bff2afde"
+    },
+    "thinharness": {
+      "version": "0.7.0",
+      "commit": "84105f07bb9c1ad366fc8fe4fef49e700f5e88ef",
+      "interface": "native BashPlugin and FilesystemPlugin",
+      "tool_execution": "sequential",
+      "tool_schema_file": "configs/native-tool-schemas.json",
+      "tool_schema_file_sha256": "1c1c1e985590e9980264a2e6b8364bd96f1b052c0761eed7f127ac9ab60cfd24",
+      "provider_timeout_seconds": 1800,
+      "container_python": "3.12.11 managed by uv 0.8.13"
+    }
+  },
+  "model": {
+    "provider": "OpenAI",
+    "route": "direct https://api.openai.com/v1/responses",
+    "bridge": null,
+    "model": "gpt-5.6-sol",
+    "reasoning": {"effort": "xhigh", "summary": "auto"},
+    "text": {"verbosity": "low"},
+    "max_model_requests": 64,
+    "max_tool_calls": 128,
+    "max_output_tokens": 100000,
+    "request_timeout_seconds": 1800,
+    "model_retries": 0,
+    "transport_retries": 0,
+    "output_retries": 0,
+    "tool_retries": 0
+  },
+  "prompt": {
+    "path": "prompts/pi-0.84.2-system-prompt.md",
+    "sha256": "bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e"
+  },
+  "pricing_usd_per_million_tokens": {
+    "ordinary_input": 5.0,
+    "cached_input": 0.5,
+    "cache_write": 6.25,
+    "output": 30.0
+  },
+  "pricing_basis": "Frozen API-equivalent schedule; actual provider cash cost is recorded only if the response reports it.",
+  "execution_order": "For each selected task in frozen order: Pi, then ThinHarness.",
+  "credential_boundary": {
+    "source": "Doppler api-keys/dev_personal OPENAI_API_KEY",
+    "launcher_only": true,
+    "task_container_receives_key": false,
+    "native_bash_receives_key": false,
+    "key_persisted": false
+  }
+}

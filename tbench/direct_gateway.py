@@ -34,6 +34,7 @@ class GatewayIdentity:
     cell_id: str
     mode: str
     upstream: str
+    benchmark_id: str
 
 
 def _atomic_json(path: Path, value: dict[str, Any]) -> None:
@@ -60,12 +61,24 @@ def _append_jsonl(path: Path, value: dict[str, Any]) -> None:
 class GatewayState:
     """One direct API credential plus complete non-secret evidence for one cell."""
 
-    def __init__(self, *, cell_id: str, mode: str, token: str, api_key: str | None, evidence_dir: Path) -> None:
+    def __init__(
+        self,
+        *,
+        cell_id: str,
+        mode: str,
+        token: str,
+        api_key: str | None,
+        evidence_dir: Path,
+        benchmark_id: str,
+        budget_control: Any | None,
+    ) -> None:
         self.cell_id = cell_id
         self.mode = mode
         self.token = token
         self.api_key = api_key
         self.evidence_dir = evidence_dir
+        self.benchmark_id = benchmark_id
+        self.budget_control = budget_control
         self.lock = threading.Lock()
         self.request_count = 0
         self.upstream_request_count = 0
@@ -96,7 +109,25 @@ class GatewayState:
             status, response, response_headers = self._direct_request(nonstreaming)
         elapsed = time.monotonic() - started
         if status == 200:
-            _validate_response(response)
+            try:
+                _validate_response(response)
+                usage = _usage(response)
+                if self.budget_control is not None:
+                    self.budget_control.settle_usage(self.cell_id, usage)
+            except Exception as exc:
+                _atomic_json(
+                    self.evidence_dir / "FAIL_CLOSED.json",
+                    {
+                        "schema_version": 1,
+                        "benchmark_id": self.benchmark_id,
+                        "cell_id": self.cell_id,
+                        "reason": str(exc),
+                        "type": type(exc).__name__,
+                    },
+                )
+                if self.budget_control is not None:
+                    self.budget_control.fail(self.cell_id, str(exc))
+                raise
         credit_exhausted = _is_credit_exhaustion(status, response)
         if credit_exhausted and self.mode == "real":
             raw_error = response.get("error")
@@ -113,11 +144,14 @@ class GatewayState:
                     "message": error.get("message"),
                 },
             )
+            if self.budget_control is not None:
+                self.budget_control.fail(self.cell_id, "provider billing or quota exhaustion")
         with self.lock:
             self.request_count += 1
             sequence = self.request_count
         record = {
             "schema_version": 1,
+            "benchmark_id": self.benchmark_id,
             "cell_id": self.cell_id,
             "sequence": sequence,
             "mode": self.mode,
@@ -143,6 +177,8 @@ class GatewayState:
     def _direct_request(self, body: dict[str, Any]) -> tuple[int, dict[str, Any], dict[str, str]]:
         if not self.api_key:
             raise DirectGatewayError("direct OpenAI credential is absent")
+        if self.budget_control is not None:
+            self.budget_control.authorize_request(self.cell_id)
         with self.lock:
             self.upstream_request_count += 1
             sequence = self.upstream_request_count
@@ -150,6 +186,7 @@ class GatewayState:
                 self.evidence_dir / "MODEL_REQUEST_STARTED.jsonl",
                 {
                     "schema_version": 1,
+                    "benchmark_id": self.benchmark_id,
                     "cell_id": self.cell_id,
                     "sequence": sequence,
                     "started_at": time.time(),
@@ -158,6 +195,8 @@ class GatewayState:
                     "transport_retries": 0,
                 },
             )
+        if self.budget_control is not None:
+            self.budget_control.request_started(self.cell_id)
         encoded = json.dumps(body, ensure_ascii=False, separators=(",", ":")).encode()
         connection = http.client.HTTPSConnection("api.openai.com", 443, timeout=1800)
         try:
@@ -168,7 +207,7 @@ class GatewayState:
                 headers={
                     "Authorization": f"Bearer {self.api_key}",
                     "Content-Type": "application/json",
-                    "User-Agent": "thin-harness-terminal-bench/direct-openai-20task",
+                    "User-Agent": f"thin-harness-terminal-bench/{self.benchmark_id}",
                 },
             )
             upstream = connection.getresponse()
@@ -326,19 +365,36 @@ class GatewayHandler(BaseHTTPRequestHandler):
 
 
 @contextmanager
-def run_gateway(*, cell_id: str, mode: str, evidence_dir: Path, api_key: str | None) -> Iterator[GatewayIdentity]:
+def run_gateway(
+    *,
+    cell_id: str,
+    mode: str,
+    evidence_dir: Path,
+    api_key: str | None,
+    benchmark_id: str = "direct-openai-20task-pairwise",
+    budget_control: Any | None = None,
+) -> Iterator[GatewayIdentity]:
     """Run an authenticated gateway for one cell without persisting its credentials."""
     if mode not in {"fake", "real", "fake-credit"}:
         raise ValueError("gateway mode must be fake, fake-credit, or real")
     if mode == "real" and (not api_key or len(api_key) < 20):
         raise DirectGatewayError("OPENAI_API_KEY is absent or invalid")
     token = secrets.token_urlsafe(32)
-    state = GatewayState(cell_id=cell_id, mode=mode, token=token, api_key=api_key, evidence_dir=evidence_dir)
+    state = GatewayState(
+        cell_id=cell_id,
+        mode=mode,
+        token=token,
+        api_key=api_key,
+        evidence_dir=evidence_dir,
+        benchmark_id=benchmark_id,
+        budget_control=budget_control,
+    )
     server = GatewayServer(state)
     thread = threading.Thread(target=server.serve_forever, name=f"direct-gateway-{cell_id}", daemon=True)
     thread.start()
     identity = {
         "schema_version": 1,
+        "benchmark_id": benchmark_id,
         "cell_id": cell_id,
         "mode": mode,
         "bind": "0.0.0.0",
@@ -364,6 +420,7 @@ def run_gateway(*, cell_id: str, mode: str, evidence_dir: Path, api_key: str | N
             cell_id=cell_id,
             mode=mode,
             upstream=UPSTREAM_URL,
+            benchmark_id=benchmark_id,
         )
     finally:
         state.api_key = None

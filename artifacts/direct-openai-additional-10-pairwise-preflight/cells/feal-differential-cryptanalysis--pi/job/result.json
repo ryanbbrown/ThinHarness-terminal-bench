@@ -1,0 +1,39 @@
+{
+    "id": "970a1e47-52a4-4257-b84f-e50c5ac21d11",
+    "started_at": "2026-08-26T18:28:25.670264",
+    "updated_at": "2026-08-26T18:30:15.833713",
+    "finished_at": "2026-08-26T18:30:15.833713",
+    "n_total_trials": 1,
+    "stats": {
+        "n_completed_trials": 1,
+        "n_errored_trials": 0,
+        "n_running_trials": 0,
+        "n_pending_trials": 0,
+        "n_cancelled_trials": 0,
+        "n_retries": 0,
+        "evals": {
+            "direct-openai-pairwise__gpt-5.6-sol__terminal-bench/terminal-bench-2-1": {
+                "n_trials": 1,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "pass_at_k": {},
+                "reward_stats": {
+                    "reward": {
+                        "0.0": [
+                            "feal-differential-cryptanalysis__SttFPyx"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        },
+        "n_input_tokens": 2700,
+        "n_cache_tokens": 768,
+        "n_output_tokens": 160,
+        "cost_usd": null
+    }
+}

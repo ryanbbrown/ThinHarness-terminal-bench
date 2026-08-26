@@ -1,0 +1,134 @@
+{
+    "id": "4cd102e8-507c-425c-83c3-f44c3fb49362",
+    "task_name": "terminal-bench/adaptive-rejection-sampler",
+    "trial_name": "adaptive-rejection-sampler__pjmHaQp",
+    "trial_uri": "file:///Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/direct-openai-additional-10-pairwise-preflight/direct-openai-additional-10-pairwise-fake-adaptive-rejection-sampler--thinharness-20260826-224049-3f25663d/adaptive-rejection-sampler__pjmHaQp",
+    "task_id": {
+        "org": "terminal-bench",
+        "name": "adaptive-rejection-sampler",
+        "ref": "sha256:bcaa2399985cd57666018025846289ab25e193ae0dd8fb7f0ffab2410c24d4de"
+    },
+    "source": "terminal-bench/terminal-bench-2-1",
+    "task_checksum": "a4726253ad23c3fc46b5cb9c3d21025874e367b18643a3920f636a1fa89e1207",
+    "config": {
+        "task": {
+            "path": null,
+            "git_url": null,
+            "git_commit_id": null,
+            "name": "terminal-bench/adaptive-rejection-sampler",
+            "ref": "sha256:bcaa2399985cd57666018025846289ab25e193ae0dd8fb7f0ffab2410c24d4de",
+            "overwrite": false,
+            "download_dir": null,
+            "source": "terminal-bench/terminal-bench-2-1"
+        },
+        "trial_name": "adaptive-rejection-sampler__pjmHaQp",
+        "trials_dir": "/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/direct-openai-additional-10-pairwise-preflight/direct-openai-additional-10-pairwise-fake-adaptive-rejection-sampler--thinharness-20260826-224049-3f25663d",
+        "install_only": false,
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": 3.0,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "tbench.direct_agent:DirectOpenAIAgent",
+            "import_path": null,
+            "model_name": "openai/gpt-5.6-sol",
+            "n_concurrent": 1,
+            "concurrency_group": null,
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "resume_trajectory": false,
+            "load_trajectory": null,
+            "extra_allowed_hosts": [],
+            "include_logs": [
+                "*"
+            ],
+            "kwargs": {
+                "harness": "thinharness",
+                "cell_id": "adaptive-rejection-sampler--thinharness",
+                "mode": "fake"
+            },
+            "mcp_servers": []
+        },
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [],
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "extra_instruction_paths": [],
+        "job_id": "ab06da45-7bd9-4f28-a48f-1a11902781d6",
+        "source_trial": null
+    },
+    "agent_info": {
+        "name": "direct-openai-pairwise",
+        "version": "1.0+84105f07",
+        "model_info": {
+            "name": "gpt-5.6-sol",
+            "provider": "openai"
+        }
+    },
+    "agent_result": {
+        "n_input_tokens": 2700,
+        "n_cache_tokens": 768,
+        "n_output_tokens": 160,
+        "cost_usd": null,
+        "rollout_details": null,
+        "metadata": {
+            "cell_id": "adaptive-rejection-sampler--thinharness",
+            "harness": "thinharness",
+            "backend": "controlled-fake-direct-openai-contract",
+            "model_requests": 2,
+            "tool_calls": 1,
+            "response_models": [
+                "gpt-5.6-sol"
+            ],
+            "verifier_handoff": true
+        }
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 0.0
+        }
+    },
+    "verifier_environment_mode": "shared",
+    "exception_info": null,
+    "started_at": "2026-08-26T22:40:51.029887Z",
+    "finished_at": "2026-08-26T22:42:15.550883Z",
+    "environment_setup": {
+        "started_at": "2026-08-26T22:40:51.120203Z",
+        "finished_at": "2026-08-26T22:40:52.170570Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-08-26T22:40:52.170699Z",
+        "finished_at": "2026-08-26T22:41:38.917672Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-08-26T22:41:38.917919Z",
+        "finished_at": "2026-08-26T22:41:39.775768Z"
+    },
+    "verifier": {
+        "started_at": "2026-08-26T22:41:40.239527Z",
+        "finished_at": "2026-08-26T22:42:04.524748Z"
+    },
+    "step_results": null
+}

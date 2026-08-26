@@ -54,8 +54,8 @@ def _receipt(trial: Path, harness: str) -> dict[str, Any]:
     return _read_json(trial / "agent" / f"{harness}-direct-result.json")
 
 
-def _selection_map() -> dict[str, dict[str, Any]]:
-    return {item["task"]: item for item in _read_json(SELECTION_PATH)["selected"]}
+def _selection_map(selection_path: Path = SELECTION_PATH) -> dict[str, dict[str, Any]]:
+    return {item["task"]: item for item in _read_json(selection_path)["selected"]}
 
 
 def _verifier_evidence(trial: Path) -> Path:
@@ -97,21 +97,34 @@ def _audit_outcome(audit: list[dict[str, Any]], *, mode: str, cell_id: str) -> s
     return outcome
 
 
-def validate_cell(cell_dir: Path, *, mode: str, cell_id: str) -> dict[str, Any]:
+def validate_cell(
+    cell_dir: Path,
+    *,
+    mode: str,
+    cell_id: str,
+    expected_cells: tuple[str, ...] = EXPECTED_CELLS,
+    selection_path: Path = SELECTION_PATH,
+    benchmark_id: str = "direct-openai-20task-pairwise",
+) -> dict[str, Any]:
     """Validate one completed Harbor cell and all native-interface receipts."""
     if mode not in {"fake", "real"}:
         raise ValueError("mode must be fake or real")
     task, harness = cell_id.rsplit("--", 1)
     if harness not in {"pi", "thinharness"}:
         raise RuntimeError(f"unknown harness in cell: {cell_id}")
-    if cell_id not in EXPECTED_CELLS:
+    if cell_id not in expected_cells:
         raise RuntimeError(f"cell is not in the frozen order: {cell_id}")
     launch = _read_json(cell_dir / "launch.json")
     gateway = _read_json(cell_dir / "gateway-identity.json")
     audit = _audit(cell_dir / "gateway-audit.jsonl")
     if launch.get("cell_id") != cell_id or launch.get("mode") != mode or launch.get("harness") != harness:
         raise RuntimeError(f"launch identity differs for {cell_id}")
-    if gateway.get("cell_id") != cell_id or gateway.get("mode") != mode or gateway.get("bridge") is not None:
+    if (
+        gateway.get("cell_id") != cell_id
+        or gateway.get("mode") != mode
+        or gateway.get("bridge") is not None
+        or gateway.get("benchmark_id", "direct-openai-20task-pairwise") != benchmark_id
+    ):
         raise RuntimeError(f"gateway identity differs for {cell_id}")
     if mode == "fake":
         if (cell_dir / "MODEL_REQUEST_STARTED.jsonl").exists() or gateway.get("upstream") is not None or len(audit) != 2:
@@ -133,7 +146,7 @@ def validate_cell(cell_dir: Path, *, mode: str, cell_id: str) -> dict[str, Any]:
     trial = _trial(cell_dir)
     result = _read_json(trial / "result.json")
     receipt = _receipt(trial, harness)
-    selected = _selection_map()[task]
+    selected = _selection_map(selection_path)[task]
     task_id = result.get("task_id") or {}
     if task_id.get("name") != task or task_id.get("ref") != selected["task_package_digest"]:
         raise RuntimeError(f"Harbor task package identity differs for {cell_id}")

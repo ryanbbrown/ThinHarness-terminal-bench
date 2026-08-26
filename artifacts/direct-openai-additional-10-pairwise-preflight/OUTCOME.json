@@ -1,0 +1,9 @@
+{
+  "benchmark_id": "direct-openai-additional-10-pairwise",
+  "checkpointed_cells": 20,
+  "mode": "fake",
+  "planned_cells": 20,
+  "schema_version": 1,
+  "status": "completed",
+  "stop": null
+}

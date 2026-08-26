@@ -1,0 +1,24 @@
+{
+    "task": {
+        "name": "terminal-bench/schemelike-metacircular-eval",
+        "ref": "sha256:58130c2166c3115276dc8592f358e326ff2d81ea852e3d88636c82fd1dff57e6",
+        "source": "terminal-bench/terminal-bench-2-1"
+    },
+    "trial_name": "schemelike-metacircular-eval__Tw6Vrbs",
+    "trials_dir": "/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/direct-openai-additional-10-pairwise-preflight/direct-openai-additional-10-pairwise-fake-schemelike-metacircular-eval--pi-20260826-223555-3e09fe6c",
+    "agent_setup_timeout_multiplier": 3.0,
+    "agent": {
+        "name": "tbench.direct_agent:DirectOpenAIAgent",
+        "model_name": "openai/gpt-5.6-sol",
+        "n_concurrent": 1,
+        "include_logs": [
+            "*"
+        ],
+        "kwargs": {
+            "harness": "pi",
+            "cell_id": "schemelike-metacircular-eval--pi",
+            "mode": "fake"
+        }
+    },
+    "job_id": "421cec2e-4d87-4e08-a49b-2d9f3fdce3ad"
+}

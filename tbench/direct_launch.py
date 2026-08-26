@@ -200,9 +200,9 @@ def _harbor_command(*, cell_id: str, task: str, harness: str, mode: str, job_nam
     ]
 
 
-def _job_name(cell_id: str, mode: str) -> str:
+def _job_name(cell_id: str, mode: str, benchmark_id: str = BENCHMARK_ID) -> str:
     stamp = time.strftime("%Y%m%d-%H%M%S", time.gmtime())
-    return f"{BENCHMARK_ID}-{mode}-{cell_id}-{stamp}-{uuid.uuid4().hex[:8]}"
+    return f"{benchmark_id}-{mode}-{cell_id}-{stamp}-{uuid.uuid4().hex[:8]}"
 
 
 def _one_trial(job_dir: Path) -> Path | None:
@@ -466,6 +466,7 @@ def _public_gateway(gateway: GatewayIdentity) -> dict[str, Any]:
     return {
         "base_url": gateway.base_url,
         "port": gateway.port,
+        "benchmark_id": gateway.benchmark_id,
         "cell_id": gateway.cell_id,
         "mode": gateway.mode,
         "provider": "OpenAI" if gateway.mode == "real" else "controlled fake",
@@ -477,17 +478,38 @@ def _public_gateway(gateway: GatewayIdentity) -> dict[str, Any]:
 
 
 def _run_cell(
-    *, root: Path, task: str, harness: str, mode: str, api_key: str | None, bundle: ExactCommitBundle, identity: dict[str, Any]
+    *,
+    root: Path,
+    task: str,
+    harness: str,
+    mode: str,
+    api_key: str | None,
+    bundle: ExactCommitBundle,
+    identity: dict[str, Any],
+    benchmark_id: str = BENCHMARK_ID,
+    jobs_dir: Path | None = None,
+    expected_cells: tuple[str, ...] = EXPECTED_CELLS,
+    selection_path: Path = SELECTION_PATH,
+    budget_control: Any | None = None,
 ) -> dict[str, Any]:
     cell_id = f"{task}--{harness}"
     cell_dir = root / "cells" / cell_id
     cell_dir.mkdir(parents=True)
-    jobs_dir = PREFLIGHT_JOBS_DIR if mode == "fake" else JOBS_DIR
-    job_name = _job_name(cell_id, mode)
-    job_dir = jobs_dir / job_name
-    command = _harbor_command(cell_id=cell_id, task=task, harness=harness, mode=mode, job_name=job_name, jobs_dir=jobs_dir)
+    selected_jobs_dir = jobs_dir or (PREFLIGHT_JOBS_DIR if mode == "fake" else JOBS_DIR)
+    job_name = _job_name(cell_id, mode, benchmark_id)
+    job_dir = selected_jobs_dir / job_name
+    command = _harbor_command(
+        cell_id=cell_id, task=task, harness=harness, mode=mode, job_name=job_name, jobs_dir=selected_jobs_dir
+    )
     started = time.time()
-    with run_gateway(cell_id=cell_id, mode=mode, evidence_dir=cell_dir, api_key=api_key) as gateway:
+    with run_gateway(
+        cell_id=cell_id,
+        mode=mode,
+        evidence_dir=cell_dir,
+        api_key=api_key,
+        benchmark_id=benchmark_id,
+        budget_control=budget_control,
+    ) as gateway:
         launch = {
             "schema_version": 1,
             "cell_id": cell_id,
@@ -535,7 +557,14 @@ def _run_cell(
         and trial_result.get("agent_result") is not None
     )
     if trial_succeeded:
-        checkpoint = direct_validate.validate_cell(cell_dir, mode=mode, cell_id=cell_id)
+        checkpoint = direct_validate.validate_cell(
+            cell_dir,
+            mode=mode,
+            cell_id=cell_id,
+            expected_cells=expected_cells,
+            selection_path=selection_path,
+            benchmark_id=benchmark_id,
+        )
     elif mode == "real" and real_attempted:
         status = "credit_exhausted" if credit else "model_attempt_failed"
         checkpoint = direct_validate.cell_summary(cell_dir, status=status, real_model_attempted=True)
