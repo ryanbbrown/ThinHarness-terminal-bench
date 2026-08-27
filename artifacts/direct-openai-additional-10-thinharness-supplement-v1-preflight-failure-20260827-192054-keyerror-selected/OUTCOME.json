@@ -1,0 +1,14 @@
+{
+  "benchmark_id": "direct-openai-additional-10-thinharness-supplement-v1",
+  "checkpointed_cells": 0,
+  "label": "authorized supplemental reruns; not original campaign cells",
+  "mode": "fake",
+  "planned_cells": 2,
+  "schema_version": 1,
+  "status": "fail_closed",
+  "stop": {
+    "cell_id": "model-extraction-relu-logits--thinharness--supplemental-attempt-1",
+    "reason": "'selected'",
+    "type": "KeyError"
+  }
+}

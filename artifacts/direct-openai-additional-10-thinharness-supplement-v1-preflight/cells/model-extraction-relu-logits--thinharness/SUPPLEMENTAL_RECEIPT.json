@@ -1,0 +1,29 @@
+{
+  "attempt": 1,
+  "benchmark_id": "direct-openai-additional-10-thinharness-supplement-v1",
+  "cell_id": "model-extraction-relu-logits--thinharness",
+  "checkpoint_sha256": "a66d9228bd6b7f0dbd2b8a3cc8f28274d3945a43fc51d748df549cca32d09ea7",
+  "consumed": false,
+  "harness": "thinharness",
+  "mode": "fake",
+  "never_rerun": false,
+  "schema_version": 1,
+  "secret_persisted": false,
+  "status": "completed",
+  "supplemental_cell_id": "model-extraction-relu-logits--thinharness--supplemental-attempt-1",
+  "task_identity": {
+    "instruction_sha256": "c9e179dd099065a34c362a865b0eb9fab5f7d96be582cf117e7519580c036ebe",
+    "task_package_digest": "sha256:1ae5045ad68b5d34c3398b612066a07c4a08b6dc330d28868ec4021e17c94b17",
+    "task_toml_sha256": "eb64dfaf8ae88868911ae28855cdc4f767de464001e2704919015b595be6dc29",
+    "task_tree_manifest_sha256": "52105cb4f7c02a72c560d495c8369cebb04555ae6554dc693684aa0f0c65814e"
+  },
+  "trace_sha256": {
+    "cells/model-extraction-relu-logits--thinharness/CHECKPOINT.json": "a66d9228bd6b7f0dbd2b8a3cc8f28274d3945a43fc51d748df549cca32d09ea7",
+    "cells/model-extraction-relu-logits--thinharness/gateway-audit.jsonl": "af91988b3d36ba1c9b9b4f2ef7a1418a4f626944927e7f1f7770471b9cb7130f",
+    "cells/model-extraction-relu-logits--thinharness/gateway-identity.json": "c11e294cf552171801ffcba073071abe281569921c0890a0f8d0910874d65065",
+    "cells/model-extraction-relu-logits--thinharness/job/model-extraction-relu-logits__mns4JdR/agent/thinharness-direct-result.json": "ec79d576f6ef4769f591566cc60962c0b692800d2b44786c098ba2435f87625a",
+    "cells/model-extraction-relu-logits--thinharness/job/model-extraction-relu-logits__mns4JdR/agent/thinharness-events.jsonl": "e9bd17a98f563982b7cd8d6f1346c7f16bce6f1edbffb2453277f65fd728d781",
+    "cells/model-extraction-relu-logits--thinharness/job/model-extraction-relu-logits__mns4JdR/result.json": "4eb6ebb7fe7b8bff3b1e20f5ab807b3ced9de43ddf3156bf46fe12d1eb6b80ec",
+    "cells/model-extraction-relu-logits--thinharness/launch.json": "b5aac6b0f432768d2a68d86e4dfb4f3f792948a70b17a7b50a29ed915cd9365e"
+  }
+}

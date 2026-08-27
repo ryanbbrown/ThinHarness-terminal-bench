@@ -1,0 +1,15 @@
+{
+  "api_credentials_present": false,
+  "benchmark_id": "direct-openai-additional-10-thinharness-supplement-v1",
+  "error": {
+    "message": "'selected'",
+    "type": "KeyError"
+  },
+  "failed_cell": "model-extraction-relu-logits--thinharness--supplemental-attempt-1",
+  "failure_namespace": "direct-openai-additional-10-thinharness-supplement-v1-preflight-failure-20260827-192054-keyerror-selected",
+  "paid_model_calls": false,
+  "preservation": "Original failed artifact, copied Harbor job namespace, run-control log namespace, and report copy.",
+  "schema_version": 1,
+  "status": "preserved_no_model_preflight_failure",
+  "upstream_request_count": 0
+}

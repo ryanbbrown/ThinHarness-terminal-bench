@@ -1,0 +1,84 @@
+{
+  "aggregate": {
+    "api_equivalent_cost_usd": "0",
+    "cell_status_counts": {},
+    "provider_reported_cost_complete": false,
+    "provider_reported_cost_observations": 0,
+    "provider_reported_cost_usd": null,
+    "reward_count": 0,
+    "reward_sum": "0",
+    "successful_upstream_requests": 0,
+    "upstream_requests": 0,
+    "usage": {
+      "cache_write_tokens": 0,
+      "cached_input_tokens": 0,
+      "input_tokens": 0,
+      "ordinary_input_tokens": 0,
+      "output_tokens": 0,
+      "reasoning_tokens": 0
+    }
+  },
+  "benchmark_id": "direct-openai-additional-10-thinharness-supplement-v1",
+  "budget": null,
+  "cells": [],
+  "checkpointed_cells": 0,
+  "label": "authorized supplemental reruns; not original campaign cells",
+  "mode": "fake",
+  "original_benchmark_id": "direct-openai-additional-10-pairwise",
+  "original_evidence_immutable": true,
+  "planned_cells": [
+    "model-extraction-relu-logits--thinharness--supplemental-attempt-1",
+    "make-doom-for-mips--thinharness--supplemental-attempt-1"
+  ],
+  "reproduce": {
+    "checks": "./scripts/direct-openai-additional-10-thinharness-supplement-v1-checks.sh",
+    "report": "uv run python -m tbench.direct_supplement validate artifacts/direct-openai-additional-10-thinharness-supplement-v1-preflight --mode fake"
+  },
+  "runner_identity": {
+    "files": {
+      "configs/container-runtime-requirements.txt": "61d52e09e2edaa56c84a8f139c77dc6052312648d726366a6ec4be50e392c3a6",
+      "configs/direct-openai-20task-settings.json": "79a0cd91ddff45d5e765e05b2de114c57fbd4f17d3cf15da67f28162d7f77c1e",
+      "configs/direct-openai-additional-10-runner-spec.json": "56c5a79f36a464ecab72d74cb1e089f8d2ccaf413106d45804be2811e3a4c65f",
+      "configs/direct-openai-additional-10-thinharness-supplement-v1-selection.json": "902e36b0b2855deee6c132f16be41baf27dcda0bbc70a1c3295b2eb56968dfd9",
+      "configs/direct-openai-additional-10-thinharness-supplement-v1-settings.json": "de7b74670712e7a2c0ce568d77e7c3c70542bbfc227656bc6d6447f341ef2452",
+      "configs/native-tool-schemas.json": "1c1c1e985590e9980264a2e6b8364bd96f1b052c0761eed7f127ac9ab60cfd24",
+      "prompts/pi-0.84.2-system-prompt.md": "bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e",
+      "scripts/direct-openai-additional-10-thinharness-supplement-v1-checks.sh": "37a2c33e9b2cf0f38c2e38f423f809edb3544079c116cde0da7d91fb45a6e443",
+      "scripts/direct-openai-additional-10-thinharness-supplement-v1-preflight.sh": "12cbb1ccbb38fa3714eb822a5def73943f5f303776ba9ed6fc084606077d9ae1",
+      "scripts/install-direct-thinharness.sh": "8b444733dcdbb29fc44e70a60d3c9a97640de79fc5c4e8d933c88eda024c7e6e",
+      "scripts/run-direct-openai-additional-10-thinharness-supplement-v1.sh": "56a412406dc02244988f2a76ba104ef0e5108133b32c2babd368501fbd751441",
+      "tbench/container_security.py": "45e669996dcab219a827df78fb3fff7b8e8d6aa7abdc737746e2560666398603",
+      "tbench/direct_agent.py": "a4b244501f1de1b578a61d8607747679f8bcf93e0eeae7cfeb2137f0b83b362c",
+      "tbench/direct_budget.py": "c26e748db6c5a1e4db25fd3978fe33fe02fd31660fc91cfb6ea6c9855dd82fbe",
+      "tbench/direct_container.py": "49e25a9caeb37fb51088a54981bd3be44234cb0fd7a030d246bf111db28921a0",
+      "tbench/direct_gateway.py": "81c311343cde51547b514af7d641aadc83cbda53728a7e102f1ca781b3c6b690",
+      "tbench/direct_launch.py": "c9855e80faeecbc38fabd6ac8b952c3089ab6497eb2cc030e138f6655e586956",
+      "tbench/direct_supplement.py": "32f7b386606b5a9a59b436f197640a88e31e30d7af1cf1a17ace569938ce82d4",
+      "tbench/direct_validate.py": "f2ccd96e5f6bdc8c610102e92c1a9698956f7da940a24307eab4aed47f0a792c",
+      "tbench/durable.py": "b454981b1806720c67029af2b13efe210ba165f46eccde7a8cd9cd9b1f9b18cd",
+      "tbench/source_bundle.py": "ac208f36136b9314c7c57c9456b5304a92fd715b9eb3fd81c6ddb54a78a88077",
+      "uv.lock": "b960a45efb63fb5c5b738df1711410d1fe0c226f92bded3d29c0e6bf52f7e6d4"
+    },
+    "files_sha256": "4d30e895572774e7d650c5052bfc0864f363b6cbe8e756a77c2e731606ac1480",
+    "git_head": "0d04252c9b1961cf801544afb5329ab36785200b"
+  },
+  "schema_version": 1,
+  "source_identity": {
+    "advertised_ref": "refs/heads/thinharness-pin",
+    "canonical_commit": "84105f07bb9c1ad366fc8fe4fef49e700f5e88ef",
+    "canonical_commit_content_sha256": "8467e4061800e3aae3d12e51278fb71f3bd6a95cfb9abec3a0855e495ee97f43",
+    "canonical_tree": "d027dd1527c813b6e939d1ea63e8a08da86f0c0e",
+    "provenance": {
+      "canonical_source_head": "2178d155a58d90ae77eb7e8de5cc4bd3e431896b",
+      "later_source_head_excluded": true
+    },
+    "schema_version": 1,
+    "source_mode": "transient-local-exact-commit-git-bundle"
+  },
+  "status": "fail_closed",
+  "stop": {
+    "cell_id": "model-extraction-relu-logits--thinharness--supplemental-attempt-1",
+    "reason": "'selected'",
+    "type": "KeyError"
+  }
+}

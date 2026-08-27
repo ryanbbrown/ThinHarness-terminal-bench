@@ -1,0 +1,19 @@
+{
+  "benchmark_id": "direct-openai-additional-10-thinharness-supplement-v1",
+  "bind": "0.0.0.0",
+  "bridge": null,
+  "cell_id": "make-doom-for-mips--thinharness",
+  "container_base_url": "http://host.docker.internal:58254/v1",
+  "direct_openai": false,
+  "downstream_auth": "ephemeral-random-bearer",
+  "downstream_token_persisted": false,
+  "mode": "fake",
+  "openai_key_persisted": false,
+  "openai_key_source": "none",
+  "port": 58254,
+  "provider": "controlled fake",
+  "request_retries": 0,
+  "schema_version": 1,
+  "transport_retries": 0,
+  "upstream": null
+}

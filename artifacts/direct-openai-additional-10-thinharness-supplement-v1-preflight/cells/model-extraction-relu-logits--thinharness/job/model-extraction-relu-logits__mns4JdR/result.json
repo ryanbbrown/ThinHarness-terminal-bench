@@ -1,0 +1,134 @@
+{
+    "id": "9002d94b-1609-4dc6-aa61-15fbe3d46e3e",
+    "task_name": "terminal-bench/model-extraction-relu-logits",
+    "trial_name": "model-extraction-relu-logits__mns4JdR",
+    "trial_uri": "file:///Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/direct-openai-additional-10-thinharness-supplement-v1-preflight/direct-openai-additional-10-thinharness-supplement-v1-fake-model-extraction-relu-logits--thinharness-20260827-192415-9941e880/model-extraction-relu-logits__mns4JdR",
+    "task_id": {
+        "org": "terminal-bench",
+        "name": "model-extraction-relu-logits",
+        "ref": "sha256:1ae5045ad68b5d34c3398b612066a07c4a08b6dc330d28868ec4021e17c94b17"
+    },
+    "source": "terminal-bench/terminal-bench-2-1",
+    "task_checksum": "8b3048320aa04676089f9240563c2d7d381be03d8810bcf5f5d336cab538f523",
+    "config": {
+        "task": {
+            "path": null,
+            "git_url": null,
+            "git_commit_id": null,
+            "name": "terminal-bench/model-extraction-relu-logits",
+            "ref": "sha256:1ae5045ad68b5d34c3398b612066a07c4a08b6dc330d28868ec4021e17c94b17",
+            "overwrite": false,
+            "download_dir": null,
+            "source": "terminal-bench/terminal-bench-2-1"
+        },
+        "trial_name": "model-extraction-relu-logits__mns4JdR",
+        "trials_dir": "/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/direct-openai-additional-10-thinharness-supplement-v1-preflight/direct-openai-additional-10-thinharness-supplement-v1-fake-model-extraction-relu-logits--thinharness-20260827-192415-9941e880",
+        "install_only": false,
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": 3.0,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "tbench.direct_agent:DirectOpenAIAgent",
+            "import_path": null,
+            "model_name": "openai/gpt-5.6-sol",
+            "n_concurrent": 1,
+            "concurrency_group": null,
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "resume_trajectory": false,
+            "load_trajectory": null,
+            "extra_allowed_hosts": [],
+            "include_logs": [
+                "*"
+            ],
+            "kwargs": {
+                "harness": "thinharness",
+                "cell_id": "model-extraction-relu-logits--thinharness",
+                "mode": "fake"
+            },
+            "mcp_servers": []
+        },
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [],
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "extra_instruction_paths": [],
+        "job_id": "237e831e-3cae-41e3-a69d-8d0dc05ab7f3",
+        "source_trial": null
+    },
+    "agent_info": {
+        "name": "direct-openai-pairwise",
+        "version": "1.0+84105f07",
+        "model_info": {
+            "name": "gpt-5.6-sol",
+            "provider": "openai"
+        }
+    },
+    "agent_result": {
+        "n_input_tokens": 2700,
+        "n_cache_tokens": 768,
+        "n_output_tokens": 160,
+        "cost_usd": null,
+        "rollout_details": null,
+        "metadata": {
+            "cell_id": "model-extraction-relu-logits--thinharness",
+            "harness": "thinharness",
+            "backend": "controlled-fake-direct-openai-contract",
+            "model_requests": 2,
+            "tool_calls": 1,
+            "response_models": [
+                "gpt-5.6-sol"
+            ],
+            "verifier_handoff": true
+        }
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 0.0
+        }
+    },
+    "verifier_environment_mode": "shared",
+    "exception_info": null,
+    "started_at": "2026-08-27T19:24:17.833104Z",
+    "finished_at": "2026-08-27T19:25:42.488542Z",
+    "environment_setup": {
+        "started_at": "2026-08-27T19:24:17.926887Z",
+        "finished_at": "2026-08-27T19:24:18.921263Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-08-27T19:24:18.921331Z",
+        "finished_at": "2026-08-27T19:25:23.045484Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-08-27T19:25:23.045678Z",
+        "finished_at": "2026-08-27T19:25:23.885252Z"
+    },
+    "verifier": {
+        "started_at": "2026-08-27T19:25:24.313280Z",
+        "finished_at": "2026-08-27T19:25:31.591166Z"
+    },
+    "step_results": null
+}

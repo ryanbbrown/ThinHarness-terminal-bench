@@ -1,0 +1,10 @@
+{
+  "benchmark_id": "direct-openai-additional-10-thinharness-supplement-v1",
+  "checkpointed_cells": 2,
+  "label": "authorized supplemental reruns; not original campaign cells",
+  "mode": "fake",
+  "planned_cells": 2,
+  "schema_version": 1,
+  "status": "completed",
+  "stop": null
+}

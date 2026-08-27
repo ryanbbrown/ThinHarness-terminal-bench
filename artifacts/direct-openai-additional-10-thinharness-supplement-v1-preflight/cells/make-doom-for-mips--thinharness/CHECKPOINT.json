@@ -1,0 +1,392 @@
+{
+  "batching": [
+    {
+      "sequence": 1,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 2,
+      "tool_calls_in_response": 0,
+      "tool_names": []
+    }
+  ],
+  "cell_id": "make-doom-for-mips--thinharness",
+  "cost": {
+    "actual_cash_total": null,
+    "api_equivalent_total": 0.014844000000000001,
+    "components": {
+      "cache_write": 0.0,
+      "cached_input": 0.000384,
+      "ordinary_input": 0.00966,
+      "output": 0.0048000000000000004
+    },
+    "currency": "USD",
+    "prices_usd_per_million_tokens": {
+      "cache_write": 6.25,
+      "cached_input": 0.5,
+      "ordinary_input": 5.0,
+      "output": 30.0
+    }
+  },
+  "harbor_exit_code": 0,
+  "harness": "thinharness",
+  "identities": {
+    "gateway": {
+      "benchmark_id": "direct-openai-additional-10-thinharness-supplement-v1",
+      "bind": "0.0.0.0",
+      "bridge": null,
+      "cell_id": "make-doom-for-mips--thinharness",
+      "container_base_url": "http://host.docker.internal:58254/v1",
+      "direct_openai": false,
+      "downstream_auth": "ephemeral-random-bearer",
+      "downstream_token_persisted": false,
+      "mode": "fake",
+      "openai_key_persisted": false,
+      "openai_key_source": "none",
+      "port": 58254,
+      "provider": "controlled fake",
+      "request_retries": 0,
+      "schema_version": 1,
+      "transport_retries": 0,
+      "upstream": null
+    },
+    "harbor": {
+      "agent_info": {
+        "model_info": {
+          "name": "gpt-5.6-sol",
+          "provider": "openai"
+        },
+        "name": "direct-openai-pairwise",
+        "version": "1.0+84105f07"
+      },
+      "id": "076f4f00-03f7-487a-bafc-ce8b6398904d",
+      "source": "terminal-bench/terminal-bench-2-1",
+      "task_checksum": "8ecf7ffa820c3c76e07d06ad5042fb5661f3371c24f6c0ee710c36596b802549",
+      "task_id": {
+        "name": "make-doom-for-mips",
+        "org": "terminal-bench",
+        "ref": "sha256:2d83dd3dee8e0f055e09973934cf0d7e3169a9cd90704cba5c8940b170be9498"
+      },
+      "task_name": "terminal-bench/make-doom-for-mips",
+      "trial_name": "make-doom-for-mips__dV2Q8AP"
+    },
+    "launch_gateway": {
+      "base_url": "http://host.docker.internal:58254/v1",
+      "benchmark_id": "direct-openai-additional-10-thinharness-supplement-v1",
+      "bridge": null,
+      "cell_id": "make-doom-for-mips--thinharness",
+      "direct_openai": false,
+      "ephemeral_token_persisted": false,
+      "mode": "fake",
+      "port": 58254,
+      "provider": "controlled fake",
+      "upstream": null
+    },
+    "model": {
+      "backend": "controlled-fake-direct-openai-contract",
+      "name": "gpt-5.6-sol",
+      "reasoning": {
+        "effort": "xhigh",
+        "summary": "auto"
+      },
+      "response_models": [
+        "gpt-5.6-sol"
+      ],
+      "text": {
+        "verbosity": "low"
+      }
+    },
+    "native_harness": {
+      "cell_id": "make-doom-for-mips--thinharness",
+      "execution": {
+        "cwd": "/app",
+        "execution": "harbor-task-container",
+        "hostname": "6a004eca2cb4",
+        "machine": "x86_64",
+        "os_release": {
+          "ID": "debian",
+          "PRETTY_NAME": "Debian GNU/Linux 12 (bookworm)",
+          "VERSION_ID": "12"
+        },
+        "pid": 105,
+        "platform": "Linux-6.12.76-linuxkit-x86_64-with-glibc2.36",
+        "python": "3.12.11 (main, Aug 18 2025, 19:19:11) [Clang 20.1.4 ]",
+        "root": "/app",
+        "uid": 0
+      },
+      "harness": "thinharness",
+      "harness_version": "0.7.0",
+      "install": {
+        "build_location": "harbor-task-container",
+        "canonical_commit": "84105f07bb9c1ad366fc8fe4fef49e700f5e88ef",
+        "harness": "thinharness",
+        "installed_version": "0.7.0",
+        "platform": "Linux-6.12.76-linuxkit-x86_64-with-glibc2.36",
+        "python": "3.12.11 (main, Aug 18 2025, 19:19:11) [Clang 20.1.4 ]",
+        "schema_version": 1,
+        "source_bundle_sha256": "55bcb4c381f7adf6bf5bf690a4c3c84ecacbd3637800c15e9f61fab70cf50dfd",
+        "source_mode": "transient-local-git-bundle",
+        "wheel_path": "/opt/thinharness-direct-wheels/thinharness-0.7.0-py3-none-any.whl",
+        "wheel_sha256": "a71677d0d27690cb37148af7c72e857b3c6c6d49347458c4453691e0edf220bf"
+      },
+      "kind": "direct-openai-pairwise-cell",
+      "mode": "fake",
+      "prompt_sha256": "bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e",
+      "provider_transport": {
+        "client_timeout_seconds": {
+          "connect": 1800,
+          "pool": 1800,
+          "read": 1800,
+          "write": 1800
+        },
+        "client_type": "httpx.AsyncClient",
+        "provider_owns_client": true,
+        "provider_timeout_seconds": 1800,
+        "requests_made": 0
+      },
+      "thinharness_commit": "84105f07bb9c1ad366fc8fe4fef49e700f5e88ef",
+      "tool_schemas": [
+        {
+          "description": "Run one non-interactive Bash command. The cwd must be inside the workspace. Each call starts a fresh shell and does not share shell state with other calls. Background processes in the same process group are terminated on a best-effort basis. timeout is in seconds and is capped by the host.",
+          "name": "bash",
+          "parameters": {
+            "additionalProperties": false,
+            "description": "Model arguments for one Bash call.",
+            "properties": {
+              "command": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "cwd": {
+                "default": ".",
+                "type": "string"
+              },
+              "timeout": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "command"
+            ],
+            "type": "object"
+          },
+          "type": "function"
+        },
+        {
+          "description": "Read a UTF-8 text file with line numbers and optional offset/limit.",
+          "name": "read",
+          "parameters": {
+            "additionalProperties": false,
+            "description": "Arguments for read.",
+            "properties": {
+              "limit": {
+                "minimum": 1,
+                "type": "integer"
+              },
+              "max_chars": {
+                "minimum": 1,
+                "type": "integer"
+              },
+              "offset": {
+                "default": 1,
+                "minimum": 1,
+                "type": "integer"
+              },
+              "path": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "path"
+            ],
+            "type": "object"
+          },
+          "type": "function"
+        },
+        {
+          "description": "Apply one or more exact text replacements to UTF-8 files. Each old_string must be unique unless all=true.",
+          "name": "edit",
+          "parameters": {
+            "additionalProperties": false,
+            "description": "Arguments for edit.",
+            "properties": {
+              "edits": {
+                "items": {
+                  "additionalProperties": false,
+                  "description": "One exact replacement for edit.",
+                  "properties": {
+                    "all": {
+                      "default": false,
+                      "type": "boolean"
+                    },
+                    "expected_replacements": {
+                      "minimum": 1,
+                      "type": "integer"
+                    },
+                    "new_string": {
+                      "type": "string"
+                    },
+                    "old_string": {
+                      "type": "string"
+                    },
+                    "path": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "path",
+                    "old_string",
+                    "new_string"
+                  ],
+                  "type": "object"
+                },
+                "minItems": 1,
+                "type": "array"
+              }
+            },
+            "required": [
+              "edits"
+            ],
+            "type": "object"
+          },
+          "type": "function"
+        },
+        {
+          "description": "Create, overwrite, or append to a UTF-8 text file under the workspace root.",
+          "name": "write",
+          "parameters": {
+            "additionalProperties": false,
+            "description": "Arguments for write.",
+            "properties": {
+              "append": {
+                "default": false,
+                "type": "boolean"
+              },
+              "content": {
+                "type": "string"
+              },
+              "path": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "path",
+              "content"
+            ],
+            "type": "object"
+          },
+          "type": "function"
+        }
+      ],
+      "tools": null
+    },
+    "runner": {
+      "files": {
+        "configs/container-runtime-requirements.txt": "61d52e09e2edaa56c84a8f139c77dc6052312648d726366a6ec4be50e392c3a6",
+        "configs/direct-openai-20task-settings.json": "79a0cd91ddff45d5e765e05b2de114c57fbd4f17d3cf15da67f28162d7f77c1e",
+        "configs/direct-openai-additional-10-runner-spec.json": "56c5a79f36a464ecab72d74cb1e089f8d2ccaf413106d45804be2811e3a4c65f",
+        "configs/direct-openai-additional-10-thinharness-supplement-v1-selection.json": "4a450bdfdd78fa8860ab14f047a6b0bce09cbec8ce9189de793f8448c4fa981a",
+        "configs/direct-openai-additional-10-thinharness-supplement-v1-settings.json": "de7b74670712e7a2c0ce568d77e7c3c70542bbfc227656bc6d6447f341ef2452",
+        "configs/native-tool-schemas.json": "1c1c1e985590e9980264a2e6b8364bd96f1b052c0761eed7f127ac9ab60cfd24",
+        "prompts/pi-0.84.2-system-prompt.md": "bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e",
+        "scripts/direct-openai-additional-10-thinharness-supplement-v1-checks.sh": "37a2c33e9b2cf0f38c2e38f423f809edb3544079c116cde0da7d91fb45a6e443",
+        "scripts/direct-openai-additional-10-thinharness-supplement-v1-preflight.sh": "12cbb1ccbb38fa3714eb822a5def73943f5f303776ba9ed6fc084606077d9ae1",
+        "scripts/install-direct-thinharness.sh": "8b444733dcdbb29fc44e70a60d3c9a97640de79fc5c4e8d933c88eda024c7e6e",
+        "scripts/run-direct-openai-additional-10-thinharness-supplement-v1.sh": "56a412406dc02244988f2a76ba104ef0e5108133b32c2babd368501fbd751441",
+        "tbench/container_security.py": "45e669996dcab219a827df78fb3fff7b8e8d6aa7abdc737746e2560666398603",
+        "tbench/direct_agent.py": "a4b244501f1de1b578a61d8607747679f8bcf93e0eeae7cfeb2137f0b83b362c",
+        "tbench/direct_budget.py": "c26e748db6c5a1e4db25fd3978fe33fe02fd31660fc91cfb6ea6c9855dd82fbe",
+        "tbench/direct_container.py": "49e25a9caeb37fb51088a54981bd3be44234cb0fd7a030d246bf111db28921a0",
+        "tbench/direct_gateway.py": "81c311343cde51547b514af7d641aadc83cbda53728a7e102f1ca781b3c6b690",
+        "tbench/direct_launch.py": "c9855e80faeecbc38fabd6ac8b952c3089ab6497eb2cc030e138f6655e586956",
+        "tbench/direct_supplement.py": "692a707cf0c97e210bdf3773d1ac355e2bb7c58c6581575e8c08106c1c43b90d",
+        "tbench/direct_validate.py": "f2ccd96e5f6bdc8c610102e92c1a9698956f7da940a24307eab4aed47f0a792c",
+        "tbench/durable.py": "b454981b1806720c67029af2b13efe210ba165f46eccde7a8cd9cd9b1f9b18cd",
+        "tbench/source_bundle.py": "ac208f36136b9314c7c57c9456b5304a92fd715b9eb3fd81c6ddb54a78a88077",
+        "uv.lock": "b960a45efb63fb5c5b738df1711410d1fe0c226f92bded3d29c0e6bf52f7e6d4"
+      },
+      "files_sha256": "ff79b70c265f99909585c892b7439a672c6d381418c4187fa76f717f5072afce",
+      "git_head": "0d04252c9b1961cf801544afb5329ab36785200b"
+    },
+    "source_bundle_sha256": "55bcb4c381f7adf6bf5bf690a4c3c84ecacbd3637800c15e9f61fab70cf50dfd"
+  },
+  "mode": "fake",
+  "model_attempt_failure": null,
+  "never_rerun": false,
+  "real_model_attempted": false,
+  "receipt": "cells/make-doom-for-mips--thinharness/SUPPLEMENTAL_RECEIPT.json",
+  "request_count": 2,
+  "restart_action": "recoverable before any model request",
+  "reward": 0.0,
+  "schema_version": 1,
+  "status": "completed",
+  "successful_request_count": 2,
+  "supplemental_attempt": 1,
+  "supplemental_cell_id": "make-doom-for-mips--thinharness--supplemental-attempt-1",
+  "supplemental_label": "authorized supplemental rerun; not an original campaign cell",
+  "task": "make-doom-for-mips",
+  "task_identity": {
+    "instruction_sha256": "1903b660e4c64966ff257f828c932adff2b289de589bd6aee22b933bb4fef429",
+    "task_package_digest": "sha256:2d83dd3dee8e0f055e09973934cf0d7e3169a9cd90704cba5c8940b170be9498",
+    "task_toml_sha256": "a7d7a498f0d3a992b384e5086ba2b411767c1c1a013d1b41f6a25cdaf6d05acc",
+    "task_tree_manifest_sha256": "ad3ba908bfede13360c7a656e97f303ceb519e68c7cdafab5c4aed326839cd04"
+  },
+  "timing": {
+    "agent_execution": {
+      "finished_at": "2026-08-27T19:26:01.922381Z",
+      "started_at": "2026-08-27T19:26:01.133461Z"
+    },
+    "agent_setup": {
+      "finished_at": "2026-08-27T19:26:01.133276Z",
+      "started_at": "2026-08-27T19:25:46.811543Z"
+    },
+    "environment_setup": {
+      "finished_at": "2026-08-27T19:25:46.811467Z",
+      "started_at": "2026-08-27T19:25:45.761144Z"
+    },
+    "harbor_finished_at": "2026-08-27T19:27:00.518624Z",
+    "harbor_started_at": "2026-08-27T19:25:45.666909Z",
+    "launcher_finished_at": 1787858821.7839491,
+    "launcher_started_at": 1787858744.299228,
+    "native_agent_seconds": 0.06676112499997089,
+    "request_seconds": [
+      4.5332941226661205e-05,
+      1.2042000889778137e-05
+    ],
+    "verifier": {
+      "finished_at": "2026-08-27T19:26:49.786734Z",
+      "started_at": "2026-08-27T19:26:02.309269Z"
+    }
+  },
+  "traces": {
+    "gateway_audit": "cells/make-doom-for-mips--thinharness/gateway-audit.jsonl",
+    "gateway_identity": "cells/make-doom-for-mips--thinharness/gateway-identity.json",
+    "harbor_result": "cells/make-doom-for-mips--thinharness/job/make-doom-for-mips__dV2Q8AP/result.json",
+    "launch": "cells/make-doom-for-mips--thinharness/launch.json",
+    "model_request_markers": null,
+    "native_events": "cells/make-doom-for-mips--thinharness/job/make-doom-for-mips__dV2Q8AP/agent/thinharness-events.jsonl",
+    "native_receipt": "cells/make-doom-for-mips--thinharness/job/make-doom-for-mips__dV2Q8AP/agent/thinharness-direct-result.json",
+    "native_stderr": "cells/make-doom-for-mips--thinharness/job/make-doom-for-mips__dV2Q8AP/agent/thinharness-stderr.log",
+    "staging_stderr": "cells/make-doom-for-mips--thinharness/harbor.stderr.log",
+    "staging_stdout": "cells/make-doom-for-mips--thinharness/harbor.stdout.log",
+    "verifier_evidence": "cells/make-doom-for-mips--thinharness/job/make-doom-for-mips__dV2Q8AP/verifier/ctrf.json",
+    "verifier_evidence_sha256": "d7466434eab2f3f832fe1cfa51c71df3c312fc90ea5195ed8d0cb42c66c1501f",
+    "verifier_evidence_type": "ctrf.json"
+  },
+  "usage": {
+    "cache_write_tokens": 0,
+    "cached_input_tokens": 768,
+    "input_tokens": 2700,
+    "ordinary_input_tokens": 1932,
+    "output_tokens": 160,
+    "reasoning_tokens": 80
+  },
+  "verifier_outcome": {
+    "rewards": {
+      "reward": 0.0
+    }
+  }
+}

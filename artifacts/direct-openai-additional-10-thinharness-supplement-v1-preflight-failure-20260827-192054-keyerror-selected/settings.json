@@ -1,0 +1,87 @@
+{
+  "benchmark_id": "direct-openai-additional-10-thinharness-supplement-v1",
+  "budget": {
+    "basis": "The frozen original campaign observed USD 3.02611250 for make-doom-for-mips--pi and USD 0.37595325 before the model-extraction-relu-logits--thinharness policy refusal. USD 10.00 per supplemental cell and USD 20.00 total are simple conservative bounds above published evidence.",
+    "currency": "USD",
+    "evidence": {
+      "cap_stop": "artifacts/direct-openai-additional-10-pairwise/CAP_STOP.json",
+      "original_summary": "artifacts/direct-openai-additional-10-pairwise/SUMMARY.json"
+    },
+    "overshoot_policy": "One in-flight response can cross a cap. Checkpoint it, block the ledger, and launch no later cell.",
+    "per_cell_cap_usd": "10.00",
+    "pricing_usd_per_million_tokens": {
+      "cache_write": 6.25,
+      "cached_input": 0.5,
+      "ordinary_input": 5.0,
+      "output": 30.0
+    },
+    "total_cap_usd": "20.00"
+  },
+  "credential_boundary": {
+    "key_persisted": false,
+    "launcher_only": true,
+    "native_tools_receive_key": false,
+    "source": "Doppler api-keys/dev_personal OPENAI_API_KEY",
+    "task_container_receives_key": false
+  },
+  "dataset": "terminal-bench/terminal-bench-2-1@sha256:7d7bdc1cbedad549fc1140404bd4dc45e5fd0ea7c4186773687d177ad3a0699a",
+  "execution": {
+    "agent_retries": 0,
+    "harbor": {
+      "agent_setup_timeout_multiplier": 3.0,
+      "attempts_per_cell": 1,
+      "concurrency": 1,
+      "environment": "docker",
+      "retries": 0,
+      "timeout_multiplier": 1.0,
+      "version": "0.21.0"
+    },
+    "harness": "native ThinHarness",
+    "harnesses": [
+      "thinharness"
+    ],
+    "model": {
+      "bridge": null,
+      "max_model_requests": 64,
+      "max_output_tokens": 100000,
+      "max_tool_calls": 128,
+      "model": "gpt-5.6-sol",
+      "provider": "OpenAI",
+      "reasoning": {
+        "effort": "xhigh",
+        "summary": "auto"
+      },
+      "request_timeout_seconds": 1800,
+      "retries": {
+        "model": 0,
+        "output": 0,
+        "provider": 0,
+        "tool": 0,
+        "transport": 0
+      },
+      "route": "direct https://api.openai.com/v1/responses",
+      "text": {
+        "verbosity": "low"
+      }
+    },
+    "native_tool_schema_sha256": "1c1c1e985590e9980264a2e6b8364bd96f1b052c0761eed7f127ac9ab60cfd24",
+    "prompt": {
+      "path": "prompts/pi-0.84.2-system-prompt.md",
+      "sha256": "bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e"
+    },
+    "provider_timeout_seconds": 1800,
+    "thinharness_commit": "84105f07bb9c1ad366fc8fe4fef49e700f5e88ef",
+    "thinharness_version": "0.7.0",
+    "tool_execution": "sequential"
+  },
+  "frozen_before_spend": true,
+  "label": "authorized supplemental reruns; not original campaign cells",
+  "original_evidence_immutable_sha256": {
+    "artifacts/direct-openai-additional-10-pairwise/CAP_STOP.json": "9a98e7153c4142227f902ddea50532afbcbaba5d0fa0bed56768b8e9b1c2f432",
+    "artifacts/direct-openai-additional-10-pairwise/SHA256SUMS.json": "bf060f3a1b8d219e5ebf450595e6aa585110746f4f011e0c7de157670447f9ac",
+    "artifacts/direct-openai-additional-10-pairwise/SUMMARY.json": "c0654560fa5733585e3467bc7e0e28369247e49524178ccce21d13d983032310",
+    "configs/direct-openai-additional-10-runner-spec.json": "56c5a79f36a464ecab72d74cb1e089f8d2ccaf413106d45804be2811e3a4c65f",
+    "reports/direct-openai-additional-10-pairwise.json": "c0654560fa5733585e3467bc7e0e28369247e49524178ccce21d13d983032310"
+  },
+  "schema_version": 1
+}
