@@ -1,0 +1,29 @@
+{
+  "attempt": 1,
+  "benchmark_id": "direct-openai-additional-10-thinharness-supplement-v2",
+  "cell_id": "make-doom-for-mips--thinharness",
+  "checkpoint_sha256": "fb24eb306d6e5623e8686d31c11faba56758cdba4aa911304ed44ec76dfbc142",
+  "consumed": false,
+  "harness": "thinharness",
+  "mode": "fake",
+  "never_rerun": false,
+  "schema_version": 2,
+  "secret_persisted": false,
+  "status": "completed",
+  "supplemental_cell_id": "make-doom-for-mips--thinharness--supplemental-v2-attempt-1",
+  "task_identity": {
+    "instruction_sha256": "1903b660e4c64966ff257f828c932adff2b289de589bd6aee22b933bb4fef429",
+    "task_package_digest": "sha256:2d83dd3dee8e0f055e09973934cf0d7e3169a9cd90704cba5c8940b170be9498",
+    "task_toml_sha256": "a7d7a498f0d3a992b384e5086ba2b411767c1c1a013d1b41f6a25cdaf6d05acc",
+    "task_tree_manifest_sha256": "ad3ba908bfede13360c7a656e97f303ceb519e68c7cdafab5c4aed326839cd04"
+  },
+  "trace_sha256": {
+    "cells/make-doom-for-mips--thinharness/CHECKPOINT.json": "fb24eb306d6e5623e8686d31c11faba56758cdba4aa911304ed44ec76dfbc142",
+    "cells/make-doom-for-mips--thinharness/gateway-audit.jsonl": "b75f2941e255309141a42e61255286515a425ff4fe158c55e9c778b08e7aad78",
+    "cells/make-doom-for-mips--thinharness/gateway-identity.json": "b74b3a79740ae8b440b15827470e4b7a06bf5591bde85b83ed7adae25da5165a",
+    "cells/make-doom-for-mips--thinharness/job/make-doom-for-mips__3s2vwxi/agent/thinharness-direct-result.json": "e484647cd5910cbd8c4f979c7694b319d9f41085fe1ff6e04e1c455b705c89b2",
+    "cells/make-doom-for-mips--thinharness/job/make-doom-for-mips__3s2vwxi/agent/thinharness-events.jsonl": "7a3c09610576c7f33b1192449f9cdf2b2d8eed147196c9c050c1ef4e02d2ea1a",
+    "cells/make-doom-for-mips--thinharness/job/make-doom-for-mips__3s2vwxi/result.json": "579f4a0a527d539628dc67489f9ae78664dd8ffc3f67ddf26a55efc342707548",
+    "cells/make-doom-for-mips--thinharness/launch.json": "9673a98e46f52ee96267e72a5b4200ee19418c647153c0c1fcdda30d62e5ce97"
+  }
+}

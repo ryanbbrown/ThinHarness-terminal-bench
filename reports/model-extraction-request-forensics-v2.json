@@ -1,0 +1,3326 @@
+{
+  "classification": "redacted forensic report; restricted request text, tool arguments, and tool results are omitted",
+  "evidence": {
+    "frozen_prompt": {
+      "bytes": 2633,
+      "path": "prompts/pi-0.84.2-system-prompt.md",
+      "sha256": "bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e"
+    },
+    "gateway_transport_and_marker": {
+      "bytes": 19770,
+      "path": "tbench/direct_gateway.py",
+      "sha256": "81c311343cde51547b514af7d641aadc83cbda53728a7e102f1ca781b3c6b690"
+    },
+    "original_pi_events": {
+      "bytes": 305674,
+      "path": "artifacts/direct-openai-additional-10-pairwise/cells/model-extraction-relu-logits--pi/job/model-extraction-relu-logits__J9m5mEN/agent/pi-events.jsonl",
+      "sha256": "42b761cb7a6390dc0acc77423451d3c745e429fb2761048a2c5144b5f3d5fe69"
+    },
+    "original_pi_native_receipt": {
+      "bytes": 97430,
+      "path": "artifacts/direct-openai-additional-10-pairwise/cells/model-extraction-relu-logits--pi/job/model-extraction-relu-logits__J9m5mEN/agent/pi-direct-result.json",
+      "sha256": "785d328e345f549c17aa8efb68f3b64aa5eb8a79eb9738baf08ddafbf16de9ae"
+    },
+    "original_thinharness_events": {
+      "bytes": 184151,
+      "path": "artifacts/direct-openai-additional-10-pairwise/cells/model-extraction-relu-logits--thinharness/job/model-extraction-relu-logits__Lhcx98c/agent/thinharness-events.jsonl",
+      "sha256": "08c1855e7623d0b9d9bc1e44f824114fe10769ec3597e773d68f34c6f1e4fa8b"
+    },
+    "original_thinharness_native_receipt": {
+      "bytes": 229030,
+      "path": "artifacts/direct-openai-additional-10-pairwise/cells/model-extraction-relu-logits--thinharness/job/model-extraction-relu-logits__Lhcx98c/agent/thinharness-direct-result.json",
+      "sha256": "969fd783f6eae074e4020982edc4d27df79e6aee0082c242fcdffc1e5f8ab52a"
+    },
+    "pi_package_lock": {
+      "bytes": 73539,
+      "path": "configs/pi-subscription-package-lock.json",
+      "sha256": "0f34d01dda1837fd634d0562d2c0350ff982da133de59f36fccdac62835fc1c0"
+    },
+    "pi_tool_schema": {
+      "bytes": 3972,
+      "path": "configs/pi-native-tool-schemas.json",
+      "sha256": "88fda428f9a9114a62d2f3a394d85c7d15cddd111eddadbe7abbe728bff2afde"
+    },
+    "request_construction_and_capture": {
+      "bytes": 19094,
+      "path": "tbench/direct_container.py",
+      "sha256": "49e25a9caeb37fb51088a54981bd3be44234cb0fd7a030d246bf111db28921a0"
+    },
+    "thinharness_install_provenance_original": {
+      "bytes": 640,
+      "path": "artifacts/direct-openai-additional-10-pairwise/cells/model-extraction-relu-logits--thinharness/job/model-extraction-relu-logits__Lhcx98c/agent/install-provenance.json",
+      "sha256": "d434f5a9d32e7b3e9dfb7dcab25599f6207692b29aed92645fd5c8d5d8aa46cb"
+    },
+    "thinharness_install_provenance_v1": {
+      "bytes": 640,
+      "path": "artifacts/direct-openai-additional-10-thinharness-supplement-v1/cells/model-extraction-relu-logits--thinharness/job/model-extraction-relu-logits__54oLi2Y/agent/install-provenance.json",
+      "sha256": "f2b4b1eb409cc4d2849be0f6832ff9016cbafc3ed24c1333b8dfb3106f75db8b"
+    },
+    "thinharness_tool_schema": {
+      "bytes": 3635,
+      "path": "configs/native-tool-schemas.json",
+      "sha256": "1c1c1e985590e9980264a2e6b8364bd96f1b052c0761eed7f127ac9ab60cfd24"
+    },
+    "v1_thinharness_events": {
+      "bytes": 82892,
+      "path": "artifacts/direct-openai-additional-10-thinharness-supplement-v1/cells/model-extraction-relu-logits--thinharness/job/model-extraction-relu-logits__54oLi2Y/agent/thinharness-events.jsonl",
+      "sha256": "c88c91be0393e4914b89c6baae0b42916ad80c15a35388e1c6e201a1c9faa89b"
+    },
+    "v1_thinharness_native_receipt": {
+      "bytes": 108787,
+      "path": "artifacts/direct-openai-additional-10-thinharness-supplement-v1/cells/model-extraction-relu-logits--thinharness/job/model-extraction-relu-logits__54oLi2Y/agent/thinharness-direct-result.json",
+      "sha256": "0f8b71bdae62c33cac989607a787934f95c295d40b7c3f4857ebc924043b1686"
+    }
+  },
+  "exact_matches_and_differences": {
+    "model_reasoning_text_match": true,
+    "original_and_v1_thinharness_initial_request_match": true,
+    "original_and_v1_thinharness_later_requests_match": false,
+    "parallel_tool_calls_absent_all_requests": true,
+    "state_packaging_match": false,
+    "task_instruction": {
+      "bytes": 576,
+      "sha256": "c9e179dd099065a34c362a865b0eb9fab5f7d96be582cf117e7519580c036ebe"
+    },
+    "task_instruction_match": true,
+    "tool_choice_absent_all_requests": true,
+    "tool_descriptions_and_schemas_match": false,
+    "tool_names_match": true
+  },
+  "findings": {
+    "confidence": "medium",
+    "diagnosis": "Intermediate model/tool behavior is the best-supported proximate cause. ThinHarness prompt, tool, and state packaging is a material confounder and may shape that behavior. Task content alone is not supported as sufficient. Provider policy variance remains possible.",
+    "intermediate_behavior": {
+      "basis": "The first ThinHarness request was byte-identical across the original and v1 runs and was accepted. Later tool calls and result fingerprints diverged, yet each ThinHarness run received cyber_policy only on a request carrying a new tool result linked to prior response state.",
+      "confidence": "medium",
+      "supported_as_proximate_cause": true
+    },
+    "policy_variance": {
+      "basis": "The provider returned the same redacted cyber_policy response hash in two runs, but no replay or controlled package ablation exists. Policy state or policy changes cannot be measured from these traces.",
+      "ruled_out": false
+    },
+    "prompt_and_tool_packaging": {
+      "basis": "Pi sent a developer message and full history with Pi schemas. ThinHarness sent a longer instructions field, native ThinHarness schemas, and previous_response_id state. Model, reasoning, verbosity, task instruction, and four tool names matched.",
+      "causal_status": "confounder and possible contributor; preserved evidence does not isolate it",
+      "different": true
+    },
+    "task_content": {
+      "basis": "All three runs used the same byte-length and SHA-256 task instruction. Pi completed ten accepted requests, while both ThinHarness runs were refused only after accepted intermediate requests.",
+      "supported_as_sole_cause": false
+    },
+    "uncertainties": [
+      "No request was replayed, and no model call was made for this report.",
+      "Pi and ThinHarness packaging differs, so the traces do not isolate one packaging field.",
+      "The provider policy classifier and policy version are not present in the evidence.",
+      "Opaque encrypted reasoning content cannot be interpreted from the preserved traces."
+    ]
+  },
+  "policy_requests": {
+    "original_thinharness": {
+      "audited_downstream_request_sha256": "386d47b7fce9e5c227cd3ca26c90982b7953bf4188a92f78339566042e7e0acd",
+      "gateway_stream_false_transform": true,
+      "input": [
+        {
+          "kind": "function_call_output",
+          "object_sha256": "b2b4531c15fc0cbf4cccab28f4d71ec0dd9b90476c654b78046c1d908b7a2aaa",
+          "output": {
+            "bytes": 277,
+            "sha256": "e3a56f8ee2eeb434c271a03e9b5b953a4c67ebdb639ed1c4599bbecaa3b0605e"
+          }
+        }
+      ],
+      "parallel_tool_calls": {
+        "present": false,
+        "value": null
+      },
+      "policy_code": "cyber_policy",
+      "previous_response_id": {
+        "links_exactly_to_prior_response": true,
+        "present": true,
+        "sha256": "0455616bdd65750e3911e7d52fd308ac04e79b20ffbf3e16d641da61cb31e1d8"
+      },
+      "request_keys": [
+        "include",
+        "input",
+        "instructions",
+        "metadata",
+        "model",
+        "previous_response_id",
+        "reasoning",
+        "text",
+        "tools"
+      ],
+      "response_output_types": [],
+      "response_sha256": "254e1738341b44af7678c8b438b4575b73f8d0022b41f36383ae3ac364e3ef95",
+      "response_tool_calls": [],
+      "sequence": 7,
+      "status": 400,
+      "tool_choice": {
+        "present": false,
+        "value": null
+      },
+      "upstream_payload_sha256": "8289d199d64f51b43cef91f44c6240517b85f3bed2fe61781ad458b5f9e909dc"
+    },
+    "shared_redacted_response_sha256": "254e1738341b44af7678c8b438b4575b73f8d0022b41f36383ae3ac364e3ef95",
+    "v1_thinharness": {
+      "audited_downstream_request_sha256": "2733a25c3559f15e964f56301f6dc1f69373161e56d0e6444df62551dee92e08",
+      "gateway_stream_false_transform": true,
+      "input": [
+        {
+          "kind": "function_call_output",
+          "object_sha256": "debc25202931d81db747ce2f635b808069626c0e03b775491eafdd8b65c8b3ae",
+          "output": {
+            "bytes": 288,
+            "sha256": "15504600a7a8c92a49963fac78f3f2057fed26a17f59ee1b5994deaf495a556b"
+          }
+        }
+      ],
+      "parallel_tool_calls": {
+        "present": false,
+        "value": null
+      },
+      "policy_code": "cyber_policy",
+      "previous_response_id": {
+        "links_exactly_to_prior_response": true,
+        "present": true,
+        "sha256": "11bc4549a25852601f1b94d058d3d2db4679456f2497be56cb92521ef9a6d002"
+      },
+      "request_keys": [
+        "include",
+        "input",
+        "instructions",
+        "metadata",
+        "model",
+        "previous_response_id",
+        "reasoning",
+        "text",
+        "tools"
+      ],
+      "response_output_types": [],
+      "response_sha256": "254e1738341b44af7678c8b438b4575b73f8d0022b41f36383ae3ac364e3ef95",
+      "response_tool_calls": [],
+      "sequence": 4,
+      "status": 400,
+      "tool_choice": {
+        "present": false,
+        "value": null
+      },
+      "upstream_payload_sha256": "24eab856e3f36fdd64a29e97bf4ed6c22c7f1988b99bc757dd7b43dfaebb0e14"
+    }
+  },
+  "report_id": "model-extraction-request-forensics-v2",
+  "reproduce": "uv run python -m tbench.model_extraction_forensics check",
+  "runs": {
+    "original_pi": {
+      "cyber_policy_requests": [],
+      "evidence": {
+        "gateway_audit": {
+          "bytes": 549964,
+          "path": "artifacts/direct-openai-additional-10-pairwise/cells/model-extraction-relu-logits--pi/gateway-audit.jsonl",
+          "sha256": "6276c5019117d20320f466b850998bd961f832b64f9d708e1fae2e46dbd5e79a"
+        },
+        "request_markers": {
+          "bytes": 3340,
+          "path": "artifacts/direct-openai-additional-10-pairwise/cells/model-extraction-relu-logits--pi/MODEL_REQUEST_STARTED.jsonl",
+          "sha256": "905fec2e34158f906e8bc2c7a4256066b0e3fa07619133ce36230a439dc81871"
+        }
+      },
+      "harness": "pi",
+      "include": [
+        "reasoning.encrypted_content"
+      ],
+      "initial_messages": [
+        {
+          "role": "developer",
+          "text": {
+            "bytes": 2666,
+            "sha256": "33992dc50270ab941dfb4875d1f16afec26858167d7b223a29d25e041ae3d210"
+          }
+        },
+        {
+          "role": "user",
+          "text": {
+            "bytes": 576,
+            "sha256": "c9e179dd099065a34c362a865b0eb9fab5f7d96be582cf117e7519580c036ebe"
+          }
+        }
+      ],
+      "initial_request_sha256": "16d1c66f8740f84c2eb6f5af54590e567744a81b56b320b7197e229e321d21f0",
+      "instructions": {
+        "present": false,
+        "value": null
+      },
+      "max_output_tokens": {
+        "present": true,
+        "value": 100000
+      },
+      "metadata": {
+        "present": false,
+        "value": null
+      },
+      "model": "gpt-5.6-sol",
+      "parallel_tool_calls": {
+        "present": false,
+        "value": null
+      },
+      "previous_response_strategy": "full-history-in-input",
+      "reasoning": {
+        "effort": "xhigh",
+        "summary": "auto"
+      },
+      "request_count": 10,
+      "requests": [
+        {
+          "audited_downstream_request_sha256": "16d1c66f8740f84c2eb6f5af54590e567744a81b56b320b7197e229e321d21f0",
+          "gateway_stream_false_transform": true,
+          "input": [
+            {
+              "kind": "developer",
+              "object_sha256": "4f6f43a4659f84704b9adc0e751e6d04bc621e97d7d11f75d10a17c81b88028d",
+              "text": {
+                "bytes": 2666,
+                "sha256": "33992dc50270ab941dfb4875d1f16afec26858167d7b223a29d25e041ae3d210"
+              }
+            },
+            {
+              "kind": "user",
+              "object_sha256": "09124a1264f2669bec123cfb1ef5d964e53bd4533c72a41521c9f6c69feb59ba",
+              "text": {
+                "bytes": 576,
+                "sha256": "c9e179dd099065a34c362a865b0eb9fab5f7d96be582cf117e7519580c036ebe"
+              }
+            }
+          ],
+          "parallel_tool_calls": {
+            "present": false,
+            "value": null
+          },
+          "policy_code": null,
+          "previous_response_id": {
+            "links_exactly_to_prior_response": null,
+            "present": false,
+            "sha256": null
+          },
+          "request_keys": [
+            "include",
+            "input",
+            "max_output_tokens",
+            "model",
+            "prompt_cache_key",
+            "reasoning",
+            "store",
+            "stream",
+            "text",
+            "tools"
+          ],
+          "response_output_types": [
+            "reasoning",
+            "function_call",
+            "function_call"
+          ],
+          "response_sha256": "bd11fab24d863304f6c4120279f8f125c2f3644fc5893acb94e2d04ed36d08ae",
+          "response_tool_calls": [
+            {
+              "arguments": {
+                "bytes": 74,
+                "sha256": "3f15ddaa7fe358c7f2dab56afb96711a12e4b895fd9f21bded225ed8bb2764fc"
+              },
+              "name": "bash"
+            },
+            {
+              "arguments": {
+                "bytes": 26,
+                "sha256": "584755013466387625604d80cbc4c09cc280f8a2b72da8ce621fd4706a82dd0b"
+              },
+              "name": "read"
+            }
+          ],
+          "sequence": 1,
+          "status": 200,
+          "tool_choice": {
+            "present": false,
+            "value": null
+          },
+          "upstream_payload_sha256": "75183a5ffae73b08abf1603efcfa3573af726d4eb6f40816458d32e4d578cf15"
+        },
+        {
+          "audited_downstream_request_sha256": "d19984c7e26395fbefbe06e1b2ef55fd1fd3f5821d8c036a5ac074fd5ce909b4",
+          "gateway_stream_false_transform": true,
+          "input": [
+            {
+              "kind": "developer",
+              "object_sha256": "4f6f43a4659f84704b9adc0e751e6d04bc621e97d7d11f75d10a17c81b88028d",
+              "text": {
+                "bytes": 2666,
+                "sha256": "33992dc50270ab941dfb4875d1f16afec26858167d7b223a29d25e041ae3d210"
+              }
+            },
+            {
+              "kind": "user",
+              "object_sha256": "09124a1264f2669bec123cfb1ef5d964e53bd4533c72a41521c9f6c69feb59ba",
+              "text": {
+                "bytes": 576,
+                "sha256": "c9e179dd099065a34c362a865b0eb9fab5f7d96be582cf117e7519580c036ebe"
+              }
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "480cb086fe2915dfb7980a0d848fa4175a75facb7d53d20c81be1b69d68e7f18"
+            },
+            {
+              "arguments": {
+                "bytes": 74,
+                "sha256": "3f15ddaa7fe358c7f2dab56afb96711a12e4b895fd9f21bded225ed8bb2764fc"
+              },
+              "kind": "function_call",
+              "name": "bash",
+              "object_sha256": "5a2039e863259426b54818cd262b35f0f4114f32fdec10fee5d04f4781bb3a54"
+            },
+            {
+              "arguments": {
+                "bytes": 26,
+                "sha256": "584755013466387625604d80cbc4c09cc280f8a2b72da8ce621fd4706a82dd0b"
+              },
+              "kind": "function_call",
+              "name": "read",
+              "object_sha256": "34e996c3dad392f03ca192b548c8a68b43f03eeaa816316c5f66688873e381d8"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "2e3236b14db03466b6a455901b67fc11e78ce789d7e94dc0937a213ee2d9accc",
+              "output": {
+                "bytes": 164,
+                "sha256": "2e18069ce09d1ab38b4da80d1568e6666382d2624d36bcb5816b7f1db46c676d"
+              }
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "a20d4f85d1e5f12e53b5190609c79fcff38b23b3b417e4b9eb962e4cc2f857a5",
+              "output": {
+                "bytes": 922,
+                "sha256": "af1a23efd8e4390d16a29777c28116b2f8623ae3f7b628fe14db9f94dac26f5b"
+              }
+            }
+          ],
+          "parallel_tool_calls": {
+            "present": false,
+            "value": null
+          },
+          "policy_code": null,
+          "previous_response_id": {
+            "links_exactly_to_prior_response": false,
+            "present": false,
+            "sha256": null
+          },
+          "request_keys": [
+            "include",
+            "input",
+            "max_output_tokens",
+            "model",
+            "prompt_cache_key",
+            "reasoning",
+            "store",
+            "stream",
+            "text",
+            "tools"
+          ],
+          "response_output_types": [
+            "reasoning",
+            "reasoning",
+            "function_call"
+          ],
+          "response_sha256": "09b6b014f6e59441f184fdaebd5528f2e93f2de7c57996766f1b27c151539ba3",
+          "response_tool_calls": [
+            {
+              "arguments": {
+                "bytes": 293,
+                "sha256": "75178db4af2fa6e5bed4efd62cb03f0284cab8cde8c789ac056829cc73948d9e"
+              },
+              "name": "bash"
+            }
+          ],
+          "sequence": 2,
+          "status": 200,
+          "tool_choice": {
+            "present": false,
+            "value": null
+          },
+          "upstream_payload_sha256": "7583e4778a1a332330371fad8be3fd79764f75ec6d976b86fe2ea631ebc14295"
+        },
+        {
+          "audited_downstream_request_sha256": "8d7ca0cf6f7c174045ba4e452cc09500dae72415686bb6efa9aa911ed4f37739",
+          "gateway_stream_false_transform": true,
+          "input": [
+            {
+              "kind": "developer",
+              "object_sha256": "4f6f43a4659f84704b9adc0e751e6d04bc621e97d7d11f75d10a17c81b88028d",
+              "text": {
+                "bytes": 2666,
+                "sha256": "33992dc50270ab941dfb4875d1f16afec26858167d7b223a29d25e041ae3d210"
+              }
+            },
+            {
+              "kind": "user",
+              "object_sha256": "09124a1264f2669bec123cfb1ef5d964e53bd4533c72a41521c9f6c69feb59ba",
+              "text": {
+                "bytes": 576,
+                "sha256": "c9e179dd099065a34c362a865b0eb9fab5f7d96be582cf117e7519580c036ebe"
+              }
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "480cb086fe2915dfb7980a0d848fa4175a75facb7d53d20c81be1b69d68e7f18"
+            },
+            {
+              "arguments": {
+                "bytes": 74,
+                "sha256": "3f15ddaa7fe358c7f2dab56afb96711a12e4b895fd9f21bded225ed8bb2764fc"
+              },
+              "kind": "function_call",
+              "name": "bash",
+              "object_sha256": "5a2039e863259426b54818cd262b35f0f4114f32fdec10fee5d04f4781bb3a54"
+            },
+            {
+              "arguments": {
+                "bytes": 26,
+                "sha256": "584755013466387625604d80cbc4c09cc280f8a2b72da8ce621fd4706a82dd0b"
+              },
+              "kind": "function_call",
+              "name": "read",
+              "object_sha256": "34e996c3dad392f03ca192b548c8a68b43f03eeaa816316c5f66688873e381d8"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "2e3236b14db03466b6a455901b67fc11e78ce789d7e94dc0937a213ee2d9accc",
+              "output": {
+                "bytes": 164,
+                "sha256": "2e18069ce09d1ab38b4da80d1568e6666382d2624d36bcb5816b7f1db46c676d"
+              }
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "a20d4f85d1e5f12e53b5190609c79fcff38b23b3b417e4b9eb962e4cc2f857a5",
+              "output": {
+                "bytes": 922,
+                "sha256": "af1a23efd8e4390d16a29777c28116b2f8623ae3f7b628fe14db9f94dac26f5b"
+              }
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "9a696bd6be0e0ed12bfb80bc1c75b65ec9440c3a6379627e4853e21102be94d4"
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "5a8c1b6a9462a31123e43bd3d15824ea77eaa11096818d5b720e1de92544b0dd"
+            },
+            {
+              "arguments": {
+                "bytes": 293,
+                "sha256": "75178db4af2fa6e5bed4efd62cb03f0284cab8cde8c789ac056829cc73948d9e"
+              },
+              "kind": "function_call",
+              "name": "bash",
+              "object_sha256": "70887967fe58b358723c6e17619c066c5a51fa8b88f272099f0c26ba8d459955"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "6f80a046744891456f0b13ba317c2668441525223a3f48eb97f4868eacf488b5",
+              "output": {
+                "bytes": 612,
+                "sha256": "8a621bc9d49463308f07ecb3e095e794d03d4d9374e250d09e54f3b2550591a6"
+              }
+            }
+          ],
+          "parallel_tool_calls": {
+            "present": false,
+            "value": null
+          },
+          "policy_code": null,
+          "previous_response_id": {
+            "links_exactly_to_prior_response": false,
+            "present": false,
+            "sha256": null
+          },
+          "request_keys": [
+            "include",
+            "input",
+            "max_output_tokens",
+            "model",
+            "prompt_cache_key",
+            "reasoning",
+            "store",
+            "stream",
+            "text",
+            "tools"
+          ],
+          "response_output_types": [
+            "reasoning",
+            "reasoning",
+            "reasoning",
+            "reasoning",
+            "function_call"
+          ],
+          "response_sha256": "2ec208a4dd91a10d193e9b3fe3e8b8b5e39229092d221d5f035a43d98ba4d9cb",
+          "response_tool_calls": [
+            {
+              "arguments": {
+                "bytes": 2336,
+                "sha256": "35480ead77bcfb308564b8b0fa0bb558e34f049e116630173b41aed94d6fc457"
+              },
+              "name": "write"
+            }
+          ],
+          "sequence": 3,
+          "status": 200,
+          "tool_choice": {
+            "present": false,
+            "value": null
+          },
+          "upstream_payload_sha256": "68317f42c02cc289aefb350f549bc3dd46f53276e1cb49881f170c240cc8a55b"
+        },
+        {
+          "audited_downstream_request_sha256": "59d4c415c555987a7d03e3ed39e68a8259e9ef51aa71148e00567bf4cf6c06da",
+          "gateway_stream_false_transform": true,
+          "input": [
+            {
+              "kind": "developer",
+              "object_sha256": "4f6f43a4659f84704b9adc0e751e6d04bc621e97d7d11f75d10a17c81b88028d",
+              "text": {
+                "bytes": 2666,
+                "sha256": "33992dc50270ab941dfb4875d1f16afec26858167d7b223a29d25e041ae3d210"
+              }
+            },
+            {
+              "kind": "user",
+              "object_sha256": "09124a1264f2669bec123cfb1ef5d964e53bd4533c72a41521c9f6c69feb59ba",
+              "text": {
+                "bytes": 576,
+                "sha256": "c9e179dd099065a34c362a865b0eb9fab5f7d96be582cf117e7519580c036ebe"
+              }
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "480cb086fe2915dfb7980a0d848fa4175a75facb7d53d20c81be1b69d68e7f18"
+            },
+            {
+              "arguments": {
+                "bytes": 74,
+                "sha256": "3f15ddaa7fe358c7f2dab56afb96711a12e4b895fd9f21bded225ed8bb2764fc"
+              },
+              "kind": "function_call",
+              "name": "bash",
+              "object_sha256": "5a2039e863259426b54818cd262b35f0f4114f32fdec10fee5d04f4781bb3a54"
+            },
+            {
+              "arguments": {
+                "bytes": 26,
+                "sha256": "584755013466387625604d80cbc4c09cc280f8a2b72da8ce621fd4706a82dd0b"
+              },
+              "kind": "function_call",
+              "name": "read",
+              "object_sha256": "34e996c3dad392f03ca192b548c8a68b43f03eeaa816316c5f66688873e381d8"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "2e3236b14db03466b6a455901b67fc11e78ce789d7e94dc0937a213ee2d9accc",
+              "output": {
+                "bytes": 164,
+                "sha256": "2e18069ce09d1ab38b4da80d1568e6666382d2624d36bcb5816b7f1db46c676d"
+              }
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "a20d4f85d1e5f12e53b5190609c79fcff38b23b3b417e4b9eb962e4cc2f857a5",
+              "output": {
+                "bytes": 922,
+                "sha256": "af1a23efd8e4390d16a29777c28116b2f8623ae3f7b628fe14db9f94dac26f5b"
+              }
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "9a696bd6be0e0ed12bfb80bc1c75b65ec9440c3a6379627e4853e21102be94d4"
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "5a8c1b6a9462a31123e43bd3d15824ea77eaa11096818d5b720e1de92544b0dd"
+            },
+            {
+              "arguments": {
+                "bytes": 293,
+                "sha256": "75178db4af2fa6e5bed4efd62cb03f0284cab8cde8c789ac056829cc73948d9e"
+              },
+              "kind": "function_call",
+              "name": "bash",
+              "object_sha256": "70887967fe58b358723c6e17619c066c5a51fa8b88f272099f0c26ba8d459955"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "6f80a046744891456f0b13ba317c2668441525223a3f48eb97f4868eacf488b5",
+              "output": {
+                "bytes": 612,
+                "sha256": "8a621bc9d49463308f07ecb3e095e794d03d4d9374e250d09e54f3b2550591a6"
+              }
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "7604539bda377e971c397130bf932f16624193ad498fbce065c92d0597e31c28"
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "7af5beb0857864d049d61936839f9ca0706feb7723ca124b0a60c0ecd8e31934"
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "8099a30e6ea4d34dce1a09b289ded8f056dc398bf8071f0b3f8917b04d0d5216"
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "79f2f097808dd057c96d1ed96a0ebc0363aeef73c0b083abc2f72d7f776f5171"
+            },
+            {
+              "arguments": {
+                "bytes": 2336,
+                "sha256": "35480ead77bcfb308564b8b0fa0bb558e34f049e116630173b41aed94d6fc457"
+              },
+              "kind": "function_call",
+              "name": "write",
+              "object_sha256": "93f8ed13f17225f3d3568b65fda6ae426edb16c1cb65750a3979fe567dfa7746"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "165bb5d20adeecb6e1fad02120920dfa09167d88a7b094728b5295a23ac8e53b",
+              "output": {
+                "bytes": 53,
+                "sha256": "e41a4718da8d3a7350603002bfce766ced196a25417275f3a1ea219eb025058b"
+              }
+            }
+          ],
+          "parallel_tool_calls": {
+            "present": false,
+            "value": null
+          },
+          "policy_code": null,
+          "previous_response_id": {
+            "links_exactly_to_prior_response": false,
+            "present": false,
+            "sha256": null
+          },
+          "request_keys": [
+            "include",
+            "input",
+            "max_output_tokens",
+            "model",
+            "prompt_cache_key",
+            "reasoning",
+            "store",
+            "stream",
+            "text",
+            "tools"
+          ],
+          "response_output_types": [
+            "function_call"
+          ],
+          "response_sha256": "8c03f85a8027d1dfa74849fbef56245f8c8af0811f979642167ac6804fea811a",
+          "response_tool_calls": [
+            {
+              "arguments": {
+                "bytes": 55,
+                "sha256": "579fe43c8bb0b17c003ab259ed819ccd52ec85c0cabdb8d2c82395b0fb9de1a5"
+              },
+              "name": "bash"
+            }
+          ],
+          "sequence": 4,
+          "status": 200,
+          "tool_choice": {
+            "present": false,
+            "value": null
+          },
+          "upstream_payload_sha256": "3a1417741fdae807b290b1ac3536b1c1fcdd09e394153a0cfbe42bd466377532"
+        },
+        {
+          "audited_downstream_request_sha256": "a4402df7e79a25df848e55dc013f38c27c440f769e6d1b2e70258a294e1ac74c",
+          "gateway_stream_false_transform": true,
+          "input": [
+            {
+              "kind": "developer",
+              "object_sha256": "4f6f43a4659f84704b9adc0e751e6d04bc621e97d7d11f75d10a17c81b88028d",
+              "text": {
+                "bytes": 2666,
+                "sha256": "33992dc50270ab941dfb4875d1f16afec26858167d7b223a29d25e041ae3d210"
+              }
+            },
+            {
+              "kind": "user",
+              "object_sha256": "09124a1264f2669bec123cfb1ef5d964e53bd4533c72a41521c9f6c69feb59ba",
+              "text": {
+                "bytes": 576,
+                "sha256": "c9e179dd099065a34c362a865b0eb9fab5f7d96be582cf117e7519580c036ebe"
+              }
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "480cb086fe2915dfb7980a0d848fa4175a75facb7d53d20c81be1b69d68e7f18"
+            },
+            {
+              "arguments": {
+                "bytes": 74,
+                "sha256": "3f15ddaa7fe358c7f2dab56afb96711a12e4b895fd9f21bded225ed8bb2764fc"
+              },
+              "kind": "function_call",
+              "name": "bash",
+              "object_sha256": "5a2039e863259426b54818cd262b35f0f4114f32fdec10fee5d04f4781bb3a54"
+            },
+            {
+              "arguments": {
+                "bytes": 26,
+                "sha256": "584755013466387625604d80cbc4c09cc280f8a2b72da8ce621fd4706a82dd0b"
+              },
+              "kind": "function_call",
+              "name": "read",
+              "object_sha256": "34e996c3dad392f03ca192b548c8a68b43f03eeaa816316c5f66688873e381d8"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "2e3236b14db03466b6a455901b67fc11e78ce789d7e94dc0937a213ee2d9accc",
+              "output": {
+                "bytes": 164,
+                "sha256": "2e18069ce09d1ab38b4da80d1568e6666382d2624d36bcb5816b7f1db46c676d"
+              }
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "a20d4f85d1e5f12e53b5190609c79fcff38b23b3b417e4b9eb962e4cc2f857a5",
+              "output": {
+                "bytes": 922,
+                "sha256": "af1a23efd8e4390d16a29777c28116b2f8623ae3f7b628fe14db9f94dac26f5b"
+              }
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "9a696bd6be0e0ed12bfb80bc1c75b65ec9440c3a6379627e4853e21102be94d4"
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "5a8c1b6a9462a31123e43bd3d15824ea77eaa11096818d5b720e1de92544b0dd"
+            },
+            {
+              "arguments": {
+                "bytes": 293,
+                "sha256": "75178db4af2fa6e5bed4efd62cb03f0284cab8cde8c789ac056829cc73948d9e"
+              },
+              "kind": "function_call",
+              "name": "bash",
+              "object_sha256": "70887967fe58b358723c6e17619c066c5a51fa8b88f272099f0c26ba8d459955"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "6f80a046744891456f0b13ba317c2668441525223a3f48eb97f4868eacf488b5",
+              "output": {
+                "bytes": 612,
+                "sha256": "8a621bc9d49463308f07ecb3e095e794d03d4d9374e250d09e54f3b2550591a6"
+              }
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "7604539bda377e971c397130bf932f16624193ad498fbce065c92d0597e31c28"
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "7af5beb0857864d049d61936839f9ca0706feb7723ca124b0a60c0ecd8e31934"
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "8099a30e6ea4d34dce1a09b289ded8f056dc398bf8071f0b3f8917b04d0d5216"
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "79f2f097808dd057c96d1ed96a0ebc0363aeef73c0b083abc2f72d7f776f5171"
+            },
+            {
+              "arguments": {
+                "bytes": 2336,
+                "sha256": "35480ead77bcfb308564b8b0fa0bb558e34f049e116630173b41aed94d6fc457"
+              },
+              "kind": "function_call",
+              "name": "write",
+              "object_sha256": "93f8ed13f17225f3d3568b65fda6ae426edb16c1cb65750a3979fe567dfa7746"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "165bb5d20adeecb6e1fad02120920dfa09167d88a7b094728b5295a23ac8e53b",
+              "output": {
+                "bytes": 53,
+                "sha256": "e41a4718da8d3a7350603002bfce766ced196a25417275f3a1ea219eb025058b"
+              }
+            },
+            {
+              "arguments": {
+                "bytes": 55,
+                "sha256": "579fe43c8bb0b17c003ab259ed819ccd52ec85c0cabdb8d2c82395b0fb9de1a5"
+              },
+              "kind": "function_call",
+              "name": "bash",
+              "object_sha256": "870b9f2aa0bee5b473e39a73a5f374d25e4d4268e58fc52f6db2a7230cc439b6"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "cf51e268cccf07ecf0d51ec1edd1313dafa8ddfdba1c0a1c239b35677a1b3d1e",
+              "output": {
+                "bytes": 1583,
+                "sha256": "ebfec39bcd34ed39958d1f744b4af01364e21dc637429a5cba3d1433b7b71e27"
+              }
+            }
+          ],
+          "parallel_tool_calls": {
+            "present": false,
+            "value": null
+          },
+          "policy_code": null,
+          "previous_response_id": {
+            "links_exactly_to_prior_response": false,
+            "present": false,
+            "sha256": null
+          },
+          "request_keys": [
+            "include",
+            "input",
+            "max_output_tokens",
+            "model",
+            "prompt_cache_key",
+            "reasoning",
+            "store",
+            "stream",
+            "text",
+            "tools"
+          ],
+          "response_output_types": [
+            "reasoning",
+            "function_call"
+          ],
+          "response_sha256": "c50c7b2858adf722c764ec7a1cecbe1d2672928b6c11e58f94e09aef48961db3",
+          "response_tool_calls": [
+            {
+              "arguments": {
+                "bytes": 222,
+                "sha256": "465b19bed8d69095352203216f409af2286eb2f184baac10104afadbe3a784cb"
+              },
+              "name": "bash"
+            }
+          ],
+          "sequence": 5,
+          "status": 200,
+          "tool_choice": {
+            "present": false,
+            "value": null
+          },
+          "upstream_payload_sha256": "7211cbe7de10c26e3988ed2bb76154f23b29fa3f2f1f46769da9844631029271"
+        },
+        {
+          "audited_downstream_request_sha256": "d3304db36830e8c783000b2cdd2f726bff5c8699bec52d220e20d3936e0a644c",
+          "gateway_stream_false_transform": true,
+          "input": [
+            {
+              "kind": "developer",
+              "object_sha256": "4f6f43a4659f84704b9adc0e751e6d04bc621e97d7d11f75d10a17c81b88028d",
+              "text": {
+                "bytes": 2666,
+                "sha256": "33992dc50270ab941dfb4875d1f16afec26858167d7b223a29d25e041ae3d210"
+              }
+            },
+            {
+              "kind": "user",
+              "object_sha256": "09124a1264f2669bec123cfb1ef5d964e53bd4533c72a41521c9f6c69feb59ba",
+              "text": {
+                "bytes": 576,
+                "sha256": "c9e179dd099065a34c362a865b0eb9fab5f7d96be582cf117e7519580c036ebe"
+              }
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "480cb086fe2915dfb7980a0d848fa4175a75facb7d53d20c81be1b69d68e7f18"
+            },
+            {
+              "arguments": {
+                "bytes": 74,
+                "sha256": "3f15ddaa7fe358c7f2dab56afb96711a12e4b895fd9f21bded225ed8bb2764fc"
+              },
+              "kind": "function_call",
+              "name": "bash",
+              "object_sha256": "5a2039e863259426b54818cd262b35f0f4114f32fdec10fee5d04f4781bb3a54"
+            },
+            {
+              "arguments": {
+                "bytes": 26,
+                "sha256": "584755013466387625604d80cbc4c09cc280f8a2b72da8ce621fd4706a82dd0b"
+              },
+              "kind": "function_call",
+              "name": "read",
+              "object_sha256": "34e996c3dad392f03ca192b548c8a68b43f03eeaa816316c5f66688873e381d8"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "2e3236b14db03466b6a455901b67fc11e78ce789d7e94dc0937a213ee2d9accc",
+              "output": {
+                "bytes": 164,
+                "sha256": "2e18069ce09d1ab38b4da80d1568e6666382d2624d36bcb5816b7f1db46c676d"
+              }
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "a20d4f85d1e5f12e53b5190609c79fcff38b23b3b417e4b9eb962e4cc2f857a5",
+              "output": {
+                "bytes": 922,
+                "sha256": "af1a23efd8e4390d16a29777c28116b2f8623ae3f7b628fe14db9f94dac26f5b"
+              }
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "9a696bd6be0e0ed12bfb80bc1c75b65ec9440c3a6379627e4853e21102be94d4"
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "5a8c1b6a9462a31123e43bd3d15824ea77eaa11096818d5b720e1de92544b0dd"
+            },
+            {
+              "arguments": {
+                "bytes": 293,
+                "sha256": "75178db4af2fa6e5bed4efd62cb03f0284cab8cde8c789ac056829cc73948d9e"
+              },
+              "kind": "function_call",
+              "name": "bash",
+              "object_sha256": "70887967fe58b358723c6e17619c066c5a51fa8b88f272099f0c26ba8d459955"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "6f80a046744891456f0b13ba317c2668441525223a3f48eb97f4868eacf488b5",
+              "output": {
+                "bytes": 612,
+                "sha256": "8a621bc9d49463308f07ecb3e095e794d03d4d9374e250d09e54f3b2550591a6"
+              }
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "7604539bda377e971c397130bf932f16624193ad498fbce065c92d0597e31c28"
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "7af5beb0857864d049d61936839f9ca0706feb7723ca124b0a60c0ecd8e31934"
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "8099a30e6ea4d34dce1a09b289ded8f056dc398bf8071f0b3f8917b04d0d5216"
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "79f2f097808dd057c96d1ed96a0ebc0363aeef73c0b083abc2f72d7f776f5171"
+            },
+            {
+              "arguments": {
+                "bytes": 2336,
+                "sha256": "35480ead77bcfb308564b8b0fa0bb558e34f049e116630173b41aed94d6fc457"
+              },
+              "kind": "function_call",
+              "name": "write",
+              "object_sha256": "93f8ed13f17225f3d3568b65fda6ae426edb16c1cb65750a3979fe567dfa7746"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "165bb5d20adeecb6e1fad02120920dfa09167d88a7b094728b5295a23ac8e53b",
+              "output": {
+                "bytes": 53,
+                "sha256": "e41a4718da8d3a7350603002bfce766ced196a25417275f3a1ea219eb025058b"
+              }
+            },
+            {
+              "arguments": {
+                "bytes": 55,
+                "sha256": "579fe43c8bb0b17c003ab259ed819ccd52ec85c0cabdb8d2c82395b0fb9de1a5"
+              },
+              "kind": "function_call",
+              "name": "bash",
+              "object_sha256": "870b9f2aa0bee5b473e39a73a5f374d25e4d4268e58fc52f6db2a7230cc439b6"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "cf51e268cccf07ecf0d51ec1edd1313dafa8ddfdba1c0a1c239b35677a1b3d1e",
+              "output": {
+                "bytes": 1583,
+                "sha256": "ebfec39bcd34ed39958d1f744b4af01364e21dc637429a5cba3d1433b7b71e27"
+              }
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "ce3f5876f69efcc2c628fb53d109fcde9e936996d959feb10ffe45e644691eb0"
+            },
+            {
+              "arguments": {
+                "bytes": 222,
+                "sha256": "465b19bed8d69095352203216f409af2286eb2f184baac10104afadbe3a784cb"
+              },
+              "kind": "function_call",
+              "name": "bash",
+              "object_sha256": "1efeae6a151d9060bce5f0d1095e9838efdd5baf40905168456a697d75df2eb5"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "06a43ff527a322723ffc0aea634310f90d490764c6d721318ea5890ffbbe898a",
+              "output": {
+                "bytes": 2314,
+                "sha256": "be1286152df25074692c56b306d0b42d4689b066e7e1daa9cbf3d9e5bc5f9d61"
+              }
+            }
+          ],
+          "parallel_tool_calls": {
+            "present": false,
+            "value": null
+          },
+          "policy_code": null,
+          "previous_response_id": {
+            "links_exactly_to_prior_response": false,
+            "present": false,
+            "sha256": null
+          },
+          "request_keys": [
+            "include",
+            "input",
+            "max_output_tokens",
+            "model",
+            "prompt_cache_key",
+            "reasoning",
+            "store",
+            "stream",
+            "text",
+            "tools"
+          ],
+          "response_output_types": [
+            "reasoning",
+            "function_call"
+          ],
+          "response_sha256": "994c5edd0d93ab4f982cd053b72d5ea01d4c2d1e4da1bdf6078cb0e466370073",
+          "response_tool_calls": [
+            {
+              "arguments": {
+                "bytes": 258,
+                "sha256": "c9a43c3d69c2abae6912d534e1294384c8110984aa704313748b10c5ef0d5b73"
+              },
+              "name": "bash"
+            }
+          ],
+          "sequence": 6,
+          "status": 200,
+          "tool_choice": {
+            "present": false,
+            "value": null
+          },
+          "upstream_payload_sha256": "f49e7e50f33c2c7d5fb6360595f3025f5697359ae63fa33ccb20478a087d478a"
+        },
+        {
+          "audited_downstream_request_sha256": "83ac3b48c6a2ee3ca848b9d972e403fa79110b9eba4a1272e7c1d766272ea2b6",
+          "gateway_stream_false_transform": true,
+          "input": [
+            {
+              "kind": "developer",
+              "object_sha256": "4f6f43a4659f84704b9adc0e751e6d04bc621e97d7d11f75d10a17c81b88028d",
+              "text": {
+                "bytes": 2666,
+                "sha256": "33992dc50270ab941dfb4875d1f16afec26858167d7b223a29d25e041ae3d210"
+              }
+            },
+            {
+              "kind": "user",
+              "object_sha256": "09124a1264f2669bec123cfb1ef5d964e53bd4533c72a41521c9f6c69feb59ba",
+              "text": {
+                "bytes": 576,
+                "sha256": "c9e179dd099065a34c362a865b0eb9fab5f7d96be582cf117e7519580c036ebe"
+              }
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "480cb086fe2915dfb7980a0d848fa4175a75facb7d53d20c81be1b69d68e7f18"
+            },
+            {
+              "arguments": {
+                "bytes": 74,
+                "sha256": "3f15ddaa7fe358c7f2dab56afb96711a12e4b895fd9f21bded225ed8bb2764fc"
+              },
+              "kind": "function_call",
+              "name": "bash",
+              "object_sha256": "5a2039e863259426b54818cd262b35f0f4114f32fdec10fee5d04f4781bb3a54"
+            },
+            {
+              "arguments": {
+                "bytes": 26,
+                "sha256": "584755013466387625604d80cbc4c09cc280f8a2b72da8ce621fd4706a82dd0b"
+              },
+              "kind": "function_call",
+              "name": "read",
+              "object_sha256": "34e996c3dad392f03ca192b548c8a68b43f03eeaa816316c5f66688873e381d8"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "2e3236b14db03466b6a455901b67fc11e78ce789d7e94dc0937a213ee2d9accc",
+              "output": {
+                "bytes": 164,
+                "sha256": "2e18069ce09d1ab38b4da80d1568e6666382d2624d36bcb5816b7f1db46c676d"
+              }
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "a20d4f85d1e5f12e53b5190609c79fcff38b23b3b417e4b9eb962e4cc2f857a5",
+              "output": {
+                "bytes": 922,
+                "sha256": "af1a23efd8e4390d16a29777c28116b2f8623ae3f7b628fe14db9f94dac26f5b"
+              }
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "9a696bd6be0e0ed12bfb80bc1c75b65ec9440c3a6379627e4853e21102be94d4"
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "5a8c1b6a9462a31123e43bd3d15824ea77eaa11096818d5b720e1de92544b0dd"
+            },
+            {
+              "arguments": {
+                "bytes": 293,
+                "sha256": "75178db4af2fa6e5bed4efd62cb03f0284cab8cde8c789ac056829cc73948d9e"
+              },
+              "kind": "function_call",
+              "name": "bash",
+              "object_sha256": "70887967fe58b358723c6e17619c066c5a51fa8b88f272099f0c26ba8d459955"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "6f80a046744891456f0b13ba317c2668441525223a3f48eb97f4868eacf488b5",
+              "output": {
+                "bytes": 612,
+                "sha256": "8a621bc9d49463308f07ecb3e095e794d03d4d9374e250d09e54f3b2550591a6"
+              }
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "7604539bda377e971c397130bf932f16624193ad498fbce065c92d0597e31c28"
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "7af5beb0857864d049d61936839f9ca0706feb7723ca124b0a60c0ecd8e31934"
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "8099a30e6ea4d34dce1a09b289ded8f056dc398bf8071f0b3f8917b04d0d5216"
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "79f2f097808dd057c96d1ed96a0ebc0363aeef73c0b083abc2f72d7f776f5171"
+            },
+            {
+              "arguments": {
+                "bytes": 2336,
+                "sha256": "35480ead77bcfb308564b8b0fa0bb558e34f049e116630173b41aed94d6fc457"
+              },
+              "kind": "function_call",
+              "name": "write",
+              "object_sha256": "93f8ed13f17225f3d3568b65fda6ae426edb16c1cb65750a3979fe567dfa7746"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "165bb5d20adeecb6e1fad02120920dfa09167d88a7b094728b5295a23ac8e53b",
+              "output": {
+                "bytes": 53,
+                "sha256": "e41a4718da8d3a7350603002bfce766ced196a25417275f3a1ea219eb025058b"
+              }
+            },
+            {
+              "arguments": {
+                "bytes": 55,
+                "sha256": "579fe43c8bb0b17c003ab259ed819ccd52ec85c0cabdb8d2c82395b0fb9de1a5"
+              },
+              "kind": "function_call",
+              "name": "bash",
+              "object_sha256": "870b9f2aa0bee5b473e39a73a5f374d25e4d4268e58fc52f6db2a7230cc439b6"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "cf51e268cccf07ecf0d51ec1edd1313dafa8ddfdba1c0a1c239b35677a1b3d1e",
+              "output": {
+                "bytes": 1583,
+                "sha256": "ebfec39bcd34ed39958d1f744b4af01364e21dc637429a5cba3d1433b7b71e27"
+              }
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "ce3f5876f69efcc2c628fb53d109fcde9e936996d959feb10ffe45e644691eb0"
+            },
+            {
+              "arguments": {
+                "bytes": 222,
+                "sha256": "465b19bed8d69095352203216f409af2286eb2f184baac10104afadbe3a784cb"
+              },
+              "kind": "function_call",
+              "name": "bash",
+              "object_sha256": "1efeae6a151d9060bce5f0d1095e9838efdd5baf40905168456a697d75df2eb5"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "06a43ff527a322723ffc0aea634310f90d490764c6d721318ea5890ffbbe898a",
+              "output": {
+                "bytes": 2314,
+                "sha256": "be1286152df25074692c56b306d0b42d4689b066e7e1daa9cbf3d9e5bc5f9d61"
+              }
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "117ee879e4cc169221080800f63dd15f8048030cb0b9c60f85d2702855454f4a"
+            },
+            {
+              "arguments": {
+                "bytes": 258,
+                "sha256": "c9a43c3d69c2abae6912d534e1294384c8110984aa704313748b10c5ef0d5b73"
+              },
+              "kind": "function_call",
+              "name": "bash",
+              "object_sha256": "1ba159e2b21463e7ffef0aa83844befa31d05723c6d946c54c8aec67c5c382c6"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "ae1485ba5e93115b60a446fa5eccf73fd608a4969ec9eb5aa8cdaf4a2598c3ba",
+              "output": {
+                "bytes": 245,
+                "sha256": "49be6132d39a7ec0b4de013da5f033a26bc64616f81e9566add1aba112940bcf"
+              }
+            }
+          ],
+          "parallel_tool_calls": {
+            "present": false,
+            "value": null
+          },
+          "policy_code": null,
+          "previous_response_id": {
+            "links_exactly_to_prior_response": false,
+            "present": false,
+            "sha256": null
+          },
+          "request_keys": [
+            "include",
+            "input",
+            "max_output_tokens",
+            "model",
+            "prompt_cache_key",
+            "reasoning",
+            "store",
+            "stream",
+            "text",
+            "tools"
+          ],
+          "response_output_types": [
+            "reasoning",
+            "function_call"
+          ],
+          "response_sha256": "980cd06933d65fe5c76cf384bb84da4bd610cef1f07ca081cf9cb4a0d8658ff1",
+          "response_tool_calls": [
+            {
+              "arguments": {
+                "bytes": 288,
+                "sha256": "736be9f805cf55b6755ee907abbe50d17d4feab6510521f8c5f620565e7d1c5f"
+              },
+              "name": "bash"
+            }
+          ],
+          "sequence": 7,
+          "status": 200,
+          "tool_choice": {
+            "present": false,
+            "value": null
+          },
+          "upstream_payload_sha256": "8db7c702eba0c935e28ed3f0c8bf10208c74b624d9ce273e2c76b0b083640d1f"
+        },
+        {
+          "audited_downstream_request_sha256": "2827dbee707d782e4f5751118117a448c75354c176a1cbfe8edc8f5b3f1ff901",
+          "gateway_stream_false_transform": true,
+          "input": [
+            {
+              "kind": "developer",
+              "object_sha256": "4f6f43a4659f84704b9adc0e751e6d04bc621e97d7d11f75d10a17c81b88028d",
+              "text": {
+                "bytes": 2666,
+                "sha256": "33992dc50270ab941dfb4875d1f16afec26858167d7b223a29d25e041ae3d210"
+              }
+            },
+            {
+              "kind": "user",
+              "object_sha256": "09124a1264f2669bec123cfb1ef5d964e53bd4533c72a41521c9f6c69feb59ba",
+              "text": {
+                "bytes": 576,
+                "sha256": "c9e179dd099065a34c362a865b0eb9fab5f7d96be582cf117e7519580c036ebe"
+              }
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "480cb086fe2915dfb7980a0d848fa4175a75facb7d53d20c81be1b69d68e7f18"
+            },
+            {
+              "arguments": {
+                "bytes": 74,
+                "sha256": "3f15ddaa7fe358c7f2dab56afb96711a12e4b895fd9f21bded225ed8bb2764fc"
+              },
+              "kind": "function_call",
+              "name": "bash",
+              "object_sha256": "5a2039e863259426b54818cd262b35f0f4114f32fdec10fee5d04f4781bb3a54"
+            },
+            {
+              "arguments": {
+                "bytes": 26,
+                "sha256": "584755013466387625604d80cbc4c09cc280f8a2b72da8ce621fd4706a82dd0b"
+              },
+              "kind": "function_call",
+              "name": "read",
+              "object_sha256": "34e996c3dad392f03ca192b548c8a68b43f03eeaa816316c5f66688873e381d8"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "2e3236b14db03466b6a455901b67fc11e78ce789d7e94dc0937a213ee2d9accc",
+              "output": {
+                "bytes": 164,
+                "sha256": "2e18069ce09d1ab38b4da80d1568e6666382d2624d36bcb5816b7f1db46c676d"
+              }
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "a20d4f85d1e5f12e53b5190609c79fcff38b23b3b417e4b9eb962e4cc2f857a5",
+              "output": {
+                "bytes": 922,
+                "sha256": "af1a23efd8e4390d16a29777c28116b2f8623ae3f7b628fe14db9f94dac26f5b"
+              }
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "9a696bd6be0e0ed12bfb80bc1c75b65ec9440c3a6379627e4853e21102be94d4"
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "5a8c1b6a9462a31123e43bd3d15824ea77eaa11096818d5b720e1de92544b0dd"
+            },
+            {
+              "arguments": {
+                "bytes": 293,
+                "sha256": "75178db4af2fa6e5bed4efd62cb03f0284cab8cde8c789ac056829cc73948d9e"
+              },
+              "kind": "function_call",
+              "name": "bash",
+              "object_sha256": "70887967fe58b358723c6e17619c066c5a51fa8b88f272099f0c26ba8d459955"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "6f80a046744891456f0b13ba317c2668441525223a3f48eb97f4868eacf488b5",
+              "output": {
+                "bytes": 612,
+                "sha256": "8a621bc9d49463308f07ecb3e095e794d03d4d9374e250d09e54f3b2550591a6"
+              }
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "7604539bda377e971c397130bf932f16624193ad498fbce065c92d0597e31c28"
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "7af5beb0857864d049d61936839f9ca0706feb7723ca124b0a60c0ecd8e31934"
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "8099a30e6ea4d34dce1a09b289ded8f056dc398bf8071f0b3f8917b04d0d5216"
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "79f2f097808dd057c96d1ed96a0ebc0363aeef73c0b083abc2f72d7f776f5171"
+            },
+            {
+              "arguments": {
+                "bytes": 2336,
+                "sha256": "35480ead77bcfb308564b8b0fa0bb558e34f049e116630173b41aed94d6fc457"
+              },
+              "kind": "function_call",
+              "name": "write",
+              "object_sha256": "93f8ed13f17225f3d3568b65fda6ae426edb16c1cb65750a3979fe567dfa7746"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "165bb5d20adeecb6e1fad02120920dfa09167d88a7b094728b5295a23ac8e53b",
+              "output": {
+                "bytes": 53,
+                "sha256": "e41a4718da8d3a7350603002bfce766ced196a25417275f3a1ea219eb025058b"
+              }
+            },
+            {
+              "arguments": {
+                "bytes": 55,
+                "sha256": "579fe43c8bb0b17c003ab259ed819ccd52ec85c0cabdb8d2c82395b0fb9de1a5"
+              },
+              "kind": "function_call",
+              "name": "bash",
+              "object_sha256": "870b9f2aa0bee5b473e39a73a5f374d25e4d4268e58fc52f6db2a7230cc439b6"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "cf51e268cccf07ecf0d51ec1edd1313dafa8ddfdba1c0a1c239b35677a1b3d1e",
+              "output": {
+                "bytes": 1583,
+                "sha256": "ebfec39bcd34ed39958d1f744b4af01364e21dc637429a5cba3d1433b7b71e27"
+              }
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "ce3f5876f69efcc2c628fb53d109fcde9e936996d959feb10ffe45e644691eb0"
+            },
+            {
+              "arguments": {
+                "bytes": 222,
+                "sha256": "465b19bed8d69095352203216f409af2286eb2f184baac10104afadbe3a784cb"
+              },
+              "kind": "function_call",
+              "name": "bash",
+              "object_sha256": "1efeae6a151d9060bce5f0d1095e9838efdd5baf40905168456a697d75df2eb5"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "06a43ff527a322723ffc0aea634310f90d490764c6d721318ea5890ffbbe898a",
+              "output": {
+                "bytes": 2314,
+                "sha256": "be1286152df25074692c56b306d0b42d4689b066e7e1daa9cbf3d9e5bc5f9d61"
+              }
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "117ee879e4cc169221080800f63dd15f8048030cb0b9c60f85d2702855454f4a"
+            },
+            {
+              "arguments": {
+                "bytes": 258,
+                "sha256": "c9a43c3d69c2abae6912d534e1294384c8110984aa704313748b10c5ef0d5b73"
+              },
+              "kind": "function_call",
+              "name": "bash",
+              "object_sha256": "1ba159e2b21463e7ffef0aa83844befa31d05723c6d946c54c8aec67c5c382c6"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "ae1485ba5e93115b60a446fa5eccf73fd608a4969ec9eb5aa8cdaf4a2598c3ba",
+              "output": {
+                "bytes": 245,
+                "sha256": "49be6132d39a7ec0b4de013da5f033a26bc64616f81e9566add1aba112940bcf"
+              }
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "dcca23bbe6cbdca53f4f70ca1bfd9816162a1c4b615959a1fe31b971490245b7"
+            },
+            {
+              "arguments": {
+                "bytes": 288,
+                "sha256": "736be9f805cf55b6755ee907abbe50d17d4feab6510521f8c5f620565e7d1c5f"
+              },
+              "kind": "function_call",
+              "name": "bash",
+              "object_sha256": "e1f9ac7451601cd4aeccc38ee364b3c94bb88ba3f70105ae327038d155dcb217"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "c49d8f21b97c560110a299bc1931ed342557215a50d3c08c331efa4258344f6e",
+              "output": {
+                "bytes": 2316,
+                "sha256": "8ed3e5cd3df51ffa6140a4d1631e78d63ed81ef0798b484bf2598966fbe9d0aa"
+              }
+            }
+          ],
+          "parallel_tool_calls": {
+            "present": false,
+            "value": null
+          },
+          "policy_code": null,
+          "previous_response_id": {
+            "links_exactly_to_prior_response": false,
+            "present": false,
+            "sha256": null
+          },
+          "request_keys": [
+            "include",
+            "input",
+            "max_output_tokens",
+            "model",
+            "prompt_cache_key",
+            "reasoning",
+            "store",
+            "stream",
+            "text",
+            "tools"
+          ],
+          "response_output_types": [
+            "reasoning",
+            "function_call"
+          ],
+          "response_sha256": "a7c15013d1fb8b3be32d9e749b91378213365c32e01ad25e8b988548d00c93b3",
+          "response_tool_calls": [
+            {
+              "arguments": {
+                "bytes": 3511,
+                "sha256": "648bf8aca444f4da2f044e5edd9ea575135ad578a7871c9392033b2b05a18874"
+              },
+              "name": "write"
+            }
+          ],
+          "sequence": 8,
+          "status": 200,
+          "tool_choice": {
+            "present": false,
+            "value": null
+          },
+          "upstream_payload_sha256": "d7fb361790557b10a285b56bfa7253aaa869faa70ef9c21f38a9fd8653f042aa"
+        },
+        {
+          "audited_downstream_request_sha256": "778121f52de04c5fc56018a324a8fb425b5e32aa37f3c855769ca99381e42ee2",
+          "gateway_stream_false_transform": true,
+          "input": [
+            {
+              "kind": "developer",
+              "object_sha256": "4f6f43a4659f84704b9adc0e751e6d04bc621e97d7d11f75d10a17c81b88028d",
+              "text": {
+                "bytes": 2666,
+                "sha256": "33992dc50270ab941dfb4875d1f16afec26858167d7b223a29d25e041ae3d210"
+              }
+            },
+            {
+              "kind": "user",
+              "object_sha256": "09124a1264f2669bec123cfb1ef5d964e53bd4533c72a41521c9f6c69feb59ba",
+              "text": {
+                "bytes": 576,
+                "sha256": "c9e179dd099065a34c362a865b0eb9fab5f7d96be582cf117e7519580c036ebe"
+              }
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "480cb086fe2915dfb7980a0d848fa4175a75facb7d53d20c81be1b69d68e7f18"
+            },
+            {
+              "arguments": {
+                "bytes": 74,
+                "sha256": "3f15ddaa7fe358c7f2dab56afb96711a12e4b895fd9f21bded225ed8bb2764fc"
+              },
+              "kind": "function_call",
+              "name": "bash",
+              "object_sha256": "5a2039e863259426b54818cd262b35f0f4114f32fdec10fee5d04f4781bb3a54"
+            },
+            {
+              "arguments": {
+                "bytes": 26,
+                "sha256": "584755013466387625604d80cbc4c09cc280f8a2b72da8ce621fd4706a82dd0b"
+              },
+              "kind": "function_call",
+              "name": "read",
+              "object_sha256": "34e996c3dad392f03ca192b548c8a68b43f03eeaa816316c5f66688873e381d8"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "2e3236b14db03466b6a455901b67fc11e78ce789d7e94dc0937a213ee2d9accc",
+              "output": {
+                "bytes": 164,
+                "sha256": "2e18069ce09d1ab38b4da80d1568e6666382d2624d36bcb5816b7f1db46c676d"
+              }
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "a20d4f85d1e5f12e53b5190609c79fcff38b23b3b417e4b9eb962e4cc2f857a5",
+              "output": {
+                "bytes": 922,
+                "sha256": "af1a23efd8e4390d16a29777c28116b2f8623ae3f7b628fe14db9f94dac26f5b"
+              }
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "9a696bd6be0e0ed12bfb80bc1c75b65ec9440c3a6379627e4853e21102be94d4"
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "5a8c1b6a9462a31123e43bd3d15824ea77eaa11096818d5b720e1de92544b0dd"
+            },
+            {
+              "arguments": {
+                "bytes": 293,
+                "sha256": "75178db4af2fa6e5bed4efd62cb03f0284cab8cde8c789ac056829cc73948d9e"
+              },
+              "kind": "function_call",
+              "name": "bash",
+              "object_sha256": "70887967fe58b358723c6e17619c066c5a51fa8b88f272099f0c26ba8d459955"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "6f80a046744891456f0b13ba317c2668441525223a3f48eb97f4868eacf488b5",
+              "output": {
+                "bytes": 612,
+                "sha256": "8a621bc9d49463308f07ecb3e095e794d03d4d9374e250d09e54f3b2550591a6"
+              }
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "7604539bda377e971c397130bf932f16624193ad498fbce065c92d0597e31c28"
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "7af5beb0857864d049d61936839f9ca0706feb7723ca124b0a60c0ecd8e31934"
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "8099a30e6ea4d34dce1a09b289ded8f056dc398bf8071f0b3f8917b04d0d5216"
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "79f2f097808dd057c96d1ed96a0ebc0363aeef73c0b083abc2f72d7f776f5171"
+            },
+            {
+              "arguments": {
+                "bytes": 2336,
+                "sha256": "35480ead77bcfb308564b8b0fa0bb558e34f049e116630173b41aed94d6fc457"
+              },
+              "kind": "function_call",
+              "name": "write",
+              "object_sha256": "93f8ed13f17225f3d3568b65fda6ae426edb16c1cb65750a3979fe567dfa7746"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "165bb5d20adeecb6e1fad02120920dfa09167d88a7b094728b5295a23ac8e53b",
+              "output": {
+                "bytes": 53,
+                "sha256": "e41a4718da8d3a7350603002bfce766ced196a25417275f3a1ea219eb025058b"
+              }
+            },
+            {
+              "arguments": {
+                "bytes": 55,
+                "sha256": "579fe43c8bb0b17c003ab259ed819ccd52ec85c0cabdb8d2c82395b0fb9de1a5"
+              },
+              "kind": "function_call",
+              "name": "bash",
+              "object_sha256": "870b9f2aa0bee5b473e39a73a5f374d25e4d4268e58fc52f6db2a7230cc439b6"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "cf51e268cccf07ecf0d51ec1edd1313dafa8ddfdba1c0a1c239b35677a1b3d1e",
+              "output": {
+                "bytes": 1583,
+                "sha256": "ebfec39bcd34ed39958d1f744b4af01364e21dc637429a5cba3d1433b7b71e27"
+              }
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "ce3f5876f69efcc2c628fb53d109fcde9e936996d959feb10ffe45e644691eb0"
+            },
+            {
+              "arguments": {
+                "bytes": 222,
+                "sha256": "465b19bed8d69095352203216f409af2286eb2f184baac10104afadbe3a784cb"
+              },
+              "kind": "function_call",
+              "name": "bash",
+              "object_sha256": "1efeae6a151d9060bce5f0d1095e9838efdd5baf40905168456a697d75df2eb5"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "06a43ff527a322723ffc0aea634310f90d490764c6d721318ea5890ffbbe898a",
+              "output": {
+                "bytes": 2314,
+                "sha256": "be1286152df25074692c56b306d0b42d4689b066e7e1daa9cbf3d9e5bc5f9d61"
+              }
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "117ee879e4cc169221080800f63dd15f8048030cb0b9c60f85d2702855454f4a"
+            },
+            {
+              "arguments": {
+                "bytes": 258,
+                "sha256": "c9a43c3d69c2abae6912d534e1294384c8110984aa704313748b10c5ef0d5b73"
+              },
+              "kind": "function_call",
+              "name": "bash",
+              "object_sha256": "1ba159e2b21463e7ffef0aa83844befa31d05723c6d946c54c8aec67c5c382c6"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "ae1485ba5e93115b60a446fa5eccf73fd608a4969ec9eb5aa8cdaf4a2598c3ba",
+              "output": {
+                "bytes": 245,
+                "sha256": "49be6132d39a7ec0b4de013da5f033a26bc64616f81e9566add1aba112940bcf"
+              }
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "dcca23bbe6cbdca53f4f70ca1bfd9816162a1c4b615959a1fe31b971490245b7"
+            },
+            {
+              "arguments": {
+                "bytes": 288,
+                "sha256": "736be9f805cf55b6755ee907abbe50d17d4feab6510521f8c5f620565e7d1c5f"
+              },
+              "kind": "function_call",
+              "name": "bash",
+              "object_sha256": "e1f9ac7451601cd4aeccc38ee364b3c94bb88ba3f70105ae327038d155dcb217"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "c49d8f21b97c560110a299bc1931ed342557215a50d3c08c331efa4258344f6e",
+              "output": {
+                "bytes": 2316,
+                "sha256": "8ed3e5cd3df51ffa6140a4d1631e78d63ed81ef0798b484bf2598966fbe9d0aa"
+              }
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "5cf4328e8f0f0f898a3168f716b46e8a0dd7392f74548b9ed6cc42c16af79ce9"
+            },
+            {
+              "arguments": {
+                "bytes": 3511,
+                "sha256": "648bf8aca444f4da2f044e5edd9ea575135ad578a7871c9392033b2b05a18874"
+              },
+              "kind": "function_call",
+              "name": "write",
+              "object_sha256": "b40d8cbc066afad894f7698b5d6ab51bd9b2eca8c8aff56514d56f4f2cb83ea3"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "d9d3e69750e8ec0ec1ccd017565f0b5c5e76df85a5626bf1d1e2b3471dde2fcd",
+              "output": {
+                "bytes": 46,
+                "sha256": "405f194d8bf48379db39f5251186e350d00269f49016104fc6cc3e767f958665"
+              }
+            }
+          ],
+          "parallel_tool_calls": {
+            "present": false,
+            "value": null
+          },
+          "policy_code": null,
+          "previous_response_id": {
+            "links_exactly_to_prior_response": false,
+            "present": false,
+            "sha256": null
+          },
+          "request_keys": [
+            "include",
+            "input",
+            "max_output_tokens",
+            "model",
+            "prompt_cache_key",
+            "reasoning",
+            "store",
+            "stream",
+            "text",
+            "tools"
+          ],
+          "response_output_types": [
+            "reasoning",
+            "function_call"
+          ],
+          "response_sha256": "b6b42d62ee6b9eab7104520ec7895a3c3974f587db3f160990d0ada9d46102ca",
+          "response_tool_calls": [
+            {
+              "arguments": {
+                "bytes": 412,
+                "sha256": "f5498ed450c273863f8d3c188d2362ae7d24c81ff8d88cb3696cc8c5f19cb59b"
+              },
+              "name": "bash"
+            }
+          ],
+          "sequence": 9,
+          "status": 200,
+          "tool_choice": {
+            "present": false,
+            "value": null
+          },
+          "upstream_payload_sha256": "baf87d798d1df2e4f88fd01db06a3d61cb15601db1bb1ca71f2d4b52a1cde627"
+        },
+        {
+          "audited_downstream_request_sha256": "8b3aed1d60148c85198ad11bf08e9cf263bc8c68cff80246daca0fd8b0706e01",
+          "gateway_stream_false_transform": true,
+          "input": [
+            {
+              "kind": "developer",
+              "object_sha256": "4f6f43a4659f84704b9adc0e751e6d04bc621e97d7d11f75d10a17c81b88028d",
+              "text": {
+                "bytes": 2666,
+                "sha256": "33992dc50270ab941dfb4875d1f16afec26858167d7b223a29d25e041ae3d210"
+              }
+            },
+            {
+              "kind": "user",
+              "object_sha256": "09124a1264f2669bec123cfb1ef5d964e53bd4533c72a41521c9f6c69feb59ba",
+              "text": {
+                "bytes": 576,
+                "sha256": "c9e179dd099065a34c362a865b0eb9fab5f7d96be582cf117e7519580c036ebe"
+              }
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "480cb086fe2915dfb7980a0d848fa4175a75facb7d53d20c81be1b69d68e7f18"
+            },
+            {
+              "arguments": {
+                "bytes": 74,
+                "sha256": "3f15ddaa7fe358c7f2dab56afb96711a12e4b895fd9f21bded225ed8bb2764fc"
+              },
+              "kind": "function_call",
+              "name": "bash",
+              "object_sha256": "5a2039e863259426b54818cd262b35f0f4114f32fdec10fee5d04f4781bb3a54"
+            },
+            {
+              "arguments": {
+                "bytes": 26,
+                "sha256": "584755013466387625604d80cbc4c09cc280f8a2b72da8ce621fd4706a82dd0b"
+              },
+              "kind": "function_call",
+              "name": "read",
+              "object_sha256": "34e996c3dad392f03ca192b548c8a68b43f03eeaa816316c5f66688873e381d8"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "2e3236b14db03466b6a455901b67fc11e78ce789d7e94dc0937a213ee2d9accc",
+              "output": {
+                "bytes": 164,
+                "sha256": "2e18069ce09d1ab38b4da80d1568e6666382d2624d36bcb5816b7f1db46c676d"
+              }
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "a20d4f85d1e5f12e53b5190609c79fcff38b23b3b417e4b9eb962e4cc2f857a5",
+              "output": {
+                "bytes": 922,
+                "sha256": "af1a23efd8e4390d16a29777c28116b2f8623ae3f7b628fe14db9f94dac26f5b"
+              }
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "9a696bd6be0e0ed12bfb80bc1c75b65ec9440c3a6379627e4853e21102be94d4"
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "5a8c1b6a9462a31123e43bd3d15824ea77eaa11096818d5b720e1de92544b0dd"
+            },
+            {
+              "arguments": {
+                "bytes": 293,
+                "sha256": "75178db4af2fa6e5bed4efd62cb03f0284cab8cde8c789ac056829cc73948d9e"
+              },
+              "kind": "function_call",
+              "name": "bash",
+              "object_sha256": "70887967fe58b358723c6e17619c066c5a51fa8b88f272099f0c26ba8d459955"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "6f80a046744891456f0b13ba317c2668441525223a3f48eb97f4868eacf488b5",
+              "output": {
+                "bytes": 612,
+                "sha256": "8a621bc9d49463308f07ecb3e095e794d03d4d9374e250d09e54f3b2550591a6"
+              }
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "7604539bda377e971c397130bf932f16624193ad498fbce065c92d0597e31c28"
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "7af5beb0857864d049d61936839f9ca0706feb7723ca124b0a60c0ecd8e31934"
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "8099a30e6ea4d34dce1a09b289ded8f056dc398bf8071f0b3f8917b04d0d5216"
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "79f2f097808dd057c96d1ed96a0ebc0363aeef73c0b083abc2f72d7f776f5171"
+            },
+            {
+              "arguments": {
+                "bytes": 2336,
+                "sha256": "35480ead77bcfb308564b8b0fa0bb558e34f049e116630173b41aed94d6fc457"
+              },
+              "kind": "function_call",
+              "name": "write",
+              "object_sha256": "93f8ed13f17225f3d3568b65fda6ae426edb16c1cb65750a3979fe567dfa7746"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "165bb5d20adeecb6e1fad02120920dfa09167d88a7b094728b5295a23ac8e53b",
+              "output": {
+                "bytes": 53,
+                "sha256": "e41a4718da8d3a7350603002bfce766ced196a25417275f3a1ea219eb025058b"
+              }
+            },
+            {
+              "arguments": {
+                "bytes": 55,
+                "sha256": "579fe43c8bb0b17c003ab259ed819ccd52ec85c0cabdb8d2c82395b0fb9de1a5"
+              },
+              "kind": "function_call",
+              "name": "bash",
+              "object_sha256": "870b9f2aa0bee5b473e39a73a5f374d25e4d4268e58fc52f6db2a7230cc439b6"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "cf51e268cccf07ecf0d51ec1edd1313dafa8ddfdba1c0a1c239b35677a1b3d1e",
+              "output": {
+                "bytes": 1583,
+                "sha256": "ebfec39bcd34ed39958d1f744b4af01364e21dc637429a5cba3d1433b7b71e27"
+              }
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "ce3f5876f69efcc2c628fb53d109fcde9e936996d959feb10ffe45e644691eb0"
+            },
+            {
+              "arguments": {
+                "bytes": 222,
+                "sha256": "465b19bed8d69095352203216f409af2286eb2f184baac10104afadbe3a784cb"
+              },
+              "kind": "function_call",
+              "name": "bash",
+              "object_sha256": "1efeae6a151d9060bce5f0d1095e9838efdd5baf40905168456a697d75df2eb5"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "06a43ff527a322723ffc0aea634310f90d490764c6d721318ea5890ffbbe898a",
+              "output": {
+                "bytes": 2314,
+                "sha256": "be1286152df25074692c56b306d0b42d4689b066e7e1daa9cbf3d9e5bc5f9d61"
+              }
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "117ee879e4cc169221080800f63dd15f8048030cb0b9c60f85d2702855454f4a"
+            },
+            {
+              "arguments": {
+                "bytes": 258,
+                "sha256": "c9a43c3d69c2abae6912d534e1294384c8110984aa704313748b10c5ef0d5b73"
+              },
+              "kind": "function_call",
+              "name": "bash",
+              "object_sha256": "1ba159e2b21463e7ffef0aa83844befa31d05723c6d946c54c8aec67c5c382c6"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "ae1485ba5e93115b60a446fa5eccf73fd608a4969ec9eb5aa8cdaf4a2598c3ba",
+              "output": {
+                "bytes": 245,
+                "sha256": "49be6132d39a7ec0b4de013da5f033a26bc64616f81e9566add1aba112940bcf"
+              }
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "dcca23bbe6cbdca53f4f70ca1bfd9816162a1c4b615959a1fe31b971490245b7"
+            },
+            {
+              "arguments": {
+                "bytes": 288,
+                "sha256": "736be9f805cf55b6755ee907abbe50d17d4feab6510521f8c5f620565e7d1c5f"
+              },
+              "kind": "function_call",
+              "name": "bash",
+              "object_sha256": "e1f9ac7451601cd4aeccc38ee364b3c94bb88ba3f70105ae327038d155dcb217"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "c49d8f21b97c560110a299bc1931ed342557215a50d3c08c331efa4258344f6e",
+              "output": {
+                "bytes": 2316,
+                "sha256": "8ed3e5cd3df51ffa6140a4d1631e78d63ed81ef0798b484bf2598966fbe9d0aa"
+              }
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "5cf4328e8f0f0f898a3168f716b46e8a0dd7392f74548b9ed6cc42c16af79ce9"
+            },
+            {
+              "arguments": {
+                "bytes": 3511,
+                "sha256": "648bf8aca444f4da2f044e5edd9ea575135ad578a7871c9392033b2b05a18874"
+              },
+              "kind": "function_call",
+              "name": "write",
+              "object_sha256": "b40d8cbc066afad894f7698b5d6ab51bd9b2eca8c8aff56514d56f4f2cb83ea3"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "d9d3e69750e8ec0ec1ccd017565f0b5c5e76df85a5626bf1d1e2b3471dde2fcd",
+              "output": {
+                "bytes": 46,
+                "sha256": "405f194d8bf48379db39f5251186e350d00269f49016104fc6cc3e767f958665"
+              }
+            },
+            {
+              "kind": "reasoning",
+              "object_sha256": "9b2f4fc6452547ed07b53965606a8c6b0578d865b25c5243aad85e950c537c6b"
+            },
+            {
+              "arguments": {
+                "bytes": 412,
+                "sha256": "f5498ed450c273863f8d3c188d2362ae7d24c81ff8d88cb3696cc8c5f19cb59b"
+              },
+              "kind": "function_call",
+              "name": "bash",
+              "object_sha256": "43e4b79a99cbd1bee015c78f0b17a82bf336310af6373bbb16b3fd6f98062405"
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "0469eb08c3804fe76662315f163ca8b7accc643b45a563bede59ae6136a17d7c",
+              "output": {
+                "bytes": 78,
+                "sha256": "2ca84508ad7c8bd0e96216b83c641e8d23dcf246f3828ec576b3fd3bdb9a4078"
+              }
+            }
+          ],
+          "parallel_tool_calls": {
+            "present": false,
+            "value": null
+          },
+          "policy_code": null,
+          "previous_response_id": {
+            "links_exactly_to_prior_response": false,
+            "present": false,
+            "sha256": null
+          },
+          "request_keys": [
+            "include",
+            "input",
+            "max_output_tokens",
+            "model",
+            "prompt_cache_key",
+            "reasoning",
+            "store",
+            "stream",
+            "text",
+            "tools"
+          ],
+          "response_output_types": [
+            "message"
+          ],
+          "response_sha256": "60169e436dfdb1ec3454da66239abfc8e1201d1250b7a2c284e2f7b4720ace3e",
+          "response_tool_calls": [],
+          "sequence": 10,
+          "status": 200,
+          "tool_choice": {
+            "present": false,
+            "value": null
+          },
+          "upstream_payload_sha256": "c19d638981b5372ee1f1cb2129ef3bd82b182faaaa71e07f711e1c7c7d233330"
+        }
+      ],
+      "statuses": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "store": {
+        "present": true,
+        "value": false
+      },
+      "stream": {
+        "present": true,
+        "value": true
+      },
+      "text": {
+        "verbosity": "low"
+      },
+      "tool_choice": {
+        "present": false,
+        "value": null
+      },
+      "tools": [
+        {
+          "description": {
+            "bytes": 303,
+            "sha256": "b15dd29794ef5562ddee30a6282387ee7b40b9806c10ae2616daf75514ddc1f6"
+          },
+          "name": "read",
+          "parameters": {
+            "bytes": 304,
+            "sha256": "5fad0fa7493528bc4284f5c447781325f67099f5fc018206efdc461d33962e85"
+          },
+          "properties": [
+            "limit",
+            "offset",
+            "path"
+          ],
+          "required": [
+            "path"
+          ],
+          "strict": {
+            "present": true,
+            "value": false
+          },
+          "type": "function"
+        },
+        {
+          "description": {
+            "bytes": 248,
+            "sha256": "2342e7705e926b8d953d482a7e82b7a4fd7103bb1f202f64c005460843c180cb"
+          },
+          "name": "bash",
+          "parameters": {
+            "bytes": 217,
+            "sha256": "b42f770c3dea3ea81694ab9e4c8e14c4d0ed0ecfa6e84621a54c4824044b0995"
+          },
+          "properties": [
+            "command",
+            "timeout"
+          ],
+          "required": [
+            "command"
+          ],
+          "strict": {
+            "present": true,
+            "value": false
+          },
+          "type": "function"
+        },
+        {
+          "description": {
+            "bytes": 326,
+            "sha256": "c498a85576e187d069e8e8ea4f70f81bddd57829600d385ef61c4359fd634c9e"
+          },
+          "name": "edit",
+          "parameters": {
+            "bytes": 776,
+            "sha256": "394741d0cb4c9a6fe96d3275897405c8b13a1c7ff712426a942c10d484993fa1"
+          },
+          "properties": [
+            "edits",
+            "path"
+          ],
+          "required": [
+            "path",
+            "edits"
+          ],
+          "strict": {
+            "present": true,
+            "value": false
+          },
+          "type": "function"
+        },
+        {
+          "description": {
+            "bytes": 127,
+            "sha256": "cdb1c46027b22d1f1b923b47bfe297821d9fe589a9f9d92994961948060a4d89"
+          },
+          "name": "write",
+          "parameters": {
+            "bytes": 225,
+            "sha256": "7e51d1de0f2ccb5fe8de82d51ee3a1d9065e3c4f7c53497ce12f283d6f2f5aa0"
+          },
+          "properties": [
+            "content",
+            "path"
+          ],
+          "required": [
+            "path",
+            "content"
+          ],
+          "strict": {
+            "present": true,
+            "value": false
+          },
+          "type": "function"
+        }
+      ]
+    },
+    "original_thinharness": {
+      "cyber_policy_requests": [
+        {
+          "audited_downstream_request_sha256": "386d47b7fce9e5c227cd3ca26c90982b7953bf4188a92f78339566042e7e0acd",
+          "gateway_stream_false_transform": true,
+          "input": [
+            {
+              "kind": "function_call_output",
+              "object_sha256": "b2b4531c15fc0cbf4cccab28f4d71ec0dd9b90476c654b78046c1d908b7a2aaa",
+              "output": {
+                "bytes": 277,
+                "sha256": "e3a56f8ee2eeb434c271a03e9b5b953a4c67ebdb639ed1c4599bbecaa3b0605e"
+              }
+            }
+          ],
+          "parallel_tool_calls": {
+            "present": false,
+            "value": null
+          },
+          "policy_code": "cyber_policy",
+          "previous_response_id": {
+            "links_exactly_to_prior_response": true,
+            "present": true,
+            "sha256": "0455616bdd65750e3911e7d52fd308ac04e79b20ffbf3e16d641da61cb31e1d8"
+          },
+          "request_keys": [
+            "include",
+            "input",
+            "instructions",
+            "metadata",
+            "model",
+            "previous_response_id",
+            "reasoning",
+            "text",
+            "tools"
+          ],
+          "response_output_types": [],
+          "response_sha256": "254e1738341b44af7678c8b438b4575b73f8d0022b41f36383ae3ac364e3ef95",
+          "response_tool_calls": [],
+          "sequence": 7,
+          "status": 400,
+          "tool_choice": {
+            "present": false,
+            "value": null
+          },
+          "upstream_payload_sha256": "8289d199d64f51b43cef91f44c6240517b85f3bed2fe61781ad458b5f9e909dc"
+        }
+      ],
+      "evidence": {
+        "gateway_audit": {
+          "bytes": 199359,
+          "path": "artifacts/direct-openai-additional-10-pairwise/cells/model-extraction-relu-logits--thinharness/gateway-audit.jsonl",
+          "sha256": "e8798a498c8986f85a4798e1f3afaf4f3041d368802b7133ed4e789adef7fde6"
+        },
+        "request_markers": {
+          "bytes": 2403,
+          "path": "artifacts/direct-openai-additional-10-pairwise/cells/model-extraction-relu-logits--thinharness/MODEL_REQUEST_STARTED.jsonl",
+          "sha256": "d1e2a8269eeef0180060aa9367dfa26ec841083db155d3167cc27b262c66f986"
+        }
+      },
+      "harness": "thinharness",
+      "include": [
+        "reasoning.encrypted_content"
+      ],
+      "initial_messages": [
+        {
+          "role": "user",
+          "text": {
+            "bytes": 576,
+            "sha256": "c9e179dd099065a34c362a865b0eb9fab5f7d96be582cf117e7519580c036ebe"
+          }
+        }
+      ],
+      "initial_request_sha256": "4f4d9f3b69875541a0d1007132568d9957ff9417cac545ce01f87ef4c7de8535",
+      "instructions": {
+        "present": true,
+        "value": {
+          "bytes": 4068,
+          "sha256": "f67ccdc7b22c1dd5b42341be8f05ca82fdb47b4f0b4dee4cd30bc0fad3a356bd"
+        }
+      },
+      "max_output_tokens": {
+        "present": false,
+        "value": null
+      },
+      "metadata": {
+        "present": true,
+        "value": {
+          "cell_id": "model-extraction-relu-logits--thinharness",
+          "route": "direct-openai"
+        }
+      },
+      "model": "gpt-5.6-sol",
+      "parallel_tool_calls": {
+        "present": false,
+        "value": null
+      },
+      "previous_response_strategy": "previous_response_id-plus-new-tool-results",
+      "reasoning": {
+        "effort": "xhigh",
+        "summary": "auto"
+      },
+      "request_count": 7,
+      "requests": [
+        {
+          "audited_downstream_request_sha256": "4f4d9f3b69875541a0d1007132568d9957ff9417cac545ce01f87ef4c7de8535",
+          "gateway_stream_false_transform": true,
+          "input": [
+            {
+              "bytes": 576,
+              "kind": "text",
+              "sha256": "c9e179dd099065a34c362a865b0eb9fab5f7d96be582cf117e7519580c036ebe"
+            }
+          ],
+          "parallel_tool_calls": {
+            "present": false,
+            "value": null
+          },
+          "policy_code": null,
+          "previous_response_id": {
+            "links_exactly_to_prior_response": null,
+            "present": false,
+            "sha256": null
+          },
+          "request_keys": [
+            "include",
+            "input",
+            "instructions",
+            "metadata",
+            "model",
+            "reasoning",
+            "text",
+            "tools"
+          ],
+          "response_output_types": [
+            "reasoning",
+            "function_call"
+          ],
+          "response_sha256": "fc729ce3be4ae8c7a1d81e8d3438323dd1b3f8715f086476d51f8adcfd471005",
+          "response_tool_calls": [
+            {
+              "arguments": {
+                "bytes": 92,
+                "sha256": "6b472d5e38e2dd012fd60bab47723f2249f9f6f58a787524f360aeb8df9b4c39"
+              },
+              "name": "bash"
+            }
+          ],
+          "sequence": 1,
+          "status": 200,
+          "tool_choice": {
+            "present": false,
+            "value": null
+          },
+          "upstream_payload_sha256": "d9dcf1be791537623bc6eccf90ea97bde8542cf1bf649404df27f665dfa10939"
+        },
+        {
+          "audited_downstream_request_sha256": "b7754d18dda2b24302d77876e5c3666d57748383dd79a599162393a040d0fcbb",
+          "gateway_stream_false_transform": true,
+          "input": [
+            {
+              "kind": "function_call_output",
+              "object_sha256": "57dca8465ffd608304aa6768ad7c45bbc064a901a9f35e978dc6a6aeab8d9252",
+              "output": {
+                "bytes": 435,
+                "sha256": "472ee7e081700efa33f0502c67005846df3784c16751a4970202ef5065fbe846"
+              }
+            }
+          ],
+          "parallel_tool_calls": {
+            "present": false,
+            "value": null
+          },
+          "policy_code": null,
+          "previous_response_id": {
+            "links_exactly_to_prior_response": true,
+            "present": true,
+            "sha256": "dbd7b7951ae9c0971083b7e16dcc948c4b8e6bcb7b5338bb7b660dd9d014a1ca"
+          },
+          "request_keys": [
+            "include",
+            "input",
+            "instructions",
+            "metadata",
+            "model",
+            "previous_response_id",
+            "reasoning",
+            "text",
+            "tools"
+          ],
+          "response_output_types": [
+            "reasoning",
+            "function_call"
+          ],
+          "response_sha256": "9eef8835d047d1c159526a0326b0b4a1fde8c1e61038f7d9806f5476d5a1da16",
+          "response_tool_calls": [
+            {
+              "arguments": {
+                "bytes": 277,
+                "sha256": "57b0ec0d1f263089ac6e564794f70f853826a92fa6aea3dbfc5f0e39d8018636"
+              },
+              "name": "bash"
+            }
+          ],
+          "sequence": 2,
+          "status": 200,
+          "tool_choice": {
+            "present": false,
+            "value": null
+          },
+          "upstream_payload_sha256": "546eb35db64ffaa814d90327836d0288198f49de108c7ccee5d9beb52494e2df"
+        },
+        {
+          "audited_downstream_request_sha256": "fa966e35bf920c59b25276bef87c4b5ca6a80efbe7e6877c9e6ef45f7ed7d2db",
+          "gateway_stream_false_transform": true,
+          "input": [
+            {
+              "kind": "function_call_output",
+              "object_sha256": "8b1781e5db211db5a3de01f5385801d91ba6c502354b774a2b07f7b99a7f046c",
+              "output": {
+                "bytes": 453,
+                "sha256": "e0b766cbca02f804d5777821f198751a57ed4dfa16d72701ca9e5218c7d8c6bd"
+              }
+            }
+          ],
+          "parallel_tool_calls": {
+            "present": false,
+            "value": null
+          },
+          "policy_code": null,
+          "previous_response_id": {
+            "links_exactly_to_prior_response": true,
+            "present": true,
+            "sha256": "e0e3fa75b652e1ee85606baa29f7bfcbbee4e1b0807aabe15f9b08a920807a1e"
+          },
+          "request_keys": [
+            "include",
+            "input",
+            "instructions",
+            "metadata",
+            "model",
+            "previous_response_id",
+            "reasoning",
+            "text",
+            "tools"
+          ],
+          "response_output_types": [
+            "reasoning",
+            "reasoning",
+            "reasoning",
+            "reasoning",
+            "reasoning",
+            "reasoning",
+            "reasoning",
+            "reasoning",
+            "reasoning",
+            "reasoning",
+            "reasoning",
+            "reasoning",
+            "reasoning",
+            "function_call"
+          ],
+          "response_sha256": "bab902e4b8234cc64b18dc70f17ce2ea97480a116527c8310a6a611a64e1b1ce",
+          "response_tool_calls": [
+            {
+              "arguments": {
+                "bytes": 5055,
+                "sha256": "bc2b7f2ffe9014b177c3d88588cfb641e545a8bf3ece448158d5b13ecc5c36f4"
+              },
+              "name": "write"
+            }
+          ],
+          "sequence": 3,
+          "status": 200,
+          "tool_choice": {
+            "present": false,
+            "value": null
+          },
+          "upstream_payload_sha256": "120e314ca3fb03ad52d5eba83d143b7bc124b6285b06b04a9ec58fd458633dbb"
+        },
+        {
+          "audited_downstream_request_sha256": "f684cfeb00b846b5375b961b3fd9c86908d734dc49144c81696c15f8f88c9578",
+          "gateway_stream_false_transform": true,
+          "input": [
+            {
+              "kind": "function_call_output",
+              "object_sha256": "b774613444767c681d50099c1518d1f99c6f3a351b3ad9fead65ee6b121dcb36",
+              "output": {
+                "bytes": 94,
+                "sha256": "6c8275b6f9562994dc75b07b297a6d499c2a465555bc4d08973bd0f29b80919a"
+              }
+            }
+          ],
+          "parallel_tool_calls": {
+            "present": false,
+            "value": null
+          },
+          "policy_code": null,
+          "previous_response_id": {
+            "links_exactly_to_prior_response": true,
+            "present": true,
+            "sha256": "aa569f5fdff3a4b48cd54503cef8121dfb09e5683f81047e9732085545797d48"
+          },
+          "request_keys": [
+            "include",
+            "input",
+            "instructions",
+            "metadata",
+            "model",
+            "previous_response_id",
+            "reasoning",
+            "text",
+            "tools"
+          ],
+          "response_output_types": [
+            "reasoning",
+            "function_call"
+          ],
+          "response_sha256": "7cf739cb7851682227a0ee9b925bdd674230c32b0e0ed55af5aa9b685c1d9fd7",
+          "response_tool_calls": [
+            {
+              "arguments": {
+                "bytes": 210,
+                "sha256": "e1e92f4be5a97907a0d8146989c6139c98ad37f6a9a6fa2c9cb70eb47571261b"
+              },
+              "name": "bash"
+            }
+          ],
+          "sequence": 4,
+          "status": 200,
+          "tool_choice": {
+            "present": false,
+            "value": null
+          },
+          "upstream_payload_sha256": "375a9b9f44aed93ace9b68e4eaa188ec1015b6d25dff86df91dc759b4aa7b67f"
+        },
+        {
+          "audited_downstream_request_sha256": "c3fd6e57ac3ed7f607dda0ee876850846ce24b6c62f6a7ad64ed09a475f71f74",
+          "gateway_stream_false_transform": true,
+          "input": [
+            {
+              "kind": "function_call_output",
+              "object_sha256": "fd3a4bbfb03cd37edede8f9ddad39dfb0d53f978d896502efafc399908fbf09f",
+              "output": {
+                "bytes": 2881,
+                "sha256": "cc3693190e57f914f3620bf8d30d5f051ba57e00b9f4cbf6660e2017fcba35fa"
+              }
+            }
+          ],
+          "parallel_tool_calls": {
+            "present": false,
+            "value": null
+          },
+          "policy_code": null,
+          "previous_response_id": {
+            "links_exactly_to_prior_response": true,
+            "present": true,
+            "sha256": "47e5188bc1dbe692b9d1f548482883f6d2014a22e2bdf6a3f260622420a8f48a"
+          },
+          "request_keys": [
+            "include",
+            "input",
+            "instructions",
+            "metadata",
+            "model",
+            "previous_response_id",
+            "reasoning",
+            "text",
+            "tools"
+          ],
+          "response_output_types": [
+            "reasoning",
+            "function_call"
+          ],
+          "response_sha256": "b4d42240862f63bd32fd1db63ba768f9d1181628c8da8d07cc0d16c8628905c9",
+          "response_tool_calls": [
+            {
+              "arguments": {
+                "bytes": 589,
+                "sha256": "1f3f713a1ebf3ce552ccc5303d02bd64bb266c6fc203f8039c4ef9fc5862e5b3"
+              },
+              "name": "bash"
+            }
+          ],
+          "sequence": 5,
+          "status": 200,
+          "tool_choice": {
+            "present": false,
+            "value": null
+          },
+          "upstream_payload_sha256": "17aec7d29244ffd56277190ba765b7019fa83e172fff0f3849f9fd70b815c99c"
+        },
+        {
+          "audited_downstream_request_sha256": "e21c5415d6ce8e5e4c3cb5528675bcfa6b4a30b29d88aa1fe2694f6a01ab1c78",
+          "gateway_stream_false_transform": true,
+          "input": [
+            {
+              "kind": "function_call_output",
+              "object_sha256": "dcdf98a0d4d1c6ae67bf179a8f1e0e9baf76dcf9f6207ad6cda0931e935d764c",
+              "output": {
+                "bytes": 1006,
+                "sha256": "4d6ecce4cbe8ad9e9caef86456cd8acab0f53756cc537dd07efd8456e5e56e8b"
+              }
+            }
+          ],
+          "parallel_tool_calls": {
+            "present": false,
+            "value": null
+          },
+          "policy_code": null,
+          "previous_response_id": {
+            "links_exactly_to_prior_response": true,
+            "present": true,
+            "sha256": "02214089e96a34e3acb7e44dea8b62b017e688bd547343f1293a3b46b5b20d0d"
+          },
+          "request_keys": [
+            "include",
+            "input",
+            "instructions",
+            "metadata",
+            "model",
+            "previous_response_id",
+            "reasoning",
+            "text",
+            "tools"
+          ],
+          "response_output_types": [
+            "reasoning",
+            "reasoning",
+            "function_call"
+          ],
+          "response_sha256": "7b47ad27aacc18c54f4871a08db244e4c813ea78cb27f2365197be0d9fdda8a1",
+          "response_tool_calls": [
+            {
+              "arguments": {
+                "bytes": 252,
+                "sha256": "1d4b36f23b2d0af17fe28f2adf66c027e362454794a8730e4b6f5279129a654e"
+              },
+              "name": "bash"
+            }
+          ],
+          "sequence": 6,
+          "status": 200,
+          "tool_choice": {
+            "present": false,
+            "value": null
+          },
+          "upstream_payload_sha256": "55b4dead853873b86a6e5e54f8e55f59023f320f834cc395f325e3f2179015b1"
+        },
+        {
+          "audited_downstream_request_sha256": "386d47b7fce9e5c227cd3ca26c90982b7953bf4188a92f78339566042e7e0acd",
+          "gateway_stream_false_transform": true,
+          "input": [
+            {
+              "kind": "function_call_output",
+              "object_sha256": "b2b4531c15fc0cbf4cccab28f4d71ec0dd9b90476c654b78046c1d908b7a2aaa",
+              "output": {
+                "bytes": 277,
+                "sha256": "e3a56f8ee2eeb434c271a03e9b5b953a4c67ebdb639ed1c4599bbecaa3b0605e"
+              }
+            }
+          ],
+          "parallel_tool_calls": {
+            "present": false,
+            "value": null
+          },
+          "policy_code": "cyber_policy",
+          "previous_response_id": {
+            "links_exactly_to_prior_response": true,
+            "present": true,
+            "sha256": "0455616bdd65750e3911e7d52fd308ac04e79b20ffbf3e16d641da61cb31e1d8"
+          },
+          "request_keys": [
+            "include",
+            "input",
+            "instructions",
+            "metadata",
+            "model",
+            "previous_response_id",
+            "reasoning",
+            "text",
+            "tools"
+          ],
+          "response_output_types": [],
+          "response_sha256": "254e1738341b44af7678c8b438b4575b73f8d0022b41f36383ae3ac364e3ef95",
+          "response_tool_calls": [],
+          "sequence": 7,
+          "status": 400,
+          "tool_choice": {
+            "present": false,
+            "value": null
+          },
+          "upstream_payload_sha256": "8289d199d64f51b43cef91f44c6240517b85f3bed2fe61781ad458b5f9e909dc"
+        }
+      ],
+      "statuses": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        400
+      ],
+      "store": {
+        "present": false,
+        "value": null
+      },
+      "stream": {
+        "present": false,
+        "value": null
+      },
+      "text": {
+        "verbosity": "low"
+      },
+      "tool_choice": {
+        "present": false,
+        "value": null
+      },
+      "tools": [
+        {
+          "description": {
+            "bytes": 290,
+            "sha256": "0cb503800b3786b106a89a7e270b79f9b5e3616a11bba7cad59b172cccdc1e67"
+          },
+          "name": "bash",
+          "parameters": {
+            "bytes": 243,
+            "sha256": "ee6b3ec0b95a6ec5693f995193189b66022f59cd1a0efded093bc22eac7d6cc9"
+          },
+          "properties": [
+            "command",
+            "cwd",
+            "timeout"
+          ],
+          "required": [
+            "command"
+          ],
+          "strict": {
+            "present": false,
+            "value": null
+          },
+          "type": "function"
+        },
+        {
+          "description": {
+            "bytes": 67,
+            "sha256": "f152f0b500331fc4a519bf066db419904c5dc1344e4754e6646b5aa8e53d7d4a"
+          },
+          "name": "read",
+          "parameters": {
+            "bytes": 276,
+            "sha256": "21137ca6df7a864da6c9443d948dcdcdb98ffe56371edb283d7815e14d2f967f"
+          },
+          "properties": [
+            "limit",
+            "max_chars",
+            "offset",
+            "path"
+          ],
+          "required": [
+            "path"
+          ],
+          "strict": {
+            "present": false,
+            "value": null
+          },
+          "type": "function"
+        },
+        {
+          "description": {
+            "bytes": 105,
+            "sha256": "3d795f355f15b08afb3358515dfef6fdefb84e5d559cadf9f7b0bb7d60e1486e"
+          },
+          "name": "edit",
+          "parameters": {
+            "bytes": 503,
+            "sha256": "4690374e251fdc0a454dc0c8169c32722d44ec6a692518464b5e5a75ccc3898d"
+          },
+          "properties": [
+            "edits"
+          ],
+          "required": [
+            "edits"
+          ],
+          "strict": {
+            "present": false,
+            "value": null
+          },
+          "type": "function"
+        },
+        {
+          "description": {
+            "bytes": 75,
+            "sha256": "9d2880bae56883197fc868f6767c6ac7ec772ca7ed40fcf1ef0fbb197b8742eb"
+          },
+          "name": "write",
+          "parameters": {
+            "bytes": 225,
+            "sha256": "d47cc30b7384d9f0aff4a82f9b6013c118f429bb1752ba2fc4759cc79f2f0551"
+          },
+          "properties": [
+            "append",
+            "content",
+            "path"
+          ],
+          "required": [
+            "path",
+            "content"
+          ],
+          "strict": {
+            "present": false,
+            "value": null
+          },
+          "type": "function"
+        }
+      ]
+    },
+    "v1_thinharness": {
+      "cyber_policy_requests": [
+        {
+          "audited_downstream_request_sha256": "2733a25c3559f15e964f56301f6dc1f69373161e56d0e6444df62551dee92e08",
+          "gateway_stream_false_transform": true,
+          "input": [
+            {
+              "kind": "function_call_output",
+              "object_sha256": "debc25202931d81db747ce2f635b808069626c0e03b775491eafdd8b65c8b3ae",
+              "output": {
+                "bytes": 288,
+                "sha256": "15504600a7a8c92a49963fac78f3f2057fed26a17f59ee1b5994deaf495a556b"
+              }
+            }
+          ],
+          "parallel_tool_calls": {
+            "present": false,
+            "value": null
+          },
+          "policy_code": "cyber_policy",
+          "previous_response_id": {
+            "links_exactly_to_prior_response": true,
+            "present": true,
+            "sha256": "11bc4549a25852601f1b94d058d3d2db4679456f2497be56cb92521ef9a6d002"
+          },
+          "request_keys": [
+            "include",
+            "input",
+            "instructions",
+            "metadata",
+            "model",
+            "previous_response_id",
+            "reasoning",
+            "text",
+            "tools"
+          ],
+          "response_output_types": [],
+          "response_sha256": "254e1738341b44af7678c8b438b4575b73f8d0022b41f36383ae3ac364e3ef95",
+          "response_tool_calls": [],
+          "sequence": 4,
+          "status": 400,
+          "tool_choice": {
+            "present": false,
+            "value": null
+          },
+          "upstream_payload_sha256": "24eab856e3f36fdd64a29e97bf4ed6c22c7f1988b99bc757dd7b43dfaebb0e14"
+        }
+      ],
+      "evidence": {
+        "gateway_audit": {
+          "bytes": 94650,
+          "path": "artifacts/direct-openai-additional-10-thinharness-supplement-v1/cells/model-extraction-relu-logits--thinharness/gateway-audit.jsonl",
+          "sha256": "52dc0561ae87d34384ef619dc2bfea2acd45ccafbd8eaf1a85d394a165c36d60"
+        },
+        "request_markers": {
+          "bytes": 1441,
+          "path": "artifacts/direct-openai-additional-10-thinharness-supplement-v1/cells/model-extraction-relu-logits--thinharness/MODEL_REQUEST_STARTED.jsonl",
+          "sha256": "514d5316122c2a24f75dd83bd827a1244e994e1e61d052cf9fcb10b53e2bd641"
+        }
+      },
+      "harness": "thinharness",
+      "include": [
+        "reasoning.encrypted_content"
+      ],
+      "initial_messages": [
+        {
+          "role": "user",
+          "text": {
+            "bytes": 576,
+            "sha256": "c9e179dd099065a34c362a865b0eb9fab5f7d96be582cf117e7519580c036ebe"
+          }
+        }
+      ],
+      "initial_request_sha256": "4f4d9f3b69875541a0d1007132568d9957ff9417cac545ce01f87ef4c7de8535",
+      "instructions": {
+        "present": true,
+        "value": {
+          "bytes": 4068,
+          "sha256": "f67ccdc7b22c1dd5b42341be8f05ca82fdb47b4f0b4dee4cd30bc0fad3a356bd"
+        }
+      },
+      "max_output_tokens": {
+        "present": false,
+        "value": null
+      },
+      "metadata": {
+        "present": true,
+        "value": {
+          "cell_id": "model-extraction-relu-logits--thinharness",
+          "route": "direct-openai"
+        }
+      },
+      "model": "gpt-5.6-sol",
+      "parallel_tool_calls": {
+        "present": false,
+        "value": null
+      },
+      "previous_response_strategy": "previous_response_id-plus-new-tool-results",
+      "reasoning": {
+        "effort": "xhigh",
+        "summary": "auto"
+      },
+      "request_count": 4,
+      "requests": [
+        {
+          "audited_downstream_request_sha256": "4f4d9f3b69875541a0d1007132568d9957ff9417cac545ce01f87ef4c7de8535",
+          "gateway_stream_false_transform": true,
+          "input": [
+            {
+              "bytes": 576,
+              "kind": "text",
+              "sha256": "c9e179dd099065a34c362a865b0eb9fab5f7d96be582cf117e7519580c036ebe"
+            }
+          ],
+          "parallel_tool_calls": {
+            "present": false,
+            "value": null
+          },
+          "policy_code": null,
+          "previous_response_id": {
+            "links_exactly_to_prior_response": null,
+            "present": false,
+            "sha256": null
+          },
+          "request_keys": [
+            "include",
+            "input",
+            "instructions",
+            "metadata",
+            "model",
+            "reasoning",
+            "text",
+            "tools"
+          ],
+          "response_output_types": [
+            "reasoning",
+            "function_call",
+            "function_call"
+          ],
+          "response_sha256": "1c99910076739db27e9391f17bd51b26c5b62d295397ef24025bcbaceff9e5cd",
+          "response_tool_calls": [
+            {
+              "arguments": {
+                "bytes": 92,
+                "sha256": "6b472d5e38e2dd012fd60bab47723f2249f9f6f58a787524f360aeb8df9b4c39"
+              },
+              "name": "bash"
+            },
+            {
+              "arguments": {
+                "bytes": 234,
+                "sha256": "24e6b94aa5f037ed93f75f86246f4b87bab1379d83cbedc75e6e49b95ab73bbf"
+              },
+              "name": "bash"
+            }
+          ],
+          "sequence": 1,
+          "status": 200,
+          "tool_choice": {
+            "present": false,
+            "value": null
+          },
+          "upstream_payload_sha256": "d9dcf1be791537623bc6eccf90ea97bde8542cf1bf649404df27f665dfa10939"
+        },
+        {
+          "audited_downstream_request_sha256": "08210543fb6064f61eaf33ee3a6138369776c76f409021fcbb7d4c0ef3b2896b",
+          "gateway_stream_false_transform": true,
+          "input": [
+            {
+              "kind": "function_call_output",
+              "object_sha256": "aa6c2e01eccc3b9bfab3d1f87d95f113504259415efecf6aeac75ef164f0d744",
+              "output": {
+                "bytes": 435,
+                "sha256": "8aa89e5ea46d9ad0318ba66be4aec9c79a849708fe127fa55a14119500873e33"
+              }
+            },
+            {
+              "kind": "function_call_output",
+              "object_sha256": "8c2187940f1de425792e614e8360f9b97f05a873f51e39c42dd30dd54212b6d1",
+              "output": {
+                "bytes": 1291,
+                "sha256": "48254bc52ef17560331723fd7680ca12e1541b2b8bd202263ea290844d634b49"
+              }
+            }
+          ],
+          "parallel_tool_calls": {
+            "present": false,
+            "value": null
+          },
+          "policy_code": null,
+          "previous_response_id": {
+            "links_exactly_to_prior_response": true,
+            "present": true,
+            "sha256": "50c4ece65d22edf14298bb2a248f91ab7f11d1147bd943ce0bc565ebc488b755"
+          },
+          "request_keys": [
+            "include",
+            "input",
+            "instructions",
+            "metadata",
+            "model",
+            "previous_response_id",
+            "reasoning",
+            "text",
+            "tools"
+          ],
+          "response_output_types": [
+            "reasoning",
+            "reasoning",
+            "function_call"
+          ],
+          "response_sha256": "9d9e8db4e263ec4a86f738f1f5f0369a72eacfee29966de86352295f155203b5",
+          "response_tool_calls": [
+            {
+              "arguments": {
+                "bytes": 147,
+                "sha256": "c8e704c49a244fa242f5e1dcddae044213e0e0ee33fab7b79b6f67da55a3a4fe"
+              },
+              "name": "bash"
+            }
+          ],
+          "sequence": 2,
+          "status": 200,
+          "tool_choice": {
+            "present": false,
+            "value": null
+          },
+          "upstream_payload_sha256": "c3ff883ac7e18389bb5544abb31755f15d98ec9355b5666747dfaa203dd86f2e"
+        },
+        {
+          "audited_downstream_request_sha256": "ca407e7cf885209e78ed63f6e083553be027f70ca16e95208d2781d1543fcfa4",
+          "gateway_stream_false_transform": true,
+          "input": [
+            {
+              "kind": "function_call_output",
+              "object_sha256": "187648214072f48995de2cd5ee8120dad46bf8c14a69ade66b3d3708f9f46a67",
+              "output": {
+                "bytes": 293,
+                "sha256": "44806b9e24ef9911522d97b22d149e85226d52929a9326dd3f93dac8e0a0306c"
+              }
+            }
+          ],
+          "parallel_tool_calls": {
+            "present": false,
+            "value": null
+          },
+          "policy_code": null,
+          "previous_response_id": {
+            "links_exactly_to_prior_response": true,
+            "present": true,
+            "sha256": "5a283473755929833848f0b735bc93aed55705aef85df2f29f2564fedf7e5146"
+          },
+          "request_keys": [
+            "include",
+            "input",
+            "instructions",
+            "metadata",
+            "model",
+            "previous_response_id",
+            "reasoning",
+            "text",
+            "tools"
+          ],
+          "response_output_types": [
+            "reasoning",
+            "reasoning",
+            "reasoning",
+            "reasoning",
+            "reasoning",
+            "function_call"
+          ],
+          "response_sha256": "1989656c94c570b41b6f08bca3fbbfb5a850ede1c825f82e94b15bc3cd4e9a4c",
+          "response_tool_calls": [
+            {
+              "arguments": {
+                "bytes": 189,
+                "sha256": "625b59c2d91ab7c530eabc9962598b4f6d2890ce16353e53d7b9583745f9bb77"
+              },
+              "name": "bash"
+            }
+          ],
+          "sequence": 3,
+          "status": 200,
+          "tool_choice": {
+            "present": false,
+            "value": null
+          },
+          "upstream_payload_sha256": "1c20ab915b8c026c65238d9c3c0fd90957f8f513e27af4203facd5abe06021d3"
+        },
+        {
+          "audited_downstream_request_sha256": "2733a25c3559f15e964f56301f6dc1f69373161e56d0e6444df62551dee92e08",
+          "gateway_stream_false_transform": true,
+          "input": [
+            {
+              "kind": "function_call_output",
+              "object_sha256": "debc25202931d81db747ce2f635b808069626c0e03b775491eafdd8b65c8b3ae",
+              "output": {
+                "bytes": 288,
+                "sha256": "15504600a7a8c92a49963fac78f3f2057fed26a17f59ee1b5994deaf495a556b"
+              }
+            }
+          ],
+          "parallel_tool_calls": {
+            "present": false,
+            "value": null
+          },
+          "policy_code": "cyber_policy",
+          "previous_response_id": {
+            "links_exactly_to_prior_response": true,
+            "present": true,
+            "sha256": "11bc4549a25852601f1b94d058d3d2db4679456f2497be56cb92521ef9a6d002"
+          },
+          "request_keys": [
+            "include",
+            "input",
+            "instructions",
+            "metadata",
+            "model",
+            "previous_response_id",
+            "reasoning",
+            "text",
+            "tools"
+          ],
+          "response_output_types": [],
+          "response_sha256": "254e1738341b44af7678c8b438b4575b73f8d0022b41f36383ae3ac364e3ef95",
+          "response_tool_calls": [],
+          "sequence": 4,
+          "status": 400,
+          "tool_choice": {
+            "present": false,
+            "value": null
+          },
+          "upstream_payload_sha256": "24eab856e3f36fdd64a29e97bf4ed6c22c7f1988b99bc757dd7b43dfaebb0e14"
+        }
+      ],
+      "statuses": [
+        200,
+        200,
+        200,
+        400
+      ],
+      "store": {
+        "present": false,
+        "value": null
+      },
+      "stream": {
+        "present": false,
+        "value": null
+      },
+      "text": {
+        "verbosity": "low"
+      },
+      "tool_choice": {
+        "present": false,
+        "value": null
+      },
+      "tools": [
+        {
+          "description": {
+            "bytes": 290,
+            "sha256": "0cb503800b3786b106a89a7e270b79f9b5e3616a11bba7cad59b172cccdc1e67"
+          },
+          "name": "bash",
+          "parameters": {
+            "bytes": 243,
+            "sha256": "ee6b3ec0b95a6ec5693f995193189b66022f59cd1a0efded093bc22eac7d6cc9"
+          },
+          "properties": [
+            "command",
+            "cwd",
+            "timeout"
+          ],
+          "required": [
+            "command"
+          ],
+          "strict": {
+            "present": false,
+            "value": null
+          },
+          "type": "function"
+        },
+        {
+          "description": {
+            "bytes": 67,
+            "sha256": "f152f0b500331fc4a519bf066db419904c5dc1344e4754e6646b5aa8e53d7d4a"
+          },
+          "name": "read",
+          "parameters": {
+            "bytes": 276,
+            "sha256": "21137ca6df7a864da6c9443d948dcdcdb98ffe56371edb283d7815e14d2f967f"
+          },
+          "properties": [
+            "limit",
+            "max_chars",
+            "offset",
+            "path"
+          ],
+          "required": [
+            "path"
+          ],
+          "strict": {
+            "present": false,
+            "value": null
+          },
+          "type": "function"
+        },
+        {
+          "description": {
+            "bytes": 105,
+            "sha256": "3d795f355f15b08afb3358515dfef6fdefb84e5d559cadf9f7b0bb7d60e1486e"
+          },
+          "name": "edit",
+          "parameters": {
+            "bytes": 503,
+            "sha256": "4690374e251fdc0a454dc0c8169c32722d44ec6a692518464b5e5a75ccc3898d"
+          },
+          "properties": [
+            "edits"
+          ],
+          "required": [
+            "edits"
+          ],
+          "strict": {
+            "present": false,
+            "value": null
+          },
+          "type": "function"
+        },
+        {
+          "description": {
+            "bytes": 75,
+            "sha256": "9d2880bae56883197fc868f6767c6ac7ec772ca7ed40fcf1ef0fbb197b8742eb"
+          },
+          "name": "write",
+          "parameters": {
+            "bytes": 225,
+            "sha256": "d47cc30b7384d9f0aff4a82f9b6013c118f429bb1752ba2fc4759cc79f2f0551"
+          },
+          "properties": [
+            "append",
+            "content",
+            "path"
+          ],
+          "required": [
+            "path",
+            "content"
+          ],
+          "strict": {
+            "present": false,
+            "value": null
+          },
+          "type": "function"
+        }
+      ]
+    }
+  },
+  "schema_version": 2,
+  "scope": {
+    "evidence_only": true,
+    "new_model_calls": 0,
+    "sources": [
+      "original Pi",
+      "original ThinHarness",
+      "v1 supplemental ThinHarness"
+    ],
+    "task": "model-extraction-relu-logits"
+  }
+}
