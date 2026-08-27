@@ -1,0 +1,31 @@
+{
+  "attempt": 1,
+  "benchmark_id": "direct-openai-additional-10-thinharness-supplement-v1",
+  "cell_id": "model-extraction-relu-logits--thinharness",
+  "checkpoint_sha256": "d9fff862180fb21ebe28a640421f461186dd5c760dceab5c0d03c4dc75955635",
+  "consumed": true,
+  "harness": "thinharness",
+  "mode": "real",
+  "never_rerun": true,
+  "schema_version": 1,
+  "secret_persisted": false,
+  "status": "model_attempt_failed",
+  "supplemental_cell_id": "model-extraction-relu-logits--thinharness--supplemental-attempt-1",
+  "task_identity": {
+    "instruction_sha256": "c9e179dd099065a34c362a865b0eb9fab5f7d96be582cf117e7519580c036ebe",
+    "task_package_digest": "sha256:1ae5045ad68b5d34c3398b612066a07c4a08b6dc330d28868ec4021e17c94b17",
+    "task_toml_sha256": "eb64dfaf8ae88868911ae28855cdc4f767de464001e2704919015b595be6dc29",
+    "task_tree_manifest_sha256": "52105cb4f7c02a72c560d495c8369cebb04555ae6554dc693684aa0f0c65814e"
+  },
+  "trace_sha256": {
+    "cells/model-extraction-relu-logits--thinharness/CHECKPOINT.json": "d9fff862180fb21ebe28a640421f461186dd5c760dceab5c0d03c4dc75955635",
+    "cells/model-extraction-relu-logits--thinharness/MODEL_REQUEST_STARTED.jsonl": "514d5316122c2a24f75dd83bd827a1244e994e1e61d052cf9fcb10b53e2bd641",
+    "cells/model-extraction-relu-logits--thinharness/POLICY_REFUSAL.json": "628a2980e92ae65698cd76deb3a69f757f6087f6cd9b855a7ae10c47c4567821",
+    "cells/model-extraction-relu-logits--thinharness/gateway-audit.jsonl": "52dc0561ae87d34384ef619dc2bfea2acd45ccafbd8eaf1a85d394a165c36d60",
+    "cells/model-extraction-relu-logits--thinharness/gateway-identity.json": "3d719a9d1f76ef6c882ed8ed89468534d35dba0b926e5bf3f3eec5396ffeffc2",
+    "cells/model-extraction-relu-logits--thinharness/job/model-extraction-relu-logits__54oLi2Y/agent/thinharness-direct-result.json": "0f8b71bdae62c33cac989607a787934f95c295d40b7c3f4857ebc924043b1686",
+    "cells/model-extraction-relu-logits--thinharness/job/model-extraction-relu-logits__54oLi2Y/agent/thinharness-events.jsonl": "c88c91be0393e4914b89c6baae0b42916ad80c15a35388e1c6e201a1c9faa89b",
+    "cells/model-extraction-relu-logits--thinharness/job/model-extraction-relu-logits__54oLi2Y/result.json": "2952bae2f36cf9e96a9204f56edc600ad5956332a8a3a34848b0b85d6640c70e",
+    "cells/model-extraction-relu-logits--thinharness/launch.json": "8f37d8c947a1de206e29be8f0128471d68fc5f113623d864eabcac7ba7dfcaa4"
+  }
+}

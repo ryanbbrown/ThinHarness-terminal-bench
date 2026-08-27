@@ -1,0 +1,111 @@
+{
+  "affected_tasks": {
+    "make-doom-for-mips": {
+      "original_pi_reward": 0.0,
+      "original_pi_status": "cap_exceeded",
+      "original_thinharness_status": "unrun_prior_cap_breach",
+      "pair_included": false,
+      "supplemental_consumed": false,
+      "supplemental_thinharness_status": "unrun_after_repeated_policy_refusal"
+    },
+    "model-extraction-relu-logits": {
+      "original_pi_reward": 1.0,
+      "original_pi_status": "completed",
+      "original_thinharness_status": "model_attempt_failed",
+      "pair_included": false,
+      "supplemental_thinharness_status": "model_attempt_failed",
+      "supplemental_verifier_outcome_available": false
+    }
+  },
+  "denominators": {
+    "incomplete_pairs": 2,
+    "original_verifier_complete_pairs": 8,
+    "pair_policy": "include a task only when both cells have verifier outcomes",
+    "planned_task_pairs": 10,
+    "post_supplement_verifier_complete_pairs": 8,
+    "supplemental_authorized_cells": 2,
+    "supplemental_consumed_cells": 1,
+    "supplemental_unconsumed_cells": 1,
+    "supplemental_verifier_outcomes": 0
+  },
+  "evidence": {
+    "original_evidence_immutable": true,
+    "original_report": "reports/direct-openai-additional-10-pairwise.json",
+    "original_report_sha256": "c0654560fa5733585e3467bc7e0e28369247e49524178ccce21d13d983032310",
+    "supplemental_artifact": "artifacts/direct-openai-additional-10-thinharness-supplement-v1",
+    "supplemental_sha256_manifest": "artifacts/direct-openai-additional-10-thinharness-supplement-v1/SHA256SUMS.json",
+    "supplemental_sha256_manifest_sha256": "d3b1dd536b240af512caa2e41cd178e13319170a7bfc9268fc17406184438b94",
+    "supplemental_summary_sha256": "412c1051c7ad8979f8c2c28fb9e1fb740425b7be555ad68d56615df673b250ba"
+  },
+  "full_ten_pair_score": {
+    "available": false,
+    "missing_tasks": [
+      "model-extraction-relu-logits",
+      "make-doom-for-mips"
+    ],
+    "reason": "Model extraction still has no ThinHarness verifier outcome after the repeated refusal, and Doom has no ThinHarness run because the supplemental stop rule left it unrun."
+  },
+  "label": "supplemental direct-comparison update; original frozen campaign unchanged",
+  "observed_eight_pair_subset": {
+    "denominator": 8,
+    "pi_minus_thinharness_reward_sum": "0.0",
+    "pi_reward_sum": "7.0",
+    "scope": "Descriptive only; this is not the unavailable full ten-pair score.",
+    "thinharness_reward_sum": "7.0"
+  },
+  "original_benchmark_id": "direct-openai-additional-10-pairwise",
+  "report_id": "direct-openai-additional-10-thinharness-supplement-v1-direct-comparison",
+  "reproduce": "uv run python -m tbench.direct_supplement_finalize check",
+  "schema_version": 1,
+  "status": "incomplete_after_repeated_policy_refusal",
+  "stop": {
+    "doom_never_launch": true,
+    "explanation": "The exact model-extraction cyber_policy refusal repeated. Its supplemental attempt is permanently consumed. The stop rule prevented the Doom supplemental attempt from launching, so Doom remains unconsumed and must not run.",
+    "model_extraction_never_retry": true,
+    "refusal_response_sha256": "254e1738341b44af7678c8b438b4575b73f8d0022b41f36383ae3ac364e3ef95"
+  },
+  "supplemental_benchmark_id": "direct-openai-additional-10-thinharness-supplement-v1",
+  "supplemental_paid_observation": {
+    "cell_id": "model-extraction-relu-logits--thinharness--supplemental-attempt-1",
+    "cost": {
+      "api_equivalent_usd": "0.12462250",
+      "components": {
+        "cache_write": "0.01941250",
+        "cached_input": "0.00175500",
+        "ordinary_input": "0.00004500",
+        "output": "0.10341000"
+      },
+      "currency": "USD",
+      "provider_reported_actual_cash_usd": null
+    },
+    "requests": 4,
+    "successful_requests": 3,
+    "terminal_requests": 1,
+    "timing": {
+      "agent_execution_seconds": "93.159687",
+      "agent_setup_seconds": "64.975509",
+      "environment_setup_seconds": "0.985537",
+      "harbor_wall_seconds": "170.404769",
+      "launcher_wall_seconds": "173.2435368",
+      "native_agent_seconds": "92.40119329200002",
+      "request_seconds": [
+        "6.1638557920232415",
+        "18.80602020805236",
+        "53.2864387499867",
+        "12.32840237498749"
+      ],
+      "request_total_seconds": "90.5847171250497915",
+      "verifier_seconds": null
+    },
+    "tool_calls": 4,
+    "usage": {
+      "cache_write_tokens": 3106,
+      "cached_input_tokens": 3510,
+      "input_tokens": 6625,
+      "ordinary_input_tokens": 9,
+      "output_tokens": 3447,
+      "reasoning_tokens": 3168
+    },
+    "verifier_outcome": null
+  }
+}

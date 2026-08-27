@@ -1,0 +1,13 @@
+{
+  "benchmark_id": "direct-openai-additional-10-thinharness-supplement-v1",
+  "checkpointed_cells": 1,
+  "label": "authorized supplemental reruns; not original campaign cells",
+  "mode": "real",
+  "planned_cells": 2,
+  "schema_version": 1,
+  "status": "policy_refusal",
+  "stop": {
+    "cell_id": "model-extraction-relu-logits--thinharness--supplemental-attempt-1",
+    "reason": "exact original cyber_policy refusal repeated; never retry"
+  }
+}

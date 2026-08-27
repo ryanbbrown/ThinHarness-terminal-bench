@@ -1,0 +1,28 @@
+{
+  "active_cell": "model-extraction-relu-logits--thinharness",
+  "basis": "frozen API-equivalent token schedule",
+  "benchmark_id": "direct-openai-additional-10-thinharness-supplement-v1",
+  "blocked": {
+    "at": 1787859162.18765,
+    "cell_id": "model-extraction-relu-logits--thinharness",
+    "reason": "cell ended without a complete receipt: model_attempt_failed"
+  },
+  "cells": {
+    "model-extraction-relu-logits--thinharness": {
+      "consumed": true,
+      "last_request_started_at": 1787859137.0232582,
+      "last_settlement_usd": "0.079335",
+      "request_count": 4,
+      "reserved_at": 1787858988.934865,
+      "reserved_usd": "10.00",
+      "spent_usd": "0.1246225",
+      "status": "consumed"
+    }
+  },
+  "currency": "USD",
+  "per_cell_cap_usd": "10.00",
+  "schema_version": 1,
+  "total_cap_usd": "20.00",
+  "total_spent_usd": "0.1246225",
+  "updated_at": 1787859162.18765
+}
