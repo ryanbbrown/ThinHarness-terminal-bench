@@ -1,0 +1,34 @@
+{
+  "cell_id": "make-doom-for-mips--thinharness",
+  "custom_host_tools": false,
+  "execution": "harbor-task-container",
+  "harness": "thinharness",
+  "host_model_loop": false,
+  "install": {
+    "build_location": "harbor-task-container",
+    "canonical_commit": "84105f07bb9c1ad366fc8fe4fef49e700f5e88ef",
+    "harness": "thinharness",
+    "installed_version": "0.7.0",
+    "platform": "Linux-6.12.76-linuxkit-x86_64-with-glibc2.36",
+    "python": "3.12.11 (main, Aug 18 2025, 19:19:11) [Clang 20.1.4 ]",
+    "schema_version": 1,
+    "source_bundle_sha256": "93b38b3180bc9e8af85b554c1639e429ef9301ccd5d1d5edf309a24a46b771b9",
+    "source_mode": "transient-local-git-bundle",
+    "wheel_path": "/opt/thinharness-direct-wheels/thinharness-0.7.0-py3-none-any.whl",
+    "wheel_sha256": "1eedd18868302a22b0303278d300701b11b9b4318d3fffd69b683f2440d9f71c"
+  },
+  "install_exit_code": 0,
+  "install_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "install_stdout_sha256": "0d250232d64e5d1db797b3813e3e65381e14f88e45d499d0b2863ad60012ec6d",
+  "schema_version": 1,
+  "source_bundle_container_removed": true,
+  "source_bundle_sha256": "93b38b3180bc9e8af85b554c1639e429ef9301ccd5d1d5edf309a24a46b771b9",
+  "stage_and_launch_only": true,
+  "staged_targets": [
+    "/opt/thinharness-terminal-bench-direct/container-runtime-requirements.txt",
+    "/opt/thinharness-terminal-bench-direct/container_security.py",
+    "/opt/thinharness-terminal-bench-direct/direct_container.py",
+    "/opt/thinharness-terminal-bench-direct/install.sh",
+    "/opt/thinharness-terminal-bench-direct/system-prompt.md"
+  ]
+}

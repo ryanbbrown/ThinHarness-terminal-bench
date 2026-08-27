@@ -1,0 +1,30 @@
+{
+  "attempt": 1,
+  "benchmark_id": "direct-openai-additional-10-thinharness-supplement-v2",
+  "cell_id": "make-doom-for-mips--thinharness",
+  "checkpoint_sha256": "7dbd61e34349efa30393af03e212ad5271a14943e7b82bd42b41e727b0438db9",
+  "consumed": true,
+  "harness": "thinharness",
+  "mode": "real",
+  "never_rerun": true,
+  "schema_version": 2,
+  "secret_persisted": false,
+  "status": "completed",
+  "supplemental_cell_id": "make-doom-for-mips--thinharness--supplemental-v2-attempt-1",
+  "task_identity": {
+    "instruction_sha256": "1903b660e4c64966ff257f828c932adff2b289de589bd6aee22b933bb4fef429",
+    "task_package_digest": "sha256:2d83dd3dee8e0f055e09973934cf0d7e3169a9cd90704cba5c8940b170be9498",
+    "task_toml_sha256": "a7d7a498f0d3a992b384e5086ba2b411767c1c1a013d1b41f6a25cdaf6d05acc",
+    "task_tree_manifest_sha256": "ad3ba908bfede13360c7a656e97f303ceb519e68c7cdafab5c4aed326839cd04"
+  },
+  "trace_sha256": {
+    "cells/make-doom-for-mips--thinharness/CHECKPOINT.json": "7dbd61e34349efa30393af03e212ad5271a14943e7b82bd42b41e727b0438db9",
+    "cells/make-doom-for-mips--thinharness/MODEL_REQUEST_STARTED.jsonl": "bbc99ceb9736f18fd8b4c8ab40e42c6b1ff8bbbb2808e5930dda35085a48de5e",
+    "cells/make-doom-for-mips--thinharness/gateway-audit.jsonl": "b60ae7c4bf9fe48746abcc261a6ac49e0e266ea07c8eea88a8bcd72f9026c316",
+    "cells/make-doom-for-mips--thinharness/gateway-identity.json": "07dad5e3fa960bee06ca3216f6e830120d7bf2433abf09153c68bc411db8072a",
+    "cells/make-doom-for-mips--thinharness/job/make-doom-for-mips__a73XYAx/agent/thinharness-direct-result.json": "526adccf970638f1d80c8d755a31184843aea4574f4467f1683db8484573ee2f",
+    "cells/make-doom-for-mips--thinharness/job/make-doom-for-mips__a73XYAx/agent/thinharness-events.jsonl": "8bc570f446b5dc0ea8f44622623883b7b2df55a7cfbbc82b6ef9c32ae14db516",
+    "cells/make-doom-for-mips--thinharness/job/make-doom-for-mips__a73XYAx/result.json": "15561bc505f048cb88307f2d78e1b5c9f46256d7103cdc6a6a397fabb045eabb",
+    "cells/make-doom-for-mips--thinharness/launch.json": "243bef7b0068ec45531503f69a5815d91392823fe87b93c4edbae00dd9271e5a"
+  }
+}

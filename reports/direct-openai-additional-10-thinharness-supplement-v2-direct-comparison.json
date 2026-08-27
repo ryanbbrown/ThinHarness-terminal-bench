@@ -1,0 +1,124 @@
+{
+  "affected_tasks": {
+    "make-doom-for-mips": {
+      "original_pi_reward": 0.0,
+      "original_pi_status": "cap_exceeded",
+      "original_thinharness_status": "unrun_prior_cap_breach",
+      "pair_included": true,
+      "v1_thinharness_status": "unrun_after_repeated_policy_refusal",
+      "v2_thinharness_reward": 0.0,
+      "v2_thinharness_status": "completed"
+    },
+    "model-extraction-relu-logits": {
+      "original_pi_reward": 1.0,
+      "original_pi_status": "completed",
+      "original_thinharness_status": "model_attempt_failed",
+      "pair_included": false,
+      "thinharness_verifier_outcome_available": false,
+      "v1_thinharness_status": "model_attempt_failed",
+      "v2_attempt_authorized": false
+    }
+  },
+  "denominators": {
+    "incomplete_pairs": 1,
+    "matched_pair_policy": "include a task when Pi and the compared ThinHarness cell both have verifier outcomes",
+    "original_verifier_complete_pairs": 8,
+    "planned_task_pairs": 10,
+    "post_v2_verifier_complete_pairs": 9,
+    "remaining_authorized_future_cells": 0,
+    "v1_authorized_cells": 2,
+    "v1_consumed_cells": 1,
+    "v1_unconsumed_cells": 1,
+    "v1_verifier_outcomes": 0,
+    "v2_authorized_cells": 1,
+    "v2_consumed_cells": 1,
+    "v2_unconsumed_cells": 0,
+    "v2_verifier_outcomes": 1
+  },
+  "evidence": {
+    "original_and_v1_evidence_immutable": true,
+    "original_report": "reports/direct-openai-additional-10-pairwise.json",
+    "original_report_sha256": "c0654560fa5733585e3467bc7e0e28369247e49524178ccce21d13d983032310",
+    "v1_comparison_report": "reports/direct-openai-additional-10-thinharness-supplement-v1-direct-comparison.json",
+    "v1_comparison_report_sha256": "b51d4bf784e2719af2d3b9c3a973102557517053695c0370a4a7ccab82310198",
+    "v2_artifact": "artifacts/direct-openai-additional-10-thinharness-supplement-v2",
+    "v2_sha256_manifest": "artifacts/direct-openai-additional-10-thinharness-supplement-v2/SHA256SUMS.json",
+    "v2_sha256_manifest_sha256": "080307855e1bd12006690d17d499f857f3f8b7968e8a9439e68c5412bd670870",
+    "v2_summary_sha256": "93e6814620a1f2fc130b0551dc75aefd945c92101d8adc2505e989799d0c307b"
+  },
+  "forensic_diagnosis": {
+    "confidence": "medium",
+    "diagnosis": "Intermediate model/tool behavior is the best-supported proximate cause. ThinHarness prompt, tool, and state packaging is a material confounder and may shape that behavior. Task content alone is not supported as sufficient. Provider policy variance remains possible.",
+    "report": "reports/model-extraction-request-forensics-v2.json",
+    "report_sha256": "968499c7ab4893ba490238e2d8b799e0133d535723ad259702fc52fb806ad7b1"
+  },
+  "full_ten_pair_score": {
+    "available": false,
+    "missing_tasks": [
+      "model-extraction-relu-logits"
+    ],
+    "reason": "Model extraction has no ThinHarness verifier outcome after its original and v1 policy refusals."
+  },
+  "label": "Doom-only v2 supplemental direct comparison; original and v1 evidence unchanged",
+  "observed_nine_pair_subset": {
+    "denominator": 9,
+    "pi_minus_thinharness_reward_sum": "0.0",
+    "pi_reward_sum": "7.0",
+    "scope": "Descriptive only; model extraction remains unmatched.",
+    "thinharness_reward_sum": "7.0"
+  },
+  "original_benchmark_id": "direct-openai-additional-10-pairwise",
+  "report_id": "direct-openai-additional-10-thinharness-supplement-v2-direct-comparison",
+  "reproduce": "uv run python -m tbench.direct_supplement_v2_finalize check",
+  "schema_version": 2,
+  "status": "nine_pairs_complete_one_unmatched_policy_refusal",
+  "supplemental_costs": {
+    "combined_api_equivalent_usd": "4.97782425",
+    "provider_reported_actual_cash_usd": null,
+    "v1_api_equivalent_usd": "0.12462250",
+    "v2_api_equivalent_usd": "4.85320175"
+  },
+  "v1_supplemental_benchmark_id": "direct-openai-additional-10-thinharness-supplement-v1",
+  "v2_paid_observation": {
+    "cell_id": "make-doom-for-mips--thinharness--supplemental-v2-attempt-1",
+    "cost": {
+      "api_equivalent_usd": "4.85320175",
+      "cap_breached": false,
+      "cap_usd": "10.00",
+      "components": {
+        "cache_write": "0.95604375",
+        "cached_input": "2.96234300",
+        "ordinary_input": "0.00082500",
+        "output": "0.93399000"
+      },
+      "currency": "USD",
+      "provider_reported_actual_cash_usd": null
+    },
+    "requests": 55,
+    "reward": 0.0,
+    "successful_requests": 55,
+    "timing": {
+      "agent_execution_seconds": "771.261209",
+      "agent_setup_seconds": "14.858077",
+      "environment_setup_seconds": "1.033803",
+      "harbor_wall_seconds": "813.994933",
+      "launcher_wall_seconds": "818.1905501",
+      "native_agent_seconds": "770.4225924339999",
+      "request_total_seconds": "520.7819349977653531",
+      "verifier_seconds": "15.384506"
+    },
+    "tool_calls": 83,
+    "usage": {
+      "cache_write_tokens": 152967,
+      "cached_input_tokens": 5924686,
+      "input_tokens": 6077818,
+      "ordinary_input_tokens": 165,
+      "output_tokens": 31133,
+      "reasoning_tokens": 11192
+    },
+    "verifier_outcome": {
+      "reward": 0.0
+    }
+  },
+  "v2_supplemental_benchmark_id": "direct-openai-additional-10-thinharness-supplement-v2"
+}

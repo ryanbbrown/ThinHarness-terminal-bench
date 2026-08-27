@@ -1,0 +1,39 @@
+{
+    "id": "19a29a1a-0ee8-49c6-ae03-ee27903b2004",
+    "started_at": "2026-08-27T16:03:59.513118",
+    "updated_at": "2026-08-27T16:17:33.643931",
+    "finished_at": "2026-08-27T16:17:33.643931",
+    "n_total_trials": 1,
+    "stats": {
+        "n_completed_trials": 1,
+        "n_errored_trials": 0,
+        "n_running_trials": 0,
+        "n_pending_trials": 0,
+        "n_cancelled_trials": 0,
+        "n_retries": 0,
+        "evals": {
+            "direct-openai-pairwise__gpt-5.6-sol__terminal-bench/terminal-bench-2-1": {
+                "n_trials": 1,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "pass_at_k": {},
+                "reward_stats": {
+                    "reward": {
+                        "0.0": [
+                            "make-doom-for-mips__a73XYAx"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        },
+        "n_input_tokens": 6077818,
+        "n_cache_tokens": 5924686,
+        "n_output_tokens": 31133,
+        "cost_usd": null
+    }
+}

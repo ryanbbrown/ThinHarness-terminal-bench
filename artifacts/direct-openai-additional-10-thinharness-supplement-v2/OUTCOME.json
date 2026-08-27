@@ -1,0 +1,10 @@
+{
+  "benchmark_id": "direct-openai-additional-10-thinharness-supplement-v2",
+  "checkpointed_cells": 1,
+  "label": "authorized Doom-only supplemental v2 attempt; not an original or v1 cell",
+  "mode": "real",
+  "planned_cells": 1,
+  "schema_version": 2,
+  "status": "completed",
+  "stop": null
+}

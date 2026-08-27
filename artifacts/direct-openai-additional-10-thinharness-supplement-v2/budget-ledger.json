@@ -1,0 +1,25 @@
+{
+  "active_cell": null,
+  "basis": "frozen API-equivalent token schedule",
+  "benchmark_id": "direct-openai-additional-10-thinharness-supplement-v2",
+  "blocked": null,
+  "cells": {
+    "make-doom-for-mips--thinharness": {
+      "consumed": true,
+      "finished_at": 1787861855.22941,
+      "last_request_started_at": 1787861815.8119302,
+      "last_settlement_usd": "0.0923020",
+      "request_count": 55,
+      "reserved_at": 1787861036.997706,
+      "reserved_usd": "10.00",
+      "spent_usd": "4.85320175",
+      "status": "settled"
+    }
+  },
+  "currency": "USD",
+  "per_cell_cap_usd": "10.00",
+  "schema_version": 1,
+  "total_cap_usd": "10.00",
+  "total_spent_usd": "4.85320175",
+  "updated_at": 1787861855.2294111
+}

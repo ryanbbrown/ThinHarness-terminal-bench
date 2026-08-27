@@ -1,0 +1,845 @@
+{
+  "batching": [
+    {
+      "sequence": 1,
+      "tool_calls_in_response": 4,
+      "tool_names": [
+        "bash",
+        "read",
+        "bash",
+        "bash"
+      ]
+    },
+    {
+      "sequence": 2,
+      "tool_calls_in_response": 6,
+      "tool_names": [
+        "read",
+        "read",
+        "read",
+        "read",
+        "bash",
+        "bash"
+      ]
+    },
+    {
+      "sequence": 3,
+      "tool_calls_in_response": 6,
+      "tool_names": [
+        "bash",
+        "read",
+        "read",
+        "read",
+        "bash",
+        "bash"
+      ]
+    },
+    {
+      "sequence": 4,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 5,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "read"
+      ]
+    },
+    {
+      "sequence": 6,
+      "tool_calls_in_response": 5,
+      "tool_names": [
+        "read",
+        "read",
+        "read",
+        "read",
+        "bash"
+      ]
+    },
+    {
+      "sequence": 7,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 8,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "write"
+      ]
+    },
+    {
+      "sequence": 9,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 10,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 11,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 12,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 13,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 14,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 15,
+      "tool_calls_in_response": 5,
+      "tool_names": [
+        "read",
+        "read",
+        "read",
+        "read",
+        "bash"
+      ]
+    },
+    {
+      "sequence": 16,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 17,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "write"
+      ]
+    },
+    {
+      "sequence": 18,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 19,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "edit"
+      ]
+    },
+    {
+      "sequence": 20,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 21,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "write"
+      ]
+    },
+    {
+      "sequence": 22,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 23,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 24,
+      "tool_calls_in_response": 4,
+      "tool_names": [
+        "bash",
+        "bash",
+        "bash",
+        "bash"
+      ]
+    },
+    {
+      "sequence": 25,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 26,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "edit"
+      ]
+    },
+    {
+      "sequence": 27,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 28,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "read"
+      ]
+    },
+    {
+      "sequence": 29,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 30,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "edit"
+      ]
+    },
+    {
+      "sequence": 31,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 32,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "edit"
+      ]
+    },
+    {
+      "sequence": 33,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 34,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 35,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 36,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "edit"
+      ]
+    },
+    {
+      "sequence": 37,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 38,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "edit"
+      ]
+    },
+    {
+      "sequence": 39,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 40,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "edit"
+      ]
+    },
+    {
+      "sequence": 41,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 42,
+      "tool_calls_in_response": 3,
+      "tool_names": [
+        "bash",
+        "bash",
+        "bash"
+      ]
+    },
+    {
+      "sequence": 43,
+      "tool_calls_in_response": 4,
+      "tool_names": [
+        "bash",
+        "read",
+        "read",
+        "bash"
+      ]
+    },
+    {
+      "sequence": 44,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 45,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "edit"
+      ]
+    },
+    {
+      "sequence": 46,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 47,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 48,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "edit"
+      ]
+    },
+    {
+      "sequence": 49,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "write"
+      ]
+    },
+    {
+      "sequence": 50,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 51,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 52,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 53,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "bash"
+      ]
+    },
+    {
+      "sequence": 54,
+      "tool_calls_in_response": 1,
+      "tool_names": [
+        "edit"
+      ]
+    },
+    {
+      "sequence": 55,
+      "tool_calls_in_response": 0,
+      "tool_names": []
+    }
+  ],
+  "cell_id": "make-doom-for-mips--thinharness",
+  "cost": {
+    "actual_cash_total": null,
+    "api_equivalent_total": 4.853201749999999,
+    "components": {
+      "cache_write": 0.9560437500000002,
+      "cached_input": 2.9623429999999993,
+      "ordinary_input": 0.0008250000000000008,
+      "output": 0.9339900000000001
+    },
+    "currency": "USD",
+    "prices_usd_per_million_tokens": {
+      "cache_write": 6.25,
+      "cached_input": 0.5,
+      "ordinary_input": 5.0,
+      "output": 30.0
+    }
+  },
+  "harbor_exit_code": 0,
+  "harness": "thinharness",
+  "identities": {
+    "gateway": {
+      "benchmark_id": "direct-openai-additional-10-thinharness-supplement-v2",
+      "bind": "0.0.0.0",
+      "bridge": null,
+      "cell_id": "make-doom-for-mips--thinharness",
+      "container_base_url": "http://host.docker.internal:62069/v1",
+      "direct_openai": true,
+      "downstream_auth": "ephemeral-random-bearer",
+      "downstream_token_persisted": false,
+      "mode": "real",
+      "openai_key_persisted": false,
+      "openai_key_source": "Doppler launcher environment",
+      "port": 62069,
+      "provider": "OpenAI",
+      "request_retries": 0,
+      "schema_version": 1,
+      "transport_retries": 0,
+      "upstream": "https://api.openai.com/v1/responses"
+    },
+    "harbor": {
+      "agent_info": {
+        "model_info": {
+          "name": "gpt-5.6-sol",
+          "provider": "openai"
+        },
+        "name": "direct-openai-pairwise",
+        "version": "1.0+84105f07"
+      },
+      "id": "758faf17-f486-425e-bca3-3fb2de5b1240",
+      "source": "terminal-bench/terminal-bench-2-1",
+      "task_checksum": "8ecf7ffa820c3c76e07d06ad5042fb5661f3371c24f6c0ee710c36596b802549",
+      "task_id": {
+        "name": "make-doom-for-mips",
+        "org": "terminal-bench",
+        "ref": "sha256:2d83dd3dee8e0f055e09973934cf0d7e3169a9cd90704cba5c8940b170be9498"
+      },
+      "task_name": "terminal-bench/make-doom-for-mips",
+      "trial_name": "make-doom-for-mips__a73XYAx"
+    },
+    "launch_gateway": {
+      "base_url": "http://host.docker.internal:62069/v1",
+      "benchmark_id": "direct-openai-additional-10-thinharness-supplement-v2",
+      "bridge": null,
+      "cell_id": "make-doom-for-mips--thinharness",
+      "direct_openai": true,
+      "ephemeral_token_persisted": false,
+      "mode": "real",
+      "port": 62069,
+      "provider": "OpenAI",
+      "upstream": "https://api.openai.com/v1/responses"
+    },
+    "model": {
+      "backend": "direct-openai",
+      "name": "gpt-5.6-sol",
+      "reasoning": {
+        "effort": "xhigh",
+        "summary": "auto"
+      },
+      "response_models": [
+        "gpt-5.6-sol"
+      ],
+      "text": {
+        "verbosity": "low"
+      }
+    },
+    "native_harness": {
+      "cell_id": "make-doom-for-mips--thinharness",
+      "execution": {
+        "cwd": "/app",
+        "execution": "harbor-task-container",
+        "hostname": "e14488f2a610",
+        "machine": "x86_64",
+        "os_release": {
+          "ID": "debian",
+          "PRETTY_NAME": "Debian GNU/Linux 12 (bookworm)",
+          "VERSION_ID": "12"
+        },
+        "pid": 105,
+        "platform": "Linux-6.12.76-linuxkit-x86_64-with-glibc2.36",
+        "python": "3.12.11 (main, Aug 18 2025, 19:19:11) [Clang 20.1.4 ]",
+        "root": "/app",
+        "uid": 0
+      },
+      "harness": "thinharness",
+      "harness_version": "0.7.0",
+      "install": {
+        "build_location": "harbor-task-container",
+        "canonical_commit": "84105f07bb9c1ad366fc8fe4fef49e700f5e88ef",
+        "harness": "thinharness",
+        "installed_version": "0.7.0",
+        "platform": "Linux-6.12.76-linuxkit-x86_64-with-glibc2.36",
+        "python": "3.12.11 (main, Aug 18 2025, 19:19:11) [Clang 20.1.4 ]",
+        "schema_version": 1,
+        "source_bundle_sha256": "93b38b3180bc9e8af85b554c1639e429ef9301ccd5d1d5edf309a24a46b771b9",
+        "source_mode": "transient-local-git-bundle",
+        "wheel_path": "/opt/thinharness-direct-wheels/thinharness-0.7.0-py3-none-any.whl",
+        "wheel_sha256": "1eedd18868302a22b0303278d300701b11b9b4318d3fffd69b683f2440d9f71c"
+      },
+      "kind": "direct-openai-pairwise-cell",
+      "mode": "real",
+      "prompt_sha256": "bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e",
+      "provider_transport": {
+        "client_timeout_seconds": {
+          "connect": 1800,
+          "pool": 1800,
+          "read": 1800,
+          "write": 1800
+        },
+        "client_type": "httpx.AsyncClient",
+        "provider_owns_client": true,
+        "provider_timeout_seconds": 1800,
+        "requests_made": 0
+      },
+      "thinharness_commit": "84105f07bb9c1ad366fc8fe4fef49e700f5e88ef",
+      "tool_schemas": [
+        {
+          "description": "Run one non-interactive Bash command. The cwd must be inside the workspace. Each call starts a fresh shell and does not share shell state with other calls. Background processes in the same process group are terminated on a best-effort basis. timeout is in seconds and is capped by the host.",
+          "name": "bash",
+          "parameters": {
+            "additionalProperties": false,
+            "description": "Model arguments for one Bash call.",
+            "properties": {
+              "command": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "cwd": {
+                "default": ".",
+                "type": "string"
+              },
+              "timeout": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "command"
+            ],
+            "type": "object"
+          },
+          "type": "function"
+        },
+        {
+          "description": "Read a UTF-8 text file with line numbers and optional offset/limit.",
+          "name": "read",
+          "parameters": {
+            "additionalProperties": false,
+            "description": "Arguments for read.",
+            "properties": {
+              "limit": {
+                "minimum": 1,
+                "type": "integer"
+              },
+              "max_chars": {
+                "minimum": 1,
+                "type": "integer"
+              },
+              "offset": {
+                "default": 1,
+                "minimum": 1,
+                "type": "integer"
+              },
+              "path": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "path"
+            ],
+            "type": "object"
+          },
+          "type": "function"
+        },
+        {
+          "description": "Apply one or more exact text replacements to UTF-8 files. Each old_string must be unique unless all=true.",
+          "name": "edit",
+          "parameters": {
+            "additionalProperties": false,
+            "description": "Arguments for edit.",
+            "properties": {
+              "edits": {
+                "items": {
+                  "additionalProperties": false,
+                  "description": "One exact replacement for edit.",
+                  "properties": {
+                    "all": {
+                      "default": false,
+                      "type": "boolean"
+                    },
+                    "expected_replacements": {
+                      "minimum": 1,
+                      "type": "integer"
+                    },
+                    "new_string": {
+                      "type": "string"
+                    },
+                    "old_string": {
+                      "type": "string"
+                    },
+                    "path": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "path",
+                    "old_string",
+                    "new_string"
+                  ],
+                  "type": "object"
+                },
+                "minItems": 1,
+                "type": "array"
+              }
+            },
+            "required": [
+              "edits"
+            ],
+            "type": "object"
+          },
+          "type": "function"
+        },
+        {
+          "description": "Create, overwrite, or append to a UTF-8 text file under the workspace root.",
+          "name": "write",
+          "parameters": {
+            "additionalProperties": false,
+            "description": "Arguments for write.",
+            "properties": {
+              "append": {
+                "default": false,
+                "type": "boolean"
+              },
+              "content": {
+                "type": "string"
+              },
+              "path": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "path",
+              "content"
+            ],
+            "type": "object"
+          },
+          "type": "function"
+        }
+      ],
+      "tools": null
+    },
+    "runner": {
+      "files": {
+        "configs/container-runtime-requirements.txt": "61d52e09e2edaa56c84a8f139c77dc6052312648d726366a6ec4be50e392c3a6",
+        "configs/direct-openai-20task-settings.json": "79a0cd91ddff45d5e765e05b2de114c57fbd4f17d3cf15da67f28162d7f77c1e",
+        "configs/direct-openai-additional-10-runner-spec.json": "56c5a79f36a464ecab72d74cb1e089f8d2ccaf413106d45804be2811e3a4c65f",
+        "configs/direct-openai-additional-10-thinharness-supplement-v2-selection.json": "566ac8aab4805f8b7c061739f70f132dcc92b59ad2a1657d335fae79cfe2bd0a",
+        "configs/direct-openai-additional-10-thinharness-supplement-v2-settings.json": "9a70eaa48433290cf177cb8af968d0e4b221c67af8c7f0fcb88746a099b41dfb",
+        "configs/native-tool-schemas.json": "1c1c1e985590e9980264a2e6b8364bd96f1b052c0761eed7f127ac9ab60cfd24",
+        "prompts/pi-0.84.2-system-prompt.md": "bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e",
+        "scripts/direct-openai-additional-10-thinharness-supplement-v2-checks.sh": "7733a037302ff34da2c1b5607646a35de81432a2a3f85a383ea52e5d69f16c26",
+        "scripts/direct-openai-additional-10-thinharness-supplement-v2-preflight.sh": "3c2c2ac4c54db5d90a49cebd45f00ec0246a06570517fb045ca76b5a2e08ca84",
+        "scripts/install-direct-thinharness.sh": "8b444733dcdbb29fc44e70a60d3c9a97640de79fc5c4e8d933c88eda024c7e6e",
+        "scripts/run-direct-openai-additional-10-thinharness-supplement-v2.sh": "e1279f1ee8ac89918a1f9f06d34a91cf3b9cf0c2a361a6d762df082dd987470e",
+        "tbench/container_security.py": "45e669996dcab219a827df78fb3fff7b8e8d6aa7abdc737746e2560666398603",
+        "tbench/direct_agent.py": "a4b244501f1de1b578a61d8607747679f8bcf93e0eeae7cfeb2137f0b83b362c",
+        "tbench/direct_budget.py": "c26e748db6c5a1e4db25fd3978fe33fe02fd31660fc91cfb6ea6c9855dd82fbe",
+        "tbench/direct_container.py": "49e25a9caeb37fb51088a54981bd3be44234cb0fd7a030d246bf111db28921a0",
+        "tbench/direct_gateway.py": "81c311343cde51547b514af7d641aadc83cbda53728a7e102f1ca781b3c6b690",
+        "tbench/direct_launch.py": "c9855e80faeecbc38fabd6ac8b952c3089ab6497eb2cc030e138f6655e586956",
+        "tbench/direct_supplement_v2.py": "a275e52916e74de362bc89300e99146a370fc4ea5fd2e2fa7cefa05b54a33eea",
+        "tbench/direct_validate.py": "f2ccd96e5f6bdc8c610102e92c1a9698956f7da940a24307eab4aed47f0a792c",
+        "tbench/durable.py": "b454981b1806720c67029af2b13efe210ba165f46eccde7a8cd9cd9b1f9b18cd",
+        "tbench/source_bundle.py": "ac208f36136b9314c7c57c9456b5304a92fd715b9eb3fd81c6ddb54a78a88077",
+        "uv.lock": "b960a45efb63fb5c5b738df1711410d1fe0c226f92bded3d29c0e6bf52f7e6d4"
+      },
+      "files_sha256": "70d14284cd8b59b90d398173532872c39a1cfe51825cce37988befd1264d118e",
+      "git_head": "8614b8cf54a9458267ba79a3ae6a5bc5b4d0e67d"
+    },
+    "source_bundle_sha256": "93b38b3180bc9e8af85b554c1639e429ef9301ccd5d1d5edf309a24a46b771b9"
+  },
+  "mode": "real",
+  "model_attempt_failure": null,
+  "never_rerun": true,
+  "real_model_attempted": true,
+  "receipt": "cells/make-doom-for-mips--thinharness/SUPPLEMENTAL_V2_RECEIPT.json",
+  "request_count": 55,
+  "restart_action": "never rerun; continue to the next frozen cell",
+  "reward": 0.0,
+  "schema_version": 1,
+  "status": "completed",
+  "successful_request_count": 55,
+  "supplemental_attempt": 1,
+  "supplemental_cell_id": "make-doom-for-mips--thinharness--supplemental-v2-attempt-1",
+  "supplemental_label": "authorized Doom-only supplemental v2 attempt; not an original or v1 cell",
+  "task": "make-doom-for-mips",
+  "task_identity": {
+    "instruction_sha256": "1903b660e4c64966ff257f828c932adff2b289de589bd6aee22b933bb4fef429",
+    "task_package_digest": "sha256:2d83dd3dee8e0f055e09973934cf0d7e3169a9cd90704cba5c8940b170be9498",
+    "task_toml_sha256": "a7d7a498f0d3a992b384e5086ba2b411767c1c1a013d1b41f6a25cdaf6d05acc",
+    "task_tree_manifest_sha256": "ad3ba908bfede13360c7a656e97f303ceb519e68c7cdafab5c4aed326839cd04"
+  },
+  "timing": {
+    "agent_execution": {
+      "finished_at": "2026-08-27T20:17:06.902784Z",
+      "started_at": "2026-08-27T20:04:15.641575Z"
+    },
+    "agent_setup": {
+      "finished_at": "2026-08-27T20:04:15.641382Z",
+      "started_at": "2026-08-27T20:04:00.783305Z"
+    },
+    "environment_setup": {
+      "finished_at": "2026-08-27T20:04:00.783230Z",
+      "started_at": "2026-08-27T20:03:59.749427Z"
+    },
+    "harbor_finished_at": "2026-08-27T20:17:33.641328Z",
+    "harbor_started_at": "2026-08-27T20:03:59.646395Z",
+    "launcher_finished_at": 1787861855.189333,
+    "launcher_started_at": 1787861036.9987829,
+    "native_agent_seconds": 770.4225924339999,
+    "request_seconds": [
+      4.620993208955042,
+      8.386273665935732,
+      6.8453978329198435,
+      8.877008666051552,
+      5.270614166045561,
+      15.213104582973756,
+      15.992044457932934,
+      6.63028924993705,
+      8.713266041013412,
+      5.315304332994856,
+      6.623858583974652,
+      4.801589375012554,
+      6.3663453329354525,
+      4.162347916979343,
+      12.829859624966048,
+      8.40717775002122,
+      69.75509874999989,
+      5.723391916952096,
+      5.059541916009039,
+      3.0221662090625614,
+      4.531185125000775,
+      5.778523291926831,
+      6.184352791984566,
+      6.975755500025116,
+      8.888512000092305,
+      7.374589917017147,
+      5.455598833039403,
+      8.558869624976069,
+      5.900519667076878,
+      5.613905292004347,
+      3.273304709000513,
+      6.496541125001386,
+      19.61055441701319,
+      6.886755291023292,
+      7.679391958983615,
+      9.315127415931784,
+      3.4250777079723775,
+      3.9339950419962406,
+      4.42163758398965,
+      13.80879833304789,
+      5.746364290942438,
+      4.824767292011529,
+      14.003966417047195,
+      12.254210583050735,
+      44.15673645900097,
+      4.778821500018239,
+      7.273942583007738,
+      12.046641499968246,
+      11.259782833047211,
+      4.370967082912102,
+      4.592597165959887,
+      3.2612325000809506,
+      11.456260374980047,
+      13.271125458064489,
+      10.755849749897607
+    ],
+    "verifier": {
+      "finished_at": "2026-08-27T20:17:22.701851Z",
+      "started_at": "2026-08-27T20:17:07.317345Z"
+    }
+  },
+  "traces": {
+    "gateway_audit": "cells/make-doom-for-mips--thinharness/gateway-audit.jsonl",
+    "gateway_identity": "cells/make-doom-for-mips--thinharness/gateway-identity.json",
+    "harbor_result": "cells/make-doom-for-mips--thinharness/job/make-doom-for-mips__a73XYAx/result.json",
+    "launch": "cells/make-doom-for-mips--thinharness/launch.json",
+    "model_request_markers": "cells/make-doom-for-mips--thinharness/MODEL_REQUEST_STARTED.jsonl",
+    "native_events": "cells/make-doom-for-mips--thinharness/job/make-doom-for-mips__a73XYAx/agent/thinharness-events.jsonl",
+    "native_receipt": "cells/make-doom-for-mips--thinharness/job/make-doom-for-mips__a73XYAx/agent/thinharness-direct-result.json",
+    "native_stderr": "cells/make-doom-for-mips--thinharness/job/make-doom-for-mips__a73XYAx/agent/thinharness-stderr.log",
+    "staging_stderr": "cells/make-doom-for-mips--thinharness/harbor.stderr.log",
+    "staging_stdout": "cells/make-doom-for-mips--thinharness/harbor.stdout.log",
+    "verifier_evidence": "cells/make-doom-for-mips--thinharness/job/make-doom-for-mips__a73XYAx/verifier/ctrf.json",
+    "verifier_evidence_sha256": "95662e7063ee48fc76fcee7eb94237573cb783b961c23f0e177d483f2f639413",
+    "verifier_evidence_type": "ctrf.json"
+  },
+  "usage": {
+    "cache_write_tokens": 152967,
+    "cached_input_tokens": 5924686,
+    "input_tokens": 6077818,
+    "ordinary_input_tokens": 165,
+    "output_tokens": 31133,
+    "reasoning_tokens": 11192
+  },
+  "verifier_outcome": {
+    "rewards": {
+      "reward": 0.0
+    }
+  }
+}
