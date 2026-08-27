@@ -1,0 +1,24 @@
+{
+    "task": {
+        "name": "terminal-bench/gpt2-codegolf",
+        "ref": "sha256:fe42af8e9c5aa927c3b680acd08e43032c84088fa9d770b03ce63dbc66fea4e7",
+        "source": "terminal-bench/terminal-bench-2-1"
+    },
+    "trial_name": "gpt2-codegolf__bcc9HQw",
+    "trials_dir": "/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/direct-openai-additional-10-pairwise/direct-openai-additional-10-pairwise-real-gpt2-codegolf--pi-20260827-002449-95f6669b",
+    "agent_setup_timeout_multiplier": 3.0,
+    "agent": {
+        "name": "tbench.direct_agent:DirectOpenAIAgent",
+        "model_name": "openai/gpt-5.6-sol",
+        "n_concurrent": 1,
+        "include_logs": [
+            "*"
+        ],
+        "kwargs": {
+            "harness": "pi",
+            "cell_id": "gpt2-codegolf--pi",
+            "mode": "real"
+        }
+    },
+    "job_id": "2004e0cc-4c4c-4f3c-8970-c0c735fdea8a"
+}

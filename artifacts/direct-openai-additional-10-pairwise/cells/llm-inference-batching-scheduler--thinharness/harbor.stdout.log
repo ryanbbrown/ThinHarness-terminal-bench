@@ -1,0 +1,28 @@
+  1/1 Mean: 1.000 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0:03:21 0:00:00
+terminal-bench/terminal-bench-2-1 • direct-openai-pairwise • gpt-5.6-sol
+┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━┓
+┃ Trials ┃ Exceptions ┃  Mean ┃
+┡━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━┩
+│      1 │          0 │ 1.000 │
+└────────┴────────────┴───────┘
+
+┏━━━━━━━━┳━━━━━━━┓
+┃ Reward ┃ Count ┃
+┡━━━━━━━━╇━━━━━━━┩
+│ 1.0    │     1 │
+└────────┴───────┘
+
+Job Info
+Total runtime: 3m 21s
+Results written to 
+/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/d
+irect-openai-additional-10-pairwise/direct-openai-additional-10-pairwise-real-ll
+m-inference-batching-scheduler--thinharness-20260826-231728-996960ed/result.json
+Inspect results by running `harbor view 
+/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/d
+irect-openai-additional-10-pairwise`
+Share results by running `harbor upload 
+/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/d
+irect-openai-additional-10-pairwise/direct-openai-additional-10-pairwise-real-ll
+m-inference-batching-scheduler--thinharness-20260826-231728-996960ed`
+

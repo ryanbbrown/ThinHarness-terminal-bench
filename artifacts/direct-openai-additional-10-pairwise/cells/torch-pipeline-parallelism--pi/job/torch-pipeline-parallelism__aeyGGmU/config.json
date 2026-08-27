@@ -1,0 +1,24 @@
+{
+    "task": {
+        "name": "terminal-bench/torch-pipeline-parallelism",
+        "ref": "sha256:db605337c749a872cea7b5b413429b3915bb4c3efe0f7875f0c46ce81bd8c4fb",
+        "source": "terminal-bench/terminal-bench-2-1"
+    },
+    "trial_name": "torch-pipeline-parallelism__aeyGGmU",
+    "trials_dir": "/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/direct-openai-additional-10-pairwise/direct-openai-additional-10-pairwise-real-torch-pipeline-parallelism--pi-20260827-000815-02517bba",
+    "agent_setup_timeout_multiplier": 3.0,
+    "agent": {
+        "name": "tbench.direct_agent:DirectOpenAIAgent",
+        "model_name": "openai/gpt-5.6-sol",
+        "n_concurrent": 1,
+        "include_logs": [
+            "*"
+        ],
+        "kwargs": {
+            "harness": "pi",
+            "cell_id": "torch-pipeline-parallelism--pi",
+            "mode": "real"
+        }
+    },
+    "job_id": "fb68f7a5-1313-4962-9e58-c9ab2925a0b5"
+}

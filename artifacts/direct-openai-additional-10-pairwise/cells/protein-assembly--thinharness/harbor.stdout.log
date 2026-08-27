@@ -1,0 +1,28 @@
+  1/1 Mean: 1.000 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0:11:23 0:00:00
+terminal-bench/terminal-bench-2-1 • direct-openai-pairwise • gpt-5.6-sol
+┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━┓
+┃ Trials ┃ Exceptions ┃  Mean ┃
+┡━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━┩
+│      1 │          0 │ 1.000 │
+└────────┴────────────┴───────┘
+
+┏━━━━━━━━┳━━━━━━━┓
+┃ Reward ┃ Count ┃
+┡━━━━━━━━╇━━━━━━━┩
+│ 1.0    │     1 │
+└────────┴───────┘
+
+Job Info
+Total runtime: 11m 23s
+Results written to 
+/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/d
+irect-openai-additional-10-pairwise/direct-openai-additional-10-pairwise-real-pr
+otein-assembly--thinharness-20260827-025905-dd23e7f4/result.json
+Inspect results by running `harbor view 
+/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/d
+irect-openai-additional-10-pairwise`
+Share results by running `harbor upload 
+/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/d
+irect-openai-additional-10-pairwise/direct-openai-additional-10-pairwise-real-pr
+otein-assembly--thinharness-20260827-025905-dd23e7f4`
+

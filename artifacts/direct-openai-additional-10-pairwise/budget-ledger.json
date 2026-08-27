@@ -1,0 +1,227 @@
+{
+  "active_cell": "make-doom-for-mips--pi",
+  "basis": "frozen API-equivalent token schedule",
+  "benchmark_id": "direct-openai-additional-10-pairwise",
+  "blocked": {
+    "at": 1787800769.645636,
+    "cell_id": "make-doom-for-mips--pi",
+    "reason": "per-cell USD 3.00 cap reached or crossed"
+  },
+  "cells": {
+    "adaptive-rejection-sampler--pi": {
+      "consumed": true,
+      "finished_at": 1787788029.002173,
+      "last_request_started_at": 1787787997.639621,
+      "last_settlement_usd": "0.02590325",
+      "request_count": 13,
+      "reserved_at": 1787787498.5653288,
+      "reserved_usd": "3.00",
+      "spent_usd": "0.97014350",
+      "status": "settled"
+    },
+    "adaptive-rejection-sampler--thinharness": {
+      "consumed": true,
+      "finished_at": 1787788557.067877,
+      "last_request_started_at": 1787788514.54221,
+      "last_settlement_usd": "0.038256",
+      "request_count": 9,
+      "reserved_at": 1787788029.021468,
+      "reserved_usd": "3.00",
+      "spent_usd": "0.93520550",
+      "status": "settled"
+    },
+    "feal-differential-cryptanalysis--pi": {
+      "consumed": true,
+      "finished_at": 1787785862.127195,
+      "last_request_started_at": 1787785813.0239072,
+      "last_settlement_usd": "0.0212095",
+      "request_count": 7,
+      "reserved_at": 1787785609.2172039,
+      "reserved_usd": "3.00",
+      "spent_usd": "0.26407325",
+      "status": "settled"
+    },
+    "feal-differential-cryptanalysis--thinharness": {
+      "consumed": true,
+      "finished_at": 1787786053.896466,
+      "last_request_started_at": 1787786004.22659,
+      "last_settlement_usd": "0.010122",
+      "request_count": 6,
+      "reserved_at": 1787785862.138688,
+      "reserved_usd": "3.00",
+      "spent_usd": "0.15868300",
+      "status": "settled"
+    },
+    "gpt2-codegolf--pi": {
+      "consumed": true,
+      "finished_at": 1787790863.084795,
+      "last_request_started_at": 1787790835.488775,
+      "last_settlement_usd": "0.02486775",
+      "request_count": 31,
+      "reserved_at": 1787790289.3499572,
+      "reserved_usd": "3.00",
+      "spent_usd": "1.12213075",
+      "status": "settled"
+    },
+    "gpt2-codegolf--thinharness": {
+      "consumed": true,
+      "finished_at": 1787791270.7194939,
+      "last_request_started_at": 1787791226.306179,
+      "last_settlement_usd": "0.04463075",
+      "request_count": 13,
+      "reserved_at": 1787790863.137562,
+      "reserved_usd": "3.00",
+      "spent_usd": "0.67483225",
+      "status": "settled"
+    },
+    "llm-inference-batching-scheduler--pi": {
+      "consumed": true,
+      "finished_at": 1787786248.948378,
+      "last_request_started_at": 1787786226.2306392,
+      "last_settlement_usd": "0.0143540",
+      "request_count": 9,
+      "reserved_at": 1787786053.9080331,
+      "reserved_usd": "3.00",
+      "spent_usd": "0.30870425",
+      "status": "settled"
+    },
+    "llm-inference-batching-scheduler--thinharness": {
+      "consumed": true,
+      "finished_at": 1787786453.3959942,
+      "last_request_started_at": 1787786430.747673,
+      "last_settlement_usd": "0.01910875",
+      "request_count": 15,
+      "reserved_at": 1787786248.9602518,
+      "reserved_usd": "3.00",
+      "spent_usd": "0.41422275",
+      "status": "settled"
+    },
+    "make-doom-for-mips--pi": {
+      "consumed": true,
+      "finished_at": 1787800825.794752,
+      "last_request_started_at": 1787800759.5070012,
+      "last_settlement_usd": "0.08092175",
+      "request_count": 41,
+      "reserved_at": 1787800232.310494,
+      "reserved_usd": "3.00",
+      "spent_usd": "3.02611250",
+      "status": "cap_exceeded"
+    },
+    "model-extraction-relu-logits--pi": {
+      "consumed": true,
+      "finished_at": 1787791505.73356,
+      "last_request_started_at": 1787791478.693061,
+      "last_settlement_usd": "0.00849125",
+      "request_count": 10,
+      "reserved_at": 1787791270.7503428,
+      "reserved_usd": "3.00",
+      "spent_usd": "0.29749900",
+      "status": "settled"
+    },
+    "model-extraction-relu-logits--thinharness": {
+      "consumed": true,
+      "finished_at": 1787791818.8127701,
+      "last_request_started_at": 1787791790.862251,
+      "last_settlement_usd": "0.0358745",
+      "request_count": 7,
+      "reserved_at": 1787791505.765982,
+      "reserved_usd": "3.00",
+      "spent_usd": "0.37595325",
+      "status": "settled"
+    },
+    "path-tracing-reverse--pi": {
+      "consumed": true,
+      "finished_at": 1787788994.100203,
+      "last_request_started_at": 1787788963.241908,
+      "last_settlement_usd": "0.06345725",
+      "request_count": 35,
+      "reserved_at": 1787788557.0893812,
+      "reserved_usd": "3.00",
+      "spent_usd": "2.57785550",
+      "status": "settled"
+    },
+    "path-tracing-reverse--thinharness": {
+      "consumed": true,
+      "finished_at": 1787789295.4124758,
+      "last_request_started_at": 1787789266.258377,
+      "last_settlement_usd": "0.03697325",
+      "request_count": 17,
+      "reserved_at": 1787788994.114639,
+      "reserved_usd": "3.00",
+      "spent_usd": "1.10781000",
+      "status": "settled"
+    },
+    "protein-assembly--pi": {
+      "consumed": true,
+      "finished_at": 1787799545.667849,
+      "last_request_started_at": 1787799517.966568,
+      "last_settlement_usd": "0.03598775",
+      "request_count": 19,
+      "reserved_at": 1787799052.7725189,
+      "reserved_usd": "3.00",
+      "spent_usd": "0.92638775",
+      "status": "settled"
+    },
+    "protein-assembly--thinharness": {
+      "consumed": true,
+      "finished_at": 1787800232.293818,
+      "last_request_started_at": 1787800206.230828,
+      "last_settlement_usd": "0.03544725",
+      "request_count": 23,
+      "reserved_at": 1787799545.709654,
+      "reserved_usd": "3.00",
+      "spent_usd": "1.04168825",
+      "status": "settled"
+    },
+    "schemelike-metacircular-eval--pi": {
+      "consumed": true,
+      "finished_at": 1787787010.081703,
+      "last_request_started_at": 1787786861.6645188,
+      "last_settlement_usd": "0.01877675",
+      "request_count": 16,
+      "reserved_at": 1787786453.408412,
+      "reserved_usd": "3.00",
+      "spent_usd": "0.83080750",
+      "status": "settled"
+    },
+    "schemelike-metacircular-eval--thinharness": {
+      "consumed": true,
+      "finished_at": 1787787498.552334,
+      "last_request_started_at": 1787787363.6111271,
+      "last_settlement_usd": "0.01950325",
+      "request_count": 13,
+      "reserved_at": 1787787010.118186,
+      "reserved_usd": "3.00",
+      "spent_usd": "0.67749275",
+      "status": "settled"
+    },
+    "torch-pipeline-parallelism--pi": {
+      "consumed": true,
+      "finished_at": 1787789817.945549,
+      "last_request_started_at": 1787789644.0727592,
+      "last_settlement_usd": "0.07102625",
+      "request_count": 7,
+      "reserved_at": 1787789295.427119,
+      "reserved_usd": "3.00",
+      "spent_usd": "0.66214875",
+      "status": "settled"
+    },
+    "torch-pipeline-parallelism--thinharness": {
+      "consumed": true,
+      "finished_at": 1787790289.290397,
+      "last_request_started_at": 1787790139.928488,
+      "last_settlement_usd": "0.0153430",
+      "request_count": 7,
+      "reserved_at": 1787789817.9822478,
+      "reserved_usd": "3.00",
+      "spent_usd": "0.52094275",
+      "status": "settled"
+    }
+  },
+  "currency": "USD",
+  "per_cell_cap_usd": "3.00",
+  "schema_version": 1,
+  "total_cap_usd": "60.00",
+  "total_spent_usd": "16.89269325",
+  "updated_at": 1787804942.9778109
+}

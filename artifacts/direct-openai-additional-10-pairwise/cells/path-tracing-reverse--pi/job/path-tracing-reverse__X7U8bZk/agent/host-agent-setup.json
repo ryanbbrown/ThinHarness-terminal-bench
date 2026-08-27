@@ -1,0 +1,36 @@
+{
+  "cell_id": "path-tracing-reverse--pi",
+  "custom_host_tools": false,
+  "execution": "harbor-task-container",
+  "harness": "pi",
+  "host_model_loop": false,
+  "install": {
+    "build_location": "harbor-task-container",
+    "harness": "pi",
+    "node_executable": "/root/.nvm/versions/node/v22.23.1/bin/node",
+    "node_version": "v22.23.1",
+    "package": "@earendil-works/pi-coding-agent",
+    "package_lock_sha256": "0f34d01dda1837fd634d0562d2c0350ff982da133de59f36fccdac62835fc1c0",
+    "package_version": "0.84.2",
+    "pi_executable": "/opt/pi-subscription/node_modules/@earendil-works/pi-coding-agent/dist/cli.js",
+    "pi_version": "0.84.2",
+    "platform": "Linux-6.12.76-linuxkit-x86_64-with-glibc2.39",
+    "schema_version": 1
+  },
+  "install_exit_code": 0,
+  "install_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "install_stdout_sha256": "d7393cc233ad103ef8c63bb72a0a426bc419d790bb0df00ee2d69e36e1c289cc",
+  "schema_version": 1,
+  "source_bundle_container_removed": true,
+  "source_bundle_sha256": null,
+  "stage_and_launch_only": true,
+  "staged_targets": [
+    "/opt/thinharness-terminal-bench-direct/container_security.py",
+    "/opt/thinharness-terminal-bench-direct/direct_container.py",
+    "/opt/thinharness-terminal-bench-direct/install.sh",
+    "/opt/thinharness-terminal-bench-direct/pi-subscription-package-lock.json",
+    "/opt/thinharness-terminal-bench-direct/pi-subscription-package.json",
+    "/opt/thinharness-terminal-bench-direct/pi_subscription_probe.mjs",
+    "/opt/thinharness-terminal-bench-direct/system-prompt.md"
+  ]
+}

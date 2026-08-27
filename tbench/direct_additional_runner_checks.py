@@ -6,11 +6,11 @@ import ast
 from pathlib import Path
 
 from . import direct_additional_launch, direct_additional_validate
-from .direct_additional_constants import EXPECTED_CELLS, PREFLIGHT_DIR
+from .direct_additional_constants import ARTIFACT_DIR, EXPECTED_CELLS, PREFLIGHT_DIR
 
 
 def check() -> None:
-    direct_additional_launch._validate_frozen_inputs(PREFLIGHT_DIR)
+    direct_additional_launch._validate_frozen_inputs(ARTIFACT_DIR if ARTIFACT_DIR.exists() else PREFLIGHT_DIR)
     if len(EXPECTED_CELLS) != 20:
         raise RuntimeError("runner does not contain exactly 20 frozen cells")
     source = Path("tbench/direct_additional_launch.py").read_text(encoding="utf-8")

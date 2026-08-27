@@ -1,0 +1,30 @@
+{
+    "job_name": "direct-openai-additional-10-pairwise-real-adaptive-rejection-sampler--pi-20260826-233818-bccb1fdf",
+    "jobs_dir": "/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/direct-openai-additional-10-pairwise",
+    "agent_setup_timeout_multiplier": 3.0,
+    "n_concurrent_trials": 1,
+    "agents": [
+        {
+            "name": "tbench.direct_agent:DirectOpenAIAgent",
+            "model_name": "openai/gpt-5.6-sol",
+            "n_concurrent": 1,
+            "include_logs": [
+                "*"
+            ],
+            "kwargs": {
+                "harness": "pi",
+                "cell_id": "adaptive-rejection-sampler--pi",
+                "mode": "real"
+            }
+        }
+    ],
+    "datasets": [
+        {
+            "name": "terminal-bench/terminal-bench-2-1",
+            "ref": "sha256:7d7bdc1cbedad549fc1140404bd4dc45e5fd0ea7c4186773687d177ad3a0699a",
+            "task_names": [
+                "terminal-bench/adaptive-rejection-sampler"
+            ]
+        }
+    ]
+}

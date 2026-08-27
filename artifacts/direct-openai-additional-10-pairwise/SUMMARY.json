@@ -1,0 +1,2182 @@
+{
+  "aggregate": {
+    "api_equivalent_cost_usd": "16.89269325",
+    "latency": {
+      "launcher_wall_seconds": {
+        "observations": 19,
+        "total_seconds": "7981.682291"
+      },
+      "native_agent_seconds": {
+        "observations": 19,
+        "total_seconds": "5822.689971"
+      },
+      "upstream_request_seconds": {
+        "observations": 19,
+        "total_seconds": "4860.418752"
+      },
+      "verifier_seconds": {
+        "observations": 18,
+        "total_seconds": "706.231375"
+      }
+    },
+    "locally_denied_attempts": 1,
+    "observed_cells": 19,
+    "provider_reported_actual_cash_observations": 0,
+    "provider_reported_actual_cash_total_usd": null,
+    "score": {
+      "reward_sum": "15",
+      "verifier_outcomes": 18
+    },
+    "status_counts": {
+      "cap_exceeded": 1,
+      "completed": 17,
+      "model_attempt_failed": 1
+    },
+    "successful_upstream_requests": 297,
+    "tools": 435,
+    "upstream_requests": 298,
+    "usage": {
+      "cache_write_tokens": 706869,
+      "cached_input_tokens": 10066674,
+      "input_tokens": 10774434,
+      "ordinary_input_tokens": 891,
+      "output_tokens": 247899,
+      "reasoning_tokens": 149446
+    }
+  },
+  "benchmark_id": "direct-openai-additional-10-pairwise",
+  "by_empirical_stratum": {
+    "easy": {
+      "api_equivalent_cost_usd": "2.65398350",
+      "latency": {
+        "launcher_wall_seconds": {
+          "observations": 6,
+          "total_seconds": "1889.130732"
+        },
+        "native_agent_seconds": {
+          "observations": 6,
+          "total_seconds": "1113.880761"
+        },
+        "upstream_request_seconds": {
+          "observations": 6,
+          "total_seconds": "903.374221"
+        },
+        "verifier_seconds": {
+          "observations": 6,
+          "total_seconds": "310.391162"
+        }
+      },
+      "locally_denied_attempts": 0,
+      "observed_cells": 6,
+      "provider_reported_actual_cash_observations": 0,
+      "provider_reported_actual_cash_total_usd": null,
+      "score": {
+        "reward_sum": "6",
+        "verifier_outcomes": 6
+      },
+      "status_counts": {
+        "completed": 6
+      },
+      "successful_upstream_requests": 66,
+      "tools": 118,
+      "upstream_requests": 66,
+      "usage": {
+        "cache_write_tokens": 118832,
+        "cached_input_tokens": 943947,
+        "input_tokens": 1062977,
+        "ordinary_input_tokens": 198,
+        "output_tokens": 47944,
+        "reasoning_tokens": 26697
+      }
+    },
+    "hard": {
+      "api_equivalent_cost_usd": "7.46460375",
+      "latency": {
+        "launcher_wall_seconds": {
+          "observations": 7,
+          "total_seconds": "3302.158106"
+        },
+        "native_agent_seconds": {
+          "observations": 7,
+          "total_seconds": "2643.741314"
+        },
+        "upstream_request_seconds": {
+          "observations": 7,
+          "total_seconds": "2012.994628"
+        },
+        "verifier_seconds": {
+          "observations": 6,
+          "total_seconds": "86.222690"
+        }
+      },
+      "locally_denied_attempts": 1,
+      "observed_cells": 7,
+      "provider_reported_actual_cash_observations": 0,
+      "provider_reported_actual_cash_total_usd": null,
+      "score": {
+        "reward_sum": "5",
+        "verifier_outcomes": 6
+      },
+      "status_counts": {
+        "cap_exceeded": 1,
+        "completed": 5,
+        "model_attempt_failed": 1
+      },
+      "successful_upstream_requests": 143,
+      "tools": 191,
+      "upstream_requests": 144,
+      "usage": {
+        "cache_write_tokens": 297919,
+        "cached_input_tokens": 4861990,
+        "input_tokens": 5160338,
+        "ordinary_input_tokens": 429,
+        "output_tokens": 105649,
+        "reasoning_tokens": 59262
+      }
+    },
+    "medium": {
+      "api_equivalent_cost_usd": "6.77410600",
+      "latency": {
+        "launcher_wall_seconds": {
+          "observations": 6,
+          "total_seconds": "2790.393453"
+        },
+        "native_agent_seconds": {
+          "observations": 6,
+          "total_seconds": "2065.067896"
+        },
+        "upstream_request_seconds": {
+          "observations": 6,
+          "total_seconds": "1944.049903"
+        },
+        "verifier_seconds": {
+          "observations": 6,
+          "total_seconds": "309.617523"
+        }
+      },
+      "locally_denied_attempts": 0,
+      "observed_cells": 6,
+      "provider_reported_actual_cash_observations": 0,
+      "provider_reported_actual_cash_total_usd": null,
+      "score": {
+        "reward_sum": "4",
+        "verifier_outcomes": 6
+      },
+      "status_counts": {
+        "completed": 6
+      },
+      "successful_upstream_requests": 88,
+      "tools": 126,
+      "upstream_requests": 88,
+      "usage": {
+        "cache_write_tokens": 290118,
+        "cached_input_tokens": 4260737,
+        "input_tokens": 4551119,
+        "ordinary_input_tokens": 264,
+        "output_tokens": 94306,
+        "reasoning_tokens": 63487
+      }
+    }
+  },
+  "by_harness": {
+    "pi": {
+      "api_equivalent_cost_usd": "10.98586275",
+      "latency": {
+        "launcher_wall_seconds": {
+          "observations": 10,
+          "total_seconds": "4389.371258"
+        },
+        "native_agent_seconds": {
+          "observations": 10,
+          "total_seconds": "3249.768093"
+        },
+        "upstream_request_seconds": {
+          "observations": 10,
+          "total_seconds": "2737.428899"
+        },
+        "verifier_seconds": {
+          "observations": 10,
+          "total_seconds": "381.805317"
+        }
+      },
+      "locally_denied_attempts": 1,
+      "observed_cells": 10,
+      "provider_reported_actual_cash_observations": 0,
+      "provider_reported_actual_cash_total_usd": null,
+      "score": {
+        "reward_sum": "8",
+        "verifier_outcomes": 10
+      },
+      "status_counts": {
+        "cap_exceeded": 1,
+        "completed": 9
+      },
+      "successful_upstream_requests": 188,
+      "tools": 281,
+      "unrun_cells": 0,
+      "upstream_requests": 188,
+      "usage": {
+        "cache_write_tokens": 448533,
+        "cached_input_tokens": 7885623,
+        "input_tokens": 8334720,
+        "ordinary_input_tokens": 564,
+        "output_tokens": 141230,
+        "reasoning_tokens": 82209
+      }
+    },
+    "thinharness": {
+      "api_equivalent_cost_usd": "5.90683050",
+      "latency": {
+        "launcher_wall_seconds": {
+          "observations": 9,
+          "total_seconds": "3592.311033"
+        },
+        "native_agent_seconds": {
+          "observations": 9,
+          "total_seconds": "2572.921878"
+        },
+        "upstream_request_seconds": {
+          "observations": 9,
+          "total_seconds": "2122.989853"
+        },
+        "verifier_seconds": {
+          "observations": 8,
+          "total_seconds": "324.426058"
+        }
+      },
+      "locally_denied_attempts": 0,
+      "observed_cells": 9,
+      "provider_reported_actual_cash_observations": 0,
+      "provider_reported_actual_cash_total_usd": null,
+      "score": {
+        "reward_sum": "7",
+        "verifier_outcomes": 8
+      },
+      "status_counts": {
+        "completed": 8,
+        "model_attempt_failed": 1
+      },
+      "successful_upstream_requests": 109,
+      "tools": 154,
+      "unrun_cells": 1,
+      "upstream_requests": 110,
+      "usage": {
+        "cache_write_tokens": 258336,
+        "cached_input_tokens": 2181051,
+        "input_tokens": 2439714,
+        "ordinary_input_tokens": 327,
+        "output_tokens": 106669,
+        "reasoning_tokens": 67237
+      }
+    }
+  },
+  "cap_stop": {
+    "campaign_block_preserved": true,
+    "cell_id": "make-doom-for-mips--pi",
+    "final_cell": {
+      "cell_id": "make-doom-for-mips--thinharness",
+      "status": "unrun_prior_cap_breach"
+    },
+    "local_denial_had_upstream_marker": false,
+    "locally_denied_attempts": 1,
+    "native_model_attempts": 42,
+    "overshoot_usd": "0.02611250",
+    "per_cell_cap_usd": "3.00",
+    "spent_usd": "3.02611250",
+    "status": "cap_exceeded",
+    "successful_upstream_requests": 41,
+    "upstream_requests": 41,
+    "verifier_reward": 0
+  },
+  "cells": [
+    {
+      "api_equivalent_cost_usd": "0.26407325",
+      "cell_id": "feal-differential-cryptanalysis--pi",
+      "harness": "pi",
+      "latency": {
+        "launcher_wall_seconds": "252.894459",
+        "native_agent_seconds": "153.576243",
+        "upstream_request_seconds": "137.042891",
+        "verifier_seconds": "22.769376"
+      },
+      "locally_denied_attempts": 0,
+      "native_model_attempts": null,
+      "provider_reported_actual_cash_usd": null,
+      "status": "completed",
+      "stratum": "easy",
+      "successful_upstream_requests": 7,
+      "task": "feal-differential-cryptanalysis",
+      "tools": 8,
+      "traces": {
+        "gateway_audit": "cells/feal-differential-cryptanalysis--pi/gateway-audit.jsonl",
+        "gateway_identity": "cells/feal-differential-cryptanalysis--pi/gateway-identity.json",
+        "harbor_result": "cells/feal-differential-cryptanalysis--pi/job/feal-differential-cryptanalysis__hV96jXv/result.json",
+        "launch": "cells/feal-differential-cryptanalysis--pi/launch.json",
+        "model_request_markers": "cells/feal-differential-cryptanalysis--pi/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/feal-differential-cryptanalysis--pi/job/feal-differential-cryptanalysis__hV96jXv/agent/pi-events.jsonl",
+        "native_receipt": "cells/feal-differential-cryptanalysis--pi/job/feal-differential-cryptanalysis__hV96jXv/agent/pi-direct-result.json",
+        "native_stderr": "cells/feal-differential-cryptanalysis--pi/job/feal-differential-cryptanalysis__hV96jXv/agent/pi-stderr.log",
+        "staging_stderr": "cells/feal-differential-cryptanalysis--pi/harbor.stderr.log",
+        "staging_stdout": "cells/feal-differential-cryptanalysis--pi/harbor.stdout.log",
+        "verifier_evidence": "cells/feal-differential-cryptanalysis--pi/job/feal-differential-cryptanalysis__hV96jXv/verifier/ctrf.json",
+        "verifier_evidence_sha256": "6afe6546107a8bc0b82dcc4a56cbf76153970d9899db79da260c2b22e15ed624",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "upstream_requests": 7,
+      "usage": {
+        "cache_write_tokens": 8551,
+        "cached_input_tokens": 26129,
+        "input_tokens": 34701,
+        "ordinary_input_tokens": 21,
+        "output_tokens": 6582,
+        "reasoning_tokens": 4543
+      },
+      "verifier_outcome_available": true,
+      "verifier_reward": 1.0
+    },
+    {
+      "api_equivalent_cost_usd": "0.15868300",
+      "cell_id": "feal-differential-cryptanalysis--thinharness",
+      "harness": "thinharness",
+      "latency": {
+        "launcher_wall_seconds": "191.747450",
+        "native_agent_seconds": "91.039943",
+        "upstream_request_seconds": "73.497619",
+        "verifier_seconds": "23.222889"
+      },
+      "locally_denied_attempts": 0,
+      "native_model_attempts": null,
+      "provider_reported_actual_cash_usd": null,
+      "status": "completed",
+      "stratum": "easy",
+      "successful_upstream_requests": 6,
+      "task": "feal-differential-cryptanalysis",
+      "tools": 7,
+      "traces": {
+        "gateway_audit": "cells/feal-differential-cryptanalysis--thinharness/gateway-audit.jsonl",
+        "gateway_identity": "cells/feal-differential-cryptanalysis--thinharness/gateway-identity.json",
+        "harbor_result": "cells/feal-differential-cryptanalysis--thinharness/job/feal-differential-cryptanalysis__qek7KGN/result.json",
+        "launch": "cells/feal-differential-cryptanalysis--thinharness/launch.json",
+        "model_request_markers": "cells/feal-differential-cryptanalysis--thinharness/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/feal-differential-cryptanalysis--thinharness/job/feal-differential-cryptanalysis__qek7KGN/agent/thinharness-events.jsonl",
+        "native_receipt": "cells/feal-differential-cryptanalysis--thinharness/job/feal-differential-cryptanalysis__qek7KGN/agent/thinharness-direct-result.json",
+        "native_stderr": "cells/feal-differential-cryptanalysis--thinharness/job/feal-differential-cryptanalysis__qek7KGN/agent/thinharness-stderr.log",
+        "staging_stderr": "cells/feal-differential-cryptanalysis--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/feal-differential-cryptanalysis--thinharness/harbor.stdout.log",
+        "verifier_evidence": "cells/feal-differential-cryptanalysis--thinharness/job/feal-differential-cryptanalysis__qek7KGN/verifier/ctrf.json",
+        "verifier_evidence_sha256": "800c81e56f2e9716c6a6ff13aeb99ca991b3bf415d17a7f1712cd9bce41dd4ad",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "upstream_requests": 6,
+      "usage": {
+        "cache_write_tokens": 6938,
+        "cached_input_tokens": 19621,
+        "input_tokens": 26577,
+        "ordinary_input_tokens": 18,
+        "output_tokens": 3514,
+        "reasoning_tokens": 1782
+      },
+      "verifier_outcome_available": true,
+      "verifier_reward": 1.0
+    },
+    {
+      "api_equivalent_cost_usd": "0.30870425",
+      "cell_id": "llm-inference-batching-scheduler--pi",
+      "harness": "pi",
+      "latency": {
+        "launcher_wall_seconds": "195.022724",
+        "native_agent_seconds": "112.458666",
+        "upstream_request_seconds": "102.510655",
+        "verifier_seconds": "6.004260"
+      },
+      "locally_denied_attempts": 0,
+      "native_model_attempts": null,
+      "provider_reported_actual_cash_usd": null,
+      "status": "completed",
+      "stratum": "easy",
+      "successful_upstream_requests": 9,
+      "task": "llm-inference-batching-scheduler",
+      "tools": 10,
+      "traces": {
+        "gateway_audit": "cells/llm-inference-batching-scheduler--pi/gateway-audit.jsonl",
+        "gateway_identity": "cells/llm-inference-batching-scheduler--pi/gateway-identity.json",
+        "harbor_result": "cells/llm-inference-batching-scheduler--pi/job/llm-inference-batching-scheduler__BFr88UR/result.json",
+        "launch": "cells/llm-inference-batching-scheduler--pi/launch.json",
+        "model_request_markers": "cells/llm-inference-batching-scheduler--pi/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/llm-inference-batching-scheduler--pi/job/llm-inference-batching-scheduler__BFr88UR/agent/pi-events.jsonl",
+        "native_receipt": "cells/llm-inference-batching-scheduler--pi/job/llm-inference-batching-scheduler__BFr88UR/agent/pi-direct-result.json",
+        "native_stderr": "cells/llm-inference-batching-scheduler--pi/job/llm-inference-batching-scheduler__BFr88UR/agent/pi-stderr.log",
+        "staging_stderr": "cells/llm-inference-batching-scheduler--pi/harbor.stderr.log",
+        "staging_stdout": "cells/llm-inference-batching-scheduler--pi/harbor.stdout.log",
+        "verifier_evidence": "cells/llm-inference-batching-scheduler--pi/job/llm-inference-batching-scheduler__BFr88UR/verifier/ctrf.json",
+        "verifier_evidence_sha256": "913ee430c3a22fc000dc00af38f575eadc0c4ec1ca65cbfde2f7919525410e63",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "upstream_requests": 9,
+      "usage": {
+        "cache_write_tokens": 17099,
+        "cached_input_tokens": 79701,
+        "input_tokens": 96827,
+        "ordinary_input_tokens": 27,
+        "output_tokens": 5395,
+        "reasoning_tokens": 2913
+      },
+      "verifier_outcome_available": true,
+      "verifier_reward": 1.0
+    },
+    {
+      "api_equivalent_cost_usd": "0.41422275",
+      "cell_id": "llm-inference-batching-scheduler--thinharness",
+      "harness": "thinharness",
+      "latency": {
+        "launcher_wall_seconds": "204.415028",
+        "native_agent_seconds": "120.287211",
+        "upstream_request_seconds": "116.552346",
+        "verifier_seconds": "6.273978"
+      },
+      "locally_denied_attempts": 0,
+      "native_model_attempts": null,
+      "provider_reported_actual_cash_usd": null,
+      "status": "completed",
+      "stratum": "easy",
+      "successful_upstream_requests": 15,
+      "task": "llm-inference-batching-scheduler",
+      "tools": 16,
+      "traces": {
+        "gateway_audit": "cells/llm-inference-batching-scheduler--thinharness/gateway-audit.jsonl",
+        "gateway_identity": "cells/llm-inference-batching-scheduler--thinharness/gateway-identity.json",
+        "harbor_result": "cells/llm-inference-batching-scheduler--thinharness/job/llm-inference-batching-scheduler__M5PXMzP/result.json",
+        "launch": "cells/llm-inference-batching-scheduler--thinharness/launch.json",
+        "model_request_markers": "cells/llm-inference-batching-scheduler--thinharness/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/llm-inference-batching-scheduler--thinharness/job/llm-inference-batching-scheduler__M5PXMzP/agent/thinharness-events.jsonl",
+        "native_receipt": "cells/llm-inference-batching-scheduler--thinharness/job/llm-inference-batching-scheduler__M5PXMzP/agent/thinharness-direct-result.json",
+        "native_stderr": "cells/llm-inference-batching-scheduler--thinharness/job/llm-inference-batching-scheduler__M5PXMzP/agent/thinharness-stderr.log",
+        "staging_stderr": "cells/llm-inference-batching-scheduler--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/llm-inference-batching-scheduler--thinharness/harbor.stdout.log",
+        "verifier_evidence": "cells/llm-inference-batching-scheduler--thinharness/job/llm-inference-batching-scheduler__M5PXMzP/verifier/ctrf.json",
+        "verifier_evidence_sha256": "838c576eb2beda78f9e3844b9bc4d2be228aaa95a55ce1874944208248629c9f",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "upstream_requests": 15,
+      "usage": {
+        "cache_write_tokens": 22075,
+        "cached_input_tokens": 203938,
+        "input_tokens": 226058,
+        "ordinary_input_tokens": 45,
+        "output_tokens": 5802,
+        "reasoning_tokens": 2177
+      },
+      "verifier_outcome_available": true,
+      "verifier_reward": 1.0
+    },
+    {
+      "api_equivalent_cost_usd": "0.83080750",
+      "cell_id": "schemelike-metacircular-eval--pi",
+      "harness": "pi",
+      "latency": {
+        "launcher_wall_seconds": "556.638436",
+        "native_agent_seconds": "347.362738",
+        "upstream_request_seconds": "256.913146",
+        "verifier_seconds": "132.430405"
+      },
+      "locally_denied_attempts": 0,
+      "native_model_attempts": null,
+      "provider_reported_actual_cash_usd": null,
+      "status": "completed",
+      "stratum": "easy",
+      "successful_upstream_requests": 16,
+      "task": "schemelike-metacircular-eval",
+      "tools": 51,
+      "traces": {
+        "gateway_audit": "cells/schemelike-metacircular-eval--pi/gateway-audit.jsonl",
+        "gateway_identity": "cells/schemelike-metacircular-eval--pi/gateway-identity.json",
+        "harbor_result": "cells/schemelike-metacircular-eval--pi/job/schemelike-metacircular-eval__jqj2c3L/result.json",
+        "launch": "cells/schemelike-metacircular-eval--pi/launch.json",
+        "model_request_markers": "cells/schemelike-metacircular-eval--pi/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/schemelike-metacircular-eval--pi/job/schemelike-metacircular-eval__jqj2c3L/agent/pi-events.jsonl",
+        "native_receipt": "cells/schemelike-metacircular-eval--pi/job/schemelike-metacircular-eval__jqj2c3L/agent/pi-direct-result.json",
+        "native_stderr": "cells/schemelike-metacircular-eval--pi/job/schemelike-metacircular-eval__jqj2c3L/agent/pi-stderr.log",
+        "staging_stderr": "cells/schemelike-metacircular-eval--pi/harbor.stderr.log",
+        "staging_stdout": "cells/schemelike-metacircular-eval--pi/harbor.stdout.log",
+        "verifier_evidence": "cells/schemelike-metacircular-eval--pi/job/schemelike-metacircular-eval__jqj2c3L/verifier/ctrf.json",
+        "verifier_evidence_sha256": "753138465c31352e18f552decb065f29a991e27d213aa3f9c5ca0f72564b9ec8",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "upstream_requests": 16,
+      "usage": {
+        "cache_write_tokens": 34852,
+        "cached_input_tokens": 355605,
+        "input_tokens": 390505,
+        "ordinary_input_tokens": 48,
+        "output_tokens": 14498,
+        "reasoning_tokens": 8778
+      },
+      "verifier_outcome_available": true,
+      "verifier_reward": 1.0
+    },
+    {
+      "api_equivalent_cost_usd": "0.67749275",
+      "cell_id": "schemelike-metacircular-eval--thinharness",
+      "harness": "thinharness",
+      "latency": {
+        "launcher_wall_seconds": "488.412635",
+        "native_agent_seconds": "289.155960",
+        "upstream_request_seconds": "216.857564",
+        "verifier_seconds": "119.690254"
+      },
+      "locally_denied_attempts": 0,
+      "native_model_attempts": null,
+      "provider_reported_actual_cash_usd": null,
+      "status": "completed",
+      "stratum": "easy",
+      "successful_upstream_requests": 13,
+      "task": "schemelike-metacircular-eval",
+      "tools": 26,
+      "traces": {
+        "gateway_audit": "cells/schemelike-metacircular-eval--thinharness/gateway-audit.jsonl",
+        "gateway_identity": "cells/schemelike-metacircular-eval--thinharness/gateway-identity.json",
+        "harbor_result": "cells/schemelike-metacircular-eval--thinharness/job/schemelike-metacircular-eval__wex2W3k/result.json",
+        "launch": "cells/schemelike-metacircular-eval--thinharness/launch.json",
+        "model_request_markers": "cells/schemelike-metacircular-eval--thinharness/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/schemelike-metacircular-eval--thinharness/job/schemelike-metacircular-eval__wex2W3k/agent/thinharness-events.jsonl",
+        "native_receipt": "cells/schemelike-metacircular-eval--thinharness/job/schemelike-metacircular-eval__wex2W3k/agent/thinharness-direct-result.json",
+        "native_stderr": "cells/schemelike-metacircular-eval--thinharness/job/schemelike-metacircular-eval__wex2W3k/agent/thinharness-stderr.log",
+        "staging_stderr": "cells/schemelike-metacircular-eval--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/schemelike-metacircular-eval--thinharness/harbor.stdout.log",
+        "verifier_evidence": "cells/schemelike-metacircular-eval--thinharness/job/schemelike-metacircular-eval__wex2W3k/verifier/ctrf.json",
+        "verifier_evidence_sha256": "c3d9dede12b072e5543037dc2a2bd1d40da533d90772a486d098d95159077a6e",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "upstream_requests": 13,
+      "usage": {
+        "cache_write_tokens": 29317,
+        "cached_input_tokens": 258953,
+        "input_tokens": 288309,
+        "ordinary_input_tokens": 39,
+        "output_tokens": 12153,
+        "reasoning_tokens": 6504
+      },
+      "verifier_outcome_available": true,
+      "verifier_reward": 1.0
+    },
+    {
+      "api_equivalent_cost_usd": "0.97014350",
+      "cell_id": "adaptive-rejection-sampler--pi",
+      "harness": "pi",
+      "latency": {
+        "launcher_wall_seconds": "530.377735",
+        "native_agent_seconds": "453.419461",
+        "upstream_request_seconds": "377.969854",
+        "verifier_seconds": "14.160950"
+      },
+      "locally_denied_attempts": 0,
+      "native_model_attempts": null,
+      "provider_reported_actual_cash_usd": null,
+      "status": "completed",
+      "stratum": "medium",
+      "successful_upstream_requests": 13,
+      "task": "adaptive-rejection-sampler",
+      "tools": 14,
+      "traces": {
+        "gateway_audit": "cells/adaptive-rejection-sampler--pi/gateway-audit.jsonl",
+        "gateway_identity": "cells/adaptive-rejection-sampler--pi/gateway-identity.json",
+        "harbor_result": "cells/adaptive-rejection-sampler--pi/job/adaptive-rejection-sampler__UZ66WjQ/result.json",
+        "launch": "cells/adaptive-rejection-sampler--pi/launch.json",
+        "model_request_markers": "cells/adaptive-rejection-sampler--pi/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/adaptive-rejection-sampler--pi/job/adaptive-rejection-sampler__UZ66WjQ/agent/pi-events.jsonl",
+        "native_receipt": "cells/adaptive-rejection-sampler--pi/job/adaptive-rejection-sampler__UZ66WjQ/agent/pi-direct-result.json",
+        "native_stderr": "cells/adaptive-rejection-sampler--pi/job/adaptive-rejection-sampler__UZ66WjQ/agent/pi-stderr.log",
+        "staging_stderr": "cells/adaptive-rejection-sampler--pi/harbor.stderr.log",
+        "staging_stdout": "cells/adaptive-rejection-sampler--pi/harbor.stdout.log",
+        "verifier_evidence": "cells/adaptive-rejection-sampler--pi/job/adaptive-rejection-sampler__UZ66WjQ/verifier/ctrf.json",
+        "verifier_evidence_sha256": "f699dcc3f4666e2e7c5c52edad284f113dd6dd7ac838dcf65938448fc568a595",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "upstream_requests": 13,
+      "usage": {
+        "cache_write_tokens": 39530,
+        "cached_input_tokens": 349032,
+        "input_tokens": 388601,
+        "ordinary_input_tokens": 39,
+        "output_tokens": 18279,
+        "reasoning_tokens": 9983
+      },
+      "verifier_outcome_available": true,
+      "verifier_reward": 1.0
+    },
+    {
+      "api_equivalent_cost_usd": "0.93520550",
+      "cell_id": "adaptive-rejection-sampler--thinharness",
+      "harness": "thinharness",
+      "latency": {
+        "launcher_wall_seconds": "528.025727",
+        "native_agent_seconds": "451.565848",
+        "upstream_request_seconds": "427.733480",
+        "verifier_seconds": "13.779803"
+      },
+      "locally_denied_attempts": 0,
+      "native_model_attempts": null,
+      "provider_reported_actual_cash_usd": null,
+      "status": "completed",
+      "stratum": "medium",
+      "successful_upstream_requests": 9,
+      "task": "adaptive-rejection-sampler",
+      "tools": 10,
+      "traces": {
+        "gateway_audit": "cells/adaptive-rejection-sampler--thinharness/gateway-audit.jsonl",
+        "gateway_identity": "cells/adaptive-rejection-sampler--thinharness/gateway-identity.json",
+        "harbor_result": "cells/adaptive-rejection-sampler--thinharness/job/adaptive-rejection-sampler__6X3KxRG/result.json",
+        "launch": "cells/adaptive-rejection-sampler--thinharness/launch.json",
+        "model_request_markers": "cells/adaptive-rejection-sampler--thinharness/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/adaptive-rejection-sampler--thinharness/job/adaptive-rejection-sampler__6X3KxRG/agent/thinharness-events.jsonl",
+        "native_receipt": "cells/adaptive-rejection-sampler--thinharness/job/adaptive-rejection-sampler__6X3KxRG/agent/thinharness-direct-result.json",
+        "native_stderr": "cells/adaptive-rejection-sampler--thinharness/job/adaptive-rejection-sampler__6X3KxRG/agent/thinharness-stderr.log",
+        "staging_stderr": "cells/adaptive-rejection-sampler--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/adaptive-rejection-sampler--thinharness/harbor.stdout.log",
+        "verifier_evidence": "cells/adaptive-rejection-sampler--thinharness/job/adaptive-rejection-sampler__6X3KxRG/verifier/ctrf.json",
+        "verifier_evidence_sha256": "e556d2d3a9f9c5ba765d04c0d9be63d234a0dd90edf580fd66218ed09e07351d",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "upstream_requests": 9,
+      "usage": {
+        "cache_write_tokens": 33486,
+        "cached_input_tokens": 181186,
+        "input_tokens": 214699,
+        "ordinary_input_tokens": 27,
+        "output_tokens": 21173,
+        "reasoning_tokens": 13368
+      },
+      "verifier_outcome_available": true,
+      "verifier_reward": 1.0
+    },
+    {
+      "api_equivalent_cost_usd": "2.57785550",
+      "cell_id": "path-tracing-reverse--pi",
+      "harness": "pi",
+      "latency": {
+        "launcher_wall_seconds": "436.941771",
+        "native_agent_seconds": "342.882973",
+        "upstream_request_seconds": "328.264246",
+        "verifier_seconds": "13.204844"
+      },
+      "locally_denied_attempts": 0,
+      "native_model_attempts": null,
+      "provider_reported_actual_cash_usd": null,
+      "status": "completed",
+      "stratum": "medium",
+      "successful_upstream_requests": 35,
+      "task": "path-tracing-reverse",
+      "tools": 52,
+      "traces": {
+        "gateway_audit": "cells/path-tracing-reverse--pi/gateway-audit.jsonl",
+        "gateway_identity": "cells/path-tracing-reverse--pi/gateway-identity.json",
+        "harbor_result": "cells/path-tracing-reverse--pi/job/path-tracing-reverse__X7U8bZk/result.json",
+        "launch": "cells/path-tracing-reverse--pi/launch.json",
+        "model_request_markers": "cells/path-tracing-reverse--pi/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/path-tracing-reverse--pi/job/path-tracing-reverse__X7U8bZk/agent/pi-events.jsonl",
+        "native_receipt": "cells/path-tracing-reverse--pi/job/path-tracing-reverse__X7U8bZk/agent/pi-direct-result.json",
+        "native_stderr": "cells/path-tracing-reverse--pi/job/path-tracing-reverse__X7U8bZk/agent/pi-stderr.log",
+        "staging_stderr": "cells/path-tracing-reverse--pi/harbor.stderr.log",
+        "staging_stdout": "cells/path-tracing-reverse--pi/harbor.stdout.log",
+        "verifier_evidence": "cells/path-tracing-reverse--pi/job/path-tracing-reverse__X7U8bZk/verifier/ctrf.json",
+        "verifier_evidence_sha256": "07506bb7b8e089813ffa79e4ce09f35bf0e7c8bfad60819f7ed3b137bc08f4c6",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "upstream_requests": 35,
+      "usage": {
+        "cache_write_tokens": 114224,
+        "cached_input_tokens": 2793021,
+        "input_tokens": 2907350,
+        "ordinary_input_tokens": 105,
+        "output_tokens": 15564,
+        "reasoning_tokens": 9407
+      },
+      "verifier_outcome_available": true,
+      "verifier_reward": 1.0
+    },
+    {
+      "api_equivalent_cost_usd": "1.10781000",
+      "cell_id": "path-tracing-reverse--thinharness",
+      "harness": "thinharness",
+      "latency": {
+        "launcher_wall_seconds": "301.271323",
+        "native_agent_seconds": "205.531274",
+        "upstream_request_seconds": "200.700661",
+        "verifier_seconds": "13.146163"
+      },
+      "locally_denied_attempts": 0,
+      "native_model_attempts": null,
+      "provider_reported_actual_cash_usd": null,
+      "status": "completed",
+      "stratum": "medium",
+      "successful_upstream_requests": 17,
+      "task": "path-tracing-reverse",
+      "tools": 35,
+      "traces": {
+        "gateway_audit": "cells/path-tracing-reverse--thinharness/gateway-audit.jsonl",
+        "gateway_identity": "cells/path-tracing-reverse--thinharness/gateway-identity.json",
+        "harbor_result": "cells/path-tracing-reverse--thinharness/job/path-tracing-reverse__xBydjHX/result.json",
+        "launch": "cells/path-tracing-reverse--thinharness/launch.json",
+        "model_request_markers": "cells/path-tracing-reverse--thinharness/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/path-tracing-reverse--thinharness/job/path-tracing-reverse__xBydjHX/agent/thinharness-events.jsonl",
+        "native_receipt": "cells/path-tracing-reverse--thinharness/job/path-tracing-reverse__xBydjHX/agent/thinharness-direct-result.json",
+        "native_stderr": "cells/path-tracing-reverse--thinharness/job/path-tracing-reverse__xBydjHX/agent/thinharness-stderr.log",
+        "staging_stderr": "cells/path-tracing-reverse--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/path-tracing-reverse--thinharness/harbor.stdout.log",
+        "verifier_evidence": "cells/path-tracing-reverse--thinharness/job/path-tracing-reverse__xBydjHX/verifier/ctrf.json",
+        "verifier_evidence_sha256": "eae083cc82b559e88917ee3cdc980d964a853d9316e83923e475655feb880e49",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "upstream_requests": 17,
+      "usage": {
+        "cache_write_tokens": 67644,
+        "cached_input_tokens": 821040,
+        "input_tokens": 888735,
+        "ordinary_input_tokens": 51,
+        "output_tokens": 9142,
+        "reasoning_tokens": 5379
+      },
+      "verifier_outcome_available": true,
+      "verifier_reward": 1.0
+    },
+    {
+      "api_equivalent_cost_usd": "0.66214875",
+      "cell_id": "torch-pipeline-parallelism--pi",
+      "harness": "pi",
+      "latency": {
+        "launcher_wall_seconds": "522.491304",
+        "native_agent_seconds": "334.714266",
+        "upstream_request_seconds": "332.861692",
+        "verifier_seconds": "125.188067"
+      },
+      "locally_denied_attempts": 0,
+      "native_model_attempts": null,
+      "provider_reported_actual_cash_usd": null,
+      "status": "completed",
+      "stratum": "medium",
+      "successful_upstream_requests": 7,
+      "task": "torch-pipeline-parallelism",
+      "tools": 8,
+      "traces": {
+        "gateway_audit": "cells/torch-pipeline-parallelism--pi/gateway-audit.jsonl",
+        "gateway_identity": "cells/torch-pipeline-parallelism--pi/gateway-identity.json",
+        "harbor_result": "cells/torch-pipeline-parallelism--pi/job/torch-pipeline-parallelism__aeyGGmU/result.json",
+        "launch": "cells/torch-pipeline-parallelism--pi/launch.json",
+        "model_request_markers": "cells/torch-pipeline-parallelism--pi/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/torch-pipeline-parallelism--pi/job/torch-pipeline-parallelism__aeyGGmU/agent/pi-events.jsonl",
+        "native_receipt": "cells/torch-pipeline-parallelism--pi/job/torch-pipeline-parallelism__aeyGGmU/agent/pi-direct-result.json",
+        "native_stderr": "cells/torch-pipeline-parallelism--pi/job/torch-pipeline-parallelism__aeyGGmU/agent/pi-stderr.log",
+        "staging_stderr": "cells/torch-pipeline-parallelism--pi/harbor.stderr.log",
+        "staging_stdout": "cells/torch-pipeline-parallelism--pi/harbor.stdout.log",
+        "verifier_evidence": "cells/torch-pipeline-parallelism--pi/job/torch-pipeline-parallelism__aeyGGmU/verifier/ctrf.json",
+        "verifier_evidence_sha256": "33bb48aa06724a1e2ecc3b945068f6b9e7624bec27f09fc6448b0fbab7cb212d",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "upstream_requests": 7,
+      "usage": {
+        "cache_write_tokens": 19229,
+        "cached_input_tokens": 59285,
+        "input_tokens": 78535,
+        "ordinary_input_tokens": 21,
+        "output_tokens": 17074,
+        "reasoning_tokens": 14281
+      },
+      "verifier_outcome_available": true,
+      "verifier_reward": 0.0
+    },
+    {
+      "api_equivalent_cost_usd": "0.52094275",
+      "cell_id": "torch-pipeline-parallelism--thinharness",
+      "harness": "thinharness",
+      "latency": {
+        "launcher_wall_seconds": "471.285593",
+        "native_agent_seconds": "276.954074",
+        "upstream_request_seconds": "276.519970",
+        "verifier_seconds": "130.137696"
+      },
+      "locally_denied_attempts": 0,
+      "native_model_attempts": null,
+      "provider_reported_actual_cash_usd": null,
+      "status": "completed",
+      "stratum": "medium",
+      "successful_upstream_requests": 7,
+      "task": "torch-pipeline-parallelism",
+      "tools": 7,
+      "traces": {
+        "gateway_audit": "cells/torch-pipeline-parallelism--thinharness/gateway-audit.jsonl",
+        "gateway_identity": "cells/torch-pipeline-parallelism--thinharness/gateway-identity.json",
+        "harbor_result": "cells/torch-pipeline-parallelism--thinharness/job/torch-pipeline-parallelism__Rp6XaAj/result.json",
+        "launch": "cells/torch-pipeline-parallelism--thinharness/launch.json",
+        "model_request_markers": "cells/torch-pipeline-parallelism--thinharness/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/torch-pipeline-parallelism--thinharness/job/torch-pipeline-parallelism__Rp6XaAj/agent/thinharness-events.jsonl",
+        "native_receipt": "cells/torch-pipeline-parallelism--thinharness/job/torch-pipeline-parallelism__Rp6XaAj/agent/thinharness-direct-result.json",
+        "native_stderr": "cells/torch-pipeline-parallelism--thinharness/job/torch-pipeline-parallelism__Rp6XaAj/agent/thinharness-stderr.log",
+        "staging_stderr": "cells/torch-pipeline-parallelism--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/torch-pipeline-parallelism--thinharness/harbor.stdout.log",
+        "verifier_evidence": "cells/torch-pipeline-parallelism--thinharness/job/torch-pipeline-parallelism__Rp6XaAj/verifier/ctrf.json",
+        "verifier_evidence_sha256": "8843ed28f9de0139f7ba69d632527c1710e173dc02b3bab784167b17d6a6ee27",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "upstream_requests": 7,
+      "usage": {
+        "cache_write_tokens": 16005,
+        "cached_input_tokens": 57173,
+        "input_tokens": 73199,
+        "ordinary_input_tokens": 21,
+        "output_tokens": 13074,
+        "reasoning_tokens": 11069
+      },
+      "verifier_outcome_available": true,
+      "verifier_reward": 0.0
+    },
+    {
+      "api_equivalent_cost_usd": "1.12213075",
+      "cell_id": "gpt2-codegolf--pi",
+      "harness": "pi",
+      "latency": {
+        "launcher_wall_seconds": "573.696481",
+        "native_agent_seconds": "481.218739",
+        "upstream_request_seconds": "450.201888",
+        "verifier_seconds": "10.537730"
+      },
+      "locally_denied_attempts": 0,
+      "native_model_attempts": null,
+      "provider_reported_actual_cash_usd": null,
+      "status": "completed",
+      "stratum": "hard",
+      "successful_upstream_requests": 31,
+      "task": "gpt2-codegolf",
+      "tools": 33,
+      "traces": {
+        "gateway_audit": "cells/gpt2-codegolf--pi/gateway-audit.jsonl",
+        "gateway_identity": "cells/gpt2-codegolf--pi/gateway-identity.json",
+        "harbor_result": "cells/gpt2-codegolf--pi/job/gpt2-codegolf__bcc9HQw/result.json",
+        "launch": "cells/gpt2-codegolf--pi/launch.json",
+        "model_request_markers": "cells/gpt2-codegolf--pi/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/gpt2-codegolf--pi/job/gpt2-codegolf__bcc9HQw/agent/pi-events.jsonl",
+        "native_receipt": "cells/gpt2-codegolf--pi/job/gpt2-codegolf__bcc9HQw/agent/pi-direct-result.json",
+        "native_stderr": "cells/gpt2-codegolf--pi/job/gpt2-codegolf__bcc9HQw/agent/pi-stderr.log",
+        "staging_stderr": "cells/gpt2-codegolf--pi/harbor.stderr.log",
+        "staging_stdout": "cells/gpt2-codegolf--pi/harbor.stdout.log",
+        "verifier_evidence": "cells/gpt2-codegolf--pi/job/gpt2-codegolf__bcc9HQw/verifier/ctrf.json",
+        "verifier_evidence_sha256": "f7a9cacf330ce0d7b48577c5bb4352c791acbc51721132cac17a85a0d2f3c7d7",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "upstream_requests": 31,
+      "usage": {
+        "cache_write_tokens": 35467,
+        "cached_input_tokens": 557574,
+        "input_tokens": 593134,
+        "ordinary_input_tokens": 93,
+        "output_tokens": 20707,
+        "reasoning_tokens": 13358
+      },
+      "verifier_outcome_available": true,
+      "verifier_reward": 1.0
+    },
+    {
+      "api_equivalent_cost_usd": "0.67483225",
+      "cell_id": "gpt2-codegolf--thinharness",
+      "harness": "thinharness",
+      "latency": {
+        "launcher_wall_seconds": "407.560979",
+        "native_agent_seconds": "310.925974",
+        "upstream_request_seconds": "303.994475",
+        "verifier_seconds": "11.294874"
+      },
+      "locally_denied_attempts": 0,
+      "native_model_attempts": null,
+      "provider_reported_actual_cash_usd": null,
+      "status": "completed",
+      "stratum": "hard",
+      "successful_upstream_requests": 13,
+      "task": "gpt2-codegolf",
+      "tools": 18,
+      "traces": {
+        "gateway_audit": "cells/gpt2-codegolf--thinharness/gateway-audit.jsonl",
+        "gateway_identity": "cells/gpt2-codegolf--thinharness/gateway-identity.json",
+        "harbor_result": "cells/gpt2-codegolf--thinharness/job/gpt2-codegolf__kiBgekZ/result.json",
+        "launch": "cells/gpt2-codegolf--thinharness/launch.json",
+        "model_request_markers": "cells/gpt2-codegolf--thinharness/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/gpt2-codegolf--thinharness/job/gpt2-codegolf__kiBgekZ/agent/thinharness-events.jsonl",
+        "native_receipt": "cells/gpt2-codegolf--thinharness/job/gpt2-codegolf__kiBgekZ/agent/thinharness-direct-result.json",
+        "native_stderr": "cells/gpt2-codegolf--thinharness/job/gpt2-codegolf__kiBgekZ/agent/thinharness-stderr.log",
+        "staging_stderr": "cells/gpt2-codegolf--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/gpt2-codegolf--thinharness/harbor.stdout.log",
+        "verifier_evidence": "cells/gpt2-codegolf--thinharness/job/gpt2-codegolf__kiBgekZ/verifier/ctrf.json",
+        "verifier_evidence_sha256": "79f08f31b9d1a431e9ad6b5fd20f39d12025c612296b4c30fd512517d3ff94a7",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "upstream_requests": 13,
+      "usage": {
+        "cache_write_tokens": 22945,
+        "cached_input_tokens": 150882,
+        "input_tokens": 173866,
+        "ordinary_input_tokens": 39,
+        "output_tokens": 15193,
+        "reasoning_tokens": 11083
+      },
+      "verifier_outcome_available": true,
+      "verifier_reward": 1.0
+    },
+    {
+      "api_equivalent_cost_usd": "0.29749900",
+      "cell_id": "model-extraction-relu-logits--pi",
+      "harness": "pi",
+      "latency": {
+        "launcher_wall_seconds": "234.965486",
+        "native_agent_seconds": "145.147205",
+        "upstream_request_seconds": "139.091847",
+        "verifier_seconds": "8.854371"
+      },
+      "locally_denied_attempts": 0,
+      "native_model_attempts": null,
+      "provider_reported_actual_cash_usd": null,
+      "status": "completed",
+      "stratum": "hard",
+      "successful_upstream_requests": 10,
+      "task": "model-extraction-relu-logits",
+      "tools": 10,
+      "traces": {
+        "gateway_audit": "cells/model-extraction-relu-logits--pi/gateway-audit.jsonl",
+        "gateway_identity": "cells/model-extraction-relu-logits--pi/gateway-identity.json",
+        "harbor_result": "cells/model-extraction-relu-logits--pi/job/model-extraction-relu-logits__J9m5mEN/result.json",
+        "launch": "cells/model-extraction-relu-logits--pi/launch.json",
+        "model_request_markers": "cells/model-extraction-relu-logits--pi/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/model-extraction-relu-logits--pi/job/model-extraction-relu-logits__J9m5mEN/agent/pi-events.jsonl",
+        "native_receipt": "cells/model-extraction-relu-logits--pi/job/model-extraction-relu-logits__J9m5mEN/agent/pi-direct-result.json",
+        "native_stderr": "cells/model-extraction-relu-logits--pi/job/model-extraction-relu-logits__J9m5mEN/agent/pi-stderr.log",
+        "staging_stderr": "cells/model-extraction-relu-logits--pi/harbor.stderr.log",
+        "staging_stdout": "cells/model-extraction-relu-logits--pi/harbor.stdout.log",
+        "verifier_evidence": "cells/model-extraction-relu-logits--pi/job/model-extraction-relu-logits__J9m5mEN/verifier/ctrf.json",
+        "verifier_evidence_sha256": "04e0e090a9793b177f340645a23201d5095bd2fdbab5d7b3e312688339a5dfab",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "upstream_requests": 10,
+      "usage": {
+        "cache_write_tokens": 11664,
+        "cached_input_tokens": 57398,
+        "input_tokens": 69092,
+        "ordinary_input_tokens": 30,
+        "output_tokens": 6525,
+        "reasoning_tokens": 3738
+      },
+      "verifier_outcome_available": true,
+      "verifier_reward": 1.0
+    },
+    {
+      "api_equivalent_cost_usd": "0.37595325",
+      "cell_id": "model-extraction-relu-logits--thinharness",
+      "harness": "thinharness",
+      "latency": {
+        "launcher_wall_seconds": "313.041782",
+        "native_agent_seconds": "231.114077",
+        "upstream_request_seconds": "227.939850",
+        "verifier_seconds": null
+      },
+      "locally_denied_attempts": 0,
+      "native_model_attempts": null,
+      "provider_reported_actual_cash_usd": null,
+      "status": "model_attempt_failed",
+      "stratum": "hard",
+      "successful_upstream_requests": 6,
+      "task": "model-extraction-relu-logits",
+      "tools": 6,
+      "traces": {
+        "gateway_audit": "cells/model-extraction-relu-logits--thinharness/gateway-audit.jsonl",
+        "gateway_identity": "cells/model-extraction-relu-logits--thinharness/gateway-identity.json",
+        "harbor_result": "cells/model-extraction-relu-logits--thinharness/job/model-extraction-relu-logits__Lhcx98c/result.json",
+        "launch": "cells/model-extraction-relu-logits--thinharness/launch.json",
+        "model_request_markers": "cells/model-extraction-relu-logits--thinharness/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/model-extraction-relu-logits--thinharness/job/model-extraction-relu-logits__Lhcx98c/agent/thinharness-events.jsonl",
+        "native_receipt": "cells/model-extraction-relu-logits--thinharness/job/model-extraction-relu-logits__Lhcx98c/agent/thinharness-direct-result.json",
+        "native_stderr": "cells/model-extraction-relu-logits--thinharness/job/model-extraction-relu-logits__Lhcx98c/agent/thinharness-stderr.log",
+        "staging_stderr": "cells/model-extraction-relu-logits--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/model-extraction-relu-logits--thinharness/harbor.stdout.log",
+        "verifier_evidence": null,
+        "verifier_evidence_sha256": null,
+        "verifier_evidence_type": null
+      },
+      "upstream_requests": 7,
+      "usage": {
+        "cache_write_tokens": 11447,
+        "cached_input_tokens": 28559,
+        "input_tokens": 40024,
+        "ordinary_input_tokens": 18,
+        "output_tokens": 9668,
+        "reasoning_tokens": 7586
+      },
+      "verifier_outcome_available": false,
+      "verifier_reward": null
+    },
+    {
+      "api_equivalent_cost_usd": "0.92638775",
+      "cell_id": "protein-assembly--pi",
+      "harness": "pi",
+      "latency": {
+        "launcher_wall_seconds": "492.864471",
+        "native_agent_seconds": "406.120923",
+        "upstream_request_seconds": "253.524947",
+        "verifier_seconds": "6.728686"
+      },
+      "locally_denied_attempts": 0,
+      "native_model_attempts": null,
+      "provider_reported_actual_cash_usd": null,
+      "status": "completed",
+      "stratum": "hard",
+      "successful_upstream_requests": 19,
+      "task": "protein-assembly",
+      "tools": 25,
+      "traces": {
+        "gateway_audit": "cells/protein-assembly--pi/gateway-audit.jsonl",
+        "gateway_identity": "cells/protein-assembly--pi/gateway-identity.json",
+        "harbor_result": "cells/protein-assembly--pi/job/protein-assembly__9bwkLps/result.json",
+        "launch": "cells/protein-assembly--pi/launch.json",
+        "model_request_markers": "cells/protein-assembly--pi/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/protein-assembly--pi/job/protein-assembly__9bwkLps/agent/pi-events.jsonl",
+        "native_receipt": "cells/protein-assembly--pi/job/protein-assembly__9bwkLps/agent/pi-direct-result.json",
+        "native_stderr": "cells/protein-assembly--pi/job/protein-assembly__9bwkLps/agent/pi-stderr.log",
+        "staging_stderr": "cells/protein-assembly--pi/harbor.stderr.log",
+        "staging_stdout": "cells/protein-assembly--pi/harbor.stdout.log",
+        "verifier_evidence": "cells/protein-assembly--pi/job/protein-assembly__9bwkLps/verifier/ctrf.json",
+        "verifier_evidence_sha256": "4823ed32db07ffd99cfe67fcd785240b7ffa63b06e3d4e51cc84a2ab4e7fcb8b",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "upstream_requests": 19,
+      "usage": {
+        "cache_write_tokens": 46797,
+        "cached_input_tokens": 406543,
+        "input_tokens": 453397,
+        "ordinary_input_tokens": 57,
+        "output_tokens": 14345,
+        "reasoning_tokens": 9401
+      },
+      "verifier_outcome_available": true,
+      "verifier_reward": 1.0
+    },
+    {
+      "api_equivalent_cost_usd": "1.04168825",
+      "cell_id": "protein-assembly--thinharness",
+      "harness": "thinharness",
+      "latency": {
+        "launcher_wall_seconds": "686.550516",
+        "native_agent_seconds": "596.347517",
+        "upstream_request_seconds": "279.193888",
+        "verifier_seconds": "6.880401"
+      },
+      "locally_denied_attempts": 0,
+      "native_model_attempts": null,
+      "provider_reported_actual_cash_usd": null,
+      "status": "completed",
+      "stratum": "hard",
+      "successful_upstream_requests": 23,
+      "task": "protein-assembly",
+      "tools": 29,
+      "traces": {
+        "gateway_audit": "cells/protein-assembly--thinharness/gateway-audit.jsonl",
+        "gateway_identity": "cells/protein-assembly--thinharness/gateway-identity.json",
+        "harbor_result": "cells/protein-assembly--thinharness/job/protein-assembly__futeRSh/result.json",
+        "launch": "cells/protein-assembly--thinharness/launch.json",
+        "model_request_markers": "cells/protein-assembly--thinharness/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/protein-assembly--thinharness/job/protein-assembly__futeRSh/agent/thinharness-events.jsonl",
+        "native_receipt": "cells/protein-assembly--thinharness/job/protein-assembly__futeRSh/agent/thinharness-direct-result.json",
+        "native_stderr": "cells/protein-assembly--thinharness/job/protein-assembly__futeRSh/agent/thinharness-stderr.log",
+        "staging_stderr": "cells/protein-assembly--thinharness/harbor.stderr.log",
+        "staging_stdout": "cells/protein-assembly--thinharness/harbor.stdout.log",
+        "verifier_evidence": "cells/protein-assembly--thinharness/job/protein-assembly__futeRSh/verifier/ctrf.json",
+        "verifier_evidence_sha256": "cdf1a805fd8ad190cd91522133c78d2ef02cbbed247cb03f10381bd003537141",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "upstream_requests": 23,
+      "usage": {
+        "cache_write_tokens": 48479,
+        "cached_input_tokens": 459699,
+        "input_tokens": 508247,
+        "ordinary_input_tokens": 69,
+        "output_tokens": 16950,
+        "reasoning_tokens": 8289
+      },
+      "verifier_outcome_available": true,
+      "verifier_reward": 1.0
+    },
+    {
+      "api_equivalent_cost_usd": "3.02611250",
+      "cell_id": "make-doom-for-mips--pi",
+      "harness": "pi",
+      "latency": {
+        "launcher_wall_seconds": "593.478391",
+        "native_agent_seconds": "472.866879",
+        "upstream_request_seconds": "359.047733",
+        "verifier_seconds": "41.926628"
+      },
+      "locally_denied_attempts": 1,
+      "native_model_attempts": 42,
+      "provider_reported_actual_cash_usd": null,
+      "status": "cap_exceeded",
+      "stratum": "hard",
+      "successful_upstream_requests": 41,
+      "task": "make-doom-for-mips",
+      "tools": 70,
+      "traces": {
+        "gateway_audit": "cells/make-doom-for-mips--pi/gateway-audit.jsonl",
+        "gateway_identity": "cells/make-doom-for-mips--pi/gateway-identity.json",
+        "harbor_result": "cells/make-doom-for-mips--pi/job/make-doom-for-mips__nn8ksED/result.json",
+        "launch": "cells/make-doom-for-mips--pi/launch.json",
+        "model_request_markers": "cells/make-doom-for-mips--pi/MODEL_REQUEST_STARTED.jsonl",
+        "native_events": "cells/make-doom-for-mips--pi/job/make-doom-for-mips__nn8ksED/agent/pi-events.jsonl",
+        "native_receipt": "cells/make-doom-for-mips--pi/job/make-doom-for-mips__nn8ksED/agent/pi-direct-result.json",
+        "native_stderr": "cells/make-doom-for-mips--pi/job/make-doom-for-mips__nn8ksED/agent/pi-stderr.log",
+        "staging_stderr": "cells/make-doom-for-mips--pi/harbor.stderr.log",
+        "staging_stdout": "cells/make-doom-for-mips--pi/harbor.stdout.log",
+        "verifier_evidence": "cells/make-doom-for-mips--pi/job/make-doom-for-mips__nn8ksED/verifier/ctrf.json",
+        "verifier_evidence_sha256": "8c0ebb918e2217c42268368b9be52ea8feb98ddf371260f599148579ff2c19f9",
+        "verifier_evidence_type": "ctrf.json"
+      },
+      "upstream_requests": 41,
+      "usage": {
+        "cache_write_tokens": 121120,
+        "cached_input_tokens": 3201335,
+        "input_tokens": 3322578,
+        "ordinary_input_tokens": 123,
+        "output_tokens": 22261,
+        "reasoning_tokens": 5807
+      },
+      "verifier_outcome_available": true,
+      "verifier_reward": 0.0
+    },
+    {
+      "api_equivalent_cost_usd": null,
+      "cell_id": "make-doom-for-mips--thinharness",
+      "harness": "thinharness",
+      "latency": null,
+      "locally_denied_attempts": 0,
+      "native_model_attempts": 0,
+      "provider_reported_actual_cash_usd": null,
+      "status": "unrun_prior_cap_breach",
+      "stratum": "hard",
+      "successful_upstream_requests": 0,
+      "task": "make-doom-for-mips",
+      "tools": 0,
+      "traces": null,
+      "upstream_requests": 0,
+      "usage": null,
+      "verifier_outcome_available": false,
+      "verifier_reward": null
+    }
+  ],
+  "consumed_cells": 19,
+  "failures": [
+    {
+      "cell_id": "torch-pipeline-parallelism--pi",
+      "status": "completed",
+      "type": "verifier_failure",
+      "verifier_reward": 0
+    },
+    {
+      "cell_id": "torch-pipeline-parallelism--thinharness",
+      "status": "completed",
+      "type": "verifier_failure",
+      "verifier_reward": 0
+    },
+    {
+      "cell_id": "model-extraction-relu-logits--thinharness",
+      "credit_exhausted": false,
+      "provider_error_code": "cyber_policy",
+      "provider_status": 400,
+      "status": "model_attempt_failed",
+      "type": "provider_policy_refusal",
+      "verifier_reward": null
+    },
+    {
+      "cell_id": "make-doom-for-mips--pi",
+      "status": "cap_exceeded",
+      "type": "cap_exceeded_with_verifier_failure",
+      "verifier_reward": 0
+    },
+    {
+      "cell_id": "make-doom-for-mips--thinharness",
+      "status": "unrun_prior_cap_breach",
+      "type": "unrun_due_to_prior_cap_breach",
+      "verifier_reward": null
+    }
+  ],
+  "historical_four_task_post_fix_sample": {
+    "aggregate_comparison": {
+      "pi_minus_thinharness": {
+        "agent_phase_seconds": 127.47741700000006,
+        "agent_seconds": 126.36946135000017,
+        "api_equivalent_cost_usd": 0.2687490000000001,
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 43008,
+        "input_tokens": 52239,
+        "ordinary_input_tokens": 9231,
+        "output_tokens": 6703,
+        "passes": 1,
+        "reasoning_tokens": 4778,
+        "requests": 1,
+        "reward": 1.0,
+        "tools": 18,
+        "verifier_seconds": -17.054104999999993,
+        "wall_seconds": 125.00513699999988
+      }
+    },
+    "cells": 8,
+    "scope_limit": "Descriptive only; do not generalize beyond these four post-fix tasks.",
+    "section_role": "separate historical evidence; excluded from every additional-10 total",
+    "source": "artifacts/codex-subscription-crack-7z-recovery/SUMMARY.json plus this extension",
+    "source_report": "reports/direct-openai-20task-analysis.json",
+    "source_report_sha256": "98d9f1eaf9f1f51abd8f702c7597f815f3b2dd97986916fcd6518b3665b9eb85",
+    "task_count": 4,
+    "tasks": [
+      "crack-7z-hash",
+      "configure-git-webserver",
+      "pytorch-model-recovery",
+      "constraints-scheduling"
+    ],
+    "totals": {
+      "pi": {
+        "agent_phase_seconds": 1544.024502,
+        "agent_seconds": 1537.5539818670004,
+        "api_equivalent_cost_usd": 1.6647070000000002,
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 410624,
+        "input_tokens": 549683,
+        "ordinary_input_tokens": 139059,
+        "output_tokens": 25470,
+        "passes": 3,
+        "reasoning_tokens": 14257,
+        "requests": 53,
+        "reward": 3.0,
+        "tools": 77,
+        "verifier_seconds": 51.520589,
+        "wall_seconds": 1913.611837
+      },
+      "thinharness": {
+        "agent_phase_seconds": 1416.547085,
+        "agent_seconds": 1411.1845205170002,
+        "api_equivalent_cost_usd": 1.395958,
+        "cache_write_tokens": 0,
+        "cached_input_tokens": 367616,
+        "input_tokens": 497444,
+        "ordinary_input_tokens": 129828,
+        "output_tokens": 18767,
+        "passes": 2,
+        "reasoning_tokens": 9479,
+        "requests": 52,
+        "reward": 2.0,
+        "tools": 59,
+        "verifier_seconds": 68.574694,
+        "wall_seconds": 1788.6067
+      }
+    }
+  },
+  "identities": {
+    "dataset": "terminal-bench/terminal-bench-2-1@sha256:7d7bdc1cbedad549fc1140404bd4dc45e5fd0ea7c4186773687d177ad3a0699a",
+    "model": "gpt-5.6-sol",
+    "retries": {
+      "agent": 0,
+      "harbor": 0,
+      "model": 0,
+      "provider": 0,
+      "transport": 0
+    },
+    "runner": {
+      "files": {
+        "configs/container-runtime-requirements.txt": "61d52e09e2edaa56c84a8f139c77dc6052312648d726366a6ec4be50e392c3a6",
+        "configs/direct-openai-20task-settings.json": "79a0cd91ddff45d5e765e05b2de114c57fbd4f17d3cf15da67f28162d7f77c1e",
+        "configs/direct-openai-additional-10-SHA256SUMS.json": "d3d79310f57659c2a7cc505ee46ae63b6a7aa94672139950b436dbb3a5c35815",
+        "configs/direct-openai-additional-10-exclusion-proof.json": "c3a56191762a6d20912d1e21914bd6e704da9d7d7fe43003ee1564cc51c1a1e5",
+        "configs/direct-openai-additional-10-runner-spec.json": "56c5a79f36a464ecab72d74cb1e089f8d2ccaf413106d45804be2811e3a4c65f",
+        "configs/direct-openai-additional-10-selection.json": "bf68fc30806cbda3e5f1dfa02bf333d7dbd7dee0599c177bf1cbfe9241c91878",
+        "configs/native-tool-schemas.json": "1c1c1e985590e9980264a2e6b8364bd96f1b052c0761eed7f127ac9ab60cfd24",
+        "configs/pi-native-tool-schemas.json": "88fda428f9a9114a62d2f3a394d85c7d15cddd111eddadbe7abbe728bff2afde",
+        "configs/pi-subscription-package-lock.json": "0f34d01dda1837fd634d0562d2c0350ff982da133de59f36fccdac62835fc1c0",
+        "configs/pi-subscription-package.json": "fdecbea847897b2ebdbc54aaabc1899c115dde083f81de65daf13e46feba80ba",
+        "prompts/pi-0.84.2-system-prompt.md": "bba2bb790648cb1f314bb0da22c0852429bece4446a1d7138f2ad2d66c5fad9e",
+        "scripts/direct-openai-additional-10-full-checks.sh": "a692a1c57b2bdf0909bc85732a79c995da874c636a5cad8b6c16c7ea19415995",
+        "scripts/direct-openai-additional-10-preflight.sh": "fbb87a89678e39244fc937dcc7a79ea5bc8b9c67141c461d07719813b064a5a5",
+        "scripts/install-direct-pi.sh": "03b2a5504dc3c14c280dce99637058e3b3dbc9075372bd6fad079531b0242a7b",
+        "scripts/install-direct-thinharness.sh": "8b444733dcdbb29fc44e70a60d3c9a97640de79fc5c4e8d933c88eda024c7e6e",
+        "scripts/run-direct-openai-additional-10.sh": "708f4897166ed78c88656ab152333cd04c3d7d5c1c976d4dd8744098e29c2706",
+        "tbench/container_security.py": "45e669996dcab219a827df78fb3fff7b8e8d6aa7abdc737746e2560666398603",
+        "tbench/direct_additional_constants.py": "80fdf3b13f432cde427db94dc91a61b535d6662a956deba36d93039607ed6221",
+        "tbench/direct_additional_launch.py": "f3ce21757b0a452152749693dfc01f6f130b812e1b0d99c1c3129d6b09fe70e1",
+        "tbench/direct_additional_validate.py": "affe811a7d84a71f16f2fd55d254528f6cef2ee5f69eb8ed0695f21826f468d9",
+        "tbench/direct_agent.py": "a4b244501f1de1b578a61d8607747679f8bcf93e0eeae7cfeb2137f0b83b362c",
+        "tbench/direct_budget.py": "c26e748db6c5a1e4db25fd3978fe33fe02fd31660fc91cfb6ea6c9855dd82fbe",
+        "tbench/direct_container.py": "49e25a9caeb37fb51088a54981bd3be44234cb0fd7a030d246bf111db28921a0",
+        "tbench/direct_gateway.py": "81c311343cde51547b514af7d641aadc83cbda53728a7e102f1ca781b3c6b690",
+        "tbench/direct_launch.py": "c9855e80faeecbc38fabd6ac8b952c3089ab6497eb2cc030e138f6655e586956",
+        "tbench/direct_validate.py": "f2ccd96e5f6bdc8c610102e92c1a9698956f7da940a24307eab4aed47f0a792c",
+        "tbench/durable.py": "b454981b1806720c67029af2b13efe210ba165f46eccde7a8cd9cd9b1f9b18cd",
+        "tbench/pi_subscription_probe.mjs": "c7cd70f7344700f980dd898dc3c43aabc35a810d108c5d972b9438fccb4e5a4a",
+        "tbench/source_bundle.py": "ac208f36136b9314c7c57c9456b5304a92fd715b9eb3fd81c6ddb54a78a88077",
+        "uv.lock": "b960a45efb63fb5c5b738df1711410d1fe0c226f92bded3d29c0e6bf52f7e6d4"
+      },
+      "files_sha256": "075f08bfd9e675341a84144834364578a6eea63682502dd42516e581e5db87ba",
+      "git_head": "13db0fd5aa1b2f26d100f6ff5b5762490bc0a713"
+    },
+    "runner_files_sha256": "075f08bfd9e675341a84144834364578a6eea63682502dd42516e581e5db87ba",
+    "source": {
+      "advertised_ref": "refs/heads/thinharness-pin",
+      "canonical_commit": "84105f07bb9c1ad366fc8fe4fef49e700f5e88ef",
+      "canonical_commit_content_sha256": "8467e4061800e3aae3d12e51278fb71f3bd6a95cfb9abec3a0855e495ee97f43",
+      "canonical_tree": "d027dd1527c813b6e939d1ea63e8a08da86f0c0e",
+      "provenance": {
+        "canonical_source_head": "2178d155a58d90ae77eb7e8de5cc4bd3e431896b",
+        "later_source_head_excluded": true
+      },
+      "schema_version": 1,
+      "source_mode": "transient-local-exact-commit-git-bundle"
+    }
+  },
+  "mode": "real",
+  "normal_completions": 17,
+  "paired_result_policy": "include a task only when both cells have verifier outcomes",
+  "paired_results": [
+    {
+      "pi": {
+        "api_equivalent_cost_usd": "0.26407325",
+        "cell_id": "feal-differential-cryptanalysis--pi",
+        "harness": "pi",
+        "latency": {
+          "launcher_wall_seconds": "252.894459",
+          "native_agent_seconds": "153.576243",
+          "upstream_request_seconds": "137.042891",
+          "verifier_seconds": "22.769376"
+        },
+        "locally_denied_attempts": 0,
+        "native_model_attempts": null,
+        "provider_reported_actual_cash_usd": null,
+        "status": "completed",
+        "stratum": "easy",
+        "successful_upstream_requests": 7,
+        "task": "feal-differential-cryptanalysis",
+        "tools": 8,
+        "traces": {
+          "gateway_audit": "cells/feal-differential-cryptanalysis--pi/gateway-audit.jsonl",
+          "gateway_identity": "cells/feal-differential-cryptanalysis--pi/gateway-identity.json",
+          "harbor_result": "cells/feal-differential-cryptanalysis--pi/job/feal-differential-cryptanalysis__hV96jXv/result.json",
+          "launch": "cells/feal-differential-cryptanalysis--pi/launch.json",
+          "model_request_markers": "cells/feal-differential-cryptanalysis--pi/MODEL_REQUEST_STARTED.jsonl",
+          "native_events": "cells/feal-differential-cryptanalysis--pi/job/feal-differential-cryptanalysis__hV96jXv/agent/pi-events.jsonl",
+          "native_receipt": "cells/feal-differential-cryptanalysis--pi/job/feal-differential-cryptanalysis__hV96jXv/agent/pi-direct-result.json",
+          "native_stderr": "cells/feal-differential-cryptanalysis--pi/job/feal-differential-cryptanalysis__hV96jXv/agent/pi-stderr.log",
+          "staging_stderr": "cells/feal-differential-cryptanalysis--pi/harbor.stderr.log",
+          "staging_stdout": "cells/feal-differential-cryptanalysis--pi/harbor.stdout.log",
+          "verifier_evidence": "cells/feal-differential-cryptanalysis--pi/job/feal-differential-cryptanalysis__hV96jXv/verifier/ctrf.json",
+          "verifier_evidence_sha256": "6afe6546107a8bc0b82dcc4a56cbf76153970d9899db79da260c2b22e15ed624",
+          "verifier_evidence_type": "ctrf.json"
+        },
+        "upstream_requests": 7,
+        "usage": {
+          "cache_write_tokens": 8551,
+          "cached_input_tokens": 26129,
+          "input_tokens": 34701,
+          "ordinary_input_tokens": 21,
+          "output_tokens": 6582,
+          "reasoning_tokens": 4543
+        },
+        "verifier_outcome_available": true,
+        "verifier_reward": 1.0
+      },
+      "pi_minus_thinharness": {
+        "api_equivalent_cost_usd": "0.10539025",
+        "launcher_wall_seconds": "61.147009",
+        "reward": 0.0,
+        "tools": 1,
+        "upstream_requests": 1
+      },
+      "stratum": "easy",
+      "task": "feal-differential-cryptanalysis",
+      "thinharness": {
+        "api_equivalent_cost_usd": "0.15868300",
+        "cell_id": "feal-differential-cryptanalysis--thinharness",
+        "harness": "thinharness",
+        "latency": {
+          "launcher_wall_seconds": "191.747450",
+          "native_agent_seconds": "91.039943",
+          "upstream_request_seconds": "73.497619",
+          "verifier_seconds": "23.222889"
+        },
+        "locally_denied_attempts": 0,
+        "native_model_attempts": null,
+        "provider_reported_actual_cash_usd": null,
+        "status": "completed",
+        "stratum": "easy",
+        "successful_upstream_requests": 6,
+        "task": "feal-differential-cryptanalysis",
+        "tools": 7,
+        "traces": {
+          "gateway_audit": "cells/feal-differential-cryptanalysis--thinharness/gateway-audit.jsonl",
+          "gateway_identity": "cells/feal-differential-cryptanalysis--thinharness/gateway-identity.json",
+          "harbor_result": "cells/feal-differential-cryptanalysis--thinharness/job/feal-differential-cryptanalysis__qek7KGN/result.json",
+          "launch": "cells/feal-differential-cryptanalysis--thinharness/launch.json",
+          "model_request_markers": "cells/feal-differential-cryptanalysis--thinharness/MODEL_REQUEST_STARTED.jsonl",
+          "native_events": "cells/feal-differential-cryptanalysis--thinharness/job/feal-differential-cryptanalysis__qek7KGN/agent/thinharness-events.jsonl",
+          "native_receipt": "cells/feal-differential-cryptanalysis--thinharness/job/feal-differential-cryptanalysis__qek7KGN/agent/thinharness-direct-result.json",
+          "native_stderr": "cells/feal-differential-cryptanalysis--thinharness/job/feal-differential-cryptanalysis__qek7KGN/agent/thinharness-stderr.log",
+          "staging_stderr": "cells/feal-differential-cryptanalysis--thinharness/harbor.stderr.log",
+          "staging_stdout": "cells/feal-differential-cryptanalysis--thinharness/harbor.stdout.log",
+          "verifier_evidence": "cells/feal-differential-cryptanalysis--thinharness/job/feal-differential-cryptanalysis__qek7KGN/verifier/ctrf.json",
+          "verifier_evidence_sha256": "800c81e56f2e9716c6a6ff13aeb99ca991b3bf415d17a7f1712cd9bce41dd4ad",
+          "verifier_evidence_type": "ctrf.json"
+        },
+        "upstream_requests": 6,
+        "usage": {
+          "cache_write_tokens": 6938,
+          "cached_input_tokens": 19621,
+          "input_tokens": 26577,
+          "ordinary_input_tokens": 18,
+          "output_tokens": 3514,
+          "reasoning_tokens": 1782
+        },
+        "verifier_outcome_available": true,
+        "verifier_reward": 1.0
+      }
+    },
+    {
+      "pi": {
+        "api_equivalent_cost_usd": "0.30870425",
+        "cell_id": "llm-inference-batching-scheduler--pi",
+        "harness": "pi",
+        "latency": {
+          "launcher_wall_seconds": "195.022724",
+          "native_agent_seconds": "112.458666",
+          "upstream_request_seconds": "102.510655",
+          "verifier_seconds": "6.004260"
+        },
+        "locally_denied_attempts": 0,
+        "native_model_attempts": null,
+        "provider_reported_actual_cash_usd": null,
+        "status": "completed",
+        "stratum": "easy",
+        "successful_upstream_requests": 9,
+        "task": "llm-inference-batching-scheduler",
+        "tools": 10,
+        "traces": {
+          "gateway_audit": "cells/llm-inference-batching-scheduler--pi/gateway-audit.jsonl",
+          "gateway_identity": "cells/llm-inference-batching-scheduler--pi/gateway-identity.json",
+          "harbor_result": "cells/llm-inference-batching-scheduler--pi/job/llm-inference-batching-scheduler__BFr88UR/result.json",
+          "launch": "cells/llm-inference-batching-scheduler--pi/launch.json",
+          "model_request_markers": "cells/llm-inference-batching-scheduler--pi/MODEL_REQUEST_STARTED.jsonl",
+          "native_events": "cells/llm-inference-batching-scheduler--pi/job/llm-inference-batching-scheduler__BFr88UR/agent/pi-events.jsonl",
+          "native_receipt": "cells/llm-inference-batching-scheduler--pi/job/llm-inference-batching-scheduler__BFr88UR/agent/pi-direct-result.json",
+          "native_stderr": "cells/llm-inference-batching-scheduler--pi/job/llm-inference-batching-scheduler__BFr88UR/agent/pi-stderr.log",
+          "staging_stderr": "cells/llm-inference-batching-scheduler--pi/harbor.stderr.log",
+          "staging_stdout": "cells/llm-inference-batching-scheduler--pi/harbor.stdout.log",
+          "verifier_evidence": "cells/llm-inference-batching-scheduler--pi/job/llm-inference-batching-scheduler__BFr88UR/verifier/ctrf.json",
+          "verifier_evidence_sha256": "913ee430c3a22fc000dc00af38f575eadc0c4ec1ca65cbfde2f7919525410e63",
+          "verifier_evidence_type": "ctrf.json"
+        },
+        "upstream_requests": 9,
+        "usage": {
+          "cache_write_tokens": 17099,
+          "cached_input_tokens": 79701,
+          "input_tokens": 96827,
+          "ordinary_input_tokens": 27,
+          "output_tokens": 5395,
+          "reasoning_tokens": 2913
+        },
+        "verifier_outcome_available": true,
+        "verifier_reward": 1.0
+      },
+      "pi_minus_thinharness": {
+        "api_equivalent_cost_usd": "-0.10551850",
+        "launcher_wall_seconds": "-9.392304",
+        "reward": 0.0,
+        "tools": -6,
+        "upstream_requests": -6
+      },
+      "stratum": "easy",
+      "task": "llm-inference-batching-scheduler",
+      "thinharness": {
+        "api_equivalent_cost_usd": "0.41422275",
+        "cell_id": "llm-inference-batching-scheduler--thinharness",
+        "harness": "thinharness",
+        "latency": {
+          "launcher_wall_seconds": "204.415028",
+          "native_agent_seconds": "120.287211",
+          "upstream_request_seconds": "116.552346",
+          "verifier_seconds": "6.273978"
+        },
+        "locally_denied_attempts": 0,
+        "native_model_attempts": null,
+        "provider_reported_actual_cash_usd": null,
+        "status": "completed",
+        "stratum": "easy",
+        "successful_upstream_requests": 15,
+        "task": "llm-inference-batching-scheduler",
+        "tools": 16,
+        "traces": {
+          "gateway_audit": "cells/llm-inference-batching-scheduler--thinharness/gateway-audit.jsonl",
+          "gateway_identity": "cells/llm-inference-batching-scheduler--thinharness/gateway-identity.json",
+          "harbor_result": "cells/llm-inference-batching-scheduler--thinharness/job/llm-inference-batching-scheduler__M5PXMzP/result.json",
+          "launch": "cells/llm-inference-batching-scheduler--thinharness/launch.json",
+          "model_request_markers": "cells/llm-inference-batching-scheduler--thinharness/MODEL_REQUEST_STARTED.jsonl",
+          "native_events": "cells/llm-inference-batching-scheduler--thinharness/job/llm-inference-batching-scheduler__M5PXMzP/agent/thinharness-events.jsonl",
+          "native_receipt": "cells/llm-inference-batching-scheduler--thinharness/job/llm-inference-batching-scheduler__M5PXMzP/agent/thinharness-direct-result.json",
+          "native_stderr": "cells/llm-inference-batching-scheduler--thinharness/job/llm-inference-batching-scheduler__M5PXMzP/agent/thinharness-stderr.log",
+          "staging_stderr": "cells/llm-inference-batching-scheduler--thinharness/harbor.stderr.log",
+          "staging_stdout": "cells/llm-inference-batching-scheduler--thinharness/harbor.stdout.log",
+          "verifier_evidence": "cells/llm-inference-batching-scheduler--thinharness/job/llm-inference-batching-scheduler__M5PXMzP/verifier/ctrf.json",
+          "verifier_evidence_sha256": "838c576eb2beda78f9e3844b9bc4d2be228aaa95a55ce1874944208248629c9f",
+          "verifier_evidence_type": "ctrf.json"
+        },
+        "upstream_requests": 15,
+        "usage": {
+          "cache_write_tokens": 22075,
+          "cached_input_tokens": 203938,
+          "input_tokens": 226058,
+          "ordinary_input_tokens": 45,
+          "output_tokens": 5802,
+          "reasoning_tokens": 2177
+        },
+        "verifier_outcome_available": true,
+        "verifier_reward": 1.0
+      }
+    },
+    {
+      "pi": {
+        "api_equivalent_cost_usd": "0.83080750",
+        "cell_id": "schemelike-metacircular-eval--pi",
+        "harness": "pi",
+        "latency": {
+          "launcher_wall_seconds": "556.638436",
+          "native_agent_seconds": "347.362738",
+          "upstream_request_seconds": "256.913146",
+          "verifier_seconds": "132.430405"
+        },
+        "locally_denied_attempts": 0,
+        "native_model_attempts": null,
+        "provider_reported_actual_cash_usd": null,
+        "status": "completed",
+        "stratum": "easy",
+        "successful_upstream_requests": 16,
+        "task": "schemelike-metacircular-eval",
+        "tools": 51,
+        "traces": {
+          "gateway_audit": "cells/schemelike-metacircular-eval--pi/gateway-audit.jsonl",
+          "gateway_identity": "cells/schemelike-metacircular-eval--pi/gateway-identity.json",
+          "harbor_result": "cells/schemelike-metacircular-eval--pi/job/schemelike-metacircular-eval__jqj2c3L/result.json",
+          "launch": "cells/schemelike-metacircular-eval--pi/launch.json",
+          "model_request_markers": "cells/schemelike-metacircular-eval--pi/MODEL_REQUEST_STARTED.jsonl",
+          "native_events": "cells/schemelike-metacircular-eval--pi/job/schemelike-metacircular-eval__jqj2c3L/agent/pi-events.jsonl",
+          "native_receipt": "cells/schemelike-metacircular-eval--pi/job/schemelike-metacircular-eval__jqj2c3L/agent/pi-direct-result.json",
+          "native_stderr": "cells/schemelike-metacircular-eval--pi/job/schemelike-metacircular-eval__jqj2c3L/agent/pi-stderr.log",
+          "staging_stderr": "cells/schemelike-metacircular-eval--pi/harbor.stderr.log",
+          "staging_stdout": "cells/schemelike-metacircular-eval--pi/harbor.stdout.log",
+          "verifier_evidence": "cells/schemelike-metacircular-eval--pi/job/schemelike-metacircular-eval__jqj2c3L/verifier/ctrf.json",
+          "verifier_evidence_sha256": "753138465c31352e18f552decb065f29a991e27d213aa3f9c5ca0f72564b9ec8",
+          "verifier_evidence_type": "ctrf.json"
+        },
+        "upstream_requests": 16,
+        "usage": {
+          "cache_write_tokens": 34852,
+          "cached_input_tokens": 355605,
+          "input_tokens": 390505,
+          "ordinary_input_tokens": 48,
+          "output_tokens": 14498,
+          "reasoning_tokens": 8778
+        },
+        "verifier_outcome_available": true,
+        "verifier_reward": 1.0
+      },
+      "pi_minus_thinharness": {
+        "api_equivalent_cost_usd": "0.15331475",
+        "launcher_wall_seconds": "68.225801",
+        "reward": 0.0,
+        "tools": 25,
+        "upstream_requests": 3
+      },
+      "stratum": "easy",
+      "task": "schemelike-metacircular-eval",
+      "thinharness": {
+        "api_equivalent_cost_usd": "0.67749275",
+        "cell_id": "schemelike-metacircular-eval--thinharness",
+        "harness": "thinharness",
+        "latency": {
+          "launcher_wall_seconds": "488.412635",
+          "native_agent_seconds": "289.155960",
+          "upstream_request_seconds": "216.857564",
+          "verifier_seconds": "119.690254"
+        },
+        "locally_denied_attempts": 0,
+        "native_model_attempts": null,
+        "provider_reported_actual_cash_usd": null,
+        "status": "completed",
+        "stratum": "easy",
+        "successful_upstream_requests": 13,
+        "task": "schemelike-metacircular-eval",
+        "tools": 26,
+        "traces": {
+          "gateway_audit": "cells/schemelike-metacircular-eval--thinharness/gateway-audit.jsonl",
+          "gateway_identity": "cells/schemelike-metacircular-eval--thinharness/gateway-identity.json",
+          "harbor_result": "cells/schemelike-metacircular-eval--thinharness/job/schemelike-metacircular-eval__wex2W3k/result.json",
+          "launch": "cells/schemelike-metacircular-eval--thinharness/launch.json",
+          "model_request_markers": "cells/schemelike-metacircular-eval--thinharness/MODEL_REQUEST_STARTED.jsonl",
+          "native_events": "cells/schemelike-metacircular-eval--thinharness/job/schemelike-metacircular-eval__wex2W3k/agent/thinharness-events.jsonl",
+          "native_receipt": "cells/schemelike-metacircular-eval--thinharness/job/schemelike-metacircular-eval__wex2W3k/agent/thinharness-direct-result.json",
+          "native_stderr": "cells/schemelike-metacircular-eval--thinharness/job/schemelike-metacircular-eval__wex2W3k/agent/thinharness-stderr.log",
+          "staging_stderr": "cells/schemelike-metacircular-eval--thinharness/harbor.stderr.log",
+          "staging_stdout": "cells/schemelike-metacircular-eval--thinharness/harbor.stdout.log",
+          "verifier_evidence": "cells/schemelike-metacircular-eval--thinharness/job/schemelike-metacircular-eval__wex2W3k/verifier/ctrf.json",
+          "verifier_evidence_sha256": "c3d9dede12b072e5543037dc2a2bd1d40da533d90772a486d098d95159077a6e",
+          "verifier_evidence_type": "ctrf.json"
+        },
+        "upstream_requests": 13,
+        "usage": {
+          "cache_write_tokens": 29317,
+          "cached_input_tokens": 258953,
+          "input_tokens": 288309,
+          "ordinary_input_tokens": 39,
+          "output_tokens": 12153,
+          "reasoning_tokens": 6504
+        },
+        "verifier_outcome_available": true,
+        "verifier_reward": 1.0
+      }
+    },
+    {
+      "pi": {
+        "api_equivalent_cost_usd": "0.97014350",
+        "cell_id": "adaptive-rejection-sampler--pi",
+        "harness": "pi",
+        "latency": {
+          "launcher_wall_seconds": "530.377735",
+          "native_agent_seconds": "453.419461",
+          "upstream_request_seconds": "377.969854",
+          "verifier_seconds": "14.160950"
+        },
+        "locally_denied_attempts": 0,
+        "native_model_attempts": null,
+        "provider_reported_actual_cash_usd": null,
+        "status": "completed",
+        "stratum": "medium",
+        "successful_upstream_requests": 13,
+        "task": "adaptive-rejection-sampler",
+        "tools": 14,
+        "traces": {
+          "gateway_audit": "cells/adaptive-rejection-sampler--pi/gateway-audit.jsonl",
+          "gateway_identity": "cells/adaptive-rejection-sampler--pi/gateway-identity.json",
+          "harbor_result": "cells/adaptive-rejection-sampler--pi/job/adaptive-rejection-sampler__UZ66WjQ/result.json",
+          "launch": "cells/adaptive-rejection-sampler--pi/launch.json",
+          "model_request_markers": "cells/adaptive-rejection-sampler--pi/MODEL_REQUEST_STARTED.jsonl",
+          "native_events": "cells/adaptive-rejection-sampler--pi/job/adaptive-rejection-sampler__UZ66WjQ/agent/pi-events.jsonl",
+          "native_receipt": "cells/adaptive-rejection-sampler--pi/job/adaptive-rejection-sampler__UZ66WjQ/agent/pi-direct-result.json",
+          "native_stderr": "cells/adaptive-rejection-sampler--pi/job/adaptive-rejection-sampler__UZ66WjQ/agent/pi-stderr.log",
+          "staging_stderr": "cells/adaptive-rejection-sampler--pi/harbor.stderr.log",
+          "staging_stdout": "cells/adaptive-rejection-sampler--pi/harbor.stdout.log",
+          "verifier_evidence": "cells/adaptive-rejection-sampler--pi/job/adaptive-rejection-sampler__UZ66WjQ/verifier/ctrf.json",
+          "verifier_evidence_sha256": "f699dcc3f4666e2e7c5c52edad284f113dd6dd7ac838dcf65938448fc568a595",
+          "verifier_evidence_type": "ctrf.json"
+        },
+        "upstream_requests": 13,
+        "usage": {
+          "cache_write_tokens": 39530,
+          "cached_input_tokens": 349032,
+          "input_tokens": 388601,
+          "ordinary_input_tokens": 39,
+          "output_tokens": 18279,
+          "reasoning_tokens": 9983
+        },
+        "verifier_outcome_available": true,
+        "verifier_reward": 1.0
+      },
+      "pi_minus_thinharness": {
+        "api_equivalent_cost_usd": "0.03493800",
+        "launcher_wall_seconds": "2.352008",
+        "reward": 0.0,
+        "tools": 4,
+        "upstream_requests": 4
+      },
+      "stratum": "medium",
+      "task": "adaptive-rejection-sampler",
+      "thinharness": {
+        "api_equivalent_cost_usd": "0.93520550",
+        "cell_id": "adaptive-rejection-sampler--thinharness",
+        "harness": "thinharness",
+        "latency": {
+          "launcher_wall_seconds": "528.025727",
+          "native_agent_seconds": "451.565848",
+          "upstream_request_seconds": "427.733480",
+          "verifier_seconds": "13.779803"
+        },
+        "locally_denied_attempts": 0,
+        "native_model_attempts": null,
+        "provider_reported_actual_cash_usd": null,
+        "status": "completed",
+        "stratum": "medium",
+        "successful_upstream_requests": 9,
+        "task": "adaptive-rejection-sampler",
+        "tools": 10,
+        "traces": {
+          "gateway_audit": "cells/adaptive-rejection-sampler--thinharness/gateway-audit.jsonl",
+          "gateway_identity": "cells/adaptive-rejection-sampler--thinharness/gateway-identity.json",
+          "harbor_result": "cells/adaptive-rejection-sampler--thinharness/job/adaptive-rejection-sampler__6X3KxRG/result.json",
+          "launch": "cells/adaptive-rejection-sampler--thinharness/launch.json",
+          "model_request_markers": "cells/adaptive-rejection-sampler--thinharness/MODEL_REQUEST_STARTED.jsonl",
+          "native_events": "cells/adaptive-rejection-sampler--thinharness/job/adaptive-rejection-sampler__6X3KxRG/agent/thinharness-events.jsonl",
+          "native_receipt": "cells/adaptive-rejection-sampler--thinharness/job/adaptive-rejection-sampler__6X3KxRG/agent/thinharness-direct-result.json",
+          "native_stderr": "cells/adaptive-rejection-sampler--thinharness/job/adaptive-rejection-sampler__6X3KxRG/agent/thinharness-stderr.log",
+          "staging_stderr": "cells/adaptive-rejection-sampler--thinharness/harbor.stderr.log",
+          "staging_stdout": "cells/adaptive-rejection-sampler--thinharness/harbor.stdout.log",
+          "verifier_evidence": "cells/adaptive-rejection-sampler--thinharness/job/adaptive-rejection-sampler__6X3KxRG/verifier/ctrf.json",
+          "verifier_evidence_sha256": "e556d2d3a9f9c5ba765d04c0d9be63d234a0dd90edf580fd66218ed09e07351d",
+          "verifier_evidence_type": "ctrf.json"
+        },
+        "upstream_requests": 9,
+        "usage": {
+          "cache_write_tokens": 33486,
+          "cached_input_tokens": 181186,
+          "input_tokens": 214699,
+          "ordinary_input_tokens": 27,
+          "output_tokens": 21173,
+          "reasoning_tokens": 13368
+        },
+        "verifier_outcome_available": true,
+        "verifier_reward": 1.0
+      }
+    },
+    {
+      "pi": {
+        "api_equivalent_cost_usd": "2.57785550",
+        "cell_id": "path-tracing-reverse--pi",
+        "harness": "pi",
+        "latency": {
+          "launcher_wall_seconds": "436.941771",
+          "native_agent_seconds": "342.882973",
+          "upstream_request_seconds": "328.264246",
+          "verifier_seconds": "13.204844"
+        },
+        "locally_denied_attempts": 0,
+        "native_model_attempts": null,
+        "provider_reported_actual_cash_usd": null,
+        "status": "completed",
+        "stratum": "medium",
+        "successful_upstream_requests": 35,
+        "task": "path-tracing-reverse",
+        "tools": 52,
+        "traces": {
+          "gateway_audit": "cells/path-tracing-reverse--pi/gateway-audit.jsonl",
+          "gateway_identity": "cells/path-tracing-reverse--pi/gateway-identity.json",
+          "harbor_result": "cells/path-tracing-reverse--pi/job/path-tracing-reverse__X7U8bZk/result.json",
+          "launch": "cells/path-tracing-reverse--pi/launch.json",
+          "model_request_markers": "cells/path-tracing-reverse--pi/MODEL_REQUEST_STARTED.jsonl",
+          "native_events": "cells/path-tracing-reverse--pi/job/path-tracing-reverse__X7U8bZk/agent/pi-events.jsonl",
+          "native_receipt": "cells/path-tracing-reverse--pi/job/path-tracing-reverse__X7U8bZk/agent/pi-direct-result.json",
+          "native_stderr": "cells/path-tracing-reverse--pi/job/path-tracing-reverse__X7U8bZk/agent/pi-stderr.log",
+          "staging_stderr": "cells/path-tracing-reverse--pi/harbor.stderr.log",
+          "staging_stdout": "cells/path-tracing-reverse--pi/harbor.stdout.log",
+          "verifier_evidence": "cells/path-tracing-reverse--pi/job/path-tracing-reverse__X7U8bZk/verifier/ctrf.json",
+          "verifier_evidence_sha256": "07506bb7b8e089813ffa79e4ce09f35bf0e7c8bfad60819f7ed3b137bc08f4c6",
+          "verifier_evidence_type": "ctrf.json"
+        },
+        "upstream_requests": 35,
+        "usage": {
+          "cache_write_tokens": 114224,
+          "cached_input_tokens": 2793021,
+          "input_tokens": 2907350,
+          "ordinary_input_tokens": 105,
+          "output_tokens": 15564,
+          "reasoning_tokens": 9407
+        },
+        "verifier_outcome_available": true,
+        "verifier_reward": 1.0
+      },
+      "pi_minus_thinharness": {
+        "api_equivalent_cost_usd": "1.47004550",
+        "launcher_wall_seconds": "135.670448",
+        "reward": 0.0,
+        "tools": 17,
+        "upstream_requests": 18
+      },
+      "stratum": "medium",
+      "task": "path-tracing-reverse",
+      "thinharness": {
+        "api_equivalent_cost_usd": "1.10781000",
+        "cell_id": "path-tracing-reverse--thinharness",
+        "harness": "thinharness",
+        "latency": {
+          "launcher_wall_seconds": "301.271323",
+          "native_agent_seconds": "205.531274",
+          "upstream_request_seconds": "200.700661",
+          "verifier_seconds": "13.146163"
+        },
+        "locally_denied_attempts": 0,
+        "native_model_attempts": null,
+        "provider_reported_actual_cash_usd": null,
+        "status": "completed",
+        "stratum": "medium",
+        "successful_upstream_requests": 17,
+        "task": "path-tracing-reverse",
+        "tools": 35,
+        "traces": {
+          "gateway_audit": "cells/path-tracing-reverse--thinharness/gateway-audit.jsonl",
+          "gateway_identity": "cells/path-tracing-reverse--thinharness/gateway-identity.json",
+          "harbor_result": "cells/path-tracing-reverse--thinharness/job/path-tracing-reverse__xBydjHX/result.json",
+          "launch": "cells/path-tracing-reverse--thinharness/launch.json",
+          "model_request_markers": "cells/path-tracing-reverse--thinharness/MODEL_REQUEST_STARTED.jsonl",
+          "native_events": "cells/path-tracing-reverse--thinharness/job/path-tracing-reverse__xBydjHX/agent/thinharness-events.jsonl",
+          "native_receipt": "cells/path-tracing-reverse--thinharness/job/path-tracing-reverse__xBydjHX/agent/thinharness-direct-result.json",
+          "native_stderr": "cells/path-tracing-reverse--thinharness/job/path-tracing-reverse__xBydjHX/agent/thinharness-stderr.log",
+          "staging_stderr": "cells/path-tracing-reverse--thinharness/harbor.stderr.log",
+          "staging_stdout": "cells/path-tracing-reverse--thinharness/harbor.stdout.log",
+          "verifier_evidence": "cells/path-tracing-reverse--thinharness/job/path-tracing-reverse__xBydjHX/verifier/ctrf.json",
+          "verifier_evidence_sha256": "eae083cc82b559e88917ee3cdc980d964a853d9316e83923e475655feb880e49",
+          "verifier_evidence_type": "ctrf.json"
+        },
+        "upstream_requests": 17,
+        "usage": {
+          "cache_write_tokens": 67644,
+          "cached_input_tokens": 821040,
+          "input_tokens": 888735,
+          "ordinary_input_tokens": 51,
+          "output_tokens": 9142,
+          "reasoning_tokens": 5379
+        },
+        "verifier_outcome_available": true,
+        "verifier_reward": 1.0
+      }
+    },
+    {
+      "pi": {
+        "api_equivalent_cost_usd": "0.66214875",
+        "cell_id": "torch-pipeline-parallelism--pi",
+        "harness": "pi",
+        "latency": {
+          "launcher_wall_seconds": "522.491304",
+          "native_agent_seconds": "334.714266",
+          "upstream_request_seconds": "332.861692",
+          "verifier_seconds": "125.188067"
+        },
+        "locally_denied_attempts": 0,
+        "native_model_attempts": null,
+        "provider_reported_actual_cash_usd": null,
+        "status": "completed",
+        "stratum": "medium",
+        "successful_upstream_requests": 7,
+        "task": "torch-pipeline-parallelism",
+        "tools": 8,
+        "traces": {
+          "gateway_audit": "cells/torch-pipeline-parallelism--pi/gateway-audit.jsonl",
+          "gateway_identity": "cells/torch-pipeline-parallelism--pi/gateway-identity.json",
+          "harbor_result": "cells/torch-pipeline-parallelism--pi/job/torch-pipeline-parallelism__aeyGGmU/result.json",
+          "launch": "cells/torch-pipeline-parallelism--pi/launch.json",
+          "model_request_markers": "cells/torch-pipeline-parallelism--pi/MODEL_REQUEST_STARTED.jsonl",
+          "native_events": "cells/torch-pipeline-parallelism--pi/job/torch-pipeline-parallelism__aeyGGmU/agent/pi-events.jsonl",
+          "native_receipt": "cells/torch-pipeline-parallelism--pi/job/torch-pipeline-parallelism__aeyGGmU/agent/pi-direct-result.json",
+          "native_stderr": "cells/torch-pipeline-parallelism--pi/job/torch-pipeline-parallelism__aeyGGmU/agent/pi-stderr.log",
+          "staging_stderr": "cells/torch-pipeline-parallelism--pi/harbor.stderr.log",
+          "staging_stdout": "cells/torch-pipeline-parallelism--pi/harbor.stdout.log",
+          "verifier_evidence": "cells/torch-pipeline-parallelism--pi/job/torch-pipeline-parallelism__aeyGGmU/verifier/ctrf.json",
+          "verifier_evidence_sha256": "33bb48aa06724a1e2ecc3b945068f6b9e7624bec27f09fc6448b0fbab7cb212d",
+          "verifier_evidence_type": "ctrf.json"
+        },
+        "upstream_requests": 7,
+        "usage": {
+          "cache_write_tokens": 19229,
+          "cached_input_tokens": 59285,
+          "input_tokens": 78535,
+          "ordinary_input_tokens": 21,
+          "output_tokens": 17074,
+          "reasoning_tokens": 14281
+        },
+        "verifier_outcome_available": true,
+        "verifier_reward": 0.0
+      },
+      "pi_minus_thinharness": {
+        "api_equivalent_cost_usd": "0.14120600",
+        "launcher_wall_seconds": "51.205711",
+        "reward": 0.0,
+        "tools": 1,
+        "upstream_requests": 0
+      },
+      "stratum": "medium",
+      "task": "torch-pipeline-parallelism",
+      "thinharness": {
+        "api_equivalent_cost_usd": "0.52094275",
+        "cell_id": "torch-pipeline-parallelism--thinharness",
+        "harness": "thinharness",
+        "latency": {
+          "launcher_wall_seconds": "471.285593",
+          "native_agent_seconds": "276.954074",
+          "upstream_request_seconds": "276.519970",
+          "verifier_seconds": "130.137696"
+        },
+        "locally_denied_attempts": 0,
+        "native_model_attempts": null,
+        "provider_reported_actual_cash_usd": null,
+        "status": "completed",
+        "stratum": "medium",
+        "successful_upstream_requests": 7,
+        "task": "torch-pipeline-parallelism",
+        "tools": 7,
+        "traces": {
+          "gateway_audit": "cells/torch-pipeline-parallelism--thinharness/gateway-audit.jsonl",
+          "gateway_identity": "cells/torch-pipeline-parallelism--thinharness/gateway-identity.json",
+          "harbor_result": "cells/torch-pipeline-parallelism--thinharness/job/torch-pipeline-parallelism__Rp6XaAj/result.json",
+          "launch": "cells/torch-pipeline-parallelism--thinharness/launch.json",
+          "model_request_markers": "cells/torch-pipeline-parallelism--thinharness/MODEL_REQUEST_STARTED.jsonl",
+          "native_events": "cells/torch-pipeline-parallelism--thinharness/job/torch-pipeline-parallelism__Rp6XaAj/agent/thinharness-events.jsonl",
+          "native_receipt": "cells/torch-pipeline-parallelism--thinharness/job/torch-pipeline-parallelism__Rp6XaAj/agent/thinharness-direct-result.json",
+          "native_stderr": "cells/torch-pipeline-parallelism--thinharness/job/torch-pipeline-parallelism__Rp6XaAj/agent/thinharness-stderr.log",
+          "staging_stderr": "cells/torch-pipeline-parallelism--thinharness/harbor.stderr.log",
+          "staging_stdout": "cells/torch-pipeline-parallelism--thinharness/harbor.stdout.log",
+          "verifier_evidence": "cells/torch-pipeline-parallelism--thinharness/job/torch-pipeline-parallelism__Rp6XaAj/verifier/ctrf.json",
+          "verifier_evidence_sha256": "8843ed28f9de0139f7ba69d632527c1710e173dc02b3bab784167b17d6a6ee27",
+          "verifier_evidence_type": "ctrf.json"
+        },
+        "upstream_requests": 7,
+        "usage": {
+          "cache_write_tokens": 16005,
+          "cached_input_tokens": 57173,
+          "input_tokens": 73199,
+          "ordinary_input_tokens": 21,
+          "output_tokens": 13074,
+          "reasoning_tokens": 11069
+        },
+        "verifier_outcome_available": true,
+        "verifier_reward": 0.0
+      }
+    },
+    {
+      "pi": {
+        "api_equivalent_cost_usd": "1.12213075",
+        "cell_id": "gpt2-codegolf--pi",
+        "harness": "pi",
+        "latency": {
+          "launcher_wall_seconds": "573.696481",
+          "native_agent_seconds": "481.218739",
+          "upstream_request_seconds": "450.201888",
+          "verifier_seconds": "10.537730"
+        },
+        "locally_denied_attempts": 0,
+        "native_model_attempts": null,
+        "provider_reported_actual_cash_usd": null,
+        "status": "completed",
+        "stratum": "hard",
+        "successful_upstream_requests": 31,
+        "task": "gpt2-codegolf",
+        "tools": 33,
+        "traces": {
+          "gateway_audit": "cells/gpt2-codegolf--pi/gateway-audit.jsonl",
+          "gateway_identity": "cells/gpt2-codegolf--pi/gateway-identity.json",
+          "harbor_result": "cells/gpt2-codegolf--pi/job/gpt2-codegolf__bcc9HQw/result.json",
+          "launch": "cells/gpt2-codegolf--pi/launch.json",
+          "model_request_markers": "cells/gpt2-codegolf--pi/MODEL_REQUEST_STARTED.jsonl",
+          "native_events": "cells/gpt2-codegolf--pi/job/gpt2-codegolf__bcc9HQw/agent/pi-events.jsonl",
+          "native_receipt": "cells/gpt2-codegolf--pi/job/gpt2-codegolf__bcc9HQw/agent/pi-direct-result.json",
+          "native_stderr": "cells/gpt2-codegolf--pi/job/gpt2-codegolf__bcc9HQw/agent/pi-stderr.log",
+          "staging_stderr": "cells/gpt2-codegolf--pi/harbor.stderr.log",
+          "staging_stdout": "cells/gpt2-codegolf--pi/harbor.stdout.log",
+          "verifier_evidence": "cells/gpt2-codegolf--pi/job/gpt2-codegolf__bcc9HQw/verifier/ctrf.json",
+          "verifier_evidence_sha256": "f7a9cacf330ce0d7b48577c5bb4352c791acbc51721132cac17a85a0d2f3c7d7",
+          "verifier_evidence_type": "ctrf.json"
+        },
+        "upstream_requests": 31,
+        "usage": {
+          "cache_write_tokens": 35467,
+          "cached_input_tokens": 557574,
+          "input_tokens": 593134,
+          "ordinary_input_tokens": 93,
+          "output_tokens": 20707,
+          "reasoning_tokens": 13358
+        },
+        "verifier_outcome_available": true,
+        "verifier_reward": 1.0
+      },
+      "pi_minus_thinharness": {
+        "api_equivalent_cost_usd": "0.44729850",
+        "launcher_wall_seconds": "166.135502",
+        "reward": 0.0,
+        "tools": 15,
+        "upstream_requests": 18
+      },
+      "stratum": "hard",
+      "task": "gpt2-codegolf",
+      "thinharness": {
+        "api_equivalent_cost_usd": "0.67483225",
+        "cell_id": "gpt2-codegolf--thinharness",
+        "harness": "thinharness",
+        "latency": {
+          "launcher_wall_seconds": "407.560979",
+          "native_agent_seconds": "310.925974",
+          "upstream_request_seconds": "303.994475",
+          "verifier_seconds": "11.294874"
+        },
+        "locally_denied_attempts": 0,
+        "native_model_attempts": null,
+        "provider_reported_actual_cash_usd": null,
+        "status": "completed",
+        "stratum": "hard",
+        "successful_upstream_requests": 13,
+        "task": "gpt2-codegolf",
+        "tools": 18,
+        "traces": {
+          "gateway_audit": "cells/gpt2-codegolf--thinharness/gateway-audit.jsonl",
+          "gateway_identity": "cells/gpt2-codegolf--thinharness/gateway-identity.json",
+          "harbor_result": "cells/gpt2-codegolf--thinharness/job/gpt2-codegolf__kiBgekZ/result.json",
+          "launch": "cells/gpt2-codegolf--thinharness/launch.json",
+          "model_request_markers": "cells/gpt2-codegolf--thinharness/MODEL_REQUEST_STARTED.jsonl",
+          "native_events": "cells/gpt2-codegolf--thinharness/job/gpt2-codegolf__kiBgekZ/agent/thinharness-events.jsonl",
+          "native_receipt": "cells/gpt2-codegolf--thinharness/job/gpt2-codegolf__kiBgekZ/agent/thinharness-direct-result.json",
+          "native_stderr": "cells/gpt2-codegolf--thinharness/job/gpt2-codegolf__kiBgekZ/agent/thinharness-stderr.log",
+          "staging_stderr": "cells/gpt2-codegolf--thinharness/harbor.stderr.log",
+          "staging_stdout": "cells/gpt2-codegolf--thinharness/harbor.stdout.log",
+          "verifier_evidence": "cells/gpt2-codegolf--thinharness/job/gpt2-codegolf__kiBgekZ/verifier/ctrf.json",
+          "verifier_evidence_sha256": "79f08f31b9d1a431e9ad6b5fd20f39d12025c612296b4c30fd512517d3ff94a7",
+          "verifier_evidence_type": "ctrf.json"
+        },
+        "upstream_requests": 13,
+        "usage": {
+          "cache_write_tokens": 22945,
+          "cached_input_tokens": 150882,
+          "input_tokens": 173866,
+          "ordinary_input_tokens": 39,
+          "output_tokens": 15193,
+          "reasoning_tokens": 11083
+        },
+        "verifier_outcome_available": true,
+        "verifier_reward": 1.0
+      }
+    },
+    {
+      "pi": {
+        "api_equivalent_cost_usd": "0.92638775",
+        "cell_id": "protein-assembly--pi",
+        "harness": "pi",
+        "latency": {
+          "launcher_wall_seconds": "492.864471",
+          "native_agent_seconds": "406.120923",
+          "upstream_request_seconds": "253.524947",
+          "verifier_seconds": "6.728686"
+        },
+        "locally_denied_attempts": 0,
+        "native_model_attempts": null,
+        "provider_reported_actual_cash_usd": null,
+        "status": "completed",
+        "stratum": "hard",
+        "successful_upstream_requests": 19,
+        "task": "protein-assembly",
+        "tools": 25,
+        "traces": {
+          "gateway_audit": "cells/protein-assembly--pi/gateway-audit.jsonl",
+          "gateway_identity": "cells/protein-assembly--pi/gateway-identity.json",
+          "harbor_result": "cells/protein-assembly--pi/job/protein-assembly__9bwkLps/result.json",
+          "launch": "cells/protein-assembly--pi/launch.json",
+          "model_request_markers": "cells/protein-assembly--pi/MODEL_REQUEST_STARTED.jsonl",
+          "native_events": "cells/protein-assembly--pi/job/protein-assembly__9bwkLps/agent/pi-events.jsonl",
+          "native_receipt": "cells/protein-assembly--pi/job/protein-assembly__9bwkLps/agent/pi-direct-result.json",
+          "native_stderr": "cells/protein-assembly--pi/job/protein-assembly__9bwkLps/agent/pi-stderr.log",
+          "staging_stderr": "cells/protein-assembly--pi/harbor.stderr.log",
+          "staging_stdout": "cells/protein-assembly--pi/harbor.stdout.log",
+          "verifier_evidence": "cells/protein-assembly--pi/job/protein-assembly__9bwkLps/verifier/ctrf.json",
+          "verifier_evidence_sha256": "4823ed32db07ffd99cfe67fcd785240b7ffa63b06e3d4e51cc84a2ab4e7fcb8b",
+          "verifier_evidence_type": "ctrf.json"
+        },
+        "upstream_requests": 19,
+        "usage": {
+          "cache_write_tokens": 46797,
+          "cached_input_tokens": 406543,
+          "input_tokens": 453397,
+          "ordinary_input_tokens": 57,
+          "output_tokens": 14345,
+          "reasoning_tokens": 9401
+        },
+        "verifier_outcome_available": true,
+        "verifier_reward": 1.0
+      },
+      "pi_minus_thinharness": {
+        "api_equivalent_cost_usd": "-0.11530050",
+        "launcher_wall_seconds": "-193.686045",
+        "reward": 0.0,
+        "tools": -4,
+        "upstream_requests": -4
+      },
+      "stratum": "hard",
+      "task": "protein-assembly",
+      "thinharness": {
+        "api_equivalent_cost_usd": "1.04168825",
+        "cell_id": "protein-assembly--thinharness",
+        "harness": "thinharness",
+        "latency": {
+          "launcher_wall_seconds": "686.550516",
+          "native_agent_seconds": "596.347517",
+          "upstream_request_seconds": "279.193888",
+          "verifier_seconds": "6.880401"
+        },
+        "locally_denied_attempts": 0,
+        "native_model_attempts": null,
+        "provider_reported_actual_cash_usd": null,
+        "status": "completed",
+        "stratum": "hard",
+        "successful_upstream_requests": 23,
+        "task": "protein-assembly",
+        "tools": 29,
+        "traces": {
+          "gateway_audit": "cells/protein-assembly--thinharness/gateway-audit.jsonl",
+          "gateway_identity": "cells/protein-assembly--thinharness/gateway-identity.json",
+          "harbor_result": "cells/protein-assembly--thinharness/job/protein-assembly__futeRSh/result.json",
+          "launch": "cells/protein-assembly--thinharness/launch.json",
+          "model_request_markers": "cells/protein-assembly--thinharness/MODEL_REQUEST_STARTED.jsonl",
+          "native_events": "cells/protein-assembly--thinharness/job/protein-assembly__futeRSh/agent/thinharness-events.jsonl",
+          "native_receipt": "cells/protein-assembly--thinharness/job/protein-assembly__futeRSh/agent/thinharness-direct-result.json",
+          "native_stderr": "cells/protein-assembly--thinharness/job/protein-assembly__futeRSh/agent/thinharness-stderr.log",
+          "staging_stderr": "cells/protein-assembly--thinharness/harbor.stderr.log",
+          "staging_stdout": "cells/protein-assembly--thinharness/harbor.stdout.log",
+          "verifier_evidence": "cells/protein-assembly--thinharness/job/protein-assembly__futeRSh/verifier/ctrf.json",
+          "verifier_evidence_sha256": "cdf1a805fd8ad190cd91522133c78d2ef02cbbed247cb03f10381bd003537141",
+          "verifier_evidence_type": "ctrf.json"
+        },
+        "upstream_requests": 23,
+        "usage": {
+          "cache_write_tokens": 48479,
+          "cached_input_tokens": 459699,
+          "input_tokens": 508247,
+          "ordinary_input_tokens": 69,
+          "output_tokens": 16950,
+          "reasoning_tokens": 8289
+        },
+        "verifier_outcome_available": true,
+        "verifier_reward": 1.0
+      }
+    }
+  ],
+  "planned_cells": 20,
+  "policy_refusals": 1,
+  "receipts": {
+    "cap_stop": {
+      "path": "artifacts/direct-openai-additional-10-pairwise/CAP_STOP.json",
+      "sha256": "9a98e7153c4142227f902ddea50532afbcbaba5d0fa0bed56768b8e9b1c2f432"
+    },
+    "recovery": {
+      "path": "artifacts/direct-openai-additional-10-pairwise/RECOVERY.json",
+      "sha256": "be273518f329dc9dade2c212761e4e31a8fb982208e765863847908c0ef9426d"
+    },
+    "recovery_validation_note": "The recovery receipt's cell and preflight hashes remain exact. Its progress.jsonl, SUMMARY.json, and SHA256SUMS.json hashes are historical because the receipt explicitly authorized later cells; the cap-stop receipt hashes all resulting paid evidence."
+  },
+  "reproduce": "uv run python -m tbench.direct_additional_finalize check",
+  "schema_version": 2,
+  "scope_limit": "Descriptive results for this frozen bounded campaign only. The cap stopped the campaign before the final cell, so the result is not a complete ten-task matched sample and is not a population ranking.",
+  "score": {
+    "reward_sum": "15",
+    "verifier_outcomes": 18
+  },
+  "spend": {
+    "actual_cash_availability": "unavailable; no successful OpenAI response reported actual cash",
+    "basis": "API-equivalent frozen token schedule",
+    "currency": "USD",
+    "price_usd_per_million_tokens": {
+      "cache_write": 6.25,
+      "cached_input": 0.5,
+      "ordinary_input": 5.0,
+      "output": 30.0
+    },
+    "provider_reported_actual_cash_observations": 0,
+    "provider_reported_actual_cash_total_usd": null,
+    "total_api_equivalent_usd": "16.89269325"
+  },
+  "status": "fail_closed",
+  "unrun_cells": 1
+}

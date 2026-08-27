@@ -1,0 +1,134 @@
+{
+    "id": "c4dc6202-fc1c-495f-87b2-507123819652",
+    "task_name": "terminal-bench/feal-differential-cryptanalysis",
+    "trial_name": "feal-differential-cryptanalysis__qek7KGN",
+    "trial_uri": "file:///Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/direct-openai-additional-10-pairwise/direct-openai-additional-10-pairwise-real-feal-differential-cryptanalysis--thinharness-20260826-231102-6c1f3f05/feal-differential-cryptanalysis__qek7KGN",
+    "task_id": {
+        "org": "terminal-bench",
+        "name": "feal-differential-cryptanalysis",
+        "ref": "sha256:8ea56995fcc43fb94f0e4e15adb12dd28836bf3e9c766b2cc7ae78a7ce90341f"
+    },
+    "source": "terminal-bench/terminal-bench-2-1",
+    "task_checksum": "edacb57935c0b4181a115ac309d3b0e7c26c7cf49ccadf69762822068445df78",
+    "config": {
+        "task": {
+            "path": null,
+            "git_url": null,
+            "git_commit_id": null,
+            "name": "terminal-bench/feal-differential-cryptanalysis",
+            "ref": "sha256:8ea56995fcc43fb94f0e4e15adb12dd28836bf3e9c766b2cc7ae78a7ce90341f",
+            "overwrite": false,
+            "download_dir": null,
+            "source": "terminal-bench/terminal-bench-2-1"
+        },
+        "trial_name": "feal-differential-cryptanalysis__qek7KGN",
+        "trials_dir": "/Users/ryanbrown/.bb/worktrees/env_yvc7c9ytrp/thin-harness-terminal-bench/jobs/direct-openai-additional-10-pairwise/direct-openai-additional-10-pairwise-real-feal-differential-cryptanalysis--thinharness-20260826-231102-6c1f3f05",
+        "install_only": false,
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": 3.0,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "tbench.direct_agent:DirectOpenAIAgent",
+            "import_path": null,
+            "model_name": "openai/gpt-5.6-sol",
+            "n_concurrent": 1,
+            "concurrency_group": null,
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "resume_trajectory": false,
+            "load_trajectory": null,
+            "extra_allowed_hosts": [],
+            "include_logs": [
+                "*"
+            ],
+            "kwargs": {
+                "harness": "thinharness",
+                "cell_id": "feal-differential-cryptanalysis--thinharness",
+                "mode": "real"
+            },
+            "mcp_servers": []
+        },
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [],
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "extra_instruction_paths": [],
+        "job_id": "4dac0b40-010d-4009-989e-0bfd315d4e07",
+        "source_trial": null
+    },
+    "agent_info": {
+        "name": "direct-openai-pairwise",
+        "version": "1.0+84105f07",
+        "model_info": {
+            "name": "gpt-5.6-sol",
+            "provider": "openai"
+        }
+    },
+    "agent_result": {
+        "n_input_tokens": 26577,
+        "n_cache_tokens": 19621,
+        "n_output_tokens": 3514,
+        "cost_usd": null,
+        "rollout_details": null,
+        "metadata": {
+            "cell_id": "feal-differential-cryptanalysis--thinharness",
+            "harness": "thinharness",
+            "backend": "direct-openai",
+            "model_requests": 6,
+            "tool_calls": 7,
+            "response_models": [
+                "gpt-5.6-sol"
+            ],
+            "verifier_handoff": true
+        }
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 1.0
+        }
+    },
+    "verifier_environment_mode": "shared",
+    "exception_info": null,
+    "started_at": "2026-08-26T23:11:03.433764Z",
+    "finished_at": "2026-08-26T23:14:12.668637Z",
+    "environment_setup": {
+        "started_at": "2026-08-26T23:11:03.520197Z",
+        "finished_at": "2026-08-26T23:11:04.535203Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-08-26T23:11:04.535283Z",
+        "finished_at": "2026-08-26T23:12:06.337362Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-08-26T23:12:06.337560Z",
+        "finished_at": "2026-08-26T23:13:38.100556Z"
+    },
+    "verifier": {
+        "started_at": "2026-08-26T23:13:38.504025Z",
+        "finished_at": "2026-08-26T23:14:01.726914Z"
+    },
+    "step_results": null
+}

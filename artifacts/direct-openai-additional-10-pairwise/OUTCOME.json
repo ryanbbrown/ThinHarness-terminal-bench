@@ -1,0 +1,14 @@
+{
+  "benchmark_id": "direct-openai-additional-10-pairwise",
+  "checkpointed_cells": 19,
+  "mode": "real",
+  "planned_cells": 20,
+  "schema_version": 1,
+  "status": "fail_closed",
+  "stop": {
+    "cell_id": "make-doom-for-mips--pi",
+    "reason": "per-cell USD 3.00 cap reached or crossed",
+    "status": "cap_exceeded",
+    "unrun_cell": "make-doom-for-mips--thinharness"
+  }
+}
